@@ -36,7 +36,7 @@ window.onload = function(){
             document.getElementById("vid").srcObject = stream
             console.log("got stream", stream)
            pb.init(stream,{
-             server: "https://192.168.0.164:8000",
+             server: window.location.origin,
              room: "iclc"
            })
             var name = document.getElementById("sourceName").value

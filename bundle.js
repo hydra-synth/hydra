@@ -17,8 +17,9 @@ function init() {
 //  const canvasStream = vs.o[0].captureStream()
   var localStream = vs.canvas.captureStream()
 //  setTimeout(function(){
+  console.log("LOCATION: ", window.location)
   pb.init(localStream, {
-    server: "https://192.168.0.164:8000",
+    server: window.location.origin,
     room: "iclc"
   }
   )
