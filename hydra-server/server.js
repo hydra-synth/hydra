@@ -22,7 +22,9 @@ app.get('/camera-bundle.js', browserify(__dirname + '/app/camera.js'));
 //crear un servidor en puerto 8000
 httpsServer.listen(8000, function(){
   //imprimir la direccion ip en la consola
-  console.log("servidor disponible en https://"+myip.getLocalIP4()+":8000")
+  //console.log("servidor disponible en https://"+myip.getLocalIP4()+":8000")
+  console.log("servidor available at https://localhost:8000")
+
 });
 
 //look up uuid by entiring socket id

@@ -8,7 +8,7 @@ Note: experimental/in development. Right now only works on Chrome or Chromium, o
 ### Getting started
 
 * CTRL-Enter: run a line of code
-* CTRL-Shift-Enter: run all code on screen (note: sometimes causes bug in stream input)
+* CTRL-Shift-Enter: run all code on screen 
 * CTRL-Shift-H: hide or show code
 
 All code can be run either from the in-browser IDE or from the browser console.
