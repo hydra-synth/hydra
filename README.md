@@ -1,6 +1,9 @@
 ## Hydra
+![hydra](https://github.com/ojack/hydra/blob/master/hydra.jpg?raw=true)
 
-Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing networked sources and outputs in realtime. Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
+Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing networked sources and outputs in realtime. Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams.
+
+Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 
 ### Getting started
 Go to: http://ojack.github.io/hydra
