@@ -1,0 +1,32 @@
+/*.styled-background {
+  background-color: #f00;
+}*/
+
+html, body {
+  background: #000;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.camera-inputs{
+  color: black;
+  background: white;
+}
+#code-holder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+textarea {
+    background: #000;
+}
+
+canvas {
+  background-color: #000;
+}
