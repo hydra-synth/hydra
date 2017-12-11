@@ -6,16 +6,15 @@ Set of tools for livecoding networked visuals. Inspired by analog modular synthe
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 
 ### Getting started
-Go to: http://ojack.github.io/hydra
 
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen (note: sometimes causes bug in stream input)
 * CTRL-Shift-H: hide or show code
 
-
 All code can be run either from the in-browser IDE or from the browser console.
 
-render a simple oscillator:
+#### Basic functions
+render a simple oscillator. For more information about oscillators, see the lumen guide. [oscillator](https://lumen-app.com/guide/oscillators/):
 ```
 o0.osc()
 ```
@@ -45,6 +44,11 @@ o1.gradient()
 render(o1) //render the contents of o1
 ```
 
+to show all render buffers at once:
+```
+render()
+```
+
 The output buffers can then be mixed and composited to produce what is shown on the screen.
 ```
 s0.initCam() //initialize a webcam in source buffer s0
@@ -53,33 +57,88 @@ o1.gradient().diff(o0) //initialize a gradient in source buffer o1, composite wi
 render(o1) // render o1 to the screen
 ```
 
-Desktop capture:
-Through realtime streaming, it is possible to comp
+The composite functions blend(), diff(), mult(), and add() perform arithmetic operations to combine the input texture with the base texture, similar to photoshop blend modes.
 
+modulate(texture, amount) uses the red and green channels of the input texture to modify the x and y coordinates of the base texture. More about modulation at: https://lumen-app.com/guide/modulation/
+```
+o0.osc(21, 0).modulate(o1)
+o1.osc(40).rotate(1.57)
+```
+#### Passing functions as variables (work in progress)
+Each parameter can be defined as a function rather than a static variable. For example,
+```
+o0.osc(function(t){return 100*Math.sin(t*0.1)})
+```
+modifies the oscillator frequency as a function of time. This can be written more concisely using es6 syntax as:
+```
+o0.osc((t)=>(100*Math.sin(t*0.1)))
+```
+## Desktop capture
+To use screen capture or a browser tab as an input texture, you must first install the chrome extension for screensharing, and restart chrome.
+To install, go to http://chrome://extensions/
+Click "Load unpacked extension", and select the "extensions" folder in "screen-capture-extension" in this repo.
+
+select a screen tab to use as input texture:
+```
+s0.initScreen()
+```
+
+render screen tab:
+```
+s0.initScreen()
+o0.src(s0)
+```
 
 ## Connecting to remote streams
+Any hydra instance can use other instances/windows as input sources, as long as they are connected to the internet. Hydra uses webrtc (real time webstreaming) under the hood to share graphics between instances. The included module rtc-patch-bay manages connections between connected windows, and can also be used as a standalone module to convert any website into a source within hydra. (See standalone source below for example.)
+
+To begin, open hydra simultaneously in two separate windows.
+In one of the windows, set a name for the given patch-bay source:
+```
+pb.setName("myGraphics")
+```
+The title of the window should change to the name entered in setName().
+
+From the other window, initiate "myGraphics" as a source stream.
+```
+s0.initStream("myGraphics")
+```
+render to screen:
+```
+s0.initStream("myGraphics")
+o0.src(s0)
+```
+The connections sometimes take a few seconds to be established; open the browser console to see progress.
+To list connected sources:
+```
+pb.list()
+```
+
+#### Standalone camera source
 
 
-## Modules contained in this repo (eventually will be separated into standalone modules):
+## Running locally
+To run locally, you must have nodejs and npm installed. Install from: https://nodejs.org/en/
 
-- jelly-editor: lightweight online editor
-    - jelly-synth: module for compositing and transforming signals/streams
-    - rtc-patch-bay: module for managing connections between connected peers
-    - examples
-- screenmedia-extension: browser extension for allowing access to desktop capture
-- jelly-camera: standalone app for broadcasting a webcam or desktop tab as a source for a a hydra room. open in any desktop or android browser
+open terminal and enter directory
+```
+cd hydra
+```
+install dependencies:
+```
+npm install -d
+```
+run server
+```
+npm run start
+```
 
-# EDITOR
+go to https://localhost:8000 in the browser
 
-## General Usage
-* CTRL-Enter: run a line of code
+### Adding/editing transformation functions
 
-* CTRL-Shift-Enter: run all code on page
+All of the available functions for transforming coordinates and color correspond directly to a snippet of fragment shader code, defined in the file hydra/hydra-server/app/src/glslTransforms.json. When running locally, you can edit this file to change the available functions, and refresh the page to see changes.
 
-(to implement: toggle source list, toggle showing code)
-
-### Tab and desktop capture
-(Install extension to chrome or firefox from )
 
 ## API
 
@@ -109,15 +168,16 @@ Through realtime streaming, it is possible to comp
 
 #### Composite operations
 
-* mult (source)
+* mult (source, amount)
 
 * diff (source)
 
-* add (source)
+* add (source, amount)
+
+* blend (source, amount)
 
 * modulate (source, amount)
 
-(shader passes)
 
 ## Configure Sources
 
@@ -125,39 +185,24 @@ Through realtime streaming, it is possible to comp
 
 * s0.initScreen()
 
-* s0.initRemote("name of remote")
+* s0.initStream("name of remote")
 
-(s0.stop())
-(s0.iniVid())
-
-(Dynamically create a shader pass or transformation)
-(Passing functions as parameters)
-
-## Connect to remote video streams (via rtc patch bay)
-
-* pb.init()
-
-* pb.setName("")
-
-(pb.setServer("server location"))
-(pb.setRoom("room name"))
- * pb.list()
 
  ### Libraries and tools used:
- Regl: functional webgl
- glitch.io: hosting for sandbox signalling server
- codemirror
- simple-peer
+ * Regl: functional webgl
+ * glitch.io: hosting for sandbox signalling server
+ * codemirror
+ * simple-peer
 
  ### Similar projects:
- atom-veda:
- the force
+ * atom-veda:
+ * the force
 
  ### Inspiration:
- Space-time dynamics in video feedback
- Satellite arts project
- Eduardo kac
- Sandin Image Processor
- Lumen app
- kynd.info reactive buffers experiment
- GEM/vsynth
+ * Space-time dynamics in video feedback
+ * Satellite arts project
+ * Eduardo kac
+ * Sandin Image Processor
+ * Lumen app
+ * kynd.info reactive buffers experiment
+ * GEM/vsynth

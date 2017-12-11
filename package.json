@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "watch": "watchify app/index.js -o public/lib/pixel-parche.js -v",
     "start": "node ./hydra-server/server.js",
     "build-main": "browserify ./hydra-server/app/index.js -o ./bundle.js",
     "build-camera": "browserify ./hydra-server/app/camera.js -o ./camera-bundle.js",
