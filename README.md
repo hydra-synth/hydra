@@ -3,9 +3,9 @@
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
 
-Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams.
+Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordonate and color transforms can be applied to each output via chained functions (see "editing transformation functions" below)
 
-Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL. 
+Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
 #### Getting started
@@ -19,16 +19,24 @@ Go to https://hydra-editor.glitch.me
 All code can be run either from the in-browser text editor or from the browser console.
 
 #### Basic functions
-render a simple oscillator. For more information about oscillators, see [the lumen guide to oscillators](https://lumen-app.com/guide/oscillators/):
+render a simple oscillator. For more information about oscillators, see [the lumen guide to oscillators](https://lumen-app.com/guide/oscillators/). Use Ctrl+Enter to run the code:
 ```
 o0.osc()
 ```
 
 render an oscillator with parameters frequency, sync, and rgb offset:
 ```
-o0.osc(200, 0.1, 0.8)
+o0.osc(20, 0.1, 0.8)
 ```
 
+rotate the oscillator 1.5 radians:
+```
+o0.osc(20, 0.1, 0.8).rotate(0.8)
+```
+pixelate the output of the above function:
+```
+o0.osc(20, 0.1, 0.8).rotate(0.8).pixelate(20, 30)
+```
 show webcam output:
 ```
 s0.initCam() //initialize a webcam in source buffer s0
