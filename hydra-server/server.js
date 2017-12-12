@@ -23,7 +23,7 @@ app.get('/camera-bundle.js', browserify(__dirname + '/app/camera.js'));
 httpsServer.listen(8000, function(){
   //imprimir la direccion ip en la consola
   //console.log("servidor disponible en https://"+myip.getLocalIP4()+":8000")
-  console.log("servidor available at https://localhost:8000")
+  console.log("server available at https://localhost:8000")
 
 });
 

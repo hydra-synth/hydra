@@ -1,20 +1,25 @@
-## Hydra
-![hydra](https://github.com/ojack/hydra/blob/master/hydra.jpg?raw=true)
+### Hydra
+![hydra](https://github.com/ojack/hydra/blob/master/hydra-3-01.png?raw=true)
 
-Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing networked sources and outputs in realtime. Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams.
+Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
 
-Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
+Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams.
 
-### Getting started
+Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL. 
+I welcome pull requests as well as comments/ideas/bugs in the issues section =]
+
+#### Getting started
+
+Go to https://hydra-editor.glitch.me
 
 * CTRL-Enter: run a line of code
-* CTRL-Shift-Enter: run all code on screen 
+* CTRL-Shift-Enter: run all code on screen
 * CTRL-Shift-H: hide or show code
 
-All code can be run either from the in-browser IDE or from the browser console.
+All code can be run either from the in-browser text editor or from the browser console.
 
 #### Basic functions
-render a simple oscillator. For more information about oscillators, see the lumen guide. [oscillator](https://lumen-app.com/guide/oscillators/):
+render a simple oscillator. For more information about oscillators, see [the lumen guide to oscillators](https://lumen-app.com/guide/oscillators/):
 ```
 o0.osc()
 ```
@@ -53,11 +58,11 @@ The output buffers can then be mixed and composited to produce what is shown on 
 ```
 s0.initCam() //initialize a webcam in source buffer s0
 o0.src(s0) //set the source of o0 to render the buffer containing the webcam
-o1.gradient().diff(o0) //initialize a gradient in source buffer o1, composite with the contents of o0
+o1.gradient().diff(o0) //initialize a gradient in output buffer o1, composite with the contents of o0
 render(o1) // render o1 to the screen
 ```
 
-The composite functions blend(), diff(), mult(), and add() perform arithmetic operations to combine the input texture with the base texture, similar to photoshop blend modes.
+The composite functions blend(), diff(), mult(), and add() perform arithmetic operations to combine the input texture color with the base texture color, similar to photoshop blend modes.
 
 modulate(texture, amount) uses the red and green channels of the input texture to modify the x and y coordinates of the base texture. More about modulation at: https://lumen-app.com/guide/modulation/
 ```
@@ -69,14 +74,15 @@ Each parameter can be defined as a function rather than a static variable. For e
 ```
 o0.osc(function(t){return 100*Math.sin(t*0.1)})
 ```
-modifies the oscillator frequency as a function of time. This can be written more concisely using es6 syntax as:
+modifies the oscillator frequency as a function of time. This can be written more concisely using es6 syntax:
 ```
 o0.osc((t)=>(100*Math.sin(t*0.1)))
 ```
-## Desktop capture
-To use screen capture or a browser tab as an input texture, you must first install the chrome extension for screensharing, and restart chrome.
+#### Desktop capture
+To use screen capture or a browser tab as an input texture, you must first install the chrome extension for screensharing, and restart chrome. Desktop capture can be useful for inputing graphics from another application, or a video or website in another browser tab. It can also be used to create interesting feedback effects.
+
 To install, go to http://chrome://extensions/
-Click "Load unpacked extension", and select the "extensions" folder in "screen-capture-extension" in this repo.
+Click "Load unpacked extension", and select the "extensions" folder in "screen-capture-extension" in this repo. Restart chrome. The extension should work from now on without needing to reinstall.
 
 select a screen tab to use as input texture:
 ```
@@ -89,8 +95,8 @@ s0.initScreen()
 o0.src(s0)
 ```
 
-## Connecting to remote streams
-Any hydra instance can use other instances/windows as input sources, as long as they are connected to the internet. Hydra uses webrtc (real time webstreaming) under the hood to share graphics between instances. The included module rtc-patch-bay manages connections between connected windows, and can also be used as a standalone module to convert any website into a source within hydra. (See standalone source below for example.)
+#### Connecting to remote streams
+Any hydra instance can use other instances/windows containing hydra as input sources, as long as they are connected to the internet and not blocked by a firewall. Hydra uses webrtc (real time webstreaming) under the hood to share video streams between open windows. The included module rtc-patch-bay manages connections between connected windows, and can also be used as a standalone module to convert any website into a source within hydra. (See standalone camera source below for example.)
 
 To begin, open hydra simultaneously in two separate windows.
 In one of the windows, set a name for the given patch-bay source:
@@ -109,15 +115,17 @@ s0.initStream("myGraphics")
 o0.src(s0)
 ```
 The connections sometimes take a few seconds to be established; open the browser console to see progress.
-To list connected sources:
+To list available sources, type the following in the console:
 ```
 pb.list()
 ```
 
 #### Standalone camera source
+Example of using patch-bay without hydra, that lets you use the camera of a phone or a computer as a source in the network, without needing to open the hydra editor. (Most likely only works with android phones until apple fully supports WebRTC/)
+live at: https://hydra-editor.glitch.me/camera.html
+source at: app/src/camera.js & camera.html
 
-
-## Running locally
+#### Running locally
 To run locally, you must have nodejs and npm installed. Install from: https://nodejs.org/en/
 
 open terminal and enter directory
@@ -132,77 +140,32 @@ run server
 ```
 npm run start
 ```
-
 go to https://localhost:8000 in the browser
 
-### Adding/editing transformation functions
+#### Adding/editing transformation functions
 
-All of the available functions for transforming coordinates and color correspond directly to a snippet of fragment shader code, defined in the file hydra/hydra-server/app/src/glslTransforms.json. When running locally, you can edit this file to change the available functions, and refresh the page to see changes.
-
-
-## API
-
-### Output signal transformations
-
-#### Define source
-* src(source)
-
-* gradient()
-
-#### Coordinate transformations
-
-* repeat(repeatX, repeatY, offsetX, offsetY)
-
-* rotate(rotateAmount)
-
-* kaleid (numSides)
+All of the available functions for transforming coordinates and color, as well as compositing textures, correspond directly to a snippet of fragment shader code. These transformations are defined in the file hydra/hydra-server/app/src/glslTransforms.js. When running locally, you can edit this file to change the available functions, and refresh the page to see changes.
 
 
-##### Color transformations
+#### API
 
-* contrast (contrastAmount)
+For updated list of functions, see glslTransforms.js file in hydra/hydra-server/app/src/
 
-* brightness (brightnessAmount)
-
-* posterize (numBins)
-
-#### Composite operations
-
-* mult (source, amount)
-
-* diff (source)
-
-* add (source, amount)
-
-* blend (source, amount)
-
-* modulate (source, amount)
-
-
-## Configure Sources
-
-* s0.initCam()
-
-* s0.initScreen()
-
-* s0.initStream("name of remote")
-
-
- ### Libraries and tools used:
+ #### Libraries and tools used:
  * Regl: functional webgl
  * glitch.io: hosting for sandbox signalling server
- * codemirror
+ * codemirror: browser-based text editor
  * simple-peer
 
- ### Similar projects:
- * atom-veda:
+ #### Related projects:
+ * atom-veda
  * the force
 
- ### Inspiration:
+ #### Inspiration:
  * Space-time dynamics in video feedback
  * Satellite arts project
  * Eduardo kac
  * Sandin Image Processor
- * Lumen app
  * kynd.info reactive buffers experiment
+ * Lumen app
  * GEM/vsynth
