@@ -6,7 +6,7 @@ Set of tools for livecoding networked visuals. Inspired by analog modular synthe
 Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams.
 
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL. 
-I welcome pull requests as well as comments/ideas/bugs in the issues section =]
+I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
 #### Getting started
 
