@@ -3,7 +3,7 @@
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
 
-Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordonate and color transforms can be applied to each output via chained functions (see "editing transformation functions" below)
+Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordinate and color transforms can be applied to each output via chained functions (see "basic functions" and "editing transformation functions" below.)
 
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
@@ -160,20 +160,19 @@ All of the available functions for transforming coordinates and color, as well a
 For updated list of functions, see glslTransforms.js file in hydra/hydra-server/app/src/
 
  #### Libraries and tools used:
- * Regl: functional webgl
+ * [Regl: functional webgl](http://regl.party/)
  * glitch.io: hosting for sandbox signalling server
  * codemirror: browser-based text editor
  * simple-peer
 
- #### Related projects:
- * atom-veda
- * the force
-
  #### Inspiration:
- * Space-time dynamics in video feedback
- * Satellite arts project
- * Eduardo kac
- * Sandin Image Processor
- * kynd.info reactive buffers experiment
- * Lumen app
- * GEM/vsynth
+ * Space-Time Dynamics in Video Feedback (1984). [video](https://www.youtube.com/watch?v=B4Kn3djJMCE) and [paper](http://csc.ucdavis.edu/~cmg/papers/Crutchfield.PhysicaD1984.pdf) by Jim Crutchfield about using analog video feedback to model complex systems.
+ * [Satellite Arts Project (1977) - Kit Galloway and Sherrie Rabinowitz](http://www.ecafe.com/getty/SA/)
+ * [Sandin Image Processor](http://www.audiovisualizers.com/toolshak/vidsynth/sandin/sandin.htm)
+ * [kynd - reactive buffers experiment](https://kynd.github.io/reactive_buffers_experiment/)
+
+ #### Related projects:
+ * [Lumen app (osx application)](https://lumen-app.com/)
+ * [Vsynth (package for MaxMSP)] (https://cycling74.com/forums/vsynth-package)
+ * [VEDA (VJ system within atom)](https://veda.gl/)
+ * [The Force](https://videodromm.com/The_Force/)
