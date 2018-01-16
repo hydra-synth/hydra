@@ -39,15 +39,6 @@ const compositionFunctions = {
   coord: existingF => newF => x => existingF(newF(x)), // coord transforms added onto beginning
   color: existingF => newF => x => newF(existingF(x)), // color transforms added onto end
   combine: existingF1 => existingF2 => newF => x => newF(existingF1(x))(existingF2(x)) //
-  // combine: function(f){
-  //   return function(g){
-  //     return function(h){
-  //       return function(x){
-  //         return h(f(x))(g(x))
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 // combine f => g => h => x => h(f(x))(g(x))
@@ -60,7 +51,7 @@ var transformFunctions = {
     type: "src",
     glsl: `vec4 osc(vec2 xy, float frequency){
       return vec4(1.0, 0.0, 0.0)
-    }`
+    }`,
     f: (xy)=>(`osc(${coords})`)
   },
   rotate: {
@@ -83,9 +74,10 @@ var transformFunctions = {
 
 
 
-var Src = function(opts) {
-  var obj = Object.create(Src.prototype);
-  obj.baseFunction = (coords)=>(`osc(${coords})`)
+var Generator = function(param) {
+  var obj = Object.create(Generator.prototype);
+
+  obj.baseFunction = (coords)=>(`osc(${coords}, ${param}.)`)
   return obj
 //  (coords)=>(`osc(${coords})`)
 }
@@ -94,7 +86,7 @@ var Src = function(opts) {
 //   return srcFunction
 // }
 Object.keys(transformFunctions).forEach((method) => {
-  Src.prototype[method] = function (...args) {
+  Generator.prototype[method] = function (...args) {
   //  console.log("applying", method, transforms[method])
     if(transformFunctions[method].type=="src"){
       this.baseFunction = (coords)=>(`osc(${coords})`)
@@ -112,9 +104,46 @@ Object.keys(transformFunctions).forEach((method) => {
   }
 })
 
-Src.prototype.out = function(){
-  console.log(this.baseFunction("xy"))
-  return this.baseFunction
+Generator.prototype.out = function(output){
+  console.log(this.baseFunction("st"))
+  var frag = `
+  precision mediump float;
+
+  uniform float time;
+  varying vec2 uv;
+
+  vec4 osc(vec2 st, float freq){
+    float r = sin((st.x+time*0.1)*freq)*0.5 + 0.5;
+    float g = sin((st.x+time*0.1)*freq)*0.5 + 0.5;
+    float b = sin((st.x+time*0.1)*freq)*0.5 + 0.5;
+    return vec4(r, g, b, 1.0);
+  }
+
+  vec2 rotate(vec2 st, float angle){
+    vec2 xy = st - vec2(0.5);
+    xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
+    xy += 0.5;
+    return xy;
+  }
+
+  vec4 add(vec4 c0, vec4 c1, float amount){
+    return amount*c0 + (1.0-amount)*c1;
+  }
+
+  void main () {
+    vec4 c = vec4(1, 0, 0, 1);
+    vec2 st = uv;
+
+
+    //gl_FragColor = osc(rotate(st, 3.0), 60.0);
+    gl_FragColor = ${this.baseFunction("st")};
+    //gl_FragColor = osc(st, 43);
+  }
+  `
+  //console.log(output)
+  output.frag = frag
+  output.render()
+  //return this.baseFunction
 }
 
 //var test = src()
@@ -122,7 +151,7 @@ Src.prototype.out = function(){
 //test().rotate()
 
 
-module.exports = Src
+module.exports = Generator
 //
 //
 //

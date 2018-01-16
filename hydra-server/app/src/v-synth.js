@@ -18,12 +18,14 @@
 const Output = require('./output.js')
 const loop = require('raf-loop')
 const Source = require('./source.js')
-
+const Generator = require('./composable-glsl-transforms.js')
 
 var NUM_OUTPUTS = 4
 var NUM_SOURCES = 4
 
 var vSynth = function (opts) {
+  window.src = Generator
+  
   this.pb = opts.pb ? opts.pb : null
   var canvas = document.createElement('canvas')
   // var ctx = this.o[0].getContext('2d')
