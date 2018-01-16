@@ -46,7 +46,7 @@ const compositionFunctions = {
 // test.add(osc)
 
 
-var transformFunctions = {
+var glslTransforms = {
   osc: {
     type: "src",
     glsl: `vec4 osc(vec2 xy, float frequency){
@@ -72,12 +72,14 @@ var transformFunctions = {
   }
 }
 
-
+// function(paramArray){
+//
+// }
 
 var Generator = function(param) {
   var obj = Object.create(Generator.prototype);
 
-  obj.baseFunction = (coords)=>(`osc(${coords}, ${param}.)`)
+  obj.transform = (coords)=>(`osc(${coords}, ${param}.)`)
   return obj
 //  (coords)=>(`osc(${coords})`)
 }
@@ -85,27 +87,26 @@ var Generator = function(param) {
 // function src(emptyString, srcFunction){
 //   return srcFunction
 // }
-Object.keys(transformFunctions).forEach((method) => {
+Object.keys(glslTransforms).forEach((method) => {
   Generator.prototype[method] = function (...args) {
   //  console.log("applying", method, transforms[method])
-    if(transformFunctions[method].type=="src"){
-      this.baseFunction = (coords)=>(`osc(${coords})`)
-    } else if (transformFunctions[method].type=="combine"){
+   if (glslTransforms[method].type=="combine"){
       console.log("args[0] is ", args)
 
-      this.baseFunction = compositionFunctions[transformFunctions[method].type](this.baseFunction)(args[0].baseFunction)(transformFunctions[method].f(args[1]))
+      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(args[0].transform)(glslTransforms[method].f(args[1]))
 
     } else {
-      this.baseFunction = compositionFunctions[transformFunctions[method].type](this.baseFunction)(transformFunctions[method].f(args[0]))
+    //  this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(glslTransforms[method].f(args[0]))
+      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)((x)=>(`${method}(${x}, ${args[0]})`))
     }
 
-    console.log(this.baseFunction)
+    console.log(this.transform)
     return this
   }
 })
 
 Generator.prototype.out = function(output){
-  console.log(this.baseFunction("st"))
+  console.log(this.transform("st"))
   var frag = `
   precision mediump float;
 
@@ -136,14 +137,14 @@ Generator.prototype.out = function(output){
 
 
     //gl_FragColor = osc(rotate(st, 3.0), 60.0);
-    gl_FragColor = ${this.baseFunction("st")};
+    gl_FragColor = ${this.transform("st")};
     //gl_FragColor = osc(st, 43);
   }
   `
   //console.log(output)
   output.frag = frag
   output.render()
-  //return this.baseFunction
+  //return this.transform
 }
 
 //var test = src()
