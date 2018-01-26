@@ -49,37 +49,99 @@ const compositionFunctions = {
 var glslTransforms = {
   osc: {
     type: "src",
-    glsl: `vec4 osc(vec2 xy, float frequency){
-      return vec4(1.0, 0.0, 0.0)
-    }`,
-    f: (xy)=>(`osc(${coords})`)
+    inputs: [
+      {
+        name: 'frequency',
+        type: 'float',
+        default: 60
+      },
+      {
+        name: 'sync',
+        type: 'float',
+        default: 0.1
+      },
+      {
+        name: 'offset',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    glsl: `vec4 osc(vec2 st, float freq, float sync, float offset){
+            float r = sin((st.x-offset/100.+time*sync)*freq)*0.5 + 0.5;
+            float g = sin((st.x+time*sync)*freq)*0.5 + 0.5;
+            float b = sin((st.x+offset/100.+time*sync)*freq)*0.5 + 0.5;
+            return vec4(r, g, b, 1.0);
+          }`
+  },
+  src: {
+    type: "src",
+    inputs:[
+      {
+        name: 'tex',
+        type: 'texture'
+      }
+    ],
+    glsl: `vec4 src(vec2 _st, sampler2D _tex){
+      return texture2D(_tex, _st);
+    }`
   },
   rotate: {
     type: "coord",
-    f:  (amount)=>(coords)=>(`rotate(${coords},${amount})`)
+    inputs: [
+      {
+        name: 'angle',
+        type: 'float',
+        default: 10.0
+      }, {
+        name: 'speed',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    glsl: `vec2 rotate(vec2 st, float _angle, float speed){
+              vec2 xy = st - vec2(0.5);
+              float angle = _angle + speed *time;
+              xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
+              xy += 0.5;
+              return xy;
+          }`
   },
-  repeat: {
-    type: "coord",
-    f:  (amount)=>(coords)=>(`repeat(${coords},${amount})`)
-  },
-  saturate: {
-    type: "color",
-    f: (amount)=>(c0)=>(`saturate(${c0},${amount})`)
-  },
+
   add: {
     type: "combine",
-    f: (amount)=>(c1)=>(c0)=>(`add(${c1}, ${c0}, ${amount})`)
+    inputs: [
+      {
+        name: 'color',
+        type: 'vec4'
+      },
+      {
+        name: 'amount',
+        type: 'float',
+        default: 0.5
+      }
+    ],
+    glsl: `vec4 add(vec4 c0, vec4 c1, float amount){
+            return amount*c0 + (1.0-amount)*c1;
+          }`
   }
 }
 
 // function(paramArray){
 //
 // }
+// repeat: {
+//   type: "coord",
+//   f:  (amount)=>(coords)=>(`repeat(${coords},${amount})`)
+// },
+// saturate: {
+//   type: "color",
+//   f: (amount)=>(c0)=>(`saturate(${c0},${amount})`)
+// },
 
 var Generator = function(param) {
   var obj = Object.create(Generator.prototype);
 
-  obj.transform = (coords)=>(`osc(${coords}, ${param}.)`)
+  //obj.transform = (coords)=>(`osc(${coords}, ${param}.)`)
   return obj
 //  (coords)=>(`osc(${coords})`)
 }
@@ -88,21 +150,64 @@ var Generator = function(param) {
 //   return srcFunction
 // }
 Object.keys(glslTransforms).forEach((method) => {
+  const transform = glslTransforms[method]
+  if(transform.type == "src"){
+    window[method] = (...args)=>{
+      var obj = Object.create(Generator.prototype)
+      obj.transform = (x)=>{
+        var glslString = `${method}(${x}`
+        transform.inputs.forEach((input, index)=>{
+          var input = args.length > index? args[index] : input.default
+          if(!String(input).includes(".")) input += "."
+          glslString+=", " + input
+        })
+        glslString += ")"
+        return glslString
+      }
+      return obj
+    }
+  } else {
   Generator.prototype[method] = function (...args) {
+
   //  console.log("applying", method, transforms[method])
-   if (glslTransforms[method].type=="combine"){
+   if (transform.type=="combine"){
       console.log("args[0] is ", args)
 
-      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(args[0].transform)(glslTransforms[method].f(args[1]))
+      //composition function to be executed when all transforms have been added
+      //c1 and c2 are two inputs.. (explain more)
+      var f = (c1)=>(c0)=>{
+        var glslString = `${method}(${c0}, ${c1}`
+        transform.inputs.forEach((input, index)=>{
+          //first argument is already accounted for in c1, add one to index
+          if(index > 0) {
+            var input = args.length > index? args[index] : input.default
+            if(!String(input).includes(".")) input += "."
+            glslString+=", " + input
+          }
+        })
+        glslString += ")"
+        return glslString
+      }
+      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(args[0].transform)(f)
 
     } else {
-    //  this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(glslTransforms[method].f(args[0]))
-      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)((x)=>(`${method}(${x}, ${args[0]})`))
+      var f = (x)=>{
+        var glslString = `${method}(${x}`
+        transform.inputs.forEach((input, index)=>{
+          var input = args.length > index? args[index] : input.default
+          if(!String(input).includes(".")) input += "."
+          glslString+=", " + input
+        })
+        glslString += ")"
+        return glslString
+      }
+      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(f)
     }
 
     console.log(this.transform)
     return this
   }
+}
 })
 
 Generator.prototype.out = function(output){
@@ -113,23 +218,12 @@ Generator.prototype.out = function(output){
   uniform float time;
   varying vec2 uv;
 
-  vec4 osc(vec2 st, float freq){
-    float r = sin((st.x+time*0.1)*freq)*0.5 + 0.5;
-    float g = sin((st.x+time*0.1)*freq)*0.5 + 0.5;
-    float b = sin((st.x+time*0.1)*freq)*0.5 + 0.5;
-    return vec4(r, g, b, 1.0);
-  }
-
-  vec2 rotate(vec2 st, float angle){
-    vec2 xy = st - vec2(0.5);
-    xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
-    xy += 0.5;
-    return xy;
-  }
-
-  vec4 add(vec4 c0, vec4 c1, float amount){
-    return amount*c0 + (1.0-amount)*c1;
-  }
+  ${Object.values(glslTransforms).map((transform)=>{
+    console.log(transform.glsl)
+    return `
+            ${transform.glsl}
+          `
+  }).join("")}
 
   void main () {
     vec4 c = vec4(1, 0, 0, 1);
