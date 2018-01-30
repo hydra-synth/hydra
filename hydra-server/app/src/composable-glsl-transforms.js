@@ -53,7 +53,7 @@ var glslTransforms = {
       {
         name: 'frequency',
         type: 'float',
-        default: 60
+        default: 60.0
       },
       {
         name: 'sync',
@@ -157,9 +157,14 @@ Object.keys(glslTransforms).forEach((method) => {
       obj.transform = (x)=>{
         var glslString = `${method}(${x}`
         transform.inputs.forEach((input, index)=>{
-          var input = args.length > index? args[index] : input.default
-          if(!String(input).includes(".")) input += "."
-          glslString+=", " + input
+          var value = args.length > index? args[index] : input.default
+          if(input.type=="texture"){
+            // to do: add uniform for passing in texture
+          } else if(input.type==="float"){
+            if(!String(value).includes(".")) value += "."
+          }
+          console.log("arg input", value)
+          glslString+=", " + value
         })
         glslString += ")"
         return glslString
@@ -180,9 +185,9 @@ Object.keys(glslTransforms).forEach((method) => {
         transform.inputs.forEach((input, index)=>{
           //first argument is already accounted for in c1, add one to index
           if(index > 0) {
-            var input = args.length > index? args[index] : input.default
-            if(!String(input).includes(".")) input += "."
-            glslString+=", " + input
+            var value = args.length > index? args[index] : input.default
+            if(!String(value).includes(".")) value += "."
+            glslString+=", " + value
           }
         })
         glslString += ")"
@@ -194,9 +199,9 @@ Object.keys(glslTransforms).forEach((method) => {
       var f = (x)=>{
         var glslString = `${method}(${x}`
         transform.inputs.forEach((input, index)=>{
-          var input = args.length > index? args[index] : input.default
-          if(!String(input).includes(".")) input += "."
-          glslString+=", " + input
+          var value = args.length > index? args[index] : input.default
+          if(!String(value).includes(".")) value += "."
+          glslString+=", " + value
         })
         glslString += ")"
         return glslString
