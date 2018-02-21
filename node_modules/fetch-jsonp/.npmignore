@@ -1,7 +1,0 @@
-.DS_Store
-*.log
-node_modules
-src
-test
-examples
-coverage

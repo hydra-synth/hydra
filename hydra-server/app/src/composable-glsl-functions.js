@@ -90,7 +90,7 @@ module.exports = {
         default: 0.5
       }
     ],
-    glsl: `vec2 modulate(vec4 c1, vec2 st, float amount){
+    glsl: `vec2 modulate(vec2 st, vec4 c1, float amount){
             return st+c1.xy*amount;
           }`
   }

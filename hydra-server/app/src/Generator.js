@@ -135,7 +135,7 @@ Object.keys(glslTransforms).forEach((method) => {
 
       //composition function to be executed when all transforms have been added
       //c1 and c2 are two inputs.. (explain more)
-      var f = (c1)=>(c0)=>{
+      var f = (c0)=>(c1)=>{
         var glslString = `${method}(${c0}, ${c1}`
         glslString += generateGlsl(args.slice(1), inputs.slice(1))
         glslString += ")"
