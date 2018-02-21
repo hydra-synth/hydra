@@ -37,6 +37,7 @@ module.exports = {
       return texture2D(_tex, _st);
     }`
   },
+
   rotate: {
     type: "coord",
     inputs: [
@@ -74,6 +75,23 @@ module.exports = {
     ],
     glsl: `vec4 add(vec4 c0, vec4 c1, float amount){
             return amount*c0 + (1.0-amount)*c1;
+          }`
+  },
+  modulate: {
+    type: "combineCoord",
+    inputs: [
+      {
+        name: 'color',
+        type: 'vec4'
+      },
+      {
+        name: 'amount',
+        type: 'float',
+        default: 0.5
+      }
+    ],
+    glsl: `vec2 modulate(vec4 c1, vec2 st, float amount){
+            return st+c1.xy*amount;
           }`
   }
 }

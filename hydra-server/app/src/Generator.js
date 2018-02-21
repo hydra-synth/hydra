@@ -41,9 +41,11 @@ const counter = require('./counter.js')
 const compositionFunctions = {
   coord: existingF => newF => x => existingF(newF(x)), // coord transforms added onto beginning of existing function chain
   color: existingF => newF => x => newF(existingF(x)), // color transforms added onto end of existing function chain
-  combine: existingF1 => existingF2 => newF => x => newF(existingF1(x))(existingF2(x)) //
-}
+  combine: existingF1 => existingF2 => newF => x => newF(existingF1(x))(existingF2(x)), //
 
+  combineCoord: existingF1 => existingF2 => newF => x => existingF1(newF(x)(existingF2(x)))
+}
+// gl_FragColor = osc(modulate(osc(rotate(st, 10., 0.), 32., 0.1, 0.), st, 0.5), 199., 0.1, 0.);
 
 // Parses javascript args to use in glsl
 function generateGlsl(userArgs, defaultArgs) {
@@ -128,7 +130,7 @@ Object.keys(glslTransforms).forEach((method) => {
     console.log(inputs)
 
   //  console.log("applying", method, transforms[method])
-   if (transform.type=="combine"){
+   if (transform.type=="combine" || transform.type=="combineCoord"){
       console.log("args[0] is ", args)
 
       //composition function to be executed when all transforms have been added
