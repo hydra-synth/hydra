@@ -1,0 +1,17 @@
+{
+  "esversion": 6,
+  "browser": true,
+  "node": true,
+  "mocha": true,
+  "camelcase": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "indent": 4,
+  "latedef": true,
+  "newcap": true,
+  "quotmark": "single",
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "strict": false
+}

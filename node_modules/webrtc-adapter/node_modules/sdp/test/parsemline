@@ -1,0 +1,17 @@
+diff --git a/test/sdp.js b/test/sdp.js
+index 5ff09c7..2109c1e 100644
+--- a/test/sdp.js
++++ b/test/sdp.js
+@@ -243,3 +243,12 @@ test('parseIceOptions', function(t) {
+   t.ok(result[1] === 'something', 'first option equals "something"');
+   t.end()
+ });
++
++test('parseMLine', function(t) {
++  var result = SDPUtils.parseMLine('m=video 9 UDP/TLS/RTP/SAVPF 100 101 107 116 117 96 97 99 98');
++  expect(result.kind).to.equal('video');
++  expect(result.port).to.equal(9);
++  expect(result.protocol).to.equal('UDP/TLS/RTP/SAVPF');
++  expect(result.fmt).to.equal('100 101 107 116 117 96 97 99 98');
++  t.end();
++});

@@ -1,0 +1,6 @@
+ui: tape
+browsers:
+  - name: firefox
+    version: latest
+  - name: chrome
+    version: latest
