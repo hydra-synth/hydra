@@ -31,7 +31,12 @@ var addComp = function(f){
       }
     }
   }
-} */
+}
+ // to do:
+ // 1. how to validate inputs? and in certain cases apply more functions. i.e. needs color but passed in texture, automatically apply tex() command
+ //
+
+*/
 
 const glslTransforms = require('./composable-glsl-functions.js')
 const counter = require('./counter.js')
@@ -48,33 +53,66 @@ const compositionFunctions = {
 // gl_FragColor = osc(modulate(osc(rotate(st, 10., 0.), 32., 0.1, 0.), st, 0.5), 199., 0.1, 0.);
 
 // Parses javascript args to use in glsl
-function generateGlsl(userArgs, defaultArgs) {
+function generateGlsl(inputs) {
+
   var str = ''
-  defaultArgs.forEach((input, index)=>{
-    // if no user argument is supplied, replace with default value
-    var value = userArgs.length > index? userArgs[index] : input.default
-    if(input.type=="texture"){
-      value = input.name
-      // to do: add uniform for passing in texture
-    } else if(input.type==="float"){
-      //include decimal point if integer
-      if(!String(value).includes(".")) value += "."
-    }
-    str+=", " + value
+  inputs.forEach((input)=>{
+    // // if no user argument is supplied, replace with default value
+    // var value = userArgs.length > index? userArgs[index] : input.default
+    // if(input.type=="texture"){
+    //   value = input.name
+    //   // to do: add uniform for passing in texture
+    // } else if(input.type==="float"){
+    //   //include decimal point if integer
+    //   if(!String(value).includes(".")) value += "."
+    // }
+    str+=", " + input.value
   })
 
   return str
 }
 
-// receives default inputs for a given glsl function; creates unique names for variables requiring a uniform to be passed in (i.e. a texture)
-function generateUniformNames(inputs){
-  return inputs.map((input)=>{
+// function validateInputs(userArgs, defaultArgs) {
+//    defaultArgs.forEach((input, index)=>{
+//     var value = userArgs.length > index? userArgs[index] : input.default
+//     console.log("TYPE CHECK", typeof value, input)
+//   })
+// }
+//
+// when possible, reformats arguments to be the correct type
+// creates unique names for variables requiring a uniform to be passed in (i.e. a texture)
+// returns an object that contains the type and value of each argument
+function formatArguments(userArgs, defaultArgs){
+  return defaultArgs.map((input, index)=>{
+    var typedArg = {}
+    typedArg.value = userArgs.length > index? userArgs[index] : input.default
+
+    // if input is a texture, set unique name for uniform
     if(input.type === 'texture'){
       counter.increment()
-      return Object.assign({}, input, {name: input.name+counter.get()})
+      typedArg.name = input.name+counter.get()
+      typedArg.tex = typedArg.value.getTexture()
+      typedArg.value = typedArg.name
+
     } else {
-      return input
+      // if passing in a texture reference, when function asks for vec4, convert to vec4
+      if(typedArg.value.tex && input.type == 'vec4'){
+        console.log("TYPE MISMATCH", input, typedArg.value)
+        //debugger;
+        var x = typedArg.value
+       typedArg.value = tex(x)
+      }
+      if(input.type==="float"){
+        //include decimal point if integer
+        if(!String(typedArg.value).includes(".")) typedArg.value += "."
+      }
+
     }
+
+
+
+    typedArg.type = input.type
+    return typedArg
   })
 }
 
@@ -97,7 +135,7 @@ Object.keys(glslTransforms).forEach((method) => {
     window[method] = (...args)=>{
 
       var obj = Object.create(Generator.prototype)
-
+      obj.name = method
       // const transform.inputs.map((input)=>{
       //   if(input.type === 'texture'){
       //     counter.increment()
@@ -106,11 +144,11 @@ Object.keys(glslTransforms).forEach((method) => {
       //     return input
       //   }
       // })
-      const inputs = generateUniformNames(transform.inputs)
+      const inputs = formatArguments(args, transform.inputs)
 
       obj.transform = (x)=>{
         var glslString = `${method}(${x}`
-        glslString += generateGlsl(args, inputs)
+        glslString += generateGlsl(inputs)
         glslString += ")"
         return glslString
       }
@@ -118,7 +156,7 @@ Object.keys(glslTransforms).forEach((method) => {
       obj.uniforms = []
       inputs.forEach((input, index) => {
         if(input.type==='texture'){
-          if(args[index]) obj.uniforms[input.name] = args[index].getTexture()
+          obj.uniforms[input.name] = input.tex
         }
       })
 
@@ -126,43 +164,63 @@ Object.keys(glslTransforms).forEach((method) => {
     }
   } else {
   Generator.prototype[method] = function (...args) {
-    const inputs = generateUniformNames(transform.inputs)
-    console.log(inputs)
+    const inputs = formatArguments(args, transform.inputs)
+   //  console.log("method", method)
+   //  const inputs = validateArguments(transform.inputs)
+   //  inputs.forEach((input, index)=>{
+   //   if(args.length > index){
+   //   // only texture type can accept objects, if input is not a texture, call tex()
+   //    if(typeof args[index].tex && input.type !== "texture"){
+   //      console.log("TYPE MISMATCH", input, args[index])
+   //      //debugger;
+   //     args[index] = tex(args[index])
+   //    }
+   //
+   //
+   //   }
+   //   console.log("TYPE CHECK", typeof args[index], input)
+   // })
+
+  //  console.log(inputs)
 
   //  console.log("applying", method, transforms[method])
    if (transform.type=="combine" || transform.type=="combineCoord"){
-      console.log("args[0] is ", args)
+    //  console.log("args[0] is ", args)
 
       //composition function to be executed when all transforms have been added
       //c1 and c2 are two inputs.. (explain more)
       var f = (c0)=>(c1)=>{
         var glslString = `${method}(${c0}, ${c1}`
-        glslString += generateGlsl(args.slice(1), inputs.slice(1))
+        glslString += generateGlsl(inputs.slice(1))
         glslString += ")"
         return glslString
       }
-      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(args[0].transform)(f)
+      this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(inputs[0].value.transform)(f)
 
-      Object.assign(this.uniforms, args[0].uniforms)
+      Object.assign(this.uniforms, inputs[0].value.uniforms)
 
     } else {
       var f = (x)=>{
         var glslString = `${method}(${x}`
-        glslString += generateGlsl(args, inputs)
+        glslString += generateGlsl(inputs)
         glslString += ")"
         return glslString
       }
       this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(f)
     }
 
+    // inputs.forEach((input, index) => {
+    //   if(input.type==='texture'){
+    //     if(args[index]) obj.uniforms[input.name] = args[index].getTexture()
+    //   }
+    // })
+
     inputs.forEach((input, index) => {
       if(input.type==='texture'){
-        if(args[index]) obj.uniforms[input.name] = args[index].getTexture()
+        obj.uniforms[input.name] = input.tex
       }
     })
-
-
-    console.log(this.transform)
+  //  console.log(this.transform)
     return this
   }
 }
@@ -180,7 +238,7 @@ Generator.prototype.out = function(output){
   varying vec2 uv;
 
   ${Object.values(glslTransforms).map((transform)=>{
-    console.log(transform.glsl)
+  //  console.log(transform.glsl)
     return `
             ${transform.glsl}
           `
@@ -196,7 +254,7 @@ Generator.prototype.out = function(output){
     //gl_FragColor = osc(st, 43);
   }
   `
-  console.log("FRAG", frag)
+//  console.log("FRAG", frag)
   output.frag = frag
   output.uniforms = Object.assign(output.uniforms, this.uniforms)
   output.render()
