@@ -34,7 +34,9 @@ var addComp = function(f){
 }
  // to do:
  // 1. how to validate inputs? and in certain cases apply more functions. i.e. needs color but passed in texture, automatically apply tex() command
- //
+ //2. how to specify functions that can receive different types
+ //3. any parameter can accept a static variable or a function (!
+//4. evaluate block of code like in gibber, highlight when evaluating)
 
 */
 
