@@ -7,16 +7,17 @@ var Output = function (opts) {
     [0, -2],
     [2, 2]
   ])
-  this.tex = this.regl.texture()
+//  this.tex = this.regl.texture()
   this.clear()
-  this.fbo = this.regl.framebuffer({
+  this.pingPongIndex = 0
+  this.fbos = (Array(2)).fill().map(()=>this.regl.framebuffer({
     color: this.regl.texture({
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: opts.width,
+      height: opts.height,
       format: 'rgba'
     }),
     depthStencil: false
-  })
+  }))
   // console.log("position", this.positionBuffer)
 }
 
@@ -29,8 +30,18 @@ Object.keys(transforms).forEach((method) => {
   }
 })
 
+Output.prototype.getCurrent = function() {
+  //console.log("get current",this.pingPongIndex )
+  return this.fbos[this.pingPongIndex]
+}
+
 Output.prototype.getTexture = function() {
-  return this.fbo
+
+
+//  return this.fbos[!this.pingPongIndex]
+  var index = this.pingPongIndex ? 0 : 1
+  //  console.log("get texture",index)
+  return this.fbos[index]
 }
 
 Output.prototype.clear = function() {
@@ -105,7 +116,7 @@ if(opts.inputs){
       header = `uniform float ${uniformName};`
     } else if(input.type==='image'){
       header = `uniform sampler2D ${uniformName};`
-      if(args[index]) uniforms[uniformName] = args[index].getTexture()
+      if(args[index]) uniforms[uniformName] = ()=>args[index].getTexture()
     //  console.log("setting source", args)
     }
 
@@ -168,8 +179,16 @@ Output.prototype.render = function () {
   attributes: this.attributes,
   uniforms: this.uniforms,
   count: 3,
-  framebuffer: this.fbo
+  framebuffer: ()=>{
+    this.pingPongIndex = this.pingPongIndex ? 0 : 1
+  //  console.log("fbo", this.pingPongIndex)
+  // console.log("ping pong", this.fbos[this.pingPongIndex])
+    return this.fbos[this.pingPongIndex]
+
+  //  console.log("ping pong", this.pingPongIndex)
+  }
 })
+
 //  console.log(this.compileFragShader())
   //this.tick()
 }
