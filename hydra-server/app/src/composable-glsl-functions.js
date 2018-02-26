@@ -37,7 +37,6 @@ module.exports = {
       return texture2D(_tex, _st);
     }`
   },
-
   rotate: {
     type: "coord",
     inputs: [
@@ -78,7 +77,7 @@ module.exports = {
           }`
   },
   layer: {
-    type: "combine",
+    type: 'combine',
     inputs: [
       {
         name: 'color',
@@ -86,8 +85,56 @@ module.exports = {
       }
     ],
     glsl: `vec4 layer(vec4 c0, vec4 c1){
-            return vec4(mix(c0*c0.a, c1*c1.a, c1.a).rgb, c1.a + c0.a);
-          }`
+        return vec4(mix(c0.rgb, c1.rgb, c1.a), c0.a+c1.a);
+    }
+    `
+  },
+  blend: {
+    type: 'combine',
+    inputs: [
+      {
+        name: 'color',
+        type: 'vec4'
+      },
+      {
+        name: 'amount',
+        type: 'float',
+        default: 0.5
+      }
+    ],
+    glsl: `vec4 blend(vec4 c0, vec4 c1, float amount){
+      return c0*(1.0-amount)+c1*amount;
+    }`
+  },
+  mult: {
+    type: 'combine',
+    inputs: [
+      {
+        name: 'color',
+        type: 'vec4'
+      },
+      {
+        name: 'amount',
+        type: 'float',
+        default: 1.0
+      }
+    ],
+    glsl: `vec4 mult(vec4 c0, vec4 c1, float amount){
+      return c0*(1.0-amount)+(c0*c1)*amount;
+    }`
+  },
+  diff: {
+    type: 'combine',
+    inputs: [
+      {
+        name: 'color',
+        type: 'vec4'
+      }
+    ],
+    glsl: `vec4 diff(vec4 c0, vec4 c1){
+      return vec4(abs(c0.rgb-c1.rgb), max(c0.a, c1.a));
+    }
+    `
   },
   modulate: {
     type: "combineCoord",
@@ -114,35 +161,30 @@ module.exports = {
       return vec4(1.0-c0.rgb, c0.a);
     }`
   },
-  luma: {
+  luminance: {
     type: 'util',
-    inputs: [
-      {
-        name: 'rgb',
-        type: 'vec3',
-      }
-    ],
-    glsl: `float luma(vec3 rgb){
+    glsl: `float luminance(vec3 rgb){
       const vec3 W = vec3(0.2125, 0.7154, 0.0721);
       return dot(rgb, W);
     }`
   },
-  key: {
+  luma: {
     type: 'color',
     inputs: [
       {
-        name: 'cutoff',
+        name: 'threshold',
         type: 'float',
         default: 0.5
       },
       {
-        name: 'smooth',
+        name: 'tolerance',
         type: 'float',
-        default: 0.01
+        default: 0.1
       }
     ],
-    glsl: `vec4 key(vec4 c0, float cutoff, float smooth){
-      return vec4(c0.xyz, smoothstep(cutoff-smooth, cutoff+smooth, luma(c0.rgb)));
+    glsl: `vec4 luma(vec4 c0, float threshold, float tolerance){
+      float a = smoothstep(threshold-tolerance, threshold+tolerance, luminance(c0.rgb));
+      return vec4(c0.rgb*a, a);
     }`
   }
 

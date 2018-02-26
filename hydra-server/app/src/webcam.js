@@ -13,10 +13,10 @@ module.exports = function (options) {
       video.src = window.URL.createObjectURL(stream)
      // document.body.appendChild(video)
       video.addEventListener('loadedmetadata', () => {
-        video.play()
+        video.play().then(()=>  resolve({video: video}))
        // const webcam = regl.texture(video)
         //regl.frame(() => webcam.subimage(video))
-        resolve({video: video})
+
       })
     }
   })
