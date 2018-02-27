@@ -23,14 +23,17 @@ const Generator = require('./Generator.js')
 var NUM_OUTPUTS = 4
 var NUM_SOURCES = 4
 
+var WIDTH = 640
+var HEIGHT = 480
+
 var vSynth = function (opts) {
   window.src = Generator
 
   this.pb = opts.pb ? opts.pb : null
   var canvas = document.createElement('canvas')
   // var ctx = this.o[0].getContext('2d')
-  canvas.width = 640
-  canvas.height = 480
+  canvas.width = WIDTH
+  canvas.height = HEIGHT
   canvas.style.width = "100%"
   canvas.style.height = "100%"
   this.regl = require('regl')(canvas)
@@ -61,7 +64,7 @@ var vSynth = function (opts) {
 
 
   for(var i = 0; i < NUM_OUTPUTS; i ++){
-    this.o[i] = new Output({regl: this.regl})
+    this.o[i] = new Output({regl: this.regl, width: WIDTH, height: HEIGHT})
     this.o[i].render()
     window['o'+i] = this.o[i]
   }
@@ -77,9 +80,10 @@ var vSynth = function (opts) {
   this.outputTex = this.o[0].getTexture()
   //receives which output to render. if no arguments, renders grid of all fbos
   window.render = function(output){
+    this.output = output
     if(output) {
       self.renderAll = false
-      self.outputTex = output.getTexture()
+      self.outputTex = ()=>output.getCurrent()
     } else {
       self.renderAll = true
     }
@@ -112,7 +116,7 @@ var vSynth = function (opts) {
       [2, 2]]
     },
     uniforms: {
-      tex0: this.regl.prop('tex0')
+      tex0: ()=>o0.getCurrent()
     },
     count: 3,
     depth: { enable: false }
