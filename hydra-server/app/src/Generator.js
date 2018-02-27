@@ -87,12 +87,12 @@ function formatArguments(userArgs, defaultArgs){
     if(input.type === 'texture'){
       counter.increment()
       typedArg.name = input.name+counter.get()
-      typedArg.tex = typedArg.value.getTexture()
+      typedArg.tex = typedArg.value
       typedArg.value = typedArg.name
 
     } else {
       // if passing in a texture reference, when function asks for vec4, convert to vec4
-      if(typedArg.value.tex && input.type == 'vec4'){
+      if(typedArg.value.getTexture && input.type == 'vec4'){
         console.log("TYPE MISMATCH", input, typedArg.value)
         //debugger;
         var x = typedArg.value
@@ -142,7 +142,7 @@ Object.keys(glslTransforms).forEach((method) => {
       obj.uniforms = []
       inputs.forEach((input, index) => {
         if(input.type==='texture'){
-          obj.uniforms[input.name] = input.tex
+          obj.uniforms[input.name] = ()=>(input.tex.getTexture())
         }
       })
 

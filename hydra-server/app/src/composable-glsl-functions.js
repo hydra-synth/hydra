@@ -141,8 +141,7 @@ module.exports = {
     inputs: [
       {
         name: 'color',
-        type: 'vec4',
-        default: [1.0, 1.0, 1.0, 1.0]
+        type: 'vec4'
       },
       {
         name: 'amount',
@@ -186,6 +185,34 @@ module.exports = {
       float a = smoothstep(threshold-tolerance, threshold+tolerance, luminance(c0.rgb));
       return vec4(c0.rgb*a, a);
     }`
-  }
+  },
+  color: {
+    type: 'color',
+    inputs: [
+      {
+        name: 'r',
+        type: 'float',
+        default: 1.0
+      },
+      {
+        name: 'g',
+        type: 'float',
+        default: 1.0
+      },
+      {
+        name: 'b',
+        type: 'float',
+        default: 1.0
+      }
+    ],
+    notes: "https://www.youtube.com/watch?v=FpOEtm9aX0M",
+    glsl: `vec4 color(vec4 c0, float _r, float _g, float _b){
+      vec3 c = vec3(_r, _g, _b);
+      vec3 pos = step(0.0, c); // detect whether negative
 
+      // if > 0, return r * c0
+      // if < 0 return (1.0-r) * c0
+      return vec4(mix((1.0-c0.rgb)*abs(c), c*c0.rgb, pos), c0.a);
+    }`
+  }
 }
