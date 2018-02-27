@@ -68,7 +68,7 @@ function generateGlsl(inputs) {
     //   //include decimal point if integer
     //   if(!String(value).includes(".")) value += "."
     // }
-    str+=", " + input.value
+    str+=", " + input.name
   })
 
   return str
@@ -81,27 +81,37 @@ function generateGlsl(inputs) {
 function formatArguments(userArgs, defaultArgs){
   return defaultArgs.map((input, index)=>{
     var typedArg = {}
-    typedArg.value = userArgs.length > index? userArgs[index] : input.default
 
+    // if there is a user input at a certain index, create a uniform for this variable so that the value is passed in on each render pass
+    // to do (possibly): check whether this is a function in order to only use uniforms when needed
+
+    counter.increment()
+    typedArg.name = input.name+counter.get()
+    typedArg.isUniform = true
+
+    if(userArgs.length > index){
+      typedArg.value = userArgs[index]
+    } else {
+      //use default value for argument
+      typedArg.value = input.default
+    }
     // if input is a texture, set unique name for uniform
     if(input.type === 'texture'){
-      counter.increment()
-      typedArg.name = input.name+counter.get()
-      typedArg.tex = typedArg.value
-      typedArg.value = typedArg.name
+      //typedArg.tex = typedArg.value
+      typedArg.value = ()=>(input.tex.getTexture())
 
     } else {
       // if passing in a texture reference, when function asks for vec4, convert to vec4
       if(typedArg.value.getTexture && input.type == 'vec4'){
         console.log("TYPE MISMATCH", input, typedArg.value)
         //debugger;
-        var x = typedArg.value
+      var x = typedArg.value
        typedArg.value = tex(x)
       }
-      if(input.type==="float"){
-        //include decimal point if integer
-        if(!String(typedArg.value).includes(".")) typedArg.value += "."
-      }
+      // if(input.type==="float"){
+      //   //include decimal point if integer
+      //   if(!String(typedArg.value).includes(".")) typedArg.value += "."
+      // }
 
     }
     typedArg.type = input.type
@@ -141,8 +151,11 @@ Object.keys(glslTransforms).forEach((method) => {
 
       obj.uniforms = []
       inputs.forEach((input, index) => {
-        if(input.type==='texture'){
-          obj.uniforms[input.name] = ()=>(input.tex.getTexture())
+        if(input.isUniform){
+          obj.uniforms.push(input)
+          // if(input.type==='texture'){
+          //   obj.uniforms[input.name] = ()=>(input.tex.getTexture())
+          // }
         }
       })
 
@@ -165,7 +178,7 @@ Object.keys(glslTransforms).forEach((method) => {
       }
       this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(inputs[0].value.transform)(f)
 
-      Object.assign(this.uniforms, inputs[0].value.uniforms)
+      this.uniforms = this.uniforms.concat(inputs[0].value.uniforms)
 
     } else {
       var f = (x)=>{
@@ -178,8 +191,8 @@ Object.keys(glslTransforms).forEach((method) => {
     }
 
     inputs.forEach((input, index) => {
-      if(input.type==='texture'){
-        obj.uniforms[input.name] = input.tex
+      if(input.isUniform){
+        this.uniforms.push(input)
       }
     })
 
@@ -189,12 +202,21 @@ Object.keys(glslTransforms).forEach((method) => {
 })
 
 Generator.prototype.out = function(output){
-
+  console.log("UNIFORMS", this.uniforms)
   var frag = `
   precision mediump float;
-  ${Object.keys(this.uniforms).map((uniform)=>{
+  ${this.uniforms.map((uniform)=>{
+    let type = ''
+    switch(uniform.type){
+      case 'float':
+        type = 'float'
+        break
+      case 'texture':
+        type = 'sampler2D'
+        break
+    }
     return `
-      uniform sampler2D ${uniform};`
+      uniform ${type} ${uniform.name};`
   }).join("")}
   uniform float time;
   varying vec2 uv;
@@ -218,7 +240,9 @@ Generator.prototype.out = function(output){
   `
 //  console.log("FRAG", frag)
   output.frag = frag
-  output.uniforms = Object.assign(output.uniforms, this.uniforms)
+  var uniformObj = {}
+  this.uniforms.forEach((uniform)=>{uniformObj[uniform.name]=uniform.value})
+  output.uniforms = Object.assign(output.uniforms, uniformObj)
   output.render()
 
 }
