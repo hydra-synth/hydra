@@ -90,7 +90,14 @@ function formatArguments(userArgs, defaultArgs){
     typedArg.isUniform = true
 
     if(userArgs.length > index){
+      // if(typeof args[index]==='function'){
+      //
+      // } else {
       typedArg.value = userArgs[index]
+      //if argument passed in contains transform property, i.e. is of type generator, do not add uniform
+      if(userArgs[index].transform)   typedArg.isUniform = false
+    //  console.log("arg", userArgs[index])
+      // }
     } else {
       //use default value for argument
       typedArg.value = input.default
@@ -98,15 +105,17 @@ function formatArguments(userArgs, defaultArgs){
     // if input is a texture, set unique name for uniform
     if(input.type === 'texture'){
       //typedArg.tex = typedArg.value
-      typedArg.value = ()=>(input.tex.getTexture())
+      var x = typedArg.value
+      typedArg.value = ()=>(x.getTexture())
 
     } else {
       // if passing in a texture reference, when function asks for vec4, convert to vec4
       if(typedArg.value.getTexture && input.type == 'vec4'){
         console.log("TYPE MISMATCH", input, typedArg.value)
         //debugger;
-      var x = typedArg.value
+        var x = typedArg.value
        typedArg.value = tex(x)
+       typedArg.isUniform = false
       }
       // if(input.type==="float"){
       //   //include decimal point if integer

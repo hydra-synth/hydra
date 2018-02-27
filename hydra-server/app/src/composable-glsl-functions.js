@@ -1,4 +1,43 @@
 module.exports = {
+  random: {
+    type: "util",
+    glsl: `float random (vec2 _st){
+      return fract(sin(dot(_st.xy, vec2(12.9898,78.233)))*43758.5453123);
+    }`
+  },
+  _noise: {
+    type: "util",
+    glsl: `float _noise (in vec2 st) {
+    vec2 i = floor(st);
+    vec2 f = fract(st);
+
+    // Four corners in 2D of a tile
+    float a = random(i);
+    float b = random(i + vec2(1.0, 0.0));
+    float c = random(i + vec2(0.0, 1.0));
+    float d = random(i + vec2(1.0, 1.0));
+
+    vec2 u = f * f * (3.0 - 2.0 * f);
+
+    return mix(a, b, u.x) +
+            (c - a)* u.y * (1.0 - u.x) +
+            (d - b) * u.x * u.y;
+          }`
+  },
+  noise: {
+    type: "src",
+    inputs: [
+      {
+        type: "float",
+        name: "scale",
+        default: 100
+      }
+    ],
+    glsl: `vec4 noise(vec2 st, float scale){
+      return vec4(vec3(_noise(st*scale)), 1.0);
+    }`
+  },
+
   osc: {
     type: "src",
     inputs: [
@@ -58,7 +97,95 @@ module.exports = {
               return xy;
           }`
   },
-
+  scale: {
+    type: 'coord',
+    inputs: [
+      {
+        name: 'amount',
+        type: 'float',
+        default: 1.5
+      }
+    ],
+    glsl: `vec2 scale(vec2 st, float amount){
+      return st*(1.0/amount);
+    }
+    `
+  },
+  pixelate: {
+    type: 'coord',
+    inputs: [
+      {
+        name: 'pixelX',
+        type: 'float',
+        default: 20
+      }, {
+        name: 'pixelY',
+        type: 'float',
+        default: 20
+      }
+    ],
+    glsl: `vec2 pixelate(vec2 st, float pixelX, float pixelY){
+      vec2 xy = vec2(pixelX, pixelY);
+      return (floor(st * xy) + 0.5)/xy;
+    }`
+  },
+  kaleid: {
+    type: 'coord',
+    inputs: [
+      {
+        name: 'nSides',
+        type: 'float',
+        default: 4.0
+      }
+    ],
+    glsl: `vec2 kaleid(vec2 st, float nSides){
+      st -= 0.5;
+      float r = length(st);
+      float a = atan(st.y, st.x);
+      float pi = 2.*3.1416;
+      a = mod(a,pi/nSides);
+      a = abs(a-pi/nSides/2.);
+      return r*vec2(cos(a), sin(a));
+    }`
+  },
+  scrollX: {
+    type: 'coord',
+    inputs: [
+      {
+        name: 'scrollX',
+        type: 'float',
+        default: 0.5
+      },
+      {
+        name: 'speed',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    glsl: `vec2 scrollX(vec2 st, float amount, float speed){
+      st.x += amount + time*speed;
+      return fract(st);
+    }`
+  },
+  scrollY: {
+    type: 'coord',
+    inputs: [
+      {
+        name: 'scrollY',
+        type: 'float',
+        default: 0.5
+      },
+      {
+        name: 'speed',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    glsl: `vec2 scrollY(vec2 st, float amount, float speed){
+      st.y += amount + time*speed;
+      return fract(st);
+    }`
+  },
   add: {
     type: "combine",
     inputs: [
@@ -184,6 +311,23 @@ module.exports = {
     glsl: `vec4 luma(vec4 c0, float threshold, float tolerance){
       float a = smoothstep(threshold-tolerance, threshold+tolerance, luminance(c0.rgb));
       return vec4(c0.rgb*a, a);
+    }`
+  },
+  thresh: {
+    type: 'color',
+    inputs: [
+      {
+        name: 'threshold',
+        type: 'float',
+        default: 0.5
+      },{
+        name: 'tolerance',
+        type: 'float',
+        default: 0.04
+      }
+    ],
+    glsl: `vec4 thresh(vec4 c0, float threshold, float tolerance){
+      return vec4(vec3(smoothstep(threshold-tolerance, threshold+tolerance, luminance(c0.rgb))), c0.a);
     }`
   },
   color: {
