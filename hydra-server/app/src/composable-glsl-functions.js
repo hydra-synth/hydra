@@ -73,7 +73,8 @@ module.exports = {
       }
     ],
     glsl: `vec4 tex(vec2 _st, sampler2D _tex){
-      return texture2D(_tex, _st);
+
+      return texture2D(_tex,vec2(1.0- _st.x, _st.y));
     }`
   },
   rotate: {
@@ -107,7 +108,10 @@ module.exports = {
       }
     ],
     glsl: `vec2 scale(vec2 st, float amount){
-      return st*(1.0/amount);
+      vec2 xy = st - vec2(0.5);
+      xy*=(1.0/amount);
+      xy+=vec2(0.5);
+      return xy;
     }
     `
   },
@@ -263,6 +267,7 @@ module.exports = {
     }
     `
   },
+
   modulate: {
     type: "combineCoord",
     inputs: [
@@ -278,6 +283,24 @@ module.exports = {
     ],
     glsl: `vec2 modulate(vec2 st, vec4 c1, float amount){
             return st+c1.xy*amount;
+          }`
+  },
+  modulateHue: {
+    type: "combineCoord",
+    notes: "changes coordinates based on hue of second input. Based on: https://www.shadertoy.com/view/XtcSWM",
+    inputs: [
+      {
+        name: 'color',
+        type: 'vec4'
+      },
+      {
+        name: 'amount',
+        type: 'float',
+        default: 0.5
+      }
+    ],
+    glsl: `vec2 modulateHue(vec2 st, vec4 c1, float amount){
+            return st + (vec2(c1.g - c1.r, c1.b - c1.r) * vec2(amount));
           }`
   },
   invert: {
