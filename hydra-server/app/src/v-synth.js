@@ -23,8 +23,8 @@ const Generator = require('./Generator.js')
 var NUM_OUTPUTS = 4
 var NUM_SOURCES = 4
 
-var WIDTH = 640
-var HEIGHT = 480
+var WIDTH = 1280
+var HEIGHT = 720
 
 var vSynth = function (opts) {
   window.src = Generator
