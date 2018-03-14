@@ -19,6 +19,8 @@ const Output = require('./output.js')
 const loop = require('raf-loop')
 const Source = require('./source.js')
 const Generator = require('./Generator.js')
+const mouse = require('mouse-change')()
+const AudioUtils = require('./audioUtils.js')
 
 var NUM_OUTPUTS = 4
 var NUM_SOURCES = 4
@@ -42,6 +44,8 @@ var vSynth = function (opts) {
   this.s = []
 //  this.o = []
   this.time = 0
+  this.audio = new AudioUtils()
+  window.audio = this.audio
   //o[0] = on screen canvas
   // ctx.fillStyle = "rgb("+Math.floor(Math.random()*255) +","+ Math.floor(Math.random()*255)+"," + Math.floor(Math.random()*255) +")"
   // ctx.fillRect(0, 0, this.o[0].width, this.o[0].height)
@@ -189,7 +193,11 @@ var vSynth = function (opts) {
     }
 
     for(var i = 0; i < NUM_OUTPUTS; i++){
-      self.o[i].tick(self.time)
+      self.o[i].tick({
+        time: self.time,
+        mouse: mouse,
+        bpm: self.audio.bpm
+      })
     }
 
     //console.log("looping", self.o[0].fbo)

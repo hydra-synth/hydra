@@ -56,21 +56,10 @@ const compositionFunctions = {
 
 // Parses javascript args to use in glsl
 function generateGlsl(inputs) {
-
   var str = ''
   inputs.forEach((input)=>{
-    // // if no user argument is supplied, replace with default value
-    // var value = userArgs.length > index? userArgs[index] : input.default
-    // if(input.type=="texture"){
-    //   value = input.name
-    //   // to do: add uniform for passing in texture
-    // } else if(input.type==="float"){
-    //   //include decimal point if integer
-    //   if(!String(value).includes(".")) value += "."
-    // }
     str+=", " + input.name
   })
-
   return str
 }
 
@@ -96,6 +85,10 @@ function formatArguments(userArgs, defaultArgs){
       typedArg.value = userArgs[index]
       //if argument passed in contains transform property, i.e. is of type generator, do not add uniform
       if(userArgs[index].transform)   typedArg.isUniform = false
+
+      if(typeof userArgs[index] === 'function'){
+        typedArg.value = (context, props, batchId) => (userArgs[index](props))
+      }
     //  console.log("arg", userArgs[index])
       // }
     } else {
@@ -210,8 +203,7 @@ Object.keys(glslTransforms).forEach((method) => {
 }
 })
 
-Generator.prototype.out = function(output){
-  console.log("UNIFORMS", this.uniforms)
+Generator.prototype.compile = function() {
   var frag = `
   precision mediump float;
   ${this.uniforms.map((uniform)=>{
@@ -241,13 +233,22 @@ Generator.prototype.out = function(output){
     vec4 c = vec4(1, 0, 0, 1);
     vec2 st = uv;
 
-
-    //gl_FragColor = osc(rotate(st, 3.0), 60.0);
     gl_FragColor = ${this.transform("st")};
-    //gl_FragColor = osc(st, 43);
   }
   `
+  return frag
+}
+
+Generator.prototype.glsl = function () {
+  console.log(this.compile())
+}
+
+Generator.prototype.out = function(_output){
+  console.log("UNIFORMS", this.uniforms)
+
 //  console.log("FRAG", frag)
+  var output = _output || window.o0
+  var frag = this.compile()
   output.frag = frag
   var uniformObj = {}
   this.uniforms.forEach((uniform)=>{uniformObj[uniform.name]=uniform.value})

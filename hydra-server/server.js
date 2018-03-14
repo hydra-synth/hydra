@@ -55,7 +55,7 @@ io.on('connection', function (socket) {
       io.of('/').in(room).clients(function(error, clients){
         if (error) throw error;
       console.log(clients); // => [Anw2LatarvGVVXEIAAAD]
-}    );
+      });
 
       var peerUuids = peers.map(function(socketId){
         return userFromSocket[socketId]
@@ -92,7 +92,7 @@ io.on('connection', function (socket) {
            type: data.type
          });
      });
-     
+
      socket.on('signal', function(data) {
        console.log("forwarding signal " + JSON.stringify(data))
       var client = io.sockets.connected[socketFromUser[data.id]];

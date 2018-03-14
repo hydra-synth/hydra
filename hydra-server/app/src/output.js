@@ -1,5 +1,5 @@
 const transforms = require('./glsl-transforms.js')
-const mouse = require('mouse-change')()
+
 
 var Output = function (opts) {
   this.regl = opts.regl
@@ -77,8 +77,7 @@ Output.prototype.clear = function() {
   }
 
   this.uniforms = {
-    time: this.regl.prop('time'),
-    mouse: this.regl.prop('mouse')
+    time: this.regl.prop('time')
   }
 
   this.compileFragShader()
@@ -196,15 +195,12 @@ Output.prototype.render = function () {
 }
 
 
-Output.prototype.tick = function(time){
+Output.prototype.tick = function(props){
 //  console.log(time)
   // this.regl(this.reglParams)({
   //   time: time
   // })
-    this.draw({
-      time: time,
-      mouse: mouse
-    })
+    this.draw(props)
   // this.tex({
   //   copy: true
   // })
