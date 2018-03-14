@@ -82,6 +82,17 @@ io.on('connection', function (socket) {
 
       })
 
+      // pass message from one peer to another
+     socket.on('message', function(data){
+        var client = io.sockets.connected[socketFromUser[data.id]];
+         client && client.emit('message', {
+           id: userFromSocket[socket.id],
+           label: socket.label,
+           message: data.message,
+           type: data.type
+         });
+     });
+     
      socket.on('signal', function(data) {
        console.log("forwarding signal " + JSON.stringify(data))
       var client = io.sockets.connected[socketFromUser[data.id]];

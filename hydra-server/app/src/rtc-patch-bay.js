@@ -1,4 +1,5 @@
-// Module for handling connections to multiple peers
+// Module for handling connections to multiple peers.
+
 
 var io = require('socket.io-client')
 var SimplePeer = require('simple-peer')
@@ -10,24 +11,31 @@ const shortid = require('shortid')
 var PatchBay = function (options) {
 // connect to websocket signalling server. To DO: error validation
   this.signaller = io(options.server)
+
+  //assign unique id to this peer, or use id passed in
   this._userData = {}
   this._userData.uuid = options.id || shortid.generate()
+
   this.stream = options.stream || null
- // this.stream = options.stream || null
+
+  //options to be sent to simple peer
   this._peerOptions = options.peerOptions || {}
   this._room = options.room
-  //object containing peers connected via webrtc
+
+  //object containing ALL peers in room
   this.peers = {}
 
-  //object containing peers connected via signalling server
-  this.connectedIds = []
+  //object containing peers connected via webrtc
+  this.rtcPeers = {}
 
   // Handle events from signalling server
   this.signaller.on('ready', this._readyForSignalling.bind(this))
 //  this.signaller.on('peers', )
-  this.signaller.on('signal', this._handleSignal.bind(this))
-
+//  this.signaller.on('signal', this._handleSignal.bind(this))
+  this.signaller.on('message', this._handleMessage.bind(this))
+  // Received message via websockets to all peers in room
   this.signaller.on('broadcast', this._receivedBroadcast.bind(this))
+
   // emit 'join' event to signalling server
   this.signaller.emit('join', this._room, this._userData)
 
@@ -43,6 +51,7 @@ PatchBay.prototype.sendToAll = function (data) {
   }, this)
 }
 
+// sends to peer specified b
 PatchBay.prototype.sendToPeer = function (peerId, data) {
   if (peerId in this.peers) {
     this.peers[peerId].send(data)
@@ -57,8 +66,9 @@ PatchBay.prototype.reinitAll = function(){
 }
 
 PatchBay.prototype.reinitPeer = function(id){
+  // Because renegotiation is not implemeneted in SimplePeer, reinitiate connection when coniguration has changed
   this.peers[id].destroy(function(e){
-  //  console.log("closed!", e)
+
     this.emit('new peer', {id: id})
     var newOptions = {initiator: true}
     if (this.stream != null) {
@@ -112,6 +122,17 @@ PatchBay.prototype.initConnectionFromId = function(id, callback){
     this._attachPeerEvents(this.peers[id], id)
   }
 }
+
+// receive signal from signalling server, forward to simple-peer
+PatchBay.prototype._handleMessage = function (data) {
+  // if there is currently no peer object for a peer id, that peer is initiating a new connection.
+
+  if (data.type === 'signal'){
+    this._handleSignal(data)
+  } else {
+    this.emit('message', data)
+  }
+}
 // receive signal from signalling server, forward to simple-peer
 PatchBay.prototype._handleSignal = function (data) {
   // if there is currently no peer object for a peer id, that peer is initiating a new connection.
@@ -121,7 +142,7 @@ PatchBay.prototype._handleSignal = function (data) {
     this.peers[data.id] = new SimplePeer(options)
     this._attachPeerEvents(this.peers[data.id], data.id)
   }
-  this.peers[data.id].signal(data.signal)
+  this.peers[data.id].signal(data.message)
 }
 // sendToAll send through rtc connections, whereas broadcast
 // send through the signalling server. Useful in cases where
@@ -140,7 +161,8 @@ PatchBay.prototype._attachPeerEvents = function (p, _id) {
   p.on('signal', function (id, signal) {
   //  console.log('signal', id, signal)
     //  console.log("peer signal sending over sockets", id, signal)
-    this.signaller.emit('signal', {id: id, signal: signal})
+  //  this.signaller.emit('signal', {id: id, signal: signal})
+    this.signaller.emit('message', {id: id, message: signal, type: 'signal'})
   }.bind(this, _id))
 
   p.on('stream', function (id, stream) {
