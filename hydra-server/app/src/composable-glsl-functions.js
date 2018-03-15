@@ -57,10 +57,11 @@ module.exports = {
         default: 0.0
       }
     ],
-    glsl: `vec4 osc(vec2 st, float freq, float sync, float offset){
-            float r = sin((st.x-offset/100.+time*sync)*freq)*0.5 + 0.5;
+    glsl: `vec4 osc(vec2 _st, float freq, float sync, float offset){
+            vec2 st = _st - vec2(0.5);
+            float r = sin((st.x-offset/freq+time*sync)*freq)*0.5  + 0.5;
             float g = sin((st.x+time*sync)*freq)*0.5 + 0.5;
-            float b = sin((st.x+offset/100.+time*sync)*freq)*0.5 + 0.5;
+            float b = sin((st.x+offset/freq+time*sync)*freq)*0.5  + 0.5;
             return vec4(r, g, b, 1.0);
           }`
   },
@@ -73,8 +74,8 @@ module.exports = {
       }
     ],
     glsl: `vec4 tex(vec2 _st, sampler2D _tex){
-
-      return texture2D(_tex,vec2(1.0- _st.x, _st.y));
+    //  vec2 uv = gl_FragCoord.xy/vec2(1280., 720.);
+      return texture2D(_tex,_st);
     }`
   },
   rotate: {
@@ -204,7 +205,7 @@ module.exports = {
       }
     ],
     glsl: `vec4 add(vec4 c0, vec4 c1, float amount){
-            return amount*c0 + (1.0-amount)*c1;
+            return (c0+c1)*amount + c0*(1.0-amount);
           }`
   },
   layer: {
@@ -282,7 +283,7 @@ module.exports = {
       }
     ],
     glsl: `vec2 modulate(vec2 st, vec4 c1, float amount){
-            return fract(st+c1.xy*amount);
+            return fract(st+(c1.xy-0.5)*amount);
           }`
   },
 
@@ -297,11 +298,12 @@ module.exports = {
       {
         name: 'amount',
         type: 'float',
-        default: 0.5
+        default: 1.0
       }
     ],
     glsl: `vec2 modulateHue(vec2 st, vec4 c1, float amount){
-            return st + (vec2(c1.g - c1.r, c1.b - c1.r) * vec2(amount));
+
+            return st + (vec2(c1.g - c1.r, c1.b - c1.g) * amount * 1.0/resolution);
           }`
   },
   invert: {

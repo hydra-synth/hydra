@@ -77,7 +77,8 @@ Output.prototype.clear = function() {
   }
 
   this.uniforms = {
-    time: this.regl.prop('time')
+    time: this.regl.prop('time'),
+    resolution: this.regl.prop('resolution')
   }
 
   this.compileFragShader()

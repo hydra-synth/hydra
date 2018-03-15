@@ -220,6 +220,7 @@ Generator.prototype.compile = function() {
       uniform ${type} ${uniform.name};`
   }).join("")}
   uniform float time;
+  uniform vec2 resolution;
   varying vec2 uv;
 
   ${Object.values(glslTransforms).map((transform)=>{
@@ -231,8 +232,8 @@ Generator.prototype.compile = function() {
 
   void main () {
     vec4 c = vec4(1, 0, 0, 1);
-    vec2 st = uv;
-
+    //vec2 st = uv;
+    vec2 st = gl_FragCoord.xy/resolution;
     gl_FragColor = ${this.transform("st")};
   }
   `

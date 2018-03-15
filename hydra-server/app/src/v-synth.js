@@ -38,7 +38,17 @@ var vSynth = function (opts) {
   canvas.height = HEIGHT
   canvas.style.width = "100%"
   canvas.style.height = "100%"
-  this.regl = require('regl')(canvas)
+  this.regl = require('regl')({
+    canvas: canvas,
+    pixelRatio: 1,
+     extensions: [
+       'oes_texture_half_float',
+       'oes_texture_half_float_linear',
+     ],
+     optionalExtensions: [
+       'oes_texture_float',
+       'oes_texture_float_linear',
+     ]})
   this.canvas = canvas
   this.o = []
   this.s = []
@@ -196,7 +206,8 @@ var vSynth = function (opts) {
       self.o[i].tick({
         time: self.time,
         mouse: mouse,
-        bpm: self.audio.bpm
+        bpm: self.audio.bpm,
+        resolution: [WIDTH, HEIGHT]
       })
     }
 
