@@ -19,9 +19,14 @@ const Output = require('./output.js')
 const loop = require('raf-loop')
 const Source = require('./source.js')
 const Generator = require('./Generator.js')
+const mouse = require('mouse-change')()
+const AudioUtils = require('./audioUtils.js')
 
 var NUM_OUTPUTS = 4
 var NUM_SOURCES = 4
+
+var WIDTH = 1280
+var HEIGHT = 720
 
 var vSynth = function (opts) {
   window.src = Generator
@@ -29,8 +34,8 @@ var vSynth = function (opts) {
   this.pb = opts.pb ? opts.pb : null
   var canvas = document.createElement('canvas')
   // var ctx = this.o[0].getContext('2d')
-  canvas.width = 640
-  canvas.height = 480
+  canvas.width = WIDTH
+  canvas.height = HEIGHT
   canvas.style.width = "100%"
   canvas.style.height = "100%"
   this.regl = require('regl')(canvas)
@@ -39,6 +44,8 @@ var vSynth = function (opts) {
   this.s = []
 //  this.o = []
   this.time = 0
+  this.audio = new AudioUtils()
+  window.audio = this.audio
   //o[0] = on screen canvas
   // ctx.fillStyle = "rgb("+Math.floor(Math.random()*255) +","+ Math.floor(Math.random()*255)+"," + Math.floor(Math.random()*255) +")"
   // ctx.fillRect(0, 0, this.o[0].width, this.o[0].height)
@@ -61,7 +68,7 @@ var vSynth = function (opts) {
 
 
   for(var i = 0; i < NUM_OUTPUTS; i ++){
-    this.o[i] = new Output({regl: this.regl})
+    this.o[i] = new Output({regl: this.regl, width: WIDTH, height: HEIGHT})
     this.o[i].render()
     window['o'+i] = this.o[i]
   }
@@ -77,9 +84,10 @@ var vSynth = function (opts) {
   this.outputTex = this.o[0].getTexture()
   //receives which output to render. if no arguments, renders grid of all fbos
   window.render = function(output){
+    this.output = output
     if(output) {
       self.renderAll = false
-      self.outputTex = output.getTexture()
+      self.outputTex = ()=>output.getCurrent()
     } else {
       self.renderAll = true
     }
@@ -112,7 +120,7 @@ var vSynth = function (opts) {
       [2, 2]]
     },
     uniforms: {
-      tex0: this.regl.prop('tex0')
+      tex0: ()=>o0.getCurrent()
     },
     count: 3,
     depth: { enable: false }
@@ -185,7 +193,11 @@ var vSynth = function (opts) {
     }
 
     for(var i = 0; i < NUM_OUTPUTS; i++){
-      self.o[i].tick(self.time)
+      self.o[i].tick({
+        time: self.time,
+        mouse: mouse,
+        bpm: self.audio.bpm
+      })
     }
 
     //console.log("looping", self.o[0].fbo)

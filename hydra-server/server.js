@@ -55,7 +55,7 @@ io.on('connection', function (socket) {
       io.of('/').in(room).clients(function(error, clients){
         if (error) throw error;
       console.log(clients); // => [Anw2LatarvGVVXEIAAAD]
-}    );
+      });
 
       var peerUuids = peers.map(function(socketId){
         return userFromSocket[socketId]
@@ -81,6 +81,17 @@ io.on('connection', function (socket) {
         socket.to(thisRoom).emit('broadcast', data)
 
       })
+
+      // pass message from one peer to another
+     socket.on('message', function(data){
+        var client = io.sockets.connected[socketFromUser[data.id]];
+         client && client.emit('message', {
+           id: userFromSocket[socket.id],
+           label: socket.label,
+           message: data.message,
+           type: data.type
+         });
+     });
 
      socket.on('signal', function(data) {
        console.log("forwarding signal " + JSON.stringify(data))

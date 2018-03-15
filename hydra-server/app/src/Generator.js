@@ -34,7 +34,9 @@ var addComp = function(f){
 }
  // to do:
  // 1. how to validate inputs? and in certain cases apply more functions. i.e. needs color but passed in texture, automatically apply tex() command
- //
+ //2. how to specify functions that can receive different types
+ //3. any parameter can accept a static variable or a function (!
+//4. evaluate block of code like in gibber, highlight when evaluating)
 
 */
 
@@ -54,21 +56,10 @@ const compositionFunctions = {
 
 // Parses javascript args to use in glsl
 function generateGlsl(inputs) {
-
   var str = ''
   inputs.forEach((input)=>{
-    // // if no user argument is supplied, replace with default value
-    // var value = userArgs.length > index? userArgs[index] : input.default
-    // if(input.type=="texture"){
-    //   value = input.name
-    //   // to do: add uniform for passing in texture
-    // } else if(input.type==="float"){
-    //   //include decimal point if integer
-    //   if(!String(value).includes(".")) value += "."
-    // }
-    str+=", " + input.value
+    str+=", " + input.name
   })
-
   return str
 }
 
@@ -79,27 +70,50 @@ function generateGlsl(inputs) {
 function formatArguments(userArgs, defaultArgs){
   return defaultArgs.map((input, index)=>{
     var typedArg = {}
-    typedArg.value = userArgs.length > index? userArgs[index] : input.default
 
+    // if there is a user input at a certain index, create a uniform for this variable so that the value is passed in on each render pass
+    // to do (possibly): check whether this is a function in order to only use uniforms when needed
+
+    counter.increment()
+    typedArg.name = input.name+counter.get()
+    typedArg.isUniform = true
+
+    if(userArgs.length > index){
+      // if(typeof args[index]==='function'){
+      //
+      // } else {
+      typedArg.value = userArgs[index]
+      //if argument passed in contains transform property, i.e. is of type generator, do not add uniform
+      if(userArgs[index].transform)   typedArg.isUniform = false
+
+      if(typeof userArgs[index] === 'function'){
+        typedArg.value = (context, props, batchId) => (userArgs[index](props))
+      }
+    //  console.log("arg", userArgs[index])
+      // }
+    } else {
+      //use default value for argument
+      typedArg.value = input.default
+    }
     // if input is a texture, set unique name for uniform
     if(input.type === 'texture'){
-      counter.increment()
-      typedArg.name = input.name+counter.get()
-      typedArg.tex = typedArg.value.getTexture()
-      typedArg.value = typedArg.name
+      //typedArg.tex = typedArg.value
+      var x = typedArg.value
+      typedArg.value = ()=>(x.getTexture())
 
     } else {
       // if passing in a texture reference, when function asks for vec4, convert to vec4
-      if(typedArg.value.tex && input.type == 'vec4'){
+      if(typedArg.value.getTexture && input.type == 'vec4'){
         console.log("TYPE MISMATCH", input, typedArg.value)
         //debugger;
         var x = typedArg.value
        typedArg.value = tex(x)
+       typedArg.isUniform = false
       }
-      if(input.type==="float"){
-        //include decimal point if integer
-        if(!String(typedArg.value).includes(".")) typedArg.value += "."
-      }
+      // if(input.type==="float"){
+      //   //include decimal point if integer
+      //   if(!String(typedArg.value).includes(".")) typedArg.value += "."
+      // }
 
     }
     typedArg.type = input.type
@@ -139,8 +153,11 @@ Object.keys(glslTransforms).forEach((method) => {
 
       obj.uniforms = []
       inputs.forEach((input, index) => {
-        if(input.type==='texture'){
-          obj.uniforms[input.name] = input.tex
+        if(input.isUniform){
+          obj.uniforms.push(input)
+          // if(input.type==='texture'){
+          //   obj.uniforms[input.name] = ()=>(input.tex.getTexture())
+          // }
         }
       })
 
@@ -163,7 +180,7 @@ Object.keys(glslTransforms).forEach((method) => {
       }
       this.transform = compositionFunctions[glslTransforms[method].type](this.transform)(inputs[0].value.transform)(f)
 
-      Object.assign(this.uniforms, inputs[0].value.uniforms)
+      this.uniforms = this.uniforms.concat(inputs[0].value.uniforms)
 
     } else {
       var f = (x)=>{
@@ -176,8 +193,8 @@ Object.keys(glslTransforms).forEach((method) => {
     }
 
     inputs.forEach((input, index) => {
-      if(input.type==='texture'){
-        obj.uniforms[input.name] = input.tex
+      if(input.isUniform){
+        this.uniforms.push(input)
       }
     })
 
@@ -186,13 +203,21 @@ Object.keys(glslTransforms).forEach((method) => {
 }
 })
 
-Generator.prototype.out = function(output){
-
+Generator.prototype.compile = function() {
   var frag = `
   precision mediump float;
-  ${Object.keys(this.uniforms).map((uniform)=>{
+  ${this.uniforms.map((uniform)=>{
+    let type = ''
+    switch(uniform.type){
+      case 'float':
+        type = 'float'
+        break
+      case 'texture':
+        type = 'sampler2D'
+        break
+    }
     return `
-      uniform sampler2D ${uniform};`
+      uniform ${type} ${uniform.name};`
   }).join("")}
   uniform float time;
   varying vec2 uv;
@@ -208,15 +233,26 @@ Generator.prototype.out = function(output){
     vec4 c = vec4(1, 0, 0, 1);
     vec2 st = uv;
 
-
-    //gl_FragColor = osc(rotate(st, 3.0), 60.0);
     gl_FragColor = ${this.transform("st")};
-    //gl_FragColor = osc(st, 43);
   }
   `
+  return frag
+}
+
+Generator.prototype.glsl = function () {
+  console.log(this.compile())
+}
+
+Generator.prototype.out = function(_output){
+  console.log("UNIFORMS", this.uniforms)
+
 //  console.log("FRAG", frag)
+  var output = _output || window.o0
+  var frag = this.compile()
   output.frag = frag
-  output.uniforms = Object.assign(output.uniforms, this.uniforms)
+  var uniformObj = {}
+  this.uniforms.forEach((uniform)=>{uniformObj[uniform.name]=uniform.value})
+  output.uniforms = Object.assign(output.uniforms, uniformObj)
   output.render()
 
 }
