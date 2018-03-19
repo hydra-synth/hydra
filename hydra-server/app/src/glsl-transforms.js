@@ -40,7 +40,7 @@ module.exports = {
     fragBody: `
       float r<0> = sin((st.x-<2>/100.+time*<1>)*<0>)*0.5 + 0.5;
       float g<0> = sin((st.x+time*<1>)*<0>)*0.5 + 0.5;
-		  float b<0> = sin((st.x+<2>/100.+time*<1>)*<0>)*0.5 + 0.5;
+      float b<0> = sin((st.x+<2>/100.+time*<1>)*<0>)*0.5 + 0.5;
       c = vec4(r<0>, g<0>, b<0>, 1.0);
     `
   },
@@ -237,119 +237,119 @@ module.exports = {
       c = vec4(c.rgb, 1.0);
     `
   },
-gradient: {
-  transformType: 'color',
-  isSource: true,
-  fragBody: `
-    c = vec4(st, sin(time), 1.0);
-  `
-},
-scrollX: {
-  transformType: 'coord',
-  inputs: [
-    {
-      name: 'scrollX',
-      type: 'float',
-      default: 0.5
-    },
-    {
-      name: 'speed',
-      type: 'float',
-      default: 0.0
-    }
-  ],
-  fragBody:  `
-    st.x += <0> + time*<1>;
-    st = fract(st);
-  `
-},
-repeatX: {
-  transformType: 'coord',
-  inputs: [
-    {
-      name: 'repeatX',
-      type: 'float',
-      default: 3.0
-    },{
-      name: 'offsetX',
-      type: 'float',
-      default: 0.0
-    }
-  ],
-  fragBody: `
-    st*= vec2(<0>, 1.0);
-    st.x += step(1., mod(st.y,2.0)) * <1>;
-    st = fract(st);
+  gradient: {
+    transformType: 'color',
+    isSource: true,
+    fragBody: `
+      c = vec4(st, sin(time), 1.0);
     `
-},
-repeatY: {
-  transformType: 'coord',
-  inputs: [
-    {
-      name: 'repeatY',
-      type: 'float',
-      default: 3.0
-    },{
-      name: 'offsetY',
-      type: 'float',
-      default: 0.0
-    }
-  ],
-  fragBody: `
-    st*= vec2(1.0, <0>);
-    st.y += step(1., mod(st.x,2.0)) * <1>;
-    st = fract(st);
+  },
+  scrollX: {
+    transformType: 'coord',
+    inputs: [
+      {
+        name: 'scrollX',
+        type: 'float',
+        default: 0.5
+      },
+      {
+        name: 'speed',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    fragBody: `
+      st.x += <0> + time*<1>;
+      st = fract(st);
     `
-},
-repeat: {
-  transformType: 'coord',
-  inputs: [
-    {
-      name: 'repeatX',
-      type: 'float',
-      default: 3.0
-    },
-    {
-      name: 'repeatY',
-      type: 'float',
-      default: 3.0
-    },
-    {
-      name: 'offsetX',
-      type: 'float',
-      default: 0.0
-    },
-    {
-      name: 'offsetY',
-      type: 'float',
-      default: 0.0
-    }
-  ],
-  fragBody: `
-    st*= vec2(<0>, <1>);
-    st.x += step(1., mod(st.y,2.0)) * <2>;
-    st.y += step(1., mod(st.x,2.0)) * <3>;
-    st = fract(st);
+  },
+  repeatX: {
+    transformType: 'coord',
+    inputs: [
+      {
+        name: 'repeatX',
+        type: 'float',
+        default: 3.0
+      }, {
+        name: 'offsetX',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    fragBody: `
+      st*= vec2(<0>, 1.0);
+      st.x += step(1., mod(st.y,2.0)) * <1>;
+      st = fract(st);
+      `
+  },
+  repeatY: {
+    transformType: 'coord',
+    inputs: [
+      {
+        name: 'repeatY',
+        type: 'float',
+        default: 3.0
+      }, {
+        name: 'offsetY',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    fragBody: `
+      st*= vec2(1.0, <0>);
+      st.y += step(1., mod(st.x,2.0)) * <1>;
+      st = fract(st);
+      `
+  },
+  repeat: {
+    transformType: 'coord',
+    inputs: [
+      {
+        name: 'repeatX',
+        type: 'float',
+        default: 3.0
+      },
+      {
+        name: 'repeatY',
+        type: 'float',
+        default: 3.0
+      },
+      {
+        name: 'offsetX',
+        type: 'float',
+        default: 0.0
+      },
+      {
+        name: 'offsetY',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    fragBody: `
+      st*= vec2(<0>, <1>);
+      st.x += step(1., mod(st.y,2.0)) * <2>;
+      st.y += step(1., mod(st.x,2.0)) * <3>;
+      st = fract(st);
+      `
+  },
+  rotate: {
+    transformType: 'coord',
+    inputs: [
+      {
+        name: 'angle',
+        type: 'float',
+        default: 10.0
+      }, {
+        name: 'speed',
+        type: 'float',
+        default: 0.0
+      }
+    ],
+    fragBody: `
+      st -= vec2(0.5);
+      float angle<0> = <0> + <1>*time;
+      st = mat2(cos(angle<0>),-sin(angle<0>), sin(angle<0>),cos(angle<0>))*st;
+      st += vec2(0.5);
     `
-},
-rotate: {
-  transformType: 'coord',
-  inputs: [
-    {
-      name: 'angle',
-      type: 'float',
-      default: 10.0
-    }, {
-      name: 'speed',
-      type: 'float',
-      default: 0.0
-    }
-  ],
-  fragBody: `
-    st -= vec2(0.5);
-    float angle<0> = <0> + <1>*time;
-    st = mat2(cos(angle<0>),-sin(angle<0>), sin(angle<0>),cos(angle<0>))*st;
-    st += vec2(0.5);
-  `
-}
+  }
 }

@@ -36,5 +36,8 @@
     "socket.io": "^2.0.3",
     "webrtc-adapter": "^3.1.6",
     "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
   }
 }

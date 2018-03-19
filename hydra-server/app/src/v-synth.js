@@ -1,19 +1,4 @@
-// syntax
-// init sources, 6 sources, default to framebuffer?? or canvas?? other possibilities are html page,
-// canvas with somthing else, pass in id of element. if in extension, pass in existing element with id
-// s[0].initCam
-// s[1].initRemote('sss')
-// s[2].initGen('osc')
-// s[3].initVid
 
-// output syntax::
-// o[0] = blend(o[1], o[2], 'displace')
-// o[1] = osc(20).rotate(5).rep(10).pulse(8).noise(40)
-// o[2] = modulate(osc(20).rotate(5).rep(10).pulse(8).noise(40), s[2])
-//
-// how to handle changing over time? possible to set sync? i.e. rotate(5, true) would be moving, no argument would be still?
-//
-// try - catch for evaluating statements?
 //
 const Output = require('./output.js')
 const loop = require('raf-loop')
@@ -36,73 +21,55 @@ var vSynth = function (opts) {
   // var ctx = this.o[0].getContext('2d')
   canvas.width = WIDTH
   canvas.height = HEIGHT
-  canvas.style.width = "100%"
-  canvas.style.height = "100%"
+  canvas.style.width = '100%'
+  canvas.style.height = '100%'
   this.regl = require('regl')({
     canvas: canvas,
     pixelRatio: 1,
-     extensions: [
-       'oes_texture_half_float',
-       'oes_texture_half_float_linear',
-     ],
-     optionalExtensions: [
-       'oes_texture_float',
-       'oes_texture_float_linear',
-     ]})
+    extensions: [
+      'oes_texture_half_float',
+      'oes_texture_half_float_linear'
+    ],
+    optionalExtensions: [
+      'oes_texture_float',
+      'oes_texture_float_linear'
+    ]})
   this.canvas = canvas
   this.o = []
   this.s = []
-//  this.o = []
   this.time = 0
   this.audio = new AudioUtils()
   window.audio = this.audio
-  //o[0] = on screen canvas
-  // ctx.fillStyle = "rgb("+Math.floor(Math.random()*255) +","+ Math.floor(Math.random()*255)+"," + Math.floor(Math.random()*255) +")"
-  // ctx.fillRect(0, 0, this.o[0].width, this.o[0].height)
   document.body.appendChild(canvas)
-  //o[1] = if broacast enabled, o[1] is set to broadcast canvas, default is same as o[0]
-  // if(opts.networked) {
-  //   this.o[1] = this.o[0]
-  // }
-
-  //window.vs = this
 
   // This clears the color buffer to black and the depth buffer to 1
   this.regl.clear({
-    color: [0, 0, 0, 1]//,
-  //  depth: 1
+    color: [0, 0, 0, 1]
   })
 
-
-
-
-
-  for(var i = 0; i < NUM_OUTPUTS; i ++){
+  for (let i = 0; i < NUM_OUTPUTS; i++) {
     this.o[i] = new Output({regl: this.regl, width: WIDTH, height: HEIGHT})
     this.o[i].render()
-    window['o'+i] = this.o[i]
+    this.o[i].id = i
+    window['o' + i] = this.o[i]
   }
-  for(var i = 0; i < NUM_SOURCES; i ++){
-      this.s[i] = new Source({regl: this.regl, pb: this.pb})
-      window['s'+i] = this.s[i]
+  this.output = this.o[0]
+  for (let i = 0; i < NUM_SOURCES; i++) {
+    this.s[i] = new Source({regl: this.regl, pb: this.pb})
+    window['s' + i] = this.s[i]
   }
 
   this.renderAll = false
   var self = this
-
-
-  this.outputTex = this.o[0].getTexture()
-  //receives which output to render. if no arguments, renders grid of all fbos
-  window.render = function(output){
-    this.output = output
-    if(output) {
+  // receives which output to render. if no arguments, renders grid of all fbos
+  window.render = function (output) {
+    if (output) {
+      self.output = output
       self.renderAll = false
-      self.outputTex = ()=>output.getCurrent()
     } else {
       self.renderAll = true
     }
   }
-
 
   var renderFbo = this.regl({
     frag: `
@@ -125,19 +92,21 @@ var vSynth = function (opts) {
       gl_Position = vec4(2.0 * position-1.0, 0, 1);
     }`,
     attributes: {
-      position: [[-2, 0],
-      [0, -2],
-      [2, 2]]
+      position: [
+        [-2, 0],
+        [0, -2],
+        [2, 2]
+      ]
     },
     uniforms: {
-      tex0: ()=>o0.getCurrent()
+      tex0: this.regl.prop('tex0')
     },
     count: 3,
     depth: { enable: false }
   })
 
-  //to do: dynamically set fbos in render all based on NUM_OUTPUTS
-  //or render all into single texture?? how does regl multiplex work?
+  // to do: dynamically set fbos in render all based on NUM_OUTPUTS
+  // or render all into single texture?? how does regl multiplex work?
   var renderAll = this.regl({
     frag: `
     precision mediump float;
@@ -177,9 +146,11 @@ var vSynth = function (opts) {
       gl_Position = vec4(2.0 * position-1.0, 0, 1);
     }`,
     attributes: {
-      position: [[-2, 0],
-      [0, -2],
-      [2, 2]]
+      position: [
+        [-2, 0],
+        [0, -2],
+        [2, 2]
+      ]
     },
     uniforms: {
       tex0: this.regl.prop('tex0'),
@@ -190,19 +161,19 @@ var vSynth = function (opts) {
     count: 3,
     depth: { enable: false }
   })
-//  window.s0 = this.s[0]
-  var engine = loop(function(dt) {
-  //this.regl.frame(function () {
-    self.time += dt*0.001
-    //console.log(self.time)
+  //  window.s0 = this.s[0]
+  loop(function (dt) {
+  // this.regl.frame(function () {
+    self.time += dt * 0.001
+    // console.log(self.time)
     self.regl.clear({
       color: [0, 0, 0, 1]
     })
-    for(var i = 0; i < NUM_SOURCES; i++){
+    for (let i = 0; i < NUM_SOURCES; i++) {
       self.s[i].tick(self.time)
     }
 
-    for(var i = 0; i < NUM_OUTPUTS; i++){
+    for (let i = 0; i < NUM_OUTPUTS; i++) {
       self.o[i].tick({
         time: self.time,
         mouse: mouse,
@@ -211,8 +182,8 @@ var vSynth = function (opts) {
       })
     }
 
-    //console.log("looping", self.o[0].fbo)
-    if(self.renderAll){
+    // console.log("looping", self.o[0].fbo)
+    if (self.renderAll) {
       renderAll({
         tex0: self.o[0].getTexture(),
         tex1: self.o[1].getTexture(),
@@ -220,25 +191,18 @@ var vSynth = function (opts) {
         tex3: self.o[3].getTexture()
       })
     } else {
-      renderFbo({tex0: self.outputTex})
+      console.log('out', self.output.id)
+      renderFbo({tex0: self.output.getCurrent()})
     }
   }).start()
-
-
-
-// })
-  //  self.s[0].tick(self.time)
-    // delta time in milliseconds
-//}).start()
-
 }
 
-vSynth.prototype.addStreamSource = function(stream){
+vSynth.prototype.addStreamSource = function (stream) {
   var newSource = new Source({regl: this.regl})
   newSource.init({type: 'stream', stream: stream})
   this.s.push(newSource)
   var index = this.s.length - 1
-  window['s'+index] = this.s[index]
+  window['s' + index] = this.s[index]
 }
 
 module.exports = vSynth
