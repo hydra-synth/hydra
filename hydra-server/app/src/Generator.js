@@ -8,7 +8,6 @@ const compositionFunctions = {
   coord: existingF => newF => x => existingF(newF(x)), // coord transforms added onto beginning of existing function chain
   color: existingF => newF => x => newF(existingF(x)), // color transforms added onto end of existing function chain
   combine: existingF1 => existingF2 => newF => x => newF(existingF1(x))(existingF2(x)), //
-
   combineCoord: existingF1 => existingF2 => newF => x => existingF1(newF(x)(existingF2(x)))
 }
 // gl_FragColor = osc(modulate(osc(rotate(st, 10., 0.), 32., 0.1, 0.), st, 0.5), 199., 0.1, 0.);
@@ -58,7 +57,7 @@ function formatArguments (userArgs, defaultArgs) {
       // if passing in a texture reference, when function asks for vec4, convert to vec4
       if (typedArg.value.getTexture && input.type === 'vec4') {
         var x1 = typedArg.value
-        typedArg.value = tex(x1)
+        typedArg.value = src(x1)
         typedArg.isUniform = false
       }
     }
@@ -68,6 +67,7 @@ function formatArguments (userArgs, defaultArgs) {
 }
 
 var Generator = function (param) {
+  console.log("creating GEN")
   return Object.create(Generator.prototype)
 }
 

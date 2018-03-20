@@ -15,7 +15,9 @@ var hydraSynth = function ({
   makeGlobal = true,
   canvas
 }) {
+
   Generator() // make global
+  
   this.pb = pb
   this.width = width
   this.height = height
@@ -24,6 +26,8 @@ var hydraSynth = function ({
   // create main output canvas and add to screen
   if (canvas) {
     this.canvas = canvas
+    this.width = canvas.width
+    this.height = canvas.height
   } else {
     this.canvas = document.createElement('canvas')
     this.canvas.width = this.width
