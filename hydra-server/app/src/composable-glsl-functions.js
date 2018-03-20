@@ -1,12 +1,12 @@
 module.exports = {
   random: {
-    type: "util",
+    type: 'util',
     glsl: `float random (vec2 _st){
       return fract(sin(dot(_st.xy, vec2(12.9898,78.233)))*43758.5453123);
     }`
   },
   _noise: {
-    type: "util",
+    type: 'util',
     glsl: `float _noise (in vec2 st) {
     vec2 i = floor(st);
     vec2 f = fract(st);
@@ -25,11 +25,11 @@ module.exports = {
           }`
   },
   noise: {
-    type: "src",
+    type: 'src',
     inputs: [
       {
-        type: "float",
-        name: "scale",
+        type: 'float',
+        name: 'scale',
         default: 100
       }
     ],
@@ -39,7 +39,7 @@ module.exports = {
   },
 
   osc: {
-    type: "src",
+    type: 'src',
     inputs: [
       {
         name: 'frequency',
@@ -65,21 +65,21 @@ module.exports = {
             return vec4(r, g, b, 1.0);
           }`
   },
-  tex: {
-    type: "src",
-    inputs:[
+  src: {
+    type: 'src',
+    inputs: [
       {
         name: 'tex',
         type: 'texture'
       }
     ],
-    glsl: `vec4 tex(vec2 _st, sampler2D _tex){
+    glsl: `vec4 src(vec2 _st, sampler2D _tex){
     //  vec2 uv = gl_FragCoord.xy/vec2(1280., 720.);
       return texture2D(_tex,_st);
     }`
   },
   rotate: {
-    type: "coord",
+    type: 'coord',
     inputs: [
       {
         name: 'angle',
@@ -192,7 +192,7 @@ module.exports = {
     }`
   },
   add: {
-    type: "combine",
+    type: 'combine',
     inputs: [
       {
         name: 'color',
@@ -270,7 +270,7 @@ module.exports = {
   },
 
   modulate: {
-    type: "combineCoord",
+    type: 'combineCoord',
     inputs: [
       {
         name: 'color',
@@ -288,8 +288,8 @@ module.exports = {
   },
 
   modulateHue: {
-    type: "combineCoord",
-    notes: "changes coordinates based on hue of second input. Based on: https://www.shadertoy.com/view/XtcSWM",
+    type: 'combineCoord',
+    notes: 'changes coordinates based on hue of second input. Based on: https://www.shadertoy.com/view/XtcSWM',
     inputs: [
       {
         name: 'color',
@@ -312,6 +312,21 @@ module.exports = {
     glsl: `vec4 invert(vec4 c0){
       return vec4(1.0-c0.rgb, c0.a);
     }`
+  },
+  contrast: {
+    type: 'color',
+    inputs: [
+      {
+        name: 'amount',
+        type: 'float',
+        default: 1.6
+      }
+    ],
+    glsl: `vec4 contrast(vec4 c0, float amount) {
+      vec4 c = (c0-vec4(0.5))*vec4(amount) + vec4(0.5);
+      return vec4(c.rgb, 1.0);
+    }
+    `
   },
   luminance: {
     type: 'util',
@@ -346,7 +361,7 @@ module.exports = {
         name: 'threshold',
         type: 'float',
         default: 0.5
-      },{
+      }, {
         name: 'tolerance',
         type: 'float',
         default: 0.04
@@ -375,7 +390,7 @@ module.exports = {
         default: 1.0
       }
     ],
-    notes: "https://www.youtube.com/watch?v=FpOEtm9aX0M",
+    notes: 'https://www.youtube.com/watch?v=FpOEtm9aX0M',
     glsl: `vec4 color(vec4 c0, float _r, float _g, float _b){
       vec3 c = vec3(_r, _g, _b);
       vec3 pos = step(0.0, c); // detect whether negative
@@ -386,7 +401,7 @@ module.exports = {
     }`
   },
   rgbToHsv: {
-    type: "util",
+    type: 'util',
     glsl: `vec3 rgbToHsv(vec3 c){
             vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
             vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
@@ -398,7 +413,7 @@ module.exports = {
         }`
   },
   hsvToRgb: {
-    type: "util",
+    type: 'util',
     glsl: `vec3 hsvToRgb(vec3 c){
         vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
         vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);

@@ -28,6 +28,11 @@ var EditorClass = function () {
         var c = instance.getCursor()
         var s = instance.getLine(c.line)
         eval(s)
+      },
+      'Alt-Enter': (instance) => {
+        var text = self.selectCurrentBlock(instance)
+        console.log('text', text)
+        eval(text.text)
       }
     }
   })
@@ -67,6 +72,31 @@ EditorClass.prototype.eval = function (arg) {
   }
 }
 
+EditorClass.prototype.selectCurrentBlock = function (editor) { // thanks to graham wakefield + gibber
+  var pos = editor.getCursor()
+  var startline = pos.line
+  var endline = pos.line
+  while (startline > 0 && editor.getLine(startline) !== '') {
+    startline--
+  }
+  while (endline < editor.lineCount() && editor.getLine(endline) !== '') {
+    endline++
+  }
+  var pos1 = {
+    line: startline,
+    ch: 0
+  }
+  var pos2 = {
+    line: endline,
+    ch: 0
+  }
+  var str = editor.getRange(pos1, pos2)
+  return {
+    start: pos1,
+    end: pos2,
+    text: str
+  }
+}
 // function getCompletions(token, context) {
 //   console.log('getting completiongs', token)
 //   var found = [], start = token.string;

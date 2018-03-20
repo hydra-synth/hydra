@@ -1,30 +1,39 @@
-
-//
 const Output = require('./output.js')
 const loop = require('raf-loop')
 const Source = require('./source.js')
 const Generator = require('./Generator.js')
 const mouse = require('mouse-change')()
-const AudioUtils = require('./audioUtils.js')
 
-var NUM_OUTPUTS = 4
-var NUM_SOURCES = 4
+// to do: add ability to pass in certain uniforms and transforms
 
-var WIDTH = 1280
-var HEIGHT = 720
+var hydraSynth = function ({
+  pb = null,
+  width = 1280,
+  height = 720,
+  numSources = 4,
+  numOutputs = 4,
+  makeGlobal = true,
+  canvas
+}) {
+  Generator() // make global
+  this.pb = pb
+  this.width = width
+  this.height = height
+  this.time = 0
 
-var vSynth = function (opts) {
-  window.src = Generator
-
-  this.pb = opts.pb ? opts.pb : null
-  var canvas = document.createElement('canvas')
-  // var ctx = this.o[0].getContext('2d')
-  canvas.width = WIDTH
-  canvas.height = HEIGHT
-  canvas.style.width = '100%'
-  canvas.style.height = '100%'
+  // create main output canvas and add to screen
+  if (canvas) {
+    this.canvas = canvas
+  } else {
+    this.canvas = document.createElement('canvas')
+    this.canvas.width = this.width
+    this.canvas.height = this.height
+    this.canvas.style.width = '100%'
+    this.canvas.style.height = '100%'
+    document.body.appendChild(this.canvas)
+  }
   this.regl = require('regl')({
-    canvas: canvas,
+    canvas: this.canvas,
     pixelRatio: 1,
     extensions: [
       'oes_texture_half_float',
@@ -34,35 +43,32 @@ var vSynth = function (opts) {
       'oes_texture_float',
       'oes_texture_float_linear'
     ]})
-  this.canvas = canvas
-  this.o = []
-  this.s = []
-  this.time = 0
-  this.audio = new AudioUtils()
-  window.audio = this.audio
-  document.body.appendChild(canvas)
 
   // This clears the color buffer to black and the depth buffer to 1
   this.regl.clear({
     color: [0, 0, 0, 1]
   })
 
-  for (let i = 0; i < NUM_OUTPUTS; i++) {
-    this.o[i] = new Output({regl: this.regl, width: WIDTH, height: HEIGHT})
-    this.o[i].render()
-    this.o[i].id = i
-    window['o' + i] = this.o[i]
-  }
+  this.o = (Array(numOutputs)).fill().map((el, index) => {
+    var o = new Output({regl: this.regl, width: width, height: height})
+    o.render()
+    o.id = index
+    if (makeGlobal) window['o' + index] = o
+    return o
+  })
+
   this.output = this.o[0]
-  for (let i = 0; i < NUM_SOURCES; i++) {
-    this.s[i] = new Source({regl: this.regl, pb: this.pb})
-    window['s' + i] = this.s[i]
-  }
+
+  this.s = (Array(numOutputs)).fill().map((el, index) => {
+    var s = new Source({regl: this.regl, pb: this.pb})
+    if (makeGlobal) window['s' + index] = s
+    return s
+  })
 
   this.renderAll = false
   var self = this
   // receives which output to render. if no arguments, renders grid of all fbos
-  window.render = function (output) {
+  this.render = function (output) {
     if (output) {
       self.output = output
       self.renderAll = false
@@ -71,15 +77,17 @@ var vSynth = function (opts) {
     }
   }
 
+  if (makeGlobal) window.render = this.render
+
   var renderFbo = this.regl({
     frag: `
     precision mediump float;
     varying vec2 uv;
+    uniform vec2 resolution;
     uniform sampler2D tex0;
 
     void main () {
-      gl_FragColor = texture2D(tex0, vec2(1.0)-uv);
-      //gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+      gl_FragColor = texture2D(tex0, vec2(1.0 - uv.x, uv.y));
     }
     `,
     vert: `
@@ -89,7 +97,7 @@ var vSynth = function (opts) {
 
     void main () {
       uv = position;
-      gl_Position = vec4(2.0 * position-1.0, 0, 1);
+      gl_Position = vec4(1.0 - 2.0 * position, 0, 1);
     }`,
     attributes: {
       position: [
@@ -99,14 +107,14 @@ var vSynth = function (opts) {
       ]
     },
     uniforms: {
-      tex0: this.regl.prop('tex0')
+      tex0: this.regl.prop('tex0'),
+      resolution: this.regl.prop('resolution')
     },
     count: 3,
     depth: { enable: false }
   })
 
   // to do: dynamically set fbos in render all based on NUM_OUTPUTS
-  // or render all into single texture?? how does regl multiplex work?
   var renderAll = this.regl({
     frag: `
     precision mediump float;
@@ -117,7 +125,7 @@ var vSynth = function (opts) {
     uniform sampler2D tex3;
 
     void main () {
-      vec2 st = uv;
+      vec2 st = vec2(1.0 - uv.x, uv.y);
       st*= vec2(2);
       vec2 q = floor(st).xy*(vec2(2.0, 1.0));
       int quad = int(q.x) + int(q.y);
@@ -125,13 +133,13 @@ var vSynth = function (opts) {
       st.y += step(1., mod(st.x,2.0));
       st = fract(st);
       if(quad==0){
-        gl_FragColor = texture2D(tex0, vec2(1.0)-st);
+        gl_FragColor = texture2D(tex0, st);
       } else if(quad==1){
-        gl_FragColor = texture2D(tex1, vec2(1.0)-st);
+        gl_FragColor = texture2D(tex1, st);
       } else if (quad==2){
-        gl_FragColor = texture2D(tex2, vec2(1.0)-st);
+        gl_FragColor = texture2D(tex2, st);
       } else {
-        gl_FragColor = texture2D(tex3, vec2(1.0)-st);
+        gl_FragColor = texture2D(tex3, st);
       }
 
     }
@@ -143,7 +151,7 @@ var vSynth = function (opts) {
 
     void main () {
       uv = position;
-      gl_Position = vec4(2.0 * position-1.0, 0, 1);
+      gl_Position = vec4(1.0 - 2.0 * position, 0, 1);
     }`,
     attributes: {
       position: [
@@ -169,16 +177,16 @@ var vSynth = function (opts) {
     self.regl.clear({
       color: [0, 0, 0, 1]
     })
-    for (let i = 0; i < NUM_SOURCES; i++) {
+    for (let i = 0; i < self.s.length; i++) {
       self.s[i].tick(self.time)
     }
 
-    for (let i = 0; i < NUM_OUTPUTS; i++) {
+    for (let i = 0; i < self.o.length; i++) {
       self.o[i].tick({
         time: self.time,
         mouse: mouse,
-        bpm: self.audio.bpm,
-        resolution: [WIDTH, HEIGHT]
+        //  bpm: self.audio.bpm,
+        resolution: [self.canvas.width, self.canvas.height]
       })
     }
 
@@ -188,21 +196,17 @@ var vSynth = function (opts) {
         tex0: self.o[0].getTexture(),
         tex1: self.o[1].getTexture(),
         tex2: self.o[2].getTexture(),
-        tex3: self.o[3].getTexture()
+        tex3: self.o[3].getTexture(),
+        resolution: [self.canvas.width, self.canvas.height]
       })
     } else {
-      console.log('out', self.output.id)
-      renderFbo({tex0: self.output.getCurrent()})
+    //  console.log('out', self.output.id)
+      renderFbo({
+        tex0: self.output.getCurrent(),
+        resolution: [self.canvas.width, self.canvas.height]
+      })
     }
   }).start()
 }
 
-vSynth.prototype.addStreamSource = function (stream) {
-  var newSource = new Source({regl: this.regl})
-  newSource.init({type: 'stream', stream: stream})
-  this.s.push(newSource)
-  var index = this.s.length - 1
-  window['s' + index] = this.s[index]
-}
-
-module.exports = vSynth
+module.exports = hydraSynth

@@ -4,7 +4,9 @@ const Screen = require('./../lib/screenmedia.js')
 var Source = function (opts) {
   this.regl = opts.regl
   this.video = null
-  this.tex = this.regl.texture()
+  this.tex = this.regl.texture({
+  //  flipY: true
+  })
   this.pb = opts.pb
 }
 

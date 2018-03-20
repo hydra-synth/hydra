@@ -3,7 +3,7 @@ var Audio = function (opts) {
   this.bpm = 60
 }
 
-Audio.prototype.addStreamSource = function (stream) {
+Audio.prototype.test = function (stream) {
 
 }
 
