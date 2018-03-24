@@ -21,6 +21,7 @@
     "extend": "^3.0.1",
     "getscreenmedia": "^3.0.0",
     "getusermedia": "^2.0.1",
+    "hydra-synth": "^1.0.1",
     "inherits": "^2.0.3",
     "mouse-change": "^1.4.0",
     "object-assign": "^4.1.1",

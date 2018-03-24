@@ -1,5 +1,5 @@
 const PatchBay = require('./src/pb-live.js')
-const HydraSynth = require('./src/hydra-synth.js')
+const HydraSynth = require('hydra-synth')
 const Editor = require('./src/editor.js')
 const Canvas = require('./src/canvas.js')
 
