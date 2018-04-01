@@ -8,7 +8,8 @@
     "build-main": "browserify ./hydra-server/app/index.js -o ./bundle.js",
     "build-camera": "browserify ./hydra-server/app/camera.js -o ./camera-bundle.js",
     "build-static": "npm run build-main && npm run build-camera",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "./scripts/docs.js docs/funcs.md"
   },
   "author": "Olivia Jack",
   "license": "ISC",
