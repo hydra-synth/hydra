@@ -1,6 +1,9 @@
-/* global CodeMirror */
 /* eslint-disable no-eval */
-// var CodeMirror = require('codemirror/lib/codemirror')
+var CodeMirror = require('codemirror/lib/codemirror')
+require('codemirror/mode/javascript/javascript')
+require('codemirror/addon/hint/javascript-hint')
+require('codemirror/addon/hint/show-hint')
+
 var isShowing = true
 
 var EditorClass = function () {
