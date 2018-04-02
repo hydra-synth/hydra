@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "browserify-middleware": "^8.0.0",
+    "codemirror": "^5.36.0",
     "enumerate-devices": "^1.1.1",
     "events": "^1.1.1",
     "express": "^4.15.2",
