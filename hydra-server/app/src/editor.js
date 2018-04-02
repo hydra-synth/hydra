@@ -3,6 +3,7 @@ var CodeMirror = require('codemirror/lib/codemirror')
 require('codemirror/mode/javascript/javascript')
 require('codemirror/addon/hint/javascript-hint')
 require('codemirror/addon/hint/show-hint')
+require('codemirror/addon/selection/mark-selection')
 
 var isShowing = true
 
@@ -13,6 +14,7 @@ var EditorClass = function () {
     value: 'hello',
     mode: {name: 'javascript', globalVars: true},
     lineWrapping: true,
+    styleSelectedText: true,
     extraKeys: {
       'Shift-Ctrl-Enter': function (instance) {
         self.eval()
