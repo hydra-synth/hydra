@@ -14,7 +14,7 @@
   },
   "content_scripts": [ {
     "js": [ "content.js" ],
-    "matches": [ "*://localhost/*",  "*://ojack.github.io/*",  "*://ojack.github.io/*/*", "*://hydra-editor.glitch.me/*",
+    "matches": [ "*://localhost/*",  "*://ojack.github.io/*",  "*://ojack.github.io/*/*", "*://hydra-editor.glitch.me/*", "*://hydra-editor-v1.glitch.me/*",
       "*://192.168.0.164/*"]
   }],
   "externally_connectable": {
@@ -24,6 +24,7 @@
           "*://192.168.0.164/*",
           "*://ojack.github.io/*",
           "*://hydra-editor.glitch.me/*",
+          "*://hydra-editor-v1.glitch.me/*",
           "*://ojack.github.io/*/*"
       ]
   }

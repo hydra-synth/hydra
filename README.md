@@ -14,46 +14,41 @@ Go to https://hydra-editor.glitch.me
 
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen
+* ALT-Enter: run a block
 * CTRL-Shift-H: hide or show code
 
 All code can be run either from the in-browser text editor or from the browser console.
 
 #### Basic functions
-render a simple oscillator. For more information about oscillators, see [the lumen guide to oscillators](https://lumen-app.com/guide/oscillators/). Use Ctrl+Enter to run the code:
-```
-o0.osc()
-```
-
 render an oscillator with parameters frequency, sync, and rgb offset:
 ```
-o0.osc(20, 0.1, 0.8)
+osc(20, 0.1, 0.8).out()
 ```
 
 rotate the oscillator 1.5 radians:
 ```
-o0.osc(20, 0.1, 0.8).rotate(0.8)
+osc(20, 0.1, 0.8).rotate(0.8).out()
 ```
 pixelate the output of the above function:
 ```
-o0.osc(20, 0.1, 0.8).rotate(0.8).pixelate(20, 30)
+osc(20, 0.1, 0.8).rotate(0.8).pixelate(20, 30).out()
 ```
 show webcam output:
 ```
 s0.initCam() //initialize a webcam in source buffer s0
-o0.src(s0) //set the source of o0 to render the buffer containing the webcam
+src(s0).out() //render source buffer s0
 ```
 
 webcam kaleidoscope:
 ```
 s0.initCam() //initialize a webcam in source buffer s0
-o0.src(s0).kaleid(4) //render the webcam to a kaleidoscope
+src(s0).kaleid(4).out() //render the webcam to a kaleidoscope
 ```
 
 By default, the environment contains four separate output buffers that can each render different graphics.  The outputs are accessed by the variables o0, o1, o2, and o3.
-
 to render to output buffer o1:
 ```
-o1.gradient()
+osc().out(o1)
 render(o1) //render the contents of o1
 ```
 
@@ -65,8 +60,8 @@ render()
 The output buffers can then be mixed and composited to produce what is shown on the screen.
 ```
 s0.initCam() //initialize a webcam in source buffer s0
-o0.src(s0) //set the source of o0 to render the buffer containing the webcam
-o1.gradient().diff(o0) //initialize a gradient in output buffer o1, composite with the contents of o0
+src(s0).out(o0) //set the source of o0 to render the buffer containing the webcam
+osc(10, 0.2, 0.8).diff(o0).out(o1) //initialize a gradient in output buffer o1, composite with the contents of o0
 render(o1) // render o1 to the screen
 ```
 
@@ -74,18 +69,20 @@ The composite functions blend(), diff(), mult(), and add() perform arithmetic op
 
 modulate(texture, amount) uses the red and green channels of the input texture to modify the x and y coordinates of the base texture. More about modulation at: https://lumen-app.com/guide/modulation/
 ```
-o0.osc(21, 0).modulate(o1)
-o1.osc(40).rotate(1.57)
+osc(21, 0).modulate(o1).out(o0)
+osc(40).rotate(1.57).out(o1)
 ```
-#### Passing functions as variables (work in progress)
+
+#### Passing functions as variables
 Each parameter can be defined as a function rather than a static variable. For example,
 ```
-o0.osc(function(t){return 100*Math.sin(t*0.1)})
+osc(function({time}){return 100*Math.sin(time*0.1)}).out()
 ```
 modifies the oscillator frequency as a function of time. This can be written more concisely using es6 syntax:
 ```
-o0.osc((t)=>(100*Math.sin(t*0.1)))
+osc(({t}) => (100*Math.sin(time*0.1))).out()
 ```
+
 #### Desktop capture
 To use screen capture or a browser tab as an input texture, you must first install the chrome extension for screensharing, and restart chrome. Desktop capture can be useful for inputing graphics from another application, or a video or website in another browser tab. It can also be used to create interesting feedback effects.
 
