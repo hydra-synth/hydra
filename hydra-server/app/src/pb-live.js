@@ -49,7 +49,7 @@ PBLive.prototype.init = function (stream, opts) {
   this.on('new peer', this.handleNewPeer.bind(this))
 
   window.onbeforeunload = () => {
-    this.session.id = window.pb.getLocalId()
+    this.session.id = window.pb.id
     this.session.nick = this.nick
     sessionStorage.setItem('pb', JSON.stringify(this.session))
   }
