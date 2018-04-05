@@ -42,6 +42,13 @@ canvas {
   z-index: -2;
 }
 
+#audio-canvas {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color: transparent;
+}
+
 .CodeMirror {
   position: absolute;
   top: 20px;
