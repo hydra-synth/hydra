@@ -41,9 +41,10 @@ var EditorClass = function () {
       }
     }
   })
-  var startString = 'o0.osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
-  startString += '.color([' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + '])'
+  var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
+  startString += '.color(' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2)+ ')'
   startString += '.rotate(' + Math.random().toFixed(2) + ')'
+  startString += '.out(o0)'
   // 'o0.osc().rotate(0.1, 0.1).color()'
   this.cm.setValue(startString)
   this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
