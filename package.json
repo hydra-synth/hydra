@@ -19,12 +19,13 @@
     "enumerate-devices": "^1.1.1",
     "express": "^4.15.2",
     "getusermedia": "^2.0.1",
-    "hydra-synth": "^1.0.1",
+    "hydra-synth": "^1.0.5",
     "inherits": "^2.0.3",
     "meyda": "^4.1.3",
     "raf-loop": "^1.1.3",
     "rtc-patch-bay": "^1.0.0",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "webrtc-adapter": "^6.1.4"
   },
   "devDependencies": {
     "browserify": "^16.1.1",
