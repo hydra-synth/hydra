@@ -182,7 +182,7 @@ Use the value to control a variable:
 osc(10, 0, () => (a.fft[0]*4))
   .out()
 ```
-It is possible to calibrate the responsiveness by changing the minimum and maximum value detected. To set minimum value detected:
+It is possible to calibrate the responsiveness by changing the minimum and maximum value detected. (Represented by black lines over the fft). To set minimum value detected:
 ```
 a.setCutoff(4)
 ```
@@ -191,6 +191,11 @@ To set maximum:
 a.setMax(10)
 ```
 The fft[<index>] will return a value between 0 and 1, where 0 represents the cutoff and 1 corresponds to the maximum.
+
+To hide the audio waveform:
+```
+a.hide()
+```
 
 #### Adding/editing transformation functions
 
