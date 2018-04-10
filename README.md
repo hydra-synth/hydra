@@ -163,6 +163,35 @@ npm run start
 ```
 go to https://localhost:8000 in the browser
 
+#### Audio Responsiveness (experimental)
+FFT functionality is available via an audio object accessed via "a". The editor uses https://github.com/meyda/meyda for audio analysis.
+To show the fft bins,
+```
+a.show()
+```
+Set number of fft bins:
+```
+a.setBins(6)
+```
+Access the value of the leftmost (lowest frequency) bin:
+```
+a.fft[0]
+```
+Use the value to control a variable:
+```
+osc(10, 0, () => (a.fft[0]*4))
+  .out()
+```
+It is possible to calibrate the responsiveness by changing the minimum and maximum value detected. To set minimum value detected:
+```
+a.setCutoff(4)
+```
+To set maximum:
+```
+a.setMax(10)
+```
+The fft[<index>] will return a value between 0 and 1, where 0 represents the cutoff and 1 corresponds to the maximum.
+
 #### Adding/editing transformation functions
 
 All of the available functions for transforming coordinates and color, as well as compositing textures, correspond directly to a snippet of fragment shader code. These transformations are defined in the file hydra/hydra-server/app/src/glslTransforms.js. When running locally, you can edit this file to change the available functions, and refresh the page to see changes.
@@ -170,7 +199,20 @@ All of the available functions for transforming coordinates and color, as well a
 
 #### API
 
-For updated list of functions, see glslTransforms.js file in hydra/hydra-server/app/src/
+For updated list of functions, see comosable-glslTransforms.js file in hydra/hydra-server/app/src/
+
+#### Changelog between v0 and v1:
+* Syntax change from 'o0.osc()' to 'osc().out(o0)'. Note: old syntax still works
+* multiple generator functions can be composited into each other:
+`osc(10)
+  .rotate(0.5)
+  .diff(osc(200).rotate(0.2))
+  .out()`
+* Buffer can be an input to itself
+* Multiple cameras can be specified using s0.initCam(1)
+* synth logic exists as a separate module, hydra-synth
+* added preliminary fft capability
+* fixed some bugs in editor and camera
 
  #### Libraries and tools used:
  * [Regl: functional webgl](http://regl.party/)
