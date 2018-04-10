@@ -8,6 +8,15 @@ Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and c
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
+Note: this repository is for the online version of hydra. Other pieces of hydra are published as separate modules:
+* [hydra-synth](https://github.com/ojack/hydra-synth): synth engine of hydra as a standalone npm module
+
+Experimental/in progress/not documented:
+* [rtc-patch-bay](https://github.com/ojack/rtc-patch-bay): networking logic of hydra as a standalone npm module
+* [atom-hydra](https://github.com/ojack/atom-hydra): use hydra within atom
+
+
+Other projects
 #### Getting started
 
 Go to https://hydra-editor-v1.glitch.me
