@@ -10,7 +10,7 @@ I welcome pull requests as well as comments, ideas, and bugs in the issues secti
 
 #### Getting started
 
-Go to https://hydra-editor.glitch.me
+Go to https://hydra-editor-v1.glitch.me
 
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen
@@ -80,7 +80,7 @@ osc(function({time}){return 100*Math.sin(time*0.1)}).out()
 ```
 modifies the oscillator frequency as a function of time. This can be written more concisely using es6 syntax:
 ```
-osc(({t}) => (100*Math.sin(time*0.1))).out()
+osc(({time}) => (100*Math.sin(time*0.1))).out()
 ```
 
 #### Desktop capture
@@ -97,7 +97,7 @@ s0.initScreen()
 render screen tab:
 ```
 s0.initScreen()
-o0.src(s0)
+src(s0).out()
 ```
 
 #### Connecting to remote streams
@@ -117,18 +117,13 @@ s0.initStream("myGraphics")
 render to screen:
 ```
 s0.initStream("myGraphics")
-o0.src(s0)
+src(s0).out()
 ```
 The connections sometimes take a few seconds to be established; open the browser console to see progress.
 To list available sources, type the following in the console:
 ```
 pb.list()
 ```
-
-#### Standalone camera source
-Example of using patch-bay without hydra, that lets you use the camera of a phone or a computer as a source in the network, without needing to open the hydra editor. (Most likely only works with android phones until apple fully supports WebRTC/)
-live at: https://hydra-editor.glitch.me/camera.html
-source at: app/src/camera.js & camera.html
 
 #### Running locally
 To run locally, you must have nodejs and npm installed. Install from: https://nodejs.org/en/
