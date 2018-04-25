@@ -1,173 +1,201 @@
 # Functions
 
-## Argument Types
+## Color
 
-* float
-* texture
-* vec4
-
-## Functions
-
-### Color
-
-#### invert
+### .contrast()
 
 No Args
 
-#### contrast
-
-No Args
-
-#### luma
-
-#### Args
-* threshold :: float
-* tolerance :: float
-
-#### thresh
-
-#### Args
-* threshold :: float
-* tolerance :: float
-
-#### color
-
-#### Args
+### .color( `r`, `g`, `b` )
 * r :: float
 * g :: float
 * b :: float
 
-#### colorama
+### .colorama()
 
 No Args
 
-
-### Combine
-
-#### add
-
-#### Args
-* color :: vec4
-* amount :: float
-
-#### layer
+### .invert()
 
 No Args
 
-#### blend
+### .luma( `threshold`, `tolerance` )
+* threshold :: float
+* tolerance :: float
 
-#### Args
-* color :: vec4
+### .thresh( `threshold`, `tolerance` )
+* threshold :: float
+* tolerance :: float
+
+-----------
+
+## Combine
+
+### .add( `texture`, `amount` )
+* texture
+  * color :: vec4
+  * src
+  * shape
 * amount :: float
 
-#### mult
-
-#### Args
-* color :: vec4
+### .blend( `texture`, `amount` )
+* texture
+  * color :: vec4
+  * src
+  * shape
 * amount :: float
 
-#### diff
+### .diff( `texture`, `amount` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* amount :: float
+
+### .layer()
 
 No Args
 
+### .mult( `texture`, `amount` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* amount :: float
 
-### CombineCoord
+-----------------
 
-#### modulate
+## CombineCoord
 
-#### Args
+### .modulate( `texture`, `amount` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* amount :: float
+
+### .modulateHue( `color`, `amount` )
 * color :: vec4
 * amount :: float
 
-#### modulateHue
+-----------------
 
-#### Args
-* color :: vec4
-* amount :: float
+## Coord
 
+### .kaleid()
 
-### Coord
+No Args
 
-#### rotate
-
-#### Args
+### .rotate( `angle`, `speed` )
 * angle :: float
 * speed :: float
 
-#### scale
+### .scale( `size` )
+* size :: float
 
-No Args
-
-#### pixelate
-
-#### Args
+### .pixelate( `x`, `y` )
 * pixelX :: float
 * pixelY :: float
 
-#### kaleid
-
-No Args
-
-#### scrollX
-
-#### Args
+### scrollX.( `scrollX`, `speed` )
 * scrollX :: float
 * speed :: float
 
-#### scrollY
-
-#### Args
+### .scrollY( `scrollY`, `speed` )
 * scrollY :: float
 * speed :: float
 
+-------------------------
 
-### Src
+## Src
 
-#### noise
-
-No Args
-
-#### osc
-
-#### Args
+### osc( `frequency`, `sync`, `offset` )
 * frequency :: float
 * sync :: float
 * offset :: float
 
-#### src
+### render( `output buffer`)
+* default: `o0`
 
-No Args
+### shape( `sides`, `scale`, `blur`)
+* sides :: int
+* scale :: float
+* blur :: float
 
-#### solid
-
-#### Args
+### solid( `r`, `g`, `b`, `a`)
 * r :: float
 * g :: float
 * b :: float
 * a :: float
 
+### src( `input` )
+* input :: examples: `o0`, `s1`
 
-### Util
-
-#### random
-
-No Args
-
-#### _noise
+### .noise()
 
 No Args
 
-#### luminance
+### .out( `output buffer` )
+* output buffer
+  * osc: `o0`, `o1`, `o2`, `o3`
+  * src: `s0`, `s1`, `s2`, `s3`
+
+-------------------
+
+## Animate
+
+### seq( `array[]`, `speed` )
+
+#### note: should be defined at top of file
+```
+seq = (arr = [], speed = 1) => ({time}) => (   
+  arr[ Math.floor( time * speed % (arr.length) ) ]
+)
+```
+
+#### example
+
+```
+osc(
+  seq( [80, 100, 200, 50], 1 )
+)
+.out(o0)
+```
+
+-------------------
+
+## Audio
+
+### .hide()
+
+### .setBins( `int` )
+
+### .setCutoff( `float` )
+
+### .setMax( `float` )
+
+### .show()
+
+-------------------
+
+## Util
+
+### random()
 
 No Args
 
-#### rgbToHsv
+### _noise()
 
 No Args
 
-#### hsvToRgb
+### luminance()
 
 No Args
 
+### rgbToHsv()
 
+No Args
 
+### hsvToRgb()
+
+No Args
