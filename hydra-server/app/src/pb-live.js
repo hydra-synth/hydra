@@ -2,6 +2,7 @@
 // Extends rtc-patch-bay to include support for nicknames and persistent session storage
 
 var PatchBay = require('rtc-patch-bay')
+//var PatchBay = require('./../../../../rtc-patch-bay')
 var inherits = require('inherits')
 
 var PBLive = function () {
@@ -74,8 +75,8 @@ PBLive.prototype.loadFromStorage = function () {
   }
 }
 
-PBLive.prototype.initSource = function (nick) {
-  this.initConnectionFromId(this.idFromNick[nick])
+PBLive.prototype.initSource = function (nick, callback) {
+  this.initConnectionFromId(this.idFromNick[nick], callback)
 //  this.peers[this.idFromNick[nick]].streamCallback = callback
 }
 

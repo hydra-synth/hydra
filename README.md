@@ -213,7 +213,12 @@ For updated list of functions, see comosable-glslTransforms.js file in hydra/hyd
   .rotate(0.5)
   .diff(osc(200).rotate(0.2))
   .out()`
-* Buffer can be an input to itself
+* Buffer can be an input to itself:
+`osc(40, 0.1, 1)
+  .modulate(src(o0), 0.1)
+  .scale(1.1)
+  .rotate(0.04)
+  .out(o0)`
 * Multiple cameras can be specified using s0.initCam(1)
 * synth logic exists as a separate module, hydra-synth
 * added preliminary fft capability
