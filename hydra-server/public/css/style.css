@@ -58,3 +58,19 @@ canvas {
   height: calc(100% - 20px);
   background: transparent;
 }
+
+.console {
+  bottom: 0px;
+  position: absolute;
+  padding: 20px;
+  padding-bottom: 5px;
+  width: calc(100% - 40px);
+  z-index: 6;
+  left: 0px;
+  font-family: monospace;
+  color: #fff;
+}
+
+.log-error {
+  color: #f00;
+}

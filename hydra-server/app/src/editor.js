@@ -32,12 +32,12 @@ var EditorClass = function () {
       'Ctrl-Enter': function (instance) {
         var c = instance.getCursor()
         var s = instance.getLine(c.line)
-        eval(s)
+        self.eval(s)
       },
       'Alt-Enter': (instance) => {
         var text = self.selectCurrentBlock(instance)
         console.log('text', text)
-        eval(text.text)
+        self.eval(text.text)
       }
     }
   })
@@ -49,10 +49,10 @@ var EditorClass = function () {
   this.cm.setValue(startString)
   this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
-  this.log = document.createElement('div')
-  this.log.innerHTML = "tesssst"
-  this.log.className = "console"
-  document.body.appendChild(this.log)
+  this.logElement = document.createElement('div')
+  this.logElement.className = "console cm-s-tomorrow-night-eighties"
+  document.body.appendChild(this.logElement)
+  this.log("hi")
   //   var arrows = [37, 38, 39, 40]
   //   var self = this
   // //   this.cm.on('keyup', function(cm, e) {
@@ -69,7 +69,9 @@ var EditorClass = function () {
 }
 
 EditorClass.prototype.eval = function (arg) {
+  var self = this
   var jsString
+  var isError = false
   if (arg) {
     jsString = arg
   } else {
@@ -78,8 +80,18 @@ EditorClass.prototype.eval = function (arg) {
   try {
     eval(jsString)
   } catch (e) {
-    console.log('ERROR', JSON.stringify(e))
+    isError = true
+    console.log("logging", e.message)
+    self.log(e.message, "log-error")
+    //console.log('ERROR', JSON.stringify(e))
   }
+  if(!isError){
+    self.log(jsString)
+  }
+}
+
+EditorClass.prototype.log = function(msg, className = "") {
+  this.logElement.innerHTML =` >> <span class=${className}> ${msg} </span> `
 }
 
 EditorClass.prototype.selectCurrentBlock = function (editor) { // thanks to graham wakefield + gibber
