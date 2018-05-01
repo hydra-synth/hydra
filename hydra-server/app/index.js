@@ -15,7 +15,7 @@ function init () {
   // console.log("loaded", document.getElementById('code'))
   var canvas = Canvas(document.getElementById('hydra-canvas'))
   canvas.size()
-  console.log("canvas size", document.getElementById('hydra-canvas').width, document.getElementById('hydra-canvas').height)
+  //console.log("canvas size", document.getElementById('hydra-canvas').width, document.getElementById('hydra-canvas').height)
   var pb = new PatchBay()
   var hydra = new HydraSynth({
     pb: pb,

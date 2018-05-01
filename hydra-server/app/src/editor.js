@@ -49,6 +49,10 @@ var EditorClass = function () {
   this.cm.setValue(startString)
   this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
+  this.log = document.createElement('div')
+  this.log.innerHTML = "tesssst"
+  this.log.className = "console"
+  document.body.appendChild(this.log)
   //   var arrows = [37, 38, 39, 40]
   //   var self = this
   // //   this.cm.on('keyup', function(cm, e) {
