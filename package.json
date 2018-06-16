@@ -19,7 +19,7 @@
     "enumerate-devices": "^1.1.1",
     "express": "^4.15.2",
     "getusermedia": "^2.0.1",
-    "hydra-synth": "^1.0.5",
+    "hydra-synth": "^1.0.12",
     "inherits": "^2.0.3",
     "meyda": "^4.1.3",
     "raf-loop": "^1.1.3",
