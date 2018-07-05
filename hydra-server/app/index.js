@@ -3,15 +3,15 @@ const HydraSynth = require('hydra-synth')
 //const HydraSynth = require('./../../../hydra-synth/index.js')
 const Editor = require('./src/editor.js')
 const Canvas = require('./src/canvas.js')
-const Audio = require('./src/audio.js')
+//const Audio = require('./src/audio.js')
 const loop = require('raf-loop')
 
 function init () {
-  var audio = new Audio({
-    numBins: 3,
-    cutoff: 2
-  })
-  window.a = audio
+  // var audio = new Audio({
+  //   numBins: 3,
+  //   cutoff: 2
+  // })
+  // window.a = audio
   // console.log("loaded", document.getElementById('code'))
   var canvas = Canvas(document.getElementById('hydra-canvas'))
   canvas.size()
@@ -32,7 +32,7 @@ function init () {
   var engine = loop(function(dt) {
     // delta time in milliseconds
     hydra.tick(dt)
-    audio.tick()
+  //  audio.tick()
 }).start()
 }
 
