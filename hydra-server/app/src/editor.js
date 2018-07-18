@@ -9,6 +9,9 @@ var isShowing = true
 
 var EditorClass = function () {
   var self = this
+
+
+
   this.cm = CodeMirror.fromTextArea(document.getElementById('code'), {
     theme: 'tomorrow-night-eighties',
     value: 'hello',
@@ -41,12 +44,21 @@ var EditorClass = function () {
       }
     }
   })
-  var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
-  startString += '.color(' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2)+ ')'
-  startString += '.rotate(' + Math.random().toFixed(2) + ')'
-  startString += '.out(o0)'
-  // 'o0.osc().rotate(0.1, 0.1).color()'
-  this.cm.setValue(startString)
+
+  // if there are url paramters, convert to code
+  let searchParams = new URLSearchParams(window.location.search)
+  let base64Code = searchParams.get('id')
+  if (base64Code) {
+      let decoded = decodeURIComponent(atob(base64Code))
+      this.cm.setValue(decoded)
+  } else {
+    var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
+    startString += '.color(' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2)+ ')'
+    startString += '.rotate(' + Math.random().toFixed(2) + ')'
+    startString += '.out(o0)'
+    // 'o0.osc().rotate(0.1, 0.1).color()'
+    this.cm.setValue(startString)
+  }
   this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
   this.logElement = document.createElement('div')
@@ -86,7 +98,16 @@ EditorClass.prototype.eval = function (arg) {
     //console.log('ERROR', JSON.stringify(e))
   }
   if(!isError){
-    self.log(jsString)
+    // if successfully evaluated, update url
+    // based on: https://github.com/htor/scratch-editor/blob/master/scripts/tools.js
+    if(!arg){
+      let base64 = btoa(encodeURIComponent(jsString))
+      console.log(base64)
+      let newurl = window.location.protocol + '//' +
+      window.location.host + window.location.pathname + `?id=${base64}`
+      window.history.pushState({ path: newurl }, '', newurl)
+      self.log(jsString)
+    }
   }
 }
 
