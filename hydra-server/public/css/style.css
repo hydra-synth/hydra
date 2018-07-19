@@ -68,7 +68,8 @@ canvas {
   z-index: 6;
   left: 0px;
   font-family: monospace;
-  color: #fff;
+  font-size: 12px;
+  color: #aaa;
 }
 
 .log-error {

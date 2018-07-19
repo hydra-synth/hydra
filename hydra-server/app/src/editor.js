@@ -26,9 +26,11 @@ var EditorClass = function () {
         var l = document.getElementsByClassName('CodeMirror-scroll')[0]
         if (isShowing) {
           l.style.display = 'none'
+          self.logElement.style.display = 'none'
           isShowing = false
         } else {
           l.style.display = 'block'
+          self.logElement.style.display = 'block'
           isShowing = true
         }
       },
@@ -48,6 +50,7 @@ var EditorClass = function () {
   // if there are url paramters, convert to code
   let searchParams = new URLSearchParams(window.location.search)
   let base64Code = searchParams.get('id')
+
   if (base64Code) {
       let decoded = decodeURIComponent(atob(base64Code))
       this.cm.setValue(decoded)
@@ -78,6 +81,18 @@ var EditorClass = function () {
   //   mode:  'javascript'
   // });
   //  editor.refresh()
+  let showCode = searchParams.get('show-code')
+  console.log(showCode)
+//  if(showCode !== null) {
+    console.log("about to ")
+    if(showCode == "false") {
+      console.log("not showing code")
+        var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+      l.style.display = 'none'
+      self.logElement.style.display = 'none'
+      isShowing = false
+    }
+  //}
 }
 
 EditorClass.prototype.eval = function (arg) {
