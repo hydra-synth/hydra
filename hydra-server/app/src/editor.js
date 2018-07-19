@@ -82,12 +82,10 @@ var EditorClass = function () {
   // });
   //  editor.refresh()
   let showCode = searchParams.get('show-code')
-  console.log(showCode)
-//  if(showCode !== null) {
-    console.log("about to ")
+
     if(showCode == "false") {
       console.log("not showing code")
-        var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+      var l = document.getElementsByClassName('CodeMirror-scroll')[0]
       l.style.display = 'none'
       self.logElement.style.display = 'none'
       isShowing = false
