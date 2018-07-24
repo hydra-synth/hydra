@@ -3,6 +3,7 @@ const HydraSynth = require('hydra-synth')
 const Editor = require('./src/editor.js')
 const Canvas = require('./src/canvas.js')
 const loop = require('raf-loop')
+const Recorder = require('./src/stream-recorder.js')
 
 function init () {
   var canvas = Canvas(document.getElementById('hydra-canvas'))
@@ -15,6 +16,7 @@ function init () {
   var editor = new Editor()
   editor.eval()
   var localStream = hydra.canvas.captureStream(25)
+  window.recorder = new Recorder(localStream)
   pb.init(localStream, {
     server: window.location.origin,
     room: 'iclc'
