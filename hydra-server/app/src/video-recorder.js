@@ -12,7 +12,11 @@ class VideoRecorder {
   }
 
   start() {
-    let options = {mimeType: 'video/webm'};
+  //  let options = {mimeType: 'video/webm'};
+
+   let options = {mimeType: 'video/webm;codecs=h264'};
+  //  let options = {mimeType: 'video/webm;codecs=vp9'};
+
     this.recordedBlobs = []
     try {
      this.mediaRecorder = new MediaRecorder(this.stream, options)
@@ -48,19 +52,20 @@ class VideoRecorder {
 
  _handleStop() {
    //const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'})
-   const blob = new Blob(this.recordedBlobs, {type: 'video/webm'})
+   // const blob = new Blob(this.recordedBlobs, {type: 'video/webm;codecs=h264'})
+  const blob = new Blob(this.recordedBlobs, {type: this.mediaRecorder.mimeType})
    const url = window.URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.style.display = 'none'
     a.href = url
     let d = new Date()
-    a.download = `hydra-${d.getYear()}-${d.getMonth() + 1}-${d.getDate()}-${d.getHours()}.${d.getMinutes()}.${d.getSeconds()}.webm`
+    a.download = `hydra-${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}-${d.getHours()}.${d.getMinutes()}.${d.getSeconds()}.webm`
     document.body.appendChild(a)
     a.click()
     setTimeout(() => {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
-    }, 100);
+    }, 300);
   }
 
   _handleDataAvailable(event) {
