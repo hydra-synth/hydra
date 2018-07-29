@@ -4,6 +4,15 @@ const app = express()
 const browserify = require('browserify-middleware')
 const https = require('https')
 const path = require('path')
+// TURN server access
+var twilio = require('twilio')
+require('dotenv').config()
+
+console.log('process', process.env)
+
+if(process.env.TWILIO_SID) {
+  var twilio_client = new twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH)
+}
 
 var privateKey = fs.readFileSync(path.join(__dirname, '/certs/key.pem'), 'utf8')
 var certificate = fs.readFileSync(path.join(__dirname, '/certs/certificate.pem'), 'utf8')
@@ -52,7 +61,24 @@ io.on('connection', function (socket) {
     var peerUuids = peers.map(socketId => userFromSocket[socketId])
 
     // Send them to the client
-    socket.emit('ready', socket.id, peerUuids)
+  //  socket.emit('ready', socket.id, peerUuids)
+    if(twilio_client) {
+      twilio_client.api.accounts(process.env.TWILIO_SID).tokens
+      .create({})
+      .then((token) => {
+            console.log(token.iceServers)
+            socket.emit('ready', {
+              id: socket.id,
+              peers: peerUuids,
+              servers: token.iceServers
+            })
+          })
+    } else {
+      socket.emit('ready', {
+        id: socket.id,
+        peers: peerUuids
+      })
+    }
 
     // And then add the client to the room
     socket.join(room)

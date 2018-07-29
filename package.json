@@ -16,6 +16,7 @@
   "dependencies": {
     "browserify-middleware": "^8.0.0",
     "codemirror": "^5.36.0",
+    "dotenv": "^6.0.0",
     "enumerate-devices": "^1.1.1",
     "express": "^4.15.2",
     "getusermedia": "^2.0.1",
@@ -26,6 +27,7 @@
     "raf-loop": "^1.1.3",
     "rtc-patch-bay": "^1.0.0",
     "socket.io": "^2.0.3",
+    "twilio": "^3.18.0",
     "webrtc-adapter": "^6.3.0"
   },
   "devDependencies": {
