@@ -14,8 +14,8 @@ class VideoRecorder {
   start() {
   //  let options = {mimeType: 'video/webm'};
 
-   let options = {mimeType: 'video/webm;codecs=h264'};
-  //  let options = {mimeType: 'video/webm;codecs=vp9'};
+//   let options = {mimeType: 'video/webm;codecs=h264'};
+   let options = {mimeType: 'video/webm;codecs=vp9'};
 
     this.recordedBlobs = []
     try {
