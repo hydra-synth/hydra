@@ -3,6 +3,11 @@ class VideoRecorder {
     this.mediaSource = new MediaSource()
     this.stream = stream
 
+    // testing using a recording as input
+    this.output = document.createElement('video')
+    this.output.autoplay = true
+    this.output.loop = true
+
     let self = this
     this.mediaSource.addEventListener('sourceopen', () => {
       console.log('MediaSource opened');
@@ -55,6 +60,8 @@ class VideoRecorder {
    // const blob = new Blob(this.recordedBlobs, {type: 'video/webm;codecs=h264'})
   const blob = new Blob(this.recordedBlobs, {type: this.mediaRecorder.mimeType})
    const url = window.URL.createObjectURL(blob)
+   this.output.src = url
+
     const a = document.createElement('a')
     a.style.display = 'none'
     a.href = url
