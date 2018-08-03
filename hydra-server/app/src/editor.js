@@ -39,6 +39,9 @@ var EditorClass = function () {
         var s = instance.getLine(c.line)
         self.eval(s)
       },
+      'Ctrl-S': function (instance) {
+        console.log('SSSS s')
+      },
       'Alt-Enter': (instance) => {
         var text = self.selectCurrentBlock(instance)
         console.log('text', text)

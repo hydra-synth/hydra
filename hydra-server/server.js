@@ -8,7 +8,7 @@ const path = require('path')
 var twilio = require('twilio')
 require('dotenv').config()
 
-console.log('process', process.env)
+//console.log('process', process.env)
 
 if(process.env.TWILIO_SID) {
   var twilio_client = new twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH)
