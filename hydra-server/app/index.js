@@ -3,9 +3,12 @@ const HydraSynth = require('hydra-synth')
 const Editor = require('./src/editor.js')
 const Canvas = require('./src/canvas.js')
 const loop = require('raf-loop')
+const P5  = require('./src/p5-wrapper.js')
 
 
 function init () {
+  window.pb = pb
+  window.P5 = P5
   var canvas = Canvas(document.getElementById('hydra-canvas'))
   canvas.size()
   var pb = new PatchBay()
@@ -19,7 +22,7 @@ function init () {
     server: window.location.origin,
     room: 'iclc'
   })
- window.pb = pb
+
   var engine = loop(function(dt) {
     hydra.tick(dt)
 }).start()
