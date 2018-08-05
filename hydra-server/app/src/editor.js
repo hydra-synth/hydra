@@ -25,12 +25,12 @@ var EditorClass = function () {
       'Shift-Ctrl-H': function (instance) {
         var l = document.getElementsByClassName('CodeMirror-scroll')[0]
         if (isShowing) {
-          l.style.display = 'none'
-          self.logElement.style.display = 'none'
+          l.style.opacity = 0
+          self.logElement.style.opacity  = 0
           isShowing = false
         } else {
-          l.style.display = 'block'
-          self.logElement.style.display = 'block'
+          l.style.opacity= 1
+          self.logElement.style.opacity  = 1
           isShowing = true
         }
       },
@@ -39,8 +39,8 @@ var EditorClass = function () {
         var s = instance.getLine(c.line)
         self.eval(s)
       },
-      'Ctrl-S': function (instance) {
-        console.log('SSSS s')
+      'Shift-Ctrl-S': function (instance) {
+        screencap()
       },
       'Alt-Enter': (instance) => {
         var text = self.selectCurrentBlock(instance)
