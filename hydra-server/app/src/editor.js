@@ -20,7 +20,11 @@ var EditorClass = function () {
     styleSelectedText: true,
     extraKeys: {
       'Shift-Ctrl-Enter': function (instance) {
-          self.evalAll()
+          self.evalAll((code, error) => {
+            if(!error){
+              self.saveSketch(code)
+            }
+          })
         // self.eval(null, function (code, error){
         //   if(!error){
         //     // if successfully evaluated, update url
@@ -114,18 +118,22 @@ var EditorClass = function () {
   //}
 }
 
-EditorClass.prototype.evalAll = function () {
+EditorClass.protoptye.saveSketch = function(code) {
+  console.log('no function for save sketch has been implemented')
+}
+EditorClass.prototype.evalAll = function (callback) {
   self.eval(this.cm.getValue(), function (code, error){
-    if(!error){
-      // if successfully evaluated, update url
-      // based on: https://github.com/htor/scratch-editor/blob/master/scripts/tools.js
-        let base64 = btoa(encodeURIComponent(jsString))
-        console.log(base64)
-        let newurl = window.location.protocol + '//' +
-        window.location.host + window.location.pathname + `?id=${base64}`
-        window.history.pushState({ path: newurl }, '', newurl)
-        self.log(jsString)
-    }
+    // if(!error){
+    //   // if successfully evaluated, update url
+    //   // based on: https://github.com/htor/scratch-editor/blob/master/scripts/tools.js
+    //     let base64 = btoa(encodeURIComponent(jsString))
+    //     console.log(base64)
+    //     let newurl = window.location.protocol + '//' +
+    //     window.location.host + window.location.pathname + `?id=${base64}`
+    //     window.history.pushState({ path: newurl }, '', newurl)
+    //     self.log(jsString)
+    // }
+    if(callback) callback(code, error)
   })
 }
 
