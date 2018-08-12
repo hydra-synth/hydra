@@ -4,6 +4,8 @@ const app = express()
 const browserify = require('browserify-middleware')
 const https = require('https')
 const path = require('path')
+const Datastore = require('nedb')
+  db = new Datastore({ filename: '.data/datafile', autoload: true})
 // TURN server access
 var twilio = require('twilio')
 require('dotenv').config()
@@ -22,6 +24,34 @@ var httpsServer = https.createServer(credentials, app)
 
 var io = require('socket.io')(httpsServer)
 
+var sketches = [
+  {"creator": "ojack", "code": "YS5zZXRTbW9vdGgoMC45NiklMEElMEFvc2MoNTAlMkMlMjAwLjAxJTJDJTIwMS40KS5vdXQoKSUwQSUwQSUwQW9zYyg1MCUyQyUyMDAuMDAlMkMlMjAxLjQpLnJvdGF0ZSgwJTJDJTIwMC4xKS5ibGVuZChvMSUyQyUyMDAuOTQpLm1vZHVsYXRlUm90YXRlKHNyYyhvMCkuY29sb3IoMSUyQyUyMDAlMkMlMjAwKSUyQzAuMSkubW9kdWxhdGVIdWUobzElMkMlMjA0KS5vdXQobzEpJTBBcmVuZGVyKG8xKSUwQSUwQQ=="},
+  {"creator": "yecto", "code": "YS5zZXRTbW9vdGgoMC45NiklMEElMEFvc2MoNTAlMkMlMjAwLjAxJTJDJTIwMS40KS5vdXQoKSUwQSUwQSUwQW9zYyg1MCUyQyUyMDAuMDAlMkMlMjAxLjQpLnJvdGF0ZSgwJTJDJTIwLTAuMSkuYmxlbmQobzElMkMlMjAwLjk0KS5tb2R1bGF0ZVJvdGF0ZShzcmMobzApLmNvbG9yKDElMkMlMjAwJTJDJTIwMCklMkMwLjAxKS5tb2R1bGF0ZUh1ZShvMSUyQyUyMDQpLmx1bWEoMC4wOCkub3V0KG8xKSUwQXJlbmRlcihvMSklMEElMEE="}
+]
+
+db.count({}, function (err, count) {
+  console.log("There are " + count + " users in the database");
+  if(err) console.log("There's a problem with the database: ", err);
+  else if(count<=0){ // empty database so needs populating
+    // default users inserted in the database
+    db.insert(sketches, function (err, testAdded) {
+      if(err) console.log("There's a problem with the database: ", err);
+      else if(testAdded) console.log("Default users inserted in the database");
+    });
+  }
+});
+
+app.get('/sketches', function (request, response) {
+  db.find({}, function (err, entries){
+    if (err) {
+      console.log('problem with db', err)
+    } else {
+      response.send(entries)
+    }
+  })
+})
+
+
 app.get('/bundle.js', browserify(path.join(__dirname, '/app/index.js')))
 app.get('/camera-bundle.js', browserify(path.join(__dirname, '/app/camera.js')))
 // crear un servidor en puerto 8000
@@ -37,6 +67,7 @@ var userFromSocket = {}
 // lookup socket id by entering uuid
 var socketFromUser = {}
 
+var networkArray = []
 // new connection to websocket server
 io.on('connection', function (socket) {
   console.log('new connection', socket.id)
@@ -86,6 +117,8 @@ io.on('connection', function (socket) {
     // send updated list of peers to all clients in room
     // io.sockets.emit('peers', peerUuids);
     socket.to(thisRoom).emit('new peer', _userData.uuid)
+
+    console.log('user', JSON.stringify(Object.keys(socketFromUser)))
   })
 
   socket.on('broadcast', function (data) {

@@ -23,10 +23,12 @@
     "hydra-synth": "^1.0.12",
     "inherits": "^2.0.3",
     "meyda": "^4.1.3",
+    "nedb": "^1.8.0",
     "p5": "^0.6.1",
     "raf-loop": "^1.1.3",
     "rtc-patch-bay": "^1.0.0",
     "socket.io": "^2.0.3",
+    "superagent": "^3.8.3",
     "twilio": "^3.18.0",
     "webrtc-adapter": "^6.3.0"
   },
