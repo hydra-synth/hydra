@@ -21,6 +21,7 @@ var EditorClass = function () {
     extraKeys: {
       'Shift-Ctrl-Enter': function (instance) {
           self.evalAll((code, error) => {
+            console.log('evaluated', code, error)
             if(!error){
               self.saveSketch(code)
             }
@@ -118,11 +119,12 @@ var EditorClass = function () {
   //}
 }
 
-EditorClass.protoptye.saveSketch = function(code) {
+EditorClass.prototype.saveSketch = function(code) {
   console.log('no function for save sketch has been implemented')
 }
+
 EditorClass.prototype.evalAll = function (callback) {
-  self.eval(this.cm.getValue(), function (code, error){
+  this.eval(this.cm.getValue(), function (code, error){
     // if(!error){
     //   // if successfully evaluated, update url
     //   // based on: https://github.com/htor/scratch-editor/blob/master/scripts/tools.js
@@ -133,6 +135,7 @@ EditorClass.prototype.evalAll = function (callback) {
     //     window.history.pushState({ path: newurl }, '', newurl)
     //     self.log(jsString)
     // }
+  //  console.log('eval callback called', code, error)
     if(callback) callback(code, error)
   })
 }
@@ -146,15 +149,17 @@ EditorClass.prototype.eval = function (arg, callback) {
   // } else {
   //   jsString = this.cm.getValue()
   // }
+//  console.log('evaluating', arg, callback)
   try {
     eval(jsString)
     self.log(jsString)
   } catch (e) {
     isError = true
-    console.log("logging", e.message)
+  //  console.log("logging", e.message)
     self.log(e.message, "log-error")
     //console.log('ERROR', JSON.stringify(e))
   }
+//  console.log('callback is', callback)
   if(callback) callback(jsString, isError)
   // if(!isError){
   //   // if successfully evaluated, update url

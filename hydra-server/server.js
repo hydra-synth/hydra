@@ -6,6 +6,7 @@ const https = require('https')
 const path = require('path')
 const Datastore = require('nedb')
   db = new Datastore({ filename: '.data/datafile', autoload: true})
+example_db = new Datastore({ filename: '.data/examples', autoload: true})
 // TURN server access
 var twilio = require('twilio')
 require('dotenv').config()
@@ -24,10 +25,7 @@ var httpsServer = https.createServer(credentials, app)
 
 var io = require('socket.io')(httpsServer)
 
-var sketches = [
-  {"creator": "ojack", "code": "YS5zZXRTbW9vdGgoMC45NiklMEElMEFvc2MoNTAlMkMlMjAwLjAxJTJDJTIwMS40KS5vdXQoKSUwQSUwQSUwQW9zYyg1MCUyQyUyMDAuMDAlMkMlMjAxLjQpLnJvdGF0ZSgwJTJDJTIwMC4xKS5ibGVuZChvMSUyQyUyMDAuOTQpLm1vZHVsYXRlUm90YXRlKHNyYyhvMCkuY29sb3IoMSUyQyUyMDAlMkMlMjAwKSUyQzAuMSkubW9kdWxhdGVIdWUobzElMkMlMjA0KS5vdXQobzEpJTBBcmVuZGVyKG8xKSUwQSUwQQ=="},
-  {"creator": "yecto", "code": "YS5zZXRTbW9vdGgoMC45NiklMEElMEFvc2MoNTAlMkMlMjAwLjAxJTJDJTIwMS40KS5vdXQoKSUwQSUwQSUwQW9zYyg1MCUyQyUyMDAuMDAlMkMlMjAxLjQpLnJvdGF0ZSgwJTJDJTIwLTAuMSkuYmxlbmQobzElMkMlMjAwLjk0KS5tb2R1bGF0ZVJvdGF0ZShzcmMobzApLmNvbG9yKDElMkMlMjAwJTJDJTIwMCklMkMwLjAxKS5tb2R1bGF0ZUh1ZShvMSUyQyUyMDQpLmx1bWEoMC4wOCkub3V0KG8xKSUwQXJlbmRlcihvMSklMEElMEE="}
-]
+var sketches = []
 
 db.count({}, function (err, count) {
   console.log("There are " + count + " users in the database");
@@ -47,6 +45,23 @@ app.get('/sketches', function (request, response) {
       console.log('problem with db', err)
     } else {
       response.send(entries)
+    }
+  })
+})
+
+app.post('/sketch', function (request, response) {
+  console.log('post sketch', request.query)
+  db.insert({
+    "code": request.query.code,
+    "parent": request.query.parent,
+    "date": new Date()
+  }, function (err, sketchAdded) {
+    if (err) {
+      console.log('error adding', err)
+      response.sendStatus(500)
+    } else {
+      console.log('ADDED', sketchAdded)
+      response.send(sketchAdded._id)
     }
   })
 })
