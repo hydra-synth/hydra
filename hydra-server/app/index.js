@@ -27,6 +27,9 @@ function init () {
     editor.saveSketch = (code) => {
       sketches.saveSketch(code)
     }
+    editor.saveExample = (code) => {
+      sketches.saveExample(code)
+    }
   })
 
   pb.init(hydra.captureStream, {
