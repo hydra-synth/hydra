@@ -20,7 +20,14 @@ function init () {
     canvas: canvas.element,
     autoLoop: false})
   var editor = new Editor()
-  var sketches = new Gallery(function(code) {
+
+  // variables related to popup window
+  var close = document.getElementById("close-modal")
+  var isClosed = false
+  var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+  closeModal()
+
+  var sketches = new Gallery(function(code, sketchFromURL) {
     console.log('code is', code)
     editor.cm.setValue(code)
     editor.evalAll()
@@ -29,6 +36,13 @@ function init () {
     }
     editor.saveExample = (code) => {
       sketches.saveExample(code)
+    }
+
+    // if a sketch was found based on the URL parameters, dont show intro window
+    if(sketchFromURL) {
+      closeModal()
+    } else {
+      openModal()
     }
   })
 
@@ -54,25 +68,31 @@ function init () {
       editor.cm.setValue(sketches.code)
       editor.evalAll()
     }
-    var close = document.getElementById("close-modal")
-    var isClosed = false
-    var l = document.getElementsByClassName('CodeMirror-scroll')[0]
 
-    l.style.opacity = 0.0
+
+
 
     close.onclick = () => {
 
       if(!isClosed) {
-        document.getElementById("info-container").className = "hidden"
-        close.className = "fas fa-question-circle icon"
-          l.style.opacity = 1
-        isClosed = true
+        closeModal()
       } else {
-        document.getElementById("info-container").className = ""
-        close.className = "fas fa-times icon"
-          l.style.opacity = 0.0
-        isClosed = false
+        openModal()
       }
+    }
+
+    function closeModal () {
+      document.getElementById("info-container").className = "hidden"
+      close.className = "fas fa-question-circle icon"
+        l.style.opacity = 1
+      isClosed = true
+    }
+
+    function openModal () {
+      document.getElementById("info-container").className = ""
+      close.className = "fas fa-times icon"
+      l.style.opacity = 0.0
+      isClosed = false
     }
 }
 

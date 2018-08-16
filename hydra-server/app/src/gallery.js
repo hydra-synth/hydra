@@ -28,7 +28,7 @@ class Gallery {
         //callback()
         this.setSketchFromURL()
 
-        callback(this.code)
+        callback(this.code, this.foundSketch)
       })
 
 
@@ -44,14 +44,19 @@ class Gallery {
     let sketch_id = searchParams.get('sketch_id')
     let code = ''
     console.log("id", sketch_id, "code", base64Code)
+
+    // boolean to determine whether a sketch was found based on the URL, either through looking through the database or rendering the code
+    this.foundSketch = false
     // if contains a sketch id, set sketch from id
     if(sketch_id) {
       var sketch = this.getSketchById(sketch_id)
       console.log('found ', sketch)
       if(sketch) {
         this.setSketch(sketch)
+        this.foundSketch = true
       } else if (base64Code){
         this.code = this.decodeBase64(base64Code)
+        this.foundSketch = true
       } else {
         console.log('id not found', sketch_id)
         this.setRandomSketch()
@@ -59,6 +64,7 @@ class Gallery {
     // backwards combaitbility with earlier shareable URLS
     } else if (base64Code) {
       this.code = this.decodeBase64(base64Code)
+      this.foundSketch = true
     } else {
       this.setRandomSketch()
     }
