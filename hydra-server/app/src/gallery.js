@@ -39,15 +39,19 @@ class Gallery {
 
   setSketchFromURL() {
     let searchParams = new URLSearchParams(window.location.search)
-    let base64Code = searchParams.get('id')
+    let base64Code = searchParams.get('code')
+    if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
     let sketch_id = searchParams.get('sketch_id')
     let code = ''
+    console.log("id", sketch_id, "code", base64Code)
     // if contains a sketch id, set sketch from id
     if(sketch_id) {
       var sketch = this.getSketchById(sketch_id)
       console.log('found ', sketch)
       if(sketch) {
         this.setSketch(sketch)
+      } else if (base64Code){
+        this.code = this.decodeBase64(base64Code)
       } else {
         console.log('id not found', sketch_id)
         this.setRandomSketch()
@@ -60,10 +64,10 @@ class Gallery {
     }
   }
 
-  setToURL(label, entry){
+  setToURL(params){
     //       console.log(base64)
     let newurl = window.location.protocol + '//' +
-    window.location.host + window.location.pathname + `?${label}=${entry}`
+    window.location.host + window.location.pathname + `?${params.map( (param, index) => `${param.label}=${param.value}`).join('&')}`
     window.history.pushState({ path: newurl }, '', newurl)
   }
 
@@ -77,7 +81,8 @@ class Gallery {
   setSketch(sketch) {
     this.code = this.decodeBase64(sketch.code)
     this.current = sketch
-    this.setToURL('sketch_id', sketch._id)
+  //  this.setToURL('sketch_id', sketch._id)
+    this.setToURL([{ label: 'sketch_id', value: sketch._id}, { label: 'code', value: sketch.code}])
   }
 
   setRandomSketch() {
@@ -120,7 +125,7 @@ class Gallery {
           console.log('error posting sketch', err)
         } else {
           console.log('response', res.text)
-          self.setToURL('sketch_id', res.text)
+          self.setToURL([ {label: 'sketch_id', value: res.text}, {label: 'code', value: base64}])
         }
       })
    //       console.log(base64)
@@ -154,7 +159,7 @@ class Gallery {
           console.log('error posting sketch', err)
         } else {
           console.log('response', res.text)
-          self.setToURL('sketch_id', res.text)
+          self.setToURL([ { label: 'sketch_id', value: res.text}, {label: 'code', value: base64} ])
         }
       })
    //       console.log(base64)
