@@ -19,26 +19,11 @@ class Gallery {
       } else {
         this.sketches = JSON.parse(res.text)
       }
-      //callback()
-      // request.get('/examples').end((err, res) => {
-      //   console.log('got examples', res.text, err)
-      //   if(err) {
-      //     console.log('err getting examples', err)
-      //   } else {
-      //     this.examples = JSON.parse(res.text)
-      //   }
 
       this.examples = examples
-        //callback()
-        this.setSketchFromURL()
-
-        callback(this.code, this.foundSketch)
-      //})
-
-
+      this.setSketchFromURL()
+      callback(this.code, this.foundSketch)
     })
-
-
   }
 
   setSketchFromURL() {
@@ -118,40 +103,6 @@ class Gallery {
     }
   }
 
-  // saveExample(code) {
-  //   let self = this
-  //   //console.log('saving in gallery', code)
-  //   let base64 = this.encodeBase64(code)
-  // //  console.log('code is', base64)
-  //
-  //   let query = {
-  //     code: base64,
-  //     parent: this.current ? this.current._id : null
-  //   }
-  // //  if(this.current) query['parent'] = this.current._id
-  //
-  //   console.log('saving in gallery', query)
-  //   request
-  //     .post('/example')
-  //     // .send({
-  //     //   code: base64
-  //     // })
-  //     .query(query)
-  //     .end((err, res) => {
-  //       if(err) {
-  //         console.log('error posting sketch', err)
-  //       } else {
-  //         console.log('response', res.text)
-  //         self.setToURL([ {label: 'sketch_id', value: res.text}, {label: 'code', value: base64}])
-  //       }
-  //     })
-  //  //       console.log(base64)
-  //  //       let newurl = window.location.protocol + '//' +
-  //  //       window.location.host + window.location.pathname + `?id=${base64}`
-  //  //       window.history.pushState({ path: newurl }, '', newurl)
-  //  //       self.log(jsString)
-  // }
-
   saveSketch(code) {
     let self = this
     //console.log('saving in gallery', code)
@@ -162,7 +113,6 @@ class Gallery {
       code: base64,
       parent: this.current ? this.current._id : null
     }
-  //  if(this.current) query['parent'] = this.current._id
 
     console.log('saving in gallery', query)
     request
@@ -179,11 +129,6 @@ class Gallery {
           self.setToURL([ { label: 'sketch_id', value: res.text}, {label: 'code', value: base64} ])
         }
       })
-   //       console.log(base64)
-   //       let newurl = window.location.protocol + '//' +
-   //       window.location.host + window.location.pathname + `?id=${base64}`
-   //       window.history.pushState({ path: newurl }, '', newurl)
-   //       self.log(jsString)
   }
 
   getSketchById(id) {

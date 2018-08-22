@@ -6,7 +6,7 @@ const https = require('https')
 const path = require('path')
 const Datastore = require('nedb')
   db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
-examples_db = new Datastore({ filename: '.data/examples', autoload: true})
+
 // TURN server access
 var twilio = require('twilio')
 require('dotenv').config()
@@ -39,18 +39,6 @@ db.count({}, function (err, count) {
   }
 });
 
-examples_db.count({}, function (err, count) {
-  console.log("There are " + count + " users in the database");
-  if(err) console.log("There's a problem with the database: ", err);
-  else if(count<=0){ // empty database so needs populating
-    // default users inserted in the database
-    examples_db.insert(sketches, function (err, testAdded) {
-      if(err) console.log("There's a problem with the database: ", err);
-      else if(testAdded) console.log("Default users inserted in the database");
-    });
-  }
-});
-
 app.get('/sketches', function (request, response) {
   db.find({}, function (err, entries){
     if (err) {
@@ -64,33 +52,6 @@ app.get('/sketches', function (request, response) {
 app.post('/sketch', function (request, response) {
   console.log('post sketch', request.query)
   db.insert({
-    "code": request.query.code,
-    "parent": request.query.parent,
-    "date": new Date()
-  }, function (err, sketchAdded) {
-    if (err) {
-      console.log('error adding', err)
-      response.sendStatus(500)
-    } else {
-      console.log('ADDED', sketchAdded)
-      response.send(sketchAdded._id)
-    }
-  })
-})
-
-app.get('/examples', function (request, response) {
-  examples_db.find({}, function (err, entries){
-    if (err) {
-      console.log('problem with db', err)
-    } else {
-      response.send(entries)
-    }
-  })
-})
-
-app.post('/example', function (request, response) {
-  console.log('post example', request.query)
-  examples_db.insert({
     "code": request.query.code,
     "parent": request.query.parent,
     "date": new Date()
