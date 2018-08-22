@@ -34,9 +34,6 @@ function init () {
     editor.saveSketch = (code) => {
       sketches.saveSketch(code)
     }
-    editor.saveExample = (code) => {
-      sketches.saveExample(code)
-    }
 
     // if a sketch was found based on the URL parameters, dont show intro window
     if(sketchFromURL) {

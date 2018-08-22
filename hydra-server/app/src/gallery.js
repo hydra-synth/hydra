@@ -1,4 +1,5 @@
 const request = require('superagent')
+const examples = require('./examples.json')
 
 const sketches = []
 
@@ -9,6 +10,7 @@ class Gallery {
     this.examples = []
     this.current = null
     this.code = null
+    this.exampleIndex = null
 
     request.get('/sketches').end((err, res) => {
       console.log('got sketches', res.text, err)
@@ -18,18 +20,20 @@ class Gallery {
         this.sketches = JSON.parse(res.text)
       }
       //callback()
-      request.get('/examples').end((err, res) => {
-        console.log('got examples', res.text, err)
-        if(err) {
-          console.log('err getting examples', err)
-        } else {
-          this.examples = JSON.parse(res.text)
-        }
+      // request.get('/examples').end((err, res) => {
+      //   console.log('got examples', res.text, err)
+      //   if(err) {
+      //     console.log('err getting examples', err)
+      //   } else {
+      //     this.examples = JSON.parse(res.text)
+      //   }
+
+      this.examples = examples
         //callback()
         this.setSketchFromURL()
 
         callback(this.code, this.foundSketch)
-      })
+      //})
 
 
     })
@@ -88,7 +92,10 @@ class Gallery {
     this.code = this.decodeBase64(sketch.code)
     this.current = sketch
   //  this.setToURL('sketch_id', sketch._id)
-    this.setToURL([{ label: 'sketch_id', value: sketch._id}, { label: 'code', value: sketch.code}])
+    let params = Object.keys(sketch).map( (key) => {
+      return {label: key, value: sketch[key]}
+    })
+    this.setToURL(params)
   }
 
   setRandomSketch() {
@@ -96,6 +103,10 @@ class Gallery {
     console.log("examples length", this.examples)
     if(this.examples.length > 0) {
       let rand = Math.floor(Math.random() * this.examples.length)
+      while (rand === this.exampleIndex) {
+        rand = Math.floor(Math.random() * this.examples.length)
+      }
+      this.exampleIndex = rand
       console.log('rand index is', rand)
       this.setSketch(this.examples[rand])
     } else {
@@ -107,39 +118,39 @@ class Gallery {
     }
   }
 
-  saveExample(code) {
-    let self = this
-    //console.log('saving in gallery', code)
-    let base64 = this.encodeBase64(code)
-  //  console.log('code is', base64)
-
-    let query = {
-      code: base64,
-      parent: this.current ? this.current._id : null
-    }
-  //  if(this.current) query['parent'] = this.current._id
-
-    console.log('saving in gallery', query)
-    request
-      .post('/example')
-      // .send({
-      //   code: base64
-      // })
-      .query(query)
-      .end((err, res) => {
-        if(err) {
-          console.log('error posting sketch', err)
-        } else {
-          console.log('response', res.text)
-          self.setToURL([ {label: 'sketch_id', value: res.text}, {label: 'code', value: base64}])
-        }
-      })
-   //       console.log(base64)
-   //       let newurl = window.location.protocol + '//' +
-   //       window.location.host + window.location.pathname + `?id=${base64}`
-   //       window.history.pushState({ path: newurl }, '', newurl)
-   //       self.log(jsString)
-  }
+  // saveExample(code) {
+  //   let self = this
+  //   //console.log('saving in gallery', code)
+  //   let base64 = this.encodeBase64(code)
+  // //  console.log('code is', base64)
+  //
+  //   let query = {
+  //     code: base64,
+  //     parent: this.current ? this.current._id : null
+  //   }
+  // //  if(this.current) query['parent'] = this.current._id
+  //
+  //   console.log('saving in gallery', query)
+  //   request
+  //     .post('/example')
+  //     // .send({
+  //     //   code: base64
+  //     // })
+  //     .query(query)
+  //     .end((err, res) => {
+  //       if(err) {
+  //         console.log('error posting sketch', err)
+  //       } else {
+  //         console.log('response', res.text)
+  //         self.setToURL([ {label: 'sketch_id', value: res.text}, {label: 'code', value: base64}])
+  //       }
+  //     })
+  //  //       console.log(base64)
+  //  //       let newurl = window.location.protocol + '//' +
+  //  //       window.location.host + window.location.pathname + `?id=${base64}`
+  //  //       window.history.pushState({ path: newurl }, '', newurl)
+  //  //       self.log(jsString)
+  // }
 
   saveSketch(code) {
     let self = this

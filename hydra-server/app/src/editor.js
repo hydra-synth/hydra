@@ -41,14 +41,14 @@ var EditorClass = function () {
         //   }
         // })
       },
-      'Shift-Ctrl-E': function(instance) {
-        self.evalAll((code, error) => {
-          console.log('evaluated', code, error)
-          if(!error){
-            self.saveExample(code)
-          }
-        })
-      },
+      // 'Shift-Ctrl-E': function(instance) {
+      //   self.evalAll((code, error) => {
+      //     console.log('evaluated', code, error)
+      //     if(!error){
+      //       self.saveExample(code)
+      //     }
+      //   })
+      // },
       'Shift-Ctrl-H': function (instance) {
         var l = document.getElementsByClassName('CodeMirror-scroll')[0]
         if (isShowing) {
@@ -131,9 +131,9 @@ EditorClass.prototype.saveSketch = function(code) {
   console.log('no function for save sketch has been implemented')
 }
 
-EditorClass.prototype.saveExample = function(code) {
-  console.log('no function for save example has been implemented')
-}
+// EditorClass.prototype.saveExample = function(code) {
+//   console.log('no function for save example has been implemented')
+// }
 
 EditorClass.prototype.evalAll = function (callback) {
   this.eval(this.cm.getValue(), function (code, error){

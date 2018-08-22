@@ -5,7 +5,7 @@ const browserify = require('browserify-middleware')
 const https = require('https')
 const path = require('path')
 const Datastore = require('nedb')
-  db = new Datastore({ filename: '.data/datafile', autoload: true})
+  db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
 examples_db = new Datastore({ filename: '.data/examples', autoload: true})
 // TURN server access
 var twilio = require('twilio')
@@ -150,7 +150,7 @@ io.on('connection', function (socket) {
       twilio_client.api.accounts(process.env.TWILIO_SID).tokens
       .create({})
       .then((token) => {
-            console.log(token.iceServers)
+          //  console.log(token.iceServers)
             socket.emit('ready', {
               id: socket.id,
               peers: peerUuids,
