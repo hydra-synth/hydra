@@ -2,10 +2,38 @@ const fs = require('fs')
 const express = require('express')
 const app = express()
 const browserify = require('browserify-middleware')
-const https = require('https')
+//const https = require('https')
+var server;
 const path = require('path')
 const Datastore = require('nedb')
   db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
+
+// check whether on glitch. If on glitch, use http because glitch automatically creates https.
+if(process.env.GLITCH) {
+  var http = require('http')
+  server = http.createServer(app)
+
+  function checkHttps(req, res, next){
+  // protocol check, if http, redirect to https
+  //console.log("accessing page!", req.params, req.url)
+  if(req.get('X-Forwarded-Proto').indexOf("https")!=-1){
+     // console.log("https, yo")
+      return next()
+    } else {
+      console.log("just http")
+      res.redirect('https://' + req.hostname + req.url);
+    }
+  }
+
+  app.all('*', checkHttps)
+} else {
+  var https = require('https')
+  var privateKey = fs.readFileSync(path.join(__dirname, '/certs/key.pem'), 'utf8')
+  var certificate = fs.readFileSync(path.join(__dirname, '/certs/certificate.pem'), 'utf8')
+
+  var credentials = {key: privateKey, cert: certificate}
+  server = https.createServer(credentials, app)
+}
 
 // TURN server access
 var twilio = require('twilio')
@@ -17,13 +45,9 @@ if(process.env.TWILIO_SID) {
   var twilio_client = new twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH)
 }
 
-var privateKey = fs.readFileSync(path.join(__dirname, '/certs/key.pem'), 'utf8')
-var certificate = fs.readFileSync(path.join(__dirname, '/certs/certificate.pem'), 'utf8')
 
-var credentials = {key: privateKey, cert: certificate}
-var httpsServer = https.createServer(credentials, app)
 
-var io = require('socket.io')(httpsServer)
+var io = require('socket.io')(server)
 
 var sketches = []
 
@@ -73,7 +97,7 @@ app.post('/sketch', function (request, response) {
 app.get('/bundle.js', browserify(path.join(__dirname, '/app/index.js')))
 app.get('/camera-bundle.js', browserify(path.join(__dirname, '/app/camera.js')))
 // crear un servidor en puerto 8000
-httpsServer.listen(8000, function () {
+server.listen(8000, function () {
   // imprimir la direccion ip en la consola
   // console.log('servidor disponible en https://'+myip.getLocalIP4()+':8000')
   console.log('server available at https://localhost:8000')
