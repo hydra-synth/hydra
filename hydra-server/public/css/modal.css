@@ -55,6 +55,14 @@
 transition: width 1s;
 }
 
+@media (max-width: 768px) {
+  #modal {
+    width: 100%;
+    min-width: 0px;
+  }
+
+}
+
 .hidden > #modal {
   width: 100%;
   min-height: 0px;
@@ -142,6 +150,10 @@ transition: width 1s;
 .align-right {
   text-align: right;
 }
+
+.small {
+  font-size: 14px;
+}
 a{
   color: #fff;
 }
@@ -160,7 +172,7 @@ ul > li {
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+#modal-body::-webkit-scrollbar-track {
     /* box-shadow: inset 0 0 5px grey;
     border-radius: 10px; */
     background-color: black;
@@ -168,9 +180,9 @@ ul > li {
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+#modal-body::-webkit-scrollbar-thumb {
     background: black;
     border: 2px solid white;
-
+    cursor: pointer;
     /* border-radius: 10px; */
 }
