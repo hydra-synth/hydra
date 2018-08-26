@@ -44,6 +44,10 @@ app.get('/sketches', function (request, response) {
     if (err) {
       console.log('problem with db', err)
     } else {
+      var res = entries.map((entry) => {
+        entry.sketch_id = entry._id
+        return entry
+      })
       response.send(entries)
     }
   })

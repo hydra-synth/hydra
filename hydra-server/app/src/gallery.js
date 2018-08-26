@@ -12,18 +12,18 @@ class Gallery {
     this.code = null
     this.exampleIndex = null
 
-    request.get('/sketches').end((err, res) => {
-      console.log('got sketches', res.text, err)
-      if(err) {
-        console.log('err getting sketches', err)
-      } else {
-        this.sketches = JSON.parse(res.text)
-      }
+    // request.get('/sketches').end((err, res) => {
+    //   console.log('got sketches', res.text, err)
+    //   if(err) {
+    //     console.log('err getting sketches', err)
+    //   } else {
+    //     this.sketches = JSON.parse(res.text)
+    //   }
 
       this.examples = examples
       this.setSketchFromURL()
       callback(this.code, this.foundSketch)
-    })
+    // })
   }
 
   setSketchFromURL() {
@@ -37,21 +37,23 @@ class Gallery {
     // boolean to determine whether a sketch was found based on the URL, either through looking through the database or rendering the code
     this.foundSketch = false
     // if contains a sketch id, set sketch from id
-    if(sketch_id) {
-      var sketch = this.getSketchById(sketch_id)
-      console.log('found ', sketch)
-      if(sketch) {
-        this.setSketch(sketch)
-        this.foundSketch = true
-      } else if (base64Code){
-        this.code = this.decodeBase64(base64Code)
-        this.foundSketch = true
-      } else {
-        console.log('id not found', sketch_id)
-        this.setRandomSketch()
-      }
-    // backwards combaitbility with earlier shareable URLS
-    } else if (base64Code) {
+    // if(sketch_id) {
+    //   var sketch = this.getSketchById(sketch_id)
+    //   console.log('found ', sketch)
+    //   if(sketch) {
+    //     this.setSketch(sketch)
+    //     this.foundSketch = true0
+    //   } else if (base64Code){
+    //     this.code = this.decodeBase64(base64Code)
+    //     this.foundSketch = true
+    //   } else {
+    //     console.log('id not found', sketch_id)
+    //     this.setRandomSketch()
+    //   }
+    // // backwards combaitbility with earlier shareable URLS
+    // } else
+
+    if (base64Code) {
       this.code = this.decodeBase64(base64Code)
       this.foundSketch = true
     } else {
@@ -92,7 +94,7 @@ class Gallery {
         rand = Math.floor(Math.random() * this.examples.length)
       }
       this.exampleIndex = rand
-      console.log('rand index is', rand)
+      console.log('example is', this.examples[rand])
       this.setSketch(this.examples[rand])
     } else {
       var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
@@ -111,7 +113,7 @@ class Gallery {
 
     let query = {
       code: base64,
-      parent: this.current ? this.current._id : null
+      parent: this.current ? this.current.sketch_id : null
     }
 
     console.log('saving in gallery', query)
@@ -126,16 +128,20 @@ class Gallery {
           console.log('error posting sketch', err)
         } else {
           console.log('response', res.text)
-          self.setToURL([ { label: 'sketch_id', value: res.text}, {label: 'code', value: base64} ])
+        //  self.setToURL([ { label: 'sketch_id', value: res.text}, {label: 'code', value: base64} ])
+          self.setSketch({
+            sketch_id: res.text,
+            code: base64
+          })
         }
       })
   }
 
-  getSketchById(id) {
-    console.log('looking for', id)
-    var sketch = this.sketches.filter((sketch) => sketch._id === id)
-    return sketch[0]
-  }
+  // getSketchById(id) {
+  //   console.log('looking for', id)
+  //   var sketch = this.sketches.filter((sketch) => sketch.sketch_id === id)
+  //   return sketch[0]
+  // }
 }
 
 module.exports = Gallery
