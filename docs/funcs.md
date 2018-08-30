@@ -246,6 +246,8 @@ osc(
 
 ### .setScale( `float` )
 
+### .setSmooth( `float` )
+
 ### .show()
 
 -------------------
