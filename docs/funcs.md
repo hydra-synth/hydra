@@ -206,7 +206,7 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 ### src( `input` )
 * input :: examples: `o0`, `s1`
 
-### .noise( `scale`, `offset` )
+### noise( `scale`, `offset` )
 * scale :: int (default 10.0)
 * offset :: float (default 0.1)
 
@@ -219,26 +219,21 @@ Generate Perlin noise.
 
 -------------------
 
-## Animate
-
-### seq( `array[]`, `speed` )
-
-#### note: should be defined at top of file
-```
-seq = (arr = [], speed = 1) => ({time}) => (   
-  arr[ Math.floor( time * speed % (arr.length) ) ]
-)
-```
-
-#### example
+## Sequences of parameters
 
 ```
 osc(
-  seq( [80, 100, 200, 50], 1 )
+   [80, 100, 200, 50], 1 )
 )
 .out(o0)
 ```
 
+```
+osc(
+   [80, 100, 200, 50].fast(0.2), 1 )
+)
+.out(o0)
+```
 -------------------
 
 ## Audio
@@ -249,30 +244,22 @@ osc(
 
 ### .setCutoff( `float` )
 
-### .setMax( `float` )
+### .setScale( `float` )
 
 ### .show()
 
 -------------------
 
-## Util
+## Global variables
 
-### random()
+Some useful variables that are defined globally, and can be used within functions as a parameter.
 
-No Args
+### time
+### mouse
+* .x :: x position of mouse
+* .y :: y position of mouse
 
-### _noise()
-
-No Args
-
-### luminance()
-
-No Args
-
-### rgbToHsv()
-
-No Args
-
-### hsvToRgb()
-
-No Args
+Control the oscillator frequency with the mouse position:
+```
+osc(() => mouse.x).out(o0)
+```

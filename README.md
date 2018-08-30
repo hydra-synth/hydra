@@ -25,6 +25,7 @@ Go to https://hydra-editor-v1.glitch.me
 * CTRL-Shift-Enter: run all code on screen
 * ALT-Enter: run a block
 * CTRL-Shift-H: hide or show code
+* CTRL-Shift-S: Save screenshot and download as local file
 
 All code can be run either from the in-browser text editor or from the browser console.
 
@@ -97,11 +98,11 @@ osc(40).rotate(1.57).out(o1)
 #### Passing functions as variables
 Each parameter can be defined as a function rather than a static variable. For example,
 ```
-osc(function({time}){return 100 * Math.sin(time * 0.1)}).out()
+osc(function(){return 100 * Math.sin(time * 0.1)}).out()
 ```
-modifies the oscillator frequency as a function of time. This can be written more concisely using es6 syntax:
+modifies the oscillator frequency as a function of time. (Time is a global variable that represents the milliseconds that have passed since loading the page). This can be written more concisely using es6 syntax:
 ```
-osc(({time}) => (100 * Math.sin(time * 0.1))).out()
+osc(() => (100 * Math.sin(time * 0.1))).out()
 ```
 
 #### Desktop capture
@@ -182,29 +183,32 @@ Use the value to control a variable:
 osc(10, 0, () => (a.fft[0]*4))
   .out()
 ```
-It is possible to calibrate the responsiveness by changing the minimum and maximum value detected. (Represented by black lines over the fft). To set minimum value detected:
+It is possible to calibrate the responsiveness by changing the minimum and maximum value detected. (Represented by blur lines over the fft). To set minimum value detected:
 ```
 a.setCutoff(4)
 ```
-To set maximum:
+
+Setting the scale changes the range that is detected.
 ```
-a.setMax(10)
+a.setScale(2)
 ```
 The fft[<index>] will return a value between 0 and 1, where 0 represents the cutoff and 1 corresponds to the maximum.
 
+You can set smoothing between audio level readings (values between 0 and 1). 0 corresponds to no smoothing (more jumpy, faster reaction time), while 1 means that the value will never change.
+```
+a.setSmooth(0.8)
+```
 To hide the audio waveform:
 ```
 a.hide()
 ```
 
-#### Adding/editing transformation functions
-
-All of the available functions for transforming coordinates and color, as well as compositing textures, correspond directly to a snippet of fragment shader code. These transformations are defined in the file hydra/hydra-server/app/src/glslTransforms.js. When running locally, you can edit this file to change the available functions, and refresh the page to see changes.
-
 
 #### API
 
-For updated list of functions, see comosable-glslTransforms.js file in hydra/hydra-server/app/src/
+There is an updated list of functions at [/docs/funcs.md](https://github.com/ojack/hydra/blob/master/docs/funcs.md).
+
+As well as in the [source code for hydra-synth](https://github.com/ojack/hydra-synth/blob/master/src/composable-glsl-functions.js).
 
 #### Changelog between v0 and v1:
 * Syntax change from 'o0.osc()' to 'osc().out(o0)'. Note: old syntax still works
