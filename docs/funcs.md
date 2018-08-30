@@ -2,30 +2,35 @@
 
 ## Color
 
-### .contrast()
+### .contrast(`amount`)
+* amount :: float (default 1.6)
 
-No Args
+Larger `amount` value makes higher contrast.
 
 ### .color( `r`, `g`, `b` )
 * r :: float
 * g :: float
 * b :: float
 
-### .colorama()
+Colorize texture.
 
-No Args
+### .colorama(`amount`)
+* amount :: float (default 0.005)
 
-### .invert()
+Shift HSV values.
 
-No Args
+### .invert(`amount`)
+* amount :: float (default 1.0)
+
+Invert color.
 
 ### .luma( `threshold`, `tolerance` )
-* threshold :: float
-* tolerance :: float
+* threshold :: float (default 0.5)
+* tolerance :: float (default 0.1)
 
 ### .thresh( `threshold`, `tolerance` )
-* threshold :: float
-* tolerance :: float
+* threshold :: float (default 0.5)
+* tolerance :: float (default 0.04)
 
 -----------
 
@@ -36,32 +41,39 @@ No Args
   * color :: vec4
   * src
   * shape
-* amount :: float
+* amount :: float (default 0.5)
+
+Add textures.
 
 ### .blend( `texture`, `amount` )
 * texture
   * color :: vec4
   * src
   * shape
-* amount :: float
+* amount :: float (default 0.5)
 
-### .diff( `texture`, `amount` )
+Blend textures.
+
+### .diff( `texture` )
 * texture
   * color :: vec4
   * src
   * shape
-* amount :: float
+
+Return difference of textures.
 
 ### .layer()
 
-No Args
+Overlay texture based on alpha value.
 
 ### .mult( `texture`, `amount` )
 * texture
   * color :: vec4
   * src
   * shape
-* amount :: float
+* amount :: float (default 1.0)
+
+Multiply images and blend with the texture by `amount`.
 
 -----------------
 
@@ -72,68 +84,133 @@ No Args
   * color :: vec4
   * src
   * shape
-* amount :: float
+* amount :: float (default 0.1)
+
+Modulate texture. More about modulation at: <https://lumen-app.com/guide/modulation/>
 
 ### .modulateHue( `color`, `amount` )
-* color :: vec4
-* amount :: float
+* texture
+  * color :: vec4
+  * src
+  * shape
+* amount :: float (default 1.0)
+
+Changes coordinates based on hue of second input. Based on: <https://www.shadertoy.com/view/XtcSWM>
+
+### .modulateKaleid( `nSides` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* nSides :: float (default 4.0)
+
+### .modulatePixelate( `multiple`, `offset` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* multiple :: float (default 10.0)
+* offset :: float (default 3.0)
+
+### .modulateRotate( `multiple`, `offset` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* multiple :: float (default 1.0)
+* offset :: float (default 0.0)
+
+### .modulateScale( `multiple`, `offset` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* multiple :: float (default 1.0)
+* offset :: float (default 1.0)
+
+### .modulateScrollX( `multiple`, `scrollX`, `speed` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* scrollX :: float (default 0.5)
+* speed :: float (default 0.0)
+
+### .modulateScrollY( `multiple`, `scrollY`, `speed` )
+* texture
+  * color :: vec4
+  * src
+  * shape
+* scrollY :: float (default 0.5)
+* speed :: float (default 0.0)
 
 -----------------
 
 ## Coord
 
-### .kaleid()
+### .kaleid( `nSides`)
+* nSides :: float (default 4.0)
 
-No Args
+Kaleidoscope effect with `nSides` repetition.
 
 ### .rotate( `angle`, `speed` )
-* angle :: float
-* speed :: float
+* angle :: float (default 10.0)
+* speed :: float (default 0.0)
 
-### .scale( `size` )
+Rotate texture.
+
+### .scale( `size`, `xMult`, `yMult` )
 * size :: float
+* xMult :: float (default 1.0)
+* yMult :: float (default 1.0)
+
+Scale texture.
 
 ### .pixelate( `x`, `y` )
-* pixelX :: float
-* pixelY :: float
+* pixelX :: float (default 20.0)
+* pixelY :: float (default 20.0)
 
-### scrollX.( `scrollX`, `speed` )
-* scrollX :: float
-* speed :: float
+Pixelate texture with `pixelX` segments and `pixelY` segments.
+
+### .scrollX( `scrollX`, `speed` )
+* scrollX :: float (default 0.5)
+* speed :: float (default 0.0)
 
 ### .scrollY( `scrollY`, `speed` )
-* scrollY :: float
-* speed :: float
+* scrollY :: float (default 0.5)
+* speed :: float (default 0.0)
 
 -------------------------
 
 ## Src
 
 ### osc( `frequency`, `sync`, `offset` )
-* frequency :: float
-* sync :: float
-* offset :: float
+* frequency :: float (default 60.0)
+* sync :: float (default 0.1)
+* offset :: float (default 0.0)
 
 ### render( `output buffer`)
 * default: `o0`
 
-### shape( `sides`, `scale`, `blur`)
-* sides :: int
-* scale :: float
-* blur :: float
+### shape( `sides`, `radius`, `smoothing`)
+* sides :: int (default 3.0)
+* radius :: float (default 60.0)
+* smoothing :: float (default 0.01)
 
 ### solid( `r`, `g`, `b`, `a`)
-* r :: float
-* g :: float
-* b :: float
-* a :: float
+* r :: float (default 0.0)
+* g :: float (default 0.0)
+* b :: float (default 0.0)
+* a :: float (default 1.0)
 
 ### src( `input` )
 * input :: examples: `o0`, `s1`
 
-### .noise()
+### .noise( `scale`, `offset` )
+* scale :: int (default 10.0)
+* offset :: float (default 0.1)
 
-No Args
+Generate Perlin noise.
 
 ### .out( `output buffer` )
 * output buffer
