@@ -20,7 +20,7 @@
     "enumerate-devices": "^1.1.1",
     "express": "^4.15.2",
     "getusermedia": "^2.0.1",
-    "hydra-synth": "^1.0.12",
+    "hydra-synth": "^1.0.15",
     "inherits": "^2.0.3",
     "meyda": "^4.1.3",
     "nedb": "^1.8.0",

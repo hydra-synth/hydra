@@ -242,6 +242,6 @@ As well as in the [source code for hydra-synth](https://github.com/ojack/hydra-s
 
  #### Related projects:
  * [Lumen app (osx application)](https://lumen-app.com/)
- * [Vsynth (package for MaxMSP)] (https://cycling74.com/forums/vsynth-package)
+ * [Vsynth (package for MaxMSP)](https://cycling74.com/forums/vsynth-package)
  * [VEDA (VJ system within atom)](https://veda.gl/)
  * [The Force](https://videodromm.com/The_Force/)
