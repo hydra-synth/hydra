@@ -203,6 +203,9 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 * b :: float (default 0.0)
 * a :: float (default 1.0)
 
+### gradient( `speed` )
+* speed :: float
+
 ### src( `input` )
 * input :: examples: `o0`, `s1`
 
@@ -257,6 +260,14 @@ osc(
 Some useful variables that are defined globally, and can be used within functions as a parameter.
 
 ### time
+Example:
+```
+osc(
+  ({time}) => Math.sin(time)
+)
+.out(o0)
+```
+
 ### mouse
 * .x :: x position of mouse
 * .y :: y position of mouse
