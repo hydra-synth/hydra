@@ -215,6 +215,13 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 
 Generate Perlin noise.
 
+### voronoi( `scale`, `speed`, `blending` )
+* scale :: float (default 5)
+* speed :: float (default 0.3)
+* blending :: float (default 0.3)
+
+Generate voronoi shapes.
+
 ### .out( `output buffer` )
 * output buffer
   * osc: `o0`, `o1`, `o2`, `o3`
