@@ -202,7 +202,9 @@ To hide the audio waveform:
 ```
 a.hide()
 ```
+#### MIDI (experimental)
 
+MIDI controllers can work with Hydra via WebMIDI an example workflow is at [/docs/midi.md](https://github.com/ojack/hydra/blob/master/docs/midi.md) .
 
 #### API
 
