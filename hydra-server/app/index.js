@@ -37,7 +37,7 @@ function init () {
     }
 
     editor.shareSketch = (code) => {
-      sketches.shareSketch(code)
+      sketches.shareSketch(code, hydra)
     }
 
     // if a sketch was found based on the URL parameters, dont show intro window
@@ -78,38 +78,6 @@ function init () {
       } else {
         openModal()
       }
-    }
-
-    // Uploading image to server
-    //hydra.getScreenImage((img) => console.log('got image', img))
-
-    window.uploadImage = () => {
-      hydra.getScreenImage((img) => {
-        request
-          .post('/image')
-          .attach('previewImage', img)
-          // .send({
-          //   code: base64
-          // })
-        //  .query(query)
-          .end((err, res) => {
-            if(err) {
-              console.log('error postingimage', err)
-            } else {
-              console.log('image response', res.text)
-            //  self.setToURL([ { label: 'sketch_id', value: res.text}, {label: 'code', value: base64} ])
-
-            }
-          })
-        // var oReq = new XMLHttpRequest();
-        // oReq.open("POST", "https://localhost:8000/image", true);
-        // oReq.onload = function (oEvent) {
-        //   // Uploaded.
-        //   console.log("uploaded", oEvent)
-        // };
-        // oReq.send(img);
-      //  console.log('got image', img)
-      })
     }
 
     function closeModal () {

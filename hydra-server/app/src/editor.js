@@ -20,9 +20,9 @@ var EditorClass = function () {
       'Shift-Ctrl-Enter': function (instance) {
           self.evalAll((code, error) => {
             console.log('evaluated', code, error)
-            if(!error){
-              self.saveSketch(code)
-            }
+            // if(!error){
+            //   self.saveSketch(code)
+            // }
           })
       },
       'Shift-Ctrl-G': function (instance) {

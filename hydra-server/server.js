@@ -83,6 +83,20 @@ app.get('/sketches', function (request, response) {
   })
 })
 
+app.get('/sketchById', function (request, response) {
+  db.find({_id: request.query.sketch_id}, function (err, entries){
+    if (err) {
+      console.log('problem with db', err)
+    } else {
+      var res = entries.map((entry) => {
+        entry.sketch_id = entry._id
+        return entry
+      })
+      response.send(entries)
+    }
+  })
+})
+
 app.post('/sketch', function (request, response) {
   console.log('post sketch', request.query)
   db.insert({
@@ -104,7 +118,6 @@ app.post('/sketch', function (request, response) {
 //   console.log('post sketch', request.query)
 // })
 
-tweet.hello_world()
 
 //const storage = multer.memoryStorage();
 
@@ -119,12 +132,28 @@ var storage = multer.diskStorage({
 
  const upload = multer({ storage: storage });
  app.post("/image", upload.single('previewImage'), (req, res) => {
-   console.log(req.file);
+   console.log(req.file, req.query);
    // tweet.post_image('testing', req.file.buffer, function (err) {
    //   console.log('UPLOADED', err)
    // })
   // saveFile(req.file, "test.png")
-   tweet.post_chunked('test', req.file.path)
+  //
+  //  req.query.url
+   tweet.post_chunked({
+      text: 'test @_ojack_',
+      imagePath: req.file.path,
+      url: req.query.url
+    }, function(err, data){
+      if(err){
+        console.log('ERROR POSTING IMAGE', err)
+      } else {
+        console.log('tweet id is ', data.id_str)
+        db.update({ _id: req.query.sketch_id }, { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }}, function (err, numReplaced) {
+  // numReplaced = 3
+  // Field 'system' on Mars, Earth, Jupiter now has value 'solar system'
+        });
+      }
+    })
    res.status(200).send( true );
    res.end();
  });
