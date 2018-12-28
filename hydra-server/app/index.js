@@ -36,6 +36,10 @@ function init () {
       sketches.saveSketch(code)
     }
 
+    editor.shareSketch = (code) => {
+      sketches.shareSketch(code)
+    }
+
     // if a sketch was found based on the URL parameters, dont show intro window
     if(sketchFromURL) {
       closeModal()

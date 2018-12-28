@@ -64,12 +64,13 @@ class Gallery {
   saveImage() {
 
   }
-  
+
   setToURL(params){
     //       console.log(base64)
     let newurl = window.location.protocol + '//' +
     window.location.host + window.location.pathname + `?${params.map( (param, index) => `${param.label}=${param.value}`).join('&')}`
     window.history.pushState({ path: newurl }, '', newurl)
+    this.url = newurl
   }
 
   encodeBase64(text) {
@@ -107,6 +108,12 @@ class Gallery {
       startString += '.out(o0)'
       this.code = startString
     }
+  }
+
+  // shares via twitter
+  shareSketch(code) {
+    this.saveSketch(code)
+    console.log("URL is", this.url)
   }
 
   saveSketch(code) {

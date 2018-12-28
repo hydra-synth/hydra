@@ -25,7 +25,14 @@ var EditorClass = function () {
             }
           })
       },
-
+      'Shift-Ctrl-G': function (instance) {
+        self.evalAll((code, error) => {
+          console.log('evaluated', code, error)
+          if(!error){
+            self.shareSketch(code)
+          }
+        })
+      },
       'Shift-Ctrl-H': function (instance) {
         var l = document.getElementsByClassName('CodeMirror-scroll')[0]
         if (isShowing) {
@@ -78,6 +85,10 @@ var EditorClass = function () {
 
 EditorClass.prototype.saveSketch = function(code) {
   console.log('no function for save sketch has been implemented')
+}
+
+EditorClass.prototype.shareSketch = function(code) {
+  console.log('no function for share sketch has been implemented')
 }
 
 // EditorClass.prototype.saveExample = function(code) {
