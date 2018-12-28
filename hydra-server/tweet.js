@@ -49,9 +49,17 @@ module.exports = {
           } else {
             console.log("mdeia data", data)
             const params = {
-              status: obj.text + ' ' + result.url,
+              status: result.url,
               media_ids: data.media_id_string
             }
+            if(obj.name.length > 0) {
+              params.status += ' by ' + obj.name
+            }
+            if(obj.parent_tweet !== null){
+            //  params['in_reply_to_status_id'] = obj.parent_tweet
+              params.status += '\n\n(based on ' + 'https://twitter.com/hydra_patterns/status/' + obj.parent_tweet + ')'
+            }
+
             T.post('statuses/update', params, (err, data, respone) => {
               if (err) {
               //  console.log(err)

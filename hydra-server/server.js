@@ -132,31 +132,74 @@ var storage = multer.diskStorage({
 
  const upload = multer({ storage: storage });
  app.post("/image", upload.single('previewImage'), (req, res) => {
-   console.log(req.file, req.query);
+   console.log('UPLOADING');
+   findParentTweet(req.query.sketch_id, function(err, tweet_id){
+     if(err) console.log(err)
+     console.log('posting image');
+     if(tweet_id !== null) console.log("FOUND PARENT", tweet_id)
+    tweet.post_chunked({
+       imagePath: req.file.path,
+       url: req.query.url,
+       name: req.query.name,
+       parent_tweet: tweet_id
+     }, function(err, data){
+       if(err){
+         console.log('ERROR POSTING IMAGE', err)
+       } else {
+         console.log('tweet id is ', data.id_str)
+         res.status(200).send( 'https://twitter.com/hydra_patterns/status/' + data.id_str );
+         db.update(
+           { _id: req.query.sketch_id },
+           { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }
+         }, function (err, numReplaced) {});
+       }
+     })
+   })
+   // find out whether sketch has a parent, and if the parent has a corresponding tweet
+
+  // console.log('FOUND TWEET', tweet_id)
    // tweet.post_image('testing', req.file.buffer, function (err) {
    //   console.log('UPLOADED', err)
    // })
   // saveFile(req.file, "test.png")
   //
   //  req.query.url
-   tweet.post_chunked({
-      text: 'test @_ojack_',
-      imagePath: req.file.path,
-      url: req.query.url
-    }, function(err, data){
-      if(err){
-        console.log('ERROR POSTING IMAGE', err)
-      } else {
-        console.log('tweet id is ', data.id_str)
-        db.update({ _id: req.query.sketch_id }, { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }}, function (err, numReplaced) {
-  // numReplaced = 3
-  // Field 'system' on Mars, Earth, Jupiter now has value 'solar system'
-        });
-      }
-    })
-   res.status(200).send( true );
-   res.end();
+
+
+  // res.end();
  });
+
+function findParentTweet(sketch_id, callback) {
+  db.find({_id: sketch_id}, function (err, entries){
+   if(err){
+     callback(err, null)
+   } else {
+     if(entries.length > 0){
+       if(entries[0].parent) {
+           db.find({_id: entries[0].parent}, function (err, entries){
+             if(err){
+               callback(err)
+             } else {
+               if(entries.length > 0){
+                 if(entries[0].tweet_id) {
+                   callback(null, entries[0].tweet_id)
+                 } else {
+                   callback(null, null)
+                 }
+               } else {
+                 callback(null, null)
+               }
+             }
+           })
+       } else {
+         callback(null, null)
+       }
+     } else {
+       callback(null, null)
+     }
+   }
+ })
+}
 
  function saveFile(body, fileName) {
    const file = fs.createWriteStream(fileName)

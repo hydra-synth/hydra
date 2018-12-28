@@ -104,6 +104,10 @@ transition: width 1s;
   color: #ccc;
 }
 
+.icon.hidden {
+  display: none;
+}
+
 .hidden > #modal > #modal-body {
   overflow: hidden;
 }

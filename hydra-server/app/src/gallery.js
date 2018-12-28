@@ -25,6 +25,15 @@ class Gallery {
     // })
   }
 
+  clear() {
+    this.current = null
+    this.code = null
+    this.exampleIndex = null
+    let newurl = window.location.protocol + '//' + window.location.host + window.location.pathname
+    window.history.pushState({ path: newurl }, '', newurl)
+    this.url = newurl
+  }
+
   setSketchFromURL(callback) {
     let searchParams = new URLSearchParams(window.location.search)
     let base64Code = searchParams.get('code')
@@ -155,7 +164,7 @@ class Gallery {
   }
 
   // shares via twitter
-  shareSketch(code, hydra) {
+  shareSketch(code, hydra, name) {
     this.saveSketch(code, () => {
       console.log("URL is", this.url, 'sketch is', this.current)
       hydra.getScreenImage((img) => {
@@ -164,7 +173,8 @@ class Gallery {
           .attach('previewImage', img)
           .query({
             url: this.url,
-            sketch_id: this.current.sketch_id
+            sketch_id: this.current.sketch_id,
+            name: name
           })
           // .send({
           //   code: base64

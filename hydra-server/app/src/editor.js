@@ -26,12 +26,7 @@ var EditorClass = function () {
           })
       },
       'Shift-Ctrl-G': function (instance) {
-        self.evalAll((code, error) => {
-          console.log('evaluated', code, error)
-          if(!error){
-            self.shareSketch(code)
-          }
-        })
+        self.shareSketch()
       },
       'Shift-Ctrl-H': function (instance) {
         var l = document.getElementsByClassName('CodeMirror-scroll')[0]
@@ -81,6 +76,10 @@ var EditorClass = function () {
       isShowing = false
     }
   //}
+}
+
+EditorClass.prototype.clear = function () {
+  this.cm.setValue('\n \n // Type some code on a new line (such as "osc().out()"), and press CTRL+shift+enter')
 }
 
 EditorClass.prototype.saveSketch = function(code) {

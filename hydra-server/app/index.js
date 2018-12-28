@@ -5,48 +5,48 @@ const Canvas = require('./src/canvas.js')
 const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
-const request = require('superagent')
+const Menu = require('./src/menu.js')
 
 function init () {
   window.pb = pb
   window.P5 = P5
 
+  // initialize elements
   var canvas = Canvas(document.getElementById('hydra-canvas'))
   canvas.size()
   var pb = new PatchBay()
-  var hydra = new HydraSynth({
-    pb: pb,
-    canvas: canvas.element,
-    autoLoop: false})
+  var hydra = new HydraSynth({ pb: pb, canvas: canvas.element, autoLoop: false })
   var editor = new Editor()
+  var menu = new Menu({ editor: editor, hydra: hydra})
 
-  window.hydra = hydra
-
-  // variables related to popup window
-  var close = document.getElementById("close-modal")
-  var isClosed = false
-  var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-  closeModal()
-
+  // get initial code to fill gallery
   var sketches = new Gallery(function(code, sketchFromURL) {
-    console.log('code is', code)
     editor.cm.setValue(code)
     editor.evalAll()
     editor.saveSketch = (code) => {
       sketches.saveSketch(code)
     }
-
-    editor.shareSketch = (code) => {
-      sketches.shareSketch(code, hydra)
-    }
-
+    editor.shareSketch = menu.shareSketch.bind(menu)
     // if a sketch was found based on the URL parameters, dont show intro window
     if(sketchFromURL) {
-      closeModal()
+      menu.closeModal()
     } else {
-      openModal()
+      menu.openModal()
     }
   })
+  menu.sketches = sketches
+
+  // define extra functions (eventually should be added to hydra-synth?)
+
+  // hush clears what you see on the screen
+  window.hush = () => {
+    solid().out()
+    solid().out(o1)
+    solid().out(o2)
+    solid().out(o3)
+    render(o0)
+  }
+
 
   pb.init(hydra.captureStream, {
     server: window.location.origin,
@@ -57,42 +57,6 @@ function init () {
     hydra.tick(dt)
   }).start()
 
-// init GUI
-    var shuffle = document.getElementById("shuffle")
-    shuffle.onclick = () => {
-      console.log("shuffle!!!")
-      sketches.setRandomSketch()
-      solid().out()
-      solid().out(o1)
-      solid().out(o2)
-      solid().out(o3)
-      render(o0)
-      editor.cm.setValue(sketches.code)
-      editor.evalAll()
-    }
-
-
-    close.onclick = () => {
-      if(!isClosed) {
-        closeModal()
-      } else {
-        openModal()
-      }
-    }
-
-    function closeModal () {
-      document.getElementById("info-container").className = "hidden"
-      close.className = "fas fa-question-circle icon"
-        l.style.opacity = 1
-      isClosed = true
-    }
-
-    function openModal () {
-      document.getElementById("info-container").className = ""
-      close.className = "fas fa-times icon"
-      l.style.opacity = 0.0
-      isClosed = false
-    }
 }
 
 window.onload = init
