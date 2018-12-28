@@ -1,7 +1,13 @@
+// load environmental variables contained in .env file
+require('dotenv').config()
+
 const fs = require('fs')
 const express = require('express')
 const app = express()
 const browserify = require('browserify-middleware')
+const multer = require('multer')
+const tweet = require('./tweet.js')
+
 //const https = require('https')
 var server;
 const path = require('path')
@@ -93,6 +99,48 @@ app.post('/sketch', function (request, response) {
     }
   })
 })
+
+// app.post('/image', function (request, response) {
+//   console.log('post sketch', request.query)
+// })
+
+tweet.hello_world()
+
+//const storage = multer.memoryStorage();
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+   cb(null, path.join(__dirname + '/uploads/'))
+   },
+   filename: function (req, file, cb) {
+     cb(null, file.originalname + '.png')
+   }
+})
+
+ const upload = multer({ storage: storage });
+ app.post("/image", upload.single('previewImage'), (req, res) => {
+   console.log(req.file);
+   // tweet.post_image('testing', req.file.buffer, function (err) {
+   //   console.log('UPLOADED', err)
+   // })
+  // saveFile(req.file, "test.png")
+   tweet.post_chunked('test', req.file.path)
+   res.status(200).send( true );
+   res.end();
+ });
+
+ function saveFile(body, fileName) {
+   const file = fs.createWriteStream(fileName)
+   request(body).pipe(file).on('close', err => {
+     if (err) {
+       console.log(err)
+     } else {
+       console.log('Media saved!')
+       const descriptionText = body.title
+      // uploadMedia(descriptionText, fileName)
+     }
+   })
+ }
 
 app.get('/bundle.js', browserify(path.join(__dirname, '/app/index.js')))
 app.get('/camera-bundle.js', browserify(path.join(__dirname, '/app/camera.js')))

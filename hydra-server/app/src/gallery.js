@@ -61,6 +61,10 @@ class Gallery {
     }
   }
 
+  saveImage() {
+
+  }
+  
   setToURL(params){
     //       console.log(base64)
     let newurl = window.location.protocol + '//' +
