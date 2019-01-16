@@ -6,7 +6,11 @@ const express = require('express')
 const app = express()
 const browserify = require('browserify-middleware')
 const multer = require('multer')
-const tweet = require('./tweet.js')
+
+// if has twitter key, enamble uploading
+if(process.env.CONSUMER_KEY) {
+  const tweet = require('./tweet.js')
+}
 
 //const https = require('https')
 var server;
@@ -130,6 +134,7 @@ var storage = multer.diskStorage({
    }
 })
 
+if(process.env.CONSUMER_KEY) {
  const upload = multer({ storage: storage });
  app.post("/image", upload.single('previewImage'), (req, res) => {
    console.log('UPLOADING');
@@ -199,6 +204,7 @@ function findParentTweet(sketch_id, callback) {
      }
    }
  })
+}
 }
 
  function saveFile(body, fileName) {
