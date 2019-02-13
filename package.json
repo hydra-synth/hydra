@@ -15,7 +15,7 @@
   "license": "AGPL",
   "dependencies": {
     "bitly": "^6.0.8",
-    "browserify-middleware": "^8.0.0",
+    "browserify-middleware": "^8.1.1",
     "codemirror": "^5.36.0",
     "dotenv": "^6.2.0",
     "enumerate-devices": "^1.1.1",
@@ -37,7 +37,7 @@
     "webrtc-adapter": "^6.3.0"
   },
   "devDependencies": {
-    "browserify": "^16.1.1",
+    "browserify": "^16.2.3",
     "standard": "^11.0.1"
   }
 }
