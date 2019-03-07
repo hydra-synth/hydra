@@ -79,38 +79,4 @@ module.exports = {
     //
 
   }
-  // },
-  // post_image: function(text, image_binary, cb) {
-  //   console.log("uploading")
-  //  T.post('media/upload', { media: image_binary }, function (err, data, response) {
-  //    console.log("received response", err, data, response)
-  //     if (err){
-  //       console.log('ERROR:\n', err);
-  //       if (cb){
-  //         cb(err);
-  //       }
-  //     }
-  //     else{
-  //       console.log('tweeting the image...');
-  //       T.post('statuses/update', {
-  //         status: text,
-  //         media_ids: new Array(data.media_id_string)
-  //       },
-  //       function(err, data, response) {
-  //         if (err){
-  //           console.log('ERROR:\n', err);
-  //           if (cb){
-  //             cb(err);
-  //           }
-  //         }
-  //         else{
-  //           console.log('tweeted!');
-  //           if (cb){
-  //             cb(null);
-  //           }
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
 };
