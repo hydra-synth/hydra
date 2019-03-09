@@ -5,9 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./hydra-server/server.js",
-    "build-main": "browserify ./hydra-server/app/index.js -o ./bundle.js",
-    "build-camera": "browserify ./hydra-server/app/camera.js -o ./camera-bundle.js",
-    "build-static": "npm run build-main && npm run build-camera",
+    "build-main": "browserify ./hydra-server/app/index.js -o ./hydra-server/public/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "./scripts/docs.js docs/funcs.md"
   },

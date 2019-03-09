@@ -194,7 +194,7 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 
 ### shape( `sides`, `radius`, `smoothing`)
 * sides :: int (default 3.0)
-* radius :: float (default 60.0)
+* radius :: float (default 0.3)
 * smoothing :: float (default 0.01)
 
 ### solid( `r`, `g`, `b`, `a`)
