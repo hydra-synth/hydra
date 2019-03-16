@@ -48,6 +48,9 @@ var EditorClass = function () {
       'Shift-Ctrl-S': function (instance) {
         screencap()
       },
+      'Alt-S': function (instance) {
+        webrtcsend()
+      },
       'Alt-Enter': (instance) => {
         var text = self.selectCurrentBlock(instance)
         console.log('text', text)
