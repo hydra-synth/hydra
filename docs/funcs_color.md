@@ -17,6 +17,13 @@ Functions for manipulating color.
 
 Larger `amount` value makes higher contrast.
 
+#### Example
+
+```javascript
+// 20Hz oscillator with contrast interpolating between 0.0-5.0
+osc(20).contrast( ({time}) => Math.sin(time) * 5 ).out(o0)
+```
+
 ### color `vec4`
 
 `.color( r, g, b )`
@@ -27,6 +34,15 @@ Larger `amount` value makes higher contrast.
 
 Colorize texture.
 
+#### Example
+
+```javascript
+// 20Hz oscillator source
+// color sequence of Red, Green, Blue, White, Black
+// output to buffer o0
+osc(20).color([1,0,0,1,0],[0,1,0,1,0],[0,0,1,1,0]).out(o0)
+```
+
 ### colorama
 
 `.colorama( amount )`
@@ -34,6 +50,24 @@ Colorize texture.
 * `amount` :: float (default `0.005`)
 
 Shift HSV values.
+
+#### Example
+
+```javascript
+// 20Hz oscillator source
+// color sequence of Red, Green, Blue, White, Black
+// colorama sequence of 0.005, 0.5, 1.0 at 1/8 speed
+// output to buffer o0
+osc(20)
+  .color([1,0,0,1,0],[0,1,0,1,0],[0,0,1,1,0])
+  .colorama([0.005,0.33,0.66,1.0].fast(0.125))
+  .out(o0)
+```
+
+```javascript
+// 
+noise(3,0.1).colorama( ({time}) => Math.sin(time/5) ).out(o0)
+```
 
 ### invert
 

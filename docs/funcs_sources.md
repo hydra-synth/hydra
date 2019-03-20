@@ -18,6 +18,13 @@ Sources are elementary generators that output different types of visual content.
 
 * `speed` :: float (default `x`)
 
+#### Example
+
+```javascript
+// gradient sequence at speeds of 1, 2 & 4
+gradient([1,2,4]).out(o0)
+```
+
 ### noise
 
 `noise( scale, offset )`
@@ -27,6 +34,14 @@ Sources are elementary generators that output different types of visual content.
 
 Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 
+#### Example
+
+```javascript
+// noise interpolating between different scales and offsets
+noise( ({time}) => Math.sin(time/10)*50 , ({time}) => Math.sin(time/2)/500 )
+    .out(o0)
+```
+
 ### osc
 
 `osc( frequency, sync, offset )`
@@ -34,6 +49,22 @@ Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 * `frequency` :: float (default `60.0`)
 * `sync` :: float (default `0.1`)
 * `offset` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+// frequency
+osc( [1,10,50,100,250,500].fast(2) ).out(o0)
+
+// frequency 2
+osc( ({time}) => Math.sin(time/10) * 100 ).out(o0)
+
+// sync
+osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).out(o0)
+
+// offset
+osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ).out(o0)
+```
 
 ### out
 
