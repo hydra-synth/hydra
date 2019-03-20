@@ -731,13 +731,15 @@ osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ).out(o0)
 ```javascript
 // output four oscillators to different buffers
 // and then modulate them together
-osc( [1,10,50,100,250,500].fast(2) ).out(o0) // frequency
-osc( ({time}) => Math.sin(time/10) * 100 ).out(o1) // frequency 2
-osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).out(o2) // sync
-osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ) // offset
+osc( [1,10,50,100,250,500].fast(2) ).kaleid(20).out(o0) // frequency
+osc( ({time}) => Math.sin(time/10) * 100 ).kaleid(19).out(o1) // frequency 2
+osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).kaleid(21).out(o2) // sync
+osc(10,0.1, ({time}) => Math.sin(time/10) * 1 ) // offset
   .modulate(o1,0.05)
   .modulate(o2,0.05)
   .modulate(o3,0.05)
+  .kaleid(20)
+  .add(noise(3,10))
   .out(o3)
 render(o3)
 ```
