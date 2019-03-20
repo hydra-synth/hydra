@@ -17,6 +17,12 @@ Functions for manipulating geometry.
 
 Kaleidoscope effect with `nSides` repetition.
 
+#### Example
+
+```javascript
+osc(25,-0.1,0.5).kaleid(50).out(o0)
+```
+
 ### pixelate
 
 `.pixelate( x, y )`
@@ -26,6 +32,12 @@ Kaleidoscope effect with `nSides` repetition.
 
 Pixelate texture with `pixelX` segments and `pixelY` segments.
 
+#### Example
+
+```javascript
+
+```
+
 ### rotate
 
 `.rotate( angle, speed )`
@@ -34,6 +46,12 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 * `speed` :: float (default `0.0`)
 
 Rotate texture.
+
+#### Example
+
+```javascript
+
+```
 
 ### scale
 
@@ -45,6 +63,12 @@ Rotate texture.
 
 Scale texture.
 
+#### Example
+
+```javascript
+
+```
+
 ### scrollX
 
 `.scrollX( scrollX, speed )`
@@ -52,9 +76,21 @@ Scale texture.
 * `scrollX` :: float (default `0.5`)
 * `speed` :: float (default `0.0`)
 
+#### Example
+
+```javascript
+
+```
+
 ### scrollY
 
 `.scrollY( scrollY, speed )`
 
 * `scrollY` :: float (default `0.5`)
 * `speed` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+
+```

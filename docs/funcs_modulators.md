@@ -24,6 +24,21 @@ Functions for describing modulations of sources.
 Modulate texture. 
 More about modulation at: https://lumen-app.com/guide/modulation/
 
+#### Example
+
+```javascript
+// chocolate whirlpool
+voronoi()
+  .color(0.9,0.25,0.15)
+  .rotate(({time})=>(time%360)/2)
+  .modulate(osc(25,0.1,0.5)
+            .kaleid(50)
+            .scale(({time})=>Math.sin(time*1)*0.5+1)
+            .modulate(noise(0.6,0.5)),
+            0.5)
+  .out(o0)
+```
+
 ### modulateHue
 
 `.modulateHue( color, amount )`
@@ -37,6 +52,12 @@ More about modulation at: https://lumen-app.com/guide/modulation/
 Changes coordinates based on hue of second input. 
 Based on:https://www.shadertoy.com/view/XtcSWM
 
+#### Example
+
+```javascript
+
+```
+
 ### modulateKaleid
 
 `.modulateKaleid( nSides )`
@@ -48,6 +69,17 @@ Based on:https://www.shadertoy.com/view/XtcSWM
 * `nSides` :: float (default `4.0`)
 
 See also: [`kaleid`](#kaleid).
+
+#### Example
+
+```javascript
+osc(9,-0.1,0.1)
+  .modulateKaleid(osc(11,0.5,0),50)
+  .scale(0.1,0.3)
+  .modulate(noise(5,0.1))
+  .mult(solid(1,1,0.3))
+  .out(o0)
+```
 
 ### modulatePixelate
 
@@ -62,9 +94,18 @@ See also: [`kaleid`](#kaleid).
 
 See also: [`pixelate`](#pixelate)
 
+#### Example
+
+```javascript
+// what lies beneath
+voronoi(10,1,5).brightness(()=>Math.random()*0.15)
+  .modulatePixelate(noise(25,0.5),100)
+  .out(o0)
+```
+
 ### modulateRotate
 
-`.modulateRotate( multiple, offset )`
+`.modulateRotate( texture, multiple, offset )`
 
 * `texture`
   * `color` :: see [color `vec4`](#color-vec4)
@@ -74,6 +115,16 @@ See also: [`pixelate`](#pixelate)
 * `offset` :: float (default `0.0`)
 
 See also: [`rotate`](#rotate)
+
+#### Example
+
+```javascript
+// wormhole
+voronoi(100,3,5)
+  .modulateRotate(osc(1,0.5,0).kaleid(50).scale(0.5),15,0)
+  .mult(osc(50,-0.1,8).kaleid(9))
+  .out(o0)
+```
 
 ### modulateScale
 
@@ -88,6 +139,15 @@ See also: [`rotate`](#rotate)
 
 See also: [`scale`](#scale)
 
+#### Example
+
+```javascript
+// cosmic radiation
+gradient(5).repeat(50,50).kaleid([3,5,7,9].fast(0.5))
+  .modulateScale(osc(4,-0.5,0).kaleid(50).scale(0.5),15,0)
+  .out(o0)
+```
+
 ### modulateScrollX
 
 `.modulateScrollX( multiple, scrollX, speed )`
@@ -101,6 +161,12 @@ See also: [`scale`](#scale)
 
 See also: [`scrollX`](#scrollx)
 
+#### Example
+
+```javascript
+
+```
+
 ### modulateScrollY
 
 `.modulateScrollY( multiple, scrollX, speed )`
@@ -113,3 +179,9 @@ See also: [`scrollX`](#scrollx)
 * `speed` :: float (default `0.0`)
 
 See also: [`scrollY`](#scrollY)
+
+#### Example
+
+```javascript
+
+```
