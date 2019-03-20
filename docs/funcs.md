@@ -71,7 +71,7 @@ Functions for manipulating audio signals.
 
 ---
 
-# Color
+## Color
 
 Functions for manipulating color.
 
@@ -81,8 +81,6 @@ Functions for manipulating color.
 - [invert](#invert)
 - [luma](#luma)
 - [thresh](#thresh)
-
----
 
 ### contrast
 
