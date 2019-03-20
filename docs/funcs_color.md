@@ -12,7 +12,7 @@ Functions for manipulating color.
 ---
 
 ### .contrast(`amount`)
-* amount :: float (default 1.6)
+* `amount` :: float (default 1.6)
 
 Larger `amount` value makes higher contrast.
 
@@ -24,19 +24,19 @@ Larger `amount` value makes higher contrast.
 Colorize texture.
 
 ### .colorama(`amount`)
-* amount :: float (default 0.005)
+* `amount` :: float (default 0.005)
 
 Shift HSV values.
 
 ### .invert(`amount`)
-* amount :: float (default 1.0)
+* `amount` :: float (default 1.0)
 
 Invert color.
 
 ### .luma( `threshold`, `tolerance` )
-* threshold :: float (default 0.5)
-* tolerance :: float (default 0.1)
+* `threshold` :: float (default 0.5)
+* `tolerance` :: float (default 0.1)
 
 ### .thresh( `threshold`, `tolerance` )
-* threshold :: float (default 0.5)
-* tolerance :: float (default 0.04)
+* `threshold` :: float (default 0.5)
+* `tolerance` :: float (default 0.04)

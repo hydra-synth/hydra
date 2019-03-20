@@ -1,24 +1,38 @@
-# Audio
+## Audio
 
 Functions for manipulating audio signals.
 
-- [.hide()](#.hide())
-- [.setBins( `int` )](#.setBins( `int` ))
-- [.setCutoff( `float` )](#.setCutoff( `float` ))
-- [.setScale( `float` )](#.setScale( `float` ))
-- [.setSmooth( `float` )](#.setSmooth( `float` ))
-- [.show()](#.show())
+- [hide](#hide)
+- [setBins](#setbins)
+- [setCutoff](#setcutoff)
+- [setScale](#setScale)
+- [setSmooth](#setSmooth)
+- [show](#show)
 
----
+### hide
 
-### .hide()
+* .hide()
 
-### .setBins( `int` )
+### setBins
 
-### .setCutoff( `float` )
+* .setBins( `int` )
+    * `int` :: integer (default x)
 
-### .setScale( `float` )
+### setCutoff
 
-### .setSmooth( `float` )
+* .setCutoff( `frequency` )
+    * `frequency` :: float (default x)
 
-### .show()
+### setScale
+
+* .setScale( `amount` )
+    * `amount` :: float (default x) 
+
+### setSmooth
+
+* .setSmooth( `amount` )
+    * `amount` :: float (default x)
+
+### show
+
+* .show()

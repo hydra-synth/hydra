@@ -43,27 +43,31 @@ Functions for manipulating audio signals.
 
 ### hide
 
-.hide()
+* .hide()
 
 ### setBins
 
-.setBins( `int` )
+* .setBins( `int` )
+    * `int` :: integer (default x)
 
 ### setCutoff
 
-.setCutoff( `float` )
+* .setCutoff( `frequency` )
+    * `frequency` :: float (default x)
 
 ### setScale
 
-.setScale( `float` )
+* .setScale( `amount` )
+    * `amount` :: float (default x) 
 
 ### setSmooth
 
-.setSmooth( `float` )
+* .setSmooth( `amount` )
+    * `amount` :: float (default x)
 
 ### show
 
-.show()
+* .show()
 
 ---
 
