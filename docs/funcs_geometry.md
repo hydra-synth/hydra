@@ -1,4 +1,4 @@
-# Geometry
+## Geometry
 
 Functions for manipulating geometry.
 
@@ -8,8 +8,6 @@ Functions for manipulating geometry.
 - [scale](#scale)
 - [scrollX](#scrollX)
 - [scrollY](#scrollY)
-
----
 
 ### kaleid
 
@@ -39,24 +37,24 @@ Rotate texture.
 
 ### scale
 
-`.scale( `size`, `xMult`, `yMult` )`
+`.scale( size, xMult, yMult )`
 
-* size :: float
-* xMult :: float (default 1.0)
-* yMult :: float (default 1.0)
+* `size` :: float (default `x`)
+* `xMult` :: float (default `1.0`)
+* `yMult` :: float (default `1.0`)
 
 Scale texture.
 
 ### scrollX
 
-`.scrollX( `scrollX`, `speed` )`
+`.scrollX( scrollX, speed )`
 
-* scrollX :: float (default 0.5)
-* speed :: float (default 0.0)
+* `scrollX` :: float (default `0.5`)
+* `speed` :: float (default `0.0`)
 
 ### scrollY
 
-`.scrollY( `scrollY`, `speed` )`
+`.scrollY( scrollY, speed )`
 
-* scrollY :: float (default 0.5)
-* speed :: float (default 0.0)
+* `scrollY` :: float (default `0.5`)
+* `speed` :: float (default `0.0`)
