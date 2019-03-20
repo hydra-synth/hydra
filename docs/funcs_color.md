@@ -3,7 +3,7 @@
 Functions for manipulating color.
 
 - [contrast](#contrast)
-- [color](#color)
+- [color `vec4`](#color-vec4)
 - [colorama](#colorama)
 - [invert](#invert)
 - [luma](#luma)
@@ -17,7 +17,7 @@ Functions for manipulating color.
 
 Larger `amount` value makes higher contrast.
 
-### color
+### color `vec4`
 
 `.color( r, g, b )`
 
