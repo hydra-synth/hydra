@@ -1,5 +1,5 @@
 const PatchBay = require('./src/pb-live.js')
-const HydraSynth = require('hydra-synth')
+const HydraSynth = require('../hydra-synth')
 const Editor = require('./src/editor.js')
 const Canvas = require('./src/canvas.js')
 const loop = require('raf-loop')
@@ -10,6 +10,20 @@ const Menu = require('./src/menu.js')
 function init () {
   window.pb = pb
   window.P5 = P5
+
+  // add a p5js instance to the global context
+  window.p1 = new P5()
+
+  // add lyrics to global context
+  window.lyrics = {}
+  fetch('../lyrics/offer.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      window.lyrics = data;
+    });
+
 
   // initialize elements
   var canvas = Canvas(document.getElementById('hydra-canvas'))
