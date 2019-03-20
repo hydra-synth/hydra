@@ -136,6 +136,13 @@ Functions for manipulating color.
 
 Larger `amount` value makes higher contrast.
 
+#### Example
+
+```javascript
+// 20Hz oscillator with contrast interpolating between 0.0-5.0
+osc(20).contrast( ({time}) => Math.sin(time) * 5 ).out(o0)
+```
+
 ### color `vec4`
 
 `.color( r, g, b )`
@@ -146,6 +153,15 @@ Larger `amount` value makes higher contrast.
 
 Colorize texture.
 
+#### Example
+
+```javascript
+// 20Hz oscillator source
+// color sequence of Red, Green, Blue, White, Black
+// output to buffer o0
+osc(20).color([1,0,0,1,0],[0,1,0,1,0],[0,0,1,1,0]).out(o0)
+```
+
 ### colorama
 
 `.colorama( amount )`
@@ -153,6 +169,24 @@ Colorize texture.
 * `amount` :: float (default `0.005`)
 
 Shift HSV values.
+
+#### Example
+
+```javascript
+// 20Hz oscillator source
+// color sequence of Red, Green, Blue, White, Black
+// colorama sequence of 0.005, 0.5, 1.0 at 1/8 speed
+// output to buffer o0
+osc(20)
+  .color([1,0,0,1,0],[0,1,0,1,0],[0,0,1,1,0])
+  .colorama([0.005,0.33,0.66,1.0].fast(0.125))
+  .out(o0)
+```
+
+```javascript
+// 
+noise(3,0.1).colorama( ({time}) => Math.sin(time/5) ).out(o0)
+```
 
 ### invert
 
@@ -197,6 +231,12 @@ Functions for manipulating geometry.
 
 Kaleidoscope effect with `nSides` repetition.
 
+#### Example
+
+```javascript
+osc(25,-0.1,0.5).kaleid(50).out(o0)
+```
+
 ### pixelate
 
 `.pixelate( x, y )`
@@ -206,6 +246,12 @@ Kaleidoscope effect with `nSides` repetition.
 
 Pixelate texture with `pixelX` segments and `pixelY` segments.
 
+#### Example
+
+```javascript
+
+```
+
 ### rotate
 
 `.rotate( angle, speed )`
@@ -214,6 +260,12 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 * `speed` :: float (default `0.0`)
 
 Rotate texture.
+
+#### Example
+
+```javascript
+
+```
 
 ### scale
 
@@ -225,6 +277,12 @@ Rotate texture.
 
 Scale texture.
 
+#### Example
+
+```javascript
+
+```
+
 ### scrollX
 
 `.scrollX( scrollX, speed )`
@@ -232,12 +290,24 @@ Scale texture.
 * `scrollX` :: float (default `0.5`)
 * `speed` :: float (default `0.0`)
 
+#### Example
+
+```javascript
+
+```
+
 ### scrollY
 
 `.scrollY( scrollY, speed )`
 
 * `scrollY` :: float (default `0.5`)
 * `speed` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+
+```
 
 ---
 
@@ -305,6 +375,21 @@ Functions for describing modulations of sources.
 Modulate texture. 
 More about modulation at: https://lumen-app.com/guide/modulation/
 
+#### Example
+
+```javascript
+// chocolate whirlpool
+voronoi()
+  .color(0.9,0.25,0.15)
+  .rotate(({time})=>(time%360)/2)
+  .modulate(osc(25,0.1,0.5)
+            .kaleid(50)
+            .scale(({time})=>Math.sin(time*1)*0.5+1)
+            .modulate(noise(0.6,0.5)),
+            0.5)
+  .out(o0)
+```
+
 ### modulateHue
 
 `.modulateHue( color, amount )`
@@ -318,6 +403,12 @@ More about modulation at: https://lumen-app.com/guide/modulation/
 Changes coordinates based on hue of second input. 
 Based on:https://www.shadertoy.com/view/XtcSWM
 
+#### Example
+
+```javascript
+
+```
+
 ### modulateKaleid
 
 `.modulateKaleid( nSides )`
@@ -329,6 +420,17 @@ Based on:https://www.shadertoy.com/view/XtcSWM
 * `nSides` :: float (default `4.0`)
 
 See also: [`kaleid`](#kaleid).
+
+#### Example
+
+```javascript
+osc(9,-0.1,0.1)
+  .modulateKaleid(osc(11,0.5,0),50)
+  .scale(0.1,0.3)
+  .modulate(noise(5,0.1))
+  .mult(solid(1,1,0.3))
+  .out(o0)
+```
 
 ### modulatePixelate
 
@@ -343,9 +445,18 @@ See also: [`kaleid`](#kaleid).
 
 See also: [`pixelate`](#pixelate)
 
+#### Example
+
+```javascript
+// what lies beneath
+voronoi(10,1,5).brightness(()=>Math.random()*0.15)
+  .modulatePixelate(noise(25,0.5),100)
+  .out(o0)
+```
+
 ### modulateRotate
 
-`.modulateRotate( multiple, offset )`
+`.modulateRotate( texture, multiple, offset )`
 
 * `texture`
   * `color` :: see [color `vec4`](#color-vec4)
@@ -355,6 +466,16 @@ See also: [`pixelate`](#pixelate)
 * `offset` :: float (default `0.0`)
 
 See also: [`rotate`](#rotate)
+
+#### Example
+
+```javascript
+// wormhole
+voronoi(100,3,5)
+  .modulateRotate(osc(1,0.5,0).kaleid(50).scale(0.5),15,0)
+  .mult(osc(50,-0.1,8).kaleid(9))
+  .out(o0)
+```
 
 ### modulateScale
 
@@ -369,6 +490,15 @@ See also: [`rotate`](#rotate)
 
 See also: [`scale`](#scale)
 
+#### Example
+
+```javascript
+// cosmic radiation
+gradient(5).repeat(50,50).kaleid([3,5,7,9].fast(0.5))
+  .modulateScale(osc(4,-0.5,0).kaleid(50).scale(0.5),15,0)
+  .out(o0)
+```
+
 ### modulateScrollX
 
 `.modulateScrollX( multiple, scrollX, speed )`
@@ -382,6 +512,12 @@ See also: [`scale`](#scale)
 
 See also: [`scrollX`](#scrollx)
 
+#### Example
+
+```javascript
+
+```
+
 ### modulateScrollY
 
 `.modulateScrollY( multiple, scrollX, speed )`
@@ -394,6 +530,12 @@ See also: [`scrollX`](#scrollx)
 * `speed` :: float (default `0.0`)
 
 See also: [`scrollY`](#scrollY)
+
+#### Example
+
+```javascript
+
+```
 
 ---
 
@@ -419,6 +561,14 @@ Functions for performing operations on sources.
 
 Add textures.
 
+#### Example
+
+```javascript
+shape().scale(0.5).add(shape(4),[0,0.25,0.5,0.75,1]).out()
+
+osc(9,0.1,1).add(osc(13,0.5,5)).out()
+```
+
 ### blend
 
 `.blend( texture, amount )`
@@ -431,6 +581,14 @@ Add textures.
 
 Blend textures.
 
+#### Example
+
+```javascript
+shape().scale(0.5).blend(shape(4),[0,0.25,0.5,0.75,1]).out()
+
+osc(9,0.1,1).blend(osc(13,0.5,5)).out()
+```
+
 ### diff
 
 `.diff( texture )`
@@ -441,6 +599,19 @@ Blend textures.
   * `shape` :: see [`shape`](#shape)
 
 Return difference of textures.
+
+#### Example
+
+```javascript
+osc(9,0.1,1).diff(osc(13,0.5,5)).out()
+
+osc(1,1,2)
+  .diff(shape(6,1.1,0.01)
+        .scale(({time})=>Math.sin(time)*0.05 + 0.9)
+        .kaleid(15)
+        .rotate(({time})=>time%360))
+  .out()
+```
 
 ### layer
 
@@ -453,6 +624,12 @@ Return difference of textures.
 
 Overlay texture based on alpha value.
 
+#### Example
+
+```javascript
+solid(1,0,0,1).layer(shape(4).color(0,1,0,({time})=>Math.sin(time*2))).out()
+```
+
 ### mult
 
 `.mult( texture, amount )`
@@ -464,6 +641,12 @@ Overlay texture based on alpha value.
 * `amount` :: float (default `1.0`)
 
 Multiply images and blend with the texture by `amount`.
+
+#### Example
+
+```javascript
+osc(9,0.1,2).mult(osc(13,0.5,5)).out()
+```
 
 ---
 
@@ -487,6 +670,13 @@ Sources are elementary generators that output different types of visual content.
 
 * `speed` :: float (default `x`)
 
+#### Example
+
+```javascript
+// gradient sequence at speeds of 1, 2 & 4
+gradient([1,2,4]).out(o0)
+```
+
 ### noise
 
 `noise( scale, offset )`
@@ -496,6 +686,14 @@ Sources are elementary generators that output different types of visual content.
 
 Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 
+#### Example
+
+```javascript
+// noise interpolating between different scales and offsets
+noise( ({time}) => Math.sin(time/10)*50 , ({time}) => Math.sin(time/2)/500 )
+    .out(o0)
+```
+
 ### osc
 
 `osc( frequency, sync, offset )`
@@ -503,6 +701,22 @@ Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 * `frequency` :: float (default `60.0`)
 * `sync` :: float (default `0.1`)
 * `offset` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+// frequency
+osc( [1,10,50,100,250,500].fast(2) ).out(o0)
+
+// frequency 2
+osc( ({time}) => Math.sin(time/10) * 100 ).out(o0)
+
+// sync
+osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).out(o0)
+
+// offset
+osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ).out(o0)
+```
 
 ### out
 
@@ -512,11 +726,47 @@ Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
   * `osc`: `o0`, `o1`, `o2`, `o3`
   * `src`: `s0`, `s1`, `s2`, `s3`
 
+#### Example
+
+```javascript
+// output four oscillators to different buffers
+// and then modulate them together
+osc( [1,10,50,100,250,500].fast(2) ).out(o0) // frequency
+osc( ({time}) => Math.sin(time/10) * 100 ).out(o1) // frequency 2
+osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).out(o2) // sync
+osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ) // offset
+  .modulate(o1,0.05)
+  .modulate(o2,0.05)
+  .modulate(o3,0.05)
+  .out(o3)
+render(o3)
+```
+
 ### render
 
 `render( buffer )`
 
 * `buffer`: buffer (default `o0`)
+
+#### Example
+
+```javascript
+osc( [1,10,50,100,250,500].fast(2) ).out(o0) // frequency
+osc( ({time}) => Math.sin(time/10) * 100 ).out(o1) // frequency 2
+osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).out(o2) // sync
+osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ).out(o3) // offset
+
+render(o0) // change to o1, o2, or o3
+```
+
+```javascript
+// see all four buffers at once
+osc( [1,10,50,100,250,500].fast(2) ).out(o0) // frequency
+osc( ({time}) => Math.sin(time/10) * 100 ).out(o1) // frequency 2
+osc( 10, [-10,-1,-0.1,0,0.1,1,10], 0 ).out(o2) // sync
+osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ).out(o3) // offset
+render()
+```
 
 ### shape
 
@@ -525,6 +775,23 @@ Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 * `sides` :: int (default `3.0`)
 * `radius` :: float (default `0.3`)
 * `smoothing` :: float (default `0.01`)
+
+#### Example
+
+```javascript
+// inverting blurry circle
+shape(100,0.01,1).invert(({time})=>Math.sin(time)*2).out(o0)
+
+// a... rainbow ball?
+shape(5,0.5,0.1).repeat(19,19)
+  .mult(osc(10,1,2))
+  .rotate( ({time}) => time%360 )
+  .scrollX(1,-0.25)
+  .mult(shape(15,0.3,0.01)
+        .rotate( ({time}) => time%360 )
+        .scrollX(1,-0.25))
+  .out(o0)
+```
 
 ### solid
 
@@ -535,11 +802,20 @@ Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 * `b` :: float (default `0.0`)
 * `a` :: float (default `1.0`)
 
+#### Example
+
+```javascript
+// cycling through red, green and blue
+solid([1,0,0],[0,1,0],[0,0,1],1).out(o0)
+```
+
 ### src
 
 `src( input )`
 
 * `input` :: input (examples: `o0`, `s1`)
+
+See `hydra-examples` repository
 
 ### voronoi
 
@@ -550,6 +826,16 @@ Generate [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
 * `blending` :: float (default `0.3`)
 
 Generate [voronoi shapes](https://en.wikipedia.org/wiki/Voronoi_diagram).
+
+#### Example
+
+```javascript
+// default
+voronoi(5,0.3,0.3).out(o0)
+
+// fireflies
+voronoi(25,2,10).color(1,1,0).brightness(0.15).out(o0)
+```
 
 ---
 
