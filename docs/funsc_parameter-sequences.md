@@ -1,9 +1,8 @@
-# Parameter sequences
+## Parameter sequences
 
 - [Lists as parameter sequences](#lists-as-parameter-sequences)
 - [Functions on parameter sequences](#functions-on-parameter-sequences)
-
----
+    - [fast](#fast)
 
 ### Lists as parameter sequences
 
@@ -15,6 +14,12 @@ osc(
 ```
 
 ### Functions on parameter sequences
+
+#### fast
+
+`fast ( amount) `
+
+* `amount` :: float (default `x`)
 
 ```
 osc(

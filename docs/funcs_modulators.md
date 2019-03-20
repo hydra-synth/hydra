@@ -16,7 +16,7 @@ Functions for describing modulations of sources.
 `.modulate( texture, amount )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `amount` :: float (default `0.1`)
@@ -29,7 +29,7 @@ More about modulation at: https://lumen-app.com/guide/modulation/
 `.modulateHue( color, amount )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `amount` :: float (default `1.0`)
@@ -42,7 +42,7 @@ Based on:https://www.shadertoy.com/view/XtcSWM
 `.modulateKaleid( nSides )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `nSides` :: float (default `4.0`)
@@ -54,7 +54,7 @@ See also: [`kaleid`](#kaleid).
 `.modulatePixelate( multiple, offset )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `multiple` :: float (default `10.0`)
@@ -67,7 +67,7 @@ See also: [`pixelate`](#pixelate)
 `.modulateRotate( multiple, offset )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `multiple` :: float (default `1.0`)
@@ -80,7 +80,7 @@ See also: [`rotate`](#rotate)
 `.modulateScale( multiple, offset )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `multiple` :: float (default `1.0`)
@@ -93,7 +93,7 @@ See also: [`scale`](#scale)
 `.modulateScrollX( multiple, scrollX, speed )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `scrollX` :: float (default `0.5`)
@@ -106,7 +106,7 @@ See also: [`scrollX`](#scrollx)
 `.modulateScrollY( multiple, scrollX, speed )`
 
 * `texture`
-  * `color` :: `vec4`, see [color `vec4`](#color-vec4)
+  * `color` :: see [color `vec4`](#color-vec4)
   * `src` :: see [`src`](#src)
   * `shape` :: see [`shape`](#shape)
 * `scrollY` :: float (default `0.5`)

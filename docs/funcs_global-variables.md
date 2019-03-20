@@ -31,6 +31,5 @@ osc(() => mouse.x).out(o0)
 Control the oscillator using a sine wave based on the current time:
 
 ```javascript
-osc( ({time}) => Math.sin(time) )
-.out(o0)
+osc( ({time}) => Math.sin(time) ).out(o0)
 ```
