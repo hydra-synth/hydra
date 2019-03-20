@@ -2,29 +2,68 @@
 
 ## Categories
 
-- [Audio](funcs_audio.md)
-- [Color](funcs_color.md)
-- [Geometry](funcs_geometry.md)
-- [Global variables](funcs_global-variables.md)
-- [Modulators](funcs_modulators.md)
-- [Operators](funcs_operators.md)
-- [Sources](funcs_sources.md)
-- [Parameter sequences](funcs_parameter-sequences.md)
+- [Audio](#audio)
+- [Color](#color)
+- [Geometry](#geometry)
+- [Global variables](#global-variables)
+- [Modulators](#modulators)
+- [Operators](#operators)
+- [Sources](#sources)
+- [Parameter sequences](#parameter-sequences)
 
 ## Contents
 
-- [Audio](funcs_audio.md)
-    - [.hide()](funcs_audio.md#.hide())
-    - [.setBins( `int` )](funcs_audio.md#.setBins( `int` ))
-    - [.setCutoff( `float` )](funcs_audio.md#.setCutoff( `float` ))
-    - [.setScale( `float` )](funcs_audio.md#.setScale( `float` ))
-    - [.setSmooth( `float` )](funcs_audio.md#.setSmooth( `float` ))
-    - [.show()](funcs_audio.md#.show())
-- [Color](funcs_color.md)
-- [Geometry](funcs_geometry.md)
-- [Global variables](funcs_global-variables.md)
-- [Modulators](funcs_modulators.md)
-- [Operators](funcs_operators.md)
-- [Sources](funcs_sources.md)
-- [Parameter sequences](funcs_parameter-sequences.md)
-    - 
+- [Audio](#audio)
+    - [hide](#hide)
+    - [setBins](#setbins)
+    - [setCutoff](#setcutoff)
+    - [setScale](#setScale)
+    - [setSmooth](#setSmooth)
+    - [show](#show)
+- [Color](#color)
+- [Geometry](#geometry)
+- [Global variables](#global-variables)
+- [Modulators](#modulators)
+- [Operators](#operators)
+- [Sources](#sources)
+- [Parameter sequences](#parameter-sequences)
+
+---
+
+## Audio
+
+Functions for manipulating audio signals.
+
+- [hide](#hide)
+- [setBins](#setbins)
+- [setCutoff](#setcutoff)
+- [setScale](#setScale)
+- [setSmooth](#setSmooth)
+- [show](#show)
+
+### hide
+
+.hide()
+
+### setBins
+
+.setBins( `int` )
+
+### setCutoff
+
+.setCutoff( `float` )
+
+### setScale
+
+.setScale( `float` )
+
+### setSmooth
+
+.setSmooth( `float` )
+
+### show
+
+.show()
+
+---
+
