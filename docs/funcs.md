@@ -1,5 +1,8 @@
 # Functions
 
+- [Categories of functions](#categories)
+- [Complete contents of functions](#contents)
+
 ## Categories
 
 - [Audio](#audio)
