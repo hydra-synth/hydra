@@ -164,7 +164,15 @@ See also: [`scrollX`](#scrollx)
 #### Example
 
 ```javascript
+// default
+voronoi(25,0,0)
+  .modulateScrollX(osc(10),0.5,0)
+  .out(o0)
 
+// different scroll and speed
+voronoi(25,0,0)
+  .modulateScrollX(osc(10),0.5,0.25)
+  .out(o0)
 ```
 
 ### modulateScrollY
@@ -183,5 +191,13 @@ See also: [`scrollY`](#scrollY)
 #### Example
 
 ```javascript
+// default
+voronoi(25,0,0)
+  .modulateScrollY(osc(10),0.5,0)
+  .out(o0)
 
+// different scroll and speed
+voronoi(25,0,0)
+  .modulateScrollY(osc(10),0.5,0.25)
+  .out(o0)
 ```

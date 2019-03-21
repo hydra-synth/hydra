@@ -249,7 +249,16 @@ Pixelate texture with `pixelX` segments and `pixelY` segments.
 #### Example
 
 ```javascript
+// default
+noise().pixelate(20,20).out(o0)
 
+noise()
+  .mult(osc(10,0.25,1))
+  .scrollY(1,0.25)
+  .pixelate([100,40,20,70].fast(0.25))
+  .modulateRotate(src(o0).scale(0.5),0.125)
+  .diff(src(o0).rotate([-0.05,0.05].fast(0.125)))
+  .out(o0)
 ```
 
 ### rotate
@@ -264,14 +273,18 @@ Rotate texture.
 #### Example
 
 ```javascript
+osc(50).rotate( ({time}) => time%360 ).out(o0)
 
+osc(10,1,1)
+    .rotate( ({time}) => time%360, ({time}) => Math.sin(time*0.1)*0.05 )
+    .out(o0)
 ```
 
 ### scale
 
 `.scale( size, xMult, yMult )`
 
-* `size` :: float (default `x`)
+* `size` :: float (default `1.5`)
 * `xMult` :: float (default `1.0`)
 * `yMult` :: float (default `1.0`)
 
@@ -280,7 +293,16 @@ Scale texture.
 #### Example
 
 ```javascript
+// default
+shape().scale(1.5,1,1).out()
 
+shape().scale(1.5,[0.25,0.5,0.75,1].fast(0.25),[3,2,1])
+  .invert([0,1].fast(0.25))
+  .kaleid(5)
+  .kaleid(12)
+  .scale( ({time})=>Math.sin(time/5)*0.5 )
+  .rotate(1,1)
+  .out(o0)
 ```
 
 ### scrollX
@@ -293,7 +315,22 @@ Scale texture.
 #### Example
 
 ```javascript
+// default
+osc(10,0,1).scrollX(0.5,0).out()
 
+// x position
+osc(10,0,1).scrollX([0,0.25,0.5,0.75,1].fast(4),0).out()
+
+// scroll speed
+gradient(1).scrollX(0, ({time}) => Math.sin(time*0.05)*0.05 ).out()
+
+gradient(0.125)
+  .scrollX(0, ({time}) => Math.sin(time*0.05)*0.05 )
+  .scrollY(0, ({time}) => Math.sin(time*0.01)*-0.07 )
+  .pixelate([5,2,10],[15,8])
+  .scale(0.15)
+  .modulate(noise(1,0.25))
+  .out()
 ```
 
 ### scrollY
@@ -306,7 +343,22 @@ Scale texture.
 #### Example
 
 ```javascript
+// default
+osc(10,0,1).scrollY(0.5,0).out()
 
+// y position
+osc(10,0,1).scrollY([0,0.25,0.5,0.75,1].fast(4),0).out()
+
+// scroll speed
+gradient(1).scrollY(0, ({time}) => Math.sin(time*0.05)*0.05 ).out()
+
+gradient(0.125)
+  .scrollX(0, ({time}) => Math.sin(time*0.05)*0.05 )
+  .scrollY(0, ({time}) => Math.sin(time*0.01)*-0.07 )
+  .pixelate([5,2,10],[15,8])
+  .scale(0.15)
+  .modulate(noise(1,0.25))
+  .out()
 ```
 
 ---
@@ -515,7 +567,15 @@ See also: [`scrollX`](#scrollx)
 #### Example
 
 ```javascript
+// default
+voronoi(25,0,0)
+  .modulateScrollX(osc(10),0.5,0)
+  .out(o0)
 
+// different scroll and speed
+voronoi(25,0,0)
+  .modulateScrollX(osc(10),0.5,0.25)
+  .out(o0)
 ```
 
 ### modulateScrollY
@@ -534,8 +594,17 @@ See also: [`scrollY`](#scrollY)
 #### Example
 
 ```javascript
+// default
+voronoi(25,0,0)
+  .modulateScrollY(osc(10),0.5,0)
+  .out(o0)
 
+// different scroll and speed
+voronoi(25,0,0)
+  .modulateScrollY(osc(10),0.5,0.25)
+  .out(o0)
 ```
+
 
 ---
 
