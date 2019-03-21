@@ -77,6 +77,12 @@ noise(3,0.1).colorama( ({time}) => Math.sin(time/5) ).out(o0)
 
 Invert color.
 
+#### Example
+
+```javascript
+solid(1,1,1).invert([0,1]).out(o0)
+```
+
 ### luma
 
 `.luma( threshold, tolerance )`
@@ -84,9 +90,29 @@ Invert color.
 * `threshold` :: float (default `0.5`)
 * `tolerance` :: float (default `0.1`)
 
+#### Example
+
+```javascript
+// default
+osc(10,0,1).luma(0.5,0.1).out(o0)
+
+osc(10,0,[0,0.5,1,2]).luma([0.1,0.25,0.75,1].fast(0.25),0.1).out(o0)
+```
+
 ### thresh
 
 `.thresh( threshold, tolerance )`
 
 * `threshold` :: float (default `0.5`)
 * `tolerance` :: float (default `0.04`)
+
+#### Example
+
+```javascript
+// default
+noise(3,0.1).thresh(0.5,0.04).out(o0)
+
+noise(3,0.1)
+  .thresh( ({time})=>Math.sin(time/2) , [0.04,0.25,0.75,1].fast(0.25) )
+  .out(o0)
+```
