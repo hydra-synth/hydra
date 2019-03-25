@@ -3,10 +3,3 @@ node_modules
 .env
 .data
 *~
-
-hydra-server/hydra-synth
-hydra-server/public/scratch
-hydra-server/public/vid
-hydra-server/public/lyrics
-hydra-server/public/fonts
-hydra-server/public/img
