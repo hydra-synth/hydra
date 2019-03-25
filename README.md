@@ -5,6 +5,7 @@ Set of tools for livecoding networked visuals. Inspired by analog modular synthe
 
 Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordinate and color transforms can be applied to each output via chained functions (see "basic functions" and "editing transformation functions" below.)
 
+
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
@@ -26,8 +27,11 @@ Go to https://hydra-editor-v1.glitch.me
 * ALT-Enter: run a block
 * CTRL-Shift-H: hide or show code
 * CTRL-Shift-S: Save screenshot and download as local file
+* CTRL-Shift-G: Share to twitter (if available). Shares to [@hydra_patterns](https://twitter.com/hydra_patterns)
 
 All code can be run either from the in-browser text editor or from the browser console.
+
+Check [@hydra_patterns](https://twitter.com/hydra_patterns) for patterns folks have shared as an easy way to get started.
 
 #### Basic functions
 render an oscillator with parameters frequency, sync, and rgb offset:
