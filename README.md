@@ -19,7 +19,7 @@ Experimental/in progress/not documented:
 Other projects
 #### Getting started
 
-Go to https://hydra-editor-v1.glitch.me
+Go to https://hydra-editor.glitch.me
 
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen
