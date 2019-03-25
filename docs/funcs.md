@@ -17,43 +17,54 @@
 ## Contents
 
 - [Audio](#audio)
-    - [hide](#hide)
-    - [setBins](#setbins)
-    - [setCutoff](#setcutoff)
-    - [setScale](#setScale)
-    - [setSmooth](#setSmooth)
-    - [show](#show)
+  - [hide](#hide)
+  - [setBins](#setbins)
+  - [setCutoff](#setcutoff)
+  - [setScale](#setScale)
+  - [setSmooth](#setSmooth)
+  - [show](#show)
 - [Color](#color)
-    - [contrast](#contrast)
-    - [color `vec4`](#color-vec4)
-    - [colorama](#colorama)
-    - [invert](#invert)
-    - [luma](#luma)
-    - [thresh](#thresh)
+  - [brightness](#brightness)
+  - [contrast](#contrast)
+  - [color `vec4`](#color-vec4)
+  - [colorama](#colorama)
+  - [invert](#invert)
+  - [luma](#luma)
+  - [posterize](#posterize)
+  - [saturate](#saturate)
+  - [shift](#shift)
+  - [thresh](#thresh)
 - [Geometry](#geometry)
-    - [kaleid](#kaleid)
-    - [pixelate](#pixelate)
-    - [rotate](#rotate)
-    - [scale](#scale)
-    - [scrollX](#scrollX)
-    - [scrollY](#scrollY)
+  - [kaleid](#kaleid)
+  - [pixelate](#pixelate)
+  - [repeat](#repeat)
+  - [repeatX](#repeatX)
+  - [repeatY](#repeatY)
+  - [rotate](#rotate)
+  - [scale](#scale)
+  - [scrollX](#scrollX)
+  - [scrollY](#scrollY)
 - [Global variables](#global-variables)
-    - [mouse](#mouse)
-    - [time](#time)
+  - [mouse](#mouse)
+  - [time](#time)
 - [Modulators](#modulators)
-    - [modulate](#modulate)
-    - [modulateHue](#modulateHue)
-    - [modulateKaleid](#modulateKaleid)
-    - [modulatePixelate](#modulatePixelate)
-    - [modulateRotate](#modulateRotate)
-    - [modulateScale](#modulateScale)
-    - [modulateScrollX](#modulateScrollX)
-    - [modulateScrollY](#modulateScrollY)
+  - [modulate](#modulate)
+  - [modulateHue](#modulateHue)
+  - [modulateKaleid](#modulateKaleid)
+  - [modulatePixelate](#modulatePixelate)
+  - [modulateRepeat](#modulateRepeat)
+  - [modulateRepeatX](#modulateRepeatX)
+  - [modulateRepeatY](#modulateRepeatY)
+  - [modulateRotate](#modulateRotate)
+  - [modulateScale](#modulateScale)
+  - [modulateScrollX](#modulateScrollX)
+  - [modulateScrollY](#modulateScrollY)
 - [Operators](#operators)
   - [add](#add)
   - [blend](#blend)
   - [diff](#diff)
   - [layer](#layer)
+  - [mask](#mask)
   - [mult](#mult)
 - [Sources](#sources)
   - [gradient](#gradient)
@@ -68,7 +79,7 @@
 - [Parameter sequences](#parameter-sequences)
   - [Lists as parameter sequences](#lists-as-parameter-sequences)
   - [Functions on parameter sequences](#functions-on-parameter-sequences)
-      - [fast](#fast)
+    - [fast](#fast)
 
 ---
 
@@ -121,12 +132,30 @@ Functions for manipulating audio signals.
 
 Functions for manipulating color.
 
+- [brightness](#brightness)
 - [contrast](#contrast)
 - [color `vec4`](#color-vec4)
 - [colorama](#colorama)
 - [invert](#invert)
 - [luma](#luma)
+- [posterize](#posterize)
+- [saturate](#saturate)
+- [shift](#shift)
 - [thresh](#thresh)
+
+### brightness
+
+`.brightness( amount )`
+
+* `amount` :: float (default `0.4`)
+
+#### Example
+
+```javascript
+osc(20,0,2)
+  .brightness( ({time}) => Math.sin(time) )
+  .out(o0)
+```
 
 ### contrast
 
@@ -196,6 +225,12 @@ noise(3,0.1).colorama( ({time}) => Math.sin(time/5) ).out(o0)
 
 Invert color.
 
+#### Example
+
+```javascript
+solid(1,1,1).invert([0,1]).out(o0)
+```
+
 ### luma
 
 `.luma( threshold, tolerance )`
@@ -203,12 +238,76 @@ Invert color.
 * `threshold` :: float (default `0.5`)
 * `tolerance` :: float (default `0.1`)
 
+#### Example
+
+```javascript
+// default
+osc(10,0,1).luma(0.5,0.1).out(o0)
+
+osc(10,0,[0,0.5,1,2]).luma([0.1,0.25,0.75,1].fast(0.25),0.1).out(o0)
+```
+
+### posterize
+
+`.posterize( bins, gamma )`
+
+* `bins` :: float (default `3.0`)
+* `gamma` :: float (default `0.6`)
+
+#### Example
+
+```javascript
+// static gradient posterized, varying bins
+gradient(0).posterize( [1, 5, 15, 30] , 0.5 ).out(o0)
+
+// static gradient posterized, varying gamma
+gradient(0).posterize( 3, [0.1, 0.5, 1.0, 2.0] ).out(o0)
+```
+
+### saturate
+
+`.saturate( amount )`
+
+* `amount` :: float (default `2.0`)
+
+#### Example
+
+```javascript
+osc(10,0,1).saturate( ({time}) => Math.sin(time) * 10 ).out()
+```
+
+### shift
+
+`.shift( r, g, b, a )`
+
+* `r` :: float (default `0.5`)
+* `g` :: float (default `0.5`)
+* `b` :: float (default `0.5`)
+* `a` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+
+```
+
 ### thresh
 
 `.thresh( threshold, tolerance )`
 
 * `threshold` :: float (default `0.5`)
 * `tolerance` :: float (default `0.04`)
+
+#### Example
+
+```javascript
+// default
+noise(3,0.1).thresh(0.5,0.04).out(o0)
+
+noise(3,0.1)
+  .thresh( ({time})=>Math.sin(time/2) , [0.04,0.25,0.75,1].fast(0.25) )
+  .out(o0)
+```
 
 ---
 
@@ -218,6 +317,9 @@ Functions for manipulating geometry.
 
 - [kaleid](#kaleid)
 - [pixelate](#pixelate)
+- [repeat](#repeat)
+- [repeatX](#repeatX)
+- [repeatY](#repeatY)
 - [rotate](#rotate)
 - [scale](#scale)
 - [scrollX](#scrollX)
@@ -259,6 +361,66 @@ noise()
   .modulateRotate(src(o0).scale(0.5),0.125)
   .diff(src(o0).rotate([-0.05,0.05].fast(0.125)))
   .out(o0)
+```
+
+### repeat
+
+`.repeat( repeatX, repeatY, offsetX, offsetY )`
+
+* `repeatX` :: float (default `3.0`)
+* `repeatY` :: float (default `3.0`)
+* `offsetX` :: float (default `0.0`)
+* `offsetY` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+// default
+shape().repeat(3.0, 3.0, 0.0, 0.0).out()
+
+// dogtooth factory
+shape(1.25,0.5,0.25)
+  .repeat(3, 3)
+  .scale(2)
+  .repeat(5, 5, ({time}) => Math.sin(time), ({time}) => Math.sin(time/2))
+  .out(o0)
+```
+
+### repeatX
+
+`.repeatX( reps, offset )`
+
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+// default
+shape().repeatX(3.0, 0.0).out()
+
+osc(5,0,1)
+  .rotate(1.57)
+  .repeatX([1,2,5,10], ({time}) => Math.sin(time))
+  .out()
+```
+
+### repeatY
+
+`.repeatY( reps, offset )`
+
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+// default
+shape().repeatY(3.0, 0.0).out()
+
+osc(5,0,1)
+  .repeatY([1,2,5,10], ({time}) => Math.sin(time))
+  .out()
 ```
 
 ### rotate
@@ -409,6 +571,9 @@ Functions for describing modulations of sources.
 - [modulateHue](#modulateHue)
 - [modulateKaleid](#modulateKaleid)
 - [modulatePixelate](#modulatePixelate)
+- [modulateRepeat](#modulateRepeat)
+- [modulateRepeatX](#modulateRepeatX)
+- [modulateRepeatY](#modulateRepeatY)
 - [modulateRotate](#modulateRotate)
 - [modulateScale](#modulateScale)
 - [modulateScrollX](#modulateScrollX)
@@ -503,6 +668,73 @@ See also: [`pixelate`](#pixelate)
 // what lies beneath
 voronoi(10,1,5).brightness(()=>Math.random()*0.15)
   .modulatePixelate(noise(25,0.5),100)
+  .out(o0)
+```
+
+### modulateRepeat
+
+`.modulateRepeat( texture, repeatX, repeatY, offsetX, offsetY )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `repeatX` :: float (default `3.0`)
+* `repeatY` :: float (default `3.0`)
+* `offsetX` :: float (default `0.5`)
+* `offsetY` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+// default
+shape(4,0.9)
+  .mult(osc(3,0.5,1))
+  .modulateRepeat(osc(10), 3.0, 3.0, 0.5, 0.5)
+  .out(o0)
+```
+
+### modulateRepeatX
+
+`.modulateRepeatX( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+// straight lines illusion
+shape(4,0.9)
+  .mult(osc(4,0.25,1))
+  .modulateRepeatX(osc(10), 5.0, ({time}) => Math.sin(time) * 5)
+  .scale(1,0.5,0.05)
+  .out(o0)
+```
+
+### modulateRepeatY
+
+`.modulateRepeatY( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+// morphing grid
+shape(4,0.9)
+  .mult(osc(4,0.25,1))
+  .modulateRepeatY(osc(10), 5.0, ({time}) => Math.sin(time) * 5)
+  .scale(1,0.5,0.05)
   .out(o0)
 ```
 
@@ -605,7 +837,6 @@ voronoi(25,0,0)
   .out(o0)
 ```
 
-
 ---
 
 ## Operators
@@ -616,6 +847,7 @@ Functions for performing operations on sources.
 - [blend](#blend)
 - [diff](#diff)
 - [layer](#layer)
+- [mask](#mask)
 - [mult](#mult)
 
 ### add
@@ -697,6 +929,32 @@ Overlay texture based on alpha value.
 
 ```javascript
 solid(1,0,0,1).layer(shape(4).color(0,1,0,({time})=>Math.sin(time*2))).out()
+```
+
+### mask
+
+`.mask( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+// default
+gradient(5).mask(voronoi(),3,0.5).invert([0,1]).out()
+
+// algae pulse
+osc(10,-0.25,1).color(0,0,1).saturate(2).kaleid(50)
+  .mask(noise(25,2).modulateScale(noise(0.25,0.05)))
+  .modulateScale(osc(6,-0.5,2).kaleid(50))
+  .mult(osc(3,-0.25,2).kaleid(50))
+  .scale(0.5,0.5,0.75)
+  .out()
 ```
 
 ### mult
