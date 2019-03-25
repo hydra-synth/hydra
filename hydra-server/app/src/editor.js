@@ -30,12 +30,15 @@ var EditorClass = function () {
       },
       'Shift-Ctrl-H': function (instance) {
         var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+        var m = document.getElementById('modal-header')
         if (isShowing) {
           l.style.opacity = 0
           self.logElement.style.opacity  = 0
+          m.style.opacity = 0
           isShowing = false
         } else {
           l.style.opacity= 1
+          m.style.opacity = 1
           self.logElement.style.opacity  = 1
           isShowing = true
         }
