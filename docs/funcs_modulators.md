@@ -6,6 +6,9 @@ Functions for describing modulations of sources.
 - [modulateHue](#modulateHue)
 - [modulateKaleid](#modulateKaleid)
 - [modulatePixelate](#modulatePixelate)
+- [modulateRepeat](#modulateRepeat)
+- [modulateRepeatX](#modulateRepeatX)
+- [modulateRepeatY](#modulateRepeatY)
 - [modulateRotate](#modulateRotate)
 - [modulateScale](#modulateScale)
 - [modulateScrollX](#modulateScrollX)
@@ -101,6 +104,59 @@ See also: [`pixelate`](#pixelate)
 voronoi(10,1,5).brightness(()=>Math.random()*0.15)
   .modulatePixelate(noise(25,0.5),100)
   .out(o0)
+```
+
+### modulateRepeat
+
+`.modulateRepeat( texture, repeatX, repeatY, offsetX, offsetY )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `repeatX` :: float (default `3.0`)
+* `repeatY` :: float (default `3.0`)
+* `offsetX` :: float (default `0.5`)
+* `offsetY` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+
+```
+
+### modulateRepeatX
+
+`.modulateRepeatX( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+
+```
+
+### modulateRepeatY
+
+`.modulateRepeatY( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+
 ```
 
 ### modulateRotate

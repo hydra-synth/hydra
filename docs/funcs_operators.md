@@ -6,6 +6,7 @@ Functions for performing operations on sources.
 - [blend](#blend)
 - [diff](#diff)
 - [layer](#layer)
+- [mask](#mask)
 - [mult](#mult)
 
 ### add
@@ -87,6 +88,23 @@ Overlay texture based on alpha value.
 
 ```javascript
 solid(1,0,0,1).layer(shape(4).color(0,1,0,({time})=>Math.sin(time*2))).out()
+```
+
+### mask
+
+`.mask( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+
 ```
 
 ### mult

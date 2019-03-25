@@ -2,12 +2,28 @@
 
 Functions for manipulating color.
 
+- [brightness](#brightness)
 - [contrast](#contrast)
 - [color `vec4`](#color-vec4)
 - [colorama](#colorama)
 - [invert](#invert)
 - [luma](#luma)
+- [posterize](#posterize)
+- [saturate](#saturate)
+- [shift](#shift)
 - [thresh](#thresh)
+
+### brightness
+
+`.brightness( amount )`
+
+* `amount` :: float (default `0.4`)
+
+#### Example
+
+```javascript
+
+```
 
 ### contrast
 
@@ -97,6 +113,46 @@ solid(1,1,1).invert([0,1]).out(o0)
 osc(10,0,1).luma(0.5,0.1).out(o0)
 
 osc(10,0,[0,0.5,1,2]).luma([0.1,0.25,0.75,1].fast(0.25),0.1).out(o0)
+```
+
+### posterize
+
+`.posterize( bins, gamma )`
+
+* `bins` :: float (default `3.0`)
+* `gamma` :: float (default `0.6`)
+
+#### Example
+
+```javascript
+
+```
+
+### saturate
+
+`.saturate( amount )`
+
+* `amount` :: float (default `2.0`)
+
+#### Example
+
+```javascript
+
+```
+
+### shift
+
+`.shift( r, g, b, a )`
+
+* `r` :: float (default `0.5`)
+* `g` :: float (default `0.5`)
+* `b` :: float (default `0.5`)
+* `a` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+
 ```
 
 ### thresh

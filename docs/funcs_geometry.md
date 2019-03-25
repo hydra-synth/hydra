@@ -4,6 +4,9 @@ Functions for manipulating geometry.
 
 - [kaleid](#kaleid)
 - [pixelate](#pixelate)
+- [repeat](#repeat)
+- [repeatX](#repeatX)
+- [repeatY](#repeatY)
 - [rotate](#rotate)
 - [scale](#scale)
 - [scrollX](#scrollX)
@@ -45,6 +48,47 @@ noise()
   .modulateRotate(src(o0).scale(0.5),0.125)
   .diff(src(o0).rotate([-0.05,0.05].fast(0.125)))
   .out(o0)
+```
+
+### repeat
+
+`.repeat( repeatX, repeatY, offsetX, offsetY )`
+
+* `repeatX` :: float (default `3.0`)
+* `repeatY` :: float (default `3.0`)
+* `offsetX` :: float (default `0.0`)
+* `offsetY` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+
+```
+
+### repeatX
+
+`.repeatX( reps, offset )`
+
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+
+```
+
+### repeatY
+
+`.repeatY( reps, offset )`
+
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.0`)
+
+#### Example
+
+```javascript
+
 ```
 
 ### rotate
