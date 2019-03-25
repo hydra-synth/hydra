@@ -62,7 +62,15 @@ noise()
 #### Example
 
 ```javascript
+// default
+shape().repeat(3.0, 3.0, 0.0, 0.0).out()
 
+// dogtooth factory
+shape(1.25,0.5,0.25)
+  .repeat(3, 3)
+  .scale(2)
+  .repeat(5, 5, ({time}) => Math.sin(time), ({time}) => Math.sin(time/2))
+  .out(o0)
 ```
 
 ### repeatX
@@ -75,7 +83,13 @@ noise()
 #### Example
 
 ```javascript
+// default
+shape().repeatX(3.0, 0.0).out()
 
+osc(5,0,1)
+  .rotate(1.57)
+  .repeatX([1,2,5,10], ({time}) => Math.sin(time))
+  .out()
 ```
 
 ### repeatY
@@ -88,7 +102,12 @@ noise()
 #### Example
 
 ```javascript
+// default
+shape().repeatY(3.0, 0.0).out()
 
+osc(5,0,1)
+  .repeatY([1,2,5,10], ({time}) => Math.sin(time))
+  .out()
 ```
 
 ### rotate

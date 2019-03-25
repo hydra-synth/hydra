@@ -122,7 +122,11 @@ voronoi(10,1,5).brightness(()=>Math.random()*0.15)
 #### Example
 
 ```javascript
-
+// default
+shape(4,0.9)
+  .mult(osc(3,0.5,1))
+  .modulateRepeat(osc(10), 3.0, 3.0, 0.5, 0.5)
+  .out(o0)
 ```
 
 ### modulateRepeatX
@@ -139,7 +143,12 @@ voronoi(10,1,5).brightness(()=>Math.random()*0.15)
 #### Example
 
 ```javascript
-
+// straight lines illusion
+shape(4,0.9)
+  .mult(osc(4,0.25,1))
+  .modulateRepeatX(osc(10), 5.0, ({time}) => Math.sin(time) * 5)
+  .scale(1,0.5,0.05)
+  .out(o0)
 ```
 
 ### modulateRepeatY
@@ -156,7 +165,12 @@ voronoi(10,1,5).brightness(()=>Math.random()*0.15)
 #### Example
 
 ```javascript
-
+// morphing grid
+shape(4,0.9)
+  .mult(osc(4,0.25,1))
+  .modulateRepeatY(osc(10), 5.0, ({time}) => Math.sin(time) * 5)
+  .scale(1,0.5,0.05)
+  .out(o0)
 ```
 
 ### modulateRotate

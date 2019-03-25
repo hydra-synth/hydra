@@ -22,7 +22,9 @@ Functions for manipulating color.
 #### Example
 
 ```javascript
-
+osc(20,0,2)
+  .brightness( ({time}) => Math.sin(time) )
+  .out(o0)
 ```
 
 ### contrast
@@ -125,7 +127,11 @@ osc(10,0,[0,0.5,1,2]).luma([0.1,0.25,0.75,1].fast(0.25),0.1).out(o0)
 #### Example
 
 ```javascript
+// static gradient posterized, varying bins
+gradient(0).posterize( [1, 5, 15, 30] , 0.5 ).out(o0)
 
+// static gradient posterized, varying gamma
+gradient(0).posterize( 3, [0.1, 0.5, 1.0, 2.0] ).out(o0)
 ```
 
 ### saturate
@@ -137,7 +143,7 @@ osc(10,0,[0,0.5,1,2]).luma([0.1,0.25,0.75,1].fast(0.25),0.1).out(o0)
 #### Example
 
 ```javascript
-
+osc(10,0,1).saturate( ({time}) => Math.sin(time) * 10 ).out()
 ```
 
 ### shift
