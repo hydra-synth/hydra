@@ -6,6 +6,7 @@ Functions for performing operations on sources.
 - [blend](#blend)
 - [diff](#diff)
 - [layer](#layer)
+- [mask](#mask)
 - [mult](#mult)
 
 ### add
@@ -87,6 +88,32 @@ Overlay texture based on alpha value.
 
 ```javascript
 solid(1,0,0,1).layer(shape(4).color(0,1,0,({time})=>Math.sin(time*2))).out()
+```
+
+### mask
+
+`.mask( texture, reps, offset )`
+
+* `texture`
+  * `color` :: see [color `vec4`](#color-vec4)
+  * `src` :: see [`src`](#src)
+  * `shape` :: see [`shape`](#shape)
+* `reps` :: float (default `3.0`)
+* `offset` :: float (default `0.5`)
+
+#### Example
+
+```javascript
+// default
+gradient(5).mask(voronoi(),3,0.5).invert([0,1]).out()
+
+// algae pulse
+osc(10,-0.25,1).color(0,0,1).saturate(2).kaleid(50)
+  .mask(noise(25,2).modulateScale(noise(0.25,0.05)))
+  .modulateScale(osc(6,-0.5,2).kaleid(50))
+  .mult(osc(3,-0.25,2).kaleid(50))
+  .scale(0.5,0.5,0.75)
+  .out()
 ```
 
 ### mult
