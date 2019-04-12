@@ -19,15 +19,18 @@ Experimental/in progress/not documented:
 Other projects
 #### Getting started
 
-Go to https://hydra-editor-v1.glitch.me
+Go to https://hydra-editor.glitch.me
 
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen
 * ALT-Enter: run a block
 * CTRL-Shift-H: hide or show code
 * CTRL-Shift-S: Save screenshot and download as local file
+* CTRL-Shift-G: Share to twitter (if available). Shares to [@hydra_patterns](https://twitter.com/hydra_patterns)
 
 All code can be run either from the in-browser text editor or from the browser console.
+
+Check [@hydra_patterns](https://twitter.com/hydra_patterns) for patterns folks have shared as an easy way to get started.
 
 #### Basic functions
 render an oscillator with parameters frequency, sync, and rgb offset:
