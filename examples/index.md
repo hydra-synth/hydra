@@ -1,14 +1,15 @@
 # Hydra Resources
 - [About](#About)
-- [Tutorials](#Tutorials and Workshops)
+- [Tutorials](#Tutorials-and-Workshops)
 - [Examples](#Examples)
 - [Documentation](#Documentation)
-- [Extending Hydra](#Extending Hydra)
-- [Live Performances](#Live Performances)
+- [Extending Hydra](#Extending-Hydra)
+- [Live Performances](#Live-Performances)
 
 ## About
 - [Hydra, Live Coding visuals talk by Olivia Jack](https://www.youtube.com/watch?v=cw7tPDrFIQg)
 - [Hydra: imágenes en metalenguajes](https://colectivo-de-livecoders.gitlab.io/blog/posts/2019/02/28/hydra-imagenes-en-metalenguajes.html)
+- [A free, shared visual playground in the browser, Olivia Jack talks Hydra](http://cdm.link/2019/02/hydra-olivia-jack/) CDM magazine
 
 ## Tutorials and Workshops
 - [Hydra workshop by Zach Krall](https://github.com/zachkrall/hydra-workshop)
@@ -28,3 +29,5 @@
 - [Orca-hydra](https://gist.github.com/echophon/1c7325f907b0e4eb1850e956c25dafd4)
 
 ## Live Performances
+- 2019.02.2019 [Bruce Lane @ Toplap 15th Birthday Livestream] (https://www.youtube.com/watch?v=-t8LgMQoEvQ)
+- 2019.03.22 [Olivia Jack + ALGOBABEZ @ Algorithmic Art Assembly, San Francisco](https://www.youtube.com/watch?v=2GTN8ELL75g&t=4s)
