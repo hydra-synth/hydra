@@ -38,7 +38,7 @@ render an oscillator with parameters frequency, sync, and rgb offset:
 osc(20, 0.1, 0.8).out()
 ```
 
-rotate the oscillator 1.5 radians:
+rotate the oscillator 0.8 radians:
 ```
 osc(20, 0.1, 0.8).rotate(0.8).out()
 ```
