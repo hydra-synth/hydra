@@ -1,3 +1,14 @@
-# Getting Started
+# Hydra Resources
+- [Tutorials](Tutorials)
+- [Examples](Examples)
+- [Documentation](Documentation)
 
-To get started, check out the [tutorial](#tutorial)
+## Tutorials
+
+
+
+## Examples
+- [hydra-atom examples](https://github.com/ojack/hydra-examples)
+
+## Documentation
+- [List of Functions](./docs/funcs.md)
