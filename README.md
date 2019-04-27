@@ -1,4 +1,4 @@
-### Hydra
+# Hydra
 ![hydra](https://github.com/ojack/hydra/blob/master/hydra-3-01.png?raw=true)
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
@@ -8,7 +8,7 @@ Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and c
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
-For more information, see [getting started](#Getting-Started), [tutorials and examples](./examples/README.md#examples), [the complete list of functions](./docs/funcs.md), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg). 
+For more information, see [getting started](#Getting-Started), [tutorials and examples](./examples/README.md), [the complete list of functions](./docs/funcs.md), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg).
 
 Note: this repository is for the online version of hydra. Other pieces of hydra are published as separate modules:
 
@@ -17,7 +17,7 @@ Note: this repository is for the online version of hydra. Other pieces of hydra 
 * [rtc-patch-bay](https://github.com/ojack/rtc-patch-bay): networking logic of hydra as a standalone npm module
 
 
-#### Getting started
+## Getting started
 
 Go to https://hydra-editor.glitch.me
 
@@ -108,7 +108,7 @@ modifies the oscillator frequency as a function of time. (Time is a global varia
 osc(() => (100 * Math.sin(time * 0.1))).out()
 ```
 
-#### Desktop capture
+## Desktop capture
 To use screen capture or a browser tab as an input texture, you must first install the chrome extension for screensharing, and restart chrome. Desktop capture can be useful for inputing graphics from another application, or a video or website in another browser tab. It can also be used to create interesting feedback effects.
 
 To install, go to chrome://extensions
@@ -125,7 +125,7 @@ s0.initScreen()
 src(s0).out()
 ```
 
-#### Connecting to remote streams
+## Connecting to remote streams
 Any hydra instance can use other instances/windows containing hydra as input sources, as long as they are connected to the internet and not blocked by a firewall. Hydra uses webrtc (real time webstreaming) under the hood to share video streams between open windows. The included module rtc-patch-bay manages connections between connected windows, and can also be used as a standalone module to convert any website into a source within hydra. (See standalone camera source below for example.)
 
 To begin, open hydra simultaneously in two separate windows.
@@ -150,7 +150,7 @@ To list available sources, type the following in the console:
 pb.list()
 ```
 
-#### Running locally
+## Running locally
 To run locally, you must have nodejs and npm installed. Install from: https://nodejs.org/en/
 
 open terminal and enter directory
@@ -167,7 +167,7 @@ npm run start
 ```
 go to https://localhost:8000 in the browser
 
-#### Audio Responsiveness (experimental)
+## Audio Responsiveness (experimental)
 FFT functionality is available via an audio object accessed via "a". The editor uses https://github.com/meyda/meyda for audio analysis.
 To show the fft bins,
 ```
@@ -205,11 +205,11 @@ To hide the audio waveform:
 ```
 a.hide()
 ```
-#### MIDI (experimental)
+## MIDI (experimental)
 
 MIDI controllers can work with Hydra via WebMIDI an example workflow is at [/docs/midi.md](https://github.com/ojack/hydra/blob/master/docs/midi.md) .
 
-#### API
+## API
 
 There is an updated list of functions at [/docs/funcs.md](https://github.com/ojack/hydra/blob/master/docs/funcs.md).
 
@@ -239,7 +239,7 @@ As well as in the [source code for hydra-synth](https://github.com/ojack/hydra-s
  * codemirror: browser-based text editor
  * simple-peer
 
- #### Inspiration:
+ ## Inspiration:
  * Space-Time Dynamics in Video Feedback (1984). [video](https://www.youtube.com/watch?v=B4Kn3djJMCE) and [paper](http://csc.ucdavis.edu/~cmg/papers/Crutchfield.PhysicaD1984.pdf) by Jim Crutchfield about using analog video feedback to model complex systems.
  * [Satellite Arts Project (1977) - Kit Galloway and Sherrie Rabinowitz](http://www.ecafe.com/getty/SA/)
  * [Sandin Image Processor](http://www.audiovisualizers.com/toolshak/vidsynth/sandin/sandin.htm)
