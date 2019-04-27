@@ -1,7 +1,7 @@
 # Hydra Resources
-- [Tutorials](Tutorials)
-- [Examples](Examples)
-- [Documentation](Documentation)
+- [Tutorials](#Tutorials)
+- [Examples](#Examples)
+- [Documentation](#Documentation)
 
 ## Tutorials
 
