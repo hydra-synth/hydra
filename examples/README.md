@@ -31,3 +31,4 @@
 ## Live Performances
 - 2019.02.2019 [Bruce Lane @ Toplap 15th Birthday Livestream](https://www.youtube.com/watch?v=-t8LgMQoEvQ)
 - 2019.03.22 [Olivia Jack + ALGOBABEZ @ Algorithmic Art Assembly, San Francisco](https://www.youtube.com/watch?v=2GTN8ELL75g&t=4s)
+- 2019.02.19 [c0d3 p03try](https://c0d3-p03try.neocities.org/) [#1](https://www.youtube.com/watch?v=NgLAFjuvQPo) [#2](https://www.youtube.com/watch?v=f_2OU-DZASk)
