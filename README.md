@@ -3,20 +3,23 @@
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
 
-Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordinate and color transforms can be applied to each output via chained functions (see "basic functions" and "editing transformation functions" below.)
+Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordinate and color transforms can be applied to each output via chained functions.
+
+For more information, see:
+- [Getting started](#Getting-Started)
+- [Hydra resources](./examples/README.md)
+- [List of functions](./docs/funcs.md)
 
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
 Note: this repository is for the online version of hydra. Other pieces of hydra are published as separate modules:
+
 * [hydra-synth](https://github.com/ojack/hydra-synth): synth engine of hydra as a standalone npm module
-
-Experimental/in progress/not documented:
-* [rtc-patch-bay](https://github.com/ojack/rtc-patch-bay): networking logic of hydra as a standalone npm module
 * [atom-hydra](https://github.com/ojack/atom-hydra): use hydra within atom
+* [rtc-patch-bay](https://github.com/ojack/rtc-patch-bay): networking logic of hydra as a standalone npm module
 
 
-Other projects
 #### Getting started
 
 Go to https://hydra-editor.glitch.me
