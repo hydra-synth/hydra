@@ -5,13 +5,10 @@ Set of tools for livecoding networked visuals. Inspired by analog modular synthe
 
 Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordinate and color transforms can be applied to each output via chained functions.
 
-For more information, see:
-- [Getting started](#Getting-Started)
-- [Hydra resources](./examples/README.md)
-- [List of functions](./docs/funcs.md)
-
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
+
+For more information, see [getting started](#Getting-Started), [tutorials and examples](./examples/README.md#examples), [the complete list of functions](./docs/funcs.md), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg). 
 
 Note: this repository is for the online version of hydra. Other pieces of hydra are published as separate modules:
 
