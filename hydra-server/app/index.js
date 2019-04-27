@@ -1,7 +1,6 @@
 const PatchBay = require('./src/pb-live.js')
 const HydraSynth = require('hydra-synth')
 const Editor = require('./src/editor.js')
-const Canvas = require('./src/canvas.js')
 const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
@@ -11,11 +10,14 @@ function init () {
   window.pb = pb
   window.P5 = P5
 
-  // initialize elements
-  var canvas = Canvas(document.getElementById('hydra-canvas'))
-  canvas.size()
+  var canvas = document.getElementById('hydra-canvas')
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+  canvas.style.width = '100%'
+  canvas.style.height = '100%'
+
   var pb = new PatchBay()
-  var hydra = new HydraSynth({ pb: pb, canvas: canvas.element, autoLoop: false })
+  var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
   var editor = new Editor()
   var menu = new Menu({ editor: editor, hydra: hydra})
 
