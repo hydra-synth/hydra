@@ -24,7 +24,7 @@ Go to https://hydra-editor-v1.glitch.me
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen
 * ALT-Enter: run a block
-* CTRL-Shift-H: hide or show code
+* CTRL-Shift-H: hide or show code and menu
 * CTRL-Shift-S: Save screenshot and download as local file
 
 All code can be run either from the in-browser text editor or from the browser console.

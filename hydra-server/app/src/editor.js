@@ -29,16 +29,21 @@ var EditorClass = function () {
         self.shareSketch()
       },
       'Shift-Ctrl-H': function (instance) {
-        var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-        if (isShowing) {
-          l.style.opacity = 0
-          self.logElement.style.opacity  = 0
-          isShowing = false
-        } else {
-          l.style.opacity= 1
-          self.logElement.style.opacity  = 1
-          isShowing = true
-        }
+        // NOTE here's where the hide function is.
+        var l = []
+        l.push(document.getElementsByClassName('CodeMirror-scroll')[0])
+        l.push(document.getElementById('modal-header'))
+        l.forEach(function(item, i, a) {
+          if (isShowing) {
+            item.style.opacity = 0
+            self.logElement.style.opacity  = 0
+          } else {
+            item.style.opacity= 1
+            self.logElement.style.opacity  = 1
+          }
+          // last element of the array
+          if (i == a.length - 1) { isShowing = !isShowing }
+        })
       },
       'Ctrl-Enter': function (instance) {
         var c = instance.getCursor()
