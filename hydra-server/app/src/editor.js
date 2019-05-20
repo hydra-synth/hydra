@@ -4,11 +4,17 @@ require('codemirror/mode/javascript/javascript')
 require('codemirror/addon/hint/javascript-hint')
 require('codemirror/addon/hint/show-hint')
 require('codemirror/addon/selection/mark-selection')
+require('codemirror/addon/selection/active-line')
+require('codemirror/addon/edit/matchbrackets')
+require('codemirror/addon/edit/closebrackets')
+require('codemirror/addon/comment/comment')
 
 var isShowing = true
 
 var EditorClass = function () {
   var self = this
+
+  window.Editor = self;
 
   this.cm = CodeMirror.fromTextArea(document.getElementById('code'), {
     theme: 'tomorrow-night-eighties',
@@ -16,7 +22,18 @@ var EditorClass = function () {
     mode: {name: 'javascript', globalVars: true},
     lineWrapping: true,
     styleSelectedText: true,
+    matchBrackets: true,
+    autoCloseBrackets: true,
+    styleActiveLine: true,
+    comment: true,
     extraKeys: {
+      /* "Ctrl-1": (instance) => {
+        self.cm.replaceSelection("just a test")
+      }, */
+      "Ctrl-Space": "autocomplete",
+      'Shift-Alt-A': function(instance) {
+        self.cm.toggleComment();
+      },
       'Shift-Ctrl-Enter': function (instance) {
           self.evalAll((code, error) => {
             console.log('evaluated', code, error)
@@ -108,12 +125,13 @@ EditorClass.prototype.eval = function (arg, callback) {
   var jsString = arg
   var isError = false
   try {
-    eval(jsString)
-    self.log(jsString)
+    var evalOutput = eval(jsString)
+    self.log(evalOutput != undefined ? evalOutput + "<br />" + jsString : jsString)
   } catch (e) {
     isError = true
   //  console.log("logging", e.message)
     self.log(e.message, "log-error")
+    console.error(e.message)
     //console.log('ERROR', JSON.stringify(e))
   }
 //  console.log('callback is', callback)

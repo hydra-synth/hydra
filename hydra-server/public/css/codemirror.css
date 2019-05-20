@@ -43,7 +43,8 @@
 /* CURSOR */
 
 .CodeMirror-cursor {
-  border-left: 1px solid black;
+  border-left: 0.6em solid !important;
+  border-left-color: rgba(255, 255, 255, 0.65) !important;
   border-right: none;
   width: 0;
 }
@@ -145,10 +146,13 @@
 
 /* Default styles for common addons */
 
-div.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;}
+div.CodeMirror span.CodeMirror-matchingbracket {
+  color: #0b0;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
 div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 .CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }
-.CodeMirror-activeline-background {background: #e8f2ff;}
+.CodeMirror-activeline-background {background-color: rgba(0, 0, 0, 0.4) !important;}
 
 /* STOP */
 

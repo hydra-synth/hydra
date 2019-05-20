@@ -70,8 +70,10 @@ canvas {
   font-family: monospace;
   font-size: 14px;
   color: #aaa;
+  pointer-events: none;
 }
 
 .log-error {
-  color: #f00;
+  color: #fff;
+  background-color: rgba(255,0,0,0.8);
 }
