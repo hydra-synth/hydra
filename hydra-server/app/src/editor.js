@@ -5,11 +5,15 @@ require('codemirror/addon/hint/javascript-hint')
 require('codemirror/addon/hint/show-hint')
 require('codemirror/addon/selection/mark-selection')
 
+var Mutator = require('./Mutator.js');
+
+
 var isShowing = true
 
 var EditorClass = function () {
+	console.log("*** Editor class created");
   var self = this
-
+  let mutator = new Mutator(this);
   this.cm = CodeMirror.fromTextArea(document.getElementById('code'), {
     theme: 'tomorrow-night-eighties',
     value: 'hello',
@@ -55,7 +59,21 @@ var EditorClass = function () {
         var text = self.selectCurrentBlock(instance)
         console.log('text', text)
         self.eval(text.text)
-      }
+      },
+      // The following CodeMirror extraKeys handlers route keyboard commands
+      // to our experimental mutator.
+      'Shift-Ctrl-Left': () => {
+         mutator.doUndo();
+      },
+     'Shift-Ctrl-Right': () => {
+         mutator.mutate({reroll: false});
+      },
+      'Shift-Ctrl-Up': () => {
+         mutator.doRedo();
+      },
+     'Shift-Ctrl-Down': () => {
+         mutator.mutate({reroll: true});
+      },
     }
   })
 
