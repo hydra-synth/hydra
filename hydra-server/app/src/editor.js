@@ -69,10 +69,10 @@ var EditorClass = function () {
          mutator.mutate(instance);
       },
       'Shift-Ctrl-Up': (instance) => {
-         mutator.modify();
+         mutator.modify(instance);
       },
      'Shift-Ctrl-Down': (instance) => {
-         mutator.popMod();
+         mutator.popMod(instance);
       },
     }
   })

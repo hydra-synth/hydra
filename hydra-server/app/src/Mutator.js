@@ -1,5 +1,5 @@
 const {Parser} = require("acorn");
-const { generate } = require('astring');
+const {generate} = require('astring');
 
 class Mutator {
 
@@ -15,7 +15,7 @@ class Mutator {
   	// Get text
   	let text = this.editor.cm.getValue();
 	// Parse to AST
-	let ast = Parser.parse(ast);
+	let ast = Parser.parse(text);
 
 	// Modify the AST.
 
