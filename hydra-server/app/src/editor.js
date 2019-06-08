@@ -62,17 +62,17 @@ var EditorClass = function () {
       },
       // The following CodeMirror extraKeys handlers route keyboard commands
       // to our experimental mutator.
-      'Shift-Ctrl-Left': (instance) => {
-         mutator.back(instance);
+      'Shift-Ctrl-Left': () => {
+         mutator.doUndo();
       },
-     'Shift-Ctrl-Right': (instance) => {
-         mutator.mutate(instance);
+     'Shift-Ctrl-Right': () => {
+         mutator.mutate({reroll: false});
       },
-      'Shift-Ctrl-Up': (instance) => {
-         mutator.modify(instance);
+      'Shift-Ctrl-Up': () => {
+         mutator.doRedo();
       },
-     'Shift-Ctrl-Down': (instance) => {
-         mutator.popMod(instance);
+     'Shift-Ctrl-Down': () => {
+         mutator.mutate({reroll: true});
       },
     }
   })

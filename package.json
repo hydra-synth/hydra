@@ -15,6 +15,7 @@
   "license": "AGPL",
   "dependencies": {
     "acorn": "^6.1.1",
+    "astravel": "^0.5.0",
     "astring": "^1.4.0",
     "bitly": "^6.0.8",
     "browserify-middleware": "^8.1.1",
