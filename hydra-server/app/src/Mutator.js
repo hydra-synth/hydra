@@ -83,6 +83,11 @@ class Mutator {
   go: function(node, state) {
 		if (node.type === 'Literal') {
 			state.push(node);
+		} else if (node.type === 'MemberExpression') {
+			if (node.property && node.property.type === 'Literal') {
+				// numeric array subscripts are ineligable 
+				return;
+			}
 		}
 		// Call the parent's `go` method
 		this.super.go.call(this, node, state);
@@ -134,6 +139,8 @@ class Mutator {
   glitchRelToInit(num, initVal) {
   	if (initVal === undefined) {
 		return glitchNumber(num);
+	} if (initVal === 0) {
+		initVal = 0.5;
 	}
 
   	let rndVal = Math.round(Math.random() * initVal * 2 * 1000) / 1000;
