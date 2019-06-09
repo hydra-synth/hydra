@@ -9,6 +9,8 @@ class Mutator {
   constructor(editor) {
 	this.editor = editor;
 	this.undoStack = new UndoStack();
+	
+	this.initialVector = [];
   }
 
 
@@ -92,6 +94,13 @@ class Mutator {
 
 	let litCount = literalTab.length;
 	if (litCount > 0) {
+		if (litCount !== this.initialVector.length) {
+			let nextVect = [];
+			for(let i = 0; i < litCount; ++i) {
+				nextVect.push(literalTab[i].value);
+			}
+			this.initialVector = nextVect;
+		}
 		let litx = 0;
 		if (options.reroll) {
 			if (this.lastLitX !== undefined) {
@@ -103,7 +112,8 @@ class Mutator {
 		}
 		let modLit = literalTab[litx];
 		if (modLit) {
-			let glitched = this.glitchNumber(modLit.value);
+			// let glitched = this.glitchNumber(modLit.value);
+			let glitched = this.glitchRelToInit(modLit.value, this.initialVector[litx]);
 			let was = modLit.raw;
 			modLit.value = glitched;
 			modLit.raw = "" + glitched;
@@ -121,6 +131,14 @@ class Mutator {
 	return rndVal;
   }
 
+  glitchRelToInit(num, initVal) {
+  	if (initVal === undefined) {
+		return glitchNumber(num);
+	}
+
+  	let rndVal = Math.round(Math.random() * initVal * 2 * 1000) / 1000;
+  	return rndVal;
+}
 } //  End of class Mutator.
 
 module.exports = Mutator
