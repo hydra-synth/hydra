@@ -18,30 +18,37 @@ class Mutator {
   	// Get text from CodeMirror.
   	let text = this.editor.cm.getValue();
 	this.undoStack.push({text, lastLitX: this.lastLitX});
+	let needToRun = true;
+	let tryCounter = 5;
+	while (needToRun && tryCounter-- >= 0) {
+		// Parse to AST
+		var comments = [];
+		let ast = Parser.parse(text, {
+			locations: true,
+			onComment: comments}
+		);
 
-	// Parse to AST
-	var comments = [];
-	let ast = Parser.parse(text, {
-		locations: true,
-		onComment: comments}
-	);
-
-	// Modify the AST.
-
-	this.transform(ast, options);
-
-	// Put the comments back.
-	attachComments(ast, comments);
-
-	// Generate JS from AST and set back into CodeMirror editor.
-	let regen = generate(ast, {comments: true});
-
-	this.editor.cm.setValue(regen);
-
-	// Evaluate the updated expression.
-	this.editor.evalAll((code, error) => {
-		// console.log('evaluated', code, error);
-	});
+		// Modify the AST.
+	
+		this.transform(ast, options);
+	
+		// Put the comments back.
+		attachComments(ast, comments);
+	
+		// Generate JS from AST and set back into CodeMirror editor.
+		let regen = generate(ast, {comments: true});
+	
+		this.editor.cm.setValue(regen);
+	
+		// Evaluate the updated expression.
+		this.editor.evalAll((code, error) => {
+			// If we got an error, keep trying something else.
+			if (error) {
+				console.log("Eval error: " + regen);
+			}
+			needToRun = error;
+		});
+	 }
   }
 
   doUndo() {
@@ -82,11 +89,15 @@ class Mutator {
 	let traveler = makeTraveler({
   go: function(node, state) {
 		if (node.type === 'Literal') {
-			state.push(node);
+			state.literalTab.push(node);
 		} else if (node.type === 'MemberExpression') {
 			if (node.property && node.property.type === 'Literal') {
 				// numeric array subscripts are ineligable 
 				return;
+			}
+		} else if (node.type === 'CallExpression') {
+			if (node.callee && node.callee.property && node.callee.property.name && node.callee.property.name !== 'out') {
+				state.functionTab.push(node);
 			}
 		}
 		// Call the parent's `go` method
@@ -94,15 +105,20 @@ class Mutator {
 	  }
 	});
 
-	let literalTab = [];
-	traveler.go(ast, literalTab);
+	let state = {};
+	state.literalTab = [];
+	state.functionTab = [];
 
-	let litCount = literalTab.length;
-	if (litCount > 0) {
+	traveler.go(ast, state);
+
+	let litCount = state.literalTab.length;
+	let funCount = state.functionTab.length;
+	let whatX = Math.random() * 3;
+	if (true || whatX > 1 || funCount < 3) {
 		if (litCount !== this.initialVector.length) {
 			let nextVect = [];
 			for(let i = 0; i < litCount; ++i) {
-				nextVect.push(literalTab[i].value);
+				nextVect.push(state.literalTab[i].value);
 			}
 			this.initialVector = nextVect;
 		}
@@ -112,10 +128,10 @@ class Mutator {
 				litx = this.lastLitX;
 			}
 		} else {
-			litx = Math.round(Math.random() * litCount);
+			litx = Math.floor(Math.random() * litCount);
 			this.lastLitX = litx;
 		}
-		let modLit = literalTab[litx];
+		let modLit = state.literalTab[litx];
 		if (modLit) {
 			// let glitched = this.glitchNumber(modLit.value);
 			let glitched = this.glitchRelToInit(modLit.value, this.initialVector[litx]);
@@ -124,9 +140,17 @@ class Mutator {
 			modLit.raw = "" + glitched;
 			console.log("Literal: " + litx + " changed from: " + was + " to: " + glitched);
 		}
+	} else { // randomly interchange two function names. Not ready for prime time.
+		let f1 = Math.floor(Math.random() * funCount);
+		let f2 = Math.floor(Math.random() * funCount);
+		
+		let v = state.functionTab[f1].callee.property.name;
+		let v2 = state.functionTab[f1].callee.property.name  = state.functionTab[f2].callee.property.name;
+		state.functionTab[f2].callee.property.name = v;
+		console.log("Function: " + v + " exchanged with: " + v2);
+		
 	}
-  }
-
+}
   glitchNumber(num) {
   	if (num === 0) {
   		num = 1;
