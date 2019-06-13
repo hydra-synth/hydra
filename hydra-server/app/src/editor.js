@@ -13,7 +13,7 @@ var isShowing = true
 var EditorClass = function () {
 	console.log("*** Editor class created");
   var self = this
-  let mutator = new Mutator(this);
+  this.mutator = new Mutator(this);
   this.cm = CodeMirror.fromTextArea(document.getElementById('code'), {
     theme: 'tomorrow-night-eighties',
     value: 'hello',
@@ -63,16 +63,16 @@ var EditorClass = function () {
       // The following CodeMirror extraKeys handlers route keyboard commands
       // to our experimental mutator.
       'Shift-Ctrl-Left': () => {
-         mutator.doUndo();
+         this.mutator.doUndo();
       },
      'Shift-Ctrl-Right': () => {
-         mutator.mutate({reroll: false});
+         this.mutator.mutate({reroll: false});
       },
       'Shift-Ctrl-Up': () => {
-         mutator.doRedo();
+         this.mutator.doRedo();
       },
      'Shift-Ctrl-Down': () => {
-         mutator.mutate({reroll: true});
+         this.mutator.mutate({reroll: true});
       },
     }
   })
