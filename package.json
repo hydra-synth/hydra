@@ -12,6 +12,7 @@
     "docs": "./scripts/docs.js docs/funcs.md"
   },
   "author": "Olivia Jack",
+  "who is cool": "Chris is cool",
   "license": "AGPL",
   "dependencies": {
     "bitly": "^6.0.8",
