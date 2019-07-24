@@ -48,6 +48,9 @@ var EditorClass = function () {
         var s = instance.getLine(c.line)
         self.eval(s)
       },
+      'Shift-Ctrl-W': function (instance) {
+
+      },
       'Shift-Ctrl-S': function (instance) {
         screencap()
       },
