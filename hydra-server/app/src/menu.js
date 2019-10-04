@@ -12,6 +12,7 @@ class Menu {
     this.clearButton =  document.getElementById("clear-icon")
     this.shareButton =  document.getElementById("share-icon")
     this.shuffleButton = document.getElementById("shuffle-icon")
+    this.externalButton = document.getElementById("external-icon")
     this.editorText = document.getElementsByClassName('CodeMirror-scroll')[0]
 
     this.shuffleButton.onclick = this.shuffleSketches.bind(this)
@@ -24,10 +25,31 @@ class Menu {
         this.openModal()
       }
     }
+    this.externalButton.onclick = this.createExternal.bind(this)
 
     this.isClosed = false
     this.closeModal()
   }
+
+
+  createExternal() {
+      var stream = document.getElementById('hydra-canvas').captureStream()
+      var external = window.open('external.html', '_blank', 'toolbar=0,location=0,menubar=0')
+
+      // Give the external page time to load or it won't find the video.
+      setTimeout(() => {
+        var externalVideo = external.document.getElementById("canvas-mirror")
+        externalVideo.srcObject = stream
+        externalVideo.play()
+        var externalCodeHolder = external.document.getElementById("code-holder")
+        var originalCodeHolder = document.getElementById('code-holder')
+
+        // Mirror code from main to external
+        setInterval(() => {
+          externalCodeHolder.innerHTML = originalCodeHolder.innerHTML
+        }, 100)
+      }, 500)
+    }
 
   shuffleSketches() {
     this.clearAll()
