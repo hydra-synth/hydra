@@ -34,7 +34,6 @@ PBLive.prototype.init = function (stream, opts) {
   if (this.makeGlobal) window.pb = this
 
   this.on('ready', () => {
-    // console.log("ID:", this._userData.uuid, this.session.id)
     if (!this.nick) {
       if (this.session.nick) {
         this.setName(this.session.nick)
