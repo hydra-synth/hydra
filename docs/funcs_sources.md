@@ -86,6 +86,8 @@ osc(10,0.1, ({time}) => Math.sin(time/10) * 100 ) // offset
   .modulate(o1,0.05)
   .modulate(o2,0.05)
   .modulate(o3,0.05)
+  .kaleid(20)
+  .add(noise(3,10))
   .out(o3)
 render(o3)
 ```
