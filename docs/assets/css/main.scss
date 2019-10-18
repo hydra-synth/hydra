@@ -1,0 +1,64 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* From https://github.com/pages-themes/hacker/blob/master/_sass/_default_colors.scss */
+$apple-blossom: #ac4142;
+$alto: #d0d0d0;
+$bouquet: #aa759f;
+$chelsea-cucumber: #90a959;
+$cod-grey: #151515;
+$conifer: #b5e853;
+$dove-grey: #666;
+$gallery: #eaeaea;
+$grey: #888;
+$gulf-stream: #75b5aa;
+$hippie-blue: #6a9fb5;
+$potters-clay: #8f5536;
+$rajah: #f4bf75;
+$raw-sienna: #d28445;
+$silver-chalice: #aaa;
+
+/* From https://github.com/pages-themes/hacker/blob/master/_sass/jekyll-theme-hacker.scss */
+$body-background: $cod-grey !default;
+$body-foreground: $gallery !default;
+
+html {
+  background-color: $body-background;
+}
+
+body {
+  color: $body-foreground;
+  background: $body-background;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+}
+
+.greedy-nav {
+  background: $body-background;
+}
+
+footer {
+  margin-top: 0px;
+}
+
+.nav__title {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-weight: bold;
+  color: $conifer;//$header;
+  border-bottom: none;
+}
+
+.nav__sub-title {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $conifer;//$header;
+  border-bottom: none;
+}

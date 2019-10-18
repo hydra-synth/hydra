@@ -1,5 +1,8 @@
-## Color
-
+---
+title: Color
+layout: single
+classes: wide
+---
 Functions for manipulating color.
 
 - [brightness](#brightness)

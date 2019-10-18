@@ -1,5 +1,8 @@
-## Modulators
-
+---
+title: Modulators
+layout: single
+classes: wide
+---
 Functions for describing modulations of sources. 
 
 - [modulate](#modulate)

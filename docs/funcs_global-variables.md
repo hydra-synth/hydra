@@ -1,5 +1,8 @@
-## Global variables
-
+---
+title: Global Variables
+layout: single
+classes: wide
+---
 Useful variables that are defined globally, and can be used within functions as a parameter.
 
 - [mouse](#mouse)

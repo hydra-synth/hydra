@@ -1,5 +1,8 @@
-## Sources
-
+---
+title: Sources
+layout: single
+classes: wide
+---
 Sources are elementary generators that output different types of visual content.
 
 - [gradient](#gradient)

@@ -1,0 +1,22 @@
+docs:
+  - title: Home
+    url: /
+
+  - title: Functions
+    children:
+      - title: "Audio"
+        url: /funcs_audio
+      - title: "Color"
+        url: /funcs_color
+      - title: "Geometry"
+        url: /funcs_geometry
+      - title: "Modulators"
+        url: /funcs_modulators
+      - title: "Operators"
+        url: /funcs_operators
+      - title: "Sources"
+        url: /funcs_sources
+      - title: "Global variables"
+        url: /funcs_global-variables
+      - title: "Parameter sequences"
+        url: /funcs_parameter-sequences

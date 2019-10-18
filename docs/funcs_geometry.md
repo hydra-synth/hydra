@@ -1,5 +1,8 @@
-## Geometry
-
+---
+title: Geometry
+layout: single
+classes: wide
+---
 Functions for manipulating geometry.
 
 - [kaleid](#kaleid)

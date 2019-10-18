@@ -1,5 +1,8 @@
-## Parameter sequences
-
+---
+title: Parameter Sequences
+layout: single
+classes: wide
+---
 - [Lists as parameter sequences](#lists-as-parameter-sequences)
 - [Functions on parameter sequences](#functions-on-parameter-sequences)
     - [fast](#fast)

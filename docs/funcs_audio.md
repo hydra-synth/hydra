@@ -1,5 +1,8 @@
-## Audio
-
+---
+title: Audio
+layout: single
+classes: wide
+---
 Functions for manipulating audio signals.
 
 - [hide](#hide)

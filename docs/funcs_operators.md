@@ -1,5 +1,8 @@
-## Operators
-
+---
+title: Operators
+layout: single
+classes: wide
+---
 Functions for performing operations on sources.
 
 - [add](#add)
