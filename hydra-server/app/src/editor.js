@@ -35,19 +35,7 @@ var EditorClass = function () {
         self.shareSketch()
       },
       'Shift-Ctrl-H': function (instance) {
-        var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-        var m = document.getElementById('modal-header')
-        if (isShowing) {
-          l.style.opacity = 0
-          self.logElement.style.opacity  = 0
-          m.style.opacity = 0
-          isShowing = false
-        } else {
-          l.style.opacity= 1
-          m.style.opacity = 1
-          self.logElement.style.opacity  = 1
-          isShowing = true
-        }
+        self.toggle()
       },
       'Ctrl-Enter': function (instance) {
         var c = instance.getCursor()
@@ -68,6 +56,7 @@ var EditorClass = function () {
     }
   })
 
+
   this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
   this.logElement = document.createElement('div')
@@ -75,7 +64,7 @@ var EditorClass = function () {
   document.body.appendChild(this.logElement)
   this.log("hi")
 
-
+  this.show()
   // TO DO: add show code param
   let searchParams = new URLSearchParams(window.location.search)
   let showCode = searchParams.get('show-code')
@@ -110,6 +99,32 @@ EditorClass.prototype.evalAll = function (callback) {
   this.eval(this.cm.getValue(), function (code, error){
     if(callback) callback(code, error)
   })
+}
+
+EditorClass.prototype.hide = function () {
+  var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+  var m = document.getElementById('modal-header')
+  l.style.opacity = 0
+  this.logElement.style.opacity  = 0
+  m.style.opacity = 0
+  this.isShowing = false
+}
+
+EditorClass.prototype.show = function () {
+  var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+  var m = document.getElementById('modal-header')
+  l.style.opacity= 1
+  m.style.opacity = 1
+  this.logElement.style.opacity  = 1
+  this.isShowing = true
+}
+
+EditorClass.prototype.toggle = function () {
+  if (this.isShowing) {
+    this.hide()
+  } else {
+    this.show()
+  }
 }
 
 EditorClass.prototype.eval = function (arg, callback) {

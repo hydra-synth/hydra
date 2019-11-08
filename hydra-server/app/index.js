@@ -5,6 +5,7 @@ const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
 const Menu = require('./src/menu.js')
+require('./keymaps.js').init()
 
 function init () {
   window.pb = pb
