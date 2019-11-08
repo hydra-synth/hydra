@@ -5,7 +5,9 @@ const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
 const Menu = require('./src/menu.js')
-require('./keymaps.js').init()
+const keymaps = require('./keymaps.js')
+const log = require('./src/log.js')
+const repl = require('./src/repl.js')
 
 function init () {
   window.pb = pb
@@ -21,15 +23,17 @@ function init () {
   var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
   var editor = new Editor()
   var menu = new Menu({ editor: editor, hydra: hydra})
+  log.init()
 
   // get initial code to fill gallery
   var sketches = new Gallery(function(code, sketchFromURL) {
     editor.cm.setValue(code)
-    editor.evalAll()
-    editor.saveSketch = (code) => {
-      sketches.saveSketch(code)
-    }
-    editor.shareSketch = menu.shareSketch.bind(menu)
+  //  editor.evalAll()
+    repl.eval(code)
+    // editor.saveSketch = (code) => {
+    //   sketches.saveSketch(code)
+    // }
+    // editor.shareSketch = menu.shareSketch.bind(menu)
     // if a sketch was found based on the URL parameters, dont show intro window
     if(sketchFromURL) {
       menu.closeModal()
@@ -38,6 +42,13 @@ function init () {
     }
   })
   menu.sketches = sketches
+
+  keymaps.init ({
+    editor: editor,
+    gallery: sketches,
+    menu: menu,
+    repl: repl
+  })
 
   // define extra functions (eventually should be added to hydra-synth?)
 

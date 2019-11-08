@@ -1,37 +1,41 @@
 module.exports = {
-  init : () => {
-    console.log('initing')
+  init : ({ editor, gallery, menu, repl}) => {
     window.onkeydown = (e) => {
-        console.log('key down', e)
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
+
           // shift - ctrl - enter: evalAll
           if ( e.keyCode === 13) {
-            console.log('eval All')
+            repl.eval(editor.getValue())
           }
+
           // shift - ctrl - G: share sketch
           if (e.keyCode === 71) {
-            console.log('share sketch')
+            menu.shareSketch.bind(menu)
           }
-          // shift - ctrl - h: hide editor
+
+          // shift - ctrl - h: toggle editor
           if (e.keyCode === 72) {
-            console.log('hide editor')
+            editor.toggle()
           }
+
           // shift - ctrl - s: screencap
           if (e.keyCode === 83) {
-            console.log('screencap')
+            screencap()
           }
         } else {
           // ctrl-enter: evalLine
           if ( e.keyCode === 13) {
             console.log('eval line')
+            repl.eval(editor.getLine())
           }
         }
       }
+
       if (e.altKey === true) {
         // alt - enter: evalBlock
         if ( e.keyCode === 13) {
-          console.log('eval Block')
+          repl.eval(editor.getCurrentBlock().text)
         }
       }
     }
