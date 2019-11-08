@@ -45,14 +45,6 @@ class Menu {
           }, () => this.hideConfirmation() )
         }
       })
-    // this.editor.evalAll((code, error) => {
-    //   console.log('evaluated', code, error)
-    //   if(!error){
-    //     this.showConfirmation( (name) => {
-    //       this.sketches.shareSketch(code, this.hydra, name)
-    //     }, () => this.hideConfirmation() )
-    //   }
-    // })
   }
 
   showConfirmation(successCallback, terminateCallback) {

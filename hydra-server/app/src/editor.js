@@ -21,49 +21,12 @@ var EditorClass = function () {
     value: 'hello',
     mode: {name: 'javascript', globalVars: true},
     lineWrapping: true,
-    styleSelectedText: true,
-    // extraKeys: {
-    //   'Shift-Ctrl-Enter': function (instance) {
-    //       self.evalAll((code, error) => {
-    //         console.log('evaluated', code, error)
-    //         // if(!error){
-    //         //   self.saveSketch(code)
-    //         // }
-    //       })
-    //   },
-    //   'Shift-Ctrl-G': function (instance) {
-    //     self.shareSketch()
-    //   },
-    //   'Shift-Ctrl-H': function (instance) {
-    //     self.toggle()
-    //   },
-    //   'Ctrl-Enter': function (instance) {
-    //     // var c = instance.getCursor()
-    //     // var s = instance.getLine(c.line)
-    //     // self.eval(s)
-    //     console.log('LINE', self.getLine())
-    //   },
-    //   'Shift-Ctrl-W': function (instance) {
-    //
-    //   },
-    //   'Shift-Ctrl-S': function (instance) {
-    //     screencap()
-    //   },
-    //   'Alt-Enter': (instance) => {
-    //     var text = self.selectCurrentBlock(instance)
-    //     console.log('text', text)
-    //     self.eval(text.text)
-    //   }
-    // }
+    styleSelectedText: true
   })
 
   console.log('EDITOR', this.cm)
   this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
-  // this.logElement = document.createElement('div')
-  // this.logElement.className = "console cm-s-tomorrow-night-eighties"
-  // document.body.appendChild(this.logElement)
-  // this.log("hi")
 
   this.show()
   // TO DO: add show code param
@@ -91,15 +54,6 @@ EditorClass.prototype.setValue = function (val) {
 EditorClass.prototype.getValue = function () {
   return this.cm.getValue()
 }
-// EditorClass.prototype.saveExample = function(code) {
-//   console.log('no function for save example has been implemented')
-// }
-
-// EditorClass.prototype.evalAll = function (callback) {
-//   this.eval(this.cm.getValue(), function (code, error){
-//     if(callback) callback(code, error)
-//   })
-// }
 
 EditorClass.prototype.hide = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
@@ -133,27 +87,6 @@ EditorClass.prototype.getLine = function () {
   return s
 }
 
-// EditorClass.prototype.eval = function (arg, callback) {
-//   var self = this
-//   var jsString = arg
-//   var isError = false
-//   try {
-//     eval(jsString)
-//     self.log(jsString)
-//   } catch (e) {
-//     isError = true
-//   //  console.log("logging", e.message)
-//     self.log(e.message, "log-error")
-//     //console.log('ERROR', JSON.stringify(e))
-//   }
-// //  console.log('callback is', callback)
-//   if(callback) callback(jsString, isError)
-//
-// }
-//
-// EditorClass.prototype.log = function(msg, className = "") {
-//   this.logElement.innerHTML =` >> <span class=${className}> ${msg} </span> `
-// }
 
 EditorClass.prototype.getCurrentBlock = function () { // thanks to graham wakefield + gibber
   var editor = this.cm
