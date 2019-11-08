@@ -10,7 +10,13 @@ var isShowing = true
 var EditorClass = function () {
   var self = this
 
-  this.cm = CodeMirror.fromTextArea(document.getElementById('code'), {
+  var container = document.createElement('div')
+  container.setAttribute('id','editor-container')
+  var el = document.createElement('TEXTAREA')
+  document.body.appendChild(container)
+  container.appendChild(el)
+
+  this.cm = CodeMirror.fromTextArea(el, {
     theme: 'tomorrow-night-eighties',
     value: 'hello',
     mode: {name: 'javascript', globalVars: true},
