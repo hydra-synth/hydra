@@ -27,13 +27,9 @@ function init () {
 
   // get initial code to fill gallery
   var sketches = new Gallery(function(code, sketchFromURL) {
-    editor.cm.setValue(code)
-  //  editor.evalAll()
+    editor.setValue(code)
     repl.eval(code)
-    // editor.saveSketch = (code) => {
-    //   sketches.saveSketch(code)
-    // }
-    // editor.shareSketch = menu.shareSketch.bind(menu)
+
     // if a sketch was found based on the URL parameters, dont show intro window
     if(sketchFromURL) {
       menu.closeModal()
