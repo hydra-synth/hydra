@@ -1,29 +1,28 @@
 const repl = require('./repl.js')
 
-
 class Menu {
   constructor (obj) {
     this.sketches = obj.sketches
     this.editor = obj.editor
     this.hydra = obj.hydra
 
-    // variables related to popup window
-    this.closeButton = document.getElementById("close-icon")
+    jQuery("#modal").draggable();
+    jQuery("#modal").resizable({});
+
+    this.helpButton = document.getElementById("help-icon")
     this.clearButton =  document.getElementById("clear-icon")
     this.shareButton =  document.getElementById("share-icon")
     this.shuffleButton = document.getElementById("shuffle-icon")
+
+    this.closeButton = document.getElementById("close-icon")
+
     this.editorText = document.getElementsByClassName('CodeMirror-scroll')[0]
 
     this.shuffleButton.onclick = this.shuffleSketches.bind(this)
     this.shareButton.onclick = this.shareSketch.bind(this)
     this.clearButton.onclick = this.clearAll.bind(this)
-    this.closeButton.onclick = () => {
-      if(!this.isClosed) {
-        this.closeModal()
-      } else {
-        this.openModal()
-      }
-    }
+    this.helpButton.onclick = this.openModal.bind(this)
+    this.closeButton.onclick = this.closeModal.bind(this)
 
     this.isClosed = false
     this.closeModal()
@@ -69,19 +68,13 @@ class Menu {
   }
 
   closeModal () {
-    document.getElementById("info-container").className = "hidden"
-    this.closeButton.className = "fas fa-question-circle icon"
-    this.shareButton.classList.remove('hidden')
-    this.clearButton.classList.remove('hidden')
+    document.getElementById("modal").className = "hidden"
     this.editorText.style.opacity = 1
     this.isClosed = true
   }
 
   openModal () {
-    document.getElementById("info-container").className = ""
-    this.closeButton.className = "fas fa-times icon"
-    this.shareButton.classList.add('hidden')
-    this.clearButton.classList.add('hidden')
+    document.getElementById("modal").className = ""
     this.editorText.style.opacity = 0.0
     this.isClosed = false
   }
