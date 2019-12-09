@@ -1,11 +1,13 @@
 const repl = require('./repl.js')
 
-
 class Menu {
   constructor (obj) {
     this.sketches = obj.sketches
     this.editor = obj.editor
     this.hydra = obj.hydra
+
+    jQuery("#modal").draggable();
+    jQuery("#modal").resizable({});
 
     this.helpButton = document.getElementById("help-icon")
     this.clearButton =  document.getElementById("clear-icon")
