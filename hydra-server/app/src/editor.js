@@ -25,7 +25,17 @@ var EditorClass = function () {
     value: 'hello',
     mode: {name: 'javascript', globalVars: true},
     lineWrapping: true,
-    styleSelectedText: true
+    styleSelectedText: true,
+    matchBrackets: true,
+    autoCloseBrackets: true,
+    styleActiveLine: true,
+    comment: true,
+    extraKeys: {
+      "Ctrl-Space": "autocomplete",
+      'Shift-Alt-A': function(instance) {
+        self.cm.toggleComment();
+      },
+    },
   })
 
   console.log('EDITOR', this.cm)

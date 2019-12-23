@@ -1,6 +1,6 @@
 module.exports = {
   init : ({ editor, gallery, menu, repl}) => {
-    window.onkeydown = (e) => {
+    window.addEventListener("onkeydown", (e) =>  {
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
 
@@ -38,6 +38,6 @@ module.exports = {
           repl.eval(editor.getCurrentBlock().text)
         }
       }
-    }
+    });
   }
 }
