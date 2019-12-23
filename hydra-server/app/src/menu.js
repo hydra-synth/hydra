@@ -1,4 +1,4 @@
-
+const repl = require('./repl.js')
 
 
 class Menu {
@@ -32,19 +32,19 @@ class Menu {
   shuffleSketches() {
     this.clearAll()
     this.sketches.setRandomSketch()
-    this.editor.cm.setValue(this.sketches.code)
-    this.editor.evalAll()
+    this.editor.setValue(this.sketches.code)
+    repl.eval(this.editor.getValue())
   }
 
   shareSketch() {
-    this.editor.evalAll((code, error) => {
-      console.log('evaluated', code, error)
-      if(!error){
-        this.showConfirmation( (name) => {
-          this.sketches.shareSketch(code, this.hydra, name)
-        }, () => this.hideConfirmation() )
-      }
-    })
+      repl.eval(this.editor.getValue(), (code, error) => {
+        console.log('evaluated', code, error)
+        if(!error){
+          this.showConfirmation( (name) => {
+            this.sketches.shareSketch(code, this.hydra, name)
+          }, () => this.hideConfirmation() )
+        }
+      })
   }
 
   showConfirmation(successCallback, terminateCallback) {

@@ -23,12 +23,10 @@ var PatchBay = function (options) {
   this._room = options.room
 
 
-  this.settings = {
-    shareMediaWhenRequested: true,
-    shareMediaWhenInitiating: false,
-    requestMediaWhenInitiating: true,
-    autoconnect: false
-  }
+  this.settings['shareMediaWhenRequested'] = true
+  this.settings['shareMediaWhenInitiating'] = false
+  this.settings['requestMediaWhenInitiating'] = true
+  this.settings['autoconnect'] = false
 
   //object containing ALL peers in room
   this.peers = {}
