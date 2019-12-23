@@ -1,11 +1,12 @@
 module.exports = {
   init : ({ editor, gallery, menu, repl}) => {
-    window.addEventListener("onkeydown", (e) =>  {
+    window.addEventListener("keydown", (e) =>  {
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
 
           // shift - ctrl - enter: evalAll
           if ( e.keyCode === 13) {
+            console.log("evalAll")
             repl.eval(editor.getValue())
           }
 
@@ -35,6 +36,7 @@ module.exports = {
       if (e.altKey === true) {
         // alt - enter: evalBlock
         if ( e.keyCode === 13) {
+          console.log("evalBlock")
           repl.eval(editor.getCurrentBlock().text)
         }
       }
