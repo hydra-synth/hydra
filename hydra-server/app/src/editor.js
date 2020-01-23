@@ -85,7 +85,6 @@ EditorClass.prototype.toggle = function () {
 EditorClass.prototype.getLine = function () {
   var c = this.cm.getCursor()
   var s = this.cm.getLine(c.line)
-  console.log('MARKING LINE', c.line)
 //  this.cm.markText({line: c.line, ch:0}, {line: c.line+1, ch:0}, {className: 'styled-background'})
   this.flashCode({line: c.line, ch:0}, {line: c.line+1, ch:0})
   return s
@@ -93,7 +92,7 @@ EditorClass.prototype.getLine = function () {
 
 EditorClass.prototype.flashCode = function (start, end) {
     var marker = this.cm.markText(start, end, {className: 'styled-background'})
-    setTimeout(() =>   marker.clear(), 500)
+    setTimeout(() =>   marker.clear(), 300)
 }
 
 
