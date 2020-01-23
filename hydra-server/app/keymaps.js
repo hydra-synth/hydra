@@ -1,5 +1,5 @@
 module.exports = {
-  init : ({ editor, gallery, menu, repl}) => {
+  init : ({ editor, gallery, menu, repl, log}) => {
     window.onkeydown = (e) => {
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
@@ -17,6 +17,7 @@ module.exports = {
           // shift - ctrl - h: toggle editor
           if (e.keyCode === 72) {
             editor.toggle()
+            log.toggle()
           }
 
           // shift - ctrl - s: screencap

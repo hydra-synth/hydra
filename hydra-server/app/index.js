@@ -43,7 +43,8 @@ function init () {
     editor: editor,
     gallery: sketches,
     menu: menu,
-    repl: repl
+    repl: repl,
+    log: log
   })
 
   // define extra functions (eventually should be added to hydra-synth?)
