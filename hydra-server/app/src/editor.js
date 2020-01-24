@@ -126,4 +126,6 @@ EditorClass.prototype.getCurrentBlock = function () { // thanks to graham wakefi
   }
 }
 
+
+
 module.exports = EditorClass
