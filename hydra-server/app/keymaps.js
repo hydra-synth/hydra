@@ -31,12 +31,13 @@ module.exports = {
             repl.eval(editor.getLine())
           }
         }
+        // ctrl - /: toggle comment
+        if (e.keyCode === 191) {
+          editor.cm.toggleComment()
+        }
       }
 
-      // ctrl - /: toggle comment
-      if (e.keyCode === 191) {
-        editor.cm.toggleComment()
-      }
+
 
       if (e.altKey === true) {
         // alt - enter: evalBlock
