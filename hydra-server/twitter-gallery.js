@@ -1,16 +1,19 @@
 const multer = require('multer')
+var path = require('path')
+var fs = require('fs')
+const request = require('request')
 
-
+var tweet
 module.exports = (app) => {
   // server-side code related to saving and storing images
   // if has twitter key, enamble uploading
   if(process.env.CONSUMER_KEY) {
-    const tweet = require('./tweet.js')
+    tweet = require('./tweet.js')
   }
 
 
   const Datastore = require('nedb')
-    db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
+   var db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
 
     var sketches = []
 
