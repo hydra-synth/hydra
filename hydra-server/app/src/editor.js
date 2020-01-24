@@ -6,17 +6,22 @@ require('codemirror/addon/hint/show-hint')
 require('codemirror/addon/selection/mark-selection')
 require('codemirror/addon/comment/comment')
 
+var Mutator = require('./Mutator.js');
+
+
 var isShowing = true
 
 var EditorClass = function () {
+	console.log("*** Editor class created");
   var self = this
 
-  var container = document.createElement('div')
+	var container = document.createElement('div')
   container.setAttribute('id','editor-container')
   var el = document.createElement('TEXTAREA')
   document.body.appendChild(container)
   container.appendChild(el)
 
+  this.mutator = new Mutator(this);
   this.cm = CodeMirror.fromTextArea(el, {
     theme: 'tomorrow-night-eighties',
     value: 'hello',
@@ -25,8 +30,6 @@ var EditorClass = function () {
     styleSelectedText: true
   })
 
-  console.log('EDITOR', this.cm)
-  this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
 
   this.show()

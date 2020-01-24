@@ -55,3 +55,17 @@ module.exports = {
     }
   }
 }
+
+
+// 'Shift-Ctrl-Left': () => {
+//    this.mutator.doUndo();
+// },
+// 'Shift-Ctrl-Right': () => {
+//    this.mutator.mutate({reroll: false});
+// },
+// 'Shift-Ctrl-Up': () => {
+//    this.mutator.doRedo();
+// },
+// 'Shift-Ctrl-Down': () => {
+//    this.mutator.mutate({reroll: true});
+// },

@@ -12,6 +12,7 @@ class Menu {
     this.clearButton =  document.getElementById("clear-icon")
     this.shareButton =  document.getElementById("share-icon")
     this.shuffleButton = document.getElementById("shuffle-icon")
+    this.mutatorButton = document.getElementById("mutator-icon")
     this.editorText = document.getElementsByClassName('CodeMirror-scroll')[0]
 
     this.shuffleButton.onclick = this.shuffleSketches.bind(this)
@@ -25,6 +26,7 @@ class Menu {
       }
     }
 
+	this.mutatorButton.onclick = this.mutateSketch.bind(this);
     this.isClosed = false
     this.closeModal()
   }
@@ -73,6 +75,7 @@ class Menu {
     this.closeButton.className = "fas fa-question-circle icon"
     this.shareButton.classList.remove('hidden')
     this.clearButton.classList.remove('hidden')
+    this.mutatorButton.classList.remove('hidden');
     this.editorText.style.opacity = 1
     this.isClosed = true
   }
@@ -82,10 +85,18 @@ class Menu {
     this.closeButton.className = "fas fa-times icon"
     this.shareButton.classList.add('hidden')
     this.clearButton.classList.add('hidden')
+    this.mutatorButton.classList.add('hidden');
     this.editorText.style.opacity = 0.0
     this.isClosed = false
   }
 
+  mutateSketch(evt) {
+  	if (evt.shiftKey) {
+      this.editor.mutator.doUndo();
+  	} else {
+      this.editor.mutator.mutate({reroll: false});
+    }
+  }
 }
 
 module.exports = Menu
