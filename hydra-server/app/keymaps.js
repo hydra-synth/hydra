@@ -1,6 +1,7 @@
 module.exports = {
   init : ({ editor, gallery, menu, repl, log}) => {
     window.onkeydown = (e) => {
+      console.log(e)
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
 
@@ -40,6 +41,27 @@ module.exports = {
         if (e.keyCode === 191) {
             e.preventDefault()
           editor.cm.toggleComment()
+        }
+
+        // Point Mutation Glitcher Key Commands
+        // right arrow key
+        if(e.keyCode === 39) {
+          e.preventDefault()
+          editor.mutator.mutate({reroll: false})
+        }
+        // left arrow
+        if(e.keyCode === 37) {
+          e.preventDefault()
+          editor.mutator.doUndo()
+        }
+        // up arrow
+        if(e.keyCode === 38) {
+          e.preventDefault()
+          editor.mutator.doRedo()
+        }
+        // down arrow
+        if(e.keyCode === 40)  {
+          editor.mutator.mutate({reroll: true})
         }
       }
 
