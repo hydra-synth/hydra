@@ -9,17 +9,21 @@ require('codemirror/addon/edit/matchbrackets')
 require('codemirror/addon/edit/closebrackets')
 require('codemirror/addon/comment/comment')
 
+var Mutator = require('./Mutator.js');
+
 var isShowing = true
 
 var EditorClass = function () {
+	console.log("*** Editor class created");
   var self = this
 
-  var container = document.createElement('div')
+	var container = document.createElement('div')
   container.setAttribute('id','editor-container')
   var el = document.createElement('TEXTAREA')
   document.body.appendChild(container)
   container.appendChild(el)
 
+  this.mutator = new Mutator(this);
   this.cm = CodeMirror.fromTextArea(el, {
     theme: 'tomorrow-night-eighties',
     value: 'hello',
@@ -38,8 +42,6 @@ var EditorClass = function () {
     },
   })
 
-  console.log('EDITOR', this.cm)
-  this.cm.markText({line: 0, ch: 0}, {line: 6, ch: 42}, {className: 'styled-background'})
   this.cm.refresh()
 
   this.show()
@@ -98,7 +100,14 @@ EditorClass.prototype.toggle = function () {
 EditorClass.prototype.getLine = function () {
   var c = this.cm.getCursor()
   var s = this.cm.getLine(c.line)
+//  this.cm.markText({line: c.line, ch:0}, {line: c.line+1, ch:0}, {className: 'styled-background'})
+  this.flashCode({line: c.line, ch:0}, {line: c.line+1, ch:0})
   return s
+}
+
+EditorClass.prototype.flashCode = function (start, end) {
+    var marker = this.cm.markText(start, end, {className: 'styled-background'})
+    setTimeout(() =>   marker.clear(), 300)
 }
 
 
@@ -122,11 +131,16 @@ EditorClass.prototype.getCurrentBlock = function () { // thanks to graham wakefi
     ch: 0
   }
   var str = editor.getRange(pos1, pos2)
+
+  this.flashCode(pos1, pos2)
+
   return {
     start: pos1,
     end: pos2,
     text: str
   }
 }
+
+
 
 module.exports = EditorClass
