@@ -78,6 +78,7 @@ a:hover {
   font-family: monospace;
   font-size: 14px;
   color: #aaa;
+  pointer-events: none;
 }
 
 .log-error {

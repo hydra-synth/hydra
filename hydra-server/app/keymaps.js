@@ -1,6 +1,6 @@
 module.exports = {
   init : ({ editor, gallery, menu, repl, log}) => {
-    window.onkeydown = (e) => {
+    window.addEventListener("keydown", (e) =>  {
       console.log(e)
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
@@ -73,7 +73,15 @@ module.exports = {
             e.preventDefault()
           repl.eval(editor.getCurrentBlock().text)
         }
+
+        // shift - alt - a: toggle comment -> Visual Studio Code style
+        if (e.shiftKey === true) {
+          if ( e.keyCode === 65) {
+            e.preventDefault()
+            editor.cm.toggleComment()
+          }
+        }
       }
-    }
+    });
   }
 }
