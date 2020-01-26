@@ -73,6 +73,14 @@ module.exports = {
             e.preventDefault()
           repl.eval(editor.getCurrentBlock().text)
         }
+
+        // shift - alt - a: toggle comment -> Visual Studio Code style
+        if (e.shiftKey === true) {
+          if ( e.keyCode === 65) {
+            e.preventDefault()
+            editor.cm.toggleComment()
+          }
+        }
       }
     });
   }

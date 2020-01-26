@@ -34,11 +34,6 @@ var EditorClass = function () {
     autoCloseBrackets: true,
     styleActiveLine: true,
     comment: true,
-    extraKeys: {
-      'Shift-Alt-A': function(instance) {
-        self.cm.toggleComment();
-      },
-    },
   })
 
   this.cm.refresh()
