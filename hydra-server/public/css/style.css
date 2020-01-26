@@ -82,8 +82,7 @@ a:hover {
 }
 
 .log-error {
-  color: #fff;
-  background-color: rgba(255,0,0,0.8);
+  color: #f00;
 }
 
 .styled-background {
