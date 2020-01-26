@@ -43,8 +43,7 @@
 /* CURSOR */
 
 .CodeMirror-cursor {
-  border-left: 0.6em solid !important;
-  border-left-color: rgba(255, 255, 255, 0.65) !important;
+  border-left: 1px solid black;
   border-right: none;
   width: 0;
 }
@@ -148,11 +147,15 @@
 
 div.CodeMirror span.CodeMirror-matchingbracket {
   color: #0b0;
-  background-color: rgba(255, 255, 255, 0.5) !important;
+  background-color: rgba(127, 127, 127, 0.5) !important;
 }
 div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 .CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }
-.CodeMirror-activeline-background {background-color: rgba(0, 0, 0, 0.4) !important;}
+.CodeMirror-activeline-background {background-color: rgba(0, 0, 0, 0.0) !important;}
+.CodeMirror-activeline-gutter {
+  width: 2px !important;
+  background: linear-gradient(0deg, rgba(180,180,180,0.85) 0%, rgba(170,170,170,0) 75%) !important;
+}
 
 /* STOP */
 
