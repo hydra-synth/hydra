@@ -35,7 +35,6 @@ var EditorClass = function () {
     styleActiveLine: true,
     comment: true,
     extraKeys: {
-      "Ctrl-Space": "autocomplete",
       'Shift-Alt-A': function(instance) {
         self.cm.toggleComment();
       },
