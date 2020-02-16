@@ -10,7 +10,7 @@
 		"build-main": "browserify ./hydra-server/app/index.js -o ./hydra-server/public/bundle.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"docs": "./scripts/docs.js docs/funcs.md",
-		"lint": "eslint ."
+		"lint": "eslint .",
 		"lint:fix": "eslint . --fix"
 	},
 	"author": "Olivia Jack",
