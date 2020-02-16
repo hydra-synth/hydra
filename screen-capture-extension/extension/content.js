@@ -1,1 +1,1 @@
-sessionStorage.getScreenMediaJSExtensionId = chrome.runtime.id;
+sessionStorage.getScreenMediaJSExtensionId = chrome.runtime.id

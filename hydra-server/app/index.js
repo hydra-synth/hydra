@@ -2,14 +2,14 @@ const PatchBay = require('./src/pb-live.js')
 const HydraSynth = require('hydra-synth')
 const Editor = require('./src/editor.js')
 const loop = require('raf-loop')
-const P5  = require('./src/p5-wrapper.js')
-const Gallery  = require('./src/gallery.js')
+const P5 = require('./src/p5-wrapper.js')
+const Gallery = require('./src/gallery.js')
 const Menu = require('./src/menu.js')
 const keymaps = require('./keymaps.js')
 const log = require('./src/log.js')
 const repl = require('./src/repl.js')
 
-function init () {
+function init() {
   window.pb = pb
   window.P5 = P5
 
@@ -22,7 +22,7 @@ function init () {
   var pb = new PatchBay()
   var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
   var editor = new Editor()
-  var menu = new Menu({ editor: editor, hydra: hydra})
+  var menu = new Menu({ editor: editor, hydra: hydra })
   log.init()
 
   // get initial code to fill gallery
@@ -31,7 +31,7 @@ function init () {
     repl.eval(code)
 
     // if a sketch was found based on the URL parameters, dont show intro window
-    if(sketchFromURL) {
+    if (sketchFromURL) {
       menu.closeModal()
     } else {
       menu.openModal()
@@ -39,7 +39,7 @@ function init () {
   })
   menu.sketches = sketches
 
-  keymaps.init ({
+  keymaps.init({
     editor: editor,
     gallery: sketches,
     menu: menu,
@@ -58,7 +58,6 @@ function init () {
     render(o0)
   }
 
-
   pb.init(hydra.captureStream, {
     server: window.location.origin,
     room: 'iclc'
@@ -67,7 +66,6 @@ function init () {
   var engine = loop(function(dt) {
     hydra.tick(dt)
   }).start()
-
 }
 
 window.onload = init
