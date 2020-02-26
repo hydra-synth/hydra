@@ -29,6 +29,19 @@ module.exports = {
               e.preventDefault()
             screencap()
           }
+
+          // shift - ctrl - k: clear graphics
+          if (e.keyCode === 75) {
+            e.preventDefault()
+            hush()
+          }
+
+          // shift - ctrl - l: toggle log
+          if (e.keyCode === 76) {
+            e.preventDefault()
+            log.toggle()
+          }
+          
         } else {
           // ctrl-enter: evalLine
           if ( e.keyCode === 13) {
