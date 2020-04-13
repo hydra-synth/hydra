@@ -19,6 +19,8 @@ function init () {
   canvas.height = window.innerHeight
   canvas.style.width = '100%'
   canvas.style.height = '100%'
+  canvas.style.imageRendering = 'pixelated'
+
 
   var pb = new PatchBay()
   var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
@@ -73,7 +75,7 @@ function init () {
 
 window.onload = init
 
-},{"./keymaps.js":2,"./src/editor.js":5,"./src/gallery.js":7,"./src/log.js":8,"./src/menu.js":9,"./src/p5-wrapper.js":10,"./src/pb-live.js":11,"./src/repl.js":12,"hydra-synth":62,"raf-loop":94}],2:[function(require,module,exports){
+},{"./keymaps.js":2,"./src/editor.js":5,"./src/gallery.js":7,"./src/log.js":8,"./src/menu.js":9,"./src/p5-wrapper.js":10,"./src/pb-live.js":11,"./src/repl.js":12,"hydra-synth":61,"raf-loop":92}],2:[function(require,module,exports){
 module.exports = {
   init : ({ editor, gallery, menu, repl, log}) => {
     window.onkeydown = (e) => {
@@ -822,7 +824,7 @@ class Gallery {
 
 module.exports = Gallery
 
-},{"./examples.json":6,"superagent":134}],8:[function(require,module,exports){
+},{"./examples.json":6,"superagent":132}],8:[function(require,module,exports){
 var logElement
 
 module.exports = {
@@ -998,7 +1000,7 @@ class P5 extends p5lib{
 
 module.exports = P5
 
-},{"p5":88,"p5/lib/addons/p5.dom":87}],11:[function(require,module,exports){
+},{"p5":86,"p5/lib/addons/p5.dom":85}],11:[function(require,module,exports){
 /* globals sessionStorage */
 // Extends rtc-patch-bay to include support for nicknames and persistent session storage
 
@@ -1132,7 +1134,7 @@ PBLive.prototype._processBroadcast = function (data) {
 // PBExtended.prototype.
 module.exports = PBLive
 
-},{"./rtc-patch-bay.js":13,"inherits":81}],12:[function(require,module,exports){
+},{"./rtc-patch-bay.js":13,"inherits":79}],12:[function(require,module,exports){
 const log = require('./log.js').log
 
 module.exports = {
@@ -1407,7 +1409,7 @@ PatchBay.prototype._destroy = function () {
 
 module.exports = PatchBay
 
-},{"events":26,"inherits":81,"shortid":109,"simple-peer":119,"socket.io-client":123}],14:[function(require,module,exports){
+},{"events":26,"inherits":79,"shortid":107,"simple-peer":117,"socket.io-client":121}],14:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -10839,7 +10841,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":23,"ieee754":79}],28:[function(require,module,exports){
+},{"base64-js":23,"ieee754":77}],28:[function(require,module,exports){
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
@@ -22622,7 +22624,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../is-buffer/index.js")})
-},{"../../is-buffer/index.js":82}],38:[function(require,module,exports){
+},{"../../is-buffer/index.js":80}],38:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -22965,7 +22967,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":40,"_process":93}],40:[function(require,module,exports){
+},{"./debug":40,"_process":91}],40:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -23928,7 +23930,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./transport":43,"./transports/index":44,"component-emitter":35,"debug":50,"engine.io-parser":53,"indexof":80,"parseqs":89,"parseuri":90}],43:[function(require,module,exports){
+},{"./transport":43,"./transports/index":44,"component-emitter":35,"debug":50,"engine.io-parser":53,"indexof":78,"parseqs":87,"parseuri":88}],43:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -25050,7 +25052,7 @@ Polling.prototype.uri = function () {
   return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
 };
 
-},{"../transport":43,"component-inherit":36,"debug":50,"engine.io-parser":53,"parseqs":89,"xmlhttprequest-ssl":49,"yeast":141}],48:[function(require,module,exports){
+},{"../transport":43,"component-inherit":36,"debug":50,"engine.io-parser":53,"parseqs":87,"xmlhttprequest-ssl":49,"yeast":139}],48:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -25340,7 +25342,7 @@ WS.prototype.check = function () {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../transport":43,"component-inherit":36,"debug":50,"engine.io-parser":53,"parseqs":89,"ws":25,"yeast":141}],49:[function(require,module,exports){
+},{"../transport":43,"component-inherit":36,"debug":50,"engine.io-parser":53,"parseqs":87,"ws":25,"yeast":139}],49:[function(require,module,exports){
 (function (global){
 // browser shim for xmlhttprequest module
 
@@ -25381,7 +25383,7 @@ module.exports = function (opts) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"has-cors":60}],50:[function(require,module,exports){
+},{"has-cors":59}],50:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -25580,7 +25582,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":51,"_process":93}],51:[function(require,module,exports){
+},{"./debug":51,"_process":91}],51:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -26419,7 +26421,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./keys":54,"./utf8":55,"after":15,"arraybuffer.slice":16,"base64-arraybuffer":22,"blob":24,"has-binary2":58}],54:[function(require,module,exports){
+},{"./keys":54,"./utf8":55,"after":15,"arraybuffer.slice":16,"base64-arraybuffer":22,"blob":24,"has-binary2":57}],54:[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -26700,61 +26702,6 @@ module.exports = Object.keys || function keys (obj){
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],56:[function(require,module,exports){
-module.exports = function (cb) {
-    if (typeof Promise !== 'function') {
-      var err = new Error('Device enumeration not supported.');
-      err.kind = 'METHOD_NOT_AVAILABLE';
-      if (cb) {
-          console.warn('module now uses promise based api - callback is deprecated');
-          return cb(err);
-      }
-      throw err;
-    }
-
-    return new Promise(function(resolve, reject) {
-        var processDevices = function (devices) {
-            var normalizedDevices = [];
-            for (var i = 0; i < devices.length; i++) {
-                var device = devices[i];
-                //make chrome values match spec
-                var kind = device.kind || null;
-                if (kind && kind.toLowerCase() === 'audio') {
-                    kind = 'audioinput';
-                } else if (kind && kind.toLowerCase() === 'video') {
-                    kind = 'videoinput';
-                }
-                normalizedDevices.push({
-                    facing: device.facing || null,
-                    deviceId: device.id || device.deviceId || null,
-                    label: device.label || null,
-                    kind: kind,
-                    groupId: device.groupId || null
-                });
-            }
-            resolve(normalizedDevices);
-            if (cb) {
-                console.warn('module now uses promise based api - callback is deprecated');
-                cb(null, normalizedDevices);
-            }
-        };
-
-        if (window.navigator && window.navigator.mediaDevices && window.navigator.mediaDevices.enumerateDevices) {
-            window.navigator.mediaDevices.enumerateDevices().then(processDevices);
-        } else if (window.MediaStreamTrack && window.MediaStreamTrack.getSources) {
-            window.MediaStreamTrack.getSources(processDevices);
-        } else {
-            var err = new Error('Device enumeration not supported.');
-            err.kind = 'METHOD_NOT_AVAILABLE';
-            reject(err);
-            if (cb) {
-                console.warn('module now uses promise based api - callback is deprecated');
-                cb(err);
-            }
-        }
-    });
-};
-
-},{}],57:[function(require,module,exports){
 // originally pulled out of simple-peer
 
 module.exports = function getBrowserRTC () {
@@ -26771,7 +26718,7 @@ module.exports = function getBrowserRTC () {
   return wrtc
 }
 
-},{}],58:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 (function (global){
 /* global Blob File */
 
@@ -26837,14 +26784,14 @@ function hasBinary (obj) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"isarray":59}],59:[function(require,module,exports){
+},{"isarray":58}],58:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],60:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -26863,7 +26810,7 @@ try {
   module.exports = false;
 }
 
-},{}],61:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 const Output = require('./src/output.js')
 const loop = require('raf-loop')
 const Source = require('./src/hydra-source.js')
@@ -26893,6 +26840,8 @@ class HydraRenderer {
     extendTransforms = {} // add your own functions on init
   } = {}) {
 
+    ArrayUtils.init()
+
     this.pb = pb
     this.width = width
     this.height = height
@@ -26905,12 +26854,22 @@ class HydraRenderer {
       bpm: 30,
       width: this.width,
       height: this.height,
-      fps: null,
+      fps: undefined,
+      stats: {
+        fps: 0
+      },
+      speed: 1,
       mouse: Mouse,
       render: this._render.bind(this),
-      resize: this.resize.bind(this),
-      update: (dt) => {} // user defined update function
+      setResolution: this.setResolution.bind(this),
+      update: (dt) => {},// user defined update function
+      hush: this.hush.bind(this)
     }
+
+    this.timeSinceLastUpdate = 0
+    this._time = 0 // for internal use, only to use for deciding when to render frames
+
+  //  window.synth = this.synth
 
     // only allow valid precision options
     let precisionOptions = ['lowp','mediump','highp']
@@ -26952,7 +26911,8 @@ class HydraRenderer {
 
     if(autoLoop) loop(this.tick.bind(this)).start()
 
-    this.sandbox = new Sandbox(this.synth, makeGlobal)
+    // final argument is properties that the user can set, all others are treated as read-only
+    this.sandbox = new Sandbox(this.synth, makeGlobal, ['speed', 'update', 'bpm', 'fps'])
   }
 
   eval(code) {
@@ -26964,7 +26924,16 @@ class HydraRenderer {
     this.saveFrame = true
   }
 
-  resize(width, height) {
+  hush() {
+    this.s.forEach((source) => {
+      source.clear()
+    })
+    this.o.forEach((output) => {
+      this.synth.solid(1, 1, 1, 0).out(output)
+    })
+  }
+
+  setResolution(width, height) {
   //  console.log(width, height)
     this.canvas.width = width
     this.canvas.height = height
@@ -26976,6 +26945,7 @@ class HydraRenderer {
     this.s.forEach((source) => {
       source.resize(width, height)
     })
+     console.log(this.canvas.width)
   }
 
   canvasToImage (callback) {
@@ -27033,6 +27003,7 @@ class HydraRenderer {
       this.canvas.height = this.height
       this.canvas.style.width = '100%'
       this.canvas.style.height = '100%'
+      this.canvas.style.imageRendering = 'pixelated'
       document.body.appendChild(this.canvas)
     }
   }
@@ -27210,38 +27181,49 @@ class HydraRenderer {
     }
   }
 
+  // dt in ms
   tick (dt, uniforms) {
-    this.synth.time += dt * 0.001
+    this.sandbox.tick()
+    if(this.detectAudio === true) this.synth.a.tick()
+  //  let updateInterval = 1000/this.synth.fps // ms
     if(this.synth.update) {
       try { this.synth.update(dt) } catch (e) { console.log(error) }
     }
-    if(this.detectAudio === true) this.synth.a.tick()
-    for (let i = 0; i < this.s.length; i++) {
-      this.s[i].tick(this.synth.time)
-    }
 
-    for (let i = 0; i < this.o.length; i++) {
-      this.o[i].tick({
-        time: this.synth.time,
-        mouse: this.synth.mouse,
-        bpm: this.synth.bpm,
-        resolution: [this.canvas.width, this.canvas.height]
-      })
-    }
-    if (this.isRenderingAll) {
-      this.renderAll({
-        tex0: this.o[0].getCurrent(),
-        tex1: this.o[1].getCurrent(),
-        tex2: this.o[2].getCurrent(),
-        tex3: this.o[3].getCurrent(),
-        resolution: [this.canvas.width, this.canvas.height]
-      })
-    } else {
+    this.sandbox.set('time', this.synth.time += dt * 0.001 * this.synth.speed)
+    this.timeSinceLastUpdate += dt
+    if(!this.synth.fps || this.timeSinceLastUpdate >= 1000/this.synth.fps) {
+    //  console.log(1000/this.timeSinceLastUpdate)
+      this.synth.stats.fps = Math.ceil(1000/this.timeSinceLastUpdate)
+    //  console.log(this.synth.speed, this.synth.time)
+      for (let i = 0; i < this.s.length; i++) {
+        this.s[i].tick(this.synth.time)
+      }
+    //  console.log(this.canvas.width, this.canvas.height)
+      for (let i = 0; i < this.o.length; i++) {
+        this.o[i].tick({
+          time: this.synth.time,
+          mouse: this.synth.mouse,
+          bpm: this.synth.bpm,
+          resolution: [this.canvas.width, this.canvas.height]
+        })
+      }
+      if (this.isRenderingAll) {
+        this.renderAll({
+          tex0: this.o[0].getCurrent(),
+          tex1: this.o[1].getCurrent(),
+          tex2: this.o[2].getCurrent(),
+          tex3: this.o[3].getCurrent(),
+          resolution: [this.canvas.width, this.canvas.height]
+        })
+      } else {
 
-      this.renderFbo({
-        tex0: this.output.getCurrent(),
-        resolution: [this.canvas.width, this.canvas.height]
-      })
+        this.renderFbo({
+          tex0: this.output.getCurrent(),
+          resolution: [this.canvas.width, this.canvas.height]
+        })
+      }
+      this.timeSinceLastUpdate = 0
     }
     if(this.saveFrame === true) {
       this.canvasToImage()
@@ -27255,7 +27237,7 @@ class HydraRenderer {
 
 module.exports = HydraRenderer
 
-},{"./src/eval-sandbox.js":63,"./src/generator-factory.js":64,"./src/hydra-source.js":69,"./src/lib/array-utils.js":70,"./src/lib/audio.js":71,"./src/lib/video-recorder.js":76,"./src/output.js":78,"mouse-change":85,"raf-loop":94,"regl":106}],62:[function(require,module,exports){
+},{"./src/eval-sandbox.js":62,"./src/generator-factory.js":63,"./src/hydra-source.js":68,"./src/lib/array-utils.js":69,"./src/lib/audio.js":70,"./src/lib/video-recorder.js":74,"./src/output.js":76,"mouse-change":83,"raf-loop":92,"regl":104}],61:[function(require,module,exports){
 const Synth = require('./hydra-synth.js')
 //const ShaderGenerator = require('./shader-generator.js')
 
@@ -27276,24 +27258,45 @@ module.exports = Synth
 // //     }
 // // }
 
-},{"./hydra-synth.js":61}],63:[function(require,module,exports){
+},{"./hydra-synth.js":60}],62:[function(require,module,exports){
 // handles code evaluation and attaching relevant objects to global and evaluation contexts
 
 const Sandbox = require('./lib/sandbox.js')
 const ArrayUtils = require('./lib/array-utils.js')
 
 class EvalSandbox {
-  constructor(parent, makeGlobal) {
+  constructor(parent, makeGlobal, userProps = []) {
     this.makeGlobal = makeGlobal
     this.sandbox = Sandbox(parent)
     this.parent = parent
     var properties = Object.keys(parent)
     properties.forEach((property) => this.add(property))
+    this.userProps = userProps
   }
 
   add(name) {
     if(this.makeGlobal) window[name] = this.parent[name]
     this.sandbox.addToContext(name, `parent.${name}`)
+  }
+
+// sets on window as well as synth object if global (not needed for objects, which can be set directly)
+
+  set(property, value) {
+    if(this.makeGlobal) {
+      window[property] = value
+    }
+    this.parent[property] = value
+  }
+
+  tick() {
+    if(this.makeGlobal) {
+      this.userProps.forEach((property) => {
+        this.parent[property] = window[property]
+      })
+      //  this.parent.speed = window.speed
+    } else {
+
+    }
   }
 
   eval(code) {
@@ -27303,22 +27306,15 @@ class EvalSandbox {
 
 module.exports = EvalSandbox
 
-},{"./lib/array-utils.js":70,"./lib/sandbox.js":74}],64:[function(require,module,exports){
-const glslTransforms = require('./glsl/composable-glsl-functions.js')
+},{"./lib/array-utils.js":69,"./lib/sandbox.js":72}],63:[function(require,module,exports){
+const glslTransforms = require('./glsl/glsl-functions.js')
 const GlslSource = require('./glsl-source.js')
-
-//const renderpassFunctions = require('./glsl/renderpass-functions.js')
-
-Array.prototype.fast = function (speed) {
-  this.speed = speed
-  return this
-}
 
 class GeneratorFactory {
   constructor ({
       defaultUniforms,
       defaultOutput,
-      extendTransforms = (x => x),
+      extendTransforms = [],
       changeListener = (() => {})
     } = {}
     ) {
@@ -27341,39 +27337,41 @@ class GeneratorFactory {
       }
     })()
 
-    let functions = {}
-    const addTransforms = (transforms) =>
-      Object.entries(transforms).forEach(([method, transform]) => {
-        functions[method] = transform
-      })
+    let functions = glslTransforms
+    // const addTransforms = (transforms) =>
+    //   Object.entries(transforms).forEach(([method, transform]) => {
+    //     functions[method] = transform
+    //   })
 
-    addTransforms(glslTransforms)
-    //addTransforms(renderpassFunctions)
-
-    if (typeof this.extendTransforms === 'function') {
-      functions = this.extendTransforms(functions)
-    } else if (Array.isArray(this.extendTransforms)) {
-      addTransforms(this.extendTransforms.reduce((h, transform) => {
-        h[transform.name] = transform
-        return h
-      }, {}))
+    // const addTransforms =
+    //
+    // addTransforms(glslTransforms)
+    // //addTransforms(renderpassFunctions)
+    //
+    // if (typeof this.extendTransforms === 'function') {
+    //   functions = this.extendTransforms(functions)
+    // } else
+    if (Array.isArray(this.extendTransforms)) {
+      functions.concat(this.extendTransforms)
     } else if (typeof this.extendTransforms === 'object') {
-      addTransforms(this.extendTransforms)
+      functions.push(this.extendTransforms)
     }
 
-    Object.entries(functions).forEach(([method, transform]) => {
-      if (typeof transform.glsl_return_type === 'undefined' && transform.glsl) {
-        transform.glsl_return_type = transform.glsl.replace(new RegExp(`^(?:[\\s\\S]*\\W)?(\\S+)\\s+${method}\\s*[(][\\s\\S]*`, 'ugm'), '$1')
-      }
+  //  console.log(functions)
+    //
+    // Object.entries(functions).forEach(([method, transform]) => {
+    //   if (typeof transform.glsl_return_type === 'undefined' && transform.glsl) {
+    //     transform.glsl_return_type = transform.glsl.replace(new RegExp(`^(?:[\\s\\S]*\\W)?(\\S+)\\s+${method}\\s*[(][\\s\\S]*`, 'ugm'), '$1')
+    //   }
+    //
+    //   functions[method] = this._addMethod(method, transform)
+    // })
 
-      functions[method] = this._addMethod(method, transform)
-    })
-
-    return functions
+    return functions.map((transform) => this.setFunction(transform))
  }
 
  _addMethod (method, transform) {
-   console.log('adding', method, transform)
+//   console.log('adding', method, transform)
     this.glslTransforms[method] = transform
     if (transform.type === 'src') {
       const func = (...args) => new this.sourceClass({
@@ -27398,8 +27396,8 @@ class GeneratorFactory {
 
   setFunction(obj) {
     var processedGlsl = processGlsl(obj)
-    console.log(processedGlsl)
-    this._addMethod(obj.name, processedGlsl)
+  //  console.log(processedGlsl)
+    if(processedGlsl) this._addMethod(obj.name, processedGlsl)
   }
 }
 
@@ -27422,9 +27420,9 @@ const typeLookup = {
     returnType: 'vec4',
     args: ['vec4 _c0', 'vec4 _c1']
   },
-  'combineCoords': {
+  'combineCoord': {
     returnType: 'vec2',
-    args: ['vec2 _st', 'vec4 c0']
+    args: ['vec2 _st', 'vec4 _c0']
   }
 }
 // expects glsl of format
@@ -27468,33 +27466,44 @@ const typeLookup = {
 
 function processGlsl(obj) {
   let t = typeLookup[obj.type]
+  if(t) {
   let baseArgs = t.args.map((arg) => arg).join(", ")
   // @todo: make sure this works for all input types, add validation
   let customArgs = obj.inputs.map((input) => `${input.type} ${input.name}`).join(', ')
   let args = `${baseArgs}${customArgs.length > 0 ? ', '+ customArgs: ''}`
-  console.log('args are ', args)
-  if(t) {
+//  console.log('args are ', args)
+
     let glslFunction =
 `
   ${t.returnType} ${obj.name}(${args}) {
       ${obj.glsl}
   }
 `
-    console.log('function', glslFunction)
+  //  console.log('function', glslFunction)
+    // {
+    //   name: 'color',
+    //   type: 'vec4'
+    // },
+
+  // add extra input to beginning for backward combatibility @todo update compiler so this is no longer necessary
+    if(obj.type === 'combine' || obj.type === 'combineCoord') obj.inputs.unshift({
+        name: 'color',
+        type: 'vec4'
+      })
     return Object.assign({}, obj, { glsl: glslFunction})
   } else {
-    console.error(`type ${obj.type} not recognized`)
+    console.warn(`type ${obj.type} not recognized`)
   }
 
 }
 
 module.exports = GeneratorFactory
 
-},{"./glsl-source.js":65,"./glsl/composable-glsl-functions.js":67}],65:[function(require,module,exports){
+},{"./glsl-source.js":64,"./glsl/glsl-functions.js":66}],64:[function(require,module,exports){
 const generateGlsl = require('./glsl-utils.js').generateGlsl
 const formatArguments = require('./glsl-utils.js').formatArguments
 
-const glslTransforms = require('./glsl/composable-glsl-functions.js')
+// const glslTransforms = require('./glsl/composable-glsl-functions.js')
 const utilityGlsl = require('./glsl/utility-functions.js')
 
 var GlslSource = function (obj) {
@@ -27515,7 +27524,11 @@ GlslSource.prototype.out = function (_output) {
   var glsl = this.glsl(output)
   this.synth.currentFunctions = []
  // output.renderPasses(glsl)
-  if(output) output.render(glsl)
+  if(output) try{
+    output.render(glsl)
+  } catch (error) {
+    console.log('shader could not compile', error)
+  }
 }
 
 GlslSource.prototype.glsl = function () {
@@ -27528,17 +27541,18 @@ GlslSource.prototype.glsl = function () {
 //  console.log('output', output)
   this.transforms.forEach((transform) => {
     if(transform.transform.type === 'renderpass'){
-      if (transforms.length > 0) passes.push(this.compile(transforms, output))
-      transforms = []
-      var uniforms = {}
-      const inputs = formatArguments(transform, -1)
-      inputs.forEach((uniform) => { uniforms[uniform.name] = uniform.value })
-
-      passes.push({
-        frag: transform.transform.frag,
-        uniforms: Object.assign({}, self.defaultUniforms, uniforms)
-      })
-      transforms.push({name: 'prev', transform:  glslTransforms['prev'], synth: this.synth})
+      // if (transforms.length > 0) passes.push(this.compile(transforms, output))
+      // transforms = []
+      // var uniforms = {}
+      // const inputs = formatArguments(transform, -1)
+      // inputs.forEach((uniform) => { uniforms[uniform.name] = uniform.value })
+      //
+      // passes.push({
+      //   frag: transform.transform.frag,
+      //   uniforms: Object.assign({}, self.defaultUniforms, uniforms)
+      // })
+      // transforms.push({name: 'prev', transform:  glslTransforms['prev'], synth: this.synth})
+      console.warn('no support for renderpass')
     } else {
       transforms.push(transform)
     }
@@ -27601,7 +27615,7 @@ GlslSource.prototype.compile = function (transforms) {
 
 module.exports = GlslSource
 
-},{"./glsl-utils.js":66,"./glsl/composable-glsl-functions.js":67,"./glsl/utility-functions.js":68}],66:[function(require,module,exports){
+},{"./glsl-utils.js":65,"./glsl/utility-functions.js":67}],65:[function(require,module,exports){
 // converts a tree of javascript functions to a shader
 
 // Add extra functionality to Array.prototype for generating sequences in time
@@ -27666,6 +27680,8 @@ function generateGlsl (transforms, shaderParams) {
         (uv) => `${generateGlsl(inputs[0].value.transforms, shaderParams)(uv)}` :
         (inputs[0].isUniform ? () => inputs[0].name : () => inputs[0].value)
       fragColor = (uv) => `${f0(`${shaderString(`${uv}, ${f1(uv)}`, transform.name, inputs.slice(1), shaderParams)}`)}`
+
+
     }
   })
 
@@ -27736,6 +27752,7 @@ function formatArguments (transform, startIndex) {
     //  generateGlsl: null // function for creating glsl
     }
 
+    if(typedArg.type === 'float') typedArg.value = ensure_decimal_dot(input.default)
     if (input.type.startsWith('vec')) {
       try {
         typedArg.vecLen = Number.parseInt(input.type.substr(3))
@@ -27753,7 +27770,14 @@ function formatArguments (transform, startIndex) {
         if (typedArg.vecLen > 0) { // expected input is a vector, not a scalar
           typedArg.value = (context, props, batchId) => (fillArrayWithDefaults(userArgs[index](props), typedArg.vecLen))
         } else {
-          typedArg.value = (context, props, batchId) => (userArgs[index](props))
+          typedArg.value = (context, props, batchId) => {
+           try {
+             return userArgs[index](props)
+           } catch (e) {
+             console.log('ERROR', e)
+             return input.default
+           }
+         }
         }
 
         typedArg.isUniform = true
@@ -27793,7 +27817,7 @@ function formatArguments (transform, startIndex) {
     } else if (typedArg.type.startsWith('vec') && typeof typedArg.value === 'object' && Array.isArray(typedArg.value)) {
       typedArg.isUniform = false
       typedArg.value = `${typedArg.type}(${typedArg.value.map(ensure_decimal_dot).join(', ')})`
-    } else if (input.type === 'texture') {
+    } else if (input.type === 'sampler2D') {
       // typedArg.tex = typedArg.value
       var x = typedArg.value
       typedArg.value = () => (x.getTexture())
@@ -27819,1079 +27843,1038 @@ function formatArguments (transform, startIndex) {
   })
 }
 
-},{"./lib/array-utils.js":70}],67:[function(require,module,exports){
-module.exports = {
-  noise: {
-    type: 'src',
-    inputs: [
-      {
-        type: 'float',
-        name: 'scale',
-        default: 10
-      },
-      {
-        type: 'float',
-        name: 'offset',
-        default : 0.1
-      }
-    ],
-    glsl: `vec4 noise(vec2 st, float scale, float offset){
-      return vec4(vec3(_noise(vec3(st*scale, offset*time))), 1.0);
-    }`
-  },
-  voronoi: {
-    type: 'src',
-    inputs: [
-      {
-        type: 'float',
-        name: 'scale',
-        default: 5
-      },
-      {
-        type: 'float',
-        name: 'speed',
-        default : 0.3
-      },
-      {
-        type: 'float',
-        name: 'blending',
-        default : 0.3
-      }
-    ],
-    notes: 'from https://thebookofshaders.com/edit.php#12/vorono-01.frag, https://www.shadertoy.com/view/ldB3zc',
-    glsl: `vec4 voronoi(vec2 st, float scale, float speed, float blending) {
-      vec3 color = vec3(.0);
+},{"./lib/array-utils.js":69}],66:[function(require,module,exports){
+module.exports = [
+  {
+  name: 'noise',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scale',
+      default: 10,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0.1,
+    }
+  ],
+  glsl:
+`   return vec4(vec3(_noise(vec3(_st*scale, offset*time))), 1.0);`
+},
+{
+  name: 'voronoi',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scale',
+      default: 5,
+    },
+{
+      type: 'float',
+      name: 'speed',
+      default: 0.3,
+    },
+{
+      type: 'float',
+      name: 'blending',
+      default: 0.3,
+    }
+  ],
+  glsl:
+`   vec3 color = vec3(.0);
    // Scale
-   st *= scale;
+   _st *= scale;
    // Tile the space
-   vec2 i_st = floor(st);
-   vec2 f_st = fract(st);
+   vec2 i_st = floor(_st);
+   vec2 f_st = fract(_st);
    float m_dist = 10.;  // minimun distance
    vec2 m_point;        // minimum point
    for (int j=-1; j<=1; j++ ) {
-       for (int i=-1; i<=1; i++ ) {
-           vec2 neighbor = vec2(float(i),float(j));
-           vec2 p = i_st + neighbor;
-           vec2 point = fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);
-           point = 0.5 + 0.5*sin(time*speed + 6.2831*point);
-           vec2 diff = neighbor + point - f_st;
-           float dist = length(diff);
-           if( dist < m_dist ) {
-               m_dist = dist;
-               m_point = point;
-           }
-       }
+   for (int i=-1; i<=1; i++ ) {
+   vec2 neighbor = vec2(float(i),float(j));
+   vec2 p = i_st + neighbor;
+   vec2 point = fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);
+   point = 0.5 + 0.5*sin(time*speed + 6.2831*point);
+   vec2 diff = neighbor + point - f_st;
+   float dist = length(diff);
+   if( dist < m_dist ) {
+   m_dist = dist;
+   m_point = point;
+   }
+   }
    }
    // Assign a color using the closest point position
    color += dot(m_point,vec2(.3,.6));
- color *= 1.0 - blending*m_dist;
-   return vec4(color, 1.0);
-    }`
-  },
-  osc: {
-    type: 'src',
-    inputs: [
-      {
-        name: 'frequency',
-        type: 'float',
-        default: 60.0
-      },
-      {
-        name: 'sync',
-        type: 'float',
-        default: 0.1
-      },
-      {
-        name: 'offset',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec4 osc(vec2 _st, float freq, float sync, float offset){
-            vec2 st = _st;
-            float r = sin((st.x-offset/freq+time*sync)*freq)*0.5  + 0.5;
-            float g = sin((st.x+time*sync)*freq)*0.5 + 0.5;
-            float b = sin((st.x+offset/freq+time*sync)*freq)*0.5  + 0.5;
-            return vec4(r, g, b, 1.0);
-          }`
-  },
-  shape: {
-    type: 'src',
-    inputs: [
-      {
-        name: 'sides',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'radius',
-        type: 'float',
-        default: 0.3
-      },
-      {
-        name: 'smoothing',
-        type: 'float',
-        default: 0.01
-      }
-    ],
-    glsl: `vec4 shape(vec2 _st, float sides, float radius, float smoothing){
-      vec2 st = _st * 2. - 1.;
-      // Angle and radius from the current pixel
-      float a = atan(st.x,st.y)+3.1416;
-      float r = (2.*3.1416)/sides;
-      float d = cos(floor(.5+a/r)*r-a)*length(st);
-      return vec4(vec3(1.0-smoothstep(radius,radius + smoothing,d)), 1.0);
-    }`
-  },
-  gradient: {
-    type: 'src',
-    inputs: [
-      {
-        name: 'speed',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec4 gradient(vec2 _st, float speed) {
-      return vec4(_st, sin(time*speed), 1.0);
+   color *= 1.0 - blending*m_dist;
+   return vec4(color, 1.0);`
+},
+{
+  name: 'osc',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'frequency',
+      default: 60,
+    },
+{
+      type: 'float',
+      name: 'sync',
+      default: 0.1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
     }
-    `
-  },
-  src: {
-    type: 'src',
-    inputs: [
-      {
-        name: 'tex',
-        type: 'texture'
-      }
-    ],
-    glsl: `vec4 src(vec2 _st, sampler2D _tex){
-    //  vec2 uv = gl_FragCoord.xy/vec2(1280., 720.);
-      return texture2D(_tex, fract(_st));
-    }`
-  },
-  solid: {
-    type: 'src',
-    inputs: [
-      {
-        name: 'r',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'g',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'b',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'a',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    notes: '',
-    glsl: `vec4 solid(vec2 uv, float _r, float _g, float _b, float _a){
-      return vec4(_r, _g, _b, _a);
-    }`
-  },
-  rotate: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'angle',
-        type: 'float',
-        default: 10.0
-      }, {
-        name: 'speed',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 rotate(vec2 st, float _angle, float speed){
-              vec2 xy = st - vec2(0.5);
-              float angle = _angle + speed *time;
-              xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
-              xy += 0.5;
-              return xy;
-          }`
-  },
-  scale: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.5
-      },
-      {
-        name: 'xMult',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'yMult',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'offsetX',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'offsetY',
-        type: 'float',
-        default: 0.5
-      }
-    ],
-    glsl: `vec2 scale(vec2 st, float amount, float xMult, float yMult, float offsetX, float offsetY){
-      vec2 xy = st - vec2(offsetX, offsetY);
-      xy*=(1.0/vec2(amount*xMult, amount*yMult));
-      xy+=vec2(offsetX, offsetY);
-      return xy;
+  ],
+  glsl:
+`   vec2 st = _st;
+   float r = sin((st.x-offset/frequency+time*sync)*frequency)*0.5  + 0.5;
+   float g = sin((st.x+time*sync)*frequency)*0.5 + 0.5;
+   float b = sin((st.x+offset/frequency+time*sync)*frequency)*0.5  + 0.5;
+   return vec4(r, g, b, 1.0);`
+},
+{
+  name: 'shape',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'sides',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'radius',
+      default: 0.3,
+    },
+{
+      type: 'float',
+      name: 'smoothing',
+      default: 0.01,
     }
-    `
-  },
-  pixelate: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'pixelX',
-        type: 'float',
-        default: 20
-      }, {
-        name: 'pixelY',
-        type: 'float',
-        default: 20
-      }
-    ],
-    glsl: `vec2 pixelate(vec2 st, float pixelX, float pixelY){
-      vec2 xy = vec2(pixelX, pixelY);
-      return (floor(st * xy) + 0.5)/xy;
-    }`
-  },
-  posterize: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'bins',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'gamma',
-        type: 'float',
-        default: 0.6
-      }
-    ],
-    glsl: `vec4 posterize(vec4 c, float bins, float gamma){
-      vec4 c2 = pow(c, vec4(gamma));
-      c2 *= vec4(bins);
-      c2 = floor(c2);
-      c2/= vec4(bins);
-      c2 = pow(c2, vec4(1.0/gamma));
-      return vec4(c2.xyz, c.a);
-    }`
-  },
-  shift: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'r',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'g',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'b',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'a',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec4 shift(vec4 c, float r, float g, float b, float a){
-      vec4 c2 = vec4(c);
-      c2.r = fract(c2.r + r);
-      c2.g = fract(c2.g + g);
-      c2.b = fract(c2.b + b);
-      c2.a = fract(c2.a + a);
-      return vec4(c2.rgba);
+  ],
+  glsl:
+`   vec2 st = _st * 2. - 1.;
+   // Angle and radius from the current pixel
+   float a = atan(st.x,st.y)+3.1416;
+   float r = (2.*3.1416)/sides;
+   float d = cos(floor(.5+a/r)*r-a)*length(st);
+   return vec4(vec3(1.0-smoothstep(radius,radius + smoothing,d)), 1.0);`
+},
+{
+  name: 'gradient',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'speed',
+      default: 0,
     }
-    `
-  },
-  repeat: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'repeatX',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'repeatY',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'offsetX',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'offsetY',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 repeat(vec2 _st, float repeatX, float repeatY, float offsetX, float offsetY){
-        vec2 st = _st * vec2(repeatX, repeatY);
-        st.x += step(1., mod(st.y,2.0)) * offsetX;
-        st.y += step(1., mod(st.x,2.0)) * offsetY;
-        return fract(st);
-    }`
-  },
-  modulateRepeat: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'repeatX',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'repeatY',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'offsetX',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'offsetY',
-        type: 'float',
-        default: 0.5
-      }
-    ],
-    glsl: `vec2 modulateRepeat(vec2 _st, vec4 c1, float repeatX, float repeatY, float offsetX, float offsetY){
-        vec2 st = _st * vec2(repeatX, repeatY);
-        st.x += step(1., mod(st.y,2.0)) + c1.r * offsetX;
-        st.y += step(1., mod(st.x,2.0)) + c1.g * offsetY;
-        return fract(st);
-    }`
-  },
-  repeatX: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'reps',
-        type: 'float',
-        default: 3.0
-      }, {
-          name: 'offset',
-          type: 'float',
-          default: 0.0
-        }
-    ],
-    glsl: `vec2 repeatX(vec2 _st, float reps, float offset){
-      vec2 st = _st * vec2(reps, 1.0);
-    //  float f =  mod(_st.y,2.0);
-      st.y += step(1., mod(st.x,2.0))* offset;
-      return fract(st);
-    }`
-  },
-  modulateRepeatX: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'reps',
-        type: 'float',
-        default: 3.0
-      },
-      {
-          name: 'offset',
-          type: 'float',
-          default: 0.5
-      }
-    ],
-    glsl: `vec2 modulateRepeatX(vec2 _st, vec4 c1, float reps, float offset){
-      vec2 st = _st * vec2(reps, 1.0);
-    //  float f =  mod(_st.y,2.0);
-      st.y += step(1., mod(st.x,2.0)) + c1.r * offset;
-      return fract(st);
-    }`
-  },
-  repeatY: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'reps',
-        type: 'float',
-        default: 3.0
-      }, {
-        name: 'offset',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 repeatY(vec2 _st, float reps, float offset){
-      vec2 st = _st * vec2(1.0, reps);
-    //  float f =  mod(_st.y,2.0);
-      st.x += step(1., mod(st.y,2.0))* offset;
-      return fract(st);
-    }`
-  },
-  modulateRepeatY: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'reps',
-        type: 'float',
-        default: 3.0
-      },
-      {
-        name: 'offset',
-        type: 'float',
-        default: 0.5
-      }
-    ],
-    glsl: `vec2 modulateRepeatY(vec2 _st, vec4 c1, float reps, float offset){
-      vec2 st = _st * vec2(reps, 1.0);
-    //  float f =  mod(_st.y,2.0);
-      st.x += step(1., mod(st.y,2.0)) + c1.r * offset;
-      return fract(st);
-    }`
-  },
-  kaleid: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'nSides',
-        type: 'float',
-        default: 4.0
-      }
-    ],
-    glsl: `vec2 kaleid(vec2 st, float nSides){
-      st -= 0.5;
-      float r = length(st);
-      float a = atan(st.y, st.x);
-      float pi = 2.*3.1416;
-      a = mod(a,pi/nSides);
-      a = abs(a-pi/nSides/2.);
-      return r*vec2(cos(a), sin(a));
-    }`
-  },
-  modulateKaleid: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'nSides',
-        type: 'float',
-        default: 4.0
-      }
-    ],
-    glsl: `vec2 modulateKaleid(vec2 st, vec4 c1, float nSides){
-      st -= 0.5;
-      float r = length(st);
-      float a = atan(st.y, st.x);
-      float pi = 2.*3.1416;
-      a = mod(a,pi/nSides);
-      a = abs(a-pi/nSides/2.);
-      return (c1.r+r)*vec2(cos(a), sin(a));
-    }`
-  },
-  scroll: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'scrollX',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'scrollY',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'speedX',
-        type: 'float',
-        default: 0.0
-      },
-      {
-        name: 'speedY',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 scroll(vec2 st, float scrollX, float scrollY, float speedX, float speedY){
-      st.x += scrollX + time*speedX;
-      st.y += scrollY + time*speedY;
-      return st;
-    }`
-  },
-  scrollX: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'scrollX',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'speed',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 scrollX(vec2 st, float amount, float speed){
-      st.x += amount + time*speed;
-      return st;
-    }`
-  },
-  modulateScrollX: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'scrollX',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'speed',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 modulateScrollX(vec2 st, vec4 c1, float amount, float speed){
-      st.x += c1.r*amount + time*speed;
-      return st;
-    }`
-  },
-  scrollY: {
-    type: 'coord',
-    inputs: [
-      {
-        name: 'scrollY',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'speed',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 scrollY(vec2 st, float amount, float speed){
-      st.y += amount + time*speed;
-      return st;
-    }`
-  },
-  modulateScrollY: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'scrollY',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'speed',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 modulateScrollY(vec2 st, vec4 c1, float amount, float speed){
-      st.y += c1.r*amount + time*speed;
-      return st;
-    }`
-  },
-  add: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    glsl: `vec4 add(vec4 c0, vec4 c1, float amount){
-            return (c0+c1)*amount + c0*(1.0-amount);
-          }`
-  },
-  sub: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    glsl: `vec4 add(vec4 c0, vec4 c1, float amount){
-            return (c0-c1)*amount + c0*(1.0-amount);
-          }`
-  },
-  layer: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      }
-    ],
-    glsl: `vec4 layer(vec4 c0, vec4 c1){
-        return vec4(mix(c0.rgb, c1.rgb, c1.a), c0.a+c1.a);
+  ],
+  glsl:
+`   return vec4(_st, sin(time*speed), 1.0);`
+},
+{
+  name: 'src',
+  type: 'src',
+  inputs: [
+    {
+      type: 'sampler2D',
+      name: 'tex',
+      default: NaN,
     }
-    `
-  },
-  blend: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'amount',
-        type: 'float',
-        default: 0.5
-      }
-    ],
-    glsl: `vec4 blend(vec4 c0, vec4 c1, float amount){
-      return c0*(1.0-amount)+c1*amount;
-    }`
-  },
-  mult: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    glsl: `vec4 mult(vec4 c0, vec4 c1, float amount){
-      return c0*(1.0-amount)+(c0*c1)*amount;
-    }`
-  },
+  ],
+  glsl:
+`   //  vec2 uv = gl_FragCoord.xy/vec2(1280., 720.);
+   return texture2D(tex, fract(_st));`
+},
+{
+  name: 'solid',
+  type: 'src',
+  inputs: [
+    {
+      type: 'float',
+      name: 'r',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'g',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'b',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'a',
+      default: 1,
+    }
+  ],
+  glsl:
+`   return vec4(r, g, b, a);`
+},
+{
+  name: 'rotate',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'angle',
+      default: 10,
+    },
+{
+      type: 'float',
+      name: 'speed',
+      default: 0,
+    }
+  ],
+  glsl:
+`   vec2 xy = _st - vec2(0.5);
+   float ang = angle + speed *time;
+   xy = mat2(cos(angle),-sin(ang), sin(ang),cos(ang))*xy;
+   xy += 0.5;
+   return xy;`
+},
+{
+  name: 'scale',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1.5,
+    },
+{
+      type: 'float',
+      name: 'xMult',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'yMult',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offsetX',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'offsetY',
+      default: 0.5,
+    }
+  ],
+  glsl:
+`   vec2 xy = _st - vec2(offsetX, offsetY);
+   xy*=(1.0/vec2(amount*xMult, amount*yMult));
+   xy+=vec2(offsetX, offsetY);
+   return xy;
+   `
+},
+{
+  name: 'pixelate',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'pixelX',
+      default: 20,
+    },
+{
+      type: 'float',
+      name: 'pixelY',
+      default: 20,
+    }
+  ],
+  glsl:
+`   vec2 xy = vec2(pixelX, pixelY);
+   return (floor(_st * xy) + 0.5)/xy;`
+},
+{
+  name: 'posterize',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'bins',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'gamma',
+      default: 0.6,
+    }
+  ],
+  glsl:
+`   vec4 c2 = pow(_c0, vec4(gamma));
+   c2 *= vec4(bins);
+   c2 = floor(c2);
+   c2/= vec4(bins);
+   c2 = pow(c2, vec4(1.0/gamma));
+   return vec4(c2.xyz, _c0.a);`
+},
+{
+  name: 'shift',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'r',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'g',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'b',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'a',
+      default: 0,
+    }
+  ],
+  glsl:
+`   vec4 c2 = vec4(_c0);
+   c2.r = fract(c2.r + r);
+   c2.g = fract(c2.g + g);
+   c2.b = fract(c2.b + b);
+   c2.a = fract(c2.a + a);
+   return vec4(c2.rgba);`
+},
+{
+  name: 'repeat',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'repeatX',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'repeatY',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'offsetX',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'offsetY',
+      default: 0,
+    }
+  ],
+  glsl:
+`   vec2 st = _st * vec2(repeatX, repeatY);
+   st.x += step(1., mod(st.y,2.0)) * offsetX;
+   st.y += step(1., mod(st.x,2.0)) * offsetY;
+   return fract(st);`
+},
+{
+  name: 'modulateRepeat',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'repeatX',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'repeatY',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'offsetX',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'offsetY',
+      default: 0.5,
+    }
+  ],
+  glsl:
+`   vec2 st = _st * vec2(repeatX, repeatY);
+   st.x += step(1., mod(st.y,2.0)) + _c0.r * offsetX;
+   st.y += step(1., mod(st.x,2.0)) + _c0.g * offsetY;
+   return fract(st);`
+},
+{
+  name: 'repeatX',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'reps',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   vec2 st = _st * vec2(reps, 1.0);
+   //  float f =  mod(_st.y,2.0);
+   st.y += step(1., mod(st.x,2.0))* offset;
+   return fract(st);`
+},
+{
+  name: 'modulateRepeatX',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'reps',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0.5,
+    }
+  ],
+  glsl:
+`   vec2 st = _st * vec2(reps, 1.0);
+   //  float f =  mod(_st.y,2.0);
+   st.y += step(1., mod(st.x,2.0)) + _c0.r * offset;
+   return fract(st);`
+},
+{
+  name: 'repeatY',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'reps',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   vec2 st = _st * vec2(1.0, reps);
+   //  float f =  mod(_st.y,2.0);
+   st.x += step(1., mod(st.y,2.0))* offset;
+   return fract(st);`
+},
+{
+  name: 'modulateRepeatY',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'reps',
+      default: 3,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0.5,
+    }
+  ],
+  glsl:
+`   vec2 st = _st * vec2(reps, 1.0);
+   //  float f =  mod(_st.y,2.0);
+   st.x += step(1., mod(st.y,2.0)) + _c0.r * offset;
+   return fract(st);`
+},
+{
+  name: 'kaleid',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'nSides',
+      default: 4,
+    }
+  ],
+  glsl:
+`   vec2 st = _st;
+   st -= 0.5;
+   float r = length(st);
+   float a = atan(st.y, st.x);
+   float pi = 2.*3.1416;
+   a = mod(a,pi/nSides);
+   a = abs(a-pi/nSides/2.);
+   return r*vec2(cos(a), sin(a));`
+},
+{
+  name: 'modulateKaleid',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'nSides',
+      default: 4,
+    }
+  ],
+  glsl:
+`   vec2 st = _st - 0.5;
+   float r = length(st);
+   float a = atan(st.y, st.x);
+   float pi = 2.*3.1416;
+   a = mod(a,pi/nSides);
+   a = abs(a-pi/nSides/2.);
+   return (_c0.r+r)*vec2(cos(a), sin(a));`
+},
+{
+  name: 'scroll',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scrollX',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'scrollY',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'speedX',
+      default: 0,
+    },
+{
+      type: 'float',
+      name: 'speedY',
+      default: 0,
+    }
+  ],
+  glsl:
+`
+   _st.x += scrollX + time*speedX;
+   _st.y += scrollY + time*speedY;
+   return _st;`
+},
+{
+  name: 'scrollX',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scrollX',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'speed',
+      default: 0,
+    }
+  ],
+  glsl:
+`   _st.x += scrollX + time*speed;
+   return _st;`
+},
+{
+  name: 'modulateScrollX',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scrollX',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'speed',
+      default: 0,
+    }
+  ],
+  glsl:
+`   _st.x += _c0.r*amount + time*speed;
+   return _st;`
+},
+{
+  name: 'scrollY',
+  type: 'coord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scrollY',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'speed',
+      default: 0,
+    }
+  ],
+  glsl:
+`   _st.y += scrollY + time*speed;
+   return _st;`
+},
+{
+  name: 'modulateScrollY',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scrollY',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'speed',
+      default: 0,
+    }
+  ],
+  glsl:
+`   _st.y += _c0.r*scrollY + time*speed;
+   return _st;`
+},
+{
+  name: 'add',
+  type: 'combine',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1,
+    }
+  ],
+  glsl:
+`   return (_c0+_c1)*amount + _c0*(1.0-amount);`
+},
+{
+  name: 'sub',
+  type: 'combine',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1,
+    }
+  ],
+  glsl:
+`   return (_c0-_c1)*amount + _c0*(1.0-amount);`
+},
+{
+  name: 'layer',
+  type: 'combine',
+  inputs: [
 
-  diff: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      }
-    ],
-    glsl: `vec4 diff(vec4 c0, vec4 c1){
-      return vec4(abs(c0.rgb-c1.rgb), max(c0.a, c1.a));
+  ],
+  glsl:
+`   return vec4(mix(_c0.rgb, _c1.rgb, _c1.a), _c0.a+_c1.a);`
+},
+{
+  name: 'blend',
+  type: 'combine',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 0.5,
     }
-    `
-  },
+  ],
+  glsl:
+`   return _c0*(1.0-amount)+_c1*amount;`
+},
+{
+  name: 'mult',
+  type: 'combine',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1,
+    }
+  ],
+  glsl:
+`   return _c0*(1.0-amount)+(_c0*_c1)*amount;`
+},
+{
+  name: 'diff',
+  type: 'combine',
+  inputs: [
 
-  modulate: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'amount',
-        type: 'float',
-        default: 0.1
-      }
-    ],
-    glsl: `vec2 modulate(vec2 st, vec4 c1, float amount){
-          //  return fract(st+(c1.xy-0.5)*amount);
-              return st + c1.xy*amount;
-          }`
-  },
-  modulateScale: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'multiple',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'offset',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    glsl: `vec2 modulateScale(vec2 st, vec4 c1, float multiple, float offset){
-      vec2 xy = st - vec2(0.5);
-      xy*=(1.0/vec2(offset + multiple*c1.r, offset + multiple*c1.g));
-      xy+=vec2(0.5);
-      return xy;
-    }`
-  },
-  modulatePixelate: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'multiple',
-        type: 'float',
-        default: 10.0
-      },
-      {
-        name: 'offset',
-        type: 'float',
-        default: 3.0
-      }
-    ],
-    glsl: `vec2 modulatePixelate(vec2 st, vec4 c1, float multiple, float offset){
-      vec2 xy = vec2(offset + c1.x*multiple, offset + c1.y*multiple);
-      return (floor(st * xy) + 0.5)/xy;
-    }`
-  },
-  modulateRotate: {
-    type: 'combineCoord',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'multiple',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'offset',
-        type: 'float',
-        default: 0.0
-      }
-    ],
-    glsl: `vec2 modulateRotate(vec2 st, vec4 c1, float multiple, float offset){
-        vec2 xy = st - vec2(0.5);
-        float angle = offset + c1.x * multiple;
-        xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
-        xy += 0.5;
-        return xy;
-    }`
-  },
-  modulateHue: {
-    type: 'combineCoord',
-    notes: 'changes coordinates based on hue of second input. Based on: https://www.shadertoy.com/view/XtcSWM',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      },
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    glsl: `vec2 modulateHue(vec2 st, vec4 c1, float amount){
-            return st + (vec2(c1.g - c1.r, c1.b - c1.g) * amount * 1.0/resolution);
-          }`
-  },
-  invert: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    glsl: `vec4 invert(vec4 c0, float amount){
-      return vec4((1.0-c0.rgb)*amount + c0.rgb*(1.0-amount), c0.a);
-    }`
-  },
-  contrast: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'amount',
-        type: 'float',
-        default: 1.6
-      }
-    ],
-    glsl: `vec4 contrast(vec4 c0, float amount) {
-      vec4 c = (c0-vec4(0.5))*vec4(amount) + vec4(0.5);
-      return vec4(c.rgb, c0.a);
+  ],
+  glsl:
+`   return vec4(abs(_c0.rgb-_c1.rgb), max(_c0.a, _c1.a));`
+},
+{
+  name: 'modulate',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 0.1,
     }
-    `
-  },
-  brightness: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'amount',
-        type: 'float',
-        default: 0.4
-      }
-    ],
-    glsl: `vec4 brightness(vec4 c0, float amount){
-      return vec4(c0.rgb + vec3(amount), c0.a);
+  ],
+  glsl:
+`   //  return fract(st+(_c0.xy-0.5)*amount);
+   return _st + _c0.xy*amount;`
+},
+{
+  name: 'modulateScale',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'multiple',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 1,
     }
-    `
-  },
-  mask: {
-    type: 'combine',
-    inputs: [
-      {
-        name: 'color',
-        type: 'vec4'
-      }
-    ],
-    glsl: `vec4 mask(vec4 c0, vec4 c1){
-      float a = _luminance(c1.rgb);
-      return vec4(c0.rgb*a, a);
-    }`
-  },
-  luma: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'threshold',
-        type: 'float',
-        default: 0.5
-      },
-      {
-        name: 'tolerance',
-        type: 'float',
-        default: 0.1
-      }
-    ],
-    glsl: `vec4 luma(vec4 c0, float threshold, float tolerance){
-      float a = smoothstep(threshold-tolerance, threshold+tolerance, _luminance(c0.rgb));
-      return vec4(c0.rgb*a, a);
-    }`
-  },
-  thresh: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'threshold',
-        type: 'float',
-        default: 0.5
-      }, {
-        name: 'tolerance',
-        type: 'float',
-        default: 0.04
-      }
-    ],
-    glsl: `vec4 thresh(vec4 c0, float threshold, float tolerance){
-      return vec4(vec3(smoothstep(threshold-tolerance, threshold+tolerance, _luminance(c0.rgb))), c0.a);
-    }`
-  },
-  color: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'r',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'g',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'b',
-        type: 'float',
-        default: 1.0
-      },
-      {
-        name: 'a',
-        type: 'float',
-        default: 1.0
-      }
-    ],
-    notes: 'https://www.youtube.com/watch?v=FpOEtm9aX0M',
-    glsl: `vec4 color(vec4 c0, float _r, float _g, float _b, float _a){
-      vec4 c = vec4(_r, _g, _b, _a);
-      vec4 pos = step(0.0, c); // detect whether negative
-      // if > 0, return r * c0
-      // if < 0 return (1.0-r) * c0
-      return vec4(mix((1.0-c0)*abs(c), c*c0, pos));
-    }`
-  },
-  saturate: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'amount',
-        type: 'float',
-        default: 2.0
-      }
-    ],
-    glsl: `vec4 saturate(vec4 c0, float amount){
-      const vec3 W = vec3(0.2125, 0.7154, 0.0721);
-      vec3 intensity = vec3(dot(c0.rgb, W));
-      return vec4(mix(intensity, c0.rgb, amount), c0.a);
-    }`
-  },
-  hue: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'hue',
-        type: 'float',
-        default: 0.4
-      }
-    ],
-    glsl: `vec4 hue(vec4 c0, float hue){
-      vec3 c = _rgbToHsv(c0.rgb);
-      c.r += hue;
-    //  c.r = fract(c.r);
-      return vec4(_hsvToRgb(c), c0.a);
-    }`
-  },
-  colorama: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'amount',
-        type: 'float',
-        default: 0.005
-      }
-    ],
-    glsl: `vec4 colorama(vec4 c0, float amount){
-      vec3 c = _rgbToHsv(c0.rgb);
-      c += vec3(amount);
-      c = _hsvToRgb(c);
-      c = fract(c);
-      return vec4(c, c0.a);
-    }`
-  },
-  prev: {
-    type: 'src',
-    notes: 'renders previous buffer',
-    inputs: [],
-    glsl: `vec4 prev(vec2 _st) {
-      return texture2D(prevBuffer, fract(_st));
+  ],
+  glsl:
+`   vec2 xy = _st - vec2(0.5);
+   xy*=(1.0/vec2(offset + multiple*_c0.r, offset + multiple*_c0.g));
+   xy+=vec2(0.5);
+   return xy;`
+},
+{
+  name: 'modulatePixelate',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'multiple',
+      default: 10,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 3,
     }
-    `
-  },
-  sum: {
-    type: 'color',
-    inputs: [
-      {
-        name: 'scale',
-        type: 'vec4',
-        default: [1, 1, 1, 1]
-      }
-    ],
-    glsl: `float sum(vec4 c0, vec4 s) {
-      vec4 v = c0 * s;
-      return v.r + v.g + v.b + v.a;
+  ],
+  glsl:
+`   vec2 xy = vec2(offset + _c0.x*multiple, offset + _c0.y*multiple);
+   return (floor(_st * xy) + 0.5)/xy;`
+},
+{
+  name: 'modulateRotate',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'multiple',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
     }
-float sum(vec2 _st, vec4 s) { // vec4 is not a typo, because argument type is not overloaded
-  vec2 v = _st.xy * s.xy;
-  return v.x + v.y;
-}`
-  },
-  r: {
-    type: 'color',
-    inputs: [
-      {name: 'scale', type: 'float', default: 1},
-      {name: 'offset', type: 'float', default: 0}
-    ],
-    glsl: `vec4 r(vec4 c0, float scale, float offset) {
-      return vec4(c0.r * scale + offset);
-    }`
-  },
-  g: {
-    type: 'color',
-    inputs: [
-      {name: 'scale', type: 'float', default: 1},
-      {name: 'offset', type: 'float', default: 0}
-    ],
-    glsl: `vec4 g(vec4 c0, float scale, float offset) {
-      return vec4(c0.g * scale + offset);
-    }`
-  },
-  b: {
-    type: 'color',
-    inputs: [
-      {name: 'scale', type: 'float', default: 1},
-      {name: 'offset', type: 'float', default: 0}
-    ],
-    glsl: `vec4 b(vec4 c0, float scale, float offset) {
-      return vec4(c0.b * scale + offset);
-    }`
-  },
-  a: {
-    type: 'color',
-    inputs: [
-      {name: 'scale', type: 'float', default: 1},
-      {name: 'offset', type: 'float', default: 0}
-    ],
-    glsl: `vec4 a(vec4 c0, float scale, float offset) {
-      return vec4(c0.a * scale + offset);
-    }`
-  }
+  ],
+  glsl:
+`   vec2 xy = _st - vec2(0.5);
+   float angle = offset + _c0.x * multiple;
+   xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
+   xy += 0.5;
+   return xy;`
+},
+{
+  name: 'modulateHue',
+  type: 'combineCoord',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1,
+    }
+  ],
+  glsl:
+`   return _st + (vec2(_c0.g - _c0.r, _c0.b - _c0.g) * amount * 1.0/resolution);`
+},
+{
+  name: 'invert',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1,
+    }
+  ],
+  glsl:
+`   return vec4((1.0-_c0.rgb)*amount + _c0.rgb*(1.0-amount), _c0.a);`
+},
+{
+  name: 'contrast',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 1.6,
+    }
+  ],
+  glsl:
+`   vec4 c = (_c0-vec4(0.5))*vec4(amount) + vec4(0.5);
+   return vec4(c.rgb, _c0.a);`
+},
+{
+  name: 'brightness',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 0.4,
+    }
+  ],
+  glsl:
+`   return vec4(_c0.rgb + vec3(amount), _c0.a);`
+},
+{
+  name: 'mask',
+  type: 'combine',
+  inputs: [
+
+  ],
+  glsl:
+`   float a = _luminance(_c1.rgb);
+   return vec4(_c0.rgb*a, a);`
+},
+{
+  name: 'luma',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'threshold',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'tolerance',
+      default: 0.1,
+    }
+  ],
+  glsl:
+`   float a = smoothstep(threshold-tolerance, threshold+tolerance, _luminance(_c0.rgb));
+   return vec4(_c0.rgb*a, a);`
+},
+{
+  name: 'thresh',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'threshold',
+      default: 0.5,
+    },
+{
+      type: 'float',
+      name: 'tolerance',
+      default: 0.04,
+    }
+  ],
+  glsl:
+`   return vec4(vec3(smoothstep(threshold-tolerance, threshold+tolerance, _luminance(_c0.rgb))), _c0.a);`
+},
+{
+  name: 'color',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'r',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'g',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'b',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'a',
+      default: 1,
+    }
+  ],
+  glsl:
+`   vec4 c = vec4(r, g, b, a);
+   vec4 pos = step(0.0, c); // detect whether negative
+   // if > 0, return r * _c0
+   // if < 0 return (1.0-r) * _c0
+   return vec4(mix((1.0-_c0)*abs(c), c*_c0, pos));`
+},
+{
+  name: 'saturate',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 2,
+    }
+  ],
+  glsl:
+`   const vec3 W = vec3(0.2125, 0.7154, 0.0721);
+   vec3 intensity = vec3(dot(_c0.rgb, W));
+   return vec4(mix(intensity, _c0.rgb, amount), _c0.a);`
+},
+{
+  name: 'hue',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'hue',
+      default: 0.4,
+    }
+  ],
+  glsl:
+`   vec3 c = _rgbToHsv(_c0.rgb);
+   c.r += hue;
+   //  c.r = fract(c.r);
+   return vec4(_hsvToRgb(c), _c0.a);`
+},
+{
+  name: 'colorama',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'amount',
+      default: 0.005,
+    }
+  ],
+  glsl:
+`   vec3 c = _rgbToHsv(_c0.rgb);
+   c += vec3(amount);
+   c = _hsvToRgb(c);
+   c = fract(c);
+   return vec4(c, _c0.a);`
+},
+{
+  name: 'prev',
+  type: 'src',
+  inputs: [
+
+  ],
+  glsl:
+`   return texture2D(prevBuffer, fract(_st));`
+},
+{
+  name: 'sum',
+  type: 'color',
+  inputs: [
+    {
+      type: 'vec4',
+      name: 'scale',
+      default: 1,
+    }
+  ],
+  glsl:
+`   vec4 v = _c0 * s;
+   return v.r + v.g + v.b + v.a;
+   }
+   float sum(vec2 _st, vec4 s) { // vec4 is not a typo, because argument type is not overloaded
+   vec2 v = _st.xy * s.xy;
+   return v.x + v.y;`
+},
+{
+  name: 'r',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scale',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   return vec4(_c0.r * scale + offset);`
+},
+{
+  name: 'g',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scale',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   return vec4(_c0.g * scale + offset);`
+},
+{
+  name: 'b',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scale',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   return vec4(_c0.b * scale + offset);`
+},
+{
+  name: 'a',
+  type: 'color',
+  inputs: [
+    {
+      type: 'float',
+      name: 'scale',
+      default: 1,
+    },
+{
+      type: 'float',
+      name: 'offset',
+      default: 0,
+    }
+  ],
+  glsl:
+`   return vec4(_c0.a * scale + offset);`
 }
+]
 
-},{}],68:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 // functions that are only used within other functions
 
 module.exports = {
@@ -29004,7 +28987,7 @@ module.exports = {
   }
 }
 
-},{}],69:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 const Webcam = require('./lib/webcam.js')
 const Screen = require('./lib/screenmedia.js')
 
@@ -29017,7 +29000,8 @@ class HydraSource  {
     this.width = opts.width
     this.height = opts.height
     this.tex = this.regl.texture({
-      shape: [opts.width, opts.height]
+      shape: [1, 1]
+    //  shape: [opts.width, opts.height]
     })
     this.pb = opts.pb
   }
@@ -29035,11 +29019,11 @@ class HydraSource  {
     Webcam(index).then((response) => {
       self.src = response.video
       self.tex = self.regl.texture(self.src)
-    })
+    }).catch((err) => console.log('could not get camera', err))
   }
 
   initStream (streamName) {
-    console.log("initing stream!", streamName)
+  //  console.log("initing stream!", streamName)
     let self = this
     if (streamName && this.pb) {
         this.pb.initSource(streamName)
@@ -29060,7 +29044,7 @@ class HydraSource  {
        self.src = response.video
        self.tex = self.regl.texture(self.src)
      //  console.log("received screen input")
-     })
+   }).catch((err) => console.log('could not get screen', err))
   }
 
   resize (width, height) {
@@ -29069,22 +29053,28 @@ class HydraSource  {
   }
 
   clear () {
+    if(this.src && this.src.srcObject) {
+      if (this.src.srcObject.getTracks) {
+        this.src.srcObject.getTracks().forEach((track) => track.stop())
+      }
+    }
     this.src = null
     this.tex = this.regl.texture({
-      shape: [this.width, this.height]
+      shape: [1, 1]
     })
   }
 
   tick (time) {
-
+    //  console.log(this.src, this.tex.width, this.tex.height)
     if (this.src !== null && this.dynamic === true) {
-
         if(this.src.videoWidth && this.src.videoWidth !== this.tex.width) {
+          console.log(this.src.videoWidth, this.src.videoHeight, this.tex.width, this.tex.height)
           this.tex.resize(this.src.videoWidth, this.src.videoHeight)
         }
 
+        if(this.src.width && this.src.width !== this.tex.width)   this.tex.resize(this.src.width, this.src.height)
+
         this.tex.subimage(this.src)
-       //this.tex = this.regl.texture(this.src)
     }
   }
 
@@ -29095,7 +29085,7 @@ class HydraSource  {
 
 module.exports = HydraSource
 
-},{"./lib/screenmedia.js":75,"./lib/webcam.js":77}],70:[function(require,module,exports){
+},{"./lib/screenmedia.js":73,"./lib/webcam.js":75}],69:[function(require,module,exports){
 // WIP utils for working with arrays
 // Possibly should be integrated with lfo extension, etc.
 // to do: transform time rather than array values, similar to working with coordinates in hydra
@@ -29109,7 +29099,6 @@ var map = (num, in_min, in_max, out_min, out_max) => {
 module.exports = {
   init: () => {
 
-
     Array.prototype.fast = function(speed = 1) {
       this._speed = speed
       return this
@@ -29120,14 +29109,22 @@ module.exports = {
       return this
     }
 
-    Array.prototype.ease = function(ease) {
-      if(ease && easing[ease]) {
+    Array.prototype.ease = function(ease = 'linear') {
+      if (typeof ease == 'function') {
+        this._smooth = 1
+        this._ease = ease
+      }
+      else if (easing[ease]){
         this._smooth = 1
         this._ease = easing[ease]
       }
       return this
     }
 
+    Array.prototype.offset = function(offset = 0.5) {
+      this._offset = offset%1.0
+      return this
+    }
 
     // Array.prototype.bounce = function() {
     //   this.modifiers.bounce = true
@@ -29144,24 +29141,27 @@ module.exports = {
       return newArr
     }
   },
+
   getValue: (arr = []) => ({time, bpm}) =>{
     let speed = arr._speed ? arr._speed : 1
     let smooth = arr._smooth ? arr._smooth : 0
-    let ease = arr._ease ? arr._ease : easing['linear']
-    // console.log(smooth)
-    let index = time * speed * (bpm / 60)
+    let index = time * speed * (bpm / 60) + (arr._offset || 0)
 
-    let currValue = arr[Math.floor(index % (arr.length))]
-    let nextValue = arr[Math.floor((index + 1) % (arr.length))]
-
-    let _t = (index%1)*smooth
-    let t = ease(_t)
-    //  console.log(arr, Math.floor(index/newArr.length), index/newArr.length)
-    return nextValue*t + currValue*(1-t)
+    if (smooth!==0) {
+      let ease = arr._ease ? arr._ease : easing['linear']
+      let _index = index - (smooth / 2)
+      let currValue = arr[Math.floor(_index % (arr.length))]
+      let nextValue = arr[Math.floor((_index + 1) % (arr.length))]
+      let t = Math.min((_index%1)/smooth,1)
+      return ease(t) * (nextValue - currValue) + currValue
+    }
+    else {
+      return arr[Math.floor(index % (arr.length))]
+    }
   }
 }
 
-},{"./easing-functions.js":72}],71:[function(require,module,exports){
+},{"./easing-functions.js":71}],70:[function(require,module,exports){
 const Meyda = require('meyda')
 
 class Audio {
@@ -29378,7 +29378,7 @@ class Audio {
 
 module.exports = Audio
 
-},{"meyda":84}],72:[function(require,module,exports){
+},{"meyda":82}],71:[function(require,module,exports){
 // from https://gist.github.com/gre/1650294
 
 module.exports = {
@@ -29407,220 +29407,12 @@ module.exports = {
   // decelerating to zero velocity
   easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
   // acceleration until halfway, then deceleration
-  easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
+  easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t },
+  // sin shape
+  sin: function (t) { return (1 + Math.sin(Math.PI*t-Math.PI/2))/2 }
 }
 
-},{}],73:[function(require,module,exports){
-//var adapter = require('webrtc-adapter');
-// to do: clean up this code
-// cache for constraints and callback
-var cache = {};
-
-module.exports = function (constraints, cb) {
-    var hasConstraints = arguments.length === 2;
-    var callback = hasConstraints ? cb : constraints;
-    var error;
-
-    if (typeof window === 'undefined' || window.location.protocol === 'http:') {
-        error = new Error('NavigatorUserMediaError');
-        error.name = 'HTTPS_REQUIRED';
-        return callback(error);
-    }
-
-    if (window.navigator.userAgent.match('Chrome')) {
-
-        var chromever = parseInt(window.navigator.userAgent.match(/Chrome\/(.*) /)[1], 10);
-        var maxver = 33;
-
-        // check whether running in electron
-        if (window && window.process && window.process.type) {
-          constraints = (hasConstraints && constraints) || {audio: false, video: {
-              mandatory: {
-                  chromeMediaSource: 'desktop',
-                  maxWidth: window.screen.width,
-                  maxHeight: window.screen.height,
-                  maxFrameRate: 3
-              }
-          }};
-
-
-          console.log("running in electron" , constraints)
-        //  constraints.video.mandatory.chromeMediaSourceId = data.sourceId;
-          window.navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-              callback(null, stream);
-          }).catch(function (err) {
-              callback(err);
-          })
-        } else {
-          var isCef = !window.chrome.webstore;
-        // "known" crash in chrome 34 and 35 on linux
-          if (window.navigator.userAgent.match('Linux')) maxver = 35;
-
-        // check that the extension is installed by looking for a
-        // sessionStorage variable that contains the extension id
-        // this has to be set after installation unless the contest
-        // script does that
-          if (sessionStorage.getScreenMediaJSExtensionId) {
-              chrome.runtime.sendMessage(sessionStorage.getScreenMediaJSExtensionId,
-                  {type:'getScreen', id: 1}, null,
-                  function (data) {
-                      console.log("getting screen", data)
-                      if (!data || data.sourceId === '') { // user canceled
-                          var error = new Error('NavigatorUserMediaError');
-                          error.name = 'NotAllowedError';
-                          callback(error);
-                      } else {
-                          constraints = (hasConstraints && constraints) || {audio: false, video: {
-                              mandatory: {
-                                  chromeMediaSource: 'desktop',
-                                  maxWidth: window.screen.width,
-                                  maxHeight: window.screen.height,
-                                  maxFrameRate: 3
-                              }
-                          }};
-
-
-                          console.log("constriants", constraints)
-                          constraints.video.mandatory.chromeMediaSourceId = data.sourceId;
-                          window.navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-                              callback(null, stream);
-                          }).catch(function (err) {
-                              callback(err);
-                          });
-                      }
-                  }
-              );
-          } else if (window.cefGetScreenMedia) {
-              //window.cefGetScreenMedia is experimental - may be removed without notice
-              window.cefGetScreenMedia(function(sourceId) {
-                  if (!sourceId) {
-                      var error = new Error('cefGetScreenMediaError');
-                      error.name = 'CEF_GETSCREENMEDIA_CANCELED';
-                      callback(error);
-                  } else {
-                      constraints = (hasConstraints && constraints) || {audio: false, video: {
-                          mandatory: {
-                              chromeMediaSource: 'desktop',
-                              maxWidth: window.screen.width,
-                              maxHeight: window.screen.height,
-                              maxFrameRate: 3
-                          },
-                          optional: [
-                              {googLeakyBucket: true},
-                              {googTemporalLayeredScreencast: true}
-                          ]
-                      }};
-                      constraints.video.mandatory.chromeMediaSourceId = sourceId;
-                      window.navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-                          callback(null, stream);
-                      }).catch(function (err) {
-                          callback(err);
-                      });
-                  }
-              });
-          } else if (isCef || (chromever >= 26 && chromever <= maxver)) {
-              // chrome 26 - chrome 33 way to do it -- requires bad chrome://flags
-              // note: this is basically in maintenance mode and will go away soon
-              constraints = (hasConstraints && constraints) || {
-                  video: {
-                      mandatory: {
-                          googLeakyBucket: true,
-                          maxWidth: window.screen.width,
-                          maxHeight: window.screen.height,
-                          maxFrameRate: 3,
-                          chromeMediaSource: 'screen'
-                      }
-                  }
-              };
-              window.navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-                  callback(null, stream);
-              }).catch(function (err) {
-                  callback(err);
-              });
-          } else {
-              // chrome 34+ way requiring an extension
-              var pending = window.setTimeout(function () {
-                  error = new Error('NavigatorUserMediaError');
-                  error.name = 'EXTENSION_UNAVAILABLE';
-                  return callback(error);
-              }, 1000);
-              cache[pending] = [callback, hasConstraints ? constraints : null];
-              window.postMessage({ type: 'getScreen', id: pending }, '*');
-          }
-      }
-    } else if (window.navigator.userAgent.match('Firefox')) {
-        var ffver = parseInt(window.navigator.userAgent.match(/Firefox\/(.*)/)[1], 10);
-        if (ffver >= 33) {
-            constraints = (hasConstraints && constraints) || {
-                video: {
-                    mozMediaSource: 'window',
-                    mediaSource: 'window'
-                }
-            };
-            window.navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-                callback(null, stream);
-                var lastTime = stream.currentTime;
-                var polly = window.setInterval(function () {
-                    if (!stream) window.clearInterval(polly);
-                    if (stream.currentTime == lastTime) {
-                        window.clearInterval(polly);
-                        if (stream.onended) {
-                            stream.onended();
-                        }
-                    }
-                    lastTime = stream.currentTime;
-                }, 500);
-            }).catch(function (err) {
-                callback(err);
-            });
-        } else {
-            error = new Error('NavigatorUserMediaError');
-            error.name = 'EXTENSION_UNAVAILABLE'; // does not make much sense but...
-        }
-    }
-};
-
-typeof window !== 'undefined' && window.addEventListener('message', function (event) {
-    if (event.origin != window.location.origin) {
-        return;
-    }
-    if (event.data.type == 'gotScreen' && cache[event.data.id]) {
-      alert("got screen!")
-        var data = cache[event.data.id];
-        var constraints = data[1];
-        var callback = data[0];
-        delete cache[event.data.id];
-
-        if (event.data.sourceId === '') { // user canceled
-            var error = new Error('NavigatorUserMediaError');
-            error.name = 'NotAllowedError';
-            callback(error);
-        } else {
-            constraints = constraints || {audio: false, video: {
-                mandatory: {
-                    chromeMediaSource: 'desktop',
-                    maxWidth: window.screen.width,
-                    maxHeight: window.screen.height,
-                    maxFrameRate: 3
-                },
-                optional: [
-                    {googLeakyBucket: true},
-                    {googTemporalLayeredScreencast: true}
-                ]
-            }};
-            constraints.video.mandatory.chromeMediaSourceId = event.data.sourceId;
-            window.navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-                callback(null, stream);
-            }).catch(function (err) {
-                callback(err);
-            });
-        }
-    } else if (event.data.type == 'getScreenPending') {
-        window.clearTimeout(event.data.id);
-    }
-});
-
-},{}],74:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 // attempt custom evaluation sandbox for hydra functions
 // for now, just avoids polluting the global namespace
 // should probably be replaced with an abstract syntax tree
@@ -29657,46 +29449,23 @@ module.exports = (parent) => {
   }
 }
 
-},{}],75:[function(require,module,exports){
-const getScreenMedia = require('./getscreenmedia.js')
+},{}],73:[function(require,module,exports){
 
 module.exports = function (options) {
-  //const regl = options.regl
-
-  // mandatory: {
-  //     chromeMediaSource: 'desktop',
-  //     maxWidth: 640,
-  //     maxHeight: 480
-  // }
   return new Promise(function(resolve, reject) {
-    getScreenMedia( {audio: false, video: {
-        mandatory: {
-            chromeMediaSource: 'desktop'
-        }
-    }}, function (err, stream) {
-    if (err) {
-      console.log('error getting screen media', err)
-      reject(err)
-    } else {
-      console.log("got stream", stream)
+    //  async function startCapture(displayMediaOptions) {
+    navigator.mediaDevices.getDisplayMedia(options).then((stream) => {
       const video = document.createElement('video')
-      //video.src = window.URL.createObjectURL(stream)
       video.srcObject = stream
-     // document.body.appendChild(video)
       video.addEventListener('loadedmetadata', () => {
         video.play()
-       // const webcam = regl.texture(video)
-        //regl.frame(() => webcam.subimage(video))
         resolve({video: video})
       })
-    //resolve()
-    }
+    }).catch((err) => reject(err))
   })
-  })
-
 }
 
-},{"./getscreenmedia.js":73}],76:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 class VideoRecorder {
   constructor(stream) {
     this.mediaSource = new MediaSource()
@@ -29784,11 +29553,11 @@ class VideoRecorder {
 
 module.exports = VideoRecorder
 
-},{}],77:[function(require,module,exports){
-const enumerateDevices = require('enumerate-devices')
+},{}],75:[function(require,module,exports){
+//const enumerateDevices = require('enumerate-devices')
 
 module.exports = function (deviceId) {
-  return enumerateDevices()
+  return navigator.mediaDevices.enumerateDevices()
     .then(devices => devices.filter(devices => devices.kind === 'videoinput'))
     .then(cameras => {
       let constraints = { audio: false, video: true}
@@ -29797,7 +29566,7 @@ module.exports = function (deviceId) {
           deviceId: { exact: cameras[deviceId].deviceId }
         }
       }
-      console.log(cameras)
+    //  console.log(cameras)
       return window.navigator.mediaDevices.getUserMedia(constraints)
     })
     .then(stream => {
@@ -29813,7 +29582,7 @@ module.exports = function (deviceId) {
     .catch(console.log.bind(console))
 }
 
-},{"enumerate-devices":56}],78:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 //const transforms = require('./glsl-transforms.js')
 
 var Output = function (opts) {
@@ -29826,12 +29595,13 @@ var Output = function (opts) {
   ])
 
   this.draw = () => {}
-  this.clear()
+  this.init()
   this.pingPongIndex = 0
 
   // for each output, create two fbos for pingponging
   this.fbos = (Array(2)).fill().map(() => this.regl.framebuffer({
     color: this.regl.texture({
+      mag: 'nearest',
       width: opts.width,
       height: opts.height,
       format: 'rgba'
@@ -29847,6 +29617,7 @@ Output.prototype.resize = function(width, height) {
   this.fbos.forEach((fbo) => {
     fbo.resize(width, height)
   })
+//  console.log(this)
 }
 
 
@@ -29859,7 +29630,8 @@ Output.prototype.getTexture = function () {
   return this.fbos[index]
 }
 
-Output.prototype.clear = function () {
+Output.prototype.init = function () {
+//  console.log('clearing')
   this.transformIndex = 0
   this.fragHeader = `
   precision ${this.precision} float;
@@ -29928,12 +29700,13 @@ Output.prototype.render = function (passes) {
 
 
 Output.prototype.tick = function (props) {
+//  console.log(props)
   this.draw(props)
 }
 
 module.exports = Output
 
-},{}],79:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -30019,7 +29792,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],80:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -30030,7 +29803,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],81:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -30055,7 +29828,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],82:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -30078,9 +29851,9 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],83:[function(require,module,exports){
-arguments[4][59][0].apply(exports,arguments)
-},{"dup":59}],84:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"dup":58}],82:[function(require,module,exports){
 !function(t,r){"object"==typeof exports&&"object"==typeof module?module.exports=r():"function"==typeof define&&define.amd?define([],r):"object"==typeof exports?exports.Meyda=r():t.Meyda=r()}(this,function(){return function(t){function r(n){if(e[n])return e[n].exports;var o=e[n]={i:n,l:!1,exports:{}};return t[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}var e={};return r.m=t,r.c=e,r.i=function(t){return t},r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{configurable:!1,enumerable:!0,get:n})},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,r){return Object.prototype.hasOwnProperty.call(t,r)},r.p="",r(r.s=23)}([function(t,r,e){"use strict";function n(t){if(Array.isArray(t)){for(var r=0,e=Array(t.length);r<t.length;r++)e[r]=t[r];return e}return Array.from(t)}function o(t){for(;t%2==0&&t>1;)t/=2;return 1===t}function i(t,r){for(var e=[],n=0;n<Math.min(t.length,r.length);n++)e[n]=t[n]*r[n];return e}function a(t,r){if("rect"!==r){if(""!==r&&r||(r="hanning"),g[r]||(g[r]={}),!g[r][t.length])try{g[r][t.length]=b[r](t.length)}catch(t){throw new Error("Invalid windowing function")}t=i(t,g[r][t.length])}return t}function u(t,r,e){for(var n=new Float32Array(t),o=0;o<n.length;o++)n[o]=o*r/e,n[o]=13*Math.atan(n[o]/1315.8)+3.5*Math.atan(Math.pow(n[o]/7518,2));return n}function c(t){return Float32Array.from(t)}function f(t){return 700*(Math.exp(t/1125)-1)}function l(t){return 1125*Math.log(1+t/700)}function s(t,r,e){for(var n=new Float32Array(t+2),o=new Float32Array(t+2),i=r/2,a=l(0),u=l(i),c=u-a,s=c/(t+1),p=Array(t+2),m=0;m<n.length;m++)n[m]=m*s,o[m]=f(n[m]),p[m]=Math.floor((e+1)*o[m]/r);for(var y=Array(t),h=0;h<y.length;h++){y[h]=Array.apply(null,new Array(e/2+1)).map(Number.prototype.valueOf,0);for(var b=p[h];b<p[h+1];b++)y[h][b]=(b-p[h])/(p[h+1]-p[h]);for(var g=p[h+1];g<p[h+2];g++)y[h][g]=(p[h+2]-g)/(p[h+2]-p[h+1])}return y}function p(t,r){return Math.log2(16*t/r)}function m(t){var r=t[0].map(function(){return 0}),e=t.reduce(function(t,r){return r.forEach(function(r,e){t[e]+=Math.pow(r,2)}),t},r).map(Math.sqrt);return t.map(function(t,r){return t.map(function(t,r){return t/(e[r]||1)})})}function y(t,r,e){var o=arguments.length>3&&void 0!==arguments[3]?arguments[3]:5,i=arguments.length>4&&void 0!==arguments[4]?arguments[4]:2,a=!(arguments.length>5&&void 0!==arguments[5])||arguments[5],u=arguments.length>6&&void 0!==arguments[6]?arguments[6]:440,c=Math.floor(e/2)+1,f=new Array(e).fill(0).map(function(n,o){return t*p(r*o/e,u)});f[0]=f[1]-1.5*t;var l=f.slice(1).map(function(t,r){return Math.max(t-f[r])},1).concat([1]),s=Math.round(t/2),y=new Array(t).fill(0).map(function(r,e){return f.map(function(r){return(10*t+s+r-e)%t-s})}),h=y.map(function(t,r){return t.map(function(t,e){return Math.exp(-.5*Math.pow(2*y[r][e]/l[e],2))})});if(h=m(h),i){var b=f.map(function(r){return Math.exp(-.5*Math.pow((r/t-o)/i,2))});h=h.map(function(t){return t.map(function(t,r){return t*b[r]})})}return a&&(h=[].concat(n(h.slice(3)),n(h.slice(0,3)))),h.map(function(t){return t.slice(0,c)})}function h(t,r,e){if(t.length<r)throw new Error("Buffer is too short for frame length");if(e<1)throw new Error("Hop length cannot be less that 1");if(r<1)throw new Error("Frame length cannot be less that 1");var n=1+Math.floor((t.length-r)/e);return new Array(n).fill(0).map(function(n,o){return t.slice(o*e,o*e+r)})}r.b=o,r.a=a,r.c=u,r.f=c,r.d=s,r.e=y,r.g=h;var b=e(25),g={}},function(t,r,e){"use strict";function n(t,r){for(var e=0,n=0,o=0;o<r.length;o++)e+=Math.pow(o,t)*Math.abs(r[o]),n+=r[o];return e/n}r.a=n},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(t){if("object"!==n(t.ampSpectrum)||"object"!==n(t.barkScale))throw new TypeError;var r=new Float32Array(24),e=0,o=t.ampSpectrum,i=new Int32Array(25);i[0]=0;for(var a=t.barkScale[o.length-1]/24,u=1,c=0;c<o.length;c++)for(;t.barkScale[c]>a;)i[u++]=c,a=u*t.barkScale[o.length-1]/24;i[24]=o.length-1;for(var f=0;f<24;f++){for(var l=0,s=i[f];s<i[f+1];s++)l+=o[s];r[f]=Math.pow(l,.23)}for(var p=0;p<r.length;p++)e+=r[p];return{specific:r,total:e}}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==n(arguments[0].ampSpectrum))throw new TypeError;for(var t=new Float32Array(arguments[0].ampSpectrum.length),r=0;r<t.length;r++)t[r]=Math.pow(arguments[0].ampSpectrum[r],2);return t}},function(t,r,e){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),e.d(r,"buffer",function(){return v}),e.d(r,"complexSpectrum",function(){return w}),e.d(r,"amplitudeSpectrum",function(){return x});var n=e(13),o=e(9),i=e(20),a=e(14),u=e(18),c=e(15),f=e(21),l=e(19),s=e(17),p=e(22),m=e(2),y=e(12),h=e(11),b=e(10),g=e(8),S=e(3),d=e(16);e.d(r,"rms",function(){return n.a}),e.d(r,"energy",function(){return o.a}),e.d(r,"spectralSlope",function(){return i.a}),e.d(r,"spectralCentroid",function(){return a.a}),e.d(r,"spectralRolloff",function(){return u.a}),e.d(r,"spectralFlatness",function(){return c.a}),e.d(r,"spectralSpread",function(){return f.a}),e.d(r,"spectralSkewness",function(){return l.a}),e.d(r,"spectralKurtosis",function(){return s.a}),e.d(r,"zcr",function(){return p.a}),e.d(r,"loudness",function(){return m.a}),e.d(r,"perceptualSpread",function(){return y.a}),e.d(r,"perceptualSharpness",function(){return h.a}),e.d(r,"powerSpectrum",function(){return S.a}),e.d(r,"mfcc",function(){return b.a}),e.d(r,"chroma",function(){return g.a}),e.d(r,"spectralFlux",function(){return d.a});var v=function(t){return t.signal},w=function(t){return t.complexSpectrum},x=function(t){return t.ampSpectrum}},function(t,r){var e;e=function(){return this}();try{e=e||Function("return this")()||(0,eval)("this")}catch(t){"object"==typeof window&&(e=window)}t.exports=e},function(t,r,e){"use strict";Object.defineProperty(r,"__esModule",{value:!0});var n=e(0),o=e(4),i=e(28),a=(e.n(i),e(24)),u="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},c={audioContext:null,spn:null,bufferSize:512,sampleRate:44100,melBands:26,chromaBands:12,callback:null,windowingFunction:"hanning",featureExtractors:o,EXTRACTION_STARTED:!1,_featuresToExtract:[],windowing:n.a,_errors:{notPow2:new Error("Meyda: Buffer size must be a power of 2, e.g. 64 or 512"),featureUndef:new Error("Meyda: No features defined."),invalidFeatureFmt:new Error("Meyda: Invalid feature format"),invalidInput:new Error("Meyda: Invalid input."),noAC:new Error("Meyda: No AudioContext specified."),noSource:new Error("Meyda: No source node specified.")},createMeydaAnalyzer:function(t){return new a.a(t,c)},extract:function(t,r,e){if(!r)throw this._errors.invalidInput;if("object"!=(void 0===r?"undefined":u(r)))throw this._errors.invalidInput;if(!t)throw this._errors.featureUndef;if(!n.b(r.length))throw this._errors.notPow2;void 0!==this.barkScale&&this.barkScale.length==this.bufferSize||(this.barkScale=n.c(this.bufferSize,this.sampleRate,this.bufferSize)),void 0!==this.melFilterBank&&this.barkScale.length==this.bufferSize&&this.melFilterBank.length==this.melBands||(this.melFilterBank=n.d(this.melBands,this.sampleRate,this.bufferSize)),void 0!==this.chromaFilterBank&&this.chromaFilterBank.length==this.chromaBands||(this.chromaFilterBank=n.e(this.chromaBands,this.sampleRate,this.bufferSize)),void 0===r.buffer?this.signal=n.f(r):this.signal=r;var o=f(r,this.windowingFunction,this.bufferSize);if(this.signal=o.windowedSignal,this.complexSpectrum=o.complexSpectrum,this.ampSpectrum=o.ampSpectrum,e){var i=f(e,this.windowingFunction,this.bufferSize);this.previousSignal=i.windowedSignal,this.previousComplexSpectrum=i.complexSpectrum,this.previousAmpSpectrum=i.ampSpectrum}if("object"===(void 0===t?"undefined":u(t))){for(var a={},c=0;c<t.length;c++)a[t[c]]=this.featureExtractors[t[c]]({ampSpectrum:this.ampSpectrum,chromaFilterBank:this.chromaFilterBank,complexSpectrum:this.complexSpectrum,signal:this.signal,bufferSize:this.bufferSize,sampleRate:this.sampleRate,barkScale:this.barkScale,melFilterBank:this.melFilterBank,previousSignal:this.previousSignal,previousAmpSpectrum:this.previousAmpSpectrum,previousComplexSpectrum:this.previousComplexSpectrum});return a}if("string"==typeof t)return this.featureExtractors[t]({ampSpectrum:this.ampSpectrum,chromaFilterBank:this.chromaFilterBank,complexSpectrum:this.complexSpectrum,signal:this.signal,bufferSize:this.bufferSize,sampleRate:this.sampleRate,barkScale:this.barkScale,melFilterBank:this.melFilterBank,previousSignal:this.previousSignal,previousAmpSpectrum:this.previousAmpSpectrum,previousComplexSpectrum:this.previousComplexSpectrum});throw this._errors.invalidFeatureFmt}},f=function(t,r,o){var a={};void 0===t.buffer?a.signal=n.f(t):a.signal=t,a.windowedSignal=n.a(a.signal,r),a.complexSpectrum=e.i(i.fft)(a.windowedSignal),a.ampSpectrum=new Float32Array(o/2);for(var u=0;u<o/2;u++)a.ampSpectrum[u]=Math.sqrt(Math.pow(a.complexSpectrum.real[u],2)+Math.pow(a.complexSpectrum.imag[u],2));return a};r.default=c,"undefined"!=typeof window&&(window.Meyda=c)},function(t,r,e){"use strict";(function(r){/*!
  * The buffer module from node.js, for the browser.
  *
@@ -30089,7 +29862,7 @@ arguments[4][59][0].apply(exports,arguments)
  */
 function n(t,r){if(t===r)return 0;for(var e=t.length,n=r.length,o=0,i=Math.min(e,n);o<i;++o)if(t[o]!==r[o]){e=t[o],n=r[o];break}return e<n?-1:n<e?1:0}function o(t){return r.Buffer&&"function"==typeof r.Buffer.isBuffer?r.Buffer.isBuffer(t):!(null==t||!t._isBuffer)}function i(t){return Object.prototype.toString.call(t)}function a(t){return!o(t)&&("function"==typeof r.ArrayBuffer&&("function"==typeof ArrayBuffer.isView?ArrayBuffer.isView(t):!!t&&(t instanceof DataView||!!(t.buffer&&t.buffer instanceof ArrayBuffer))))}function u(t){if(v.isFunction(t)){if(E)return t.name;var r=t.toString(),e=r.match(M);return e&&e[1]}}function c(t,r){return"string"==typeof t?t.length<r?t:t.slice(0,r):t}function f(t){if(E||!v.isFunction(t))return v.inspect(t);var r=u(t);return"[Function"+(r?": "+r:"")+"]"}function l(t){return c(f(t.actual),128)+" "+t.operator+" "+c(f(t.expected),128)}function s(t,r,e,n,o){throw new _.AssertionError({message:e,actual:t,expected:r,operator:n,stackStartFunction:o})}function p(t,r){t||s(t,!0,r,"==",_.ok)}function m(t,r,e,u){if(t===r)return!0;if(o(t)&&o(r))return 0===n(t,r);if(v.isDate(t)&&v.isDate(r))return t.getTime()===r.getTime();if(v.isRegExp(t)&&v.isRegExp(r))return t.source===r.source&&t.global===r.global&&t.multiline===r.multiline&&t.lastIndex===r.lastIndex&&t.ignoreCase===r.ignoreCase;if(null!==t&&"object"==typeof t||null!==r&&"object"==typeof r){if(a(t)&&a(r)&&i(t)===i(r)&&!(t instanceof Float32Array||t instanceof Float64Array))return 0===n(new Uint8Array(t.buffer),new Uint8Array(r.buffer));if(o(t)!==o(r))return!1;u=u||{actual:[],expected:[]};var c=u.actual.indexOf(t);return-1!==c&&c===u.expected.indexOf(r)||(u.actual.push(t),u.expected.push(r),h(t,r,e,u))}return e?t===r:t==r}function y(t){return"[object Arguments]"==Object.prototype.toString.call(t)}function h(t,r,e,n){if(null===t||void 0===t||null===r||void 0===r)return!1;if(v.isPrimitive(t)||v.isPrimitive(r))return t===r;if(e&&Object.getPrototypeOf(t)!==Object.getPrototypeOf(r))return!1;var o=y(t),i=y(r);if(o&&!i||!o&&i)return!1;if(o)return t=x.call(t),r=x.call(r),m(t,r,e);var a,u,c=A(t),f=A(r);if(c.length!==f.length)return!1;for(c.sort(),f.sort(),u=c.length-1;u>=0;u--)if(c[u]!==f[u])return!1;for(u=c.length-1;u>=0;u--)if(a=c[u],!m(t[a],r[a],e,n))return!1;return!0}function b(t,r,e){m(t,r,!0)&&s(t,r,e,"notDeepStrictEqual",b)}function g(t,r){if(!t||!r)return!1;if("[object RegExp]"==Object.prototype.toString.call(r))return r.test(t);try{if(t instanceof r)return!0}catch(t){}return!Error.isPrototypeOf(r)&&!0===r.call({},t)}function S(t){var r;try{t()}catch(t){r=t}return r}function d(t,r,e,n){var o;if("function"!=typeof r)throw new TypeError('"block" argument must be a function');"string"==typeof e&&(n=e,e=null),o=S(r),n=(e&&e.name?" ("+e.name+").":".")+(n?" "+n:"."),t&&!o&&s(o,e,"Missing expected exception"+n);var i="string"==typeof n,a=!t&&v.isError(o),u=!t&&o&&!e;if((a&&i&&g(o,e)||u)&&s(o,e,"Got unwanted exception"+n),t&&o&&e&&!g(o,e)||!t&&o)throw o}var v=e(33),w=Object.prototype.hasOwnProperty,x=Array.prototype.slice,E=function(){return"foo"===function(){}.name}(),_=t.exports=p,M=/\s*function\s+([^\(\s]*)\s*/;_.AssertionError=function(t){this.name="AssertionError",this.actual=t.actual,this.expected=t.expected,this.operator=t.operator,t.message?(this.message=t.message,this.generatedMessage=!1):(this.message=l(this),this.generatedMessage=!0);var r=t.stackStartFunction||s;if(Error.captureStackTrace)Error.captureStackTrace(this,r);else{var e=new Error;if(e.stack){var n=e.stack,o=u(r),i=n.indexOf("\n"+o);if(i>=0){var a=n.indexOf("\n",i+1);n=n.substring(a+1)}this.stack=n}}},v.inherits(_.AssertionError,Error),_.fail=s,_.ok=p,_.equal=function(t,r,e){t!=r&&s(t,r,e,"==",_.equal)},_.notEqual=function(t,r,e){t==r&&s(t,r,e,"!=",_.notEqual)},_.deepEqual=function(t,r,e){m(t,r,!1)||s(t,r,e,"deepEqual",_.deepEqual)},_.deepStrictEqual=function(t,r,e){m(t,r,!0)||s(t,r,e,"deepStrictEqual",_.deepStrictEqual)},_.notDeepEqual=function(t,r,e){m(t,r,!1)&&s(t,r,e,"notDeepEqual",_.notDeepEqual)},_.notDeepStrictEqual=b,_.strictEqual=function(t,r,e){t!==r&&s(t,r,e,"===",_.strictEqual)},_.notStrictEqual=function(t,r,e){t===r&&s(t,r,e,"!==",_.notStrictEqual)},_.throws=function(t,r,e){d(!0,t,r,e)},_.doesNotThrow=function(t,r,e){d(!1,t,r,e)},_.ifError=function(t){if(t)throw t};var A=Object.keys||function(t){var r=[];for(var e in t)w.call(t,e)&&r.push(e);return r}}).call(r,e(5))},function(t,r,e){"use strict";function n(t){if(Array.isArray(t)){for(var r=0,e=Array(t.length);r<t.length;r++)e[r]=t[r];return e}return Array.from(t)}var o=(e(0),"function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t});r.a=function(t){if("object"!==o(t.ampSpectrum))throw new TypeError("Valid ampSpectrum is required to generate chroma");if("object"!==o(t.chromaFilterBank))throw new TypeError("Valid chromaFilterBank is required to generate chroma");var r=t.chromaFilterBank.map(function(r,e){return t.ampSpectrum.reduce(function(t,e,n){return t+e*r[n]},0)}),e=Math.max.apply(Math,n(r));return e?r.map(function(t){return t/e}):r}},function(t,r,e){"use strict";var n=e(7),o=(e.n(n),"function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t});r.a=function(){if("object"!==o(arguments[0].signal))throw new TypeError;for(var t=0,r=0;r<arguments[0].signal.length;r++)t+=Math.pow(Math.abs(arguments[0].signal[r]),2);return t}},function(t,r,e){"use strict";var n=e(3),o=(e(0),"function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t}),i=e(26);r.a=function(t){if("object"!==o(t.ampSpectrum))throw new TypeError("Valid ampSpectrum is required to generate MFCC");if("object"!==o(t.melFilterBank))throw new TypeError("Valid melFilterBank is required to generate MFCC");for(var r=e.i(n.a)(t),a=t.melFilterBank.length,u=Array(a),c=new Float32Array(a),f=0;f<c.length;f++){u[f]=new Float32Array(t.bufferSize/2),c[f]=0;for(var l=0;l<t.bufferSize/2;l++)u[f][l]=t.melFilterBank[f][l]*r[l],c[f]+=u[f][l];c[f]=Math.log(c[f]+1)}var s=Array.prototype.slice.call(c);return i(s).slice(0,13)}},function(t,r,e){"use strict";var n=e(2),o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==o(arguments[0].signal))throw new TypeError;for(var t=e.i(n.a)(arguments[0]),r=t.specific,i=0,a=0;a<r.length;a++)i+=a<15?(a+1)*r[a+1]:.066*Math.exp(.171*(a+1));return i*=.11/t.total}},function(t,r,e){"use strict";var n=e(2),o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==o(arguments[0].signal))throw new TypeError;for(var t=e.i(n.a)(arguments[0]),r=0,i=0;i<t.specific.length;i++)t.specific[i]>r&&(r=t.specific[i]);return Math.pow((t.total-r)/t.total,2)}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(t){if("object"!==n(t.signal))throw new TypeError;for(var r=0,e=0;e<t.signal.length;e++)r+=Math.pow(t.signal[e],2);return r/=t.signal.length,r=Math.sqrt(r)}},function(t,r,e){"use strict";var n=e(1),o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==o(arguments[0].ampSpectrum))throw new TypeError;return e.i(n.a)(1,arguments[0].ampSpectrum)}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==n(arguments[0].ampSpectrum))throw new TypeError;for(var t=0,r=0,e=0;e<arguments[0].ampSpectrum.length;e++)t+=Math.log(arguments[0].ampSpectrum[e]),r+=arguments[0].ampSpectrum[e];return Math.exp(t/arguments[0].ampSpectrum.length)*arguments[0].ampSpectrum.length/r}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(t){if("object"!==n(t.signal)||"object"!=n(t.previousSignal))throw new TypeError;for(var r=0,e=-t.bufferSize/2;e<signal.length/2-1;e++)x=Math.abs(t.signal[e])-Math.abs(t.previousSignal[e]),r+=(x+Math.abs(x))/2;return r}},function(t,r,e){"use strict";var n=e(1),o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==o(arguments[0].ampSpectrum))throw new TypeError;var t=arguments[0].ampSpectrum,r=e.i(n.a)(1,t),i=e.i(n.a)(2,t),a=e.i(n.a)(3,t),u=e.i(n.a)(4,t);return(-3*Math.pow(r,4)+6*r*i-4*r*a+u)/Math.pow(Math.sqrt(i-Math.pow(r,2)),4)}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==n(arguments[0].ampSpectrum))throw new TypeError;for(var t=arguments[0].ampSpectrum,r=arguments[0].sampleRate/(2*(t.length-1)),e=0,o=0;o<t.length;o++)e+=t[o];for(var i=.99*e,a=t.length-1;e>i&&a>=0;)e-=t[a],--a;return(a+1)*r}},function(t,r,e){"use strict";var n=e(1),o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(t){if("object"!==o(t.ampSpectrum))throw new TypeError;var r=e.i(n.a)(1,t.ampSpectrum),i=e.i(n.a)(2,t.ampSpectrum),a=e.i(n.a)(3,t.ampSpectrum);return(2*Math.pow(r,3)-3*r*i+a)/Math.pow(Math.sqrt(i-Math.pow(r,2)),3)}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(t){if("object"!==n(t.ampSpectrum))throw new TypeError;for(var r=0,e=0,o=new Float32Array(t.ampSpectrum.length),i=0,a=0,u=0;u<t.ampSpectrum.length;u++){r+=t.ampSpectrum[u];var c=u*t.sampleRate/t.bufferSize;o[u]=c,i+=c*c,e+=c,a+=c*t.ampSpectrum[u]}return(t.ampSpectrum.length*a-e*r)/(r*(i-Math.pow(e,2)))}},function(t,r,e){"use strict";var n=e(1),o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(t){if("object"!==o(t.ampSpectrum))throw new TypeError;return Math.sqrt(e.i(n.a)(2,t.ampSpectrum)-Math.pow(e.i(n.a)(1,t.ampSpectrum),2))}},function(t,r,e){"use strict";var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};r.a=function(){if("object"!==n(arguments[0].signal))throw new TypeError;for(var t=0,r=0;r<arguments[0].signal.length;r++)(arguments[0].signal[r]>=0&&arguments[0].signal[r+1]<0||arguments[0].signal[r]<0&&arguments[0].signal[r+1]>=0)&&t++;return t}},function(t,r,e){t.exports=e(6).default},function(t,r,e){"use strict";function n(t,r){if(!(t instanceof r))throw new TypeError("Cannot call a class as a function")}e.d(r,"a",function(){return u});var o=e(0),i=e(4),a=function(){function t(t,r){for(var e=0;e<r.length;e++){var n=r[e];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}return function(r,e,n){return e&&t(r.prototype,e),n&&t(r,n),r}}(),u=function(){function t(r,e){var a=this;if(n(this,t),this._m=e,!r.audioContext)throw this._m.errors.noAC;if(r.bufferSize&&!o.b(r.bufferSize))throw this._m._errors.notPow2;if(!r.source)throw this._m._errors.noSource;this._m.audioContext=r.audioContext,this._m.bufferSize=r.bufferSize||this._m.bufferSize||256,this._m.hopSize=r.hopSize||this._m.hopSize||this._m.bufferSize,this._m.sampleRate=r.sampleRate||this._m.audioContext.sampleRate||44100,this._m.callback=r.callback,this._m.windowingFunction=r.windowingFunction||"hanning",this._m.featureExtractors=i,this._m.EXTRACTION_STARTED=r.startImmediately||!1,this._m.spn=this._m.audioContext.createScriptProcessor(this._m.bufferSize,1,1),this._m.spn.connect(this._m.audioContext.destination),this._m._featuresToExtract=r.featureExtractors||[],this._m.barkScale=o.c(this._m.bufferSize,this._m.sampleRate,this._m.bufferSize),this._m.melFilterBank=o.d(this._m.melBands,this._m.sampleRate,this._m.bufferSize),this._m.inputData=null,this._m.previousInputData=null,this._m.frame=null,this._m.previousFrame=null,this.setSource(r.source),this._m.spn.onaudioprocess=function(t){if(null!==a._m.inputData&&(a._m.previousInputData=a._m.inputData),a._m.inputData=t.inputBuffer.getChannelData(0),a._m.previousInputData){var r=new Float32Array(a._m.previousInputData.length+a._m.inputData.length-a._m.hopSize);r.set(a._m.previousInputData.slice(a._m.hopSize)),r.set(a._m.inputData,a._m.previousInputData.length-a._m.hopSize)}else var r=a._m.inputData;o.g(r,a._m.bufferSize,a._m.hopSize).forEach(function(t){a._m.frame=t;var r=a._m.extract(a._m._featuresToExtract,a._m.frame,a._m.previousFrame);"function"==typeof a._m.callback&&a._m.EXTRACTION_STARTED&&a._m.callback(r),a._m.previousFrame=a._m.frame})}}return a(t,[{key:"start",value:function(t){this._m._featuresToExtract=t||this._m._featuresToExtract,this._m.EXTRACTION_STARTED=!0}},{key:"stop",value:function(){this._m.EXTRACTION_STARTED=!1}},{key:"setSource",value:function(t){t.connect(this._m.spn)}},{key:"get",value:function(t){return this._m.inputData?this._m.extract(t||this._m._featuresToExtract,this._m.inputData,this._m.previousInputData):null}}]),t}()},function(t,r,e){"use strict";function n(t){for(var r=new Float32Array(t),e=2*Math.PI/(t-1),n=2*e,o=0;o<t/2;o++)r[o]=.42-.5*Math.cos(o*e)+.08*Math.cos(o*n);for(var i=t/2;i>0;i--)r[t-i]=r[i-1];return r}function o(t){for(var r=Math.PI/(t-1),e=new Float32Array(t),n=0;n<t;n++)e[n]=Math.sin(r*n);return e}function i(t){for(var r=new Float32Array(t),e=0;e<t;e++)r[e]=.5-.5*Math.cos(2*Math.PI*e/(t-1));return r}function a(t){for(var r=new Float32Array(t),e=0;e<t;e++)r[e]=.54-.46*Math.cos(2*Math.PI*(e/t-1));return r}Object.defineProperty(r,"__esModule",{value:!0}),r.blackman=n,r.sine=o,r.hanning=i,r.hamming=a},function(t,r,e){t.exports=e(27)},function(t,r){function e(t,r){var e=t.length;return r=r||2,cosMap&&cosMap[e]||n(e),t.map(function(){return 0}).map(function(n,o){return r*t.reduce(function(t,r,n,i){return t+r*cosMap[e][n+o*e]},0)})}cosMap=null;var n=function(t){cosMap=cosMap||{},cosMap[t]=new Array(t*t);for(var r=Math.PI/t,e=0;e<t;e++)for(var n=0;n<t;n++)cosMap[t][n+e*t]=Math.cos(r*(n+.5)*e)};t.exports=e},function(t,r,e){"use strict";var n=e(29),o=function(t){var r={};void 0===t.real||void 0===t.imag?r=n.constructComplexArray(t):(r.real=t.real.slice(),r.imag=t.imag.slice());var e=r.real.length,o=Math.log2(e);if(Math.round(o)!=o)throw new Error("Input size must be a power of 2.");if(r.real.length!=r.imag.length)throw new Error("Real and imaginary components must have the same length.");for(var i=n.bitReverseArray(e),a={real:[],imag:[]},u=0;u<e;u++)a.real[i[u]]=r.real[u],a.imag[i[u]]=r.imag[u];for(var c=0;c<e;c++)r.real[c]=a.real[c],r.imag[c]=a.imag[c];for(var f=1;f<=o;f++)for(var l=Math.pow(2,f),s=0;s<l/2;s++)for(var p=n.euler(s,l),m=0;m<e/l;m++){var y=l*m+s,h=l*m+s+l/2,b={real:r.real[y],imag:r.imag[y]},g={real:r.real[h],imag:r.imag[h]},S=n.multiply(p,g),d=n.subtract(b,S);r.real[h]=d.real,r.imag[h]=d.imag;var v=n.add(S,b);r.real[y]=v.real,r.imag[y]=v.imag}return r},i=function(t){if(void 0===t.real||void 0===t.imag)throw new Error("IFFT only accepts a complex input.");for(var r=t.real.length,e={real:[],imag:[]},i=0;i<r;i++){var a={real:t.real[i],imag:t.imag[i]},u=n.conj(a);e.real[i]=u.real,e.imag[i]=u.imag}var c=o(e);return e.real=c.real.map(function(t){return t/r}),e.imag=c.imag.map(function(t){return t/r}),e};t.exports={fft:o,ifft:i}},function(t,r,e){"use strict";function n(t){if(Array.isArray(t)){for(var r=0,e=Array(t.length);r<t.length;r++)e[r]=t[r];return e}return Array.from(t)}var o={},i={},a=function(t){var r={};r.real=void 0===t.real?t.slice():t.real.slice();var e=r.real.length;return void 0===i[e]&&(i[e]=Array.apply(null,Array(e)).map(Number.prototype.valueOf,0)),r.imag=i[e].slice(),r},u=function(t){if(void 0===o[t]){for(var r=(t-1).toString(2).length,e="0".repeat(r),i={},a=0;a<t;a++){var u=a.toString(2);u=e.substr(u.length)+u,u=[].concat(n(u)).reverse().join(""),i[a]=parseInt(u,2)}o[t]=i}return o[t]},c=function(t,r){return{real:t.real*r.real-t.imag*r.imag,imag:t.real*r.imag+t.imag*r.real}},f=function(t,r){return{real:t.real+r.real,imag:t.imag+r.imag}},l=function(t,r){return{real:t.real-r.real,imag:t.imag-r.imag}},s=function(t,r){var e=-2*Math.PI*t/r;return{real:Math.cos(e),imag:Math.sin(e)}},p=function(t){return t.imag*=-1,t};t.exports={bitReverseArray:u,multiply:c,add:f,subtract:l,euler:s,conj:p,constructComplexArray:a}},function(t,r){function e(){throw new Error("setTimeout has not been defined")}function n(){throw new Error("clearTimeout has not been defined")}function o(t){if(l===setTimeout)return setTimeout(t,0);if((l===e||!l)&&setTimeout)return l=setTimeout,setTimeout(t,0);try{return l(t,0)}catch(r){try{return l.call(null,t,0)}catch(r){return l.call(this,t,0)}}}function i(t){if(s===clearTimeout)return clearTimeout(t);if((s===n||!s)&&clearTimeout)return s=clearTimeout,clearTimeout(t);try{return s(t)}catch(r){try{return s.call(null,t)}catch(r){return s.call(this,t)}}}function a(){h&&m&&(h=!1,m.length?y=m.concat(y):b=-1,y.length&&u())}function u(){if(!h){var t=o(a);h=!0;for(var r=y.length;r;){for(m=y,y=[];++b<r;)m&&m[b].run();b=-1,r=y.length}m=null,h=!1,i(t)}}function c(t,r){this.fun=t,this.array=r}function f(){}var l,s,p=t.exports={};!function(){try{l="function"==typeof setTimeout?setTimeout:e}catch(t){l=e}try{s="function"==typeof clearTimeout?clearTimeout:n}catch(t){s=n}}();var m,y=[],h=!1,b=-1;p.nextTick=function(t){var r=new Array(arguments.length-1);if(arguments.length>1)for(var e=1;e<arguments.length;e++)r[e-1]=arguments[e];y.push(new c(t,r)),1!==y.length||h||o(u)},c.prototype.run=function(){this.fun.apply(null,this.array)},p.title="browser",p.browser=!0,p.env={},p.argv=[],p.version="",p.versions={},p.on=f,p.addListener=f,p.once=f,p.off=f,p.removeListener=f,p.removeAllListeners=f,p.emit=f,p.prependListener=f,p.prependOnceListener=f,p.listeners=function(t){return[]},p.binding=function(t){throw new Error("process.binding is not supported")},p.cwd=function(){return"/"},p.chdir=function(t){throw new Error("process.chdir is not supported")},p.umask=function(){return 0}},function(t,r){"function"==typeof Object.create?t.exports=function(t,r){t.super_=r,t.prototype=Object.create(r.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}})}:t.exports=function(t,r){t.super_=r;var e=function(){};e.prototype=r.prototype,t.prototype=new e,t.prototype.constructor=t}},function(t,r){t.exports=function(t){return t&&"object"==typeof t&&"function"==typeof t.copy&&"function"==typeof t.fill&&"function"==typeof t.readUInt8}},function(t,r,e){(function(t,n){function o(t,e){var n={seen:[],stylize:a};return arguments.length>=3&&(n.depth=arguments[2]),arguments.length>=4&&(n.colors=arguments[3]),h(e)?n.showHidden=e:e&&r._extend(n,e),w(n.showHidden)&&(n.showHidden=!1),w(n.depth)&&(n.depth=2),w(n.colors)&&(n.colors=!1),w(n.customInspect)&&(n.customInspect=!0),n.colors&&(n.stylize=i),c(n,t,n.depth)}function i(t,r){var e=o.styles[r];return e?"["+o.colors[e][0]+"m"+t+"["+o.colors[e][1]+"m":t}function a(t,r){return t}function u(t){var r={};return t.forEach(function(t,e){r[t]=!0}),r}function c(t,e,n){if(t.customInspect&&e&&A(e.inspect)&&e.inspect!==r.inspect&&(!e.constructor||e.constructor.prototype!==e)){var o=e.inspect(n,t);return d(o)||(o=c(t,o,n)),o}var i=f(t,e);if(i)return i;var a=Object.keys(e),h=u(a);if(t.showHidden&&(a=Object.getOwnPropertyNames(e)),M(e)&&(a.indexOf("message")>=0||a.indexOf("description")>=0))return l(e);if(0===a.length){if(A(e)){var b=e.name?": "+e.name:"";return t.stylize("[Function"+b+"]","special")}if(x(e))return t.stylize(RegExp.prototype.toString.call(e),"regexp");if(_(e))return t.stylize(Date.prototype.toString.call(e),"date");if(M(e))return l(e)}var g="",S=!1,v=["{","}"];if(y(e)&&(S=!0,v=["[","]"]),A(e)){g=" [Function"+(e.name?": "+e.name:"")+"]"}if(x(e)&&(g=" "+RegExp.prototype.toString.call(e)),_(e)&&(g=" "+Date.prototype.toUTCString.call(e)),M(e)&&(g=" "+l(e)),0===a.length&&(!S||0==e.length))return v[0]+g+v[1];if(n<0)return x(e)?t.stylize(RegExp.prototype.toString.call(e),"regexp"):t.stylize("[Object]","special");t.seen.push(e);var w;return w=S?s(t,e,n,h,a):a.map(function(r){return p(t,e,n,h,r,S)}),t.seen.pop(),m(w,g,v)}function f(t,r){if(w(r))return t.stylize("undefined","undefined");if(d(r)){var e="'"+JSON.stringify(r).replace(/^"|"$/g,"").replace(/'/g,"\\'").replace(/\\"/g,'"')+"'";return t.stylize(e,"string")}return S(r)?t.stylize(""+r,"number"):h(r)?t.stylize(""+r,"boolean"):b(r)?t.stylize("null","null"):void 0}function l(t){return"["+Error.prototype.toString.call(t)+"]"}function s(t,r,e,n,o){for(var i=[],a=0,u=r.length;a<u;++a)z(r,String(a))?i.push(p(t,r,e,n,String(a),!0)):i.push("");return o.forEach(function(o){o.match(/^\d+$/)||i.push(p(t,r,e,n,o,!0))}),i}function p(t,r,e,n,o,i){var a,u,f;if(f=Object.getOwnPropertyDescriptor(r,o)||{value:r[o]},f.get?u=f.set?t.stylize("[Getter/Setter]","special"):t.stylize("[Getter]","special"):f.set&&(u=t.stylize("[Setter]","special")),z(n,o)||(a="["+o+"]"),u||(t.seen.indexOf(f.value)<0?(u=b(e)?c(t,f.value,null):c(t,f.value,e-1),u.indexOf("\n")>-1&&(u=i?u.split("\n").map(function(t){return"  "+t}).join("\n").substr(2):"\n"+u.split("\n").map(function(t){return"   "+t}).join("\n"))):u=t.stylize("[Circular]","special")),w(a)){if(i&&o.match(/^\d+$/))return u;a=JSON.stringify(""+o),a.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)?(a=a.substr(1,a.length-2),a=t.stylize(a,"name")):(a=a.replace(/'/g,"\\'").replace(/\\"/g,'"').replace(/(^"|"$)/g,"'"),a=t.stylize(a,"string"))}return a+": "+u}function m(t,r,e){var n=0;return t.reduce(function(t,r){return n++,r.indexOf("\n")>=0&&n++,t+r.replace(/\u001b\[\d\d?m/g,"").length+1},0)>60?e[0]+(""===r?"":r+"\n ")+" "+t.join(",\n  ")+" "+e[1]:e[0]+r+" "+t.join(", ")+" "+e[1]}function y(t){return Array.isArray(t)}function h(t){return"boolean"==typeof t}function b(t){return null===t}function g(t){return null==t}function S(t){return"number"==typeof t}function d(t){return"string"==typeof t}function v(t){return"symbol"==typeof t}function w(t){return void 0===t}function x(t){return E(t)&&"[object RegExp]"===T(t)}function E(t){return"object"==typeof t&&null!==t}function _(t){return E(t)&&"[object Date]"===T(t)}function M(t){return E(t)&&("[object Error]"===T(t)||t instanceof Error)}function A(t){return"function"==typeof t}function j(t){return null===t||"boolean"==typeof t||"number"==typeof t||"string"==typeof t||"symbol"==typeof t||void 0===t}function T(t){return Object.prototype.toString.call(t)}function F(t){return t<10?"0"+t.toString(10):t.toString(10)}function k(){var t=new Date,r=[F(t.getHours()),F(t.getMinutes()),F(t.getSeconds())].join(":");return[t.getDate(),R[t.getMonth()],r].join(" ")}function z(t,r){return Object.prototype.hasOwnProperty.call(t,r)}var O=/%[sdj%]/g;r.format=function(t){if(!d(t)){for(var r=[],e=0;e<arguments.length;e++)r.push(o(arguments[e]));return r.join(" ")}for(var e=1,n=arguments,i=n.length,a=String(t).replace(O,function(t){if("%%"===t)return"%";if(e>=i)return t;switch(t){case"%s":return String(n[e++]);case"%d":return Number(n[e++]);case"%j":try{return JSON.stringify(n[e++])}catch(t){return"[Circular]"}default:return t}}),u=n[e];e<i;u=n[++e])b(u)||!E(u)?a+=" "+u:a+=" "+o(u);return a},r.deprecate=function(e,o){function i(){if(!a){if(n.throwDeprecation)throw new Error(o);n.traceDeprecation?console.trace(o):console.error(o),a=!0}return e.apply(this,arguments)}if(w(t.process))return function(){return r.deprecate(e,o).apply(this,arguments)};if(!0===n.noDeprecation)return e;var a=!1;return i};var B,D={};r.debuglog=function(t){if(w(B)&&(B=n.env.NODE_DEBUG||""),t=t.toUpperCase(),!D[t])if(new RegExp("\\b"+t+"\\b","i").test(B)){var e=n.pid;D[t]=function(){var n=r.format.apply(r,arguments);console.error("%s %d: %s",t,e,n)}}else D[t]=function(){};return D[t]},r.inspect=o,o.colors={bold:[1,22],italic:[3,23],underline:[4,24],inverse:[7,27],white:[37,39],grey:[90,39],black:[30,39],blue:[34,39],cyan:[36,39],green:[32,39],magenta:[35,39],red:[31,39],yellow:[33,39]},o.styles={special:"cyan",number:"yellow",boolean:"yellow",undefined:"grey",null:"bold",string:"green",date:"magenta",regexp:"red"},r.isArray=y,r.isBoolean=h,r.isNull=b,r.isNullOrUndefined=g,r.isNumber=S,r.isString=d,r.isSymbol=v,r.isUndefined=w,r.isRegExp=x,r.isObject=E,r.isDate=_,r.isError=M,r.isFunction=A,r.isPrimitive=j,r.isBuffer=e(32);var R=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];r.log=function(){console.log("%s - %s",k(),r.format.apply(r,arguments))},r.inherits=e(31),r._extend=function(t,r){if(!r||!E(r))return t;for(var e=Object.keys(r),n=e.length;n--;)t[e[n]]=r[e[n]];return t}}).call(r,e(5),e(30))}])});
 
-},{}],85:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 'use strict'
 
 module.exports = mouseListen
@@ -30296,7 +30069,7 @@ function mouseListen (element, callback) {
   return result
 }
 
-},{"mouse-event":86}],86:[function(require,module,exports){
+},{"mouse-event":84}],84:[function(require,module,exports){
 'use strict'
 
 function mouseButtons(ev) {
@@ -30358,7 +30131,7 @@ function mouseRelativeY(ev) {
 }
 exports.y = mouseRelativeY
 
-},{}],87:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 /*! p5.dom.js v0.3.4 Jan 19, 2017 */
 /**
  * <p>The web is much more than just canvas and p5.dom makes it easy to interact
@@ -33298,7 +33071,7 @@ exports.y = mouseRelativeY
   };
 });
 
-},{"../p5":88}],88:[function(require,module,exports){
+},{"../p5":86}],86:[function(require,module,exports){
 (function (global){
 /*! p5.js v0.6.1 April 27, 2018 */
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.p5 = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
@@ -109690,7 +109463,7 @@ module.exports = p5;
 },{"../core/core":22,"./p5.Geometry":68}]},{},[13])(13)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],89:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -109729,7 +109502,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],90:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -109770,7 +109543,7 @@ module.exports = function parseuri(str) {
     return uri;
 };
 
-},{}],91:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 (function (process){
 // Generated by CoffeeScript 1.12.2
 (function() {
@@ -109810,7 +109583,7 @@ module.exports = function parseuri(str) {
 
 
 }).call(this,require('_process'))
-},{"_process":93}],92:[function(require,module,exports){
+},{"_process":91}],90:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -109858,7 +109631,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 
 }).call(this,require('_process'))
-},{"_process":93}],93:[function(require,module,exports){
+},{"_process":91}],91:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -110044,7 +109817,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],94:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 var inherits = require('inherits')
 var EventEmitter = require('events').EventEmitter
 var now = require('right-now')
@@ -110089,7 +109862,7 @@ Engine.prototype.tick = function() {
     this.emit('tick', dt)
     this.last = time
 }
-},{"events":26,"inherits":81,"raf":95,"right-now":107}],95:[function(require,module,exports){
+},{"events":26,"inherits":79,"raf":93,"right-now":105}],93:[function(require,module,exports){
 (function (global){
 var now = require('performance-now')
   , root = typeof window === 'undefined' ? global : window
@@ -110168,7 +109941,7 @@ module.exports.polyfill = function(object) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"performance-now":91}],96:[function(require,module,exports){
+},{"performance-now":89}],94:[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -110210,7 +109983,7 @@ function randomBytes (size, cb) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":93,"safe-buffer":108}],97:[function(require,module,exports){
+},{"_process":91,"safe-buffer":106}],95:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -110335,7 +110108,7 @@ function forEach(xs, f) {
     f(xs[i], i);
   }
 }
-},{"./_stream_readable":99,"./_stream_writable":101,"core-util-is":37,"inherits":81,"process-nextick-args":92}],98:[function(require,module,exports){
+},{"./_stream_readable":97,"./_stream_writable":99,"core-util-is":37,"inherits":79,"process-nextick-args":90}],96:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -110383,7 +110156,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":100,"core-util-is":37,"inherits":81}],99:[function(require,module,exports){
+},{"./_stream_transform":98,"core-util-is":37,"inherits":79}],97:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -111401,7 +111174,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":97,"./internal/streams/BufferList":102,"./internal/streams/destroy":103,"./internal/streams/stream":104,"_process":93,"core-util-is":37,"events":26,"inherits":81,"isarray":83,"process-nextick-args":92,"safe-buffer":108,"string_decoder/":132,"util":25}],100:[function(require,module,exports){
+},{"./_stream_duplex":95,"./internal/streams/BufferList":100,"./internal/streams/destroy":101,"./internal/streams/stream":102,"_process":91,"core-util-is":37,"events":26,"inherits":79,"isarray":81,"process-nextick-args":90,"safe-buffer":106,"string_decoder/":130,"util":25}],98:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -111616,7 +111389,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":97,"core-util-is":37,"inherits":81}],101:[function(require,module,exports){
+},{"./_stream_duplex":95,"core-util-is":37,"inherits":79}],99:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -112296,7 +112069,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":97,"./internal/streams/destroy":103,"./internal/streams/stream":104,"_process":93,"core-util-is":37,"inherits":81,"process-nextick-args":92,"safe-buffer":108,"util-deprecate":140}],102:[function(require,module,exports){
+},{"./_stream_duplex":95,"./internal/streams/destroy":101,"./internal/streams/stream":102,"_process":91,"core-util-is":37,"inherits":79,"process-nextick-args":90,"safe-buffer":106,"util-deprecate":138}],100:[function(require,module,exports){
 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -112376,7 +112149,7 @@ if (util && util.inspect && util.inspect.custom) {
     return this.constructor.name + ' ' + obj;
   };
 }
-},{"safe-buffer":108,"util":25}],103:[function(require,module,exports){
+},{"safe-buffer":106,"util":25}],101:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -112451,10 +112224,10 @@ module.exports = {
   destroy: destroy,
   undestroy: undestroy
 };
-},{"process-nextick-args":92}],104:[function(require,module,exports){
+},{"process-nextick-args":90}],102:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":26}],105:[function(require,module,exports){
+},{"events":26}],103:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -112463,7 +112236,7 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":97,"./lib/_stream_passthrough.js":98,"./lib/_stream_readable.js":99,"./lib/_stream_transform.js":100,"./lib/_stream_writable.js":101}],106:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":95,"./lib/_stream_passthrough.js":96,"./lib/_stream_readable.js":97,"./lib/_stream_transform.js":98,"./lib/_stream_writable.js":99}],104:[function(require,module,exports){
 (function(ka,N){"object"===typeof exports&&"undefined"!==typeof module?module.exports=N():"function"===typeof define&&define.amd?define(N):ka.createREGL=N()})(this,function(){function ka(a,b){this.id=Bb++;this.type=a;this.data=b}function N(a){if(0===a.length)return[];var b=a.charAt(0),c=a.charAt(a.length-1);if(1<a.length&&b===c&&('"'===b||"'"===b))return['"'+a.substr(1,a.length-2).replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];if(b=/\[(false|true|null|\d+|'[^']*'|"[^"]*")\]/.exec(a))return N(a.substr(0,
 b.index)).concat(N(b[1])).concat(N(a.substr(b.index+b[0].length)));b=a.split(".");if(1===b.length)return['"'+a.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];a=[];for(c=0;c<b.length;++c)a=a.concat(N(b[c]));return a}function bb(a){return"["+N(a).join("][")+"]"}function Cb(){var a={"":0},b=[""];return{id:function(c){var e=a[c];if(e)return e;e=a[c]=b.length;b.push(c);return e},str:function(a){return b[a]}}}function Db(a,b,c){function e(){var b=window.innerWidth,e=window.innerHeight;a!==document.body&&
 (e=a.getBoundingClientRect(),b=e.right-e.left,e=e.bottom-e.top);d.width=c*b;d.height=c*e;H(d.style,{width:b+"px",height:e+"px"})}var d=document.createElement("canvas");H(d.style,{border:0,margin:0,padding:0,top:0,left:0});a.appendChild(d);a===document.body&&(d.style.position="absolute",H(a.style,{margin:0,padding:0}));window.addEventListener("resize",e,!1);e();return{canvas:d,onDestroy:function(){window.removeEventListener("resize",e);a.removeChild(d)}}}function Eb(a,b){function c(c){try{return a.getContext(c,
@@ -112625,7 +112398,7 @@ K.addEventListener("webglcontextrestored",g,!1));var Z=T.setFBO=r({framebuffer:h
 !1)},texture:x.create2D,cube:x.createCube,renderbuffer:N.create,framebuffer:T.create,framebufferCube:T.createCube,vao:J.createVAO,attributes:h,frame:u,on:function(a,b){var c;switch(a){case "frame":return u(b);case "lost":c=V;break;case "restore":c=X;break;case "destroy":c=Y}c.push(b);return{cancel:function(){for(var a=0;a<c.length;++a)if(c[a]===b){c[a]=c[c.length-1];c.pop();break}}}},limits:G,hasExtension:function(a){return 0<=G.extensions.indexOf(a.toLowerCase())},read:p,destroy:function(){B.length=
 0;e();K&&(K.removeEventListener("webglcontextlost",d),K.removeEventListener("webglcontextrestored",g));D.clear();T.clear();N.clear();x.clear();P.clear();R.clear();J.clear();w&&w.clear();Y.forEach(function(a){a()})},_gl:k,_refresh:l,poll:function(){t();w&&w.update()},now:z,stats:m});a.onDone(null,h);return h}});
 
-},{}],107:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 (function (global){
 module.exports =
   global.performance &&
@@ -112636,7 +112409,7 @@ module.exports =
   }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],108:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -112700,11 +112473,11 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":27}],109:[function(require,module,exports){
+},{"buffer":27}],107:[function(require,module,exports){
 'use strict';
 module.exports = require('./lib/index');
 
-},{"./lib/index":114}],110:[function(require,module,exports){
+},{"./lib/index":112}],108:[function(require,module,exports){
 'use strict';
 
 var randomFromSeed = require('./random/random-from-seed');
@@ -112804,7 +112577,7 @@ module.exports = {
     shuffled: getShuffled
 };
 
-},{"./random/random-from-seed":117}],111:[function(require,module,exports){
+},{"./random/random-from-seed":115}],109:[function(require,module,exports){
 'use strict';
 
 var encode = require('./encode');
@@ -112854,7 +112627,7 @@ function build(clusterWorkerId) {
 
 module.exports = build;
 
-},{"./alphabet":110,"./encode":113}],112:[function(require,module,exports){
+},{"./alphabet":108,"./encode":111}],110:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -112873,7 +112646,7 @@ function decode(id) {
 
 module.exports = decode;
 
-},{"./alphabet":110}],113:[function(require,module,exports){
+},{"./alphabet":108}],111:[function(require,module,exports){
 'use strict';
 
 var randomByte = require('./random/random-byte');
@@ -112894,7 +112667,7 @@ function encode(lookup, number) {
 
 module.exports = encode;
 
-},{"./random/random-byte":116}],114:[function(require,module,exports){
+},{"./random/random-byte":114}],112:[function(require,module,exports){
 'use strict';
 
 var alphabet = require('./alphabet');
@@ -112961,7 +112734,7 @@ module.exports.characters = characters;
 module.exports.decode = decode;
 module.exports.isValid = isValid;
 
-},{"./alphabet":110,"./build":111,"./decode":112,"./encode":113,"./is-valid":115,"./util/cluster-worker-id":118}],115:[function(require,module,exports){
+},{"./alphabet":108,"./build":109,"./decode":110,"./encode":111,"./is-valid":113,"./util/cluster-worker-id":116}],113:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -112982,7 +112755,7 @@ function isShortId(id) {
 
 module.exports = isShortId;
 
-},{"./alphabet":110}],116:[function(require,module,exports){
+},{"./alphabet":108}],114:[function(require,module,exports){
 'use strict';
 
 var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
@@ -112998,7 +112771,7 @@ function randomByte() {
 
 module.exports = randomByte;
 
-},{}],117:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 'use strict';
 
 // Found this seed-based random generator somewhere
@@ -113025,12 +112798,12 @@ module.exports = {
     seed: setSeed
 };
 
-},{}],118:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 'use strict';
 
 module.exports = 0;
 
-},{}],119:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 (function (Buffer){
 module.exports = Peer
 
@@ -113962,13 +113735,13 @@ function makeError (message, code) {
 function noop () {}
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":27,"debug":120,"get-browser-rtc":57,"inherits":81,"randombytes":96,"readable-stream":105}],120:[function(require,module,exports){
+},{"buffer":27,"debug":118,"get-browser-rtc":56,"inherits":79,"randombytes":94,"readable-stream":103}],118:[function(require,module,exports){
 arguments[4][50][0].apply(exports,arguments)
-},{"./debug":121,"_process":93,"dup":50}],121:[function(require,module,exports){
+},{"./debug":119,"_process":91,"dup":50}],119:[function(require,module,exports){
 arguments[4][51][0].apply(exports,arguments)
-},{"dup":51,"ms":122}],122:[function(require,module,exports){
+},{"dup":51,"ms":120}],120:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],123:[function(require,module,exports){
+},{"dup":38}],121:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -114064,7 +113837,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":124,"./socket":126,"./url":127,"debug":39,"socket.io-parser":129}],124:[function(require,module,exports){
+},{"./manager":122,"./socket":124,"./url":125,"debug":39,"socket.io-parser":127}],122:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -114639,7 +114412,7 @@ Manager.prototype.onreconnect = function () {
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":125,"./socket":126,"backo2":21,"component-bind":34,"component-emitter":35,"debug":39,"engine.io-client":41,"indexof":80,"socket.io-parser":129}],125:[function(require,module,exports){
+},{"./on":123,"./socket":124,"backo2":21,"component-bind":34,"component-emitter":35,"debug":39,"engine.io-client":41,"indexof":78,"socket.io-parser":127}],123:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -114665,7 +114438,7 @@ function on (obj, ev, fn) {
   };
 }
 
-},{}],126:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -115085,7 +114858,7 @@ Socket.prototype.compress = function (compress) {
   return this;
 };
 
-},{"./on":125,"component-bind":34,"component-emitter":35,"debug":39,"parseqs":89,"socket.io-parser":129,"to-array":139}],127:[function(require,module,exports){
+},{"./on":123,"component-bind":34,"component-emitter":35,"debug":39,"parseqs":87,"socket.io-parser":127,"to-array":137}],125:[function(require,module,exports){
 (function (global){
 
 /**
@@ -115164,7 +114937,7 @@ function url (uri, loc) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"debug":39,"parseuri":90}],128:[function(require,module,exports){
+},{"debug":39,"parseuri":88}],126:[function(require,module,exports){
 (function (global){
 /*global Blob,File*/
 
@@ -115309,7 +115082,7 @@ exports.removeBlobs = function(data, callback) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./is-buffer":130,"isarray":131}],129:[function(require,module,exports){
+},{"./is-buffer":128,"isarray":129}],127:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -115711,7 +115484,7 @@ function error() {
   };
 }
 
-},{"./binary":128,"./is-buffer":130,"component-emitter":35,"debug":39,"has-binary2":58}],130:[function(require,module,exports){
+},{"./binary":126,"./is-buffer":128,"component-emitter":35,"debug":39,"has-binary2":57}],128:[function(require,module,exports){
 (function (global){
 
 module.exports = isBuf;
@@ -115728,9 +115501,9 @@ function isBuf(obj) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],131:[function(require,module,exports){
-arguments[4][59][0].apply(exports,arguments)
-},{"dup":59}],132:[function(require,module,exports){
+},{}],129:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"dup":58}],130:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safe-buffer').Buffer;
@@ -116003,7 +115776,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":108}],133:[function(require,module,exports){
+},{"safe-buffer":106}],131:[function(require,module,exports){
 function Agent() {
   this._defaults = [];
 }
@@ -116025,7 +115798,7 @@ Agent.prototype._setDefaults = function(req) {
 
 module.exports = Agent;
 
-},{}],134:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -116947,7 +116720,7 @@ request.put = function(url, data, fn) {
   return req;
 };
 
-},{"./agent-base":133,"./is-object":135,"./request-base":136,"./response-base":137,"component-emitter":35}],135:[function(require,module,exports){
+},{"./agent-base":131,"./is-object":133,"./request-base":134,"./response-base":135,"component-emitter":35}],133:[function(require,module,exports){
 'use strict';
 
 /**
@@ -116964,7 +116737,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],136:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 'use strict';
 
 /**
@@ -117660,7 +117433,7 @@ RequestBase.prototype._setTimeouts = function() {
   }
 };
 
-},{"./is-object":135}],137:[function(require,module,exports){
+},{"./is-object":133}],135:[function(require,module,exports){
 'use strict';
 
 /**
@@ -117798,7 +117571,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
     this.unprocessableEntity = 422 == status;
 };
 
-},{"./utils":138}],138:[function(require,module,exports){
+},{"./utils":136}],136:[function(require,module,exports){
 'use strict';
 
 /**
@@ -117871,7 +117644,7 @@ exports.cleanHeader = function(header, changesOrigin){
   return header;
 };
 
-},{}],139:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -117886,7 +117659,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],140:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 (function (global){
 
 /**
@@ -117957,7 +117730,7 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],141:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 'use strict';
 
 var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')

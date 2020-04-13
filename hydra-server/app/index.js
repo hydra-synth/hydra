@@ -18,6 +18,8 @@ function init () {
   canvas.height = window.innerHeight
   canvas.style.width = '100%'
   canvas.style.height = '100%'
+  canvas.style.imageRendering = 'pixelated'
+
 
   var pb = new PatchBay()
   var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
