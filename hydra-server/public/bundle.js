@@ -95,6 +95,9 @@ module.exports = {
             menu.shareSketch.bind(menu)
           }
 
+          // shift - ctrl - l: save to url
+          if(e.keyCode === 76) gallery.saveLocally(editor.getValue())
+
           // shift - ctrl - h: toggle editor
           if (e.keyCode === 72) {
               e.preventDefault()
@@ -813,6 +816,21 @@ class Gallery {
           if(callback) callback(null)
         }
       })
+  }
+
+  saveLocally(code) {
+    let base64 = this.encodeBase64(code)
+
+    // keep code in url for backwards compatibility / compatibility between local and public versions
+    var url_params = `code=${base64}`
+    // } else {
+    //   url_params = params.map( (param, index) => `${param.label}=${param.value}`).join('&')
+    // }
+    console.log('url params', url_params)
+    let newurl = window.location.protocol + '//' +
+    window.location.host + window.location.pathname + '?' + url_params
+    window.history.pushState({ path: newurl }, '', newurl)
+    this.url = newurl
   }
 
   getSketchById(id) {

@@ -235,6 +235,21 @@ class Gallery {
       })
   }
 
+  saveLocally(code) {
+    let base64 = this.encodeBase64(code)
+
+    // keep code in url for backwards compatibility / compatibility between local and public versions
+    var url_params = `code=${base64}`
+    // } else {
+    //   url_params = params.map( (param, index) => `${param.label}=${param.value}`).join('&')
+    // }
+    console.log('url params', url_params)
+    let newurl = window.location.protocol + '//' +
+    window.location.host + window.location.pathname + '?' + url_params
+    window.history.pushState({ path: newurl }, '', newurl)
+    this.url = newurl
+  }
+
   getSketchById(id) {
     console.log('looking for', id)
     var sketch = this.sketches.filter((sketch) => sketch.sketch_id === id)

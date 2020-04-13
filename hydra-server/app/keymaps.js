@@ -17,6 +17,9 @@ module.exports = {
             menu.shareSketch.bind(menu)
           }
 
+          // shift - ctrl - l: save to url
+          if(e.keyCode === 76) gallery.saveLocally(editor.getValue())
+
           // shift - ctrl - h: toggle editor
           if (e.keyCode === 72) {
               e.preventDefault()
