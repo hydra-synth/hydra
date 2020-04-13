@@ -79,7 +79,7 @@ window.onload = init
 module.exports = {
   init : ({ editor, gallery, menu, repl, log}) => {
     window.onkeydown = (e) => {
-      console.log(e)
+    //  console.log(e)
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
 
