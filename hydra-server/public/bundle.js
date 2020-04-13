@@ -26861,10 +26861,14 @@ class HydraRenderer {
     ArrayUtils.init()
 
     this.pb = pb
+
     this.width = width
     this.height = height
     this.renderAll = false
     this.detectAudio = detectAudio
+
+    this._initCanvas(canvas)
+
 
     // object that contains all properties that will be made available on the global context and during local evaluation
     this.synth = {
@@ -26909,7 +26913,6 @@ class HydraRenderer {
 
     this.generator = undefined
 
-    this._initCanvas(canvas)
     this._initRegl()
     this._initOutputs(numOutputs)
     this._initSources(numSources)
