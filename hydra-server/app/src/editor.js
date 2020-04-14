@@ -94,6 +94,8 @@ EditorClass.prototype.getLine = function () {
 }
 
 EditorClass.prototype.flashCode = function (start, end) {
+	  if(!start) start = {line: this.cm.firstLine(), ch:0}
+		if(!end) end = {line: this.cm.lastLine() + 1, ch:0}
     var marker = this.cm.markText(start, end, {className: 'styled-background'})
     setTimeout(() =>   marker.clear(), 300)
 }

@@ -8,17 +8,24 @@ module.exports = {
           // shift - ctrl - enter: evalAll
           if ( e.keyCode === 13) {
             e.preventDefault()
-            repl.eval(editor.getValue())
+            // repl.eval(editor.getValue(), (string, err) => {
+            //   console.log('eval', err)
+            //   if(!err) gallery.saveLocally(editor.getValue())
+            // })
+            menu.runAll()
           }
 
           // shift - ctrl - G: share sketch
           if (e.keyCode === 71) {
               e.preventDefault()
-            menu.shareSketch.bind(menu)
+            menu.shareSketch()
           }
 
           // shift - ctrl - l: save to url
-          if(e.keyCode === 76) gallery.saveLocally(editor.getValue())
+          if(e.keyCode === 76) {
+            e.preventDefault()
+            gallery.saveLocally(editor.getValue())
+          }
 
           // shift - ctrl - h: toggle editor
           if (e.keyCode === 72) {
