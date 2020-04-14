@@ -30,6 +30,9 @@ var EditorClass = function () {
     styleSelectedText: true
   })
 
+  console.log('code mirror', this.cm)
+	//this.cm.removeKeyMap()
+
   this.cm.refresh()
 
   this.show()

@@ -135,12 +135,22 @@ module.exports = {
         // right arrow key
         if(e.keyCode === 39) {
           e.preventDefault()
-          editor.mutator.mutate({reroll: false})
+          if(e.shiftKey === true) {
+            editor.mutator.mutate({reroll: false})
+          } else {
+            window.history.forward();
+          }
         }
         // left arrow
         if(e.keyCode === 37) {
           e.preventDefault()
-          editor.mutator.doUndo()
+          if(e.shiftKey === true) {
+            console.log('redoing')
+            editor.mutator.doUndo()
+          } else {
+            window.history.back();
+          }
+        //  editor.mutator.doUndo()
         }
         // up arrow
         if(e.keyCode === 38) {
@@ -150,6 +160,7 @@ module.exports = {
         // down arrow
         if(e.keyCode === 40)  {
           editor.mutator.mutate({reroll: true})
+          gallery.saveLocally(editor.getValue())
         }
       }
 
@@ -419,6 +430,9 @@ var EditorClass = function () {
     lineWrapping: true,
     styleSelectedText: true
   })
+
+  console.log('code mirror', this.cm)
+	//this.cm.removeKeyMap()
 
   this.cm.refresh()
 
