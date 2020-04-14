@@ -23,6 +23,10 @@ class Gallery {
       this.setSketchFromURL(callback)
     //  callback(this.code, this.foundSketch)
     // })
+    window.addEventListener('popstate', (event) => {
+      this.setSketchFromURL(callback)
+  //  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  });
   }
 
   clear() {
