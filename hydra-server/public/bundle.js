@@ -131,25 +131,25 @@ module.exports = {
           editor.cm.toggleComment()
         }
 
-        // Point Mutation Glitcher Key Commands
+        // Point Mutation Glitcher Key Commands and history commands (left and right arrows)
         // right arrow key
         if(e.keyCode === 39) {
           e.preventDefault()
-          if(e.shiftKey === true) {
-            editor.mutator.mutate({reroll: false})
-          } else {
-            window.history.forward();
-          }
+          // if(e.shiftKey === true) {
+          //   editor.mutator.mutate({reroll: false})
+          // } else {
+            window.history.forward()
+        //  }
         }
         // left arrow
         if(e.keyCode === 37) {
           e.preventDefault()
-          if(e.shiftKey === true) {
-            console.log('redoing')
-            editor.mutator.doUndo()
-          } else {
-            window.history.back();
-          }
+          // if(e.shiftKey === true) {
+          //   console.log('redoing')
+          //   editor.mutator.doUndo()
+          // } else {
+            window.history.back()
+        //  }
         //  editor.mutator.doUndo()
         }
         // up arrow
@@ -466,17 +466,21 @@ EditorClass.prototype.getValue = function () {
 EditorClass.prototype.hide = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
   var m = document.getElementById('modal-header')
-  l.style.opacity = 0
-//  this.logElement.style.opacity  = 0
-  m.style.opacity = 0
+//   l.style.opacity = 0
+// //  this.logElement.style.opacity  = 0
+//   m.style.opacity = 0
+l.style.display = 'none'
+m.style.display = 'none'
   this.isShowing = false
 }
 
 EditorClass.prototype.show = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
   var m = document.getElementById('modal-header')
-  l.style.opacity= 1
-  m.style.opacity = 1
+  // l.style.opacity= 1
+  // m.style.opacity = 1
+	l.style.display = 'block'
+	m.style.display = 'flex'
 //  this.logElement.style.opacity  = 1
   this.isShowing = true
 }
@@ -541,13 +545,7 @@ module.exports = EditorClass
 
 },{"./Mutator.js":3,"codemirror/addon/comment/comment":28,"codemirror/addon/hint/javascript-hint":29,"codemirror/addon/hint/show-hint":30,"codemirror/addon/selection/mark-selection":31,"codemirror/lib/codemirror":32,"codemirror/mode/javascript/javascript":33}],6:[function(require,module,exports){
 module.exports=[
-  {
-    "sketch_id": "example_0",
-  "code":"JTJGJTJGJTIwYnklMjBTZWJhc3RpYW4lMjBBdmlsYSUwQSUyRiUyRiUyMGh0dHAlM0ElMkYlMkZ3d3cuc2ViYXN0aWFuLWF2aWxhLmNvbSUyRiUwQSUwQWEuc2hvdygpJTBBJTJGJTJGU09VTkQlMEElMEFhLnNldFNjYWxlJTIwKDEwJTIwJTIwKSUwQWEuc2V0QmlucyUyMCg2KSUwQSUyRiUyRiUwQWEuc2V0dGluZ3MlNUIwJTVELmN1dG9mZiUyMCUzRCUyMDElMEFhLnNldHRpbmdzJTVCMSU1RC5jdXRvZmYlMjAlM0QlMjAyJTBBYS5zZXR0aW5ncyU1QjIlNUQuY3V0b2ZmJTIwJTNEJTIwNCUwQWEuc2V0dGluZ3MlNUIzJTVELmN1dG9mZiUyMCUzRCUyMDYlMEFhLnNldHRpbmdzJTVCNCU1RC5jdXRvZmYlMjAlM0QlMjA4JTBBYS5zZXR0aW5ncyU1QjUlNUQuY3V0b2ZmJTIwJTNEJTIwOSUwQSUwQXNoYXBlKDMpLnNjYWxlKCgpJTNEJTNFJTIwYS5mZnQlNUI0JTVEKjIlMjAlMkIxKS5rYWxlaWQoMiklMEEuYWRkKG9zYygxMikuY29sb3JhbWEoMSkuY29sb3IoMiUyQzMlMkM0KSklMEEuYmxlbmQobzApLmNvbG9yKDAlMkMxJTJDMSklMEEuYmxlbmQobzApLnJvdGF0ZSgoKSUzRCUzRSUyMGEuZmZ0JTVCMSU1RCowLjElMjAtMC4yKSUwQS5zY3JvbGxZKC0wLjMyJTJDLTAuMiklMEEuYWRkKHNoYXBlKDcpLmNvbG9yKDIlMkMxJTJDMC41KS5yZXBlYXQoLTMlMkMzKS5hZGQoc2hhcGUoMikuc2NhbGUoMSkua2FsZWlkKDUpLmNvbG9yKDAlMkMxJTJDMC41KSkuc2Nyb2xsWSgoKSUzRCUzRSUyMGEuZmZ0JTVCMCU1RCowLjclMjAtMC4xJTJDLTAuMDIpKS5zY2FsZSgoKSUzRCUzRSUyMGEuZmZ0JTVCMiU1RCowLjIlMjAtMSklMEElMkYlMkYuc2NhbGUoKCklM0QlM0UlMjBhLmZmdCU1QjMlNUQqMiUyMC0xKSUwQS5zY3JvbGxZKC0yMSUyQy0wLjIpJTBBLnJvdGF0ZSgtMC4xJTJDKCklM0QlM0UlMjBhLmZmdCU1QjMlNUQqMC4wMiUyMC0wLjEpJTBBLm91dChvMCk="
-},{
-  "sketch_id": "example_1",
-  "code":"JTJGJTJGJTIwYnklMjBTZWJhc3RpYW4lMjBBdmlsYSUwQSUyRiUyRiUyMGh0dHAlM0ElMkYlMkZ3d3cuc2ViYXN0aWFuLWF2aWxhLmNvbSUyRiUwQSUwQWEuc2hvdygpJTBBJTJGJTJGU09VTkQlMEElMEFhLnNldFNjYWxlJTIwKDEwJTIwJTIwKSUwQWEuc2V0QmlucyUyMCg2KSUwQSUyRiUyRiUwQWEuc2V0dGluZ3MlNUIwJTVELmN1dG9mZiUyMCUzRCUyMDElMEFhLnNldHRpbmdzJTVCMSU1RC5jdXRvZmYlMjAlM0QlMjAyJTBBYS5zZXR0aW5ncyU1QjIlNUQuY3V0b2ZmJTIwJTNEJTIwNCUwQWEuc2V0dGluZ3MlNUIzJTVELmN1dG9mZiUyMCUzRCUyMDYlMEFhLnNldHRpbmdzJTVCNCU1RC5jdXRvZmYlMjAlM0QlMjA4JTBBYS5zZXR0aW5ncyU1QjUlNUQuY3V0b2ZmJTIwJTNEJTIwOSUwQSUwQSUwQSUwQW9zYygzMjIpLmNvbG9yKDAlMkMwJTJDMCklMEEuYWRkKHNoYXBlKDIpLmNvbG9yKDIlMkMyJTJDMikuc2NhbGUoMC4wMDYpLnJvdGF0ZSgwLjAwMDAwMSkpJTBBLm1vZHVsYXRlKG5vaXNlKCgpJTNEJTNFJTIwYS5mZnQlNUIxJTVEKjEwJTIwJTJCMC4wMSkuc2NhbGUoNSUyQzAuMSkpJTBBLnNjYWxlKDEuMiUyQzElMkMzKSUwQSUyRiUyRi5zY2FsZSgoKSUzRCUzRSUyMGEuZmZ0JTVCMyU1RCowLjElMjAtMiklMEElMkYlMkYucmVwZWF0KDElMkM1KSUwQSUyRiUyRi5yb3RhdGUoMSUyQygpJTNEJTNFJTIwYS5mZnQlNUIzJTVEKjElMjAlMkIwLjAxKSUwQS5vdXQobzAp"
-},{
+{
   "sketch_id": "example_2",
   "code":"JTJGJTJGJTIwYnklMjBTZWJhc3RpYW4lMjBBdmlsYSUwQSUyRiUyRiUyMGh0dHAlM0ElMkYlMkZ3d3cuc2ViYXN0aWFuLWF2aWxhLmNvbSUyRiUwQSUwQSUyRiUyRiUwQSUwQWEuc2V0U2NhbGUlMjAoMTAlMjAlMjApJTBBYS5zZXRCaW5zJTIwKDYpJTBBJTJGJTJGJTBBYS5zZXR0aW5ncyU1QjAlNUQuY3V0b2ZmJTIwJTNEJTIwMSUwQWEuc2V0dGluZ3MlNUIxJTVELmN1dG9mZiUyMCUzRCUyMDIlMEFhLnNldHRpbmdzJTVCMiU1RC5jdXRvZmYlMjAlM0QlMjA0JTBBYS5zZXR0aW5ncyU1QjMlNUQuY3V0b2ZmJTIwJTNEJTIwNiUwQWEuc2V0dGluZ3MlNUI0JTVELmN1dG9mZiUyMCUzRCUyMDglMEFhLnNldHRpbmdzJTVCNSU1RC5jdXRvZmYlMjAlM0QlMjA5JTBBJTBBJTBBc2hhcGUoNCkuc2NhbGUoKCklM0QlM0UlMjBhLmZmdCU1QjQlNUQqMiUyMCUyQjEpJTBBLmJsZW5kKG8wKS5hZGQoc2hhcGUoMykuY29sb3IoMCUyQzAlMkMwLjcpKSUwQS5ibGVuZChvMCkuY29sb3IoMSUyQzElMkMxKSUwQS5ibGVuZChvMCkucm90YXRlKCgpJTNEJTNFJTIwYS5mZnQlNUIxJTVEKjAuMSUyMC0wLjIpJTBBLnNjcm9sbFkoLTAuMzIlMkMtMC4yKSUwQS5hZGQoc2hhcGUoMjApLmNvbG9yKDIlMkMwJTJDMCkuc2Nyb2xsWSgoKSUzRCUzRSUyMGEuZmZ0JTVCMCU1RCowLjclMjAtMC4xJTJDLTAuMDIpKS5zY2FsZSgoKSUzRCUzRSUyMGEuZmZ0JTVCMiU1RCowLjclMjAtMC44KSUwQS5zY2FsZSgoKSUzRCUzRSUyMGEuZmZ0JTVCMyU1RCoyJTIwLTEpJTBBLm1vZHVsYXRlKG8wJTJDKCklM0QlM0UlMjBhLmZmdCU1QjIlNUQqMC4xJTIwLTAuMiklMEEucm90YXRlKC0wLjElMkMoKSUzRCUzRSUyMGEuZmZ0JTVCMyU1RCowLjclMjAtMC4xKSUwQS5vdXQobzAp"
 },{
@@ -562,9 +560,6 @@ module.exports=[
 },{
   "sketch_id": "example_6",
   "code":"JTJGJTJGJTIwYnklMjBEJUMzJUE5Ym9yYSUyMEZhbGxlaXJvcyUyMEdvbnphbGVzJTBBJTJGJTJGJTIwaHR0cHMlM0ElMkYlMkZ3d3cuZ29uemFsZXNkZWJvcmEuY29tJTJGJTBBJTBBb3NjKDUpLmFkZChub2lzZSg1JTJDJTIwMikpLmNvbG9yKDAlMkMlMjAwJTJDJTIwMykuY29sb3JhbWEoMC40KS5vdXQoKSUwQSUwQSUwQSUwQQ=="
-},{
-  "sketch_id": "example_7",
-  "code":"JTJGJTJGJTIwYnklMjBSb2RyaWdvJTIwVmVsYXNjbyUwQSUyRiUyRiUyMGh0dHBzJTNBJTJGJTJGeWVjdG8uZ2l0aHViLmlvJTJGJTBBJTBBb3NjKDMlMkMlMjAwLjIlMkMlMjAwKS5jb2xvcigyJTJDJTIwMC43JTJDJTIwMSkubW9kdWxhdGUobzElMkMlMjAwLjgpLmRpZmYobzEpLm91dChvMCklMEFvc2MoKCklMjAlM0QlM0UlMjAoYS5mZnQlNUIwJTVEKjM5KSUyQyUyMDAuMiUyQyUyMDApLmNvbG9yKDAlMkMlMjAxJTJDJTIwMikucm90YXRlKDEuNTcpLm91dChvMSklMEFvc2MoMzAlMkMlMjAwLjIlMkMlMjAwKS5vdXQobzIp"
 },{
   "sketch_id": "example_8",
   "code":"JTJGJTJGJTIwYnklMjBSb2RyaWdvJTIwVmVsYXNjbyUwQSUyRiUyRiUyMGh0dHBzJTNBJTJGJTJGeWVjdG8uZ2l0aHViLmlvJTJGJTBBJTBBb3NjKDEwNyUyQyUyMDAlMkMlMjAwLjcpLmNvbG9yKDElMkMlMjAwJTJDJTIwMSkucm90YXRlKDAlMkMlMjAtMC4wOCkubW9kdWxhdGVSb3RhdGUobzElMkMlMjAwLjQpLm91dChvMCklMEFvc2MoMzMpLnJvdGF0ZSgyJTJDJTIwMC44KS5tb2R1bGF0ZVJvdGF0ZShvMCUyQyUyMCgpJTIwJTNEJTNFJTIwKGEuZmZ0JTVCMCU1RCoyKSkub3V0KG8xKSUwQQ=="
@@ -631,7 +626,7 @@ class Gallery {
     // })
     window.addEventListener('popstate', (event) => {
       this.setSketchFromURL(callback)
-  //  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   });
   }
 
@@ -734,7 +729,9 @@ class Gallery {
     console.log('url params', url_params)
     let newurl = window.location.protocol + '//' +
     window.location.host + window.location.pathname + '?' + url_params
-    window.history.pushState({ path: newurl }, '', newurl)
+  //  window.location.href = newurl
+
+    window.history.replaceState({ path: newurl }, '', newurl)
     this.url = newurl
   }
 

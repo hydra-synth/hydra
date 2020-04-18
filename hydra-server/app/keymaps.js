@@ -53,25 +53,25 @@ module.exports = {
           editor.cm.toggleComment()
         }
 
-        // Point Mutation Glitcher Key Commands
+        // Point Mutation Glitcher Key Commands and history commands (left and right arrows)
         // right arrow key
         if(e.keyCode === 39) {
           e.preventDefault()
-          if(e.shiftKey === true) {
-            editor.mutator.mutate({reroll: false})
-          } else {
-            window.history.forward();
-          }
+          // if(e.shiftKey === true) {
+          //   editor.mutator.mutate({reroll: false})
+          // } else {
+            window.history.forward()
+        //  }
         }
         // left arrow
         if(e.keyCode === 37) {
           e.preventDefault()
-          if(e.shiftKey === true) {
-            console.log('redoing')
-            editor.mutator.doUndo()
-          } else {
-            window.history.back();
-          }
+          // if(e.shiftKey === true) {
+          //   console.log('redoing')
+          //   editor.mutator.doUndo()
+          // } else {
+            window.history.back()
+        //  }
         //  editor.mutator.doUndo()
         }
         // up arrow

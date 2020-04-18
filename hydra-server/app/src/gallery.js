@@ -25,7 +25,7 @@ class Gallery {
     // })
     window.addEventListener('popstate', (event) => {
       this.setSketchFromURL(callback)
-  //  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   });
   }
 
@@ -128,7 +128,9 @@ class Gallery {
     console.log('url params', url_params)
     let newurl = window.location.protocol + '//' +
     window.location.host + window.location.pathname + '?' + url_params
-    window.history.pushState({ path: newurl }, '', newurl)
+  //  window.location.href = newurl
+
+    window.history.replaceState({ path: newurl }, '', newurl)
     this.url = newurl
   }
 
