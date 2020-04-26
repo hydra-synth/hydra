@@ -15,15 +15,21 @@ function init () {
   window.P5 = P5
 
   var canvas = document.getElementById('hydra-canvas')
-  canvas.width = window.innerWidth
-  canvas.height = window.innerHeight
+  canvas.width = window.innerWidth * window.devicePixelRatio
+  canvas.height = window.innerHeight * window.devicePixelRatio
   canvas.style.width = '100%'
   canvas.style.height = '100%'
   canvas.style.imageRendering = 'pixelated'
 
+  let isIOS =
+  (/iPad|iPhone|iPod/.test(navigator.platform) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+  !window.MSStream;
+
+  let precisionValue = isIOS ? 'highp' : 'mediump'
 
   var pb = new PatchBay()
-  var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
+  var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false,  precision: precisionValue})
   var editor = new Editor()
   var menu = new Menu({ editor: editor, hydra: hydra})
   log.init()
@@ -121,7 +127,7 @@ module.exports = {
           // ctrl-enter: evalLine
           if ( e.keyCode === 13) {
               e.preventDefault()
-            console.log('eval line')
+          //  console.log('eval line')
             repl.eval(editor.getLine())
           }
         }
@@ -1203,10 +1209,13 @@ module.exports = {
     var isError = false
     try {
       eval(jsString)
-      log(jsString)
+      // log(jsString)
+      log('')
     } catch (e) {
       isError = true
-    //  console.log("logging", e.message)
+      console.log("logging", e)
+      // var err = e.constructor('Error in Evaled Script: ' + e.message);
+      // console.log(err.lineNumber)
       log(e.message, "log-error")
       //console.log('ERROR', JSON.stringify(e))
     }

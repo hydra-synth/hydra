@@ -43,7 +43,7 @@ module.exports = {
           // ctrl-enter: evalLine
           if ( e.keyCode === 13) {
               e.preventDefault()
-            console.log('eval line')
+          //  console.log('eval line')
             repl.eval(editor.getLine())
           }
         }

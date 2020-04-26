@@ -7,10 +7,13 @@ module.exports = {
     var isError = false
     try {
       eval(jsString)
-      log(jsString)
+      // log(jsString)
+      log('')
     } catch (e) {
       isError = true
-    //  console.log("logging", e.message)
+      console.log("logging", e)
+      // var err = e.constructor('Error in Evaled Script: ' + e.message);
+      // console.log(err.lineNumber)
       log(e.message, "log-error")
       //console.log('ERROR', JSON.stringify(e))
     }

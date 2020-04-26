@@ -1,4 +1,10 @@
 # Changelog
+## [1.2.2] - 2020-04-26
+### Changed
+ - checks whether is ios in order to specify precision value
+ - resolution independent of browser zoom level
+ - code not repeated at bottom
+
 ## [1.2.1] - 2020-04-14
 ### Added
  - Changelog
