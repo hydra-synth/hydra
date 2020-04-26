@@ -20,9 +20,15 @@ function init () {
   canvas.style.height = '100%'
   canvas.style.imageRendering = 'pixelated'
 
+  let isIOS =
+  (/iPad|iPhone|iPod/.test(navigator.platform) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+  !window.MSStream;
+
+  let precisionValue = isIOS ? 'highp' : 'mediump'
 
   var pb = new PatchBay()
-  var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false })
+  var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false,  precision: precisionValue})
   var editor = new Editor()
   var menu = new Menu({ editor: editor, hydra: hydra})
   log.init()
