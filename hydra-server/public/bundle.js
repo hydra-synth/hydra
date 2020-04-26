@@ -604,6 +604,26 @@ module.exports=[
 {
   "sketch_id": "example_18",
   "code": "JTJGJTJGJTIwYnklMjBPbGl2aWElMjBKYWNrJTBBJTJGJTJGJTIwaHR0cHMlM0ElMkYlMkZvamFjay5naXRodWIuaW8lMEElMEFvc2MoNiUyQyUyMDAlMkMlMjAwLjgpJTBBJTIwJTIwLmNvbG9yKDEuMTQlMkMlMjAwLjYlMkMuODApJTBBJTIwJTIwLnJvdGF0ZSgwLjkyJTJDJTIwMC4zKSUwQSUyMCUyMC5waXhlbGF0ZSgyMCUyQyUyMDEwKSUwQSUyMCUyMC5tdWx0KG9zYyg0MCUyQyUyMDAuMDMpLnRocmVzaCgwLjQpLnJvdGF0ZSgwJTJDJTIwLTAuMDIpKSUwQSUyMCUyMC5tb2R1bGF0ZVJvdGF0ZShvc2MoMjAlMkMlMjAwKS50aHJlc2goMC4zJTJDJTIwMC42KSUyQyUyMCgpJTIwJTNEJTNFJTIwMC4xJTIwJTJCJTIwbW91c2UueCUyMColMjAwLjAwMiklMEElMjAlMjAub3V0KG8wKQ=="
+},
+{
+  "sketch_id": "rangga_0",
+  "code": "JTJGJTJGJTIwRHJlYW15JTIwRGlhbW9uZCUwQSUyRiUyRiUyMGJ5JTIwUmFuZ2dhJTIwUHVybmFtYSUyMEFqaSUwQSUyRiUyRiUyMGh0dHBzJTNBJTJGJTJGcmFuZ2dhcHVybmFtYWFqaTEud2l4c2l0ZS5jb20lMkZwb3J0Zm9saW8lMEElMEFvc2MoNyUyQy0wLjEyNSkubW9kdWxhdGUodm9yb25vaSgxKSkuZGlmZih2b3Jvbm9pKDEpLm11bHQoZ3JhZGllbnQoLTEpLmx1bWEoMC4xMjUpKSklMEElMjAlMjAubHVtYSgwLjEyNSklMEElMjAlMjAuYWRkKHNoYXBlKDclMkMlMjAwLjUpJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwLm11bHQodm9yb25vaSgxMCUyQzIpLmJsZW5kKG8wKS5kaWZmKGdyYWRpZW50KDEpKS5tb2R1bGF0ZSh2b3Jvbm9pKCkpKSklMEElMjAlMjAuc2Nyb2xsWSgtMC4xKSUwQSUyMCUyMC5zY3JvbGxYKDAuMTI1KSUwQSUyMCUyMC5ibGVuZChvMCklMEElMjAlMjAuYmxlbmQobzApJTBBJTIwJTIwLm91dCgpJTBB"
+},
+{
+  "sketch_id": "rangga_1",
+  "code": "JTJGJTJGJTIwVGFnJTIwJTI2JTIwU3dlZXAlMEElMkYlMkYlMjBieSUyMFJhbmdnYSUyMFB1cm5hbWElMjBBamklMEElMkYlMkYlMjBodHRwcyUzQSUyRiUyRnJhbmdnYXB1cm5hbWFhamkxLndpeHNpdGUuY29tJTJGcG9ydGZvbGlvJTBBJTBBb3NjKDUlMkMwLjEyNSkuY29sb3JhbWEoMSklMEElMjAlMjAubHVtYSgwLjEyNSkuYWRkKHNoYXBlKDElMkMwLjUpLmx1bWEoMikuZGlmZihncmFkaWVudCgxKSkpJTBBJTIwJTIwLmRpZmYob3NjKC0xJTJDLTAuMjUpKS5ibGVuZChvMCkuY29sb3IoMCUyQzIuNSUyQzEuNzUpJTBBJTIwJTIwLm91dCgp"
+},
+{
+  "sketch_id": "rangga_2",
+  "code": "JTJGJTJGJTIwTW9ub2Nocm9tZSUyME1lbW9hciUwQSUyRiUyRiUyMGJ5JTIwUmFuZ2dhJTIwUHVybmFtYSUyMEFqaSUwQSUyRiUyRiUyMGh0dHBzJTNBJTJGJTJGcmFuZ2dhcHVybmFtYWFqaTEud2l4c2l0ZS5jb20lMkZwb3J0Zm9saW8lMEElMEF2b3Jvbm9pKDUwJTJDMSklMEElMjAlMjAubHVtYSgwLjUpLmFkZChzaGFwZSgxJTJDMSkubHVtYSgxKSklMEElMjAlMjAubW9kdWxhdGUob3NjKC0xMDAwJTJDLTEpJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwLm1vZHVsYXRlKG9zYygpLmx1bWEoKSkpJTBBJTIwJTIwLmJsZW5kKG8wKSUwQSUyMCUyMC5ibGVuZChvMCklMEElMjAlMjAuYmxlbmQobzApJTBBJTIwJTIwLmJsZW5kKG8wKSUwQSUyMCUyMC5vdXQoKQ=="
+},
+{
+  "sketch_id": "rangga_3",
+  "code": "JTJGJTJGJTIwR2FsYXh5JTIwVHJpcCUwQSUyRiUyRiUyMGJ5JTIwUmFuZ2dhJTIwUHVybmFtYSUyMEFqaSUwQSUyRiUyRiUyMGh0dHBzJTNBJTJGJTJGcmFuZ2dhcHVybmFtYWFqaTEud2l4c2l0ZS5jb20lMkZwb3J0Zm9saW8lMEElMEFzaGFwZSgxJTJDMSklMEElMjAlMjAubXVsdCh2b3Jvbm9pKDEwMDAlMkMyKSUwQSUyMCUyMC5ibGVuZChvMCkubHVtYSgpKSUwQSUyMCUyMC5hZGQoc2hhcGUoMyUyQzAuMTI1KSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMC5yb3RhdGUoMSUyQzEpLm11bHQodm9yb25vaSgxMDAwJTJDMSkubHVtYSgpKSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMC5yb3RhdGUoMS41KSkuc2Nyb2xsWCglNUIwLjElMkMtMC4wNjI1JTJDMC4wMDUlMkMwLjAwMDAxJTVEJTJDMCklMEElMjAlMjAuc2Nyb2xsWSglNUIwLjElMkMtMC4wNjI1JTJDMC4wMDUlMkMwLjAwMDAxJTVEJTJDMCklMEElMjAlMjAub3V0KCk="
+},
+{
+  "sketch_id": "rangga_4",
+  "code": "JTJGJTJGJTIwU3VtZXQlMEElMkYlMkYlMjBieSUyMFJhbmdnYSUyMFB1cm5hbWElMjBBamklMEElMkYlMkYlMjBodHRwcyUzQSUyRiUyRnJhbmdnYXB1cm5hbWFhamkxLndpeHNpdGUuY29tJTJGcG9ydGZvbGlvJTBBJTBBb3NjKDAuNSUyQzEuMjUpLm11bHQoc2hhcGUoMSUyQzAuMDkpLnJvdGF0ZSgxLjUpKSUwQSUyMCUyMC5kaWZmKGdyYWRpZW50KCkpJTBBJTIwJTIwLmFkZChzaGFwZSgyJTJDMikuYmxlbmQoZ3JhZGllbnQoMSkpKSUwQSUyMCUyMC5tb2R1bGF0ZShub2lzZSgpJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwLm1vZHVsYXRlKG5vaXNlKCkuc2Nyb2xsWSgxJTJDMC4wNjI1KSkpJTBBJTIwJTIwLmJsZW5kKG8wKSUwQSUyMCUyMC5jb2xvcigxJTJDLTAuNSUyQy0wLjc1KSUwQSUyMCUyMC5vdXQoKQ=="
 }
 ]
 
@@ -637,12 +657,13 @@ class Gallery {
       this.setSketchFromURL(callback)
     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   });
+    this.setRandomSketch = this.setRandomSketch.bind(this)
   }
 
   clear() {
     this.current = null
     this.code = null
-    this.exampleIndex = null
+    //this.exampleIndex = null
     let newurl = window.location.protocol + '//' + window.location.host + window.location.pathname
     window.history.pushState({ path: newurl }, '', newurl)
     this.url = newurl
@@ -763,15 +784,21 @@ class Gallery {
 
   setRandomSketch() {
     // if there are sketches, set code from sketch, otherwise generate random
-    console.log("examples length", this.examples)
+    console.log("examples length", this.examples, this.exampleIndex)
     if(this.examples.length > 0) {
-      let rand = Math.floor(Math.random() * this.examples.length)
-      while (rand === this.exampleIndex) {
-        rand = Math.floor(Math.random() * this.examples.length)
+      let index
+      if(this.exampleIndex === null) {
+        index = Math.floor(Math.random() * this.examples.length)
+        while (index === this.exampleIndex) {
+          index = Math.floor(Math.random() * this.examples.length)
+        }
+      } else {
+        index = this.exampleIndex +1
+        if(index >= this.examples.length) index = 0
       }
-      this.exampleIndex = rand
-      console.log('example is', this.examples[rand])
-      this.setSketch(this.examples[rand])
+      this.exampleIndex = index
+    //  console.log('example is', this.examples[rand])
+      this.setSketch(this.examples[index])
     } else {
       var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
       startString += '.color(' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2)+ ')'

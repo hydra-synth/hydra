@@ -27,12 +27,13 @@ class Gallery {
       this.setSketchFromURL(callback)
     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   });
+    this.setRandomSketch = this.setRandomSketch.bind(this)
   }
 
   clear() {
     this.current = null
     this.code = null
-    this.exampleIndex = null
+    //this.exampleIndex = null
     let newurl = window.location.protocol + '//' + window.location.host + window.location.pathname
     window.history.pushState({ path: newurl }, '', newurl)
     this.url = newurl
@@ -153,15 +154,21 @@ class Gallery {
 
   setRandomSketch() {
     // if there are sketches, set code from sketch, otherwise generate random
-    console.log("examples length", this.examples)
+    console.log("examples length", this.examples, this.exampleIndex)
     if(this.examples.length > 0) {
-      let rand = Math.floor(Math.random() * this.examples.length)
-      while (rand === this.exampleIndex) {
-        rand = Math.floor(Math.random() * this.examples.length)
+      let index
+      if(this.exampleIndex === null) {
+        index = Math.floor(Math.random() * this.examples.length)
+        while (index === this.exampleIndex) {
+          index = Math.floor(Math.random() * this.examples.length)
+        }
+      } else {
+        index = this.exampleIndex +1
+        if(index >= this.examples.length) index = 0
       }
-      this.exampleIndex = rand
-      console.log('example is', this.examples[rand])
-      this.setSketch(this.examples[rand])
+      this.exampleIndex = index
+    //  console.log('example is', this.examples[rand])
+      this.setSketch(this.examples[index])
     } else {
       var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
       startString += '.color(' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2)+ ')'
