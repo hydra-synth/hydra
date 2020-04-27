@@ -53,11 +53,11 @@ class Gallery {
     this.foundSketch = false
     // if contains a sketch id, set sketch from id
     if(sketch_id) {
-      var sketch = this.getSketchById(sketch_id)
+      var sketch = this.getExampleById(sketch_id)
       if(sketch) {
         console.log('found', sketch)
           this.setSketch(sketch)
-          callback(this.code, true)
+          callback(this.code, false)
       } else {
         request
           .get('/sketchById')
@@ -275,7 +275,7 @@ class Gallery {
     this.url = newurl
   }
 
-  getSketchById(id) {
+  getExampleById(id) {
     console.log('looking for', id, this.examples, this.sketches)
     var sketches =  this.examples.filter((sketch) => sketch.sketch_id === id)
     if(sketches.length <= 0) sketches = this.sketches.filter((sketch) => sketch.sketch_id === id)
