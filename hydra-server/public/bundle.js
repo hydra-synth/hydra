@@ -624,6 +624,18 @@ module.exports=[
 {
   "sketch_id": "rangga_4",
   "code": "JTJGJTJGJTIwU3VtZXQlMEElMkYlMkYlMjBieSUyMFJhbmdnYSUyMFB1cm5hbWElMjBBamklMEElMkYlMkYlMjBodHRwcyUzQSUyRiUyRnJhbmdnYXB1cm5hbWFhamkxLndpeHNpdGUuY29tJTJGcG9ydGZvbGlvJTBBJTBBb3NjKDAuNSUyQzEuMjUpLm11bHQoc2hhcGUoMSUyQzAuMDkpLnJvdGF0ZSgxLjUpKSUwQSUyMCUyMC5kaWZmKGdyYWRpZW50KCkpJTBBJTIwJTIwLmFkZChzaGFwZSgyJTJDMikuYmxlbmQoZ3JhZGllbnQoMSkpKSUwQSUyMCUyMC5tb2R1bGF0ZShub2lzZSgpJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwLm1vZHVsYXRlKG5vaXNlKCkuc2Nyb2xsWSgxJTJDMC4wNjI1KSkpJTBBJTIwJTIwLmJsZW5kKG8wKSUwQSUyMCUyMC5jb2xvcigxJTJDLTAuNSUyQy0wLjc1KSUwQSUyMCUyMC5vdXQoKQ=="
+},
+{
+  "sketch_id": "marianne_0",
+  "code": "JTJGJTJGcG9ydCUwQSUyRiUyRmJ5JTIwTWFyaWFubmUlMjBUZWl4aWRvJTBBJTJGJTJGaHR0cHMlM0ElMkYlMkZtYXJpYW5uZXRlaXhpZG8uZ2l0aHViLmlvJTJGJTBBJTBBb3NjKDUlMkMlMjAwLjklMkMlMjAwLjAwMSklMEElMjAlMjAlMjAlMjAua2FsZWlkKCU1QjMlMkM0JTJDNSUyQzclMkM4JTJDOSUyQzEwJTVELmZhc3QoMC4xKSklMEElMjAlMjAlMjAlMjAuY29sb3IoMC41JTJDJTIwMC4zKSUwQSUyMCUyMCUyMCUyMC5jb2xvcmFtYSgwLjQpJTBBJTIwJTIwJTIwJTIwLnJvdGF0ZSgwLjAwOSUyQygpJTNEJTNFTWF0aC5zaW4odGltZSkqJTIwLTAuMDAxJTIwKSUwQSUyMCUyMCUyMCUyMC5tb2R1bGF0ZVJvdGF0ZShvMCUyQygpJTNEJTNFTWF0aC5zaW4odGltZSklMjAqJTIwMC4wMDMpJTBBJTIwJTIwJTIwJTIwLm1vZHVsYXRlKG8wJTJDJTIwMC45KSUwQSUyMCUyMCUyMCUyMC5zY2FsZSgwLjkpJTBBJTIwJTIwJTIwJTIwLm91dChvMCklMEElMEE="
+},
+{
+  "sketch_id": "naoto_0",
+  "code": "JTJGJTJGJTIwJTQwbmFvdG9faGllZGElMEFvc2MoMjAlMkMlMjAwLjElMkMlMjAwKS5jb2xvcigwJTJDJTIwMSUyQyUyMDIpLnJvdGF0ZSgxLjU3JTJGMikub3V0KG8xKSUwQW9zYygzMCUyQyUyMDAuMDElMkMlMjAwKS5jb2xvcigyJTJDJTIwMC43JTJDJTIwMSkubW9kdWxhdGUobzElMkMlMjAwKS5hZGQobzElMkMxKS5tb2R1bGF0ZVBpeGVsYXRlKG8xJTJDMSUyQzEwKS5vdXQobzAp"
+},
+{
+  "sketch_id": "naoto_1",
+  "code": "JTJGJTJGJTIwJTQwbmFvdG9faGllZGElMEFzb2xpZCgwLjIlMkMwLjYlMkMwLjkpLmxheWVyKG9zYygzMS40JTJDMCkudGhyZXNoKDAuNykubHVtYSgpLm1vZHVsYXRlKG9zYyg0JTJDMSkucm90YXRlKDEpJTJDMC4wNSkuY29sb3IoMCUyQzAlMkMwKSkubGF5ZXIob3NjKDMxLjQlMkMwKS50aHJlc2goMC43KS5sdW1hKCkubW9kdWxhdGUob3NjKDQlMkMxKS5yb3RhdGUoMSklMkMwLjEpKS5vdXQoKQ=="
 }
 ]
 
@@ -750,13 +762,17 @@ class Gallery {
   setToURL(params){
     //       console.log(base64)
     console.log('params', params)
-
     // keep code in url for backwards compatibility / compatibility between local and public versions
-    var url_params = `sketch_id=${params.sketch_id}&code=${params.code}`
+    var url_params
+    if(params.sketch_id) {
+       url_params = `sketch_id=${params.sketch_id}`
+    } else {
+      url_params = `sketch_id=${params.sketch_id}&code=${params.code}`
+    }
     // } else {
     //   url_params = params.map( (param, index) => `${param.label}=${param.value}`).join('&')
     // }
-    console.log('url params', url_params)
+  //  console.log('url params', url_params)
     let newurl = window.location.protocol + '//' +
     window.location.host + window.location.pathname + '?' + url_params
   //  window.location.href = newurl

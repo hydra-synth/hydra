@@ -120,13 +120,17 @@ class Gallery {
   setToURL(params){
     //       console.log(base64)
     console.log('params', params)
-
     // keep code in url for backwards compatibility / compatibility between local and public versions
-    var url_params = `sketch_id=${params.sketch_id}&code=${params.code}`
+    var url_params
+    if(params.sketch_id) {
+       url_params = `sketch_id=${params.sketch_id}`
+    } else {
+      url_params = `sketch_id=${params.sketch_id}&code=${params.code}`
+    }
     // } else {
     //   url_params = params.map( (param, index) => `${param.label}=${param.value}`).join('&')
     // }
-    console.log('url params', url_params)
+  //  console.log('url params', url_params)
     let newurl = window.location.protocol + '//' +
     window.location.host + window.location.pathname + '?' + url_params
   //  window.location.href = newurl

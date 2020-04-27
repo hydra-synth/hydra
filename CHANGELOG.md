@@ -1,4 +1,11 @@
 # Changelog
+## [1.2.3] - 2020-04-26
+### Added
+ - Added new examples
+
+### Changed
+ - does not load code to url when found in database
+
 ## [1.2.2] - 2020-04-26
 ### Changed
  - checks whether is ios in order to specify precision value
