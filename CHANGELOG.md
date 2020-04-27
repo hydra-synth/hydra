@@ -1,4 +1,9 @@
 # Changelog
+## [1.2.4] - 2020-04-27
+### Fixed
+ - Initial example loading
+ - pb.setStream()
+
 ## [1.2.3] - 2020-04-26
 ### Added
  - Added new examples
