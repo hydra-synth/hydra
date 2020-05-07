@@ -11,6 +11,7 @@ class Menu {
     // variables related to popup window
     this.closeButton = document.getElementById("close-icon")
     this.clearButton =  document.getElementById("clear-icon")
+    this.formatButton =  document.getElementById("format-icon")
     this.shareButton =  document.getElementById("share-icon")
     this.shuffleButton = document.getElementById("shuffle-icon")
     this.mutatorButton = document.getElementById("mutator-icon")
@@ -21,6 +22,7 @@ class Menu {
     this.shuffleButton.onclick = this.shuffleSketches.bind(this)
     this.shareButton.onclick = this.shareSketch.bind(this)
     this.clearButton.onclick = this.clearAll.bind(this)
+    this.formatButton.onclick = this.formatCode.bind(this)
     this.closeButton.onclick = () => {
       if(!this.isClosed) {
         this.closeModal()
@@ -29,7 +31,7 @@ class Menu {
       }
     }
 
-	   this.mutatorButton.onclick = this.mutateSketch.bind(this);
+    this.mutatorButton.onclick = this.mutateSketch.bind(this)
     this.isClosed = false
     this.closeModal()
   }
@@ -94,6 +96,7 @@ class Menu {
     this.closeButton.className = "fas fa-question-circle icon"
     this.shareButton.classList.remove('hidden')
     this.clearButton.classList.remove('hidden')
+    this.formatButton.classList.remove('hidden')
     this.mutatorButton.classList.remove('hidden');
     this.runButton.classList.remove('hidden');
     this.editorText.style.opacity = 1
@@ -105,6 +108,7 @@ class Menu {
     this.closeButton.className = "fas fa-times icon"
     this.shareButton.classList.add('hidden')
     this.clearButton.classList.add('hidden')
+    this.formatButton.classList.add('hidden')
     this.mutatorButton.classList.add('hidden');
     this.runButton.classList.add('hidden');
     this.editorText.style.opacity = 0.0
