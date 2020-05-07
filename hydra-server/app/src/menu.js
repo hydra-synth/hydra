@@ -1,5 +1,6 @@
 const repl = require('./repl.js')
-
+const prettier = require("prettier/standalone")
+const parserBabel = require("prettier/parser-babel");
 
 class Menu {
   constructor (obj) {
@@ -46,6 +47,14 @@ class Menu {
     this.sketches.setRandomSketch()
     this.editor.setValue(this.sketches.code)
     repl.eval(this.editor.getValue())
+  }
+
+  formatCode() {
+    this.editor.setValue(prettier.format(this.editor.getValue(), {
+      parser: "babel",
+      plugins: [parserBabel],
+      printWidth: 50
+    }))
   }
 
   shareSketch() {

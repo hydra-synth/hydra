@@ -21,6 +21,12 @@ module.exports = {
             menu.shareSketch()
           }
 
+          // shift - ctrl - F: format code
+          if (e.keyCode === 70) {
+            e.preventDefault()
+            menu.formatCode()
+          }
+
           // shift - ctrl - l: save to url
           if(e.keyCode === 76) {
             e.preventDefault()
