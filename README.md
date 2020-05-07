@@ -29,6 +29,8 @@ Go to https://hydra-editor.glitch.me
 * CTRL-Shift-S: Save screenshot and download as local file
 * CTRL-Shift-G: Share to twitter (if available). Shares to [@hydra_patterns](https://twitter.com/hydra_patterns)
 
+For macOS users, CMD/Meta can be used in place of CTRL
+
 All code can be run either from the in-browser text editor or from the browser console.
 
 Check [@hydra_patterns](https://twitter.com/hydra_patterns) for patterns folks have shared as an easy way to get started.
