@@ -167,15 +167,15 @@ class Gallery {
     console.log("examples length", this.examples, this.exampleIndex)
     if(this.examples.length > 0) {
       let index
-      if(this.exampleIndex === null) {
+      // if(this.exampleIndex === null) {
         index = Math.floor(Math.random() * this.examples.length)
         while (index === this.exampleIndex) {
           index = Math.floor(Math.random() * this.examples.length)
         }
-      } else {
-        index = this.exampleIndex +1
-        if(index >= this.examples.length) index = 0
-      }
+      // } else {
+      //   index = this.exampleIndex +1
+      //   if(index >= this.examples.length) index = 0
+      // }
       this.exampleIndex = index
     //  console.log('example is', this.examples[rand])
       this.setSketch(this.examples[index])
