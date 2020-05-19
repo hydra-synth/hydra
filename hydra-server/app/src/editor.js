@@ -30,6 +30,9 @@ var EditorClass = function () {
     styleSelectedText: true
   })
 
+  console.log('code mirror', this.cm)
+	//this.cm.removeKeyMap()
+
   this.cm.refresh()
 
   this.show()
@@ -62,17 +65,21 @@ EditorClass.prototype.getValue = function () {
 EditorClass.prototype.hide = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
   var m = document.getElementById('modal-header')
-  l.style.opacity = 0
-//  this.logElement.style.opacity  = 0
-  m.style.opacity = 0
+//   l.style.opacity = 0
+// //  this.logElement.style.opacity  = 0
+//   m.style.opacity = 0
+l.style.display = 'none'
+m.style.display = 'none'
   this.isShowing = false
 }
 
 EditorClass.prototype.show = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
   var m = document.getElementById('modal-header')
-  l.style.opacity= 1
-  m.style.opacity = 1
+  // l.style.opacity= 1
+  // m.style.opacity = 1
+	l.style.display = 'block'
+	m.style.display = 'flex'
 //  this.logElement.style.opacity  = 1
   this.isShowing = true
 }
@@ -94,6 +101,8 @@ EditorClass.prototype.getLine = function () {
 }
 
 EditorClass.prototype.flashCode = function (start, end) {
+	  if(!start) start = {line: this.cm.firstLine(), ch:0}
+		if(!end) end = {line: this.cm.lastLine() + 1, ch:0}
     var marker = this.cm.markText(start, end, {className: 'styled-background'})
     setTimeout(() =>   marker.clear(), 300)
 }

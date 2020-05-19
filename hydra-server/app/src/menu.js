@@ -1,5 +1,6 @@
 const repl = require('./repl.js')
-
+const prettier = require("prettier/standalone")
+const parserBabel = require("prettier/parser-babel");
 
 class Menu {
   constructor (obj) {
@@ -13,8 +14,10 @@ class Menu {
     this.shareButton =  document.getElementById("share-icon")
     this.shuffleButton = document.getElementById("shuffle-icon")
     this.mutatorButton = document.getElementById("mutator-icon")
+    this.runButton = document.getElementById("run-icon")
     this.editorText = document.getElementsByClassName('CodeMirror-scroll')[0]
 
+    this.runButton.onclick = this.runAll.bind(this)
     this.shuffleButton.onclick = this.shuffleSketches.bind(this)
     this.shareButton.onclick = this.shareSketch.bind(this)
     this.clearButton.onclick = this.clearAll.bind(this)
@@ -26,9 +29,17 @@ class Menu {
       }
     }
 
-	this.mutatorButton.onclick = this.mutateSketch.bind(this);
+	   this.mutatorButton.onclick = this.mutateSketch.bind(this);
     this.isClosed = false
     this.closeModal()
+  }
+
+  runAll() {
+    repl.eval(this.editor.getValue(), (string, err) => {
+    //  console.log('eval', err)
+     this.editor.flashCode()
+      if(!err) this.sketches.saveLocally(this.editor.getValue())
+    })
   }
 
   shuffleSketches() {
@@ -36,6 +47,14 @@ class Menu {
     this.sketches.setRandomSketch()
     this.editor.setValue(this.sketches.code)
     repl.eval(this.editor.getValue())
+  }
+
+  formatCode() {
+    this.editor.setValue(prettier.format(this.editor.getValue(), {
+      parser: "babel",
+      plugins: [parserBabel],
+      printWidth: 50
+    }))
   }
 
   shareSketch() {
@@ -76,6 +95,7 @@ class Menu {
     this.shareButton.classList.remove('hidden')
     this.clearButton.classList.remove('hidden')
     this.mutatorButton.classList.remove('hidden');
+    this.runButton.classList.remove('hidden');
     this.editorText.style.opacity = 1
     this.isClosed = true
   }
@@ -86,6 +106,7 @@ class Menu {
     this.shareButton.classList.add('hidden')
     this.clearButton.classList.add('hidden')
     this.mutatorButton.classList.add('hidden');
+    this.runButton.classList.add('hidden');
     this.editorText.style.opacity = 0.0
     this.isClosed = false
   }

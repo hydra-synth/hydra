@@ -23,21 +23,28 @@ class Gallery {
       this.setSketchFromURL(callback)
     //  callback(this.code, this.foundSketch)
     // })
+    window.addEventListener('popstate', (event) => {
+      this.setSketchFromURL(callback)
+    console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  });
+    this.setRandomSketch = this.setRandomSketch.bind(this)
   }
 
   clear() {
     this.current = null
     this.code = null
-    this.exampleIndex = null
+    //this.exampleIndex = null
     let newurl = window.location.protocol + '//' + window.location.host + window.location.pathname
     window.history.pushState({ path: newurl }, '', newurl)
     this.url = newurl
   }
 
   setSketchFromURL(callback) {
+    hush()
+    render(o0)
     let searchParams = new URLSearchParams(window.location.search)
     let base64Code = searchParams.get('code')
-    if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
+  //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
     let sketch_id = searchParams.get('sketch_id')
     let code = ''
     console.log("id", sketch_id, "code", base64Code)
@@ -46,36 +53,42 @@ class Gallery {
     this.foundSketch = false
     // if contains a sketch id, set sketch from id
     if(sketch_id) {
-      //var sketch = this.getSketchById(sketch_id)
-      request
-        .get('/sketchById')
-        .query({sketch_id: sketch_id})
-        .end((err, res) => {
-          console.log('got sketches', res.text, err)
-          if(err) {
-            console.log('err getting sketches', err)
-            this.setSketchFromCode(base64Code, callback)
-          } else {
-            this.sketches = JSON.parse(res.text)
-            if(this.sketches.length > 0) {
-              this.setSketch(this.sketches[0])
-              //this.code = this.decodeBase64(this.sketches[0].code)
-              this.foundSketch = true
-              callback(this.code, this.foundSketch)
-            } else {
+      var sketch = this.getExampleById(sketch_id)
+      if(sketch) {
+        console.log('found', sketch)
+          this.setSketch(sketch)
+          callback(this.code, false)
+      } else {
+        request
+          .get('/sketchById')
+          .query({sketch_id: sketch_id})
+          .end((err, res) => {
+            console.log('got sketches', res.text, err)
+            if(err) {
+              console.log('err getting sketches', err)
               this.setSketchFromCode(base64Code, callback)
+            } else {
+              this.sketches = JSON.parse(res.text)
+              if(this.sketches.length > 0) {
+                this.setSketch(this.sketches[0])
+                //this.code = this.decodeBase64(this.sketches[0].code)
+                this.foundSketch = true
+                callback(this.code, this.foundSketch)
+              } else {
+                this.setSketchFromCode(base64Code, callback)
+              }
             }
-          }
-        })
+          })
+        }
+
       } else {
         this.setSketchFromCode(base64Code, callback)
       }
     //
-    //
     //   // console.log('found ', sketch)
     //   // if(sketch) {
     //   //   this.setSketch(sketch)
-    //   //   this.foundSketch = true0
+    //   //   this. = true0
     //   // } else if (base64Code){
     //   //   this.code = this.decodeBase64(base64Code)
     //   //   this.foundSketch = true
@@ -113,16 +126,22 @@ class Gallery {
   setToURL(params){
     //       console.log(base64)
     console.log('params', params)
-
     // keep code in url for backwards compatibility / compatibility between local and public versions
-    var url_params = `sketch_id=${params.sketch_id}&code=${params.code}`
+    var url_params
+    if(params.sketch_id) {
+       url_params = `sketch_id=${params.sketch_id}`
+    } else {
+      url_params = `sketch_id=${params.sketch_id}&code=${params.code}`
+    }
     // } else {
     //   url_params = params.map( (param, index) => `${param.label}=${param.value}`).join('&')
     // }
-    console.log('url params', url_params)
+  //  console.log('url params', url_params)
     let newurl = window.location.protocol + '//' +
     window.location.host + window.location.pathname + '?' + url_params
-    window.history.pushState({ path: newurl }, '', newurl)
+  //  window.location.href = newurl
+
+    window.history.replaceState({ path: newurl }, '', newurl)
     this.url = newurl
   }
 
@@ -145,15 +164,21 @@ class Gallery {
 
   setRandomSketch() {
     // if there are sketches, set code from sketch, otherwise generate random
-    console.log("examples length", this.examples)
+    console.log("examples length", this.examples, this.exampleIndex)
     if(this.examples.length > 0) {
-      let rand = Math.floor(Math.random() * this.examples.length)
-      while (rand === this.exampleIndex) {
-        rand = Math.floor(Math.random() * this.examples.length)
+      let index
+      if(this.exampleIndex === null) {
+        index = Math.floor(Math.random() * this.examples.length)
+        while (index === this.exampleIndex) {
+          index = Math.floor(Math.random() * this.examples.length)
+        }
+      } else {
+        index = this.exampleIndex +1
+        if(index >= this.examples.length) index = 0
       }
-      this.exampleIndex = rand
-      console.log('example is', this.examples[rand])
-      this.setSketch(this.examples[rand])
+      this.exampleIndex = index
+    //  console.log('example is', this.examples[rand])
+      this.setSketch(this.examples[index])
     } else {
       var startString = 'osc(' + 2 + Math.floor(Math.pow(10, Math.random() * 2)) + ')'
       startString += '.color(' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2) + ',' + Math.random().toFixed(2)+ ')'
@@ -235,10 +260,26 @@ class Gallery {
       })
   }
 
-  getSketchById(id) {
-    console.log('looking for', id)
-    var sketch = this.sketches.filter((sketch) => sketch.sketch_id === id)
-    return sketch[0]
+  saveLocally(code) {
+    let base64 = this.encodeBase64(code)
+
+    // keep code in url for backwards compatibility / compatibility between local and public versions
+    var url_params = `code=${base64}`
+    // } else {
+    //   url_params = params.map( (param, index) => `${param.label}=${param.value}`).join('&')
+    // }
+    console.log('url params', url_params)
+    let newurl = window.location.protocol + '//' +
+    window.location.host + window.location.pathname + '?' + url_params
+    window.history.pushState({ path: newurl }, '', newurl)
+    this.url = newurl
+  }
+
+  getExampleById(id) {
+    console.log('looking for', id, this.examples, this.sketches)
+    var sketches =  this.examples.filter((sketch) => sketch.sketch_id === id)
+    if(sketches.length <= 0) sketches = this.sketches.filter((sketch) => sketch.sketch_id === id)
+    return sketches[0]
   }
 }
 

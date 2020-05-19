@@ -25,6 +25,7 @@ Go to https://hydra-editor.glitch.me
 * CTRL-Shift-Enter: run all code on screen
 * ALT-Enter: run a block
 * CTRL-Shift-H: hide or show code
+* CTRL-Shift-F: format code using [Prettier](https://prettier.io/)
 * CTRL-Shift-S: Save screenshot and download as local file
 * CTRL-Shift-G: Share to twitter (if available). Shares to [@hydra_patterns](https://twitter.com/hydra_patterns)
 

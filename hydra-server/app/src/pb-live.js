@@ -58,7 +58,13 @@ PBLive.prototype.init = function (stream, opts) {
   this.on('stream', function (id, stream) {
     console.log('got stream!', id, stream)
     const video = document.createElement('video')
-    video.src = window.URL.createObjectURL(stream)
+    if ('srcObject' in video) {
+      video.srcObject = stream
+    } else {
+      // Avoid using this in new browsers, as it is going away.
+      video.src = window.URL.createObjectURL(stream)
+    }
+  //  video.src = window.URL.createObjectURL(stream)
     video.addEventListener('loadedmetadata', () => {
       //  console.log("loaded meta22")
       video.play()
