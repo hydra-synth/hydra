@@ -13,8 +13,9 @@ module.exports = (app) => {
 
 
   const Datastore = require('nedb')
-   var db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
+   var db = new Datastore({ filename: path.join(__dirname, '/db/saved_sketches'), autoload: true})
 
+ console.log('dir is', __dirname)
     var sketches = []
 
     db.count({}, function (err, count) {
