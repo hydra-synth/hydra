@@ -10,7 +10,7 @@ if(process.env.CONSUMER_KEY) {
 var server;
 const path = require('path')
 const Datastore = require('nedb')
-  db = new Datastore({ filename: './hydra-server/db/saved_sketches', autoload: true})
+  db = new Datastore({ filename: path.join(__dirname, '/db/saved_sketches', autoload: true})
 
 // check whether on glitch. If on glitch, use http because glitch automatically creates https.
 if(process.env.GLITCH) {

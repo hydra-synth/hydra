@@ -6,8 +6,8 @@ var config = {
         access_token: process.env.ACCESS_TOKEN,
         access_token_secret: process.env.ACCESS_TOKEN_SECRET
       },
-      public_url: 'https://hydra-editor-v1.glitch.me/'
-
+      // public_url: 'https://hydra-editor-v1.glitch.me/'
+      public_url: 'https://hydra.ojack.xyz'
     },
     Twit = require('twit'),
     T = new Twit(config.twitter);
