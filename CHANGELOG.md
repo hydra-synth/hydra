@@ -23,4 +23,4 @@
  - Run button
  - Code reloaded on url change
  - Code is saved on Ctrl+shift+enter
- - Code flash for Ctr+shift+enter
+ - Code flash for Ctrl+shift+enter

@@ -15,7 +15,7 @@ module.exports = (app) => {
   const Datastore = require('nedb')
    var db = new Datastore({ filename: path.join(__dirname, '/db/saved_sketches'), autoload: true})
 
- console.log('dir is', __dirname)
+ //console.log('dir is', __dirname)
     var sketches = []
 
     db.count({}, function (err, count) {
@@ -91,6 +91,7 @@ module.exports = (app) => {
        }
     })
 
+  //  console.log('envv', process.env)
     if(process.env.CONSUMER_KEY) {
      const upload = multer({ storage: storage });
      app.post("/image", upload.single('previewImage'), (req, res) => {

@@ -13,7 +13,6 @@ const configureSSL = require('./configure-ssl.js')
 //
 // TURN server access
 var twilio = require('twilio')
-require('dotenv').config()
 
 //console.log('process', process.env)
 
