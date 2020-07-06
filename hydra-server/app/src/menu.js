@@ -84,6 +84,7 @@ class Menu {
 
   clearAll() {
     hush()
+    speed = 1
     this.sketches.clear()
     this.editor.clear()
     //@todo: add clear/reset function to hydra
