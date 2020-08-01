@@ -52,6 +52,10 @@ module.exports = {
           //  console.log('eval line')
             repl.eval(editor.getLine())
           }
+          // ctrl-space: autoComplete
+          if ( e.keyCode === 32) {
+            repl.eval(editor.autoComplete())
+          }
         }
         // ctrl - /: toggle comment
         if (e.keyCode === 191) {

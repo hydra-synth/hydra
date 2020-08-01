@@ -139,5 +139,232 @@ EditorClass.prototype.getCurrentBlock = function () { // thanks to graham wakefi
 }
 
 
+EditorClass.prototype.autoComplete = function () {
+  var editor = this.cm
+  var pos = editor.getCursor()
+  var startline = pos.line
 
+  var found = true;
+  var pos1 = {
+    line: startline,
+    ch: pos.ch - 2
+  }
+  var pos2 = {
+    line: startline,
+    ch: pos.ch
+  }
+  // 2 chars
+  var str = editor.getRange(pos1, pos2)
+  console.log(str);
+  switch (str) {
+    case 'mx':
+      editor.replaceRange('modulateRepeatX(osc(10), reps = 5.0, offset = () => Math.sin(time) * 5)', pos1, pos2)
+      pos1.ch += 16;
+      pos2.ch += 17;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'my':
+      editor.replaceRange('modulateRepeatY(osc(10), reps = 5.0, offset = () => Math.sin(time) * 5)', pos1, pos2)
+      pos1.ch += 16;
+      pos2.ch += 17;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'mr':
+      editor.replaceRange('modulateRotate(noise(10), multiple = 1.0, offset = 1.0)', pos1, pos2)
+      pos1.ch += 15;
+      pos2.ch += 18;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'mk':
+      editor.replaceRange('modulateKaleid(o0, sides = 5.0)', pos1, pos2)
+      pos1.ch += 15;
+      pos2.ch += 15;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'ms':
+      editor.replaceRange('modulateScale(osc(10), multiple = 1.0, offset = 1.0)', pos1, pos2)
+      pos1.ch += 14;
+      pos2.ch += 15;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'mp':
+      editor.replaceRange('modulatePixelate(osc(10), multiple = 1.0, offset = 1.0)', pos1, pos2)
+      pos1.ch += 17;
+      pos2.ch += 19;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'sa':
+      editor.replaceRange('saturate(0.1)', pos1, pos2)
+      pos1.ch += 9;
+      pos2.ch += 10;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'la':
+      editor.replaceRange('layer(shape(7))', pos1, pos2)
+      pos1.ch += 9;
+      pos2.ch += 10;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'ch':
+      editor.replaceRange('chromatic(o0, offsetX = 0.1, offsetY = 0.1)', pos1, pos2)
+      pos1.ch += 10;
+      pos2.ch += 11;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'sx':
+      editor.replaceRange('modulateScrollX(o0, scrollX = 0.1, speed = 0.01)', pos1, pos2)
+      pos1.ch += 16;
+      pos2.ch += 16;
+      editor.setSelection(pos1, pos2)
+      break;
+    case 'sy':
+      editor.replaceRange('modulateScrollY(o0, scrollY = 0.1, speed = 0.01)', pos1, pos2)
+      pos1.ch += 16;
+      pos2.ch += 16;
+      editor.setSelection(pos1, pos2)
+      break;
+    default:
+      found = false;
+      break;
+  } // 2 char switch end
+  // 1 char
+  if (!found) {
+    pos1 = {
+      line: pos.line,
+      ch: pos.ch - 1
+    }
+    found = true;
+    var str = editor.getRange(pos1, pos2)
+    switch (str) {
+      // frag vars
+      case '2':
+        editor.replaceRange('vec2 vv = vec2(0.0, 0.0);', pos1, pos2)
+        pos1.ch += 5;
+        pos2.ch += 6;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '3':
+        editor.replaceRange('vec3 vvv = vec3(0.0, 0.0, 0.0);', pos1, pos2)
+        pos1.ch += 5;
+        pos2.ch += 7;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '4':
+        editor.replaceRange('vec4 vvvv = vec4(0.0, 0.0, 0.0, 0.0);', pos1, pos2)
+        pos1.ch += 5;
+        pos2.ch += 8;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '1':
+        editor.replaceRange('float f = 0.0;', pos1, pos2)
+        pos1.ch += 6;
+        pos2.ch += 6;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '{':
+        editor.replaceRange(`{;}`, pos1, pos2)
+        break;
+      case '(':
+        editor.replaceRange(`()`, pos1, pos2)
+        break;
+      case '[':
+        editor.replaceRange(`[]`, pos1, pos2)
+        break;
+      // frag functions
+      case 'f':
+        editor.replaceRange(`float fcf(in vec3 pos) {float f = 0.0;return f;}`, pos1, pos2)
+        pos1.ch += 6;
+        pos2.ch += 8;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 'g':
+        editor.replaceRange(`vec2 fc2(in vec3 pos) {vec2 vv = vec2(0.0, 0.0);return vv;}`, pos1, pos2)
+        pos1.ch += 5;
+        pos2.ch += 7;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 'h':
+        editor.replaceRange(`vec3 fc3(in vec3 pos) {vec3 vvv = vec3(0.0, 0.0, 0.0);return vvv;}`, pos1, pos2)
+        pos1.ch += 5;
+        pos2.ch += 7;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 'j':
+        editor.replaceRange(`vec4 fc4(in vec3 pos) {vec4 vvvv = vec4(0.0, 0.0, 0.0, 0.0);return vvvv;}`, pos1, pos2)
+        pos1.ch += 5;
+        pos2.ch += 7;
+        editor.setSelection(pos1, pos2)
+        break;
+      // hydra functions
+      case 't':
+        editor.replaceRange(`() => Math.sin(time) * 1.0`, pos1, pos2)
+        pos1.ch += 23;
+        pos2.ch += 23;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 'a':
+        editor.replaceRange(`() => a.fft[1] * 1.0`, pos1, pos2)
+        pos1.ch += 12;
+        pos2.ch += 12;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 'm':
+        editor.replaceRange(`() => cc[11] * 1.0`, pos1, pos2)
+        pos1.ch += 10;
+        pos2.ch += 10;
+        editor.setSelection(pos1, pos2)
+        break;
+      // for
+      case 'r':
+        editor.replaceRange('for (int i=0; i<2 ;i++) { }', pos1, pos2)
+        pos1.ch += 25;
+        pos2.ch += 25;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 's':
+        editor.replaceRange('Math.sin(time)', pos1, pos2)
+        pos1.ch += 4;
+        pos2.ch += 7;
+        editor.setSelection(pos1, pos2)
+        break;
+      case 'c':
+        editor.replaceRange('Math.cos(time)', pos1, pos2)
+        pos1.ch += 4;
+        pos2.ch += 7;
+        editor.setSelection(pos1, pos2)
+        break;
+      // if   
+      case '=':
+        editor.replaceRange('if (i==0.0) { } else { }', pos1, pos2)
+        pos1.ch += 13;
+        pos2.ch += 13;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '>':
+        editor.replaceRange('if (i>0.0) { } else { }', pos1, pos2)
+        pos1.ch += 12;
+        pos2.ch += 12;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '<':
+        editor.replaceRange('if (i<0.0) { } else { }', pos1, pos2)
+        pos1.ch += 12;
+        pos2.ch += 12;
+        editor.setSelection(pos1, pos2)
+        break;
+      case '#':
+        editor.replaceRange(`#if V==1
+          #else
+          #endif`, pos1, pos2)
+        pos1.ch += 4;
+        pos2.ch += 4;
+        editor.setSelection(pos1, pos2)
+        break;
+
+      default:
+        found = false;
+        break;
+    }
+  }
+}
 module.exports = EditorClass
