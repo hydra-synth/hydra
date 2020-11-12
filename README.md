@@ -99,6 +99,19 @@ osc(21, 0).modulate(o1).out(o0)
 osc(40).rotate(1.57).out(o1)
 ```
 
+use a video as a source:
+```
+s0.initVideo("https://media.giphy.com/media/AS9LIFttYzkc0/giphy.mp4")
+src(s0).out()
+```
+
+
+use an image as a source:
+```
+s0.initImage("https://upload.wikimedia.org/wikipedia/commons/2/25/Hydra-Foto.jpg")
+src(s0).out()
+```
+
 #### Passing functions as variables
 Each parameter can be defined as a function rather than a static variable. For example,
 ```
