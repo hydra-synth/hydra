@@ -6,15 +6,15 @@
   "scripts": {
     "start": "node ./hydra-server/server.js",
     "dev": "npm run start & npm run watch",
-    "watch": "watchify ./hydra-server/app/index.js -o ./hydra-server/public/bundle.js",
-    "build-main": "browserify ./hydra-server/app/index.js -o ./hydra-server/public/bundle.js",
+    "uglify": "terser ./hydra-server/public/bundle.js --source-map \"content=inline\" -o hydra-server/public/bundle.min.js",
+    "watch": "watchify ./hydra-server/app/index.js --debug -v -o ./hydra-server/public/bundle.js",
+    "build-main": "browserify ./hydra-server/app/index.js --debug -o ./hydra-server/public/bundle.js && npm run uglify",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "./scripts/docs.js docs/funcs.md"
   },
   "author": "Olivia Jack",
   "license": "AGPL",
   "dependencies": {
-    "acorn": "^6.1.1",
     "astravel": "^0.5.0",
     "astring": "^1.4.0",
     "bitly": "^6.0.8",
@@ -41,8 +41,13 @@
     "webrtc-adapter": "^6.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "babelify": "^10.0.0",
     "browserify": "^16.2.3",
     "standard": "^11.0.1",
+    "terser": "^5.3.8",
+    "uglify-js": "^3.11.5",
+    "uglifyify": "^5.0.2",
     "watchify": "^3.11.1"
   }
 }
