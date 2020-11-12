@@ -41,13 +41,9 @@
     "webrtc-adapter": "^6.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "babelify": "^10.0.0",
     "browserify": "^16.2.3",
     "standard": "^11.0.1",
     "terser": "^5.3.8",
-    "uglify-js": "^3.11.5",
-    "uglifyify": "^5.0.2",
     "watchify": "^3.11.1"
   }
 }
