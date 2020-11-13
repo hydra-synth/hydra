@@ -13,9 +13,12 @@ function init () {
   window.pb = pb
   window.P5 = P5
 
+
   var canvas = document.getElementById('hydra-canvas')
-  canvas.width = window.innerWidth * window.devicePixelRatio
-  canvas.height = window.innerHeight * window.devicePixelRatio
+  // canvas.width = window.innerWidth * window.devicePixelRatio
+  // canvas.height = window.innerHeight * window.devicePixelRatio
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight 
   canvas.style.width = '100%'
   canvas.style.height = '100%'
   canvas.style.imageRendering = 'pixelated'
