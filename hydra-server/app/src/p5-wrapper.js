@@ -27,11 +27,11 @@ class P5 extends p5lib{
   }
 
   show() {
-    this.canvas.style.zIndex = -1
+    this.canvas.style.visibility = "visible"
   }
 
   hide() {
-    this.canvas.style.zIndex = -10
+    this.canvas.style.visibility = "hidden"
   }
 
   // p5 clear function not covering canvas
