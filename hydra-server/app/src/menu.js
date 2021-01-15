@@ -117,6 +117,7 @@ class Menu {
       this.editor.mutator.doUndo();
   	} else {
       this.editor.mutator.mutate({reroll: false});
+      this.formatCode();
     }
   }
 }
