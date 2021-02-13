@@ -1,4 +1,8 @@
 # Changelog
+## [1.2.5] - 2021-02-13
+### Changed
+ - Updated Mutator by Jamie Fenton
+ 
 ## [1.2.4] - 2020-04-27
 ### Fixed
  - Initial example loading

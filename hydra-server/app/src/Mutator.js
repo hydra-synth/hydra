@@ -3,6 +3,7 @@ const {generate} = require('astring');
 const { defaultTraveler, attachComments, makeTraveler } = require('astravel');
 const {UndoStack} = require('./UndoStack.js');
 const repl = require('./repl.js')
+const glslTransforms = require('hydra-synth/src/glsl/glsl-functions.js')
 
 class Mutator {
 
@@ -11,8 +12,49 @@ class Mutator {
     this.undoStack = new UndoStack();
 
     this.initialVector = [];
+
+    this.funcTab = {};
+    this.transMap = {};
+		this.scanFuncs();
+		this.dumpDict();
   }
 
+  dumpList() {
+  	let gslTab = glslTransforms;
+  	gslTab.forEach (v => {
+  		var argList = "";
+  		v.inputs.forEach((a) => {
+  			if (argList != "") argList += ", ";
+  			let argL = a.name + ": " + a.type + " {" + a.default + "}";
+  			argList = argList + argL;
+  		});
+  		console.log(v.name + " [" + v.type + "] ("+ argList + ")");
+  	});
+  }
+
+  scanFuncs() {
+  	let gslTab = glslTransforms;
+  	gslTab.forEach (f => {
+  		this.transMap[f.name] = f;
+  		if (this.funcTab[f.type] === undefined) {this.funcTab[f.type] = []}
+			this.funcTab[f.type].push(f);
+  	});
+  }
+
+	dumpDict() {
+		for(let tn in this.funcTab)
+		{
+			this.funcTab[tn].forEach(f => {
+  		var argList = "";
+  		f.inputs.forEach((a) => {
+  			if (argList != "") argList += ", ";
+  			let argL = a.name + ": " + a.type + " {" + a.default + "}";
+  			argList = argList + argL;
+  		});
+  		console.log(f.name + " [" + f.type + "] ("+ argList + ")");
+			});
+    }
+	}
 
   mutate(options) {
     // Get text from CodeMirror.
@@ -29,7 +71,6 @@ class Mutator {
         );
 
         // Modify the AST.
-
         this.transform(ast, options);
 
         // Put the comments back.
@@ -39,7 +80,7 @@ class Mutator {
         let regen = generate(ast, {comments: true});
 
         this.editor.cm.setValue(regen);
-
+				try {
         // Evaluate the updated expression.
         repl.eval(regen, (code, error) => {
             // If we got an error, keep trying something else.
@@ -48,6 +89,10 @@ class Mutator {
             }
             needToRun = error;
         });
+      } catch (err) {
+      	console.log("Exception caught: " + err);
+      	needToRun = err;
+      }
      }
   }
 
@@ -111,24 +156,34 @@ class Mutator {
 
     traveler.go(ast, state);
 
-    let litCount = state.literalTab.length;
-    let funCount = state.functionTab.length;
-    if (litCount !== this.initialVector.length) {
+    this.litCount = state.literalTab.length;
+    this.funCount = state.functionTab.length;
+    if (this.litCount !== this.initialVector.length) {
         let nextVect = [];
-        for(let i = 0; i < litCount; ++i) {
+        for(let i = 0; i < this.litCount; ++i) {
             nextVect.push(state.literalTab[i].value);
         }
         this.initialVector = nextVect;
     }
-    let litx = 0;
+    if (options.changeTransform) {
+    	this.glitchTrans(state, options);
+    }
+    else this.glitchLiteral(state, options);
+
+}
+
+	glitchLiteral(state, options)
+	{
+		let litx = 0;
     if (options.reroll) {
         if (this.lastLitX !== undefined) {
             litx = this.lastLitX;
         }
     } else {
-        litx = Math.floor(Math.random() * litCount);
+        litx = Math.floor(Math.random() * this.litCount);
         this.lastLitX = litx;
     }
+
     let modLit = state.literalTab[litx];
     if (modLit) {
         // let glitched = this.glitchNumber(modLit.value);
@@ -138,8 +193,8 @@ class Mutator {
         modLit.raw = "" + glitched;
         console.log("Literal: " + litx + " changed from: " + was + " to: " + glitched);
     }
+	}
 
-}
   glitchNumber(num) {
     if (num === 0) {
         num = 1;
@@ -159,6 +214,48 @@ class Mutator {
     let rndVal = Math.round(Math.random() * initVal * 2 * 1000) / 1000;
     return rndVal;
 }
+	glitchTrans(state, options)
+	{
+/*
+		state.functionTab.forEach((f)=>{
+			console.log(f.callee.property.name);
+		});
+*/
+		let funx = Math.floor(Math.random() * this.funCount);
+		if (state.functionTab[funx] === undefined || state.functionTab[funx].callee === undefined || state.functionTab[funx].callee.property === undefined) {
+				  	console.log("No valid functionTab for index: " + funx);
+	  				return;
+		}
+		let oldName = state.functionTab[funx].callee.property.name;
+
+	  if (oldName == undefined) {
+	  	console.log("No name for callee");
+	  	return;
+	  }
+		let ftype = this.transMap[oldName].type;
+		if (ftype == undefined) {
+			console.log("ftype undefined for: " + oldName);
+			return;
+		}
+		let others = this.funcTab[ftype];
+		if (others == undefined) {
+			console.log("no funcTab entry for: " + ftype);
+			return;
+		}
+		let changeX = Math.floor(Math.random() * others.length);
+		let become = others[changeX].name;
+
+		// check blacklisted combinations.
+		if (oldName === "modulate" && become === "modulateScrollX")
+		{
+			console.log("Function: " + funx + " changing from: " + oldName + " can't change to: " + become);
+			return;
+		}
+
+		state.functionTab[funx].callee.property.name = become;
+    console.log("Function: " + funx + " changed from: " + oldName + " to: " + become);
+	}
+
 } //  End of class Mutator.
 
 module.exports = Mutator
