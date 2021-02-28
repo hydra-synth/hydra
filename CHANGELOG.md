@@ -1,4 +1,8 @@
 # Changelog
+## [1.2.7] - 2021-02-28
+### Changed
+ - Updated p5.js
+
 ## [1.2.6] - 2021-02-28
 ### Changed
  - Saved Mutator updates into URL state

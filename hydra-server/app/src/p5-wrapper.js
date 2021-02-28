@@ -1,7 +1,6 @@
 //'use babel'
 
 const p5lib = require('p5')
-require('p5/lib/addons/p5.dom')
 
 class P5 extends p5lib{
   constructor ({
