@@ -117,6 +117,7 @@ class Menu {
       this.editor.mutator.doUndo();
   	} else {
       this.editor.mutator.mutate({reroll: false, changeTransform: evt.metaKey});
+      this.formatCode();
       this.sketches.saveLocally(this.editor.getValue())
     }
   }

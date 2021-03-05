@@ -88,6 +88,7 @@ module.exports = {
         // down arrow
         if(e.keyCode === 40)  {
           editor.mutator.mutate({reroll: true, event: e})
+          menu.formatCode()
           gallery.saveLocally(editor.getValue())
         }
       }
