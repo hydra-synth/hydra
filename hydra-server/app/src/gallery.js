@@ -1,5 +1,7 @@
 const request = require('superagent')
 const examples = require('./examples.json')
+const {getFileHandle, getNewFileHandle, readFile, verifyPermission, writeFile} = require("./fs-helpers.js")
+
 const sketches = []
 
 
@@ -10,6 +12,9 @@ class Gallery {
     this.current = null
     this.code = null
     this.exampleIndex = null
+    this.playA = []
+    this.recordA = []
+    this.playerIndex = 0
 
     // request.get('/sketches').end((err, res) => {
     //   console.log('got sketches', res.text, err)
@@ -261,8 +266,13 @@ class Gallery {
   }
 
   saveLocally(code) {
-    let base64 = this.encodeBase64(code)
-
+  	let snapshot = {
+  		timeStamp: Date.now(),
+  		sketch:    code
+  	}
+  	this.recordA.push(snapshot)
+    let base64 = this.encodeBase64(code);
+    console.log("Save locally: " + code + "\n");
     // keep code in url for backwards compatibility / compatibility between local and public versions
     var url_params = `code=${base64}`
     // } else {
@@ -273,6 +283,7 @@ class Gallery {
     window.location.host + window.location.pathname + '?' + url_params
     window.history.pushState({ path: newurl }, '', newurl)
     this.url = newurl
+
   }
 
   getExampleById(id) {
@@ -281,6 +292,119 @@ class Gallery {
     if(sketches.length <= 0) sketches = this.sketches.filter((sketch) => sketch.sketch_id === id)
     return sketches[0]
   }
+
+async saveFile(e)
+{
+  	console.log("save\n");
+/**
+ * Saves a new file to disk.
+ */
+  let fileHandle;
+  try {
+    fileHandle = await getNewFileHandle();
+  } catch (ex) {
+    if (ex.name === 'AbortError') {
+      return;
+    }
+    const msg = 'An error occured trying to open the file.';
+    console.error(msg, ex);
+    alert(msg);
+    return;
+  }
+    try {
+    	let text = this.recordingToText()
+    	await writeFile(fileHandle, text);
+    	// recordingA = [];
+
+  } catch (ex) {
+    const msg = 'Unable to save file.';
+    console.error(msg, ex);
+    alert(msg);
+    return;
+  }
+}
+
+  async openFile(e)
+  {
+  	console.log("open\n");
+  	let fhand = await getFileHandle();
+		const file = await fhand.getFile();
+		let text = await readFile(file);
+	
+		this.loadPlayer(text);
+ 		// console.log(text);
+  }
+
+	recordingToText()
+	{
+		let stringBuff = [];
+		let pdT;
+
+		this.recordA.forEach( ent => {
+			if (pdT === undefined) {
+				pdT = ent.timeStamp
+			}
+			stringBuff.push("// dT=" + ((ent.timeStamp - pdT) / 1000.0) + ", " + new Date(ent.timeStamp).toLocaleString() + "\n");
+			pdT = ent.timeStamp
+			stringBuff.push(ent.sketch)
+			stringBuff.push("\n\n\n\n")
+		});
+		return stringBuff.join("")
+	}
+
+	loadPlayer(text) {
+		this.playerA = [];
+		let textA = text.split(/\r\n|\n/)
+		let aSize = textA.length
+		let ix = 0
+		let working = []
+		let runL = 0;
+		for (ix = 0; ix < aSize; ++ix) {
+			let ln = textA[ix]
+			if (ln.trim() === '' || ln.startsWith ("----")) {
+				runL++
+			} else
+			{
+				if (runL >= 3) {
+					// we have a split
+					if (working.length > 0) {
+						let sketch = working.join("\n")
+						this.playerA.push({timeStamp: 0, sketch: sketch})
+						working = []
+						}
+				}
+				// no split yet, reset count.
+				runL = 0;
+				working.push(ln)
+			}
+		}
+		// Deal with last entry if we must.
+		if (working.length > 0) {
+			let lastSketch = working.join("\n")
+			this.playerA.push({timeStamp: 0, sketch: lastSketch})
+		}
+		console.log(this.playerA)
+	}
+
+
+  moveUp(e)
+  {
+  	console.log("Up\n");
+  	playerIndex--;
+  	if (playerIndex < 0) playerIndex = 0
+  	
+  }
+  
+  moveDown(e)
+  {
+  	console.log("Down\n");
+		playerIndex++;
+  	if (playerIndex >= this.playerA.length) playerIndex = this.playerA.length - 1
+  }
+
+	mark(e) {
+		console.log("Mark\n");
+	}
 }
 
 module.exports = Gallery

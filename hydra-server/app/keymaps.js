@@ -61,39 +61,44 @@ module.exports = {
 
         // Point Mutation Glitcher Key Commands and history commands (left and right arrows)
         // right arrow key
+
         if(e.keyCode === 39) {
           e.preventDefault()
-          // if(e.shiftKey === true) {
-          //   editor.mutator.mutate({reroll: false})
-          // } else {
             window.history.forward()
-        //  }
         }
         // left arrow
         if(e.keyCode === 37) {
           e.preventDefault()
-          // if(e.shiftKey === true) {
-          //   console.log('redoing')
-          //   editor.mutator.doUndo()
-          // } else {
             window.history.back()
-        //  }
-        //  editor.mutator.doUndo()
+ 
         }
         // up arrow
         if(e.keyCode === 38) {
           e.preventDefault()
-          editor.mutator.doRedo()
+          gallery.moveUp(e);
         }
         // down arrow
         if(e.keyCode === 40)  {
-          editor.mutator.mutate({reroll: true, event: e})
-          menu.formatCode()
-          gallery.saveLocally(editor.getValue())
+        	e.preventDefault()
+        	gallery.moveDown(e)
         }
+
+        // shift - ctrl - W: saveFile
+        if(e.keyCode === 87) {
+          e.preventDefault()
+          gallery.saveFile(e);
+        }
+        // shift - ctrl - O: openFile
+        if(e.keyCode === 79) {
+        	e.preventDefault()
+        	gallery.openFile(e)
+        }
+        // shift - ctril - M: mark
+				if(e.keyCode === 77) {
+        	e.preventDefault()
+        	gallery.mark(e)
+        }  
       }
-
-
 
       if (e.altKey === true) {
         // alt - enter: evalBlock

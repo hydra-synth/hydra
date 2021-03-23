@@ -45,7 +45,7 @@ function init () {
     if(sketchFromURL) {
       menu.closeModal()
     } else {
-      menu.openModal()
+      menu.closeModal() // *** JFF Hack
     }
   })
   menu.sketches = sketches
