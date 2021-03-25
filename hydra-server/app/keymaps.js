@@ -1,5 +1,5 @@
 module.exports = {
-  init : ({ editor, gallery, menu, repl, log}) => {
+  init : ({ editor, gallery, playrec, menu, repl, log}) => {
     window.onkeydown = (e) => {
     //  console.log(e)
       if ( e.ctrlKey === true ) {
@@ -75,28 +75,28 @@ module.exports = {
         // up arrow
         if(e.keyCode === 38) {
           e.preventDefault()
-          gallery.moveUp(e);
+          playrec.moveUp(e);
         }
         // down arrow
         if(e.keyCode === 40)  {
         	e.preventDefault()
-        	gallery.moveDown(e)
+        	playrec.moveDown(e)
         }
 
         // shift - ctrl - W: saveFile
         if(e.keyCode === 87) {
           e.preventDefault()
-          gallery.saveFile(e);
+          playrec.saveFile(e);
         }
         // shift - ctrl - O: openFile
         if(e.keyCode === 79) {
         	e.preventDefault()
-        	gallery.openFile(e)
+        	playrec.openFile(e)
         }
         // shift - ctril - M: mark
 				if(e.keyCode === 77) {
         	e.preventDefault()
-        	gallery.mark(e)
+        	playrec.mark(e)
         }  
       }
 

@@ -4,6 +4,7 @@ const Editor = require('./src/editor.js')
 const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
+const PlayRec = require('./src/playrec.js')
 const Menu = require('./src/menu.js')
 const keymaps = require('./keymaps.js')
 const log = require('./src/log.js')
@@ -48,11 +49,22 @@ function init () {
       menu.closeModal() // *** JFF Hack
     }
   })
+
   menu.sketches = sketches
+
+  playrec = new PlayRec((code) => {
+  	editor.setValue(code)
+  	repl.eval(code, (string, err) => {
+      	if(!err) sketches.saveLocally(code)
+    	})
+    })
+
+  sketches.playrec = playrec;
 
   keymaps.init ({
     editor: editor,
     gallery: sketches,
+    playrec: playrec,
     menu: menu,
     repl: repl,
     log: log
