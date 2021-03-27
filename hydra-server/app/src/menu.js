@@ -14,6 +14,7 @@ class Menu {
     this.shareButton =  document.getElementById("share-icon")
     this.shuffleButton = document.getElementById("shuffle-icon")
     this.mutatorButton = document.getElementById("mutator-icon")
+    this.filmButton = document.getElementById("film-icon")
     this.runButton = document.getElementById("run-icon")
     this.editorText = document.getElementsByClassName('CodeMirror-scroll')[0]
 
@@ -29,7 +30,8 @@ class Menu {
       }
     }
 
-	   this.mutatorButton.onclick = this.mutateSketch.bind(this);
+	  this.mutatorButton.onclick = this.mutateSketch.bind(this);
+	  this.filmButton.onclick = this.toggleFilm.bind(this);
     this.isClosed = false
     this.closeModal()
   }
@@ -96,6 +98,7 @@ class Menu {
     this.shareButton.classList.remove('hidden')
     this.clearButton.classList.remove('hidden')
     this.mutatorButton.classList.remove('hidden');
+    this.filmButton.classList.remove('hidden')
     this.runButton.classList.remove('hidden');
     this.editorText.style.opacity = 1
     this.isClosed = true
@@ -107,6 +110,7 @@ class Menu {
     this.shareButton.classList.add('hidden')
     this.clearButton.classList.add('hidden')
     this.mutatorButton.classList.add('hidden');
+    this.filmButton.classList.add('hidden');
     this.runButton.classList.add('hidden');
     this.editorText.style.opacity = 0.0
     this.isClosed = false
@@ -121,6 +125,17 @@ class Menu {
       this.sketches.saveLocally(this.editor.getValue())
     }
   }
+
+  toggleFilm(evt) {
+  var x = document.getElementById("playrec-panel");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
 }
 
 module.exports = Menu

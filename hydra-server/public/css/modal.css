@@ -100,7 +100,20 @@ transition: width 1s;
 
 }
 
+.pricon {
+  margin: 4px;
+  margin-right: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  pointer-events: auto;
+
+}
+
 .icon:hover{
+  color: #ccc;
+}
+
+.pricon:hover{
   color: #ccc;
 }
 

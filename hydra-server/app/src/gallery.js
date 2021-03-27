@@ -264,13 +264,6 @@ class Gallery {
   }
 
   saveLocally(code) {
-/*
-  	let snapshot = {
-  		timeStamp: Date.now(),
-  		sketch:    code
-  	}
-  	this.recordA.push(snapshot)
-*/
 		if (this.playrec) {
 			this.playrec.pushSketch(code)
 		}

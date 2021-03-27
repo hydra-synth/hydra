@@ -11,6 +11,49 @@ class PlayRec {
   }
 
 
+
+bindUI()
+{
+	    this.fileImportButton = document.getElementById("file-import")
+	    this.fileImportButton.onclick = this.doFileImport.bind(this);
+
+	    this.fileExportButton = document.getElementById("file-export")
+	    this.fileExportButton.onclick = this.doFileExport.bind(this);
+	    
+	    this.fastBackwardButton = document.getElementById("fast-backward")
+	    this.fastBackwardButton.onclick = this.doFastBackward.bind(this);
+
+	    this.backwardButton = document.getElementById("backward")
+	    this.backwardButton.onclick = this.doBackward.bind(this)
+
+	    this.stepBackwardButton = document.getElementById("step-backward")
+	    this.stepBackwardButton.onclick = this.doStepBackward.bind(this)
+
+	    this.stopButton = document.getElementById("stop")
+	    this.stopButton.onclick = this.doStop.bind(this)
+
+	    this.pauseButton = document.getElementById("pause")
+    	this.pauseButton.onclick = this.doPause.bind(this)
+
+	    this.stepForwardButton = document.getElementById("step-forward")
+    	this.stepForwardButton.onclick = this.doStepForward.bind(this)
+
+	    this.forwardButton = document.getElementById("forward")
+    	this.forwardButton.onclick = this.doForward.bind(this)
+
+	    this.fastForwardButton = document.getElementById("fast-forward")
+    	this.fastForwardButton.onclick = this.doFastForward.bind(this)
+
+	    this.markButton = document.getElementById("thumbs-up")
+    	this.markButton.onclick = this.doMark.bind(this)
+
+	    this.settingsButton = document.getElementById("cog")
+    	this.settingsButton.onclick = this.doSettings.bind(this)
+}
+
+
+
+
 pushSketch(code)
 {
   	let snapshot = {
@@ -19,6 +62,79 @@ pushSketch(code)
   	}
   	this.recordA.push(snapshot)
 }
+
+
+doFileImport()
+{
+	
+}
+
+doFileExport()
+{
+	
+}
+
+	    
+doFastBackward()
+{
+	
+}
+
+backwardButton()
+{
+	    	
+}
+doStepBackward()
+{
+	
+}
+
+doStop()
+{
+	
+}
+
+
+pauseButton()
+{
+	
+}
+
+
+doStepForward()
+{
+	
+}
+
+
+doForward()
+{
+	
+}
+
+
+doFastForward()
+{
+	
+}
+
+
+doMark()
+{
+	
+}
+
+
+doSettings()
+{
+	
+}
+
+
+
+
+
+
 
 
 /**
@@ -64,20 +180,37 @@ async saveFile(e)
 	recordingToText()
 	{
 		let stringBuff = [];
-		let pdT;
-
-		this.recordA.forEach( ent => {
+	
+		let rSize = this.recordA.length
+		for (let i = 0; i < rSize; ++i)
+		{
+			let ent = this.recordA[i];
+			let dT = 0
 			if (ent.mark || !this.onlyMarked) {
-  			if (pdT === undefined) {
-  				pdT = ent.timeStamp
-  			}
-  			let markString = ent.mark ? "* " : "";
-  			stringBuff.push("// " + markString + "dT=" + ((ent.timeStamp - pdT) / 1000.0) + ", " + new Date(ent.timeStamp).toLocaleString() + "\n");
-  			pdT = ent.timeStamp
-  			stringBuff.push(ent.sketch)
-  			stringBuff.push("\n\n\n\n")
+				if (i < rSize - 1)
+				{
+					dT = this.recordA[i + 1].timeStamp - ent.timeStamp;
+					if (dT < 0)
+					{
+						dT = 0
+					}
+				}
+			}
+   		stringBuff.push("//+ dur=" + (dT / 1000.0));
+
+ 			let labelString = "";
+ 			if (ent.mark)
+ 			{
+				labelString += "mark"
+ 			}
+ 			if (labelString !== "")
+  		{
+  			stringBuff.push("; label='" + labelString + "'")
   		}
-		});
+			stringBuff.push( " // " + new Date(ent.timeStamp).toLocaleString() + "\n");
+			stringBuff.push(ent.sketch)
+			stringBuff.push("\n\n\n\n")
+		}
 		return stringBuff.join("")
 	}
 
@@ -142,7 +275,7 @@ async saveFile(e)
 		if (this.recordA.length === 0) return;
 		this.recordA[this.recordA.length - 1].mark = true;
 		// Hack until a better UI gets made:
-		this.onlyMarked = true
+		// this.onlyMarked = true
 	}
 
 }
