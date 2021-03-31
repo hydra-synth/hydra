@@ -48,7 +48,9 @@ class Menu {
     this.clearAll()
     this.sketches.setRandomSketch()
     this.editor.setValue(this.sketches.code)
-    repl.eval(this.editor.getValue())
+    repl.eval(this.editor.getValue(), (string, err) => {
+      if(!err) this.sketches.saveLocally(this.editor.getValue())
+    })    
   }
 
   formatCode() {
