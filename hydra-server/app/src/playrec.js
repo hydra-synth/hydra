@@ -36,10 +36,13 @@ class PlayRec {
     this.playerIndex = -1
     this.evaluator = callback
     this.defaultDuration = 2.0
+    this.fastForwardDuration = 3.0
     this.realTimePlayback = false
+
+    this.blastOffTime = Date.now()
+
     this.bindUI()
   }
-
 
 
 bindUI()
@@ -57,6 +60,7 @@ bindUI()
 	    this.loadRecordButton.onclick = this.doLoad.bind(this);
 	
 			this.deckDiv = document.getElementById("deck")
+			this.countdownSpan = document.getElementById("countdown")
 			this.counterSpan = document.getElementById("counter")
 
 	    this.fastBackwardButton = document.getElementById("fast-backward")
@@ -79,8 +83,9 @@ bindUI()
 
 //	    this.settingsButton = document.getElementById("cog")
 //    	this.settingsButton.onclick = this.doSettings.bind(this)
-    	
+
     	this.boundTimerHandler = this.timerHandler.bind(this)
+    	this.updateCountDownClock = this.updateCountDownClock.bind(this)
 }
 
 
@@ -141,7 +146,8 @@ clearTimer()
 startTimer(dur)
 {
 	this.clearTimer()
-	let durMS = dur * 1000
+	let durMS =  dur * 1000
+	this.blastOffTime = Date.now() + durMS
 	this.activeTimer = setTimeout(this.boundTimerHandler, durMS)
 }
 
@@ -155,6 +161,26 @@ timerHandler()
 }
 
 
+updateCountDownClock()
+{
+	let nowTime = Date.now()
+	let tMinus = nowTime - this.blastOffTime
+	let timeAsString = ""
+	if (tMinus < 1500) {
+		if (tMinus > 0) tMinus = 0
+		timeAsString = Math.round(tMinus / 1000).toString()
+	}
+	this.countdownSpan.innerHTML = timeAsString
+}
+
+startCountdownClock()
+{
+	if (this.countDownIntervalObject === undefined)
+	{
+		this.countDownIntervalObject = setInterval(this.updateCountDownClock, 500)
+	}
+}
+
 doPlay(e)
 {
 	this.realTimePlayback = !this.realTimePlayback
@@ -162,6 +188,7 @@ doPlay(e)
 	{
 		this.playButton.className = "fas fa-pause-circle pricon"
 		this.moveDown()
+		this.startCountdownClock()
 	} else {
 		this.clearTimer()
 		this.playButton.className = "fas fa-play pricon"
@@ -177,7 +204,8 @@ doStepForward(e)
 
 doFastForward(e)
 {
-		this.moveFast(e, 1)
+//	this.playerIndex = 195
+	this.moveFast(e, 1)
 }
 
 
@@ -285,6 +313,10 @@ async saveFile(e)
 		this.playA = [];
 		let textA = text.split(/\r\n|\n/)
 		let aSize = textA.length
+		if (aSize > 0 && textA[0].startsWith('{"code":'))
+		{
+			return this.loadJSONBase64(textA)
+		}
 		let ix = 0
 		let working = []
 		let runL = 0;
@@ -305,6 +337,12 @@ async saveFile(e)
 				// But since Hydra uses eval() all over the place, we are not the only sinners in this congregation.
 
 				// fake global variables and return results
+				// We can replace the eval with aomething like this:
+				/*
+					var result = function(str){
+  					return eval(str);
+				}.call(context,somestring);
+				*/
 				let hackLine = "let label;let dur; " + restOfLine + "\n let cat = {}; cat.label = label; cat.dur = dur; cat";
 
 				let result = {}
@@ -346,6 +384,23 @@ async saveFile(e)
 		// console.log(this.playA)
 	}
 
+	// Load a file in the JSON, base64 encoded scheme Olivia sent me for the archive.
+	loadJSONBase64(textA)
+	{
+		for (let ix = 0; ix < textA.length; ++ix) {
+			let aLine = JSON.parse(textA[ix]);
+			if (aLine !== undefined && aLine.code !== undefined)
+			{
+				try {
+					let aSketch = decodeURIComponent(atob(aLine.code))
+					this.playA.push({sketch: aSketch, dur: 1})
+				} catch (exs) {}
+
+			}
+		}
+		this.playerIndex = 190
+	}
+
 	loadAtIndex()
 	{
 		if (this.playA.length === 0) return;
@@ -381,7 +436,8 @@ async saveFile(e)
 
 	moveFast(e, dir)
 	{
-		let loopMax = this.playA.length;
+		if(this.playA.length === 0) return
+		let loopMax = this.playA.length
 		while (loopMax > 0) {
 			this.playerIndex += dir
 			if (this.playerIndex < 0)
@@ -394,13 +450,29 @@ async saveFile(e)
 			}
 			let ent = this.playA[this.playerIndex]
 			if ((ent.mark !== undefined && ent.mark )
-					|| (ent.dur !== undefined && ent.dur > this.defaultDuration))
+					|| (ent.dur !== undefined && ent.dur >= this.fastForwardDuration))
 			{
 				this.loadAtIndex();
 				return
 			}
 			loopMax--;
 		}
+		// No mark or long-enough. Instead do a classic fastforw or fastrev.
+		// (soon).
+		let jump = 16
+		if (this.playA.length <= jump)
+		{
+			jump = 4
+		}
+		this.playerIndex += jump * dir
+		if (this.playerIndex < 0)
+		{
+			this.playerIndex = this.playA.length - 1
+		} else if (this.playerIndex >= this.playA.length)
+		{
+			this.playerIndex = 0
+		}
+		this.loadAtIndex();
 	}
 
 	mark(e) {
