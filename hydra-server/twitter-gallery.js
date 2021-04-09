@@ -2,6 +2,7 @@ const multer = require('multer')
 var path = require('path')
 var fs = require('fs')
 const request = require('request')
+const superagent = require('superagent')
 
 var tweet
 module.exports = (app) => {
@@ -163,6 +164,27 @@ module.exports = (app) => {
        }
      })
     }
+    }
+    if(process.env.CHEVERETO_API_KEY && process.env.CHEVERETO_API_URL) {
+      const upload = multer({ storage });
+      app.post("/image", upload.single('previewImage'), (req, res) => {
+        console.log('UPLOADING TO CHEVERETO');
+        superagent
+          .post(process.env.CHEVERETO_API_URL)
+          .field('key', process.env.CHEVERETO_API_KEY)
+          .attach('source', req.file.path, {filename: `${req.query.name}: ${req.query.sketch_id}`})
+          .end((err, res) => {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log('Media uploaded!')
+              db.update(
+                { _id: req.query.sketch_id },
+                { $set: { name: req.query.name, chevereto_url: res.body.image.url }
+              }, function (err, numReplaced) {});
+           }
+          });
+      });
     }
 
      function saveFile(body, fileName) {
