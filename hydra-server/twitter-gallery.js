@@ -181,7 +181,7 @@ module.exports = (app) => {
               db.update(
                 { _id: req.query.sketch_id },
                 { $set: { name: req.query.name, chevereto_url: res.body.image.url }
-              }, function (err, numReplaced) {});
+              }, {}, function (err, numReplaced) {});
            }
           });
       });
