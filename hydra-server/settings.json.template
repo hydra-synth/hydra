@@ -15,5 +15,8 @@
         "doRedo": {"enabled": true, "key": "ctrl+up"},
         "saveLocally": {"enabled": true, "key": "ctrl+down"},
         "evalBlock": {"enabled": true, "key": "alt+enter"}
+    },
+    "menu": {
+        "shareMessage": "Pressing OK will share this sketch to \nhttps://twitter.com/hydra_patterns.\n\nInclude your name or twitter handle (optional):"
     }
 }

@@ -34,7 +34,7 @@ function init () {
   var pb = new PatchBay()
   var hydra = new HydraSynth({ pb: pb, canvas: canvas, autoLoop: false,  precision: precisionValue})
   var editor = new Editor()
-  var menu = new Menu({ editor: editor, hydra: hydra})
+  var menu = new Menu({ editor: editor, hydra: hydra, settings: settings.menu})
   log.init()
 
   // get initial code to fill gallery

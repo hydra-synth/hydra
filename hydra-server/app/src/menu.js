@@ -7,6 +7,7 @@ class Menu {
     this.sketches = obj.sketches
     this.editor = obj.editor
     this.hydra = obj.hydra
+    this.settings = obj.settings
 
     // variables related to popup window
     this.closeButton = document.getElementById("close-icon")
@@ -69,7 +70,7 @@ class Menu {
   }
 
   showConfirmation(successCallback, terminateCallback) {
-    var c = prompt("Pressing OK will share this sketch to \nhttps://twitter.com/hydra_patterns.\n\nInclude your name or twitter handle (optional):")
+    var c = prompt(this.settings.shareMessage)
     console.log('confirm value', c)
     if (c !== null) {
       successCallback(c)
