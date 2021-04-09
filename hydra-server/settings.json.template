@@ -1,0 +1,19 @@
+{
+    "comment1": "do not include sensitive info such as api keys and passwords",
+    "comment2": "because this file will be bundled and exposed to client side",
+    "keymaps": {
+        "evalAll": {"enabled": true, "key": "ctrl+shift+enter"},
+        "shareSketch": {"enabled": true, "key": "ctrl+shift+g"},
+        "formatCode": {"enabled": true, "key": "ctrl+shift+f"},
+        "saveToUrl": {"enabled": true, "key": "ctrl+shift+l"},
+        "toggleEditor": {"enabled": true, "key": "ctrl+shift+h"},
+        "screencap": {"enabled": true, "key": "ctrl+shift+s"},
+        "evalLine": {"enabled": true, "key": "shift+enter"},
+        "toggleComment": {"enabled": true, "key": "ctrl+/"},
+        "historyForward": {"enabled": true, "key": "ctrl+right"},
+        "historyBack": {"enabled": true, "key": "ctrl+left"},
+        "doRedo": {"enabled": true, "key": "ctrl+up"},
+        "saveLocally": {"enabled": true, "key": "ctrl+down"},
+        "evalBlock": {"enabled": true, "key": "alt+enter"}
+    }
+}

@@ -8,6 +8,7 @@ const Menu = require('./src/menu.js')
 const keymaps = require('./keymaps.js')
 const log = require('./src/log.js')
 const repl = require('./src/repl.js')
+const settings = require('../settings.json')
 
 function init () {
   window.pb = pb
@@ -55,7 +56,8 @@ function init () {
     gallery: sketches,
     menu: menu,
     repl: repl,
-    log: log
+    log: log,
+    mapping: settings.keymaps
   })
 
   // define extra functions (eventually should be added to hydra-synth?)

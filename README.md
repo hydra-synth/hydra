@@ -171,14 +171,27 @@ open terminal and enter directory
 ```
 cd hydra
 ```
+
 install dependencies:
 ```
 npm install -d
 ```
+
+copy settings file (and edit it if needed)
+```
+cp hydra-server/settings.json.template hydra-server/settings.json
+```
+
+build client side script
+```
+npm run build-main
+```
+
 run server
 ```
 npm run start
 ```
+
 go to https://localhost:8000 in the browser
 
 ## Audio Responsiveness (experimental)
