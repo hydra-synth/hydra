@@ -1,5 +1,5 @@
 # Hydra
-![hydra](https://github.com/ojack/hydra/blob/master/hydra-3-01.png?raw=true)
+![hydra](hydra-3-01.png)
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
 
