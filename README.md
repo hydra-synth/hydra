@@ -227,7 +227,7 @@ MIDI controllers can work with Hydra via WebMIDI an example workflow is at [/doc
 
 There is an updated list of functions at [/docs/funcs.md](https://github.com/ojack/hydra/blob/master/docs/funcs.md).
 
-As well as in the [source code for hydra-synth](https://github.com/ojack/hydra-synth/blob/master/src/composable-glsl-functions.js).
+As well as in the [source code for hydra-synth](https://github.com/ojack/hydra-synth/blob/master/src/glsl/glsl-functions.js).
 
 #### Changelog between v0 and v1:
 * Syntax change from 'o0.osc()' to 'osc().out(o0)'. Note: old syntax still works
