@@ -1,4 +1,16 @@
 # Changelog
+
+## [1.2.9] - 2021-10-29
+### Added 
+- Added load script function
+- added README examples of loading script
+
+### Changed
+- updated prettier formatting
+
+### Changed
+- updated screen capture info in readme
+
 ## [1.2.8] - 2021-10-26
 ### Changed
 - updated to latest version of hydra synth
