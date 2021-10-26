@@ -30,7 +30,7 @@ var EditorClass = function () {
     styleSelectedText: true
   })
 
-  console.log('code mirror', this.cm)
+ // console.log('code mirror', this.cm)
 	//this.cm.removeKeyMap()
 
   this.cm.refresh()
@@ -41,7 +41,7 @@ var EditorClass = function () {
   let showCode = searchParams.get('show-code')
 
     if(showCode == "false") {
-      console.log("not showing code")
+     // console.log("not showing code")
       var l = document.getElementsByClassName('CodeMirror-scroll')[0]
       l.style.display = 'none'
     //  self.logElement.style.display = 'none'

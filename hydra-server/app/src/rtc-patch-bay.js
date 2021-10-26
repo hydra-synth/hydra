@@ -74,7 +74,7 @@ PatchBay.prototype.reinitAll = function(){
 PatchBay.prototype.initRtcPeer = function(id, opts) {
   this.emit('new peer', {id: id})
   var newOptions = opts
-  console.log()
+ // console.log()
   if(this.iceServers) {
     opts['config'] = {
       iceServers: this.iceServers
@@ -101,7 +101,7 @@ PatchBay.prototype.initRtcPeer = function(id, opts) {
     }
   }
   var options = extend(this._peerOptions, newOptions)
-console.log("OPTIONS", options)
+//console.log("OPTIONS", options)
   this.rtcPeers[id] = new SimplePeer(options)
   this._attachPeerEvents(this.rtcPeers[id], id)
 }
@@ -236,7 +236,7 @@ PatchBay.prototype._attachPeerEvents = function (p, _id) {
   }.bind(this, _id))
 
   p.on('error', function(e){
-    console.log("simple peer error", e)
+    console.warn("simple peer error", e)
   })
 }
 

@@ -4,7 +4,7 @@ module.exports = {
     //  console.log(e)
       if ( e.ctrlKey === true ) {
         if ( e.shiftKey === true ) {
-          console.log(e)
+        //  console.log(e)
           // shift - ctrl - enter: evalAll
           if ( e.keyCode === 13) {
             e.preventDefault()

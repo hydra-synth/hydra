@@ -28,7 +28,7 @@ class Mutator {
   			let argL = a.name + ": " + a.type + " {" + a.default + "}";
   			argList = argList + argL;
   		});
-  		console.log(v.name + " [" + v.type + "] ("+ argList + ")");
+  	//	console.log(v.name + " [" + v.type + "] ("+ argList + ")");
   	});
   }
 
@@ -51,7 +51,7 @@ class Mutator {
   			let argL = a.name + ": " + a.type + " {" + a.default + "}";
   			argList = argList + argL;
   		});
-  		console.log(f.name + " [" + f.type + "] ("+ argList + ")");
+  		//console.log(f.name + " [" + f.type + "] ("+ argList + ")");
 			});
     }
 	}

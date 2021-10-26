@@ -38,11 +38,11 @@ var socketFromUser = {}
 
 // new connection to websocket server
 io.on('connection', function (socket) {
-  console.log('new connection', socket.id)
+  //console.log('new connection', socket.id)
   var thisRoom = null
   socket.on('join', function (room, _userData) {
     thisRoom = room
-    console.log('user', JSON.stringify(_userData))
+  //  console.log('user', JSON.stringify(_userData))
     if (_userData.uuid) {
       userFromSocket[socket.id] = _userData.uuid
       socketFromUser[_userData.uuid] = socket.id
@@ -54,7 +54,7 @@ io.on('connection', function (socket) {
 
     io.of('/').in(room).clients(function (error, clients) {
       if (error) throw error
-      console.log(clients) // => [Anw2LatarvGVVXEIAAAD]
+   //   console.log(clients) // => [Anw2LatarvGVVXEIAAAD]
     })
 
     var peerUuids = peers.map(socketId => userFromSocket[socketId])
@@ -86,12 +86,12 @@ io.on('connection', function (socket) {
     // io.sockets.emit('peers', peerUuids);
     socket.to(thisRoom).emit('new peer', _userData.uuid)
 
-    console.log('user', JSON.stringify(Object.keys(socketFromUser)))
+  //  console.log('user', JSON.stringify(Object.keys(socketFromUser)))
   })
 
   socket.on('broadcast', function (data) {
     // io.sockets.emit('broadcast', data)
-    console.log('broadcasting', data, socket.room)
+  //  console.log('broadcasting', data, socket.room)
     //  io.sockets.in(socket.room).emit('broadcast', data)
     socket.to(thisRoom).emit('broadcast', data)
   })
@@ -108,7 +108,7 @@ io.on('connection', function (socket) {
   })
 
   socket.on('signal', function (data) {
-    console.log('forwarding signal ' + JSON.stringify(data))
+   // console.log('forwarding signal ' + JSON.stringify(data))
     var client = io.sockets.connected[socketFromUser[data.id]]
     client && client.emit('signal', {
       id: userFromSocket[socket.id],

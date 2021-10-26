@@ -19,7 +19,7 @@ module.exports = (app) => {
     var sketches = []
 
     db.count({}, function (err, count) {
-      console.log("There are " + count + " users in the database");
+      console.log("There are " + count + " entries in the database");
       if(err) console.log("There's a problem with the database: ", err);
       else if(count<=0){ // empty database so needs populating
         // default users inserted in the database

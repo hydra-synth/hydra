@@ -104,7 +104,7 @@ PBLive.prototype.handleNewPeer = function (peer) {
 
 PBLive.prototype.list = function () {
   var l = Object.keys(this.idFromNick)
-  console.log(l)
+  //console.log(l)
   return Object.keys(this.idFromNick)
 }
 
@@ -127,9 +127,9 @@ PBLive.prototype._processBroadcast = function (data) {
       this.nickFromId[data.id] = data.nick
       this.idFromNick[data.nick] = data.id
       if (data.previous) {
-        console.log(data.previous + ' changed to ' + data.nick)
+        //console.log(data.previous + ' changed to ' + data.nick)
       } else {
-        console.log('connected to ' + data.nick)
+        //console.log('connected to ' + data.nick)
       }
     }
   }
