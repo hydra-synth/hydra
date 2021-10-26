@@ -53,7 +53,10 @@ class Menu {
     this.editor.setValue(prettier.format(this.editor.getValue(), {
       parser: "babel",
       plugins: [parserBabel],
-      printWidth: 50
+      printWidth: 85,
+      semi: false,
+      useTabs: true,
+      arrowParens: "avoid"
     }))
   }
 
