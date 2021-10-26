@@ -3,7 +3,9 @@ const log = require('./log.js').log
 module.exports = {
   eval: (arg, callback) => {
     var self = this
-    var jsString = arg
+
+    // wrap everything in an async function
+  var jsString = `(async() => {${arg}})()`
     var isError = false
     try {
       eval(jsString)

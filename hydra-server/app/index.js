@@ -36,6 +36,33 @@ function init () {
   var menu = new Menu({ editor: editor, hydra: hydra})
   log.init()
 
+  // add extra functions to the web editor
+   // hush clears what you see on the screen
+   window.hush = () => {
+    solid().out()
+    solid().out(o1)
+    solid().out(o2)
+    solid().out(o3)
+    render(o0)
+  }
+
+  window.loadScript = (url = "") => {
+    const p = new Promise((res, rej) => {
+      var script = document.createElement("script");
+      script.onload = function () {
+        log.log(`loaded script ${url}`);
+        res();
+      };
+      script.onerror = (err) => {
+        log.log(`error loading script ${url}`, "log-error");
+        res()
+      };
+      script.src = url;
+      document.head.appendChild(script); 
+    });
+    return p;
+  };
+
   // get initial code to fill gallery
   var sketches = new Gallery(function(code, sketchFromURL) {
     editor.setValue(code)
@@ -60,15 +87,7 @@ function init () {
 
   // define extra functions (eventually should be added to hydra-synth?)
 
-  // hush clears what you see on the screen
-  window.hush = () => {
-    solid().out()
-    solid().out(o1)
-    solid().out(o2)
-    solid().out(o3)
-    render(o0)
-  }
-
+ 
 
   pb.init(hydra.captureStream, {
     server: window.location.origin,
