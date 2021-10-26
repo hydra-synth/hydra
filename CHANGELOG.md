@@ -1,4 +1,8 @@
 # Changelog
+## [1.2.8] - 2021-10-26
+### Changed
+- updated to latest version of hydra synth
+
 ## [1.2.7] - 2021-02-28
 ### Changed
  - Updated p5.js
