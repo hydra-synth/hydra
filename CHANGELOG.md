@@ -1,6 +1,10 @@
 # Changelog
+## [1.2.10] - 2021-10-28
+### Fixed 
+- code with trailing comments now evaluates
+- error loggin in on-screen console now shows up
 
-## [1.2.9] - 2021-10-29
+## [1.2.9] - 2021-10-26
 ### Added 
 - Added load script function
 - added README examples of loading script
