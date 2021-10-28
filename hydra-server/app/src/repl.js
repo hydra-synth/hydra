@@ -5,7 +5,9 @@ module.exports = {
     var self = this
 
     // wrap everything in an async function
-  var jsString = `(async() => {${arg}})()`
+  var jsString = `(async() => {
+    ${arg}
+})()`
     var isError = false
     try {
       eval(jsString)
