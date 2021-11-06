@@ -2,7 +2,7 @@ module.exports = {
   init : ({ editor, gallery, menu, repl, log}) => {
     window.onkeydown = (e) => {
     //  console.log(e)
-      if ( e.ctrlKey === true ) {
+      if ( e.ctrlKey === true || e.metaKey === true ) {
         if ( e.shiftKey === true ) {
         //  console.log(e)
           // shift - ctrl - enter: evalAll
