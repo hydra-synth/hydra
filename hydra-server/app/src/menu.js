@@ -1,6 +1,8 @@
 const repl = require('./repl.js')
-const prettier = require("prettier/standalone")
-const parserBabel = require("prettier/parser-babel");
+const beautify_js = require('js-beautify').js_beautify
+
+// const prettier = require("prettier/standalone")
+// const parserBabel = require("prettier/parser-babel");
 
 class Menu {
   constructor (obj) {
@@ -50,14 +52,16 @@ class Menu {
   }
 
   formatCode() {
-    this.editor.setValue(prettier.format(this.editor.getValue(), {
-      parser: "babel",
-      plugins: [parserBabel],
-      printWidth: 85,
-      semi: false,
-      useTabs: true,
-      arrowParens: "avoid"
-    }))
+    // this.editor.setValue(prettier.format(this.editor.getValue(), {
+    //   parser: "babel",
+    //   plugins: [parserBabel],
+    //   printWidth: 85,
+    //   semi: false,
+    //   useTabs: true,
+    //   arrowParens: "avoid"
+    // }))
+    const formatted = beautify_js(this.editor.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    this.editor.setValue(formatted)
   }
 
   shareSketch() {
