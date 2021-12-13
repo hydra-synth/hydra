@@ -1,4 +1,9 @@
 # Changelog
+## [1.2.11] - 2021-12-13
+### Changed
+- switched keymaps: ctrl+left and right arrow uses default editor behavior, ctrl+shift + arrow keys cycle between previous sketches
+- removed old forum link
+
 ## [1.2.10] - 2021-10-28
 ### Fixed 
 - code with trailing comments now evaluates
