@@ -1,4 +1,8 @@
 # Changelog
+## [1.2.12] - 2021-12-13
+- bundle size optimizations: removed prettier and added js-beautify
+- loaded p5js separately
+
 ## [1.2.11] - 2021-12-13
 ### Changed
 - switched keymaps: ctrl+left and right arrow uses default editor behavior, ctrl+shift + arrow keys cycle between previous sketches

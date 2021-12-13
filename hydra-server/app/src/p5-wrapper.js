@@ -1,8 +1,8 @@
 //'use babel'
 
-const p5lib = require('p5')
+// const p5lib = require('p5')
 
-class P5 extends p5lib{
+class P5 extends p5{
   constructor ({
     width = window.innerWidth,
     height = window.innerHeight,

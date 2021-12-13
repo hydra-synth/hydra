@@ -1,10 +1,10 @@
 /* eslint-disable no-eval */
-var CodeMirror = require('codemirror/lib/codemirror')
-require('codemirror/mode/javascript/javascript')
-require('codemirror/addon/hint/javascript-hint')
-require('codemirror/addon/hint/show-hint')
-require('codemirror/addon/selection/mark-selection')
-require('codemirror/addon/comment/comment')
+var CodeMirror = require('codemirror-minified/lib/codemirror')
+require('codemirror-minified/mode/javascript/javascript')
+require('codemirror-minified/addon/hint/javascript-hint')
+require('codemirror-minified/addon/hint/show-hint')
+require('codemirror-minified/addon/selection/mark-selection')
+require('codemirror-minified/addon/comment/comment')
 
 var Mutator = require('./Mutator.js');
 
