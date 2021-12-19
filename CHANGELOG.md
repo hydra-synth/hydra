@@ -1,4 +1,8 @@
 # Changelog
+## [1.2.13] - 2021-12-19
+### Changed
+- removed all keymaps based on arrow keys
+
 ## [1.2.12] - 2021-12-13
 - bundle size optimizations: removed prettier and added js-beautify
 - loaded p5js separately
