@@ -41,27 +41,28 @@ module.exports = {
           }
 
           // Point Mutation Glitcher Key Commands and history commands (left and right arrows)
-          // right arrow key
-          if (e.keyCode === 39) {
-            e.preventDefault()
-            window.history.forward()
-          }
-          // left arrow
-          if (e.keyCode === 37) {
-            e.preventDefault()
-            window.history.back()
-          }
-          // up arrow
-          if (e.keyCode === 38) {
-            e.preventDefault()
-            editor.mutator.doRedo()
-          }
-          // down arrow
-          if (e.keyCode === 40) {
-            editor.mutator.mutate({ reroll: true, event: e })
-            menu.formatCode()
-            gallery.saveLocally(editor.getValue())
-          }
+          // disabled as causing confusion with editor commands
+          // // right arrow key
+          // if (e.keyCode === 39) {
+          //   e.preventDefault()
+          //   window.history.forward()
+          // }
+          // // left arrow
+          // if (e.keyCode === 37) {
+          //   e.preventDefault()
+          //   window.history.back()
+          // }
+          // // up arrow
+          // if (e.keyCode === 38) {
+          //   e.preventDefault()
+          //   editor.mutator.doRedo()
+          // }
+          // // down arrow
+          // if (e.keyCode === 40) {
+          //   editor.mutator.mutate({ reroll: true, event: e })
+          //   menu.formatCode()
+          //   gallery.saveLocally(editor.getValue())
+          // }
         } else {
           // ctrl-enter: evalLine
           if (e.keyCode === 13) {
