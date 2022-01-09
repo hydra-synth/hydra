@@ -4,7 +4,7 @@ require('dotenv').config()
 const fs = require('fs')
 const express = require('express')
 const app = express()
-const browserify = require('browserify-middleware')
+// const browserify = require('browserify-middleware')
 const path = require('path')
 const configureSSL = require('./configure-ssl.js')
 
@@ -119,4 +119,4 @@ io.on('connection', function (socket) {
   // TO DO: on disconnect, remove from label dictionary
 })
 
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(express.static(path.join(__dirname, '../frontend/public')))

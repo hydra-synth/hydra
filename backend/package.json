@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bitly": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "socket.io": "^4.4.1",
+    "twilio": "^3.72.0",
+    "twit": "^2.2.11"
+  }
+}
