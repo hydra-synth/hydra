@@ -19,7 +19,7 @@ Note: this repository is for the online version of hydra. Other pieces of hydra 
 
 ## Getting started
 
-Go to https://hydra-editor.glitch.me
+Go to https://hydra.ojack.xyz
 
 * CTRL-Enter: run a line of code
 * CTRL-Shift-Enter: run all code on screen
