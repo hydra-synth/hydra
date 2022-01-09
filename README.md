@@ -228,23 +228,38 @@ synth = new Tone.Synth().toDestination();
 synth.triggerAttackRelease("C4", "8n");
 ```
 ## Running locally
-To run locally, you must have nodejs and npm installed. Install from: https://nodejs.org/en/
+To run locally, you must have nodejs, yarn and npm installed. Install node and npm from: https://nodejs.org/en/
 
+Install yarn from the command line
+```
+npm install --global yarn
+```
 open terminal and enter directory
 ```
 cd hydra
 ```
 install dependencies:
 ```
-npm install -d
+yarn install
 ```
 run server
 ```
-npm run start
+yarn serve
 ```
 go to https://localhost:8000 in the browser
 
-## Audio Responsiveness (experimental)
+
+## To develop
+Edit [frontend/public/index.html](frontend/public/index.html) to load 'bundle.js' rather than 'bundle.min.js'
+
+Run development server
+```
+yarn dev
+```
+
+
+
+## Audio Responsiveness 
 FFT functionality is available via an audio object accessed via "a". The editor uses https://github.com/meyda/meyda for audio analysis.
 To show the fft bins,
 ```
@@ -292,23 +307,10 @@ There is an updated list of functions at [/docs/funcs.md](https://github.com/oja
 
 As well as in the [source code for hydra-synth](https://github.com/ojack/hydra-synth/blob/master/src/glsl/glsl-functions.js).
 
-#### Changelog between v0 and v1:
-* Syntax change from 'o0.osc()' to 'osc().out(o0)'. Note: old syntax still works
-* multiple generator functions can be composited into each other:
-`osc(10)
-  .rotate(0.5)
-  .diff(osc(200).rotate(0.2))
-  .out()`
-* Buffer can be an input to itself:
-`osc(40, 0.1, 1)
-  .modulate(src(o0), 0.1)
-  .scale(1.1)
-  .rotate(0.04)
-  .out(o0)`
-* Multiple cameras can be specified using s0.initCam(1)
-* synth logic exists as a separate module, hydra-synth
-* added preliminary fft capability
-* fixed some bugs in editor and camera
+#### CHANGELOG 
+See [CHANGELOG.md](CHANGELOG.md) for recent changes.
+
+
 
  #### Libraries and tools used:
  * [Regl: functional webgl](http://regl.party/)
