@@ -8,7 +8,7 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "AGPL",
   "dependencies": {
     "bitly": "^7.1.2",
     "dotenv": "^10.0.0",

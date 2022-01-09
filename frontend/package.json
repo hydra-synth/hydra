@@ -7,12 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o /public/bundle.min.js",
     "watch": "watchify ./index.js --debug -v -o ./public/bundle.js",
-    "build": "browserify ./index.js --debug -o ./public/bundle.js && npm run uglify"
+    "build": "browserify ./index.js --debug -o ./public/bundle.js && npm run uglify",
+    "source-map": "source-map-explorer /public/bundle.min.js /public/bundle.min.js.map"
   },
   "author": "",
-  "license": "ISC",
+  "license": "AGPL",
   "dependencies": {
     "hydra-synth": "^1.3.12",
     "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "source-map-explorer": "^2.5.2",
+    "terser": "^5.10.0",
+    "watchify": "^4.0.0"
   }
 }
