@@ -1,0 +1,18 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o /public/bundle.min.js",
+    "watch": "watchify ./index.js --debug -v -o ./public/bundle.js",
+    "build": "browserify ./index.js --debug -o ./public/bundle.js && npm run uglify"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hydra-synth": "^1.3.12",
+    "socket.io": "^4.4.1"
+  }
+}
