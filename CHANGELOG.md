@@ -1,4 +1,9 @@
 # Changelog
+## [1.2.14] - 2022-01-09
+### Changed
+- restructured repo to contain frontend and backend subfolders
+- removed extraneous/unused files
+
 ## [1.2.13] - 2021-12-19
 ### Changed
 - removed all keymaps based on arrow keys
