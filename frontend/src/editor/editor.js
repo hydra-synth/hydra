@@ -7,23 +7,12 @@ require('codemirror-minified/addon/selection/mark-selection')
 require('codemirror-minified/addon/comment/comment')
 
 const EventEmitter = require('nanobus')
-
+const keymaps = require('./keymaps.js')
 var Mutator = require('../randomizer/Mutator.js');
 
 
 var isShowing = true
 
-const keymaps = { 
-  'Ctrl-Enter': 'editor:evalLine',
-  'Ctrl-/': 'editor:toggleComment',
-  'Alt-Enter': 'editor:evalBlock',
-  'Shift-Ctrl-Enter': 'editor:evalAll',
-  'Shift-Ctrl-G': 'gallery:shareSketch',
-  'Shift-Ctrl-F': 'gallery:formatCode',
-  'Shift-Ctrl-L': 'gallery:saveToURL',
-  'Shift-Ctrl-H': 'hideAll',
-  'Shift-Ctrl-S': 'screencap'
-}
 
 module.exports = class Editor extends EventEmitter {
   constructor() {

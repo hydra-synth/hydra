@@ -5,7 +5,7 @@ const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
 const Menu = require('./src/menu.js')
-const keymaps = require('./keymaps.js')
+const attachEvents = require('./attachEvents.js')
 const log = require('./src/editor/log.js')
 const repl = require('./src/repl.js')
 
@@ -35,48 +35,6 @@ function init () {
   var menu = new Menu({ editor: editor, hydra: hydra})
   log.init()
 
-  editor.on('editor:evalLine', () => {
-    console.log('evaluating')
-    repl.eval(editor.getLine())
-  })
-
-  editor.on('editor:evalBlock', () => {
-    console.log('evaluating block')
-    menu.runAll()
-  })
-  
-
-  editor.on('*', (val) => {
-    console.log('calling event', val, this)
-  })
-
-  // add extra functions to the web editor
-   // hush clears what you see on the screen
-   window.hush = () => {
-    solid().out()
-    solid().out(o1)
-    solid().out(o2)
-    solid().out(o3)
-    render(o0)
-  }
-
-  window.loadScript = (url = "") => {
-    const p = new Promise((res, rej) => {
-      var script = document.createElement("script");
-      script.onload = function () {
-        log.log(`loaded script ${url}`);
-        res();
-      };
-      script.onerror = (err) => {
-        log.log(`error loading script ${url}`, "log-error");
-        res()
-      };
-      script.src = url;
-      document.head.appendChild(script); 
-    });
-    return p;
-  };
-
   // get initial code to fill gallery
   var sketches = new Gallery(function(code, sketchFromURL) {
     editor.setValue(code)
@@ -91,13 +49,13 @@ function init () {
   })
   menu.sketches = sketches
 
-  // keymaps.init ({
-  //   editor: editor,
-  //   gallery: sketches,
-  //   menu: menu,
-  //   repl: repl,
-  //   log: log
-  // })
+  attachEvents ({
+    editor: editor,
+    gallery: sketches,
+    menu: menu,
+    repl: repl,
+    log: log
+  })
 
   // define extra functions (eventually should be added to hydra-synth?)
 
@@ -115,3 +73,30 @@ function init () {
 }
 
 window.onload = init
+
+// add extra functions to the web editor
+   // hush clears what you see on the screen
+  //  window.hush = () => {
+  //   solid().out()
+  //   solid().out(o1)
+  //   solid().out(o2)
+  //   solid().out(o3)
+  //   render(o0)
+  // }
+
+  // window.loadScript = (url = "") => {
+  //   const p = new Promise((res, rej) => {
+  //     var script = document.createElement("script");
+  //     script.onload = function () {
+  //       log.log(`loaded script ${url}`);
+  //       res();
+  //     };
+  //     script.onerror = (err) => {
+  //       log.log(`error loading script ${url}`, "log-error");
+  //       res()
+  //     };
+  //     script.src = url;
+  //     document.head.appendChild(script); 
+  //   });
+  //   return p;
+  // };
