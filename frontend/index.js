@@ -35,6 +35,21 @@ function init () {
   var menu = new Menu({ editor: editor, hydra: hydra})
   log.init()
 
+  editor.on('editor:evalLine', () => {
+    console.log('evaluating')
+    repl.eval(editor.getLine())
+  })
+
+  editor.on('editor:evalBlock', () => {
+    console.log('evaluating block')
+    menu.runAll()
+  })
+  
+
+  editor.on('*', (val) => {
+    console.log('calling event', val, this)
+  })
+
   // add extra functions to the web editor
    // hush clears what you see on the screen
    window.hush = () => {

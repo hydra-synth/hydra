@@ -6,12 +6,24 @@ require('codemirror-minified/addon/hint/show-hint')
 require('codemirror-minified/addon/selection/mark-selection')
 require('codemirror-minified/addon/comment/comment')
 
-const EventEmitter = require('events')
+const EventEmitter = require('nanobus')
 
 var Mutator = require('../randomizer/Mutator.js');
 
 
 var isShowing = true
+
+const keymaps = { 
+  'Ctrl-Enter': 'editor:evalLine',
+  'Ctrl-/': 'editor:toggleComment',
+  'Alt-Enter': 'editor:evalBlock',
+  'Shift-Ctrl-Enter': 'editor:evalAll',
+  'Shift-Ctrl-G': 'gallery:shareSketch',
+  'Shift-Ctrl-F': 'gallery:formatCode',
+  'Shift-Ctrl-L': 'gallery:saveToURL',
+  'Shift-Ctrl-H': 'hideAll',
+  'Shift-Ctrl-S': 'screencap'
+}
 
 module.exports = class Editor extends EventEmitter {
   constructor() {
@@ -26,16 +38,23 @@ module.exports = class Editor extends EventEmitter {
     container.appendChild(el)
 
     this.mutator = new Mutator(this);
-    this.cm = CodeMirror.fromTextArea(el, {
+
+    const extraKeys = {}
+    Object.entries(keymaps).forEach(([key, value]) => extraKeys[key] = () => this.emit(value))
+
+    const opts = {
       theme: 'tomorrow-night-eighties',
       value: 'hello',
       mode: { name: 'javascript', globalVars: true },
       lineWrapping: true,
-      styleSelectedText: true
-    })
+      styleSelectedText: true,
+      extraKeys: extraKeys
+    }
+
+    this.cm = CodeMirror.fromTextArea(el, opts)
     // console.log('code mirror', this.cm)
     //this.cm.removeKeyMap()
-
+    window.cm = this.cm
     this.cm.refresh()
 
     this.show()
