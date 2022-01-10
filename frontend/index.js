@@ -1,12 +1,12 @@
 const PatchBay = require('./src/patch-bay/pb-live.js')
-const HydraSynth = require('hydra-synth')
-const Editor = require('./src/editor.js')
+const HydraSynth = require('./../../hydra-synth')
+const Editor = require('./src/editor/editor.js')
 const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
 const Menu = require('./src/menu.js')
 const keymaps = require('./keymaps.js')
-const log = require('./src/log.js')
+const log = require('./src/editor/log.js')
 const repl = require('./src/repl.js')
 
 function init () {

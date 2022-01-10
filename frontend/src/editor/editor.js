@@ -6,7 +6,7 @@ require('codemirror-minified/addon/hint/show-hint')
 require('codemirror-minified/addon/selection/mark-selection')
 require('codemirror-minified/addon/comment/comment')
 
-var Mutator = require('./randomizer/Mutator.js');
+var Mutator = require('../randomizer/Mutator.js');
 
 
 var isShowing = true

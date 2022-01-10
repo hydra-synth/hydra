@@ -21,11 +21,11 @@
     "shortid": "^2.2.16",
     "simple-peer": "^9.11.0",
     "socket.io-client": "^4.4.1",
-    "superagent": "^7.0.1"
+    "superagent": "^7.0.1",
+    "codemirror-minified": "^5.65.0"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "codemirror-minified": "^5.65.0",
     "source-map-explorer": "^2.5.2",
     "terser": "^5.10.0",
     "watchify": "^4.0.0"
