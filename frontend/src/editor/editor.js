@@ -13,8 +13,9 @@ var Mutator = require('../randomizer/Mutator.js');
 
 var isShowing = true
 
-module.exports = class Editor {
+module.exports = class Editor extends EventEmitter {
   constructor() {
+    super()
     console.log("*** Editor class created");
     var self = this
 
