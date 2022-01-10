@@ -76,13 +76,13 @@ function init () {
   })
   menu.sketches = sketches
 
-  keymaps.init ({
-    editor: editor,
-    gallery: sketches,
-    menu: menu,
-    repl: repl,
-    log: log
-  })
+  // keymaps.init ({
+  //   editor: editor,
+  //   gallery: sketches,
+  //   menu: menu,
+  //   repl: repl,
+  //   log: log
+  // })
 
   // define extra functions (eventually should be added to hydra-synth?)
 

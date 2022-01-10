@@ -1,4 +1,4 @@
-const log = require('./log.js').log
+const log = require('./editor/log.js').log
 
 module.exports = {
   eval: (arg, callback) => {
