@@ -63,6 +63,17 @@ module.exports = {
           //   menu.formatCode()
           //   gallery.saveLocally(editor.getValue())
           // }
+        } else if (e.altKey === true){
+	  if (e.keyCode === 187){
+	  // ctrl - alt - +: zoom in editor
+            e.preventDefault()
+	    editor.setFontSize(editor.getFontSize()+2)
+	  }
+	  if (e.keyCode === 189){  
+	  // ctrl - alt - -: zoom out editor
+            e.preventDefault()
+	    editor.setFontSize(editor.getFontSize()-2)
+	  }
         } else {
           // ctrl-enter: evalLine
           if (e.keyCode === 13) {

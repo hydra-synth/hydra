@@ -82,6 +82,21 @@ EditorClass.prototype.show = function () {
 	m.style.display = 'flex'
 //  this.logElement.style.opacity  = 1
   this.isShowing = true
+  this.cm.refresh()
+}
+
+const DEFAULT_FONTSIZE = 18
+
+EditorClass.prototype.setFontSize = function(sz){
+  var l = document.getElementsByClassName('CodeMirror')[0]
+  l.style.fontSize = String(sz)+'px'
+  this.cm.refresh()
+}
+
+EditorClass.prototype.getFontSize = function(){
+  var l = document.getElementsByClassName('CodeMirror')[0]
+  var sz = l.style.fontSize.replace('px','')
+  return sz ? Number(sz) : DEFAULT_FONTSIZE 
 }
 
 EditorClass.prototype.toggle = function () {
