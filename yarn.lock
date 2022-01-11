@@ -1502,10 +1502,10 @@ https-proxy-agent@^5.0.0:
     agent-base "6"
     debug "4"
 
-hydra-synth@^1.3.12:
-  version "1.3.12"
-  resolved "https://registry.yarnpkg.com/hydra-synth/-/hydra-synth-1.3.12.tgz#0443c2ad3bad5a5e4f5ad0cec81bf5e4c2eea7c0"
-  integrity sha512-DmAuktdT7VCZyPCB9cWbHMl6CNg04VSCiDTb78jDLkeyDwgaFur36iV0Y7XT6tk9bRfrGKw3hJXRwbCiNGT7Nw==
+hydra-synth@^1.3.11:
+  version "1.3.15"
+  resolved "https://registry.yarnpkg.com/hydra-synth/-/hydra-synth-1.3.15.tgz#ddba6ec8e641b425c586d9d7c52ba24a7e6fead1"
+  integrity sha512-ia3GmuUwghHY7seBuePfHJwQ7+hKhpOysi8uZPqdPiux1BcCzBTTAk/NJrIZs9NjB5S+plBUFEWiFFDR9CIiYg==
   dependencies:
     meyda "^4.1.3"
     raf-loop "^1.1.3"
