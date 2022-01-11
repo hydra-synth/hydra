@@ -42,10 +42,7 @@ var EditorClass = function () {
 
     if(showCode == "false") {
      // console.log("not showing code")
-      var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-      l.style.display = 'none'
-    //  self.logElement.style.display = 'none'
-      isShowing = false
+	this.hide()
     }
   //}
 }
@@ -63,7 +60,7 @@ EditorClass.prototype.getValue = function () {
 }
 
 EditorClass.prototype.hide = function () {
-  var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+  var l = document.getElementsByClassName('CodeMirror')[0]
   var m = document.getElementById('modal-header')
 //   l.style.opacity = 0
 // //  this.logElement.style.opacity  = 0
@@ -74,7 +71,7 @@ m.style.display = 'none'
 }
 
 EditorClass.prototype.show = function () {
-  var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+  var l = document.getElementsByClassName('CodeMirror')[0]
   var m = document.getElementById('modal-header')
   // l.style.opacity= 1
   // m.style.opacity = 1
