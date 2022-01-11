@@ -35,6 +35,18 @@ function init () {
   var menu = new Menu({ editor: editor, hydra: hydra})
   log.init()
 
+  window.showGui = () => { editor.show(); log.show(); window.removeEventListener('pointerdown',showGui) }
+
+  window.hideGui = (clickback=true) => {
+    editor.hide()
+    log.hide()
+    if(clickback){
+      window.addEventListener('pointerdown',showGui)
+    }
+  }
+
+  window.setFontSize = (sz) => { editor.setFontSize(sz) } 
+
   // add extra functions to the web editor
    // hush clears what you see on the screen
    window.hush = () => {
