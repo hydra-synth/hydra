@@ -33,6 +33,7 @@ class CodeMirrorApp extends Torus.StyledComponent {
     this.console = "";
     this.consoleClass = "";
     this.lastCode = "";
+    this.originalCode = "";
 
     // https://github.com/ojack/hydra/blob/3dcbf85c22b9f30c45b29ac63066e4bbb00cf225/hydra-server/app/src/editor.js
     this.flashCode = (l0, l1) => {
@@ -126,10 +127,14 @@ class CodeMirrorApp extends Torus.StyledComponent {
     this.cm.setValue(c);
     if (this.lastCode.length == 0) {
       this.lastCode = c;
+      this.originalCode = c;
     }
   }
   getLastCode() {
     return this.lastCode; // tricky one - not cm.getCode
+  }
+  resetCode() {
+    this.cm.setValue(this.originalCode);
   }
   loaded(code) {
     if (this.cm == undefined) {
@@ -151,8 +156,16 @@ class CodeMirrorApp extends Torus.StyledComponent {
       background-color: #ddd;
       width: 100%;
       max-width: 512px;
-      .openin {
+      .cursor-pointer {
         cursor: pointer;
+      }
+      .editor-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: stretch;
       }
       .editor-container {
         font-family: monospace;
@@ -183,14 +196,20 @@ class CodeMirrorApp extends Torus.StyledComponent {
   compose() {
     return jdom`
     <div>
-      <a class="openin" onclick="${
-        () => window.open(`https://hydra.ojack.xyz/?code=${btoa(
-              encodeURIComponent(this.getLastCode())
-            )}`)
-      }">
-        open in editor⤴
-      </a>
-            
+      <div class="editor-menu">
+        <a class="cursor-pointer" onclick="${
+          () => this.resetCode()
+        }">
+          reset
+        </a>
+        <a class="cursor-pointer" onclick="${
+          () => window.open(`https://hydra.ojack.xyz/?code=${btoa(
+                encodeURIComponent(this.getLastCode())
+              )}`)
+        }">
+          open in editor⤴
+        </a>
+      </div>
       <div class="editor-container">
         ${this.el}
       </div>
