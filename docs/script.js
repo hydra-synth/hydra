@@ -28,7 +28,8 @@ class HydraApp extends Torus.StyledComponent {
 const hydraApp = new HydraApp();
 
 class CodeMirrorApp extends Torus.StyledComponent {
-  init() {
+  init(app) {
+    this.app = app;
     this.el = document.createElement("TEXTAREA");
     this.console = "";
     this.consoleClass = "";
@@ -94,6 +95,9 @@ class CodeMirrorApp extends Torus.StyledComponent {
         // localStorage.setItem("hydracode", this.cm.getValue());
       } catch (e) {
         console.log(e);
+        if (c == this.originalCode) {
+          this.app.notSupportedInEmbeddedEditor();
+        }
         this.console = e + "";
         this.consoleClass = "error";
       }
@@ -228,7 +232,8 @@ class CodeMirrorApp extends Torus.StyledComponent {
 
 class CodeApp extends Torus.StyledComponent {
   init() {
-    this.cmApp = new CodeMirrorApp();
+    this.showNotSupportedInEmbeddedEditor = false;
+    this.cmApp = new CodeMirrorApp(this);
     this.placeholder = document.createElement("div");
     this.placeholder.className = "placeholder"
     
@@ -252,6 +257,10 @@ class CodeApp extends Torus.StyledComponent {
 
     observer.observe(this.placeholder);
   }
+  notSupportedInEmbeddedEditor() {
+    this.showNotSupportedInEmbeddedEditor = true;
+    this.render();
+  }
   styles() {
     return css`
       position: relative;
@@ -267,13 +276,30 @@ class CodeApp extends Torus.StyledComponent {
         height: 512px;
         display: flex;
         justify-content: center;
+        align-items: center;
+      }
+      .not-supported-message {
+        background-color: black;
+        color: white;
+        font-size: 1.25em;
+        width: 100%;
+        max-width: 512px;
       }
     `;
   }
   compose() {
+    let placeholder = this.placeholder;
+    if (this.showNotSupportedInEmbeddedEditor) {
+      placeholder = jdom`
+      <div class="placeholder">
+        <div class="not-supported-message">
+          Sorry, this example is not supported here. Please press "open in editor" below to try it in the original editor!
+        </div>
+      </div>`;
+    }
     return jdom`
     <div>
-      ${ this.placeholder }
+      ${ placeholder }
       ${ this.cmApp.node }
     </div>
     `;
