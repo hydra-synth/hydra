@@ -135,6 +135,7 @@ class CodeMirrorApp extends Torus.StyledComponent {
   }
   resetCode() {
     this.cm.setValue(this.originalCode);
+    this.commands.evalAll();
   }
   loaded(code) {
     if (this.cm == undefined) {
@@ -241,7 +242,7 @@ class CodeApp extends Torus.StyledComponent {
           solid(0, 0, 0, 0).out(o3);
           render(o0);
           setTimeout(() => {
-            eval(this.cmApp.getLastCode());
+            this.cmApp.commands.evalAll();
           }, 60);
           this.placeholder.appendChild(hydraApp.node);
         }
@@ -255,7 +256,7 @@ class CodeApp extends Torus.StyledComponent {
     return css`
       position: relative;
       box-sizing: border-box;
-      margin: 15px 0;
+      margin: 50px 0;
       width: 100%;
       height: auto;
       display: flex;
