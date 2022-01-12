@@ -255,6 +255,7 @@ class CodeApp extends Torus.StyledComponent {
 window.$docsify = {
   auto2top: true,
   loadSidebar: true,
+  relativePath: true,
   subMaxLevel: 3,
   homepage: 'README.md',
   name: "",
