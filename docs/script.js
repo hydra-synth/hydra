@@ -2,89 +2,36 @@
 /* global Hydra */
 /* global CodeMirror */
 
-let hydra, hydraCanvas;
-hydraCanvas = document.createElement("canvas");
-hydraCanvas.width = 512;
-hydraCanvas.height = 512;
-hydraCanvas.id = "hydraCanvas";
-
-hydra = new Hydra({
-  canvas: hydraCanvas,
-  detectAudio: false,
-  enableStreamCapture: false,
-  width: 512,
-  height: 512
-});
-
-// class HydraApp extends Torus.StyledComponent {
-//   init() {
-//     this.canvas = document.createElement("CANVAS");
-//     this.canvas.width = window.innerWidth;
-//     this.canvas.height = window.innerHeight;
-//     this.hydra = new Hydra({
-//       canvas: this.canvas,
-//       detectAudio: false,
-//       enableStreamCapture: false
-//     });
-    
-//     const resize = (w, h) => {
-//       this.hydra.setResolution(w, h);
-//       this.canvas.width = w;
-//       this.canvas.height = h;
-//     }
-//     resize(512, 512);
-//   }
-//   styles() {
-//     return css`
-//       position: relative;
-//       width: 100%;
-//       height: 100%;
-//     `;
-//   }
-//   compose() {
-//     return jdom`<div>${this.canvas}</div>`;
-//   }
-// }
-
-class CodeApp extends Torus.StyledComponent {
+class HydraApp extends Torus.StyledComponent {
   init() {
-    this.placeholder = document.createElement("div");
-    this.placeholder.className = "placeholder"
-    
-    var observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting === true) {
-          hush();
-          solid(0, 0, 0, 0).out(o0);
-          solid(0, 0, 0, 0).out(o1);
-          solid(0, 0, 0, 0).out(o2);
-          solid(0, 0, 0, 0).out(o3);
-          render(o0);
-          setTimeout(() => {
-            eval(this.getLastCode());
-          }, 60);
-          this.placeholder.appendChild(hydraCanvas);
+    this.canvas = document.createElement("CANVAS");
+    this.canvas.width = 512;
+    this.canvas.height = 512;
+    this.hydra = new Hydra({
+      canvas: this.canvas,
+      detectAudio: false,
+      enableStreamCapture: false,
+      width: 512,
+      height: 512,
+    });
+  }
+  styles() {
+    return css`
+      position: relative;
+    `;
+  }
+  compose() {
+    return jdom`<div>${this.canvas}</div>`;
+  }
+}
 
-          // the "better" way - takes more power? weird alpha?
-          // eval(codeEl.textContent);
-          // update = () => {
-          // }
-          // setTimeout(() => {
-          //   update = () => {
-          //     c.getContext('2d').drawImage(hydraCanvas, 0, 0);
-          //   }
-          // }, 60);
-        }
-      },
-      { threshold: [0.5] }
-    );
+const hydraApp = new HydraApp();
 
-    observer.observe(this.placeholder);
-
+class CodeMirrorApp extends Torus.StyledComponent {
+  init() {
     this.el = document.createElement("TEXTAREA");
     this.console = "";
     this.consoleClass = "";
-    this.showEditor = true;
     this.lastCode = "";
 
     // https://github.com/ojack/hydra/blob/3dcbf85c22b9f30c45b29ac63066e4bbb00cf225/hydra-server/app/src/editor.js
@@ -174,21 +121,12 @@ class CodeApp extends Torus.StyledComponent {
         this.evalCode(code);
       }
     };
-
-    const keyMap = {
-      evalAll: { key: "ctrl+shift+enter" },
-      toggleEditor: { key: "ctrl+shift+h" },
-      toggleComment: { key: "ctrl+/" },
-      evalLine: { key: "shift+enter,ctrl+enter" },
-      evalBlock: { key: "alt+enter" }
-    };
   }
   setCode(c) {
     this.cm.setValue(c);
     if (this.lastCode.length == 0) {
       this.lastCode = c;
     }
-    // this.evalCode(this.cm.getValue());
   }
   getLastCode() {
     return this.lastCode; // tricky one - not cm.getCode
@@ -209,27 +147,10 @@ class CodeApp extends Torus.StyledComponent {
   }
   styles() {
     return css`
-      position: relative;
-      box-sizing: border-box;
-      margin: 15px 0;
+      position: static;
+      background-color: #ddd;
       width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .placeholder {
-        width: 100%;
-        height: 512px;
-        display: flex;
-        justify-content: center;
-      }
-      .editor-box {
-        position: static;
-        // border: solid black;
-        background-color: #ddd;
-        width: 100%;
-        max-width: 512px;
-      }
+      max-width: 512px;
       .openin {
         cursor: pointer;
       }
@@ -257,8 +178,75 @@ class CodeApp extends Torus.StyledComponent {
       .error {
         color: crimson;
       }
-      .hide {
-        visibility: hidden;
+    `;
+  }
+  compose() {
+    return jdom`
+    <div>
+      <a class="openin" onclick="${
+        () => window.open(`https://hydra.ojack.xyz/?code=${btoa(
+              encodeURIComponent(this.getLastCode())
+            )}`)
+      }">
+        open in editor⤴
+      </a>
+            
+      <div class="editor-container">
+        ${this.el}
+      </div>
+    
+      <div class="editor-console">
+        <button onclick=${ () => {
+          this.commands.evalAll();
+        } }>run</>
+        >> <div class="${this.consoleClass}">${this.console}</div>
+      </div>
+    </div>
+    `;
+  }
+}
+
+class CodeApp extends Torus.StyledComponent {
+  init() {
+    this.cmApp = new CodeMirrorApp();
+    this.placeholder = document.createElement("div");
+    this.placeholder.className = "placeholder"
+    
+    var observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting === true) {
+          hush();
+          solid(0, 0, 0, 0).out(o0);
+          solid(0, 0, 0, 0).out(o1);
+          solid(0, 0, 0, 0).out(o2);
+          solid(0, 0, 0, 0).out(o3);
+          render(o0);
+          setTimeout(() => {
+            eval(this.cmApp.getLastCode());
+          }, 60);
+          this.placeholder.appendChild(hydraApp.node);
+        }
+      },
+      { threshold: [0.5] }
+    );
+
+    observer.observe(this.placeholder);
+  }
+  styles() {
+    return css`
+      position: relative;
+      box-sizing: border-box;
+      margin: 15px 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .placeholder {
+        width: 100%;
+        height: 512px;
+        display: flex;
+        justify-content: center;
       }
     `;
   }
@@ -266,34 +254,11 @@ class CodeApp extends Torus.StyledComponent {
     return jdom`
     <div>
       ${ this.placeholder }
-      <div class="editor-box">
-        <a class="openin" onclick="${
-          () => window.open(`https://hydra.ojack.xyz/?code=${btoa(
-                encodeURIComponent(this.getLastCode())
-              )}`)
-        }">
-          open in editor⤴
-        </a>
-              
-        <div class="editor-container ${this.showEditor ? "" : "hide"}">
-          ${this.el}
-        </div>
-      
-        <div class="editor-console">
-          <button onclick=${ () => {
-            this.commands.evalAll();
-          } }>run</>
-          >> <div class="${this.consoleClass}">${this.console}</div>
-        </div>
-      </div>
+      ${ this.cmApp.node }
     </div>
     `;
   }
 }
-
-// const app = new App();
-// document.querySelector("div#torusapp").appendChild(app.node);
-// app.loaded();
 
 window.$docsify = {
   auto2top: true,
@@ -323,7 +288,7 @@ window.$docsify = {
 
           let codeApp = new CodeApp();
           preEl.insertAdjacentElement("afterend", codeApp.node);
-          codeApp.loaded(originalCode);
+          codeApp.cmApp.loaded(originalCode);
           preEl.style.display = "none";
         });
       });
