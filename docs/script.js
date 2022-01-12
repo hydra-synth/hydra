@@ -48,6 +48,39 @@ hydra = new Hydra({
 
 class CodeApp extends Torus.StyledComponent {
   init() {
+    this.placeholder = document.createElement("div");
+    this.placeholder.className = "placeholder"
+    
+    var observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting === true) {
+          hush();
+          solid(0, 0, 0, 0).out(o0);
+          solid(0, 0, 0, 0).out(o1);
+          solid(0, 0, 0, 0).out(o2);
+          solid(0, 0, 0, 0).out(o3);
+          render(o0);
+          setTimeout(() => {
+            eval(this.getLastCode());
+          }, 60);
+          this.placeholder.appendChild(hydraCanvas);
+
+          // the "better" way - takes more power? weird alpha?
+          // eval(codeEl.textContent);
+          // update = () => {
+          // }
+          // setTimeout(() => {
+          //   update = () => {
+          //     c.getContext('2d').drawImage(hydraCanvas, 0, 0);
+          //   }
+          // }, 60);
+        }
+      },
+      { threshold: [0.5] }
+    );
+
+    observer.observe(this.placeholder);
+
     this.el = document.createElement("TEXTAREA");
     this.console = "";
     this.consoleClass = "";
@@ -170,7 +203,6 @@ class CodeApp extends Torus.StyledComponent {
         styleSelectedText: true
       });      
       
-      const urlParams = new URLSearchParams(window.location.search);
       this.setCode(code);
     }
     this.cm.refresh();
@@ -183,7 +215,14 @@ class CodeApp extends Torus.StyledComponent {
       width: 100%;
       height: auto;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      .placeholder {
+        width: 100%;
+        height: 512px;
+        display: flex;
+        justify-content: center;
+      }
       .editor-box {
         position: static;
         // border: solid black;
@@ -226,6 +265,7 @@ class CodeApp extends Torus.StyledComponent {
   compose() {
     return jdom`
     <div>
+      ${ this.placeholder }
       <div class="editor-box">
         <a class="openin" onclick="${
           () => window.open(`https://hydra.ojack.xyz/?code=${btoa(
@@ -274,14 +314,10 @@ window.$docsify = {
         next(html);
       });
 
-      const placeholders = [];
-
       hook.doneEach(() => {
-        const isNotTop = true;
         const codeBlocks = document.querySelectorAll("pre.hydra-code");
 
         codeBlocks.forEach(preEl => {
-          const parentEl = preEl.parentElement;
           const codeEl = preEl.firstChild;
           const originalCode = codeEl.textContent;
 
@@ -289,56 +325,11 @@ window.$docsify = {
           preEl.insertAdjacentElement("afterend", codeApp.node);
           codeApp.loaded(originalCode);
           preEl.style.display = "none";
-          if (isNotTop) {
-          } else {
-            preEl.style.display = "none";
-          }
-
-          const placeholder = document.createElement("div");
-          placeholder.style.width = "100%";
-          placeholder.style.height = "512px";
-          placeholder.style.display = "flex";
-          placeholder.style.justifyContent = "center";
-          
-          placeholder.classList.add("hydracontainer");
-          placeholders.push(placeholder);
-          preEl.insertAdjacentElement("afterend", placeholder);
-
-          var observer = new IntersectionObserver(
-            function(entries) {
-              if (entries[0].isIntersecting === true) {
-                hush();
-                solid(0, 0, 0, 0).out(o0);
-                solid(0, 0, 0, 0).out(o1);
-                solid(0, 0, 0, 0).out(o2);
-                solid(0, 0, 0, 0).out(o3);
-                render(o0);
-                setTimeout(() => {
-                  eval(codeApp.getLastCode());
-                }, 60);
-                placeholder.appendChild(hydraCanvas);
-
-                // the "better" way - takes more power? weird alpha?
-                // eval(codeEl.textContent);
-                // update = () => {
-                // }
-                // setTimeout(() => {
-                //   update = () => {
-                //     c.getContext('2d').drawImage(hydraCanvas, 0, 0);
-                //   }
-                // }, 60);
-              }
-            },
-            { threshold: [0.5] }
-          );
-
-          observer.observe(placeholder);
         });
       });
 
       hook.mounted(() => {
         // Called after initial completion. Only trigger once, no arguments.
-        // document.querySelector("main").appendChild(hydraCanvas);
       });
     }
   ]
