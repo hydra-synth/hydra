@@ -152,7 +152,10 @@ class CodeApp extends Torus.StyledComponent {
   }
   setCode(c) {
     this.cm.setValue(c);
-    this.evalCode(this.cm.getValue());
+    if (this.lastCode.length == 0) {
+      this.lastCode = c;
+    }
+    // this.evalCode(this.cm.getValue());
   }
   getLastCode() {
     return this.lastCode; // tricky one - not cm.getCode
