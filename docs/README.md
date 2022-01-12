@@ -8,7 +8,7 @@ Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and c
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
 
-For more information, see [getting started](#Getting-Started), [getting started pdf en español](https://github.com/ojack/hydra/blob/master/docs/CODEX%20HYDRA.pdf), [tutorials and examples](./examples/README.md), [the complete list of functions](./docs/funcs.md), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg).
+For more information, see [getting started](#Getting-Started), [getting started pdf en español](https://github.com/ojack/hydra/blob/master/docs/CODEX%20HYDRA.pdf), [tutorials and examples](./examples/README.md), [the complete list of functions](funcs), [gallery of user-generated sketches](https://twitter.com/hydra_patterns?lang=es), or a [a talk about the motivations for creating hydra](https://www.youtube.com/watch?v=cw7tPDrFIQg).
 
 Note: this repository is for the online version of hydra. Other pieces of hydra are published as separate modules:
 

@@ -64,6 +64,10 @@ p > img {
   color: black;
 }
 
+.markdown-section pre[data-lang=javascript] {
+  margin-top: 512px;
+}
+
 .markdown-section code, .markdown-section pre {
   background-color: white;
   font-family: monospace,courier;

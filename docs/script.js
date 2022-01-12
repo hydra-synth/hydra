@@ -255,11 +255,11 @@ class CodeApp extends Torus.StyledComponent {
 window.$docsify = {
   auto2top: true,
   loadSidebar: true,
-  relativePath: true,
+  // relativePath: true,
   subMaxLevel: 3,
   homepage: 'README.md',
-  name: "",
-  repo: "",
+  name: "Hydra",
+  repo: "ojack/hydra",
   plugins: [
     // https://github.com/baku89/glisp/blob/master/docs/index.html
     function(hook, vm) {
