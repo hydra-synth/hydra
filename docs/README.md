@@ -117,7 +117,7 @@ Each parameter can be defined as a function rather than a static variable. For e
 ```javascript
 osc(function(){return 100 * Math.sin(time * 0.1)}).out()
 ```
-modifies the oscillator frequency as a function of time. (Time is a global variable that represents the milliseconds that have passed since loading the page). This can be written more concisely using es6 syntax:
+modifies the oscillator frequency as a function of time. (Time is a global variable that represents the seconds that have passed since loading the page). This can be written more concisely using es6 syntax:
 ```javascript
 osc(() => (100 * Math.sin(time * 0.1))).out()
 ```
