@@ -1,7 +1,7 @@
 # Hydra - ハイドラ
 ![hydra](docs/assets/hydra-3-01.png)
 
-これはネットワークド・ライブコーディング・ビジュアルのためのツールセット。アナログ・モジュラーシンセにインスピレーションを受け、ビジュアルをネット上でストリーミング、ルーティングしてリアルタイムに出力するためのツールです。
+―それはネットワークド・ライブコーディング・ビジュアルのためのツールセット。アナログ・モジュラーシンセにインスピレーションを受け、ビジュアルをネット上でストリーミング、ルーティングしてリアルタイムに出力するためのツールです。
 
 Hydra は複数のフレームバッファによりダイナミックにブラウザ間のビジュアルをミキシング、コンポジション、そしてコラボレーションすることができます。座標や色の変換はそれぞれの出力に関数をチェーンして重ねられます。
 
@@ -49,20 +49,20 @@ osc(20, 0.1, 0.8).rotate(0.8).pixelate(20, 30).out()
 ```
 ウェブカメラの画像を表示：
 ```javascript
-s0.initCam() // ウェブカメラをソース・バッファ s0 で初期化
+s0.initCam() // ソース・バッファ s0 をウェブカメラに初期化
 src(s0).out() // ソース・バッファ s0 をレンダー
 ```
 カメラが複数接続されている場合は、インデックスを用いてカメラを指定できます：
 ```javascript
-s0.initCam(1) // ウェブカメラをソース・バッファ s0 で初期化
+s0.initCam(1) // ソース・バッファ s0 をウェブカメラ(1)に初期化
 ```
 ウェブカメラ・カレイドスコープ（万華鏡）：
 ```javascript
-s0.initCam() // ウェブカメラをソース・バッファ s0 で初期化
+s0.initCam() // ソース・バッファ s0 をウェブカメラに初期化
 src(s0).kaleid(4).out() // ウェブカメラをカレイドとして表示
 ```
 
-You can also composite multiple sources together:
+複数のソースをかけ合わせることもできます：
 ```javascript
 osc(10)
   .rotate(0.5)
@@ -70,60 +70,60 @@ osc(10)
   .out()
 ```
 
-By default, the environment contains four separate output buffers that can each render different graphics.  The outputs are accessed by the variables o0, o1, o2, and o3.
+デフォルトの環境では4つの出力バッファがあり、それぞれに別のビジュアルをレンダ―することができます。出力は変数 `o0`, `o1`, `o2`, `o3` によりアクセスできます。
 
-to render to output buffer o1:
+バッファ `o1` にレンダ―するには：
 ```javascript
 osc().out(o1)
-render(o1) // render the contents of o1
+render(o1) // o1 のコンテンツを表示
 ```
-If no output is specified in out(), the graphics are rendered to buffer o0.
-to show all render buffers at once:
+`out()` の引数として出力バッファが指定されていない場合、 `o0` に結果がレンダーされます。
+全てのレンダー・バッファを表示するには：
 ```javascript
 render()
 ```
 
-The output buffers can then be mixed and composited to produce what is shown on the screen.
+出力バッファはそれからミキシングやコンポジションにより画面に表示するグラフィックを生成することができます。
 ```javascript
-s0.initCam() // initialize a webcam in source buffer s0
-src(s0).out(o0) // set the source of o0 to render the buffer containing the webcam
-osc(10, 0.2, 0.8).diff(o0).out(o1) // initialize a gradient in output buffer o1, composite with the contents of o0
-render(o1) // render o1 to the screen
+s0.initCam() // ソース・バッファ s0 をウェブカメラに初期化
+src(s0).out(o0) // o0 のソースをウェブカメラのバッファに指定
+osc(10, 0.2, 0.8).diff(o0).out(o1) // グラデーションを o0 の内容とコンポジションにして、出力バッファ o1 につなぐ
+render(o1) // o1 を画面に描画
 ```
 
-The composite functions blend(), diff(), mult(), and add() perform arithmetic operations to combine the input texture color with the base texture color, similar to photoshop blend modes.
+コンポジション関数は `blend()`, `diff()`, `mult()`, `add()` 等で、四則演算により入力されたテクスチャとベース・テクスチャの色をかけ合わせることができます。フォトショップのブレンドモード（描画モード）のイメージです。
 
-modulate(texture, amount) uses the red and green channels of the input texture to modify the x and y coordinates of the base texture. More about modulation at: https://lumen-app.com/guide/modulation/
+`modulate(texture, amount)` （`texture`: 入力テクスチャ、`amount`：度合) は入力テクスチャの赤、緑チャンネルに応じてベース・テクスチャの x, y 座標を変化させます。詳しくはこちら（英語）： https://lumen-app.com/guide/modulation/
 ```javascript
 osc(21, 0).modulate(o1).out(o0)
 osc(40).rotate(1.57).out(o1)
 ```
 
-use a video as a source:
+動画をソースとして用いる：
 ```javascript
 s0.initVideo("https://media.giphy.com/media/AS9LIFttYzkc0/giphy.mp4")
 src(s0).out()
 ```
 
 
-use an image as a source:
+画像をソースとして用いる：
 ```javascript
 s0.initImage("https://upload.wikimedia.org/wikipedia/commons/2/25/Hydra-Foto.jpg")
 src(s0).out()
 ```
 
-#### Passing functions as variables
-Each parameter can be defined as a function rather than a static variable. For example,
+#### 関数を引数として使う
+Hydra の関数の引数は、固定した値ではなく関数として定義することもできます。例えば：
 ```javascript
 osc(function(){return 100 * Math.sin(time * 0.1)}).out()
 ```
-modifies the oscillator frequency as a function of time. (Time is a global variable that represents the milliseconds that have passed since loading the page). This can be written more concisely using es6 syntax:
+この例ではオシレータの周波数を時間の関数として定義しています（`time` はグローバル変数で、ページがロードされてから経過した秒数を表します）。 ES6 文法を使えばさらに短く書けます：
 ```javascript
 osc(() => (100 * Math.sin(time * 0.1))).out()
 ```
 
-## Desktop capture
-Open a dialog to select a screen tab to use as input texture:
+## デスクトップのキャプチャ
+ダイアログを表示してスクリーンやウインドウを入力テクスチャに指定することができます：
 ```javascript
 s0.initScreen()
 src(s0).out()
