@@ -149,7 +149,14 @@ class CodeMirrorApp extends Torus.StyledComponent {
         mode: { name: "javascript", globalVars: true },
         lineWrapping: true,
         styleSelectedText: true
-      });      
+      });
+
+      const keymap = {
+        "Ctrl-Enter": (cm) => {
+          this.commands.evalAll();
+        }
+      }
+      this.cm.addKeyMap(keymap);
       
       this.setCode(code);
     }
