@@ -22,6 +22,10 @@ body, .sidebar {
   background-color: black;
 }
 
+.cm-s-paraiso-dark.CodeMirror {
+  background-color: #111;
+}
+
 /* docsify */
 
 .external {

@@ -165,17 +165,14 @@ class CodeMirrorApp extends Torus.StyledComponent {
   styles() {
     return css`
       position: static;
-      background-color: #ddd;
+      background-color: #444;
       width: 100%;
       max-width: 512px;
-      .cursor-pointer {
-        cursor: pointer;
-      }
       .editor-menu {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         align-content: stretch;
       }
@@ -194,14 +191,14 @@ class CodeMirrorApp extends Torus.StyledComponent {
         position: relative;
         font-family: monospace;
         font-variant-ligatures: no-common-ligatures;
-        color: black;
+        color: white;
         z-index: 1;
       }
       .editor-console > * {
         display: inline;
       }
       .error {
-        color: crimson;
+        color: salmon;
       }
     `;
   }
@@ -209,27 +206,28 @@ class CodeMirrorApp extends Torus.StyledComponent {
     return jdom`
     <div>
       <div class="editor-menu">
-        <a class="cursor-pointer" onclick="${
+        <button title="run" onclick=${ () => {
+          this.commands.evalAll();
+        } }>▶</>
+
+        <button title="reset code" onclick="${
           () => this.resetCode()
         }">
-          reset
-        </a>
-        <a class="cursor-pointer" onclick="${
+          💔
+        </button>
+        <button title="open in editor" onclick="${
           () => window.open(`https://hydra.ojack.xyz/?code=${btoa(
                 encodeURIComponent(this.getLastCode())
               )}`)
         }">
-          open in editor⤴
-        </a>
+          🚀
+        </button>
       </div>
       <div class="editor-container">
         ${this.el}
       </div>
     
       <div class="editor-console">
-        <button onclick=${ () => {
-          this.commands.evalAll();
-        } }>run</>
         >> <div class="${this.consoleClass}">${this.console}</div>
       </div>
     </div>
