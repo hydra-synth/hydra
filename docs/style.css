@@ -8,8 +8,8 @@ main {
 }
 
 body, .sidebar {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 .CodeMirror {
@@ -19,7 +19,7 @@ body, .sidebar {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: black;
 }
 
 /* docsify */
@@ -42,7 +42,7 @@ p > img {
 }
 
 .markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section strong {
-  color: black;
+  color: white;
   font-weight: 700;
 }
 
@@ -51,11 +51,11 @@ p > img {
 }
 
 .sidebar ul li a {
-  color: black;
+  color: white;
 }
 
 .anchor span {
-  color: black;
+  color: white;
 }
 
 .markdown-section pre[data-lang=javascript] {
@@ -63,20 +63,20 @@ p > img {
 }
 
 .markdown-section code, .markdown-section pre {
-  background-color: white;
+  background-color: black;
   font-family: monospace,courier;
-  border: solid black 2px;
-  color: var(--theme-color,#42b983);
+  border: solid white 2px;
+  color: #99cc99;
 }
 
 .markdown-section pre > code {
-  color: var(--theme-color,#42b983);
-  background-color: white;
+  color: #99cc99;
+  background-color: black;
   border: none;
 }
 
 .token.function {
-  color: var(--theme-color,#42b983);
+  color: #99cc99;
 }
 .token.number {
   color: #a16a94;
@@ -96,3 +96,4 @@ p > img {
 .token.string {
   color: #ffcc66;
 }
+
