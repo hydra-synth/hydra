@@ -5,7 +5,7 @@ const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
 const Gallery  = require('./src/gallery.js')
 const Menu = require('./src/menu.js')
-const attachEvents = require('./attachEvents.js')
+const attachEvents = require('./src/attachEvents.js')
 const log = require('./src/editor/log.js')
 const repl = require('./src/repl.js')
 

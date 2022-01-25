@@ -69,7 +69,7 @@ class Menu {
       //  console.log('evaluated', code, error)
         if(!error){
           this.showConfirmation( (name) => {
-            this.sketches.shareSketch(code, this.hydra, name)
+            this.sketches.shareSketch(this.editor.getValue(), this.hydra, name)
           }, () => this.hideConfirmation() )
         } else {
           console.warn(error)
