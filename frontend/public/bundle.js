@@ -3979,21 +3979,24 @@ module.exports = class Editor extends EventEmitter {
   hide() {
     var l = document.getElementsByClassName('CodeMirror-scroll')[0]
     var m = document.getElementById('modal-header')
-    //   l.style.opacity = 0
+    l.style.opacity = 0
+    // l.style.pointerEvents = 'none'
     // //  this.logElement.style.opacity  = 0
-    //   m.style.opacity = 0
-    l.style.display = 'none'
-    m.style.display = 'none'
+    m.style.opacity = 0
+   // l.style.display = 'none'
+   // m.style.display = 'none'
     this.isShowing = false
   }
 
   show() {
     var l = document.getElementsByClassName('CodeMirror-scroll')[0]
     var m = document.getElementById('modal-header')
-    // l.style.opacity= 1
-    // m.style.opacity = 1
-    l.style.display = 'block'
-    m.style.display = 'flex'
+    l.style.opacity= 1
+    m.style.opacity = 1
+    l.style.pointerEvents = 'all'
+
+    //l.style.display = 'block'
+    //m.style.display = 'flex'
     //  this.logElement.style.opacity  = 1
     this.isShowing = true
   }

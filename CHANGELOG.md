@@ -1,4 +1,10 @@
 # Changelog
+## [1.2.14] - 2022-01-25
+### Changed
+- Editor easier to scroll
+- saving screenshot also saves code
+- separate keymaps file
+
 ## [1.2.14] - 2022-01-09
 ### Changed
 - restructured repo to contain frontend and backend subfolders
