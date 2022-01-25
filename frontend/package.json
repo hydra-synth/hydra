@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o /public/bundle.min.js",
+    "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o ./public/bundle.min.js",
     "watch": "watchify ./index.js -v -o ./public/bundle.js",
     "build": "browserify ./index.js --debug -o ./public/bundle.js && npm run uglify",
-    "source-map": "source-map-explorer /public/bundle.min.js /public/bundle.min.js.map"
+    "source-map": "source-map-explorer ./public/bundle.min.js ./public/bundle.min.js.map"
   },
   "author": "",
   "license": "AGPL",
   "dependencies": {
-    "acorn": "^8.0.4",
+    "acorn": "^8.7.0",
     "astravel": "^0.5.0",
     "astring": "^1.4.0",
     "codemirror-minified": "^5.65.0",
