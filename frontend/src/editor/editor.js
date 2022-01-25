@@ -41,8 +41,6 @@ module.exports = class Editor extends EventEmitter {
     }
 
     this.cm = CodeMirror.fromTextArea(el, opts)
-    // console.log('code mirror', this.cm)
-    //this.cm.removeKeyMap()
     window.cm = this.cm
     this.cm.refresh()
 
@@ -52,11 +50,7 @@ module.exports = class Editor extends EventEmitter {
     let showCode = searchParams.get('show-code')
 
     if (showCode === "false") {
-      // console.log("not showing code")
-      var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-      l.style.display = 'none'
-      //  self.logElement.style.display = 'none'
-      isShowing = false
+      this.hide()
     }
   }
 
@@ -73,27 +67,20 @@ module.exports = class Editor extends EventEmitter {
   }
 
   hide() {
-    var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+    console.log('hiding')
+    var l = document.getElementsByClassName('CodeMirror')[0]
     var m = document.getElementById('modal-header')
     l.style.opacity = 0
-    // l.style.pointerEvents = 'none'
-    // //  this.logElement.style.opacity  = 0
     m.style.opacity = 0
-   // l.style.display = 'none'
-   // m.style.display = 'none'
     this.isShowing = false
   }
 
   show() {
-    var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+    var l = document.getElementsByClassName('CodeMirror')[0]
     var m = document.getElementById('modal-header')
     l.style.opacity= 1
     m.style.opacity = 1
     l.style.pointerEvents = 'all'
-
-    //l.style.display = 'block'
-    //m.style.display = 'flex'
-    //  this.logElement.style.opacity  = 1
     this.isShowing = true
   }
 

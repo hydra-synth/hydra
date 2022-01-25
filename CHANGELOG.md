@@ -4,6 +4,11 @@
 - Editor easier to scroll
 - saving screenshot also saves code
 - separate keymaps file
+- updated hydra-synth
+
+### Fixed
+- `show-code=false` in URL correctly hides all elements 
+- async no longer added to gallery sketches
 
 ## [1.2.14] - 2022-01-09
 ### Changed
