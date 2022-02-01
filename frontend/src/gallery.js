@@ -2,7 +2,7 @@ const request = require('superagent')
 const examples = require('./examples.json')
 const sketches = []
 
-const license = `// this code and its output are licenced with CC BY-NC-SA 4.0 https://creativecommons.org/licenses/by-nc-sa/4.0/`
+const license = `// licensed with CC BY-NC-SA 4.0 https://creativecommons.org/licenses/by-nc-sa/4.0/`
 
 class Gallery {
   constructor (callback) {
