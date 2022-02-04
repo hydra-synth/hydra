@@ -10,9 +10,8 @@ const EventEmitter = require('nanobus')
 const keymaps = require('./keymaps.js')
 var Mutator = require('../randomizer/Mutator.js');
 
-
 var isShowing = true
-
+const DEFAULT_FONTSIZE = 18
 
 module.exports = class Editor extends EventEmitter {
   constructor() {
@@ -53,10 +52,7 @@ module.exports = class Editor extends EventEmitter {
 
     if (showCode === "false") {
       // console.log("not showing code")
-      var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-      l.style.display = 'none'
-      //  self.logElement.style.display = 'none'
-      isShowing = false
+      this.hide()
     }
   }
 
@@ -73,25 +69,36 @@ module.exports = class Editor extends EventEmitter {
   }
 
   hide() {
-    var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+    var l = document.getElementsByClassName('CodeMirror')[0]
     var m = document.getElementById('modal-header')
     //   l.style.opacity = 0
     // //  this.logElement.style.opacity  = 0
-    //   m.style.opacity = 0
     l.style.display = 'none'
     m.style.display = 'none'
     this.isShowing = false
   }
-
+  
   show() {
-    var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+    var l = document.getElementsByClassName('CodeMirror')[0]
     var m = document.getElementById('modal-header')
     // l.style.opacity= 1
     // m.style.opacity = 1
     l.style.display = 'block'
     m.style.display = 'flex'
     //  this.logElement.style.opacity  = 1
+    this.cm.refresh()
     this.isShowing = true
+  }
+
+  setFontSize = function(sz){
+    var l = document.getElementsByClassName('CodeMirror')[0]
+    l.style.fontSize = String(sz)+'px'
+    this.cm.refresh()
+  }
+  getFontSize = function(){
+    var l = document.getElementsByClassName('CodeMirror')[0]
+    var sz = l.style.fontSize.replace('px','')
+    return sz ? Number(sz) : DEFAULT_FONTSIZE 
   }
 
   toggle() {
@@ -116,7 +123,6 @@ module.exports = class Editor extends EventEmitter {
     var marker = this.cm.markText(start, end, { className: 'styled-background' })
     setTimeout(() => marker.clear(), 300)
   }
-
 
   getCurrentBlock() { // thanks to graham wakefield + gibber
     var editor = this.cm
