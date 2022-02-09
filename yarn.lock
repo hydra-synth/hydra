@@ -1512,6 +1512,16 @@ hydra-synth@^1.3.11:
     regl "^1.3.9"
     web-audio-analyser "^2.0.1"
 
+hydra-synth@^1.3.16:
+  version "1.3.16"
+  resolved "https://registry.yarnpkg.com/hydra-synth/-/hydra-synth-1.3.16.tgz#927c734d1532f2c9d4b53e65ea8c962b4d1a2595"
+  integrity sha512-v7YsTV2GrFTtD2UZUaE2bogzQmQBl8QN2exb+5396JJGWVGsojqn+q/tjFHlY2ErYjxssv+EVEXM23BNN0b4tw==
+  dependencies:
+    meyda "^4.1.3"
+    raf-loop "^1.1.3"
+    regl "^1.3.9"
+    web-audio-analyser "^2.0.1"
+
 iconv-lite@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"

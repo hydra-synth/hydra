@@ -1,5 +1,5 @@
 const PatchBay = require('./src/patch-bay/pb-live.js')
-const HydraSynth = require('./../../hydra-synth')
+const HydraSynth = require('hydra-synth')
 const Editor = require('./src/editor/editor.js')
 const loop = require('raf-loop')
 const P5  = require('./src/p5-wrapper.js')
