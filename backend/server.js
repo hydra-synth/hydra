@@ -119,4 +119,4 @@ io.on('connection', function (socket) {
   // TO DO: on disconnect, remove from label dictionary
 })
 
-app.use(express.static(path.join(__dirname, '../frontend/public')))
+app.use(express.static(path.join(__dirname, '../frontend/web-editor/public')))
