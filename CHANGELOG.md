@@ -7,6 +7,7 @@
 
 ### Changed
 - subfolders for different frontend endpoints in 'frontend'
+- removed unused 'backend/app' files
 
 ## [1.2.14] - 2022-01-25
 ### Changed
