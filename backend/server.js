@@ -119,4 +119,6 @@ io.on('connection', function (socket) {
   // TO DO: on disconnect, remove from label dictionary
 })
 
+app.use('/api', express.static(path.join(__dirname, '../frontend/hydra-functions/docs')))
+
 app.use(express.static(path.join(__dirname, '../frontend/web-editor/public')))

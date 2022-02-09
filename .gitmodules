@@ -1,0 +1,3 @@
+[submodule "frontend/hydra-functions"]
+	path = frontend/hydra-functions
+	url = git@github.com:micuat/hydra-functions.git

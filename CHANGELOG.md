@@ -1,4 +1,13 @@
 # Changelog
+## [1.2.15] - 2022-02-09
+### Added
+- added api as submodule in folder hydra-functions
+- server enpoint for '/api' referring to function documentation
+- added instructions for cloning submodules
+
+### Changed
+- subfolders for different frontend endpoints in 'frontend'
+
 ## [1.2.14] - 2022-01-25
 ### Changed
 - Editor easier to scroll
