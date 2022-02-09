@@ -1,4 +1,15 @@
 # Changelog
+## [1.2.15] - 2022-02-09
+### Added
+- added api and docs as submodules in folder /frontend
+- server enpoint for '/api' and '/docs' referring to function documentation
+- added instructions for cloning submodules
+
+### Changed
+- subfolders for different frontend endpoints in 'frontend'
+- removed unused 'backend/app' files
+- less unnecessary server logging
+
 ## [1.2.14] - 2022-01-25
 ### Changed
 - Editor easier to scroll

@@ -1,21 +1,21 @@
 {
   "name": "hydra",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "description": "",
   "main": "server.js",
   "scripts": {
     "serve": "yarn --cwd backend start",
-    "build": "yarn --cwd frontend build",
-    "watch": "yarn --cwd frontend watch",
+    "build:editor": "yarn --cwd frontend/web-editor build",
+    "watch:editor": "yarn --cwd frontend/web-editor watch",
+    "build:api": "yarn --cwd frontend/hydra-functions build",
     "dev": "yarn watch & yarn serve",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "docs": "./scripts/docs.js docs/funcs.md"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Olivia Jack",
   "license": "AGPL",
   "private": true,
   "workspaces": [
-    "frontend",
+    "frontend/*",
     "backend",
     "packages/*"
   ],
