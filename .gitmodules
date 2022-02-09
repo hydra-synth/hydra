@@ -1,6 +1,8 @@
 [submodule "frontend/hydra-functions"]
 	path = frontend/hydra-functions
-	url = git@github.com:micuat/hydra-functions.git
+	url = git@github.com:hydra-synth/hydra-functions.git
+	branch = main
 [submodule "frontend/hydra-docs"]
 	path = frontend/hydra-docs
 	url = git@github.com:hydra-synth/hydra-docs.git
+	branch = main
