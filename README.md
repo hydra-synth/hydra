@@ -232,7 +232,18 @@ To run locally, you must have nodejs, yarn and npm installed. Install node and n
 
 To clone the repo, you must also clone the repos added as submodules, i.e.:
 ```
-git clone --recurse-submodules git@github.com:ojack/hydra.git
+git clone --recurse-submodules git@github.com:hydra-synth/hydra.git
+```
+
+To add current submodules to an existing checked-out version of the repo:
+```
+git submodule update --init
+```
+
+To pull latest versions of submodules:
+```
+git pull
+git submodule update --recursive --remote
 ```
 
 Install yarn from the command line
