@@ -6,11 +6,13 @@ module.exports = class Hydra extends Component {
   constructor (id, state, emit) {
     super(id)
     this.local = state.components[id] = {}
+    state.hydra = this
   }
 
   load (element) {
     const hydra = new HydraSynth({ detectAudio: true, canvas: element.querySelector("canvas")})
     console.log(hydra)
+    this.hydra = hydra
      osc().out()
   }
 

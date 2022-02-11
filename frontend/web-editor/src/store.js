@@ -9,11 +9,6 @@ module.exports = function store (state, emitter) {
       // @todo create gallery store
       console.warn('gallery callback not let implemented')
     })
-
-    emitter.on('shuffle sketches', function (count) {
-     
-    })
-
     
     emitter.on('editor:randomize', function(evt) {
       const editor = state.editor.editor
@@ -55,8 +50,19 @@ module.exports = function store (state, emitter) {
       repl.eval(block)
     })
 
-    emitter.on('gallery:shareSketch', function (editor) {
-     console.log('waiting to share', state.editor.editor.getValue())
+    emitter.on('gallery:shareSketch', function () {
+      let editor = state.editor.editor
+      const code = editor.getValue()
+      repl.eval(editor.getValue(), (code, error) => {
+        //  console.log('evaluated', code, error)
+          if(!error){
+            showConfirmation( (name) => {
+              sketches.shareSketch(code, state.hydra.hydra, name)
+            }, () => {} )
+          } else {
+            console.warn(error)
+          }
+        })
     })
 
     emitter.on('gallery:showExample', () => {
@@ -90,4 +96,14 @@ module.exports = function store (state, emitter) {
     emitter.on('mutate sketch', function () {
 
     })
+  }
+
+  function showConfirmation(successCallback, terminateCallback) {
+    var c = prompt("Pressing OK will share this sketch to \nhttps://twitter.com/hydra_patterns.\n\nInclude your name or twitter handle (optional):")
+  //  console.log('confirm value', c)
+    if (c !== null) {
+      successCallback(c)
+    } else {
+      terminateCallback()
+    }
   }
