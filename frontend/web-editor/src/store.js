@@ -26,12 +26,16 @@ module.exports = function store (state, emitter) {
       }
     })
 
-    emitter.on('editor:clearAll', function () {
+    function clearAll () {
       const editor = state.editor.editor
       hush()
       speed = 1
       sketches.clear()
       editor.clear()
+    }
+
+    emitter.on('editor:clearAll', function () {
+      clearAll()
     })
 
     emitter.on('editor:evalAll', function () {
@@ -44,17 +48,23 @@ module.exports = function store (state, emitter) {
     })
 
     emitter.on('editor:evalLine', (line) => {
-      console.log('EVALUATING', line)
       repl.eval(line)
     })
 
     emitter.on('editor:evalBlock', (block) => {
-      console.log('evaluating block')
       repl.eval(block)
     })
 
     emitter.on('gallery:shareSketch', function (editor) {
      console.log('waiting to share', state.editor.editor.getValue())
+    })
+
+    emitter.on('gallery:showExample', () => {
+      const editor = state.editor.editor
+      clearAll()
+      sketches.setRandomSketch()
+      editor.setValue(sketches.code)
+      repl.eval(editor.getValue())
     })
 
     emitter.on('show confirmation', function (count) {
