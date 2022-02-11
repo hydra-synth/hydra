@@ -1,6 +1,7 @@
 const html = require('choo/html')
 const Component = require('choo/component')
 const HydraEditor = require('./editor/editor.js')
+const log = require('./editor/log.js')
 
 module.exports = class Editor extends Component {
   constructor (id, state, emit) {
@@ -11,6 +12,7 @@ module.exports = class Editor extends Component {
   }
 
   load (element) {
+   log.init(this.logElement)
    this.editor = new HydraEditor(this.textEl)
    this.editor.on("*", (e, args) => {
        this.emit(e, args)
@@ -39,8 +41,10 @@ module.exports = class Editor extends Component {
 
   createElement ({ width = window.innerWidth, height = window.innerHeight} = {}) {
     this.textEl = html` <textarea></textarea>`
-    return html`<div id="editor-container">
-        ${this.textEl}
+    this.logElement = html`<div class="console cm-s-tomorrow-night-eighties"></div>`
+    return html`<div id="editor-container" style="display:flex;flex-direction:column;">
+       <div style="position:relative;flex:auto;padding:15px">${this.textEl}</div>
+       ${this.logElement}
        </div>`
   }
 }

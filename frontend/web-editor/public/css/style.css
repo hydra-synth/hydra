@@ -69,14 +69,15 @@ a:hover {
   height: calc(100% - 20px); */
   background: transparent;
   width: calc(100% - 60px);
+  height: calc(100% - 60px);
 }
 
 .console {
-  bottom: 0px;
+  /* bottom: 0px;
   position: absolute;
   padding: 20px;
   padding-bottom: 5px;
-  width: calc(100% - 40px);
+  width: calc(100% - 40px); */
   z-index: 6;
   left: 0px;
   font-family: monospace;
@@ -98,6 +99,8 @@ a:hover {
 #editor-container {
   width: 100%;
   height: 100%;
-  position: fixed;
-  padding: 20px;
+  /* position: fixed; */
+
+  position: absolute;
+  /* padding: 20px;  */
 }
