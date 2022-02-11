@@ -20,7 +20,7 @@ class Gallery {
     //   }
 
       this.examples = examples
-     // this.setSketchFromURL(callback)
+     this.setSketchFromURL(callback)
     //  callback(this.code, this.foundSketch)
     // })
     window.addEventListener('popstate', (event) => {

@@ -10,7 +10,8 @@ module.exports = class Hydra extends Component {
   constructor (id, state, emit) {
     super(id)
     this.local = state.components[id] = {}
-    state.hydra = this
+    state.hydra = this // hacky
+    this.emit = emit
   }
 
   load (element) {
@@ -34,7 +35,7 @@ module.exports = class Hydra extends Component {
 
     window.P5 = P5
     window.pb = pb
-
+    this.emit('hydra loaded')
   }
 
   update (center) {
