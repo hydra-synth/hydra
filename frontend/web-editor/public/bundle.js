@@ -20188,8 +20188,12 @@ module.exports = function store (state, emitter) {
      
     })
 
-    emitter.on('format code', function (count) {
-     
+    emitter.on('editor:clearAll', function () {
+      const editor = state.editor.editor
+      hush()
+      speed = 1
+      sketches.clear()
+      editor.clear()
     })
 
     emitter.on('editor:evalAll', function () {
