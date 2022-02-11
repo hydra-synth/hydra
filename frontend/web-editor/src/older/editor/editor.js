@@ -8,7 +8,8 @@ require('codemirror-minified/addon/comment/comment')
 
 const EventEmitter = require('nanobus')
 const keymaps = require('./keymaps.js')
-var Mutator = require('../randomizer/Mutator.js');
+const beautify_js = require('js-beautify').js_beautify
+const Mutator = require('../randomizer/Mutator.js');
 
 
 var isShowing = true
@@ -60,6 +61,11 @@ module.exports = class Editor extends EventEmitter {
 
   setValue(val) {
     this.cm.setValue(val)
+  }
+
+  formatCode() {
+    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    this.cm.setValue(formatted)
   }
 
   getValue() {

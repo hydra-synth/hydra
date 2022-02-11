@@ -3,7 +3,7 @@ const html = require('choo/html')
 module.exports = function toolbar(state, emit) {
     const hidden = state.showInfo ? 'hidden' : ''
 
-    const dispatch = (eventName, args = []) => () => emit(eventName, ...args)
+    const dispatch = (eventName) => (e) => emit(eventName, e)
 
     const icon = (id, className, title, event) => html`
         <i id="${id}-icon" class="fas icon ${className}" onclick=${dispatch(event)} aria-hidden="true"></i>`

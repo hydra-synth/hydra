@@ -8,8 +8,8 @@ require('codemirror-minified/addon/comment/comment')
 
 const EventEmitter = require('nanobus')
 const keymaps = require('./keymaps.js')
-var Mutator = require('./randomizer/Mutator.js');
-
+const Mutator = require('./randomizer/Mutator.js');
+const beautify_js = require('js-beautify').js_beautify
 
 var isShowing = true
 
@@ -38,6 +38,8 @@ module.exports = class Editor extends EventEmitter {
         this.cm.toggleComment()
       // } else if (e == 'gallery:saveToURL') {
         this.emit(e, this)
+      } else if (e === 'editor:formatCode') {
+        this.formatCode()
       } else {
         this.emit(e, this)
       }
@@ -76,6 +78,11 @@ module.exports = class Editor extends EventEmitter {
 
   getValue() {
     return this.cm.getValue()
+  }
+
+  formatCode() {
+    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    this.cm.setValue(formatted)
   }
 
   // hide() {

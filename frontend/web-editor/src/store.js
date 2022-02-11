@@ -14,6 +14,17 @@ module.exports = function store (state, emitter) {
      
     })
 
+    emitter.on('editor:randomize', function(evt) {
+      const editor = state.editor.editor
+      if (evt.shiftKey) {
+        editor.mutator.doUndo();
+      } else {
+        editor.mutator.mutate({reroll: false, changeTransform: evt.metaKey});
+        editor.formatCode()
+        sketches.saveLocally(editor.getValue())
+      }
+    })
+
     emitter.on('editor:clearAll', function () {
       const editor = state.editor.editor
       hush()
