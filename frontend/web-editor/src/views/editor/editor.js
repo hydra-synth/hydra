@@ -29,7 +29,19 @@ module.exports = class Editor extends EventEmitter {
     this.mutator = new Mutator(this);
 
     const extraKeys = {}
-    Object.entries(keymaps).forEach(([key, value]) => extraKeys[key] = () => this.emit(value))
+    Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
+      if(e == 'editor:evalBlock') {
+        this.emit(e, this.getCurrentBlock().text)
+      } else if (e == 'editor:evalLine') {
+        this.emit(e, this.getLine())
+      } else if (e == 'editor:toggleComment') {
+        this.cm.toggleComment()
+      // } else if (e == 'gallery:saveToURL') {
+        this.emit(e, this)
+      } else {
+        this.emit(e, this)
+      }
+    })
 
     const opts = {
       theme: 'tomorrow-night-eighties',
