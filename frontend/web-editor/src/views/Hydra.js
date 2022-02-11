@@ -1,6 +1,10 @@
 const html = require('choo/html')
 const Component = require('choo/component')
 const HydraSynth = require('hydra-synth')
+const P5  = require('./../lib/p5-wrapper.js')
+const PatchBay = require('./../lib/patch-bay/pb-live.js')
+
+
 
 module.exports = class Hydra extends Component {
   constructor (id, state, emit) {
@@ -10,10 +14,27 @@ module.exports = class Hydra extends Component {
   }
 
   load (element) {
-    const hydra = new HydraSynth({ detectAudio: true, canvas: element.querySelector("canvas")})
+    let isIOS =
+  (/iPad|iPhone|iPod/.test(navigator.platform) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+  !window.MSStream;
+  let precisionValue = isIOS ? 'highp' : 'mediump'
+
+    const pb = new PatchBay()
+
+    const hydra = new HydraSynth({ pb: pb, detectAudio: true, canvas: element.querySelector("canvas"), precision: precisionValue})
     console.log(hydra)
     this.hydra = hydra
      osc().out()
+
+     pb.init(hydra.captureStream, {
+      server: window.location.origin,
+      room: 'iclc'
+    })
+
+    window.P5 = P5
+    window.pb = pb
+
   }
 
   update (center) {
