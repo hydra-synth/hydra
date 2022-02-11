@@ -13,7 +13,7 @@ app.mount('body')
 
 
 
-},{"./src/store.js":76,"./src/views/main.js":78,"choo":15,"choo-devtools":2}],2:[function(require,module,exports){
+},{"./src/store.js":76,"./src/views/main.js":79,"choo":15,"choo-devtools":2}],2:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter
 
 var storage = require('./lib/storage')
@@ -65,7 +65,7 @@ function expose (opts) {
   }
 }
 
-},{"./lib/copy":3,"./lib/debug":4,"./lib/help":5,"./lib/log":6,"./lib/logger":7,"./lib/perf":8,"./lib/storage":9,"events":86,"wayfarer/get-all-routes":73}],3:[function(require,module,exports){
+},{"./lib/copy":3,"./lib/debug":4,"./lib/help":5,"./lib/log":6,"./lib/logger":7,"./lib/perf":8,"./lib/storage":9,"events":88,"wayfarer/get-all-routes":73}],3:[function(require,module,exports){
 var stateCopy = require('state-copy')
 var pluck = require('plucker')
 
@@ -123,7 +123,7 @@ function debug (state, emitter, app, localEmitter) {
   })
 }
 
-},{"assert":79,"nanologger":55,"object-change-callsite":65}],5:[function(require,module,exports){
+},{"assert":81,"nanologger":55,"object-change-callsite":65}],5:[function(require,module,exports){
 module.exports = help
 
 function help () {
@@ -663,7 +663,7 @@ ChooHooks.prototype._emitLoaded = function () {
   })
 }
 
-},{"assert":79,"nanoscheduler":63,"on-performance":67}],12:[function(require,module,exports){
+},{"assert":81,"nanoscheduler":63,"on-performance":67}],12:[function(require,module,exports){
 var assert = require('assert')
 var LRU = require('nanolru')
 
@@ -1310,7 +1310,7 @@ if (typeof module === 'object' && module.exports) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":85}],18:[function(require,module,exports){
+},{"buffer":87}],18:[function(require,module,exports){
 'use strict'
 
 module.exports = ready
@@ -1581,7 +1581,7 @@ if (typeof document !== 'undefined') {
 module.exports = doccy;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"min-document":84}],21:[function(require,module,exports){
+},{"min-document":86}],21:[function(require,module,exports){
 (function (global){(function (){
 var win;
 
@@ -2065,7 +2065,7 @@ class HydraRenderer {
 
 module.exports = HydraRenderer
 
-},{"./src/eval-sandbox.js":24,"./src/generator-factory.js":27,"./src/hydra-source.js":31,"./src/lib/array-utils.js":32,"./src/lib/audio.js":33,"./src/lib/mouse.js":36,"./src/lib/video-recorder.js":39,"./src/output.js":41,"raf-loop":93,"regl":95}],23:[function(require,module,exports){
+},{"./src/eval-sandbox.js":24,"./src/generator-factory.js":27,"./src/hydra-source.js":31,"./src/lib/array-utils.js":32,"./src/lib/audio.js":33,"./src/lib/mouse.js":36,"./src/lib/video-recorder.js":39,"./src/output.js":41,"raf-loop":95,"regl":97}],23:[function(require,module,exports){
 const Synth = require('./hydra-synth.js')
 //const ShaderGenerator = require('./shader-generator.js')
 
@@ -4287,7 +4287,7 @@ class Audio {
 
 module.exports = Audio
 
-},{"meyda":89}],34:[function(require,module,exports){
+},{"meyda":91}],34:[function(require,module,exports){
 // from https://gist.github.com/gre/1650294
 
 module.exports = {
@@ -6075,7 +6075,7 @@ function pad (str) {
   return str.length !== 2 ? 0 + str : str
 }
 
-},{"assert":79}],56:[function(require,module,exports){
+},{"assert":81}],56:[function(require,module,exports){
 module.exports = LRU
 
 function LRU (opts) {
@@ -6861,7 +6861,7 @@ function strip (str) {
   return '\n' + arr.join('\n')
 }
 
-},{"assert":79}],66:[function(require,module,exports){
+},{"assert":81}],66:[function(require,module,exports){
 /* global MutationObserver */
 var document = require('global/document')
 var window = require('global/window')
@@ -7401,10 +7401,37 @@ function has (object, property) {
 
 },{"assert":44}],76:[function(require,module,exports){
 module.exports = function countStore (state, emitter) {
-    state.count = 0
-    emitter.on('increment', function (count) {
-      state.count += count
-      emitter.emit('render')
+    state.showInfo = true
+    emitter.on('shuffle sketches', function (count) {
+     
+    })
+
+    emitter.on('format code', function (count) {
+     
+    })
+
+    emitter.on('share sketch', function (count) {
+     
+    })
+
+    emitter.on('show confirmation', function (count) {
+     
+    })
+
+    emitter.on('clear all', function (count) {
+     
+    })
+
+    emitter.on('hide info', function (count) {
+     
+    })
+
+    emitter.on('show info', function () {
+
+    })
+
+    emitter.on('mutate sketch', function () {
+
     })
   }
 },{}],77:[function(require,module,exports){
@@ -7430,38 +7457,22 @@ module.exports = class Hydra extends Component {
 
   createElement ({ width = window.innerWidth, height = window.innerHeight} = {}) {
 
-    return html`<div>
-        <canvas class="bg-black" style="imageRendering:pixelated; width=100%;height=100%" width="${width}" height="${height}"></canvas></div>`
+    return html`<div style="width:100%;height:100%;">
+        <canvas class="bg-black" style="imageRendering:pixelated; width:100%;height:100%" width="${width}" height="${height}"></canvas></div>`
   }
 }
 
 },{"choo/component":13,"choo/html":14,"hydra-synth":23}],78:[function(require,module,exports){
 const html = require('choo/html')
-const Hydra = require('./Hydra.js')
+const toolbar = require('./toolbar.js')
 
-module.exports = function mainView (state, emit) {
+module.exports = function mainView(state, emit) {
     return html`
-    <body>
-    <div id="hydra-ui">
-  
-    ${state.cache(Hydra, 'hydra-canvas').render(state, emit)}
-
-    <canvas id="audio-canvas">
-    </canvas>
-  </div>
   <div id="info-container" class="">
     <div id="modal">
       <div id="modal-header">
         <div><!--<i class="fas fa-bars icon"></i>--></div>
-        <div>
-          <i id ="run-icon" class="fas fa-play-circle icon" title="Run all code (ctrl+shift+enter)" aria-hidden="true"></i>
-          <i id="share-icon" title="upload to gallery" class="fas fa-upload icon" aria-hidden="true"></i>
-          <i id="clear-icon" title="clear all" class="fa fa-trash icon" aria-hidden="true"></i>
-          <i id="shuffle-icon" title="show random sketch" class="fas fa-random icon" aria-hidden="true"></i>
-          <i id="mutator-icon" title="make random change" class="fas fa-dice icon" aria-hidden="true"></i>
-          <i id="close-icon" class="fas fa-question-circle icon" aria-hidden="true"></i>
-  
-        </div>
+        ${toolbar(state, emit)}
       </div>
       <div id="modal-body">
         <div id="modal-content">
@@ -7484,9 +7495,8 @@ module.exports = function mainView (state, emit) {
           <li>Also available as a package for live coding from within atom text editor</li>
           <li>Experimental and forever evolving !! </li>
           </ul>
-  
             <p class="align-right"> Created by <a class="olivia" href="https://twitter.com/_ojack_" target="_blank">olivia.</a> </p>
-          <p> For more information and instructions, see:
+            <p> For more information and instructions, see:
             <a href="https://github.com/ojack/hydra#Getting-Started" target="_blank">the documentation on github</a>,
             <a href="https://ojack.xyz/hydra-functions/" target="_blank">a list of hydra functions</a>,
             <!-- <a href="https://github.com/ojack/hydra/blob/master/docs/funcs.md" target="_blank">documentation</a>, -->
@@ -7495,13 +7505,33 @@ module.exports = function mainView (state, emit) {
             <a href="https://hydra-book.naotohieda.com/#/" target="_blank">Hydra Book</a>, and more <a href="https://github.com/ojack/hydra/blob/master/examples/README.md">tutorials and examples.</a></p>
             <p>There is also an active <a href="https://discord.gg/ZQjfHkNHXC" target="_blank">Discord server</a> and <a href="https://www.facebook.com/groups/1084288351771117/" target="_blank">facebook group</a> for hydra users+contributors.</p>
   
-  
-  
           <p> If you enjoy using Hydra, please consider  <a href="https://opencollective.com/hydra-synth" target="_blank">supporting continued development ${'<3 <3'} </a></p>
         </div>
       </div>
     </div>
   </div>
+ `
+
+    function onclick() {
+        emit('increment', 1)
+    }
+}
+},{"./toolbar.js":80,"choo/html":14}],79:[function(require,module,exports){
+const html = require('choo/html')
+const info = require('./info.js')
+const Hydra = require('./Hydra.js')
+
+module.exports = function mainView (state, emit) {
+    return html`
+    <body>
+    <div id="hydra-ui">
+  
+    ${state.cache(Hydra, 'hydra-canvas').render(state, emit)}
+
+    <canvas id="audio-canvas">
+    </canvas>
+  </div>
+  ${info(state, emit)}
   </body>
  `
   
@@ -7509,7 +7539,23 @@ module.exports = function mainView (state, emit) {
       emit('increment', 1)
     }
   }
-},{"./Hydra.js":77,"choo/html":14}],79:[function(require,module,exports){
+},{"./Hydra.js":77,"./info.js":78,"choo/html":14}],80:[function(require,module,exports){
+const html = require('choo/html')
+
+module.exports = function toolbar(state, emit) {
+    const hidden = state.showInfo ? 'hidden' : ''
+    console.log('hidden', hidden)
+    return html` <div>
+          <i id ="run-icon" class="fas fa-play-circle icon ${hidden}" title="Run all code (ctrl+shift+enter)" aria-hidden="true"></i>
+          <i id="share-icon" title="upload to gallery" class=" ${hidden} fas fa-upload icon" aria-hidden="true"></i>
+          <i id="clear-icon" title="clear all" class="${hidden} fa fa-trash icon" aria-hidden="true"></i>
+          <i id="shuffle-icon" title="show random sketch" class="fas fa-random icon" aria-hidden="true"></i>
+          <i id="mutator-icon" title="make random change" class="${hidden} fas fa-dice icon" aria-hidden="true"></i>
+          <i id="close-icon" class="fas ${state.showInfo? "fa-times" : "fa-question-circle"} icon" aria-hidden="true"></i>
+        </div>
+ `
+}
+},{"choo/html":14}],81:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -8019,7 +8065,7 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"object-assign":90,"util/":82}],80:[function(require,module,exports){
+},{"object-assign":92,"util/":84}],82:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -8044,14 +8090,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],81:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],82:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 (function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -8641,7 +8687,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":81,"_process":92,"inherits":80}],83:[function(require,module,exports){
+},{"./support/isBuffer":83,"_process":94,"inherits":82}],85:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -8793,9 +8839,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],84:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 
-},{}],85:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
@@ -10576,7 +10622,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":83,"buffer":85,"ieee754":87}],86:[function(require,module,exports){
+},{"base64-js":85,"buffer":87,"ieee754":89}],88:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -11075,7 +11121,7 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
   }
 }
 
-},{}],87:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -11162,7 +11208,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],88:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -11191,7 +11237,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],89:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -14653,7 +14699,7 @@ function hamming(size) {
 /******/ });
 });
 
-},{}],90:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -14745,7 +14791,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],91:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 (function (process){(function (){
 // Generated by CoffeeScript 1.12.2
 (function() {
@@ -14785,7 +14831,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":92}],92:[function(require,module,exports){
+},{"_process":94}],94:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -14971,7 +15017,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],93:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 var inherits = require('inherits')
 var EventEmitter = require('events').EventEmitter
 var now = require('right-now')
@@ -15016,7 +15062,7 @@ Engine.prototype.tick = function() {
     this.emit('tick', dt)
     this.last = time
 }
-},{"events":86,"inherits":88,"raf":94,"right-now":96}],94:[function(require,module,exports){
+},{"events":88,"inherits":90,"raf":96,"right-now":98}],96:[function(require,module,exports){
 (function (global){(function (){
 var now = require('performance-now')
   , root = typeof window === 'undefined' ? global : window
@@ -15095,7 +15141,7 @@ module.exports.polyfill = function(object) {
 }
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"performance-now":91}],95:[function(require,module,exports){
+},{"performance-now":93}],97:[function(require,module,exports){
 (function(U,X){"object"===typeof exports&&"undefined"!==typeof module?module.exports=X():"function"===typeof define&&define.amd?define(X):U.createREGL=X()})(this,function(){function U(a,b){this.id=Eb++;this.type=a;this.data=b}function X(a){if(0===a.length)return[];var b=a.charAt(0),c=a.charAt(a.length-1);if(1<a.length&&b===c&&('"'===b||"'"===b))return['"'+a.substr(1,a.length-2).replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];if(b=/\[(false|true|null|\d+|'[^']*'|"[^"]*")\]/.exec(a))return X(a.substr(0,
 b.index)).concat(X(b[1])).concat(X(a.substr(b.index+b[0].length)));b=a.split(".");if(1===b.length)return['"'+a.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];a=[];for(c=0;c<b.length;++c)a=a.concat(X(b[c]));return a}function cb(a){return"["+X(a).join("][")+"]"}function db(a,b){if("function"===typeof a)return new U(0,a);if("number"===typeof a||"boolean"===typeof a)return new U(5,a);if(Array.isArray(a))return new U(6,a.map(function(a,e){return db(a,b+"["+e+"]")}));if(a instanceof U)return a}function Fb(){var a=
 {"":0},b=[""];return{id:function(c){var e=a[c];if(e)return e;e=a[c]=b.length;b.push(c);return e},str:function(a){return b[a]}}}function Gb(a,b,c){function e(){var b=window.innerWidth,e=window.innerHeight;a!==document.body&&(e=a.getBoundingClientRect(),b=e.right-e.left,e=e.bottom-e.top);f.width=c*b;f.height=c*e;A(f.style,{width:b+"px",height:e+"px"})}var f=document.createElement("canvas");A(f.style,{border:0,margin:0,padding:0,top:0,left:0});a.appendChild(f);a===document.body&&(f.style.position="absolute",
@@ -15261,7 +15307,7 @@ H=Yb(l,m),O=Kb(l,r,a,function(a){return J.destroyBuffer(a)}),J=Sb(l,m,H,r,O),M=L
 vao:J.createVAO,attributes:h,frame:u,on:function(a,b){var c;switch(a){case "frame":return u(b);case "lost":c=S;break;case "restore":c=T;break;case "destroy":c=U}c.push(b);return{cancel:function(){for(var a=0;a<c.length;++a)if(c[a]===b){c[a]=c[c.length-1];c.pop();break}}}},limits:H,hasExtension:function(a){return 0<=H.extensions.indexOf(a.toLowerCase())},read:q,destroy:function(){C.length=0;e();N&&(N.removeEventListener("webglcontextlost",f),N.removeEventListener("webglcontextrestored",d));D.clear();
 V.clear();L.clear();y.clear();M.clear();O.clear();J.clear();z&&z.clear();U.forEach(function(a){a()})},_gl:l,_refresh:k,poll:function(){w();z&&z.update()},now:v,stats:r});a.onDone(null,h);return h}});
 
-},{}],96:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 (function (global){(function (){
 module.exports =
   global.performance &&
