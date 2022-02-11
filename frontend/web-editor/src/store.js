@@ -1,6 +1,14 @@
-module.exports = function countStore (state, emitter) {
+const Gallery  = require('./gallery.js')
+
+
+module.exports = function store (state, emitter) {
     state.showInfo = true
     state.showUI = true
+
+    const sketches = new Gallery(() => {
+      // @todo create gallery store
+      console.warn('gallery callback not let implemented')
+    })
 
     emitter.on('shuffle sketches', function (count) {
      
@@ -10,8 +18,8 @@ module.exports = function countStore (state, emitter) {
      
     })
 
-    emitter.on('share sketch', function (count) {
-     
+    emitter.on('gallery:shareSketch', function (editor) {
+     console.log('waiting to share', state.editor.editor.getValue())
     })
 
     emitter.on('show confirmation', function (count) {

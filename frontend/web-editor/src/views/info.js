@@ -46,8 +46,4 @@ module.exports = function mainView(state, emit) {
     </div>
   </div>
  `
-
-    function onclick() {
-        emit('increment', 1)
-    }
 }

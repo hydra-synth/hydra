@@ -20,16 +20,13 @@ class Gallery {
     //   }
 
       this.examples = examples
-    
-  //    this.setSketchFromURL(callback)
-
-
+     // this.setSketchFromURL(callback)
     //  callback(this.code, this.foundSketch)
     // })
-  //   window.addEventListener('popstate', (event) => {
-  //     this.setSketchFromURL(callback)
-  //  // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-  // });
+    window.addEventListener('popstate', (event) => {
+      this.setSketchFromURL(callback)
+   // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  });
     this.setRandomSketch = this.setRandomSketch.bind(this)
   }
 
@@ -43,51 +40,50 @@ class Gallery {
   }
 
   setSketchFromURL(callback) {
-    console.log('setting')
-  //   hush()
-  //   render(o0)
-  //   let searchParams = new URLSearchParams(window.location.search)
-  //   let base64Code = searchParams.get('code')
-  // //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
-  //   let sketch_id = searchParams.get('sketch_id')
-  //   let code = ''
-  //   //console.log("id", sketch_id, "code", base64Code)
+    hush()
+    render(o0)
+    let searchParams = new URLSearchParams(window.location.search)
+    let base64Code = searchParams.get('code')
+  //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
+    let sketch_id = searchParams.get('sketch_id')
+    let code = ''
+    //console.log("id", sketch_id, "code", base64Code)
 
-  //   // boolean to determine whether a sketch was found based on the URL, either through looking through the database or rendering the code
-  //   this.foundSketch = false
-  //   // if contains a sketch id, set sketch from id
-  //   if(sketch_id) {
-  //     var sketch = this.getExampleById(sketch_id)
-  //     if(sketch) {
-  //      // console.log('found', sketch)
-  //         this.setSketch(sketch)
-  //         callback(this.code, false)
-  //     } else {
-  //       request
-  //         .get('/sketchById')
-  //         .query({sketch_id: sketch_id})
-  //         .end((err, res) => {
-  //          // console.log('got sketches', res.text, err)
-  //           if(err) {
-  //             console.log('err getting sketches', err)
-  //             this.setSketchFromCode(base64Code, callback)
-  //           } else {
-  //             this.sketches = JSON.parse(res.text)
-  //             if(this.sketches.length > 0) {
-  //               this.setSketch(this.sketches[0])
-  //               //this.code = this.decodeBase64(this.sketches[0].code)
-  //               this.foundSketch = true
-  //               callback(this.code, this.foundSketch)
-  //             } else {
-  //               this.setSketchFromCode(base64Code, callback)
-  //             }
-  //           }
-  //         })
-  //       }
+    // boolean to determine whether a sketch was found based on the URL, either through looking through the database or rendering the code
+    this.foundSketch = false
+    // if contains a sketch id, set sketch from id
+    if(sketch_id) {
+      var sketch = this.getExampleById(sketch_id)
+      if(sketch) {
+       // console.log('found', sketch)
+          this.setSketch(sketch)
+          callback(this.code, false)
+      } else {
+        request
+          .get('/sketchById')
+          .query({sketch_id: sketch_id})
+          .end((err, res) => {
+           // console.log('got sketches', res.text, err)
+            if(err) {
+              console.log('err getting sketches', err)
+              this.setSketchFromCode(base64Code, callback)
+            } else {
+              this.sketches = JSON.parse(res.text)
+              if(this.sketches.length > 0) {
+                this.setSketch(this.sketches[0])
+                //this.code = this.decodeBase64(this.sketches[0].code)
+                this.foundSketch = true
+                callback(this.code, this.foundSketch)
+              } else {
+                this.setSketchFromCode(base64Code, callback)
+              }
+            }
+          })
+        }
 
-  //     } else {
-  //       this.setSketchFromCode(base64Code, callback)
-  //     }
+      } else {
+        this.setSketchFromCode(base64Code, callback)
+      }
     //
     //   // console.log('found ', sketch)
     //   // if(sketch) {
