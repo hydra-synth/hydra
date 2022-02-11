@@ -1,12 +1,13 @@
 const html = require('choo/html')
+const Hydra = require('./Hydra.js')
 
 module.exports = function mainView (state, emit) {
     return html`
     <body>
     <div id="hydra-ui">
   
-    <canvas id="hydra-canvas">
-    </canvas>
+    ${state.cache(Hydra, 'hydra-canvas').render(state, emit)}
+
     <canvas id="audio-canvas">
     </canvas>
   </div>
