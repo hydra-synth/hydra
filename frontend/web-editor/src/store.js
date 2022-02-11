@@ -14,6 +14,7 @@ module.exports = function store (state, emitter) {
      
     })
 
+    
     emitter.on('editor:randomize', function(evt) {
       const editor = state.editor.editor
       if (evt.shiftKey) {
@@ -40,6 +41,16 @@ module.exports = function store (state, emitter) {
       editor.flashCode()
       if(!err) sketches.saveLocally(code)
      })
+    })
+
+    emitter.on('editor:evalLine', (line) => {
+      console.log('EVALUATING', line)
+      repl.eval(line)
+    })
+
+    emitter.on('editor:evalBlock', (block) => {
+      console.log('evaluating block')
+      repl.eval(block)
     })
 
     emitter.on('gallery:shareSketch', function (editor) {

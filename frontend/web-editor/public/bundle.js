@@ -26038,6 +26038,7 @@ module.exports = function store (state, emitter) {
      
     })
 
+    
     emitter.on('editor:randomize', function(evt) {
       const editor = state.editor.editor
       if (evt.shiftKey) {
@@ -26064,6 +26065,16 @@ module.exports = function store (state, emitter) {
       editor.flashCode()
       if(!err) sketches.saveLocally(code)
      })
+    })
+
+    emitter.on('editor:evalLine', (line) => {
+      console.log('EVALUATING', line)
+      repl.eval(line)
+    })
+
+    emitter.on('editor:evalBlock', (block) => {
+      console.log('evaluating block')
+      repl.eval(block)
     })
 
     emitter.on('gallery:shareSketch', function (editor) {
@@ -26109,8 +26120,8 @@ module.exports = class Editor extends Component {
 
   load (element) {
    this.editor = new HydraEditor(this.textEl)
-   this.editor.on("*", (e, t) => {
-       this.emit(e)
+   this.editor.on("*", (e, args) => {
+       this.emit(e, args)
    })
    // hacky, maybe not necessary
    this.innerText = document.getElementsByClassName('CodeMirror')[0]

@@ -12,8 +12,8 @@ module.exports = class Editor extends Component {
 
   load (element) {
    this.editor = new HydraEditor(this.textEl)
-   this.editor.on("*", (e, t) => {
-       this.emit(e)
+   this.editor.on("*", (e, args) => {
+       this.emit(e, args)
    })
    // hacky, maybe not necessary
    this.innerText = document.getElementsByClassName('CodeMirror')[0]
