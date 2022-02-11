@@ -1,4 +1,8 @@
 # Changelog
+## [1.3.0] - 2022-02-11
+### Changed
+- large refactor to use choo + modules
+
 ## [1.2.15] - 2022-02-09
 ### Added
 - added api and docs as submodules in folder /frontend
