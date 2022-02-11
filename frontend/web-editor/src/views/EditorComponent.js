@@ -6,10 +6,14 @@ module.exports = class Editor extends Component {
   constructor (id, state, emit) {
     super(id)
     this.local = state.components[id] = {}
+    this.emit = emit
   }
 
   load (element) {
    this.editor = new HydraEditor(this.textEl)
+   this.editor.on("*", (e, t) => {
+       this.emit(e)
+   })
   }
 
   update (center) {
