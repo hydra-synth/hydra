@@ -2,7 +2,7 @@ const {Parser} = require("acorn");
 const {generate} = require('astring');
 const { defaultTraveler, attachComments, makeTraveler } = require('astravel');
 const {UndoStack} = require('./UndoStack.js');
-const repl = require('../repl.js')
+const repl = require('./../repl.js')
 const glslTransforms = require('hydra-synth/src/glsl/glsl-functions.js')()
 
 class Mutator {
