@@ -5,7 +5,7 @@ module.exports = function mainView(state, emit) {
     return html`
   <div id="info-container" class="${state.showInfo ? "" : "hidden"}">
     <div id="modal">
-      <div id="modal-header">
+      <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
         <div><!--<i class="fas fa-bars icon"></i>--></div>
         ${toolbar(state, emit)}
       </div>

@@ -56,14 +56,14 @@ module.exports = class Editor extends EventEmitter {
     window.cm = this.cm
     this.cm.refresh()
 
-    this.show()
-    // // TO DO: add show code param
-    let searchParams = new URLSearchParams(window.location.search)
-    let showCode = searchParams.get('show-code')
+    // this.show()
+    // // // TO DO: add show code param
+    // let searchParams = new URLSearchParams(window.location.search)
+    // let showCode = searchParams.get('show-code')
 
-    if (showCode === "false") {
-      this.hide()
-    }
+    // if (showCode === "false") {
+    //   this.hide()
+    // }
   }
 
   clear() {
@@ -78,23 +78,23 @@ module.exports = class Editor extends EventEmitter {
     return this.cm.getValue()
   }
 
-  hide() {
-    console.log('hiding')
-    var l = document.getElementsByClassName('CodeMirror')[0]
-    var m = document.getElementById('modal-header')
-    l.style.opacity = 0
-    m.style.opacity = 0
-    this.isShowing = false
-  }
+  // hide() {
+  //   console.log('hiding')
+  //   var l = document.getElementsByClassName('CodeMirror')[0]
+  //   var m = document.getElementById('modal-header')
+  //   l.style.opacity = 0
+  //   m.style.opacity = 0
+  //   this.isShowing = false
+  // }
 
-  show() {
-    var l = document.getElementsByClassName('CodeMirror')[0]
-    var m = document.getElementById('modal-header')
-    l.style.opacity= 1
-    m.style.opacity = 1
-    l.style.pointerEvents = 'all'
-    this.isShowing = true
-  }
+  // show() {
+  //   var l = document.getElementsByClassName('CodeMirror')[0]
+  //   var m = document.getElementById('modal-header')
+  //   l.style.opacity= 1
+  //   m.style.opacity = 1
+  //   l.style.pointerEvents = 'all'
+  //   this.isShowing = true
+  // }
 
   toggle() {
     if (this.isShowing) {
