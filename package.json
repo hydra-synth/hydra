@@ -8,7 +8,7 @@
     "build:editor": "yarn --cwd frontend/web-editor build",
     "watch:editor": "yarn --cwd frontend/web-editor watch",
     "build:api": "yarn --cwd frontend/hydra-functions build",
-    "dev": "yarn watch & yarn serve",
+    "dev": "yarn watch:editor & yarn serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Olivia Jack",
