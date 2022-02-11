@@ -84,6 +84,8 @@ a:hover {
   font-size: 14px;
   color: #aaa;
   pointer-events: none;
+  padding: 15px;
+  padding-bottom: 5px;
 }
 
 .log-error {
