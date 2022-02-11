@@ -1,5 +1,5 @@
 const Gallery  = require('./gallery.js')
-
+const repl = require('./views/editor/repl.js')
 
 module.exports = function store (state, emitter) {
     state.showInfo = true
@@ -16,6 +16,15 @@ module.exports = function store (state, emitter) {
 
     emitter.on('format code', function (count) {
      
+    })
+
+    emitter.on('editor:evalAll', function () {
+    const editor = state.editor.editor
+     const code = editor.getValue()
+     repl.eval(code, (string, err) => {
+      editor.flashCode()
+     // if(!err) this.sketches.saveLocally(this.editor.getValue())
+     })
     })
 
     emitter.on('gallery:shareSketch', function (editor) {

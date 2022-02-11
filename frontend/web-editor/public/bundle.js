@@ -20173,7 +20173,7 @@ module.exports = Gallery
 
 },{"./examples.json":109,"superagent":101}],111:[function(require,module,exports){
 const Gallery  = require('./gallery.js')
-
+const repl = require('./views/editor/repl.js')
 
 module.exports = function store (state, emitter) {
     state.showInfo = true
@@ -20190,6 +20190,15 @@ module.exports = function store (state, emitter) {
 
     emitter.on('format code', function (count) {
      
+    })
+
+    emitter.on('editor:evalAll', function () {
+    const editor = state.editor.editor
+     const code = editor.getValue()
+     repl.eval(code, (string, err) => {
+      editor.flashCode()
+     // if(!err) this.sketches.saveLocally(this.editor.getValue())
+     })
     })
 
     emitter.on('gallery:shareSketch', function (editor) {
@@ -20220,7 +20229,7 @@ module.exports = function store (state, emitter) {
 
     })
   }
-},{"./gallery.js":110}],112:[function(require,module,exports){
+},{"./gallery.js":110,"./views/editor/repl.js":119}],112:[function(require,module,exports){
 const html = require('choo/html')
 const Component = require('choo/component')
 const HydraEditor = require('./editor/editor.js')
