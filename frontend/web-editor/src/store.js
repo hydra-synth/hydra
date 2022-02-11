@@ -23,7 +23,7 @@ module.exports = function store (state, emitter) {
      const code = editor.getValue()
      repl.eval(code, (string, err) => {
       editor.flashCode()
-     // if(!err) this.sketches.saveLocally(this.editor.getValue())
+      if(!err) sketches.saveLocally(code)
      })
     })
 
