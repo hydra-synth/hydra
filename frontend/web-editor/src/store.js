@@ -1,5 +1,7 @@
 module.exports = function countStore (state, emitter) {
     state.showInfo = true
+    state.showUI = true
+
     emitter.on('shuffle sketches', function (count) {
      
     })
@@ -18,6 +20,11 @@ module.exports = function countStore (state, emitter) {
 
     emitter.on('clear all', function (count) {
      
+    })
+
+    emitter.on('hideAll', function() {
+      state.showUI = !state.showUI
+      emitter.emit('render')
     })
 
     emitter.on('toggle info', function (count) {

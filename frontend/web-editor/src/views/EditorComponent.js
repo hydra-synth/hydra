@@ -28,7 +28,7 @@ module.exports = class Editor extends Component {
   }
 
   update (state) {
-    if(state.showInfo === true) {
+    if(state.showInfo === true || state.showUI === false) {
         this.hide()
     } else {
         this.show()
