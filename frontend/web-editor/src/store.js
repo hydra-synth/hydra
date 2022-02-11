@@ -20,13 +20,12 @@ module.exports = function countStore (state, emitter) {
      
     })
 
-    emitter.on('hide info', function (count) {
-     
+    emitter.on('toggle info', function (count) {
+      state.showInfo = !state.showInfo
+      emitter.emit('render')
     })
 
-    emitter.on('show info', function () {
-
-    })
+    
 
     emitter.on('mutate sketch', function () {
 

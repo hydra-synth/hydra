@@ -7422,13 +7422,12 @@ module.exports = function countStore (state, emitter) {
      
     })
 
-    emitter.on('hide info', function (count) {
-     
+    emitter.on('toggle info', function (count) {
+      state.showInfo = !state.showInfo
+      emitter.emit('render')
     })
 
-    emitter.on('show info', function () {
-
-    })
+    
 
     emitter.on('mutate sketch', function () {
 
@@ -7468,7 +7467,7 @@ const toolbar = require('./toolbar.js')
 
 module.exports = function mainView(state, emit) {
     return html`
-  <div id="info-container" class="">
+  <div id="info-container" class="${state.showInfo ? "" : "hidden"}">
     <div id="modal">
       <div id="modal-header">
         <div><!--<i class="fas fa-bars icon"></i>--></div>
@@ -7551,9 +7550,12 @@ module.exports = function toolbar(state, emit) {
           <i id="clear-icon" title="clear all" class="${hidden} fa fa-trash icon" aria-hidden="true"></i>
           <i id="shuffle-icon" title="show random sketch" class="fas fa-random icon" aria-hidden="true"></i>
           <i id="mutator-icon" title="make random change" class="${hidden} fas fa-dice icon" aria-hidden="true"></i>
-          <i id="close-icon" class="fas ${state.showInfo? "fa-times" : "fa-question-circle"} icon" aria-hidden="true"></i>
+          <i id="close-icon" onclick=${toggleInfo} class="fas ${state.showInfo? "fa-times" : "fa-question-circle"} icon" aria-hidden="true"></i>
         </div>
  `
+    function toggleInfo() {
+        emit('toggle info')
+    }
 }
 },{"choo/html":14}],81:[function(require,module,exports){
 (function (global){(function (){
