@@ -14,9 +14,25 @@ module.exports = class Editor extends Component {
    this.editor.on("*", (e, t) => {
        this.emit(e)
    })
+   // hacky, maybe not necessary
+   this.innerText = document.getElementsByClassName('CodeMirror')[0]
   }
 
-  update (center) {
+  hide() {
+    this.innerText.style.opacity = 0
+  }
+
+  show() {
+    this.innerText.style.opacity = 1
+    this.innerText.style.pointerEvents = 'all'
+  }
+
+  update (state) {
+    if(state.showInfo === true) {
+        this.hide()
+    } else {
+        this.show()
+    }
     return false
   }
 
