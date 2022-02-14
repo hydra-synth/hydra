@@ -2,6 +2,7 @@ const multer = require('multer')
 var path = require('path')
 var fs = require('fs')
 const request = require('request')
+const superagent = require('superagent')
 
 var tweet
 module.exports = (app) => {
@@ -92,9 +93,25 @@ module.exports = (app) => {
     })
 
   //  console.log('envv', process.env)
-    if(process.env.CONSUMER_KEY) {
      const upload = multer({ storage: storage });
      app.post("/image", upload.single('previewImage'), (req, res) => {
+
+      if(process.env.CHEVERETO_API_KEY && process.env.CHEVERETO_API_URL) {
+        console.log('UPLOADING TO CHEVERETO');
+        superagent
+          .post(process.env.CHEVERETO_API_URL)
+          .field('key', process.env.CHEVERETO_API_KEY)
+          .attach('source', req.file.path, {filename: `${req.query.name}: ${req.query.sketch_id}`})
+          .end((err, res) => {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log('Media uploaded!')
+            }
+          });
+      }
+
+      if(process.env.CONSUMER_KEY) {
       //  console.log('UPLOADING');
       //  findParentTweet(req.query.sketch_id, function(err, tweet_id){
       //    if(err) console.log(err)
@@ -130,6 +147,7 @@ module.exports = (app) => {
 
 
       // res.end();
+      }
      });
 
     function findParentTweet(sketch_id, callback) {
@@ -162,7 +180,6 @@ module.exports = (app) => {
          }
        }
      })
-    }
     }
 
      function saveFile(body, fileName) {
