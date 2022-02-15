@@ -107,6 +107,43 @@ module.exports = (app) => {
               console.log(err)
             } else {
               console.log('Media uploaded!')
+              // console.log(res.body.image)
+
+              if(process.env.NOCODB_API_KEY && process.env.NOCODB_API_URL) {
+                db.find({_id: req.query.sketch_id}, function (err, entries){
+                  if (err) {
+                    console.log('problem with db', err)
+                  } else {
+                    if (entries.length > 0) {
+                      const code = decodeURIComponent(Buffer.from(entries[0].code, 'base64').toString('binary'));
+                      const image = JSON.stringify([
+                        {
+                          url: res.body.image.url,
+                          title: res.body.image.filename,
+                          mimetype: res.body.image.mime,
+                          size: res.body.image.size,
+                        }
+                      ])
+                      superagent
+                      .post(process.env.NOCODB_API_URL)
+                      .set('xc-auth', process.env.NOCODB_API_KEY)
+                      .send({
+                        title: `${req.query.name}`,
+                        image,
+                        url: `https://hydra.glitches.me/?sketch_id=${req.query.sketch_id}`,
+                        code,
+                      })
+                      .end((err, res) => {
+                        if (err) {
+                          console.log(err)
+                        } else {
+                          console.log('NOCODB uploaded!')
+                        }
+                      })
+                    }
+                  }
+                })
+              }
             }
           });
       }
