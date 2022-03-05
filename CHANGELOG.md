@@ -1,4 +1,8 @@
 # Changelog
+## [1.3.1] - 2022-03-05
+### Added 
+- path to hydra garden
+
 ## [1.3.0] - 2022-02-11
 ### Changed
 - large refactor to use choo + modules
