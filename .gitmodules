@@ -6,3 +6,6 @@
 	path = frontend/hydra-docs
 	url = git@github.com:hydra-synth/hydra-docs.git
 	branch = main
+[submodule "frontend/hydra-garden"]
+	path = frontend/hydra-garden
+	url = git@github.com:hydra-synth/hydra-garden.git
