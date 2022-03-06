@@ -1,9 +1,23 @@
 const Gallery = require('./gallery.js')
 const repl = require('./views/editor/repl.js')
+const i18next = require('i18next')
+const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
+const languageResources = require('./locales.js')
+
+i18next
+.use(i18nextBrowserLanguageDetector)
+.init({
+  debug: true,
+  fallbackLng: 'en',
+  resources: languageResources,
+})
 
 module.exports = function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
+  state.translation = {
+    t: i18next.t
+  }
 
  let sketches
 

@@ -2,22 +2,9 @@ const html = require('choo/html')
 const raw = require('choo/html/raw')
 const toolbar = require('./toolbar.js')
 
-const i18next = require('i18next')
-const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
-
-const languageResources = require('./../locales.js')
-const { lineBreak } = require('acorn')
-
-i18next
-.use(i18nextBrowserLanguageDetector)
-.init({
-  debug: true,
-  fallbackLng: 'en',
-  resources: languageResources,
-})
-
 const link = (url) => `href=${url} target=_blank`
 module.exports = function mainView(state, emit) {
+  const { t } = state.translation
   return html`
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}">
   <div id="modal">
@@ -27,38 +14,39 @@ module.exports = function mainView(state, emit) {
     </div>
     <div id="modal-body">
       <div id="modal-content">
-        <h1>${i18next.t('info.title')}</h1>
-        <h3>${i18next.t('info.subtitle')}</h3>
+        <h1>${t('info.title')}</h1>
+        <h3>${t('info.subtitle')}</h3>
           <br> ///////////////////////////////////////////////////////////<br>
-          <h4>${i18next.t('info.description')}</h4>
-        <h4>${i18next.t('info.get-started-title')}<ol>
-            <li>${i18next.t('info.get-started-list.0')}</li>
-            <li>${i18next.t('info.get-started-list.1')}</li>
-            <li>${i18next.t('info.get-started-list.2')}</li>
+          <h4>${t('info.description')}</h4>
+        <h4>${t('info.get-started-title')}<ol>
+            <li>${t('info.get-started-list.0')}</li>
+            <li>${t('info.get-started-list.1')}</li>
+            <li>${t('info.get-started-list.2')}</li>
           </ol>
         </h4>
 
         <p> ///////////////////////////////////////////////////////////<br><br><br>
-          ${i18next.t('info.description-detailed')}
+          ${t('info.description-detailed')}
         </p>
-        <p>${i18next.t('info.features')}<ul>
-        ${i18next.t('info.features-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
+        <p>${t('info.features')}<ul>
+        ${t('info.features-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
         </ul>
-           <p class="align-right">${raw(i18next.t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
-           <p>${raw(i18next.t('info.more-info', {
+           <p class="align-right">${raw(t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
+           <p>${raw(t('info.more-info', {
              docs: link("https://hydra.ojack.xyz/docs"),
              functions: link("https://hydra.ojack.xyz/api"),
              gallery: link("https://twitter.com/hydra_patterns"),
+             repo: link("https://github.com/hydra-synth/hydra"),
              pixeljam: link("http://pixeljam.glitch.me/"),
              'hydra-book': link("https://hydra-book.glitch.me/"),
              "tutorials": link("https://github.com/ojack/hydra/blob/master/examples/README.md")
            }))}</p>
-          <p>${raw(i18next.t('info.more-info-forums', {
+          <p>${raw(t('info.more-info-forums', {
             discord: link("https://discord.gg/ZQjfHkNHXC"),
             facebook: link("https://www.facebook.com/groups/1084288351771117/")
           }))}</p>
 
-        <p>${raw(i18next.t('info.support', {
+        <p>${raw(t('info.support', {
           "open-collective": link("https://opencollective.com/hydra-synth")
         }))}</p>
       </div>

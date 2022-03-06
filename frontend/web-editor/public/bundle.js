@@ -47115,6 +47115,15 @@ module.exports = PatchBay
 module.exports = {
     en: {
         translation: {
+            toolbar: {
+                run: "Run all code (ctrl+shift+enter)",
+                upload: "upload to gallery",
+                clear: "clear all",
+                shuffle: "show random sketch",
+                random: "make random change",
+                "show-info": "show info window",
+                "hide-info": "hide info window"
+            },
             info: {
                 title: 'hydra',
                 subtitle: 'live coding networked visuals',
@@ -47135,7 +47144,7 @@ module.exports = {
                     'Experimental and forever evolving !!'
                 ],
                 'author': 'Created by <a {{author}}>olivia.</a>',
-                'more-info': 'For more information and instructions, see: <a {{docs}}>the online documentation</a>, <a {{functions}}>a list of hydra functions</a>, <a {{gallery}}>a gallery of user-generated sketches</a>, <a {{pixeljam}}>PIXELJAM collaborative editor</a>, <a {{hydra-book}}>Hydra Book</a>, and more <a {{tutorials}}>tutorials and examples.</a>',
+                'more-info': 'For more information and instructions, see: <a {{docs}}>the online documentation</a>, <a {{functions}}>a list of hydra functions</a>, <a {{repo}}>the source code on github</a>, <a {{gallery}}>a gallery of user-generated sketches</a>, <a {{pixeljam}}>PIXELJAM collaborative editor</a>, <a {{hydra-book}}>Hydra Book</a>, and more <a {{tutorials}}>tutorials and examples.</a>',
                 'more-info-forums':  'There is also an active <a {{discord}}>Discord server</a> and <a {{facebook}}>facebook group</a> for hydra users+contributors.',
                 'support': 'If you enjoy using Hydra, please consider  <a {{open-collective}} >supporting continued development <3 </a>.'
             }
@@ -47145,10 +47154,24 @@ module.exports = {
 },{}],248:[function(require,module,exports){
 const Gallery = require('./gallery.js')
 const repl = require('./views/editor/repl.js')
+const i18next = require('i18next')
+const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
+const languageResources = require('./locales.js')
+
+i18next
+.use(i18nextBrowserLanguageDetector)
+.init({
+  debug: true,
+  fallbackLng: 'en',
+  resources: languageResources,
+})
 
 module.exports = function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
+  state.translation = {
+    t: i18next.t
+  }
 
  let sketches
 
@@ -47265,7 +47288,7 @@ function showConfirmation(successCallback, terminateCallback) {
     terminateCallback()
   }
 }
-},{"./gallery.js":243,"./views/editor/repl.js":256}],249:[function(require,module,exports){
+},{"./gallery.js":243,"./locales.js":247,"./views/editor/repl.js":256,"i18next":113,"i18next-browser-languagedetector":112}],249:[function(require,module,exports){
 const html = require('choo/html')
 const Component = require('choo/component')
 const HydraEditor = require('./editor/editor.js')
@@ -47925,22 +47948,9 @@ const html = require('choo/html')
 const raw = require('choo/html/raw')
 const toolbar = require('./toolbar.js')
 
-const i18next = require('i18next')
-const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
-
-const languageResources = require('./../locales.js')
-const { lineBreak } = require('acorn')
-
-i18next
-.use(i18nextBrowserLanguageDetector)
-.init({
-  debug: true,
-  fallbackLng: 'en',
-  resources: languageResources,
-})
-
 const link = (url) => `href=${url} target=_blank`
 module.exports = function mainView(state, emit) {
+  const { t } = state.translation
   return html`
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}">
   <div id="modal">
@@ -47950,38 +47960,39 @@ module.exports = function mainView(state, emit) {
     </div>
     <div id="modal-body">
       <div id="modal-content">
-        <h1>${i18next.t('info.title')}</h1>
-        <h3>${i18next.t('info.subtitle')}</h3>
+        <h1>${t('info.title')}</h1>
+        <h3>${t('info.subtitle')}</h3>
           <br> ///////////////////////////////////////////////////////////<br>
-          <h4>${i18next.t('info.description')}</h4>
-        <h4>${i18next.t('info.get-started-title')}<ol>
-            <li>${i18next.t('info.get-started-list.0')}</li>
-            <li>${i18next.t('info.get-started-list.1')}</li>
-            <li>${i18next.t('info.get-started-list.2')}</li>
+          <h4>${t('info.description')}</h4>
+        <h4>${t('info.get-started-title')}<ol>
+            <li>${t('info.get-started-list.0')}</li>
+            <li>${t('info.get-started-list.1')}</li>
+            <li>${t('info.get-started-list.2')}</li>
           </ol>
         </h4>
 
         <p> ///////////////////////////////////////////////////////////<br><br><br>
-          ${i18next.t('info.description-detailed')}
+          ${t('info.description-detailed')}
         </p>
-        <p>${i18next.t('info.features')}<ul>
-        ${i18next.t('info.features-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
+        <p>${t('info.features')}<ul>
+        ${t('info.features-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
         </ul>
-           <p class="align-right">${raw(i18next.t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
-           <p>${raw(i18next.t('info.more-info', {
+           <p class="align-right">${raw(t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
+           <p>${raw(t('info.more-info', {
              docs: link("https://hydra.ojack.xyz/docs"),
              functions: link("https://hydra.ojack.xyz/api"),
              gallery: link("https://twitter.com/hydra_patterns"),
+             repo: link("https://github.com/hydra-synth/hydra"),
              pixeljam: link("http://pixeljam.glitch.me/"),
              'hydra-book': link("https://hydra-book.glitch.me/"),
              "tutorials": link("https://github.com/ojack/hydra/blob/master/examples/README.md")
            }))}</p>
-          <p>${raw(i18next.t('info.more-info-forums', {
+          <p>${raw(t('info.more-info-forums', {
             discord: link("https://discord.gg/ZQjfHkNHXC"),
             facebook: link("https://www.facebook.com/groups/1084288351771117/")
           }))}</p>
 
-        <p>${raw(i18next.t('info.support', {
+        <p>${raw(t('info.support', {
           "open-collective": link("https://opencollective.com/hydra-synth")
         }))}</p>
       </div>
@@ -48038,7 +48049,7 @@ module.exports = function mainView(state, emit) {
 //   </div>
 //  `
 // }
-},{"./../locales.js":247,"./toolbar.js":259,"acorn":18,"choo/html":47,"choo/html/raw":48,"i18next":113,"i18next-browser-languagedetector":112}],258:[function(require,module,exports){
+},{"./toolbar.js":259,"choo/html":47,"choo/html/raw":48}],258:[function(require,module,exports){
 const html = require('choo/html')
 const info = require('./info.js')
 const Hydra = require('./Hydra.js')
@@ -48063,18 +48074,21 @@ const html = require('choo/html')
 module.exports = function toolbar(state, emit) {
     const hidden = state.showInfo ? 'hidden' : ''
 
+    const { t } = state.translation
+
     const dispatch = (eventName) => (e) => emit(eventName, e)
 
     const icon = (id, className, title, event) => html`
         <i id="${id}-icon" class="fas icon ${className}" title="${title}" onclick=${dispatch(event)} aria-hidden="true"></i>`
 
+    const toggleInfo = state.showInfo ? icon("close", "fa-times", t('toolbar.hide-info'), 'toggle info') : icon("close", "fa-question-circle", t('toolbar.show-info'), 'toggle info')  
     return html`<div>
-        ${icon("run", `fa-play-circle ${hidden}`, "Run all code (ctrl+shift+enter)", 'editor:evalAll')}
-        ${icon("share", `fa-upload ${hidden}`, "upload to gallery", 'gallery:shareSketch')}
-        ${icon("clear", `fa fa-trash ${hidden}`, "clear all", 'editor:clearAll')}
-        ${icon("shuffle", `fa-random`, "show random sketch", 'gallery:showExample')}
-        ${icon("mutator", `fa-dice ${hidden}`, "make random change", 'editor:randomize')}
-        ${icon("close", state.showInfo? "fa-times" : "fa-question-circle", "close info window", 'toggle info')}
+        ${icon("run", `fa-play-circle ${hidden}`, t('toolbar.run'), 'editor:evalAll')}
+        ${icon("share", `fa-upload ${hidden}`, t('toolbar.upload'), 'gallery:shareSketch')}
+        ${icon("clear", `fa fa-trash ${hidden}`, t('toolbar.clear'), 'editor:clearAll')}
+        ${icon("shuffle", `fa-random`, t('toolbar.shuffle'), 'gallery:showExample')}
+        ${icon("mutator", `fa-dice ${hidden}`, t('toolbar.random'), 'editor:randomize')}
+        ${toggleInfo}
     </div>`
 }
 },{"choo/html":47}]},{},[1]);
