@@ -15,8 +15,13 @@ i18next
 module.exports = function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
+  const languages = {}
+  Object.keys(languageResources).forEach((key) => languages[key] = i18next.getFixedT(key)('language-name'))
+
   state.translation = {
-    t: i18next.t
+    t: i18next.t,
+    languages: languages,
+    selectedLanguage: i18next.language
   }
 
  let sketches
