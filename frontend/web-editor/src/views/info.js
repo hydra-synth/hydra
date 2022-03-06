@@ -4,12 +4,15 @@ const toolbar = require('./toolbar.js')
 
 const link = (url) => `href=${url} target=_blank`
 module.exports = function mainView(state, emit) {
-  const { t } = state.translation
+  const { t, languages } = state.translation
+  const langArray = Object.entries(languages)
   return html`
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}">
   <div id="modal">
     <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
-      <div><!--<i class="fas fa-bars icon"></i>--></div>
+      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex">${langArray.map(([key, val]) => html`
+        <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
+      `)}</div>` : html`<div></div>` }
       ${toolbar(state, emit)}
     </div>
     <div id="modal-body">

@@ -24,6 +24,15 @@ module.exports = function store(state, emitter) {
     selectedLanguage: i18next.language
   }
 
+  emitter.on('set language', (lang) => {
+    console.log('setting language to', lang)
+    i18next.changeLanguage(lang, (err, t) => {
+      console.log(err, t)
+      selectedLanguage = lang
+      emitter.emit('render')
+    })
+  })
+
  let sketches
 
   emitter.on('DOMContentLoaded', function () {
