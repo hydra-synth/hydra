@@ -21,6 +21,7 @@
  -moz-transition: height 1s;
  -o-transition: height 1s;
  transition: height 1s;
+ font-family: 'Chivo', sans-serif;
 }
 
 #info-container.hidden {
@@ -81,7 +82,6 @@ transition: width 1s;
   height: 40px;
   border: 1px solid white;
   margin: 0px;
-  font-size: 20px;
   display: -webkit-box;
    display: -moz-box;
    display: -ms-flexbox;
@@ -91,18 +91,33 @@ transition: width 1s;
 
 }
 
+
+
 .icon {
   margin: 10px;
   margin-right: 15px;
   margin-left: 15px;
   cursor: pointer;
   pointer-events: auto;
-
+  font-size: 20px;
 }
 
 .icon:hover{
   color: #ccc;
 }
+
+.language-select {
+  margin: 8px;
+  font-weight: 200;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.language-select:hover{
+  color: #ccc;
+}
+
+
 
 .icon.hidden {
   display: none;

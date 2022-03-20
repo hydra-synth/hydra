@@ -1,4 +1,14 @@
 # Changelog
+## [1.3.1] - 2022-03-05
+### Added 
+- path to hydra garden
+- internationalization of info window and toolbar
+- header for selecting language
+
+## [1.3.0] - 2022-02-11
+### Changed
+- large refactor to use choo + modules
+
 ## [1.2.15] - 2022-02-09
 ### Added
 - added api and docs as submodules in folder /frontend

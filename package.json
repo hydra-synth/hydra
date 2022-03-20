@@ -1,6 +1,6 @@
 {
   "name": "hydra",
-  "version": "1.2.15",
+  "version": "1.3.0",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:editor": "yarn --cwd frontend/web-editor build",
     "watch:editor": "yarn --cwd frontend/web-editor watch",
     "build:api": "yarn --cwd frontend/hydra-functions build",
-    "dev": "yarn watch & yarn serve",
+    "dev": "yarn watch:editor & yarn serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Olivia Jack",

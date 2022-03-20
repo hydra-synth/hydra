@@ -120,6 +120,9 @@ io.on('connection', function (socket) {
 })
 
 app.use('/api', express.static(path.join(__dirname, '../frontend/hydra-functions/docs')))
+app.use('/functions', express.static(path.join(__dirname, '../frontend/hydra-functions/docs')))
 app.use('/docs', express.static(path.join(__dirname, '../frontend/hydra-docs')))
+app.use('/garden', express.static(path.join(__dirname, '../frontend/hydra-garden/dist')))
+
 
 app.use(express.static(path.join(__dirname, '../frontend/web-editor/public')))

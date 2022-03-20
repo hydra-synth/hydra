@@ -242,8 +242,7 @@ git submodule update --init
 
 To pull latest versions of submodules:
 ```
-git pull
-git submodule update --recursive --remote
+git submodule foreach git pull origin main  
 ```
 
 Install yarn from the command line
