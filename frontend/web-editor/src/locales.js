@@ -75,7 +75,7 @@ module.exports = {
     //         }
     //     }
     // },
-    en: {
+    ja: {
         translation: {
             'language-name': '日本語',
             toolbar: {
