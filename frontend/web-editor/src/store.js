@@ -110,12 +110,12 @@ module.exports = function store(state, emitter) {
 
   emitter.on('gallery:shareSketch', function () {
     let editor = state.editor.editor
-    const code = editor.getValue()
+    const editorText = editor.getValue()
     repl.eval(editor.getValue(), (code, error) => {
       //  console.log('evaluated', code, error)
       if (!error) {
         showConfirmation((name) => {
-          sketches.shareSketch(code, state.hydra.hydra, name)
+          sketches.shareSketch(editorText, state.hydra.hydra, name)
         }, () => { })
       } else {
         console.warn(error)
