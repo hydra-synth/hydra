@@ -108,6 +108,12 @@ module.exports = function store(state, emitter) {
     repl.eval(block)
   })
 
+  emitter.on('gallery:saveToURL', function () {
+    let editor = state.editor.editor
+    const editorText = editor.getValue()
+    sketches.saveLocally(editorText)
+  })
+
   emitter.on('gallery:shareSketch', function () {
     let editor = state.editor.editor
     const editorText = editor.getValue()
