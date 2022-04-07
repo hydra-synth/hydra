@@ -51,6 +51,10 @@ module.exports = function store(state, emitter) {
     })
   })
 
+  emitter.on('screencap', () => {
+    screencap()
+  })
+
   emitter.on('editor:randomize', function (evt) {
     const editor = state.editor.editor
     if (evt.shiftKey) {
