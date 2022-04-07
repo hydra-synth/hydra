@@ -1,4 +1,8 @@
 # Changelog
+## [1.3.2] - 2022-03-21
+### Added 
+- japanese translation
+
 ## [1.3.1] - 2022-03-05
 ### Added 
 - path to hydra garden
