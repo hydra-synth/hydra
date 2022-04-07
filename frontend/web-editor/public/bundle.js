@@ -47284,6 +47284,19 @@ module.exports = function store(state, emitter) {
 
   emitter.on('screencap', () => {
     screencap()
+    const editor = state.editor.editor
+    const text = editor.getValue()
+    const data = new Blob([text], {type: 'text/plain'});
+    const a = document.createElement('a')
+    a.style.display = 'none'
+    let d = new Date()
+    a.download = `hydra-${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}-${d.getHours()}.${d.getMinutes()}.${d.getSeconds()}.js`
+    a.href = URL.createObjectURL(data)
+    a.click()
+
+    setTimeout(() => {
+      window.URL.revokeObjectURL(a.href);
+    }, 300);
   })
 
   emitter.on('editor:randomize', function (evt) {
