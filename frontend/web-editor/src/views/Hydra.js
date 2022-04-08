@@ -28,7 +28,7 @@ module.exports = class Hydra extends Component {
     this.hydra = hydra
      osc().out()
 
-     pb.init(hydra.captureStream, {
+    pb.init(hydra.captureStream, {
       server: window.location.origin,
       room: 'iclc'
     })

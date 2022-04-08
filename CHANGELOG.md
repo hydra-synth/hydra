@@ -1,4 +1,8 @@
 # Changelog
+## [1.3.3] - 2022-04-07
+
+- fixed share sc
+
 ## [1.3.2] - 2022-03-21
 ### Added 
 - japanese translation

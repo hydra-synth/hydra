@@ -24,6 +24,7 @@ PBLive.prototype.init = function (stream, opts) {
     stream: stream
   }
 
+  console.log('initializing patch-bay', stream, opts)
   this.makeGlobal = opts.makeGlobal || true
   this.setPageTitle = opts.setTitle || true
 
@@ -104,7 +105,7 @@ PBLive.prototype.handleNewPeer = function (peer) {
 
 PBLive.prototype.list = function () {
   var l = Object.keys(this.idFromNick)
-  //console.log(l)
+  console.log(l)
   return Object.keys(this.idFromNick)
 }
 
