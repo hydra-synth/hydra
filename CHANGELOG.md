@@ -1,6 +1,8 @@
 # Changelog
 ## [1.3.4] - 2022-04-11
+### Fixed
 - fixed audio canvas showing
+- patch bay working
 
 ## [1.3.3] - 2022-04-07
 - fixed share screen
