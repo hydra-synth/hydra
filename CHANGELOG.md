@@ -1,7 +1,9 @@
 # Changelog
-## [1.3.3] - 2022-04-07
+## [1.3.4] - 2022-04-11
+- fixed audio canvas showing
 
-- fixed share sc
+## [1.3.3] - 2022-04-07
+- fixed share screen
 
 ## [1.3.2] - 2022-03-21
 ### Added 
