@@ -135,7 +135,7 @@ PatchBay.prototype._newPeer = function (peer){
 // // Once the new peer receives a list of connected peers from the server,
 // // creates new simple peer object for each connected peer.
 PatchBay.prototype._readyForSignalling = function ({ peers, servers }) {
-console.log("received peer list", _t, this.peers)
+//console.log("received peer list", _t, this.peers)
 
   peers.forEach((peer) => {
     this._newPeer(peer)

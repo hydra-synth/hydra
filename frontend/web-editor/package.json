@@ -25,7 +25,7 @@
     "js-beautify": "^1.14.0",
     "shortid": "^2.2.16",
     "simple-peer": "^9.11.0",
-    "socket.io-client": "^4.4.1",
+    "socket.io-client": "^2.3.0",
     "superagent": "^7.0.1"
   },
   "devDependencies": {
