@@ -1,37 +1,10 @@
 const Gallery = require('./gallery.js')
-const repl = require('./views/editor/repl.js')
-const i18next = require('i18next')
-const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
-const languageResources = require('./locales.js')
+const repl = require('../views/editor/repl.js')
 
-i18next
-.use(i18nextBrowserLanguageDetector)
-.init({
-  debug: true,
-  fallbackLng: 'en',
-  resources: languageResources,
-})
 
 module.exports = function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
-  const languages = {}
-  Object.keys(languageResources).forEach((key) => languages[key] = i18next.getFixedT(key)('language-name'))
-
-  state.translation = {
-    t: i18next.t,
-    languages: languages,
-    selectedLanguage: i18next.language
-  }
-
-  emitter.on('set language', (lang) => {
-    console.log('setting language to', lang)
-    i18next.changeLanguage(lang, (err, t) => {
-      console.log(err, t)
-      selectedLanguage = lang
-      emitter.emit('render')
-    })
-  })
 
  let sketches
 
