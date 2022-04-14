@@ -44,7 +44,7 @@ var PatchBay = function (options) {
 
   // emit 'join' event to signalling server
   this.signaller.emit('join', this._room, {uuid: this.id})
-  console.log('emitting join')
+  // console.log('emitting join')
 
   this.signaller.on('new peer', this._newPeer.bind(this))
 }

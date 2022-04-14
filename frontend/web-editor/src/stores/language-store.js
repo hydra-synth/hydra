@@ -31,7 +31,7 @@ module.exports = function store(state, emitter) {
 
   const css = "color: purple; background: orange; font-size: 16px;padding:10px"
 
-  console.log(`%cloading translation for ${lang} from ${path}`, css, lang, path);
+  console.log(`%cloading translation for ${lang} from ${path}`, css);
   // console.log('%c', "color:purple", 'tttt', lang, path)
 
   if (lang !== null && path !== null) {
@@ -43,7 +43,7 @@ module.exports = function store(state, emitter) {
   emitter.on('set language', (lang) => {
     // console.log('setting language to', lang)
     i18next.changeLanguage(lang, (err, t) => {
-      console.log(err, t)
+      // console.log(err, t)
       selectedLanguage = lang
       emitter.emit('render')
     })
