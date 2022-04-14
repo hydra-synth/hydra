@@ -24,10 +24,10 @@ module.exports = function store(state, emitter) {
 
 
   let searchParams = new URLSearchParams(window.location.search)
-  let lang = searchParams.get('i18n-lang')
+  let lang = searchParams.get('l10n-lang')
 
   //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
-  let path = searchParams.get('i18n-url')
+  let path = searchParams.get('l10n-url')
 
   const css = "color: purple; background: orange; font-size: 16px;padding:10px"
 
