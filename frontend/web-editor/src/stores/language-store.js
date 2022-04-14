@@ -2,7 +2,10 @@ const i18next = require('i18next')
 const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
 // const i18nextHttpBackend = require('i18next-http-backend')
 
-const languageResources = require('./locales.js')
+const languageResources = require('./text-elements.js')
+
+const availableLanguages = ['ja'] // localizations available in repository at /hydra-synth/l10n
+const languagePath = (lang) => `https://raw.githubusercontent.com/hydra-synth/l10n/main/${lang}/editor.json`
 
 i18next
   // .use(i18nextHttpBackend)
@@ -18,7 +21,6 @@ i18next
     resources: languageResources
   })
 
-
 module.exports = function store(state, emitter) {
   const languages = {}
 
@@ -29,9 +31,10 @@ module.exports = function store(state, emitter) {
   //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
   let path = searchParams.get('l10n-url')
 
-  const css = "color: purple; background: orange; font-size: 16px;padding:10px"
+  availableLanguages.forEach((lang) => {
+    loadLanguageFromURL(lang, languagePath(lang))
+  })
 
-  console.log(`%cloading translation for ${lang} from ${path}`, css);
   // console.log('%c', "color:purple", 'tttt', lang, path)
 
   if (lang !== null && path !== null) {
@@ -61,8 +64,9 @@ module.exports = function store(state, emitter) {
   }
   // loadLanguageFromURL('es', 'https://raw.githubusercontent.com/hydra-synth/l10n/main/es/editor.json')
   //loadLanguageFromURL('es','https://hackmd.io/baEnGh7gRt2iHTvt-TT8Fw/download')
-
   function loadLanguageFromURL(lang = 'es', path) {
+    const css = "color: purple; background: orange; font-size: 14px;padding:10px"
+    console.log(`%cloading translation for ${lang} from ${path}`, css);
     fetch(path)
       .then(res => {
         if (!res.ok) {
