@@ -29,7 +29,7 @@ module.exports = {
                     'in combination with other javascript libraries such as P5.js, Tone.js, THREE.js, or gibber',
                     'to add interactive video effects to a website',
                     'to experiment with and learn about video feedback, fractals, and pixel operations',
-                    'to stream video between browsers and to live-jam with others online'
+                    'to stream video between browsers and live-jam with others online'
                 ],
                 'author': 'Created by <a {{author}}>olivia.</a>',
                 'more-info': 'For more information and instructions, see: <a {{docs}}>the interactive documentation</a>, <a {{functions}}>a list of hydra functions</a>, <a {{garden}}>the community database of projects and tutorials</a>, <a {{gallery}}>a gallery of user-generated sketches</a>, and <a {{repo}}>the source code on github</a>,',
