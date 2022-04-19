@@ -3,6 +3,11 @@ var path = require('path')
 var fs = require('fs')
 const request = require('request')
 const superagent = require('superagent')
+const Airtable = require("airtable");
+
+const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
+  process.env.AIRTABLE_BASE
+);
 
 var tweet
 module.exports = (app) => {
@@ -143,6 +148,33 @@ module.exports = (app) => {
                     }
                   }
                 })
+              }
+              if (base) {
+                base('Table 1').create([
+                  {
+                    "fields": {
+                      "Name": `${req.query.name}`,
+                      "Notes": `https://hydra.glitches.me/?sketch_id=${req.query.sketch_id}`,
+                      "Attachments": [
+                        {
+                          "url": res.body.image.url
+                        }
+                      ],
+                      "tag": [
+                        "sketch"
+                      ],
+                      "featured": false,
+                    }
+                  },
+                ], function(err, records) {
+                  if (err) {
+                    console.error(err);
+                    return;
+                  }
+                  records.forEach(function (record) {
+                    console.log(record.getId());
+                  });
+                });
               }
             }
           });

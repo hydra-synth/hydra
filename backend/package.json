@@ -10,6 +10,7 @@
   "author": "",
   "license": "AGPL",
   "dependencies": {
+    "airtable": "^0.11.3",
     "bitly": "^7.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
