@@ -19,13 +19,14 @@
     "choo": "^7.1.0",
     "choo-devtools": "^3.0.4",
     "codemirror-minified": "^5.65.0",
-    "hydra-synth": "^1.3.16",
+    "hydra-synth": "^1.3.17",
     "i18next": "^21.6.13",
     "i18next-browser-languagedetector": "^6.1.3",
+    "i18next-http-backend": "^1.4.0",
     "js-beautify": "^1.14.0",
     "shortid": "^2.2.16",
     "simple-peer": "^9.11.0",
-    "socket.io-client": "^4.4.1",
+    "socket.io-client": "^2.3.0",
     "superagent": "^7.0.1"
   },
   "devDependencies": {

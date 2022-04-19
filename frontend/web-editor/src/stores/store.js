@@ -1,37 +1,10 @@
 const Gallery = require('./gallery.js')
-const repl = require('./views/editor/repl.js')
-const i18next = require('i18next')
-const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
-const languageResources = require('./locales.js')
+const repl = require('../views/editor/repl.js')
 
-i18next
-.use(i18nextBrowserLanguageDetector)
-.init({
-  debug: true,
-  fallbackLng: 'en',
-  resources: languageResources,
-})
 
 module.exports = function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
-  const languages = {}
-  Object.keys(languageResources).forEach((key) => languages[key] = i18next.getFixedT(key)('language-name'))
-
-  state.translation = {
-    t: i18next.t,
-    languages: languages,
-    selectedLanguage: i18next.language
-  }
-
-  emitter.on('set language', (lang) => {
-    console.log('setting language to', lang)
-    i18next.changeLanguage(lang, (err, t) => {
-      console.log(err, t)
-      selectedLanguage = lang
-      emitter.emit('render')
-    })
-  })
 
  let sketches
 
@@ -49,6 +22,23 @@ module.exports = function store(state, emitter) {
       // @todo create gallery store
     //  console.warn('gallery callback not let implemented')
     })
+  })
+
+  emitter.on('screencap', () => {
+    screencap()
+    const editor = state.editor.editor
+    const text = editor.getValue()
+    const data = new Blob([text], {type: 'text/plain'});
+    const a = document.createElement('a')
+    a.style.display = 'none'
+    let d = new Date()
+    a.download = `hydra-${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}-${d.getHours()}.${d.getMinutes()}.${d.getSeconds()}.js`
+    a.href = URL.createObjectURL(data)
+    a.click()
+
+    setTimeout(() => {
+      window.URL.revokeObjectURL(a.href);
+    }, 300);
   })
 
   emitter.on('editor:randomize', function (evt) {
@@ -91,14 +81,20 @@ module.exports = function store(state, emitter) {
     repl.eval(block)
   })
 
+  emitter.on('gallery:saveToURL', function () {
+    let editor = state.editor.editor
+    const editorText = editor.getValue()
+    sketches.saveLocally(editorText)
+  })
+
   emitter.on('gallery:shareSketch', function () {
     let editor = state.editor.editor
-    const code = editor.getValue()
+    const editorText = editor.getValue()
     repl.eval(editor.getValue(), (code, error) => {
       //  console.log('evaluated', code, error)
       if (!error) {
         showConfirmation((name) => {
-          sketches.shareSketch(code, state.hydra.hydra, name)
+          sketches.shareSketch(editorText, state.hydra.hydra, name)
         }, () => { })
       } else {
         console.warn(error)

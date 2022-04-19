@@ -1,4 +1,20 @@
 # Changelog
+## [1.3.5] - 2022-04-14
+### Added
+- url parameters for updating translation: l10n-url and l10n-lang
+
+## [1.3.4] - 2022-04-11
+### Fixed
+- fixed audio canvas showing
+- patch bay working
+
+## [1.3.3] - 2022-04-07
+- fixed share screen
+
+## [1.3.2] - 2022-03-21
+### Added 
+- japanese translation
+
 ## [1.3.1] - 2022-03-05
 ### Added 
 - path to hydra garden

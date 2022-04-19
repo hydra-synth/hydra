@@ -31,9 +31,10 @@ module.exports = function mainView(state, emit) {
         <p> ///////////////////////////////////////////////////////////<br><br><br>
           ${t('info.description-detailed')}
         </p>
-        <p>${t('info.features')}<ul>
-        ${t('info.features-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
-        </ul>
+        <p>${t('info.uses')}<ul>
+        ${t('info.uses-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
+        </ul></p>
+       
            <p class="align-right">${raw(t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
            <p>${raw(t('info.more-info', {
              docs: link("https://hydra.ojack.xyz/docs"),
@@ -41,6 +42,7 @@ module.exports = function mainView(state, emit) {
              gallery: link("https://twitter.com/hydra_patterns"),
              repo: link("https://github.com/hydra-synth/hydra"),
              pixeljam: link("http://pixeljam.glitch.me/"),
+             garden: link("https://hydra.ojack.xyz/garden"),
              'hydra-book': link("https://hydra-book.glitch.me/"),
              "tutorials": link("https://github.com/ojack/hydra/blob/master/examples/README.md")
            }))}</p>
@@ -60,6 +62,9 @@ module.exports = function mainView(state, emit) {
 }
 
 
+// <!---<p>${t('info.features')}<ul>
+// ${t('info.features-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
+// </ul></p>--->
 // module.exports = function mainView(state, emit) {
 //     return html`
 //   <div id="info-container" class="${state.showInfo ? "" : "hidden"}">

@@ -1,6 +1,6 @@
 {
   "name": "hydra",
-  "version": "1.3.0",
+  "version": "1.3.5",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "events": "^3.3.0",
-    "hydra-synth": "^1.3.11",
+    "hydra-synth": "^1.3.17",
     "nanobus": "^4.5.0"
   },
   "devDependencies": {}
