@@ -1,4 +1,8 @@
 # Changelog
+## [1.3.6] - 2022-04-27
+### Fixed
+- re-added cc licensing info to example sketches
+
 ## [1.3.5] - 2022-04-14
 ### Added
 - url parameters for updating translation: l10n-url and l10n-lang

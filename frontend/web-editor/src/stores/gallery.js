@@ -2,6 +2,7 @@ const request = require('superagent')
 const examples = require('./examples.json')
 const sketches = []
 
+const license = `// licensed with CC BY-NC-SA 4.0 https://creativecommons.org/licenses/by-nc-sa/4.0/`
 
 class Gallery {
   constructor (callback) {
@@ -155,7 +156,13 @@ class Gallery {
   }
 
   setSketch(sketch) {
-    this.code = this.decodeBase64(sketch.code)
+    let code = this.decodeBase64(sketch.code)
+    if(code.indexOf(license) < 0)
+    code = 
+`${license}
+${code}
+`
+    this.code = code
     this.current = sketch
   //  this.setToURL('sketch_id', sketch._id)
     // let params = Object.keys(sketch).map( (key) => {
