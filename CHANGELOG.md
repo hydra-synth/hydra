@@ -3,6 +3,9 @@
 ### Fixed
 - re-added cc licensing info to example sketches
 
+### Added
+- spanish translation
+
 ## [1.3.5] - 2022-04-14
 ### Added
 - url parameters for updating translation: l10n-url and l10n-lang
