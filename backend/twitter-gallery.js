@@ -95,41 +95,34 @@ module.exports = (app) => {
     if(process.env.CONSUMER_KEY) {
      const upload = multer({ storage: storage });
      app.post("/image", upload.single('previewImage'), (req, res) => {
-      //  console.log('UPLOADING');
-      //  findParentTweet(req.query.sketch_id, function(err, tweet_id){
-      //    if(err) console.log(err)
-      //    console.log('posting image');
-      //    if(tweet_id !== null) console.log("FOUND PARENT", tweet_id)
-      //   tweet.post_chunked({
-      //      imagePath: req.file.path,
-      //      url: req.query.url,
-      //      name: req.query.name,
-      //      parent_tweet: tweet_id
-      //    }, function(err, data){
-      //      if(err){
-      //        console.log('ERROR POSTING IMAGE', err)
-      //      } else {
-      //        console.log('tweet id is ', data.id_str)
-      //        res.status(200).send( 'https://twitter.com/hydra_patterns/status/' + data.id_str );
-      //        db.update(
-      //          { _id: req.query.sketch_id },
-      //          { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }
-      //        }, function (err, numReplaced) {});
-      //      }
-      //    })
-      //  })
-       // find out whether sketch has a parent, and if the parent has a corresponding tweet
+       const updatedNameString = req.query.name.replace('@', '{@}')
 
-      // console.log('FOUND TWEET', tweet_id)
-       // tweet.post_image('testing', req.file.buffer, function (err) {
-       //   console.log('UPLOADED', err)
-       // })
-      // saveFile(req.file, "test.png")
-      //
-      //  req.query.url
+       findParentTweet(req.query.sketch_id, function(err, tweet_id){
+         if(err) console.log(err)
+        //  if(tweet_id !== null) console.log("FOUND PARENT", tweet_id)
 
-
-      // res.end();
+        /* uncomment below to upload to twitter */
+        /*
+        tweet.post_chunked({
+           imagePath: req.file.path,
+           url: req.query.url,
+           name: updatedNameString,
+           parent_tweet: tweet_id
+         }, function(err, data){
+           if(err){
+             console.log('ERROR POSTING IMAGE', err)
+           } else {
+             console.log('tweet id is ', data.id_str)
+             res.status(200).send( 'https://twitter.com/hydra_patterns/status/' + data.id_str );
+             db.update(
+               { _id: req.query.sketch_id },
+               { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }
+             }, function (err, numReplaced) {});
+           }
+         })
+       */
+       })
+    
      });
 
     function findParentTweet(sketch_id, callback) {
