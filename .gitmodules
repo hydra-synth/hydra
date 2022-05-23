@@ -1,11 +1,11 @@
 [submodule "frontend/hydra-functions"]
 	path = frontend/hydra-functions
-	url = git@github.com:hydra-synth/hydra-functions.git
+	url = ../hydra-functions.git
 	branch = main
 [submodule "frontend/hydra-docs"]
 	path = frontend/hydra-docs
-	url = git@github.com:hydra-synth/hydra-docs.git
+	url = ../hydra-docs.git
 	branch = main
 [submodule "frontend/hydra-garden"]
 	path = frontend/hydra-garden
-	url = git@github.com:hydra-synth/hydra-garden.git
+	url = ../hydra-garden.git
