@@ -50543,7 +50543,7 @@ module.exports = function store(state, emitter) {
     // console.log('setting language to', lang)
     i18next.changeLanguage(lang, (err, t) => {
       // console.log(err, t)
-      selectedLanguage = lang
+      state.translation.selectedLanguage = lang
       emitter.emit('render')
     })
   })
@@ -51437,9 +51437,11 @@ const toolbar = require('./toolbar.js')
 const link = (url) => `href=${url} target=_blank`
 module.exports = function mainView(state, emit) {
   const { t, languages } = state.translation
+  const textDirection = state.translation.selectedLanguage  === 'ar' && state.showInfo === true ? 'rtl': 'ltr'
+
   const langArray = Object.entries(languages)
   return html`
-<div id="info-container" class="${state.showInfo ? "" : "hidden"}">
+<div id="info-container" class="${state.showInfo ? "" : "hidden"}" style="direction:${textDirection}">
   <div id="modal">
     <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
       ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex">${langArray.map(([key, val]) => html`

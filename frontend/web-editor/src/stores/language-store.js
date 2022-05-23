@@ -47,7 +47,7 @@ module.exports = function store(state, emitter) {
     // console.log('setting language to', lang)
     i18next.changeLanguage(lang, (err, t) => {
       // console.log(err, t)
-      selectedLanguage = lang
+      state.translation.selectedLanguage = lang
       emitter.emit('render')
     })
   })

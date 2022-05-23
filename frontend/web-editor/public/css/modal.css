@@ -108,6 +108,8 @@ transition: width 1s;
 
 .language-select {
   margin: 8px;
+  text-align: center;
+  width: 3.8em;
   font-weight: 200;
   cursor: pointer;
   pointer-events: auto;
