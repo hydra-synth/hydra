@@ -2,6 +2,10 @@
 ## [1.3.7] - 2022-05-23
 ### Added
 - Arabic translation
+- rtl text for arabic
+
+### Changed
+- relative URLS for submodules
 
 ## [1.3.6] - 2022-04-27
 ### Fixed
