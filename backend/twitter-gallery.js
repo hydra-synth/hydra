@@ -102,7 +102,6 @@ module.exports = (app) => {
         //  if(tweet_id !== null) console.log("FOUND PARENT", tweet_id)
 
         /* uncomment below to upload to twitter */
-        /*
         tweet.post_chunked({
            imagePath: req.file.path,
            url: req.query.url,
@@ -112,7 +111,7 @@ module.exports = (app) => {
            if(err){
              console.log('ERROR POSTING IMAGE', err)
            } else {
-             console.log('tweet id is ', data.id_str)
+            //  console.log('tweet id is ', data.id_str)
              res.status(200).send( 'https://twitter.com/hydra_patterns/status/' + data.id_str );
              db.update(
                { _id: req.query.sketch_id },
@@ -120,7 +119,7 @@ module.exports = (app) => {
              }, function (err, numReplaced) {});
            }
          })
-       */
+       
        })
     
      });

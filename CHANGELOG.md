@@ -6,6 +6,7 @@
 
 ### Changed
 - relative URLS for submodules
+- filtered @ symbol from twitter uploads
 
 ## [1.3.6] - 2022-04-27
 ### Fixed
