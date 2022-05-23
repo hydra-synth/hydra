@@ -4,7 +4,7 @@ const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector
 
 const languageResources = require('./text-elements.js')
 
-const availableLanguages = ['ja', 'es'] // localizations available in repository at /hydra-synth/l10n
+const availableLanguages = ['ja', 'es', 'ar'] // localizations available in repository at /hydra-synth/l10n
 const languagePath = (lang) => `https://raw.githubusercontent.com/hydra-synth/l10n/main/${lang}/editor.json`
 
 i18next
