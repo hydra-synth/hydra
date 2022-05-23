@@ -1,4 +1,8 @@
 # Changelog
+## [1.3.7] - 2022-05-23
+### Added
+- Arabic translation
+
 ## [1.3.6] - 2022-04-27
 ### Fixed
 - re-added cc licensing info to example sketches
