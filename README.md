@@ -235,16 +235,11 @@ To clone the repo, you must also clone the repos added as submodules, i.e.:
 git clone --recurse-submodules https://github.com/hydra-synth/hydra.git
 ```
 
+To install dependencies, make sure to enter the hydra source code directory from the command line:
+```
+cd hydra
+```
 
-To add current submodules to an existing checked-out version of the repo:
-```
-git submodule update --init
-```
-
-To pull latest versions of submodules:
-```
-git submodule foreach git pull origin main  
-```
 
 Install yarn from the command line
 ```
@@ -263,6 +258,18 @@ run server
 yarn serve
 ```
 go to https://localhost:8000 in the browser
+
+### Using submodules
+
+To add current submodules to an existing checked-out version of the repo:
+```
+git submodule update --init
+```
+
+To pull latest versions of submodules:
+```
+git submodule foreach git pull origin main  
+```
 
 
 ## To develop
