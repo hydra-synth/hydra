@@ -50500,7 +50500,7 @@ const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector
 
 const languageResources = require('./text-elements.js')
 
-const availableLanguages = ['ja', 'es', 'ar'] // localizations available in repository at /hydra-synth/l10n
+const availableLanguages = ['ja', 'es', 'ar', 'id', 'pt-br'] // localizations available in repository at /hydra-synth/l10n
 const languagePath = (lang) => `https://raw.githubusercontent.com/hydra-synth/l10n/main/${lang}/editor.json`
 
 i18next
@@ -50549,7 +50549,11 @@ module.exports = function store(state, emitter) {
   })
 
   function updateAvailableLanguages() {
-    Object.keys(languageResources).forEach((key) => languages[key] = i18next.getFixedT(key)('language-name'))
+    Object.keys(languageResources).forEach((key) => {
+      // for some reason, 'pt-br' was not working, use just pt instead
+      const k = key.split('-')[0]
+      languages[k] = i18next.getFixedT(k)('language-name')
+    })
 
     state.translation = {
       t: i18next.t,
@@ -50574,7 +50578,13 @@ module.exports = function store(state, emitter) {
         }
       }).then(json => {
         // console.log(json)
-        i18next.addResourceBundle(lang, 'translation', json)
+        window.i18n = i18next
+        console.log('adding language', lang, json)
+
+        // for some reason, 'pt-br' was not working, use just pt instead
+        const k = lang.split('-')[0]
+        i18next.addResourceBundle(k, 'translation', json)
+
         const languages = {}
         updateAvailableLanguages()
         emitter.emit('render')
@@ -51444,7 +51454,7 @@ module.exports = function mainView(state, emit) {
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}" style="direction:${textDirection}">
   <div id="modal">
     <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
-      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex">${langArray.map(([key, val]) => html`
+      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
         <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
       `)}</div>` : html`<div></div>` }
       ${toolbar(state, emit)}

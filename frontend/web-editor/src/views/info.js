@@ -12,7 +12,7 @@ module.exports = function mainView(state, emit) {
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}" style="direction:${textDirection}">
   <div id="modal">
     <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
-      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex">${langArray.map(([key, val]) => html`
+      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
         <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
       `)}</div>` : html`<div></div>` }
       ${toolbar(state, emit)}

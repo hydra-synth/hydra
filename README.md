@@ -228,24 +228,12 @@ synth = new Tone.Synth().toDestination();
 synth.triggerAttackRelease("C4", "8n");
 ```
 ## Running locally
-To run locally, you must have nodejs, yarn and npm installed. Install node and npm from: https://nodejs.org/en/
-
-To clone the repo, you must also clone the repos added as submodules, i.e.:
-```
-git clone --recurse-submodules https://github.com/hydra-synth/hydra.git
-```
-
-To install dependencies, make sure to enter the hydra source code directory from the command line:
-```
-cd hydra
-```
-
-
-Install yarn from the command line
+To run locally, you must have nodejs, yarn and npm installed. Install node and npm from: https://nodejs.org/en/. Once you have node and npm installed, you can install yarn globally by running the following from the command line:
 ```
 npm install --global yarn
 ```
-open terminal and enter directory
+
+To run, open terminal and enter the directory of the hydra source code:
 ```
 cd hydra
 ```
@@ -260,6 +248,11 @@ yarn serve
 go to https://localhost:8000 in the browser
 
 ### Using submodules
+
+If you would like to run all projects on the hydra website (such as the documentation, garden, and api documentation), you must also clone the repos added as submodules, i.e.:
+```
+git clone --recurse-submodules https://github.com/hydra-synth/hydra.git
+```
 
 To add current submodules to an existing checked-out version of the repo:
 ```
