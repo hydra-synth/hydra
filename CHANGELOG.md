@@ -1,4 +1,11 @@
 # Changelog
+## [1.3.8] - 2022-06-11
+### Added
+- Indonesian and Brazillian portuguese translation
+
+### Fixes
+- layout wrapping with lots of languages
+
 ## [1.3.7] - 2022-05-23
 ### Added
 - Arabic translation
