@@ -1,6 +1,7 @@
 const html = require('choo/html')
 const Component = require('choo/component')
 const HydraSynth = require('hydra-synth')
+// const HydraSynth = require('./../../../../../hydra-synth')
 const P5  = require('./../lib/p5-wrapper.js')
 const PatchBay = require('./../lib/patch-bay/pb-live.js')
 
