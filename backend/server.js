@@ -123,6 +123,7 @@ app.use('/api', express.static(path.join(__dirname, '../frontend/hydra-functions
 app.use('/functions', express.static(path.join(__dirname, '../frontend/hydra-functions/docs')))
 app.use('/docs', express.static(path.join(__dirname, '../frontend/hydra-docs')))
 app.use('/garden', express.static(path.join(__dirname, '../frontend/hydra-garden/dist')))
+app.use('/grants', express.static(path.join(__dirname, '../frontend/hydra-grants/public')))
 
 
 app.use(express.static(path.join(__dirname, '../frontend/web-editor/public')))

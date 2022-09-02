@@ -9,3 +9,6 @@
 [submodule "frontend/hydra-garden"]
 	path = frontend/hydra-garden
 	url = ../hydra-garden.git
+[submodule "frontend/hydra-grants"]
+	path = frontend/hydra-grants
+	url = ../hydra-grants
