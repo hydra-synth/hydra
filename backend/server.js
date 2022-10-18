@@ -24,10 +24,11 @@ var io = require('socket.io')(server)
 require('./twitter-gallery.js')(app)
 
 // crear un servidor en puerto 8000
-server.listen(8000, function () {
+var httpsPort = process.env.HTTPS_PORT !== undefined ? process.env.HTTPS_PORT : 8000
+server.listen(httpsPort, function () {
   // imprimir la direccion ip en la consola
   // console.log('servidor disponible en https://'+myip.getLocalIP4()+':8000')
-  console.log('server available at https://localhost:8000')
+  console.log(`server available at https://localhost:${ httpsPort }`)
 })
 
 // look up uuid by entiring socket id
