@@ -27,14 +27,14 @@ module.exports = (app) => {
       var credentials = {key: privateKey, cert: certificate}
       server = https.createServer(credentials, app)
     } catch (err) {
-		if (err.code === 'ENOENT') {
-		  console.log("no TLS certificate at", err.path)
-		  var http = require('http')
-          server = http.createServer(app)
-	    } else {
-          throw err
-		}
-	}
+      if (err.code === 'ENOENT') {
+        console.log("no TLS certificate at", err.path)
+        var http = require('http')
+        server = http.createServer(app)
+      } else {
+        throw err
+      }
+    }
   }
 
   return server
