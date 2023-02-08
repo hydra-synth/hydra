@@ -19,6 +19,18 @@ module.exports = class Editor extends Component {
    })
    // hacky, maybe not necessary
    this.innerText = document.getElementsByClassName('CodeMirror')[0]
+
+   const toggleInfo = e => {
+    if (e.key === 'Escape') {
+     if (!document.getElementById('info-container').classList.contains('hidden')) {
+      this.emit('toggle info')
+      this.editor.cm.focus()
+     }  
+     window.removeEventListener('keydown', toggleInfo)
+    }
+   }
+   window.addEventListener('keydown', toggleInfo)
+   this.editor.cm.focus()
   }
 
   hide() {
