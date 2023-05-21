@@ -228,7 +228,7 @@ synth = new Tone.Synth().toDestination();
 synth.triggerAttackRelease("C4", "8n");
 ```
 ## Running locally
-To run locally, you must have nodejs, yarn and npm installed. Install node and npm from: https://nodejs.org/en/. Once you have node and npm installed, you can install yarn globally by running the following from the command line:
+To run locally, you must have nodejs, yarn and npm installed. Install node and npm from: https://nodejs.org/en/ (nodejs >= 14.0.0 required). Once you have node and npm installed, you can install yarn globally by running the following from the command line:
 ```
 npm install --global yarn
 ```
