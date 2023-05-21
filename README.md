@@ -241,6 +241,13 @@ install dependencies:
 ```
 yarn install
 ```
+build:
+```
+pushd .
+cd frontend/web-editor
+yarn build
+popd
+```
 run server
 ```
 yarn serve
