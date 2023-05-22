@@ -39,4 +39,4 @@ class P5 extends p5{
   }
 }
 
-module.exports = P5
+export default P5

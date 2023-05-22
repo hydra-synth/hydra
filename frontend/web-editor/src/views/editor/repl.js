@@ -1,6 +1,7 @@
-const log = require('./log.js').log
+import Log from "./log.js"
+const log = Log.log
 
-module.exports = {
+export default {
   eval: (arg, callback) => {
     var self = this
 

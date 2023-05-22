@@ -1,6 +1,6 @@
 var logElement
 
-module.exports = {
+export default {
   init: (el) => {
     // logElement = document.createElement('div')
     // logElement.className = "console cm-s-tomorrow-night-eighties"

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     en: {
         translation: {
             'language-name': 'english',

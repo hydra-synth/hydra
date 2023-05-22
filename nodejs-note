@@ -1,0 +1,3 @@
+nvm use v12.18.3
+~/.nvm/versions/node/v12.18.3/bin/yarn add 
+

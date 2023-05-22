@@ -1,6 +1,6 @@
-const html = require('choo/html')
+import html from "choo/html"
 
-module.exports = function toolbar(state, emit) {
+export default function toolbar(state, emit) {
     const hidden = state.showInfo ? 'hidden' : ''
 
     const { t } = state.translation

@@ -51,4 +51,4 @@ class UndoStack {
 };
 
 
-module.exports = {UndoStack}
+export default UndoStack

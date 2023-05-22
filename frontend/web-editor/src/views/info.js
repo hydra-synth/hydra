@@ -1,9 +1,9 @@
-const html = require('choo/html')
-const raw = require('choo/html/raw')
-const toolbar = require('./toolbar.js')
+import html from "choo/html"
+import raw from "choo/html/raw"
+import toolbar from "./toolbar.js"
 
 const link = (url) => `href=${url} target=_blank`
-module.exports = function mainView(state, emit) {
+export default function mainView(state, emit) {
   const { t, languages } = state.translation
   const textDirection = state.translation.selectedLanguage  === 'ar' && state.showInfo === true ? 'rtl': 'ltr'
 

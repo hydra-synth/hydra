@@ -1,9 +1,9 @@
-const {Parser} = require("acorn");
-const {generate} = require('astring');
-const { defaultTraveler, attachComments, makeTraveler } = require('astravel');
-const {UndoStack} = require('./UndoStack.js');
-const repl = require('./../repl.js')
-const glslTransforms = require('hydra-synth/src/glsl/glsl-functions.js')()
+import { Parser } from "acorn"
+import { generate } from "astring"
+import { defaultTraveler, attachComments, makeTraveler } from "astravel"
+import UndoStack from "./UndoStack.js"
+import repl from "./../repl.js"
+import glslTransforms from "hydra-synth/src/glsl/glsl-functions.js"
 
 class Mutator {
 
@@ -20,7 +20,7 @@ class Mutator {
   }
 
   dumpList() {
-  	let gslTab = glslTransforms;
+  	let gslTab = glslTransforms();
   	gslTab.forEach (v => {
   		var argList = "";
   		v.inputs.forEach((a) => {
@@ -33,7 +33,8 @@ class Mutator {
   }
 
   scanFuncs() {
-  	let gslTab = glslTransforms;
+  	let gslTab = glslTransforms();
+    console.log(gslTab)
   	gslTab.forEach (f => {
   		this.transMap[f.name] = f;
   		if (this.funcTab[f.type] === undefined) {this.funcTab[f.type] = []}
@@ -258,4 +259,4 @@ class Mutator {
 
 } //  End of class Mutator.
 
-module.exports = Mutator
+export default Mutator
