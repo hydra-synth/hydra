@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o ./public/bundle.min.js",
-    "watch": "esbuild index.js --bundle --define:global=window --format=esm --outfile=public/bundle.js --watch",
-    "build": "esbuild index.js --bundle --define:global=window --outfile=public/bundle.js && npm run uglify",
-    "source-map": "source-map-explorer ./public/bundle.min.js ./public/bundle.min.js.map"
+    "watch": "vite",
+    "build": "vite build --mode development"
   },
   "author": "",
   "license": "AGPL",
