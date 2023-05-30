@@ -32,7 +32,7 @@
   "devDependencies": {
     "browserify": "^17.0.0",
     "source-map-explorer": "^2.5.2",
-    "terser": "^5.10.0",
+    "terser": "^5.14.2",
     "watchify": "^4.0.0"
   }
 }
