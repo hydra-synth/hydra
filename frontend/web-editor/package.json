@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o ./public/bundle.min.js",
-    "watch": "watchify -p esmify ./index.js -v -o ./public/bundle.js",
+    "watch": "watchify ./index.js -v -o ./public/bundle.js",
     "build": "browserify ./index.js --debug -o ./public/bundle.js && npm run uglify",
     "source-map": "source-map-explorer ./public/bundle.min.js ./public/bundle.min.js.map"
   },
@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "browserify": "^17.0.0",
-    "esmify": "^2.1.1",
     "source-map-explorer": "^2.5.2",
     "terser": "^5.14.2",
     "watchify": "^4.0.0"

@@ -3,7 +3,8 @@ const {generate} = require('astring');
 const { defaultTraveler, attachComments, makeTraveler } = require('astravel');
 const {UndoStack} = require('./UndoStack.js');
 const repl = require('./../repl.js')
-const glslTransforms = require('hydra-synth/src/glsl/glsl-functions.js')()
+// const glslTransforms = require('hydra-synth/src/glsl/glsl-functions.js')()
+const glslTransforms = require('./glslTransforms.js')
 
 class Mutator {
 

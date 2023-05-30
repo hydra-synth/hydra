@@ -2,7 +2,6 @@
 ## [1.3.9] - 2023-05-30
 ### Added
 - documentation for self-generating certificates
-- esmify
   
 ### Fixed
 - import/export resolution
