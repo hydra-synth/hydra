@@ -273,7 +273,14 @@ Run development server
 yarn dev
 ```
 
-
+### Generate locally-signed certificates
+(For development) Run the following from the terminal
+```
+openssl req -x509 -out backend/certs/certificate.pem -keyout backend/certs/key.pem \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+```
 
 ## Audio Responsiveness 
 FFT functionality is available via an audio object accessed via "a". The editor uses https://github.com/meyda/meyda for audio analysis.

@@ -1,4 +1,12 @@
 # Changelog
+## [1.3.9] - 2023-05-30
+### Added
+- documentation for self-generating certificates
+- esmify
+  
+### Fixed
+- import/export resolution
+  
 ## [1.3.8] - 2022-06-11
 ### Added
 - Indonesian and Brazillian portuguese translation
