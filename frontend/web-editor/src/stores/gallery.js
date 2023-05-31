@@ -49,6 +49,7 @@ class Gallery {
     let base64Code = searchParams.get('code')
   //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
     let sketch_id = searchParams.get('sketch_id')
+    let showCode = searchParams.get('showCode')
     let code = ''
     //console.log("id", sketch_id, "code", base64Code)
 
@@ -87,6 +88,25 @@ class Gallery {
       } else {
         this.setSketchFromCode(base64Code, callback)
       }
+    if(showCode === 'false'){
+      console.log('showCode is false, code not displayed')    
+      // The menu element is created later than this block would run
+      // Wait for the element to load before attempting to hide it
+      const menuObserver = new MutationObserver(function(mutations){
+        mutations.forEach(function(mutation){
+          const signalElement = document.getElementById('modal')
+          if (signalElement) {
+            var editor = document.getElementsByClassName('CodeMirror')[0]
+            var menu = document.getElementById('modal')
+            var editorConsole = document.getElementsByClassName('console')[0]
+            editor.style.display = 'none'
+            menu.style.display = 'none'
+            editorConsole.style.display = 'none'
+          }
+        })
+      })
+      menuObserver.observe(document,  { childList: true, subtree: true })  
+}
     //
     //   // console.log('found ', sketch)
     //   // if(sketch) {
