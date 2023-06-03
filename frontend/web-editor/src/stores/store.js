@@ -3,7 +3,7 @@ const repl = require('../views/editor/repl.js')
 
 
 module.exports = function store(state, emitter) {
-  state.showInfo = true
+  state.showInfo = sessionStorage.getItem('showInfo') ? sessionStorage.getItem('showInfo') === 'true' : true 
   state.showUI = true
 
  let sketches
@@ -16,7 +16,7 @@ module.exports = function store(state, emitter) {
       if(sketchFromURL) {
         state.showInfo = false
       } else {
-        state.showInfo = true
+        state.showInfo = sessionStorage.getItem('showInfo') ? sessionStorage.getItem('showInfo') === 'true' : true 
       }
       emitter.emit('render')
       // @todo create gallery store
@@ -125,6 +125,7 @@ module.exports = function store(state, emitter) {
 
   emitter.on('toggle info', function (count) {
     state.showInfo = !state.showInfo
+    sessionStorage.setItem('showInfo', state.showInfo)
     emitter.emit('render')
   })
 
