@@ -1,4 +1,7 @@
 # Changelog
+## [1.3.10] - 2023-06-04
+- disabled all gallery-related code, hopefully will help editor crashing
+
 ## [1.3.9] - 2023-05-30
 ### Added
 - documentation for self-generating certificates

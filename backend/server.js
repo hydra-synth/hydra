@@ -43,7 +43,7 @@ io.on('connection', function (socket) {
   var thisRoom = null
   socket.on('join', function (room, _userData) {
     thisRoom = room
-    console.log('user', JSON.stringify(_userData))
+    // console.log('user', JSON.stringify(_userData))
     if (_userData.uuid) {
       userFromSocket[socket.id] = _userData.uuid
       socketFromUser[_userData.uuid] = socket.id

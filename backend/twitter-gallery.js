@@ -19,7 +19,7 @@ module.exports = (app) => {
     var sketches = []
 
     db.count({}, function (err, count) {
-      console.log("There are " + count + " entries in the database");
+      // console.log("There are " + count + " entries in the database");
       if(err) console.log("There's a problem with the database: ", err);
       else if(count<=0){ // empty database so needs populating
         // default users inserted in the database
@@ -82,47 +82,51 @@ module.exports = (app) => {
 
     //const storage = multer.memoryStorage();
 
-    var storage = multer.diskStorage({
-      destination: function (req, file, cb) {
-       cb(null, path.join(__dirname + '/uploads/'))
-       },
-       filename: function (req, file, cb) {
-         cb(null, file.originalname + '.png')
-       }
-    })
+    // var storage = multer.diskStorage({
+    //   destination: function (req, file, cb) {
+    //    cb(null, path.join(__dirname + '/uploads/'))
+    //    },
+    //    filename: function (req, file, cb) {
+    //      cb(null, file.originalname + '.png')
+    //    }
+    // })
 
   //  console.log('envv', process.env)
+  app.post('/image', (req, res) => {
+    // let data = ÷\ß\req.body;
+    res.send('gallery is currently disabled, stay tuned for updates');
+})
     if(process.env.CONSUMER_KEY) {
-     const upload = multer({ storage: storage });
-     app.post("/image", upload.single('previewImage'), (req, res) => {
-       const updatedNameString = req.query.name.replace('@', '{@}')
+    //  const upload = multer({ storage: storage });
+    //  app.post("/image", upload.single('previewImage'), (req, res) => {
+    //   //  const updatedNameString = req.query.name.replace('@', '{@}')
 
-       findParentTweet(req.query.sketch_id, function(err, tweet_id){
-         if(err) console.log(err)
-        //  if(tweet_id !== null) console.log("FOUND PARENT", tweet_id)
+    //   //  findParentTweet(req.query.sketch_id, function(err, tweet_id){
+    //   //    if(err) console.log(err)
+    //   //   //  if(tweet_id !== null) console.log("FOUND PARENT", tweet_id)
 
-        /* uncomment below to upload to twitter */
-        tweet.post_chunked({
-           imagePath: req.file.path,
-           url: req.query.url,
-           name: updatedNameString,
-           parent_tweet: tweet_id
-         }, function(err, data){
-           if(err){
-             console.log('ERROR POSTING IMAGE', err)
-           } else {
-            //  console.log('tweet id is ', data.id_str)
-             res.status(200).send( 'https://twitter.com/hydra_patterns/status/' + data.id_str );
-             db.update(
-               { _id: req.query.sketch_id },
-               { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }
-             }, function (err, numReplaced) {});
-           }
-         })
+    //   //   /* uncomment below to upload to twitter */
+    //   //   tweet.post_chunked({
+    //   //      imagePath: req.file.path,
+    //   //      url: req.query.url,
+    //   //      name: updatedNameString,
+    //   //      parent_tweet: tweet_id
+    //   //    }, function(err, data){
+    //   //      if(err){
+    //   //        console.log('ERROR POSTING IMAGE', err)
+    //   //      } else {
+    //   //       //  console.log('tweet id is ', data.id_str)
+    //   //        res.status(200).send( 'https://twitter.com/hydra_patterns/status/' + data.id_str );
+    //   //        db.update(
+    //   //          { _id: req.query.sketch_id },
+    //   //          { $set: { tweet_id: data.id_str,  bitly_hash: data.bitly_hash }
+    //   //        }, function (err, numReplaced) {});
+    //   //      }
+    //   //    })
        
-       })
+    //   //  })
     
-     });
+    //  });
 
     function findParentTweet(sketch_id, callback) {
       db.find({_id: sketch_id}, function (err, entries){
@@ -163,7 +167,7 @@ module.exports = (app) => {
          if (err) {
            console.log(err)
          } else {
-           console.log('Media saved!')
+          //  console.log('Media saved!')
            const descriptionText = body.title
           // uploadMedia(descriptionText, fileName)
          }
