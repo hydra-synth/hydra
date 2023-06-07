@@ -6,10 +6,12 @@ const express = require('express')
 const app = express()
 // const browserify = require('browserify-middleware')
 const path = require('path')
-const configureSSL = require('./configure-ssl.js')
+// const configureSSL = require('./configure-ssl.js')
 
-var server = configureSSL(app)
+// var server = configureSSL(app)
 
+var http = require('http')
+var server = http.createServer(app)
 //
 // TURN server access
 var twilio = require('twilio')
@@ -28,7 +30,7 @@ var httpsPort = process.env.HTTPS_PORT !== undefined ? process.env.HTTPS_PORT : 
 server.listen(httpsPort, function () {
   // imprimir la direccion ip en la consola
   // console.log('servidor disponible en https://'+myip.getLocalIP4()+':8000')
-  console.log(`server available at https://localhost:${ httpsPort }`)
+  console.log(`server available at http://localhost:${ httpsPort }`)
 })
 
 // look up uuid by entiring socket id
