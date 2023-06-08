@@ -1,7 +1,7 @@
 # Changelog
 ## [1.3.11] - 2023-06-05
 ## Changed
-- removed https and certificate-loading code; ideally this should be handled by the server
+- removed https and certificate-loading code; ideally this should be handled by the nginx server
 
 ## [1.3.10] - 2023-06-04
 - disabled all gallery-related code, hopefully will help editor crashing
