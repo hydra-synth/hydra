@@ -4,19 +4,13 @@ require('dotenv').config()
 const fs = require('fs')
 const express = require('express')
 const app = express()
-// const browserify = require('browserify-middleware')
 const path = require('path')
-// const configureSSL = require('./configure-ssl.js')
-
-// var server = configureSSL(app)
-
 var http = require('http')
 var server = http.createServer(app)
 //
 // TURN server access
 var twilio = require('twilio')
 
-//console.log('process', process.env)
 
 if (process.env.TWILIO_SID) {
   var twilio_client = new twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH)
@@ -25,45 +19,20 @@ if (process.env.TWILIO_SID) {
 var io = require('socket.io')(server)
 require('./twitter-gallery.js')(app)
 
-// crear un servidor en puerto 8000
+// create a server on port 8000
 var httpsPort = process.env.HTTPS_PORT !== undefined ? process.env.HTTPS_PORT : 8000
 server.listen(httpsPort, function () {
-  // imprimir la direccion ip en la consola
-  // console.log('servidor disponible en https://'+myip.getLocalIP4()+':8000')
-  console.log(`server available at http://localhost:${ httpsPort }`)
+  console.log(`server available at http://localhost:${httpsPort}`)
 })
 
-// look up uuid by entiring socket id
-// var userFromSocket = {}
 
-// lookup socket id by entering uuid
-// var socketFromUser = {}
-
-// new connection to websocket server
 io.on('connection', function (socket) {
-  // console.log('new connection', socket.id)
   var thisRoom = null
   socket.on('join', function (room, _userData) {
     thisRoom = room
-    // console.log('user', JSON.stringify(_userData))
-    // if (_userData.uuid) {
-    //   userFromSocket[socket.id] = _userData.uuid
-    //   socketFromUser[_userData.uuid] = socket.id
-    // } else {
-    //   console.log('no user data!')
-    // }
-    // Get the list of peers in the room
+
     var peers = io.nsps['/'].adapter.rooms[room] ? Object.keys(io.nsps['/'].adapter.rooms[room].sockets) : []
-    console.log('peers', peers)
-    // io.of('/').in(room).clients(function (error, clients) {
-    //   if (error) throw error
-    //   //   console.log(clients) // => [Anw2LatarvGVVXEIAAAD]
-    // })
 
-    // var peerUuids = peers.map(socketId => userFromSocket[socketId])
-
-    // Send them to the client
-    //  socket.emit('ready', socket.id, peerUuids)
     if (twilio_client) {
       twilio_client.api.accounts(process.env.TWILIO_SID).tokens
         .create({})
@@ -71,16 +40,12 @@ io.on('connection', function (socket) {
           //  console.log(token.iceServers)
           socket.emit('ready', {
             id: socket.id,
-           // peers: peerUuids,
+            // peers: peerUuids,
             peers: peers,
             servers: token.iceServers
           })
 
           socket.join(thisRoom)
-
-          // send updated list of peers to all clients in room
-          // io.sockets.emit('peers', peerUuids);
-          // socket.to(thisRoom).emit('new peer', _userData.uuid)
           socket.to(thisRoom).emit('new peer', socket.id)
           socket.emit("peers", peers);
 
@@ -88,72 +53,31 @@ io.on('connection', function (socket) {
     } else {
       socket.emit('ready', {
         id: socket.id,
-       // peers: peerUuids
-       peers: peers
+        peers: peers
       })
 
       socket.join(thisRoom)
-
-      // send updated list of peers to all clients in room
-      // io.sockets.emit('peers', peerUuids);
-      // socket.to(thisRoom).emit('new peer', _userData.uuid)
       socket.to(thisRoom).emit('new peer', socket.id)
       socket.emit("peers", peers);
-
     }
 
-    // And then add the client to the room
-   
-
-    //  console.log('user', JSON.stringify(Object.keys(socketFromUser)))
   })
 
   socket.on('broadcast', function (data) {
-    // io.sockets.emit('broadcast', data)
-    //  console.log('broadcasting', data, socket.room)
-    //  io.sockets.in(socket.room).emit('broadcast', data)
     socket.to(thisRoom).emit('broadcast', data)
   })
 
   // pass message from one peer to another
   socket.on('message', function (data) {
-   // var client = io.sockets.connected[socketFromUser[data.id]]
-    // client && client.emit('message', {
-    //   id: userFromSocket[socket.id],
-    //   label: socket.label,
-    //   message: data.message,
-    //   type: data.type
-    // })
     var client = io.sockets.connected[data.id];
-    console.log('message', data.id, data.type)
-    console.log(Object.keys(io.sockets.connected))
-
+   
     client && client.emit('message', {
       id: socket.id,
       label: socket.label,
       type: data.type,
-      // signal: data.signal,
       message: data.message
     });
   })
-
-  socket.on('signal', function (data) {
-    // console.log('forwarding signal ' + JSON.stringify(data))
-    // var client = io.sockets.connected[socketFromUser[data.id]]
-    // client && client.emit('signal', {
-    //   id: userFromSocket[socket.id],
-    //   label: socket.label,
-    //   signal: data.signal
-    // })
-    var client = io.sockets.connected[data.id];
-    client && client.emit('signal', {
-      id: socket.id,
-      label: socket.label,
-      signal: data.signal,
-      message: data.message,
-    });
-  })
-  // TO DO: on disconnect, remove from label dictionary
 })
 
 app.use('/api', express.static(path.join(__dirname, '../frontend/hydra-functions/docs')))

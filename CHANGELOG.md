@@ -1,4 +1,9 @@
 # Changelog
+## [1.4.0] - 2023 - 06-08
+- refactored and streamlined webRTC signalling server
+- use socketIds for signalling rather than client-generated Ids
+- webrtc working locally without using certificates -- should make it easier to develop locally
+
 ## [1.3.11] - 2023-06-05
 ## Changed
 - removed https and certificate-loading code; ideally this should be handled by the nginx server

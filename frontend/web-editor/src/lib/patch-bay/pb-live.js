@@ -41,7 +41,7 @@ PBLive.prototype.init = function (stream, opts) {
   if (this.makeGlobal) window.pb = this
 
   this.on('ready', () => {
-    console.log('READY', this.nick, this.id)
+    // console.log('READY', this.nick, this.id)
     this.setName(this.nick)
     // if (!this.nick) {
     //   if (this.session.nick) {
@@ -90,7 +90,7 @@ PBLive.prototype.loadFromStorage = function () {
 }
 
 PBLive.prototype.initSource = function (nick, callback) {
-  console.log('initing source', nick, this.idFromNick)
+  // console.log('initing source', nick, this.idFromNick)
   this.initConnectionFromId(this.idFromNick[nick], callback)
 //  this.peers[this.idFromNick[nick]].streamCallback = callback
 }
@@ -98,10 +98,10 @@ PBLive.prototype.initSource = function (nick, callback) {
 // default nickname is just peer id.
 // to do: save nickname information between sessions
 PBLive.prototype.handleNewPeer = function (peerId) {
-  console.log("new peerId", peerId)
+  // console.log("new peerId", peerId)
   this.nickFromId[peerId] = peerId
   this.idFromNick[peerId] = peerId
-  console.log(this.nickFromId, this.idFromNick)
+  // console.log(this.nickFromId, this.idFromNick)
   // console.log("THIS IS THE PEER", peer)
   // to do: only send to new peer, not to all
   if (this.nick) {
@@ -121,7 +121,7 @@ PBLive.prototype.list = function () {
 
 // choose an identifying name
 PBLive.prototype.setName = function (nick) {
-  console.log('setting nickname', this.nick, this.id)
+  // console.log('setting nickname', this.nick, this.id)
   this.broadcast({
     type: 'update-nick',
     id: this.id,
@@ -133,13 +133,13 @@ PBLive.prototype.setName = function (nick) {
 }
 
 PBLive.prototype._processBroadcast = function (data) {
-  console.log('updating nickname', data)
+  // console.log('updating nickname', data)
   if (data.type === 'update-nick') {
     if (data.previous !== data.nick) {
       delete this.idFromNick[this.nickFromId[data.id]]
       this.nickFromId[data.id] = data.nick
       this.idFromNick[data.nick] = data.id
-      console.log(this.nickFromId, this.idFromNick)
+      // console.log(this.nickFromId, this.idFromNick)
       if (data.previous) {
         //console.log(data.previous + ' changed to ' + data.nick)
       } else {
