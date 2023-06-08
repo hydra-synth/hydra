@@ -1,9 +1,11 @@
 /* globals sessionStorage */
 // Extends rtc-patch-bay to include support for nicknames and persistent session storage
 
+// id comes from socket id, nick is generated
 var PatchBay = require('./rtc-patch-bay.js')
 //var PatchBay = require('./../../../../rtc-patch-bay')
 var inherits = require('inherits')
+const shortid = require('shortid')
 
 var PBLive = function () {
   this.session = {}
@@ -28,21 +30,27 @@ PBLive.prototype.init = function (stream, opts) {
   this.makeGlobal = opts.makeGlobal || true
   this.setPageTitle = opts.setTitle || true
 
-  if (this.session.id) this.settings.id = this.session.id
+  if (this.session.nick) {
+    this.nick = this.session.nick
+  } else {
+    this.nick = shortid.generate()
+  }
 
   PatchBay.call(this, this.settings)
 
   if (this.makeGlobal) window.pb = this
 
   this.on('ready', () => {
-    if (!this.nick) {
-      if (this.session.nick) {
-        this.setName(this.session.nick)
-      } else {
-        this.session.id = this.id
-        this.setName(this.session.id)
-      }
-    }
+    console.log('READY', this.nick, this.id)
+    this.setName(this.nick)
+    // if (!this.nick) {
+    //   if (this.session.nick) {
+    //     this.setName(this.session.nick)
+    //   } else {
+    //     this.session.nick = this.id
+    //     this.setName(this.session.nick)
+    //   }
+    // }
     // console.log('connected to server ' + this.settings.server + ' with name ' + this.settings.id)
   })
   // received a broadcast
@@ -50,7 +58,7 @@ PBLive.prototype.init = function (stream, opts) {
   this.on('new peer', this.handleNewPeer.bind(this))
 
   window.onbeforeunload = () => {
-    this.session.id = window.pb.id
+   // this.session.id = window.pb.id
     this.session.nick = this.nick
     sessionStorage.setItem('pb', JSON.stringify(this.session))
   }
@@ -82,16 +90,18 @@ PBLive.prototype.loadFromStorage = function () {
 }
 
 PBLive.prototype.initSource = function (nick, callback) {
+  console.log('initing source', nick, this.idFromNick)
   this.initConnectionFromId(this.idFromNick[nick], callback)
 //  this.peers[this.idFromNick[nick]].streamCallback = callback
 }
 
 // default nickname is just peer id.
 // to do: save nickname information between sessions
-PBLive.prototype.handleNewPeer = function (peer) {
-  // console.log("new peer", peer)
-  this.nickFromId[peer] = peer
-  this.idFromNick[peer] = peer
+PBLive.prototype.handleNewPeer = function (peerId) {
+  console.log("new peerId", peerId)
+  this.nickFromId[peerId] = peerId
+  this.idFromNick[peerId] = peerId
+  console.log(this.nickFromId, this.idFromNick)
   // console.log("THIS IS THE PEER", peer)
   // to do: only send to new peer, not to all
   if (this.nick) {
@@ -111,6 +121,7 @@ PBLive.prototype.list = function () {
 
 // choose an identifying name
 PBLive.prototype.setName = function (nick) {
+  console.log('setting nickname', this.nick, this.id)
   this.broadcast({
     type: 'update-nick',
     id: this.id,
@@ -122,11 +133,13 @@ PBLive.prototype.setName = function (nick) {
 }
 
 PBLive.prototype._processBroadcast = function (data) {
+  console.log('updating nickname', data)
   if (data.type === 'update-nick') {
     if (data.previous !== data.nick) {
       delete this.idFromNick[this.nickFromId[data.id]]
       this.nickFromId[data.id] = data.nick
       this.idFromNick[data.nick] = data.id
+      console.log(this.nickFromId, this.idFromNick)
       if (data.previous) {
         //console.log(data.previous + ' changed to ' + data.nick)
       } else {

@@ -34,10 +34,10 @@ server.listen(httpsPort, function () {
 })
 
 // look up uuid by entiring socket id
-var userFromSocket = {}
+// var userFromSocket = {}
 
 // lookup socket id by entering uuid
-var socketFromUser = {}
+// var socketFromUser = {}
 
 // new connection to websocket server
 io.on('connection', function (socket) {
@@ -46,21 +46,21 @@ io.on('connection', function (socket) {
   socket.on('join', function (room, _userData) {
     thisRoom = room
     // console.log('user', JSON.stringify(_userData))
-    if (_userData.uuid) {
-      userFromSocket[socket.id] = _userData.uuid
-      socketFromUser[_userData.uuid] = socket.id
-    } else {
-      console.log('no user data!')
-    }
+    // if (_userData.uuid) {
+    //   userFromSocket[socket.id] = _userData.uuid
+    //   socketFromUser[_userData.uuid] = socket.id
+    // } else {
+    //   console.log('no user data!')
+    // }
     // Get the list of peers in the room
     var peers = io.nsps['/'].adapter.rooms[room] ? Object.keys(io.nsps['/'].adapter.rooms[room].sockets) : []
+    console.log('peers', peers)
+    // io.of('/').in(room).clients(function (error, clients) {
+    //   if (error) throw error
+    //   //   console.log(clients) // => [Anw2LatarvGVVXEIAAAD]
+    // })
 
-    io.of('/').in(room).clients(function (error, clients) {
-      if (error) throw error
-      //   console.log(clients) // => [Anw2LatarvGVVXEIAAAD]
-    })
-
-    var peerUuids = peers.map(socketId => userFromSocket[socketId])
+    // var peerUuids = peers.map(socketId => userFromSocket[socketId])
 
     // Send them to the client
     //  socket.emit('ready', socket.id, peerUuids)
@@ -71,23 +71,39 @@ io.on('connection', function (socket) {
           //  console.log(token.iceServers)
           socket.emit('ready', {
             id: socket.id,
-            peers: peerUuids,
+           // peers: peerUuids,
+            peers: peers,
             servers: token.iceServers
           })
+
+          socket.join(thisRoom)
+
+          // send updated list of peers to all clients in room
+          // io.sockets.emit('peers', peerUuids);
+          // socket.to(thisRoom).emit('new peer', _userData.uuid)
+          socket.to(thisRoom).emit('new peer', socket.id)
+          socket.emit("peers", peers);
+
         })
     } else {
       socket.emit('ready', {
         id: socket.id,
-        peers: peerUuids
+       // peers: peerUuids
+       peers: peers
       })
+
+      socket.join(thisRoom)
+
+      // send updated list of peers to all clients in room
+      // io.sockets.emit('peers', peerUuids);
+      // socket.to(thisRoom).emit('new peer', _userData.uuid)
+      socket.to(thisRoom).emit('new peer', socket.id)
+      socket.emit("peers", peers);
+
     }
 
     // And then add the client to the room
-    socket.join(room)
-
-    // send updated list of peers to all clients in room
-    // io.sockets.emit('peers', peerUuids);
-    socket.to(thisRoom).emit('new peer', _userData.uuid)
+   
 
     //  console.log('user', JSON.stringify(Object.keys(socketFromUser)))
   })
@@ -101,23 +117,41 @@ io.on('connection', function (socket) {
 
   // pass message from one peer to another
   socket.on('message', function (data) {
-    var client = io.sockets.connected[socketFromUser[data.id]]
+   // var client = io.sockets.connected[socketFromUser[data.id]]
+    // client && client.emit('message', {
+    //   id: userFromSocket[socket.id],
+    //   label: socket.label,
+    //   message: data.message,
+    //   type: data.type
+    // })
+    var client = io.sockets.connected[data.id];
+    console.log('message', data.id, data.type)
+    console.log(Object.keys(io.sockets.connected))
+
     client && client.emit('message', {
-      id: userFromSocket[socket.id],
+      id: socket.id,
       label: socket.label,
-      message: data.message,
-      type: data.type
-    })
+      type: data.type,
+      // signal: data.signal,
+      message: data.message
+    });
   })
 
   socket.on('signal', function (data) {
     // console.log('forwarding signal ' + JSON.stringify(data))
-    var client = io.sockets.connected[socketFromUser[data.id]]
+    // var client = io.sockets.connected[socketFromUser[data.id]]
+    // client && client.emit('signal', {
+    //   id: userFromSocket[socket.id],
+    //   label: socket.label,
+    //   signal: data.signal
+    // })
+    var client = io.sockets.connected[data.id];
     client && client.emit('signal', {
-      id: userFromSocket[socket.id],
+      id: socket.id,
       label: socket.label,
-      signal: data.signal
-    })
+      signal: data.signal,
+      message: data.message,
+    });
   })
   // TO DO: on disconnect, remove from label dictionary
 })

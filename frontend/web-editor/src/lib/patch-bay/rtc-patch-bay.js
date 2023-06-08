@@ -6,7 +6,7 @@ var SimplePeer = require('simple-peer')
 var extend = Object.assign
 var events = require('events').EventEmitter
 var inherits = require('inherits')
-const shortid = require('shortid')
+// const shortid = require('shortid')
 
 var PatchBay = function (options) {
 // connect to websocket signalling server. To DO: error validation
@@ -14,7 +14,9 @@ var PatchBay = function (options) {
 
   //assign unique id to this peer, or use id passed in
 
-  this.id = options.id || shortid.generate()
+  // this.nick = shortid.generate()
+  this.id = null
+  //this.id = options.id || shortid.generate() // id is no2
 
   this.stream = options.stream || null
 
@@ -73,7 +75,8 @@ PatchBay.prototype.reinitAll = function(){
 }
 
 PatchBay.prototype.initRtcPeer = function(id, opts) {
-  this.emit('new peer', {id: id})
+  console.log('initializing RTC peer', id)
+  // this.emit('new peer', {id: id})
   var newOptions = opts
  // console.log()
   if(this.iceServers) {
@@ -128,15 +131,16 @@ PatchBay.prototype._newPeer = function (peer){
     this.peers[peer] = {
       rtcPeer: null
     }
+    console.log('peers are', this.peers)
 
     this.emit('new peer', peer)
     // this.emit('updated peer list', this.connectedIds)
 }
 // // Once the new peer receives a list of connected peers from the server,
 // // creates new simple peer object for each connected peer.
-PatchBay.prototype._readyForSignalling = function ({ peers, servers }) {
-//console.log("received peer list", _t, this.peers)
-
+PatchBay.prototype._readyForSignalling = function ({ peers, servers, id }) {
+ console.log("received peer list", peers)
+  this.id = id // use socket id rather than locally generated
   peers.forEach((peer) => {
     this._newPeer(peer)
   })
@@ -151,7 +155,7 @@ PatchBay.prototype._readyForSignalling = function ({ peers, servers }) {
 
 // Init connection to RECEIVE video
 PatchBay.prototype.initConnectionFromId = function(id, callback){
-//  console.log("initianing connection")
+  console.log("initianing connection", id, this.rtcPeers)
   if(id in this.rtcPeers){
     console.log("Already connected to..", id, this.rtcPeers)
     //if this peer was originally only sending a stream (not receiving), recreate connecting but this time two-way
@@ -172,7 +176,7 @@ PatchBay.prototype.initConnectionFromId = function(id, callback){
 // receive signal from signalling server, forward to simple-peer
 PatchBay.prototype._handleMessage = function (data) {
   // if there is currently no peer object for a peer id, that peer is initiating a new connection.
-
+  console.log("! received message", data)
   if (data.type === 'signal'){
     this._handleSignal(data)
   } else {
@@ -181,6 +185,8 @@ PatchBay.prototype._handleMessage = function (data) {
 }
 // receive signal from signalling server, forward to simple-peer
 PatchBay.prototype._handleSignal = function (data) {
+  console.log('signalling', data.message, data.id)
+
   // if there is currently no peer object for a peer id, that peer is initiating a new connection.
   if (!this.rtcPeers[data.id]) {
     // this.emit('new peer', data)
@@ -190,6 +196,7 @@ PatchBay.prototype._handleSignal = function (data) {
 
     this.initRtcPeer(data.id, {initiator: false})
   }
+  console.log('sending to', this.rtcPeers[data.id])
   this.rtcPeers[data.id].signal(data.message)
 }
 // sendToAll send through rtc connections, whereas broadcast
@@ -207,7 +214,7 @@ PatchBay.prototype.broadcast = function (data) {
 // handle events for each connected peer
 PatchBay.prototype._attachPeerEvents = function (p, _id) {
   p.on('signal', function (id, signal) {
-  //  console.log('signal', id, signal)
+    console.log('received signal', id, signal)
     //  console.log("peer signal sending over sockets", id, signal)
   //  this.signaller.emit('signal', {id: id, signal: signal})
     this.signaller.emit('message', {id: id, message: signal, type: 'signal'})
@@ -221,7 +228,7 @@ PatchBay.prototype._attachPeerEvents = function (p, _id) {
   }.bind(this, _id))
 
   p.on('connect', function (id) {
-  //  console.log("connected to ", id)
+    console.log("CONNECTED TO ", id)
     this.emit('connect', id)
   }.bind(this, _id))
 
