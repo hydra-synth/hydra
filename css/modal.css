@@ -1,0 +1,208 @@
+/*.styled-background {
+  background-color: #f00;
+}*/
+
+#info-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
+  display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   -webkit-transition: height 1s;
+ -moz-transition: height 1s;
+ -o-transition: height 1s;
+ transition: height 1s;
+ font-family: 'Chivo', sans-serif;
+}
+
+#info-container.hidden {
+  height: 40px;
+  padding: 0px;
+  pointer-events: none;
+
+}
+
+#modal {
+  width: 70%;
+  height: 70%;
+  min-width: 800px;
+  min-height: 300px;
+  background: rgba(0, 0, 0, 1);
+  border: 1px solid white;
+  padding: 0px;
+  margin: 0px;
+  display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+    flex-flow: column;
+     -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
+  -webkit-transition: width 1s;
+-moz-transition: width 1s;
+-o-transition: width 1s;
+transition: width 1s;
+}
+
+@media (max-width: 768px) {
+  #modal {
+    width: 100%;
+    min-width: 0px;
+  }
+
+}
+
+.hidden > #modal {
+  width: 100%;
+  min-height: 0px;
+  background: rgba(0, 0, 0, 0);
+  border: 0px;
+  pointer-events: none;
+}
+
+.hidden > #modal > #modal-header {
+  border: 0px;
+  pointer-events: none;
+}
+
+#modal-header {
+  width: 100%;
+  /* height: 40px; */
+  border: 1px solid white;
+  margin: 0px;
+  display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+     justify-content: space-between;
+
+}
+
+
+
+.icon {
+  margin: 10px;
+  margin-right: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 20px;
+}
+
+.icon:hover{
+  color: #ccc;
+}
+
+.language-select {
+  margin: 8px;
+  text-align: center;
+  font-weight: 200;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.language-select:hover{
+  color: #ccc;
+}
+
+
+
+.icon.hidden {
+  display: none;
+}
+
+.hidden > #modal > #modal-body {
+  overflow: hidden;
+}
+
+#modal-body {
+  font-family: 'Chivo', sans-serif;
+  width: 100%;
+  /* height: 100%; */
+  flex: 1;
+  overflow-y: auto;
+}
+
+#modal-content {
+  margin: 40px;
+  margin-left: 65px;
+    margin-right: 65px;
+  font-weight: 300;
+}
+#modal-content > h1{
+  font-size: 40px;
+  margin: 0px;
+  font-weight: 400;
+}
+
+#modal-content > h3{
+  margin: 0px;
+  /* margin-bottom: 40px; */
+  text-transform: uppercase;
+  font-weight: 400;
+  /* font-size: 26px; */
+}
+
+#modal-content > h4{
+  font-weight: 300;
+  font-size: 18px;
+}
+
+#modal-content > p{
+  font-size: 18px;
+  font-weight: 100;
+  font-weight: 300;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.small {
+  font-size: 14px;
+}
+a{
+  color: #fff;
+}
+
+ul > li {
+  margin-top: 5px;
+  font-size: 16px;
+}
+.olivia {
+  color: #ff0066;
+}
+
+/* width */
+ ::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+#modal-body::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;
+    border-radius: 10px; */
+    background-color: black;
+    border: 1px solid white;
+}
+
+/* Handle */
+#modal-body::-webkit-scrollbar-thumb {
+    background: black;
+    border: 2px solid white;
+    cursor: pointer;
+    /* border-radius: 10px; */
+}
