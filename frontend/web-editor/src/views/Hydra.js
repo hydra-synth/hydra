@@ -5,8 +5,6 @@ const HydraSynth = require('hydra-synth')
 const P5  = require('./../lib/p5-wrapper.js')
 const PatchBay = require('./../lib/patch-bay/pb-live.js')
 
-
-
 module.exports = class Hydra extends Component {
   constructor (id, state, emit) {
     super(id)
@@ -31,6 +29,7 @@ module.exports = class Hydra extends Component {
 
     pb.init(hydra.captureStream, {
       server: window.location.origin,
+      // server: 'http://localhost:8000',
       room: 'iclc'
     })
 

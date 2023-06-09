@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on hydra community fund</title>
+    <link>https://hydra.ojack.xyz/grants/</link>
+    <description>Recent content in About on hydra community fund</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://hydra.ojack.xyz/grants/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://hydra.ojack.xyz/grants/_about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/_about/</guid>
+      <description>About Me This is a Hugo based resume template. You can find the full source code on GitHub.
+Research Interest Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus ipsum ac erat aliquam dapibus. Vestibulum vehicula placerat ex, a consectetur odio pharetra quis1. Mauris id urna ante.
+Fusce pharetra diam ac nisi aliquet, velegestas ex iaculis. Pellentesque laoreet cursus tellus sed pellentesque. Praesent a rhoncus elit2. Nunc ipsum nisl, consequat sit amet pretium quis, gravida id ipsum.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://hydra.ojack.xyz/grants/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/about/</guid>
+      <description>What is it? A community fund that provides no-strings-attached grants for artists and programmers working with or interested in working with hydra video synth. Each award is for the amount of $200 USD.
+&amp;laquo; Apply now! &amp;raquo; What is hydra? Hydra is a live code-able video synth and coding environment that runs directly in the browser. It is free and open-source and made for beginners and experts alike. For more information, see the hydra web editor.</description>
+    </item>
+    
+    <item>
+      <title>Apply</title>
+      <link>https://hydra.ojack.xyz/grants/apply/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/apply/</guid>
+      <description>Apply now! Applications to the hydra community fund are open from ___ to_ Tuesday 3rd May 17:00 BST ___. Applications submitted after this date will not be considered.
+The questions to be answered are referenced below:
+Name
+Email address
+What would you like to use the grant for? - e.g. organizing a workshop, event, or study group writing a tutorial, documentation, fanzine, video working on an add-on, extension, or library (other things that we have not yet imagined !</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://hydra.ojack.xyz/grants/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/contact/</guid>
+      <description>Please contact Olivia Jack at hydra.video.synth@gmail.com with any questions :)</description>
+    </item>
+    
+    <item>
+      <title>Recipients</title>
+      <link>https://hydra.ojack.xyz/grants/recipients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/recipients/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Support</title>
+      <link>https://hydra.ojack.xyz/grants/support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/support/</guid>
+      <description>Support Hydra community fund is supported entirely by donations. You can support here:</description>
+    </item>
+    
+    <item>
+      <title>Team</title>
+      <link>https://hydra.ojack.xyz/grants/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hydra.ojack.xyz/grants/team/</guid>
+      <description>The core team for the hydra community fund consists of
+Olivia Jack https://ojack.xyz/
+Antonio Roberts (he/him)
+https://hellocatfood.com
+For each round of community funding we invite external judges.
+[MONRHEA] https://monrhea.bandcamp.com/
+Previous judges If you are interested in being a judge for future rounds please get in touch
+Contact Please contact us at hydra.video.synth@gmail.com with any questions :)</description>
+    </item>
+    
+  </channel>
+</rss>
