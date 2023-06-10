@@ -254,19 +254,25 @@ class CodeApp extends Torus.StyledComponent {
     this.placeholder = document.createElement("div");
     this.placeholder.className = "placeholder"
     
+    this.activate = () => {
+      hush();
+      solid(0, 0, 0, 0).out(o0);
+      solid(0, 0, 0, 0).out(o1);
+      solid(0, 0, 0, 0).out(o2);
+      solid(0, 0, 0, 0).out(o3);
+      render(o0);
+      setTimeout(() => {
+        this.cmApp.commands.evalAll();
+      }, 60);
+      this.placeholder.appendChild(hydraApp.node);
+    }
+
+    // set observer
+    // and in render(), alternative way to trigger: mouse click
     var observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting === true) {
-          hush();
-          solid(0, 0, 0, 0).out(o0);
-          solid(0, 0, 0, 0).out(o1);
-          solid(0, 0, 0, 0).out(o2);
-          solid(0, 0, 0, 0).out(o3);
-          render(o0);
-          setTimeout(() => {
-            this.cmApp.commands.evalAll();
-          }, 60);
-          this.placeholder.appendChild(hydraApp.node);
+          this.activate();
         }
       },
       { threshold: [0.5] }
@@ -323,7 +329,7 @@ class CodeApp extends Torus.StyledComponent {
       </div>`;
     }
     return jdom`
-    <div>
+    <div onclick=${ this.activate }>
       ${ placeholder }
       ${ this.cmApp.node }
     </div>

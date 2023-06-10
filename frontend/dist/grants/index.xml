@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About on hydra community fund</title>
+    <title>About on hydra microgrants</title>
     <link>https://hydra.ojack.xyz/grants/</link>
-    <description>Recent content in About on hydra community fund</description>
+    <description>Recent content in About on hydra microgrants</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://hydra.ojack.xyz/grants/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -22,8 +22,7 @@ Fusce pharetra diam ac nisi aliquet, velegestas ex iaculis. Pellentesque laoreet
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hydra.ojack.xyz/grants/about/</guid>
-      <description>What is it? A community fund that provides no-strings-attached grants for artists and programmers working with or interested in working with hydra video synth. Each award is for the amount of $200 USD.
-&amp;laquo; Apply now! &amp;raquo; What is hydra? Hydra is a live code-able video synth and coding environment that runs directly in the browser. It is free and open-source and made for beginners and experts alike. For more information, see the hydra web editor.</description>
+      <description>The recipients of hydra microgrants for December 2022 are David Matunda, Aida El-Oweidy, Sabrina Sims, A1219 &amp;amp; Vagné L., George Githuma Njogu, and Rafa Diaz &amp;amp; Rafa Puyana. Thank you to all who applied! Stay tuned for updates on the next round of grants. What is it? A community fund that provides no-strings-attached grants for artists and programmers working with or interested in working with hydra video synth. Each award is for the amount of $200 USD.</description>
     </item>
     
     <item>
@@ -32,8 +31,8 @@ Fusce pharetra diam ac nisi aliquet, velegestas ex iaculis. Pellentesque laoreet
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hydra.ojack.xyz/grants/apply/</guid>
-      <description>Apply now! Applications to the hydra community fund are open from ___ to_ Tuesday 3rd May 17:00 BST ___. Applications submitted after this date will not be considered.
-The questions to be answered are referenced below:
+      <description>Apply now! Applications to the hydra community fund are open from September 17, 2022 UTC to November 7, 2022 23:59 UTC. Applications submitted after this date will not be considered.
+We accept both written submissions and video submissions using the form at the bottom of this page. The questions to be answered are referenced below:
 Name
 Email address
 What would you like to use the grant for? - e.g. organizing a workshop, event, or study group writing a tutorial, documentation, fanzine, video working on an add-on, extension, or library (other things that we have not yet imagined !</description>
@@ -45,7 +44,7 @@ What would you like to use the grant for? - e.g. organizing a workshop, event, o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hydra.ojack.xyz/grants/contact/</guid>
-      <description>Please contact Olivia Jack at hydra.video.synth@gmail.com with any questions :)</description>
+      <description>Please contact Olivia Jack and Antonio Roberts at hydra.video.synth@gmail.com with any questions :)</description>
     </item>
     
     <item>
@@ -54,7 +53,8 @@ What would you like to use the grant for? - e.g. organizing a workshop, event, o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hydra.ojack.xyz/grants/recipients/</guid>
-      <description></description>
+      <description>December 2022 The recipients of hydra microgrants for December 2022 are:
+Aida El-Oweidy David Matunda A1219 &amp;amp; Vagné L. Sabrina Sims George Githuma Njogu Rafa Diaz and Rafa Puyana Aida El-Oweidy Aida El-Oweidy is a visual artist and graphic designer. Her work spans many mediums including VR, drawing, text and performance. She is interested in utilising speculative practices and technology to explore themes such as space, collectivity, and rituals. She also explores creating visuals through live coding by playing with found footage, video synthesizers, and generative design elements.</description>
     </item>
     
     <item>
@@ -73,13 +73,7 @@ What would you like to use the grant for? - e.g. organizing a workshop, event, o
       
       <guid>https://hydra.ojack.xyz/grants/team/</guid>
       <description>The core team for the hydra community fund consists of
-Olivia Jack https://ojack.xyz/
-Antonio Roberts (he/him)
-https://hellocatfood.com
-For each round of community funding we invite external judges.
-[MONRHEA] https://monrhea.bandcamp.com/
-Previous judges If you are interested in being a judge for future rounds please get in touch
-Contact Please contact us at hydra.video.synth@gmail.com with any questions :)</description>
+Olivia Jack Olivia Jack is a programmer and artist who works frequently with open-source software, cartography, live coding, and experimental interfaces. She is the developer of browser-based creative tools including Hydra (live-codable video synthesizer), PIXELSYNTH, and LiveLab (peer-to-peer media router). Her live visual sets explore algorithmic representations of unpredictable and chaotic systems, and writing software as a messy and ephemeral process.</description>
     </item>
     
   </channel>
