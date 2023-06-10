@@ -10,7 +10,7 @@
     "build:api": "yarn --cwd frontend/hydra-functions build",
     "dev": "yarn watch:editor & yarn serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-frontend": "cd ./frontend && rm -rf dist && mkdir dist && cp -r hydra-garden/dist/ dist/garden && cp -r hydra-functions/docs/ dist/api && cp -r hydra-functions/docs/ dist/functions && cp -r hydra-docs/ dist/docs && cp -r hydra-grants/public dist/grants && cp -a web-editor/public/. dist/",
+    "build-frontend": "cd ./frontend && rm -rf dist && mkdir dist && cp -r hydra-garden/dist/ dist/garden && cp -r hydra-functions/docs/ dist/api && cp -r hydra-functions/docs/ dist/functions && cp -r hydra-docs/ dist/docs && cp -r hydra-grants/public dist/grants && cp -a web-editor/public/. dist/ && echo 'hydra.ojack.xyz' > dist/CNAME",
     "publish": "git subtree split --prefix frontend/dist -b gh-pages && git push -f git@github.com:hydra-synth/hydra-synth.github.io.git gh-pages:gh-pages"
   },
   "author": "Olivia Jack",
