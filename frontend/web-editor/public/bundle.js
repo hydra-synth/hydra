@@ -1,1 +1,1 @@
-console.error("Error: Parsing file /Users/ojack/PROJECTS/HYDRA-DEV/hydra/node_modules/hydra-synth/src/index.js: 'import' and 'export' may appear only with 'sourceType: module' (1:0)");
+console.error("Error: Parsing file /Users/ojack/PROJECTS/HYDRA-DEV/hydra/frontend/web-editor/node_modules/hydra-synth/src/index.js: 'import' and 'export' may appear only with 'sourceType: module' (1:0)");
