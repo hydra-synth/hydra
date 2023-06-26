@@ -1,6 +1,6 @@
 # Changelog
 # [1.4.0] - 2023 - 07-35
-### - this repo now only contains the frontend code for hydra-webeditor. for backend code, see: https://github.com/hydra-synth/hydra-server
+### - this repo now only contains the frontend code for hydra web editor. for backend code, see: https://github.com/hydra-synth/hydra-server
 
 ## [1.4.0] - 2023 - 06-08
 - refactored and streamlined webRTC signalling server
