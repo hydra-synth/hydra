@@ -11,7 +11,7 @@ module.exports = function toolbar(state, emit) {
         <i id="${id}-icon" class="fas icon ${className}" title="${title}" onclick=${dispatch(event)} aria-hidden="true"></i>`
 
     const toggleInfo = state.showInfo ? icon("close", "fa-times", t('toolbar.hide-info'), 'toggle info') : icon("close", "fa-question-circle", t('toolbar.show-info'), 'toggle info')  
-    return html`<div>
+    return html`<div id="toolbar-container">
         ${icon("run", `fa-play-circle ${hidden}`, t('toolbar.run'), 'editor:evalAll')}
         ${icon("clear", `fa fa-trash ${hidden}`, t('toolbar.clear'), 'editor:clearAll')}
         ${icon("shuffle", `fa-random`, t('toolbar.shuffle'), 'gallery:showExample')}

@@ -41,8 +41,10 @@ module.exports = class HydraCanvas extends Component {
       })
       window.pb = this.pb
     }
+
+    window.hydraSynth = this.hydra
     //  if(environment !== 'local') {
-    osc().out()
+    // osc().out()
 
     // }
 
@@ -58,6 +60,6 @@ module.exports = class HydraCanvas extends Component {
   createElement({ width = window.innerWidth, height = window.innerHeight } = {}) {
 
     return html`<div style="width:100%;height:100%;">
-        <canvas class="bg-black" style="imageRendering:pixelated; width:100%;height:100%" width="${width}" height="${height}"></canvas></div>`
+        <canvas id="hydra-canvas" class="bg-black" style="image-rendering:pixelated; width:100%;height:100%" width="${width}" height="${height}"></canvas></div>`
   }
 }

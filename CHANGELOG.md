@@ -1,7 +1,15 @@
 # Changelog
+# [1.4.1] - 2023 - 07-05
+## Added
+- id `hydra-canvas` to hydra canvas element
+- exposed running hydra instance as `hydraSynth`
+  
 # [1.4.0] - 2023 - 07-35
 ### - this repo now only contains the frontend code for hydra web editor. for backend code, see: https://github.com/hydra-synth/hydra-server
 
+## Added
+- Chinese translation
+  
 ## [1.4.0] - 2023 - 06-08
 - refactored and streamlined webRTC signalling server
 - use socketIds for signalling rather than client-generated Ids

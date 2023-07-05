@@ -9,8 +9,8 @@
     "watch": "watchify ./index.js -t [ envify --SERVER_URL http://localhost:8000] -v -o ./public/bundle.js",
     "build": "browserify ./index.js -t [ envify --SERVER_URL https://api.hydrasynth.xyz] --debug -o ./public/bundle.js && npm run uglify",
     "source-map": "source-map-explorer ./public/bundle.min.js ./public/bundle.min.js.map",
-    "dev": "http-server ./public & npm run watch",
-    "run-frontend": "http-server ./public & browserify ./index.js -t --debug -o ./public/bundle.js && npm run uglify",
+    "dev": "npm run serve & npm run watch",
+    "serve": "http-server ./public",
     "publish": "git subtree push --prefix=public origin gh-pages"
   },
   "author": "",
