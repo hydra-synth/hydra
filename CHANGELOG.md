@@ -1,4 +1,8 @@
 # Changelog
+# [1.4.1] - 2023 - 07-13
+## Added
+- showCode=false url parameter working again
+  
 # [1.4.1] - 2023 - 07-05
 ## Added
 - id `hydra-canvas` to hydra canvas element

@@ -23,7 +23,7 @@ module.exports = function store(state, emitter) {
       emitter.emit('render')
       // @todo create gallery store
     //  console.warn('gallery callback not let implemented')
-    }, state)
+    }, state, emitter)
   })
 
   emitter.on('screencap', () => {
@@ -127,6 +127,11 @@ module.exports = function store(state, emitter) {
 
   emitter.on('toggle info', function (count) {
     state.showInfo = !state.showInfo
+    emitter.emit('render')
+  })
+
+  emitter.on('hude info', function (count) {
+    state.showInfo = false
     emitter.emit('render')
   })
 
