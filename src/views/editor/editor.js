@@ -1,3 +1,5 @@
+/* eslint-disable no-eval */
+
 import CodeMirror from 'codemirror-minified/lib/codemirror'
 import 'codemirror-minified/mode/javascript/javascript'
 import 'codemirror-minified/addon/hint/javascript-hint'

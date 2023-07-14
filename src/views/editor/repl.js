@@ -10,7 +10,7 @@ export default {
 })().catch(${(err) => log(err.message, "log-error")})`
     var isError = false
     try {
-      eval(jsString)
+      window.eval(jsString)
       // log(jsString)
       log('')
     } catch (e) {
