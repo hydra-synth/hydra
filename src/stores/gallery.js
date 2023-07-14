@@ -1,10 +1,10 @@
-const request = require('superagent')
-const examples = require('./examples.json')
+import request from 'superagent'
+import examples from './examples.json'
 const sketches = []
 
 const license = `// licensed with CC BY-NC-SA 4.0 https://creativecommons.org/licenses/by-nc-sa/4.0/`
 
-class Gallery {
+export default class Gallery {
   constructor(callback, state, emitter) {
     this.sketches = []
     this.examples = []
@@ -304,4 +304,3 @@ ${code}
   }
 }
 
-module.exports = Gallery

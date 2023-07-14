@@ -1,9 +1,9 @@
 /* globals sessionStorage */
 // Extends rtc-patch-bay to include support for nicknames and persistent session storage
 
-var PatchBay = require('./rtc-patch-bay.js')
-//var PatchBay = require('./../../../../rtc-patch-bay')
-var inherits = require('inherits')
+import PatchBay from './rtc-patch-bay.js'
+//var PatchBay from './../../../../rtc-patch-bay'
+import inherits from 'inherits'
 
 var PBLive = function () {
   this.session = {}
@@ -136,4 +136,4 @@ PBLive.prototype._processBroadcast = function (data) {
   }
 }
 // PBExtended.prototype.
-module.exports = PBLive
+export default PBLive

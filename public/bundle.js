@@ -43143,8 +43143,7 @@ module.exports = {
     }
 }
 },{}],236:[function(require,module,exports){
-const html = require('choo/html')
-const Component = require('choo/component')
+import html from 'choo/html'const Component = require('choo/component')
 const HydraEditor = require('./editor/editor.js')
 const log = require('./editor/log.js')
 
@@ -43195,8 +43194,7 @@ module.exports = class Editor extends Component {
 }
 
 },{"./editor/editor.js":238,"./editor/log.js":240,"choo/component":48,"choo/html":49}],237:[function(require,module,exports){
-const html = require('choo/html')
-const Component = require('choo/component')
+import html from 'choo/html'const Component = require('choo/component')
 // const HydraSynth = require('hydra-synth')
 // const HydraSynth = require('./../../../../../hydra-synth')
 const P5 = require('./../lib/p5-wrapper.js')
@@ -44915,8 +44913,7 @@ module.exports = {
 }
 
 },{"./log.js":240}],245:[function(require,module,exports){
-const html = require('choo/html')
-const raw = require('choo/html/raw')
+import html from 'choo/html'const raw = require('choo/html/raw')
 const toolbar = require('./toolbar.js')
 
 const link = (url) => `href=${url} target=_blank`
@@ -45031,8 +45028,7 @@ module.exports = function mainView(state, emit) {
 //  `
 // }
 },{"./toolbar.js":247,"choo/html":49,"choo/html/raw":50}],246:[function(require,module,exports){
-const html = require('choo/html')
-const info = require('./info.js')
+import html from 'choo/html'const info = require('./info.js')
 const Hydra = require('./Hydra.js')
 const Editor = require('./EditorComponent.js')
 
@@ -45050,8 +45046,7 @@ module.exports = function mainView(state, emit) {
  `
 }
 },{"./EditorComponent.js":236,"./Hydra.js":237,"./info.js":245,"choo/html":49}],247:[function(require,module,exports){
-const html = require('choo/html')
-
+import html from 'choo/html'
 module.exports = function toolbar(state, emit) {
     const hidden = state.showInfo ? 'hidden' : ''
 

@@ -39,6 +39,7 @@
     "http-server": "^14.1.1",
     "source-map-explorer": "^2.5.2",
     "terser": "^5.14.2",
+    "vite": "^4.4.4",
     "watchify": "^4.0.0"
   }
 }

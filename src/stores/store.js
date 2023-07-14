@@ -1,8 +1,8 @@
-const Gallery = require('./gallery.js')
-const repl = require('../views/editor/repl.js')
+import Gallery from './gallery.js'
+import repl from '../views/editor/repl.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
 
-module.exports = function store(state, emitter) {
+export default function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
 

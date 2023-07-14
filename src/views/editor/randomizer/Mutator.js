@@ -1,12 +1,12 @@
-const {Parser} = require("acorn");
-const {generate} = require('astring');
-const { defaultTraveler, attachComments, makeTraveler } = require('astravel');
-const {UndoStack} = require('./UndoStack.js');
-const repl = require('./../repl.js')
+import {Parser} from "acorn"
+import {generate} from 'astring'
+import { defaultTraveler, attachComments, makeTraveler } from 'astravel'
+import UndoStack from './UndoStack.js'
+import repl from './../repl.js'
 // const glslTransforms = require('hydra-synth/src/glsl/glsl-functions.js')()
-const glslTransforms = require('./glslTransforms.js')
+import glslTransforms from './glslTransforms.js'
 
-class Mutator {
+export default class Mutator {
 
   constructor(editor) {
     this.editor = editor;
@@ -259,4 +259,3 @@ class Mutator {
 
 } //  End of class Mutator.
 
-module.exports = Mutator

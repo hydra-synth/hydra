@@ -1,5 +1,5 @@
 // A generalized 'Undo stack' which can keep N levels of revertable state.
-class UndoStack {
+export default class UndoStack {
     constructor(limit) {
         this.stack = [];
         this.index = -1;
@@ -51,4 +51,3 @@ class UndoStack {
 };
 
 
-module.exports = {UndoStack}

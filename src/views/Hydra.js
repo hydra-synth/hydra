@@ -1,14 +1,15 @@
-const html = require('choo/html')
-const Component = require('choo/component')
+import html from 'choo/html'
+import Component from 'choo/component'
 // const HydraSynth = require('hydra-synth')
 // const HydraSynth = require('./../../../../../hydra-synth')
-const P5 = require('./../lib/p5-wrapper.js')
-const PatchBay = require('./../lib/patch-bay/pb-live.js')
+import P5 from './../lib/p5-wrapper.js'
+import PatchBay from './../lib/patch-bay/pb-live.js'
+
 let pb
 
 // const SERVER_URL = process.env['SERVER_URL']
 
-module.exports = class HydraCanvas extends Component {
+export default class HydraCanvas extends Component {
   constructor(id, state, emit) {
     super(id)
     this.local = state.components[id] = {}

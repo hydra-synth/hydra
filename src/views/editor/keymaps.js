@@ -1,4 +1,4 @@
-module.exports = { 
+export default { 
     'Ctrl-Enter': 'editor:evalLine',
     'Ctrl-/': 'editor:toggleComment',
     'Alt-Enter': 'editor:evalBlock',

@@ -1,9 +1,9 @@
-const html = require('choo/html')
-const Component = require('choo/component')
-const HydraEditor = require('./editor/editor.js')
-const log = require('./editor/log.js')
+import html from 'choo/html'
+import Component from 'choo/component'
+import HydraEditor from './editor/editor.js'
+import log from './editor/log.js'
 
-module.exports = class Editor extends Component {
+export default class Editor extends Component {
   constructor (id, state, emit) {
     super(id)
     this.local = state.components[id] = {}
