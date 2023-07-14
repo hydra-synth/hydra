@@ -1,6 +1,6 @@
 import html from 'choo/html'
 import Component from 'choo/component'
-// const HydraSynth = require('hydra-synth')
+import Hydra from 'hydra-synth'
 // const HydraSynth = require('./../../../../../hydra-synth')
 import P5 from './../lib/p5-wrapper.js'
 import PatchBay from './../lib/patch-bay/pb-live.js'
