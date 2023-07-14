@@ -6,7 +6,7 @@ export default function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
 
-  const SERVER_URL = process.env['SERVER_URL']
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
  let sketches
 
