@@ -1,27 +1,10 @@
 import html from 'choo/html'
 import raw from 'choo/html/raw'
-import toolbar from './toolbar.js'
-
+import modalWindow from './modal-window.js'
+import extensionInfo from './extension-info.js'
 const link = (url) => `href=${url} target=_blank`
 
-const windowWrapper = ({ content, header }, state, emit) => {
-  const { t, languages } = state.translation
-  const textDirection = state.translation.selectedLanguage  === 'ar' && state.showInfo === true ? 'rtl': 'ltr'
 
-  return html`
-<div id="info-container" class="${state.showInfo ? "" : "hidden"}" style="direction:${textDirection}">
-  <div id="modal">
-    <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
-     ${header}
-      ${toolbar(state, emit)}
-    </div>
-    <div id="modal-body">
-     ${content}
-    </div>
-  </div>
-</div>
-`
-}
 
 const infoText = (t) => html`<div id="modal-content">
 <h1>${t('info.title')}</h1>
@@ -72,7 +55,8 @@ export default function mainView(state, emit) {
   <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
 `)}</div>` : html`<div></div>` 
   // const content = 
-  return windowWrapper({ content: state.showExtensions ? 'extensions' : infoText(t), header: header}, state, emit)
+  const windowContent = !state.showExtensions ? { content: infoText(t), header: header } : extensionInfo(state, emit)
+  return modalWindow(windowContent, state, emit)
 }
 
 
