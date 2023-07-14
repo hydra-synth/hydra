@@ -4,75 +4,64 @@ import toolbar from './toolbar.js'
 
 const link = (url) => `href=${url} target=_blank`
 
-const windowWrapper = ({ content, header }, state, emit) => {
+export default function mainView(state, emit) {
   const { t, languages } = state.translation
   const textDirection = state.translation.selectedLanguage  === 'ar' && state.showInfo === true ? 'rtl': 'ltr'
 
+  const langArray = Object.entries(languages)
   return html`
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}" style="direction:${textDirection}">
   <div id="modal">
     <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
-     ${header}
+      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
+        <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
+      `)}</div>` : html`<div></div>` }
       ${toolbar(state, emit)}
     </div>
     <div id="modal-body">
-     ${content}
+      <div id="modal-content">
+        <h1>${t('info.title')}</h1>
+        <h3>${t('info.subtitle')}</h3>
+          <br> ///////////////////////////////////////////////////////////<br>
+          <h4>${t('info.description')}</h4>
+        <h4>${t('info.get-started-title')}<ol>
+            <li>${t('info.get-started-list.0')}</li>
+            <li>${t('info.get-started-list.1')}</li>
+            <li>${t('info.get-started-list.2')}</li>
+          </ol>
+        </h4>
+
+        <p> ///////////////////////////////////////////////////////////<br><br><br>
+          ${t('info.description-detailed')}
+        </p>
+        <p>${t('info.uses')}<ul>
+        ${t('info.uses-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
+        </ul></p>
+       
+           <p class="align-right">${raw(t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
+           <p>${raw(t('info.more-info', {
+             docs: link("https://hydra.ojack.xyz/docs"),
+             functions: link("https://hydra.ojack.xyz/api"),
+             gallery: link("https://twitter.com/hydra_patterns"),
+             repo: link("https://github.com/hydra-synth/hydra"),
+             pixeljam: link("http://pixeljam.glitch.me/"),
+             garden: link("https://hydra.ojack.xyz/garden"),
+             'hydra-book': link("https://hydra-book.glitch.me/"),
+             "tutorials": link("https://github.com/ojack/hydra/blob/master/examples/README.md")
+           }))}</p>
+          <p>${raw(t('info.more-info-forums', {
+            discord: link("https://discord.gg/ZQjfHkNHXC"),
+            facebook: link("https://www.facebook.com/groups/1084288351771117/")
+          }))}</p>
+
+        <p>${raw(t('info.support', {
+          "open-collective": link("https://opencollective.com/hydra-synth")
+        }))}</p>
+      </div>
     </div>
   </div>
 </div>
 `
-}
-
-const infoText = (t) => html`<div id="modal-content">
-<h1>${t('info.title')}</h1>
-<h3>${t('info.subtitle')}</h3>
-  <br> ///////////////////////////////////////////////////////////<br>
-  <h4>${t('info.description')}</h4>
-<h4>${t('info.get-started-title')}<ol>
-    <li>${t('info.get-started-list.0')}</li>
-    <li>${t('info.get-started-list.1')}</li>
-    <li>${t('info.get-started-list.2')}</li>
-  </ol>
-</h4>
-
-<p> ///////////////////////////////////////////////////////////<br><br><br>
-  ${t('info.description-detailed')}
-</p>
-<p>${t('info.uses')}<ul>
-${t('info.uses-list', { returnObjects: true }).map((text) => html`<li>${text}</li>`)}
-</ul></p>
-
-   <p class="align-right">${raw(t('info.author', { author: `href=https://ojack.xyz class=olivia target=_blank`}))}</p>
-   <p>${raw(t('info.more-info', {
-     docs: link("https://hydra.ojack.xyz/docs"),
-     functions: link("https://hydra.ojack.xyz/api"),
-     gallery: link("https://twitter.com/hydra_patterns"),
-     repo: link("https://github.com/hydra-synth/hydra"),
-     pixeljam: link("http://pixeljam.glitch.me/"),
-     garden: link("https://hydra.ojack.xyz/garden"),
-     'hydra-book': link("https://hydra-book.glitch.me/"),
-     "tutorials": link("https://github.com/ojack/hydra/blob/master/examples/README.md")
-   }))}</p>
-  <p>${raw(t('info.more-info-forums', {
-    discord: link("https://discord.gg/ZQjfHkNHXC"),
-    facebook: link("https://www.facebook.com/groups/1084288351771117/")
-  }))}</p>
-
-<p>${raw(t('info.support', {
-  "open-collective": link("https://opencollective.com/hydra-synth")
-}))}</p>
-</div>`
-
-export default function mainView(state, emit) {
-  const { t, languages } = state.translation
-
-
-  const langArray = Object.entries(languages)
-  const header =  state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
-  <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
-`)}</div>` : html`<div></div>` 
-  // const content = 
-  return windowWrapper({ content: state.showExtensions ? 'extensions' : infoText(t), header: header}, state, emit)
 }
 
 

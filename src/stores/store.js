@@ -5,6 +5,7 @@ import repl from '../views/editor/repl.js'
 export default function store(state, emitter) {
   state.showInfo = true
   state.showUI = true
+  state.showExtensions = false
 
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
@@ -126,12 +127,30 @@ export default function store(state, emitter) {
   })
 
   emitter.on('toggle info', function (count) {
-    state.showInfo = !state.showInfo
+    if(state.showInfo) {
+      state.showInfo = false
+      state.showExtensions = false
+    } else {
+      state.showInfo = true
+    }
+    // state.showInfo = !state.showInfo
     emitter.emit('render')
   })
 
-  emitter.on('hude info', function (count) {
-    state.showInfo = false
+  // emitter.on('hide info', function (count) {
+  //   state.showInfo = false
+  //   state.showExtensions = false
+  //   emitter.emit('render')
+  // })
+
+  emitter.on('show extensions', () => {
+    state.showExtensions = true
+    state.showInfo = true
+    emitter.emit('render')
+  })
+
+  emitter.on('hide extensions', () => {
+    state.showExtensions = false
     emitter.emit('render')
   })
 

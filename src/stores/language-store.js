@@ -63,7 +63,8 @@ export default function store(state, emitter) {
       t: i18next.t,
       languages: languages,
       // languages: ['en', 'ja'],
-      selectedLanguage: i18next.language
+      selectedLanguage: i18next.language,
+      textDirection: i18next.language  === 'ar' ? 'rtl': 'ltr'
     }
   }
   // loadLanguageFromURL('es', 'https://raw.githubusercontent.com/hydra-synth/l10n/main/es/editor.json')

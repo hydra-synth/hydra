@@ -8,6 +8,7 @@ export default {
                 clear: "clear all",
                 shuffle: "show random sketch",
                 random: "make random change",
+                "load-extension": "load library or extension",
                 "show-info": "show info window",
                 "hide-info": "hide info window"
             },
