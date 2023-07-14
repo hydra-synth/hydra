@@ -1,4 +1,8 @@
 # Changelog
+# [1.5.0] - 2023 - 07 - 14
+- switch to ES6 syntax
+- working with vite bundler
+
 # [1.4.1] - 2023 - 07-13
 ## Added
 - showCode=false url parameter working again
