@@ -37,6 +37,9 @@ export default {
 
                 'more-info-forums': 'There is also an active <a {{discord}}>Discord server</a> and <a {{facebook}}>facebook group</a> for hydra users+contributors.',
                 'support': 'If you enjoy using Hydra, please consider  <a {{open-collective}} >supporting continued development <3 </a>.'
+            },
+            extensions: {
+                about: 'Extensions and external libraries written in javascript can be loaded into the hydra editor. Click `add to project` to add a library or extension to your existing project. Click `load example` to show an example sketch into the editor.'
             }
         }
     }

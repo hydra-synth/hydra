@@ -6,7 +6,7 @@ const link = (url) => `href=${url} target=_blank`
 
 
 
-const infoText = (t) => html`<div id="modal-content">
+const infoText = (t) => html`<div class="modal-content">
 <h1>${t('info.title')}</h1>
 <h3>${t('info.subtitle')}</h3>
   <br> ///////////////////////////////////////////////////////////<br>

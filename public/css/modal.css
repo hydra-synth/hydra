@@ -107,15 +107,23 @@ transition: width 1s;
 }
 
 .language-select {
-  margin: 8px;
+  padding: 8px;
   text-align: center;
   font-weight: 200;
   cursor: pointer;
   pointer-events: auto;
+  background-color: black;
+  transition: border 
 }
 
 .language-select:hover{
   color: #ccc;
+}
+
+.language-select.selected {
+  border: solid white 1px;
+  margin-bottom: -1px;
+  border-bottom: black;
 }
 
 
@@ -136,19 +144,23 @@ transition: width 1s;
   overflow-y: auto;
 }
 
-#modal-content {
+.modal-content {
   margin: 40px;
   margin-left: 65px;
     margin-right: 65px;
   font-weight: 300;
 }
-#modal-content > h1{
+
+.modal-content.extensions {
+  margin: 20px;
+}
+.modal-content > h1{
   font-size: 40px;
   margin: 0px;
   font-weight: 400;
 }
 
-#modal-content > h3{
+.modal-content > h3{
   margin: 0px;
   /* margin-bottom: 40px; */
   text-transform: uppercase;
@@ -156,15 +168,65 @@ transition: width 1s;
   /* font-size: 26px; */
 }
 
-#modal-content > h4{
+.modal-content > h4{
   font-weight: 300;
   font-size: 18px;
 }
 
-#modal-content > p{
+.modal-content > p{
   font-size: 18px;
   font-weight: 100;
   font-weight: 300;
+}
+
+.extension-list {
+  padding-top: 10px;
+}
+
+.extension-icon {
+  /* color: rgb(250, 9, 162); */
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  /* color: black; */
+  font-size: 0.8rem;
+  padding: 4px;
+  font-weight: 900;
+  /* border: solid 2px  rgb(250, 9, 162); */
+  /* color: black; */
+  cursor: pointer;
+  pointer-events: auto;
+  display: inline-block;
+  /* text-decoration: underline; */
+  /* border-bottom: solid 1px white; */
+}
+
+.example-icon {
+  /* background-color: white; */
+  /* color: black; */
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.extension-buttons {
+  float: right;
+  text-align: right;
+}
+
+.extension-icon:hover {
+  background-color:  rgb(250, 9, 162);
+  color: black;
+}
+
+.extension-list-item {
+  cursor: pointer;
+  margin: 1px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.extension-list-item:hover {
+  /* background: white; */
+  /* color: black; */
+  /* border: solid white 1px; */
 }
 
 .align-right {
