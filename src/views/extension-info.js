@@ -5,7 +5,9 @@ export default (state, emit) => {
 extensionssss
 </div>
 `
-  const header = html`<div style="display:flex;flex-wrap:wrap"></div>`
+  const header = html`<div style="display:flex;flex-wrap:wrap">
+  ${state.extensions.categories.map((ex) => html`<div class="language-select">${ex}</div>`)}
+  </div>`
 
   return { content, header }
 }
