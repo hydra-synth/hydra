@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    // define: { global: {} },
+    //define: { global: {} },
     base: '',
     define: {
-        'process.env': {}
+        'process.env': {},
+        // 'global.window': 'window'
+        // global: {}
     },
     optimizeDeps: {
         esbuildOptions: {
