@@ -12,7 +12,7 @@ app.use(store)
 app.use(languageStore)
 app.use(extensionStore)
 app.route('/', mainView)
-app.route('/hydra-backup', mainView)
+app.route('/dev', mainView)
 app.mount('body')
 
 

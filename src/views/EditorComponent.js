@@ -21,6 +21,7 @@ export default class Editor extends Component {
    })
    // hacky, maybe not necessary
    this.innerText = document.getElementsByClassName('CodeMirror')[0]
+   this.innerText.style.transition = 'opacity 0.5s'
   }
 
   hide() {

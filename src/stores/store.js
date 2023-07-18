@@ -158,6 +158,7 @@ export default function store(state, emitter) {
   emitter.on('show extensions', () => {
     state.showExtensions = true
     state.showInfo = true
+    emitter.emit('extensions: select category')
     emitter.emit('render')
   })
 

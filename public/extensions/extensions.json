@@ -1,0 +1,59 @@
+[
+    {
+        "name": "Op-art patterns",
+        "description": "Additional fragment shaders inspired by op-art patterns",
+        "documentation": "https://gitlab.com/metagrowing/extra-shaders-for-hydra#op-art-patterns",
+        "author": "Thomas Jourdan",
+        "thumbnail": "op-art.png",
+        "load": "await loadScript(\\\"https://cdn.statically.io/gl/metagrowing/extra-shaders-for-hydra/main/lib/lib-pattern.js\\\")",
+        "examples": [
+            "https://hydra.ojack.xyz/?code=JTJGJTJGJTIwbGljZW5zZWQlMjB3aXRoJTIwQ0MlMjBCWS1OQy1TQSUyMDQuMCUyMGh0dHBzJTNBJTJGJTJGY3JlYXRpdmVjb21tb25zLm9yZyUyRmxpY2Vuc2VzJTJGYnktbmMtc2ElMkY0LjAlMkYlMEFhd2FpdCUyMGxvYWRTY3JpcHQoJTIyaHR0cHMlM0ElMkYlMkZjZG4uc3RhdGljYWxseS5pbyUyRmdsJTJGbWV0YWdyb3dpbmclMkZleHRyYS1zaGFkZXJzLWZvci1oeWRyYSUyRm1haW4lMkZsaWIlMkZsaWItcGF0dGVybi5qcyUyMiklMEElMEFhJTIwJTNEJTIwKCklMjAlM0QlM0UlMjAwLjEzNyUyMColMjB0aW1lJTNCJTBBc3BpcmFsKDIuMCUyQyUyMDUuMCUyQyUyMDAuMykucm90YXRlKCgpJTIwJTNEJTNFJTIwLTIuMCUyMColMjBhKCkpLm91dChvMCklMEFzcGlyYWwoMi4wJTJDJTIwNS4wJTJDJTIwMC4zKS5yb3RhdGUoYSkuZGlmZihjb25jZW50cmljKDEwMC4wJTJDMC4yNSUyQzAuMjUpKS5vdXQobzEpJTBBc3BpcmFsKDIuMCUyQyUyMDUuMCUyQyUyMDAuMykucm90YXRlKGEpLm11bHQoc3BpcmFsKDEuMCUyQyUyMDMuMCUyQyUyMDAuMykpLm91dChvMiklMEFzcGlyYWwoMS4wJTJDJTIwNS4wJTJDJTIwMC4xKS5yb3RhdGUoYSkuZGlmZihicmljaygpKS5vdXQobzMpJTBBcmVuZGVyKCklMEElMEElMEE%3D"
+        ]
+    },
+    {
+        "name": "hydra-arithmetics",
+        "description": "Adds many functions related to visual arithmetics.",
+        "documentation": "https://gitlab.com/metagrowing/extra-shaders-for-hydra/-/blob/main/gallery/pattern/README.md",
+        "author": "ritchse",
+        "thumbnail": "arithmetics.png",
+        "load": "await loadScript(\\\"https://hydra-extensions.glitch.me/hydra-arithmetics.js\\\")",
+        "examples": [
+            "https://hydra.ojack.xyz/?code=YXdhaXQlMjBsb2FkU2NyaXB0KCUyMmh0dHBzJTNBJTJGJTJGaHlkcmEtZXh0ZW5zaW9ucy5nbGl0Y2gubWUlMkZoeWRyYS1hcml0aG1ldGljcy5qcyUyMiklMEElMEFvc2MoMTAlMkMuMSUyQzIpJTBBJTA5Lm1vZChncmFkaWVudCgpLmFzaW4oKS5jb3MoKSklMEElMDkuc3RlcChub2lzZSgyKS51bmlwb2xhcigpLmRpdihvMCkpJTBBJTA5LmJsZW5kKG8wJTJDLjIpJTBBJTA5Lm91dCgp"
+        ]
+    },
+    {
+        "name": "hydrated-gradient",
+        "description": "make gradients with specified colors",
+        "documentation": "https://hydrated.savamala.top/",
+        "author": "Joan Queralt",
+        "thumbnail": "gradient.png",
+        "load": "await loadScript(\\\"https://hydrated.savamala.top/hydra-gradient.js\\\")",
+        "examples": [
+           "https://hydra.ojack.xyz/?code=YXdhaXQlMjBsb2FkU2NyaXB0KCUyMmh0dHBzJTNBJTJGJTJGaHlkcmF0ZWQuc2F2YW1hbGEudG9wJTJGaHlkcmEtZ3JhZGllbnQuanMlMjIpJTBBJTBBJTJGJTJGJTIwVXNlJTIwZ3JhZGllbnQyJTIwdG8lMjBjcmVhdGUlMjBhJTIwZ3JhZGllbnQlMjBiZXR3ZWVuJTIwdHdvJTIwY29sb3JzJTNBJTBBJTJGJTJGJTIwZ3JhZGllbnQyKHIwJTNEMSUyQ2cwJTNEMCUyQ2IwJTNEJTJDcjElM0QwJTJDZzElM0QwJTJDYjElM0QxJTJDc3BlZWQlM0QwKSUwQSUwQWdyYWRpZW50MigxJTJDMCUyQzAlMkMwLjglMkMwJTJDMC44JTJDMC4yKS5vdXQoKSUwQSUwQXJlbmRlcihvMCk%3D"
+        ]
+    },
+    {
+        "name": "hydra-shaderpark",
+        "description": "extension to use hydra with Shader Park - A JavaScript library for creating interactive procedural 2D and 3D shaders.",
+        "www": "https://shaderpark.com/",
+        "documentation": "https://shaderpark.com/",
+        "author": "emptyflash, Torin Blankensmith and Peter Whidden",
+        "thumbnail": "shader-park.png",
+        "load": "const { sculptToHydraRenderer } = await import(\\\"https://livecode.emptyfla.sh/hydra/all.js\\\")",
+        "examples": [
+           "https://hydra.ojack.xyz/?code=JTJGJTJGJTIwbGljZW5zZWQlMjB3aXRoJTIwQ0MlMjBCWS1OQy1TQSUyMDQuMCUyMGh0dHBzJTNBJTJGJTJGY3JlYXRpdmVjb21tb25zLm9yZyUyRmxpY2Vuc2VzJTJGYnktbmMtc2ElMkY0LjAlMkYlMEFjb25zdCUyMCU3QiUyMHNjdWxwdFRvSHlkcmFSZW5kZXJlciUyMCU3RCUyMCUzRCUyMGF3YWl0JTIwaW1wb3J0KCUyMmh0dHBzJTNBJTJGJTJGbGl2ZWNvZGUuZW1wdHlmbGEuc2glMkZoeWRyYSUyRmFsbC5qcyUyMiklMEElMEFzY3VscHRUb0h5ZHJhUmVuZGVyZXIoKCklMjAlM0QlM0UlMjAlN0IlMEElMDklMDlyb3RhdGVYKHRpbWUlMjAlMkYlMjA1KSUwQSUwOSUwOXJvdGF0ZVoodGltZSUyMCUyRiUyMDMpJTBBJTA5JTA5ZGlzcGxhY2Uoc2luKHRpbWUpJTJDJTIwMSUyQyUyMDApJTBBJTA5JTA5bWlycm9yTigzJTJDJTIwMyklMEElMDklMDl0b3J1cygwLjglMkMlMjAwLjM4JTIwJTJCJTIwMC4xJTIwKiUyMHNpbih0aW1lKSklMEElMDklN0QpJTBBJTA5Lm91dChvMCklMEElMEFyZW5kZXIobzApJTBB"
+        ]
+    },
+    {
+        "name": "hydra-midi",
+        "description": "midi in hydra",
+        "www": "https://github.com/arnoson/hydra-midi",
+        "documentation": "https://github.com/arnoson/hydra-midi",
+        "author": "Arno Schlipf",
+        "thumbnail": "shader-park.png",
+        "load": "await loadScript(\\\"https://cdn.jsdelivr.net/npm/hydra-midi@latest/dist/index.js\\\")",
+        "examples": [
+           "https://hydra.ojack.xyz/?code=JTJGJTJGJTIwWW91JTIwY2FuJTIwZWl0aGVyJTIwdXNlJTIwJTYwJTQwbGF0ZXN0JTYwJTIwb3IlMjBsb2FkJTIwYSUyMHNwZWNpZmljJTIwdmVyc2lvbiUyMHdpdGglMkMlMjBmb3IlMjBleGFtcGxlJTJDJTIwJTYwJTQwMC40LjAlNjAuJTBBYXdhaXQlMjBsb2FkU2NyaXB0KCUwQSUyMCUyMCdodHRwcyUzQSUyRiUyRmNkbi5qc2RlbGl2ci5uZXQlMkZucG0lMkZoeWRyYS1taWRpJTQwbGF0ZXN0JTJGZGlzdCUyRmluZGV4LmpzJyUwQSklMEElMEElMkYlMkYlMjBVc2UlMjBtaWRpJTIwbWVzc2FnZXMlMjBmcm9tJTIwYWxsJTIwY2hhbm5lbHMlMjBvZiUyMGFsbCUyMGlucHV0cy4lMEFhd2FpdCUyMG1pZGkuc3RhcnQoJTdCJTIwY2hhbm5lbCUzQSUyMCcqJyUyQyUyMGlucHV0JTNBJTIwJyonJTIwJTdEKSUwQSUyRiUyRiUyMFNob3clMjBhJTIwc21hbGwlMjBtaWRpJTIwbW9uaXRvciUyMChzaW1pbGFyJTIwdG8lMjBoeWRyYSdzJTIwJTYwYS5zaG93KCklNjApLiUwQW1pZGkuc2hvdygpJTBBJTBBJTJGJTJGJTIwVXNlJTIwYW55JTIwbm90ZSUyMHRvJTIwY29udHJvbCUyMHRoZSUyMHJlZCUyMGFtb3VudCUyMG9mJTIwaHlkcmEncyUyMCU2MHNvbGlkKCklNjAlMjBmdW5jdGlvbi4lMEFzb2xpZChub3RlKCcqJyklMkMlMjAwJTJDJTIwMSkub3V0KCklMEElMEElMkYlMkYlMjBPciUyQyUyMGlmJTIweW91JTIwYXJlJTIwdXNpbmclMjBhJTIwbWlkaSUyMGNvbnRyb2xsZXIlMjBhbmQlMjBub3QlMjBhJTIwa2V5Ym9hcmQlM0ElMEElMkYlMkYlMjBVc2UlMjBhJTIwY29udHJvbCUyMGNoYW5nZSUyMHZhbHVlJTIwdG8lMjBjb250cm9sJTIwdGhlJTIwcmVkJTIwYW1vdW50LiUwQSUyRiUyRiUyMHNvbGlkKGNjKDc0KSUyQyUyMDAlMkMlMjAxKS5vdXQoKQ%3D%3D"
+        ]
+    }
+]

@@ -10,7 +10,9 @@ const icon = (id, className, title, event) => html`
 const detailedInfo = (ext, index, emit) => {
   return html`<div 
      class="extension-list-item selected" style="display:flex;justify-content:space-between">
-     <div >
+     <img src="${ext.thumbnail}" width="40px" height="40px"/>
+
+     <div style="flex:1;padding-left:8px">
      <div><span style="font-weight:900">${ext.name} - </span> <span style="text-overflow:ellipses;overflow:hidden"> ${ext.author} </span></div>
      <div> <span style="">${ext.description}</span></div>
      </div>
@@ -27,11 +29,12 @@ const detailedInfo = (ext, index, emit) => {
 const listInfo = (ext, index, emit) => html`<div onclick="${() => emit('extensions: select extension', index)}" class="extension-list-item"><span style="font-weight:900">${ext.name} - </span> <span style="text-overflow:ellipses;overflow:hidden"> ${ext.description} </span> <span style="float:right">${ext.author}</span></div>`
 
 export default (state, emit) => {
-  const { categories, selectedCategoryIndex,  extensions, selectedExtension} = state.extensions
+  const { categories, selectedCategoryIndex } = state.extensions
+  const extensions = categories[selectedCategoryIndex].entries
   const { t } = state.translation
 //  ${i=== selectedExtension? detailedInfo(ext, i, emit) : listInfo(ext, i, emit)}
   const content = html`<div class="modal-content extensions">
-${raw(t('extensions.about'))}
+${raw(t('extensions.about-extensions'))}
 <div class="extension-list">
 ${extensions.map((ext, i) => detailedInfo(ext, i, emit))}
 </div>
@@ -41,7 +44,7 @@ ${extensions.map((ext, i) => detailedInfo(ext, i, emit))}
   ${categories.map((ex, i) => html`<div 
     class="language-select ${i===selectedCategoryIndex ? 'selected' : ''}" 
     onclick=${() => emit('extensions: select category', i)}
-    >${ex}</div>`)}
+    >${ex.name}</div>`)}
   </div>`
 
   return { content, header }

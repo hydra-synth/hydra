@@ -1,0 +1,38 @@
+[
+    {
+        "name": "p5.js",
+        "description": "JavaScript library for creative coding, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! (automatically loaded into hydra editor)",
+        "www": "https://p5js.org/",
+        "documentation": "https://github.com/hydra-synth/hydra#using-p5js-with-hydra",
+        "author": "Lauren Lee McCarthy + community",
+        "thumbnail": "op-art.png",
+        "load": "",
+        "examples": [
+            "https://hydra.ojack.xyz/?code=JTJGJTJGJTIwSW5pdGlhbGl6ZSUyMGElMjBuZXclMjBwNSUyMGluc3RhbmNlJTIwSXQlMjBpcyUyMG9ubHklMjBuZWNlc3NhcnklMjB0byUyMGNhbGwlMjB0aGlzJTIwb25jZSUwQXA1JTIwJTNEJTIwbmV3JTIwUDUoKSUyMCUyRiUyRiUyMCU3QndpZHRoJTNBJTIwd2luZG93LmlubmVyV2lkdGglMkMlMjBoZWlnaHQlM0F3aW5kb3cuaW5uZXJIZWlnaHQlMkMlMjBtb2RlJTNBJTIwJ1AyRCclN0QlMEElMEElMkYlMkYlMjBkcmF3JTIwYSUyMHJlY3RhbmdsZSUyMGF0JTIwcG9pbnQlMjAzMDAlMkMlMjAxMDAlMEFwNS5yZWN0KDMwMCUyQyUyMDEwMCUyQyUyMDEwMCUyQyUyMDEwMCklMEElMEElMkYlMkYlMjBOb3RlJTIwdGhhdCUyMFA1JTIwcnVucyUyMGluJTIwaW5zdGFuY2UlMjBtb2RlJTJDJTIwc28lMjBhbGwlMjBmdW5jdGlvbnMlMjBuZWVkJTIwdG8lMjBzdGFydCUyMHdpdGglMjB0aGUlMjB2YXJpYWJsZSUyMHdoZXJlJTIwUDUlMjB3YXMlMjBpbml0aWFsaXplZCUyMChpbiUyMHRoaXMlMjBjYXNlJTIwcDUpJTBBJTJGJTJGJTIwcmVmZXJlbmNlJTIwZm9yJTIwUDUlM0ElMjBodHRwcyUzQSUyRiUyRlA1anMub3JnJTJGcmVmZXJlbmNlJTJGJTBBJTJGJTJGJTIwZXhwbGFuYXRpb24lMjBvZiUyMGluc3RhbmNlJTIwbW9kZSUzQSUyMGh0dHBzJTNBJTJGJTJGZ2l0aHViLmNvbSUyRnByb2Nlc3NpbmclMkZQNS5qcyUyRndpa2klMkZHbG9iYWwtYW5kLWluc3RhbmNlLW1vZGUlMEElMEElMkYlMkYlMjBXaGVuJTIwbGl2ZSUyMGNvZGluZyUyQyUyMHRoZSUyMCUyMnNldHVwKCklMjIlMjBmdW5jdGlvbiUyMG9mJTIwUDUuanMlMjBoYXMlMjBiYXNpY2FsbHklMjBubyUyMHVzZSUzQiUyMGFueXRoaW5nJTIwdGhhdCUyMHlvdSUyMHdvdWxkJTIwaGF2ZSUyMGNhbGxlZCUyMGluJTIwc2V0dXAlMjB5b3UlMjBjYW4lMjBqdXN0JTIwY2FsbCUyMG91dHNpZGUlMjBvZiUyMGFueSUyMGZ1bmN0aW9uLiUwQSUwQXA1LmNsZWFyKCklMEElMEFmb3IodmFyJTIwaSUyMCUzRCUyMDAlM0IlMjBpJTIwJTNDJTIwMTAwJTNCJTIwaSUyQiUyQiklN0IlMEElMjAlMjBwNS5maWxsKGkqMTAlMkMlMjBpJTI1MzAlMkMlMjAyNTUpJTBBJTIwJTIwcDUucmVjdChpKjIwJTJDJTIwMjAwJTJDJTIwMTAlMkMyMDApJTBBJTdEJTBBJTBBJTJGJTJGJTIwVG8lMjBsaXZlJTIwY29kZSUyMGFuaW1hdGlvbnMlMkMlMjB5b3UlMjBjYW4lMjByZWRlZmluZSUyMHRoZSUyMGRyYXclMjBmdW5jdGlvbiUyMG9mJTIwUDUlMjBhcyUyMGZvbGxvd3MlM0ElMEElMkYlMkYlMjAoYSUyMHJlY3RhbmdsZSUyMHRoYXQlMjBmb2xsb3dzJTIwdGhlJTIwbW91c2UpJTBBcDUuZHJhdyUyMCUzRCUyMCgpJTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwcDUuZmlsbChwNS5tb3VzZVglMkY1JTJDJTIwcDUubW91c2VZJTJGNSUyQyUyMDI1NSUyQyUyMDEwMCklMEElMjAlMjBwNS5yZWN0KHA1Lm1vdXNlWCUyQyUyMHA1Lm1vdXNlWSUyQyUyMDMwJTJDJTIwMTUwKSUwQSU3RCUwQSUwQSUyRiUyRiUyMFRvJTIwdXNlJTIwUDUlMjBhcyUyMGFuJTIwaW5wdXQlMjB0byUyMGh5ZHJhJTJDJTIwc2ltcGx5JTIwdXNlJTIwdGhlJTIwY2FudmFzJTIwYXMlMjBhJTIwc291cmNlJTNBJTBBczAuaW5pdCglN0JzcmMlM0ElMjBwNS5jYW52YXMlN0QpJTBBJTBBJTJGJTJGJTIwVGhlbiUyMHJlbmRlciUyMHRoZSUyMGNhbnZhcyUwQXNyYyhzMCkucmVwZWF0KCkub3V0KCk%3D"
+        ]
+    },
+    {
+        "name": "Tone.js",
+        "description": "Web Audio framework for creating interactive music in the browser",
+        "www": "https://tonejs.github.io/",
+        "documentation": "https://tonejs.github.io/docs/14.7.77/index.html",
+        "author": "Yotam Mann",
+        "thumbnail": "arithmetics.png",
+        "load": "await loadScript(\\\"https://unpkg.com/tone\\\")",
+        "examples": [
+            "https://hydra.ojack.xyz/?code=YXdhaXQlMjBsb2FkU2NyaXB0KCUyMmh0dHBzJTNBJTJGJTJGdW5wa2cuY29tJTJGdG9uZSUyMiklMEElMEFzeW50aCUyMCUzRCUyMG5ldyUyMFRvbmUuU3ludGgoKS50b0Rlc3RpbmF0aW9uKCklM0IlMEFzeW50aC50cmlnZ2VyQXR0YWNrUmVsZWFzZSglMjJDNCUyMiUyQyUyMCUyMjhuJTIyKSUzQg%3D%3D"
+        ]
+    },
+    {
+        "name": "Three.js",
+        "description": "JavaScript 3D library",
+        "documentation": "https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene",
+        "www": "",
+        "author": "mr.doob",
+        "thumbnail": "gradient.png",
+        "load": "await loadScript(\\\"https://threejs.org/build/three.js\\\")",
+        "examples": [
+           "https://hydra.ojack.xyz/?code=YXdhaXQlMjBsb2FkU2NyaXB0KCUyMmh0dHBzJTNBJTJGJTJGdGhyZWVqcy5vcmclMkZidWlsZCUyRnRocmVlLmpzJTIyKSUwQSUwQXNjZW5lJTIwJTNEJTIwbmV3JTIwVEhSRUUuU2NlbmUoKSUwQWNhbWVyYSUyMCUzRCUyMG5ldyUyMFRIUkVFLlBlcnNwZWN0aXZlQ2FtZXJhKDc1JTJDJTIwd2luZG93LmlubmVyV2lkdGglMjAlMkYlMjB3aW5kb3cuaW5uZXJIZWlnaHQlMkMlMjAwLjElMkMlMjAxMDAwKSUwQSUwQXJlbmRlcmVyJTIwJTNEJTIwbmV3JTIwVEhSRUUuV2ViR0xSZW5kZXJlcigpJTBBcmVuZGVyZXIuc2V0U2l6ZSh3aWR0aCUyQyUyMGhlaWdodCklMEFnZW9tZXRyeSUyMCUzRCUyMG5ldyUyMFRIUkVFLkJveEdlb21ldHJ5KCklMEFtYXRlcmlhbCUyMCUzRCUyMG5ldyUyMFRIUkVFLk1lc2hCYXNpY01hdGVyaWFsKCU3QmNvbG9yJTNBJTIwMHgwMGZmMDAlN0QpJTBBY3ViZSUyMCUzRCUyMG5ldyUyMFRIUkVFLk1lc2goZ2VvbWV0cnklMkMlMjBtYXRlcmlhbCklM0IlMEFzY2VuZS5hZGQoY3ViZSklMEFjYW1lcmEucG9zaXRpb24ueiUyMCUzRCUyMDEuNSUwQSUwQSUyRiUyRiUyMCd1cGRhdGUnJTIwaXMlMjBhJTIwcmVzZXJ2ZWQlMjBmdW5jdGlvbiUyMHRoYXQlMjB3aWxsJTIwYmUlMjBydW4lMjBldmVyeSUyMHRpbWUlMjB0aGUlMjBtYWluJTIwaHlkcmElMjByZW5kZXJpbmclMjBjb250ZXh0JTIwaXMlMjB1cGRhdGVkJTBBdXBkYXRlJTIwJTNEJTIwKCklMjAlM0QlM0UlMjAlN0IlMEElMjAlMjBjdWJlLnJvdGF0aW9uLnglMjAlMkIlM0QlMjAwLjAxJTNCJTBBJTIwJTIwY3ViZS5yb3RhdGlvbi55JTIwJTJCJTNEJTIwMC4wMSUzQiUwQSUyMCUyMHJlbmRlcmVyLnJlbmRlciglMjBzY2VuZSUyQyUyMGNhbWVyYSUyMCklM0IlMEElN0QlMEElMEFzMC5pbml0KCU3QiUyMHNyYyUzQSUyMHJlbmRlcmVyLmRvbUVsZW1lbnQlMjAlN0QpJTBBJTBBc3JjKHMwKS5yZXBlYXQoKS5vdXQoKSUwQSUwQQ%3D%3D"
+        ]
+    }
+]
