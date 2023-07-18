@@ -13,7 +13,7 @@
     {
         "name": "hydra-arithmetics",
         "description": "Adds many functions related to visual arithmetics.",
-        "documentation": "https://github.com/ritchse/hydra-extensions/blob/main/doc/hydra-arithmetics.md",
+        "documentation": "https://gitlab.com/metagrowing/extra-shaders-for-hydra/-/blob/main/gallery/pattern/README.md",
         "author": "ritchse",
         "thumbnail": "",
         "load": "await loadScript(\\\"https://hydra-extensions.glitch.me/hydra-arithmetics.js\\\")",

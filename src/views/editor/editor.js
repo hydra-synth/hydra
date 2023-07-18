@@ -86,6 +86,16 @@ export default class Editor extends EventEmitter {
     this.cm.setValue(formatted)
   }
 
+  addCodeToTop(code = '') {
+    const current = this.cm.getValue()
+    const updated = `
+${code}
+
+${current}
+`
+    this.cm.setValue(updated)
+  }
+
   // hide() {
   //   console.log('hiding')
   //   var l = document.getElementsByClassName('CodeMirror')[0]

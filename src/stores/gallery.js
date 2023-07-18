@@ -23,11 +23,11 @@ export default class Gallery {
     //   }
 
     this.examples = examples
-    this.setSketchFromURL(callback)
+    this.setSketchFromURL(window.location.search, callback)
     //  callback(this.code, this.foundSketch)
     // })
     window.addEventListener('popstate', (event) => {
-      this.setSketchFromURL(callback)
+      this.setSketchFromURL(window.location.search, callback)
       // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
     });
     this.setRandomSketch = this.setRandomSketch.bind(this)
@@ -42,17 +42,19 @@ export default class Gallery {
     this.url = newurl
   }
 
-  setSketchFromURL(callback) {
+  
+  setSketchFromURL(path = window.location.search, callback) {
     hush()
     render(o0)
 
-    let searchParams = new URLSearchParams(window.location.search)
+    let searchParams = new URLSearchParams(path)
     this.searchParams = searchParams
     let base64Code = searchParams.get('code')
     //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
     let sketch_id = searchParams.get('sketch_id')
     let showCode = searchParams.get('showCode')
 
+    console.log('code is', base64Code)
     let code = ''
     //console.log("id", sketch_id, "code", base64Code)
 

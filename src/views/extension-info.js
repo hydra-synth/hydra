@@ -17,9 +17,11 @@ const detailedInfo = (ext, index, emit) => {
      <div class="extension-buttons">
      <div> 
       ${icon('add-extension', 'fa-solid fa-plus', 'add to editor', d('extensions: add to editor', index, emit))}
-      ${icon('show-documentation', "fa-book-open", 'show documentation', d('extensions:show documentation', index, emit))}
+      ${icon('show-documentation', "fa-book-open", 'show documentation', () => {  window.open(ext.documentation, '_blank') })}
       </div>
-      <div style="font-size: 0.8rem;/*font-family: monospace*/">${ext.examples.map((path, i) => html`<div class="extension-icon example-icon">${i+1}</div>`)}</div>
+      <div style="font-size: 0.8rem;/*font-family: monospace*/">
+        ${ext.examples.map((path, i) => html`<div class="extension-icon example-icon" onclick=${() => { emit('extensions: load example', index, i)}}>${i+1}</div>`)}
+      </div>
      </div>`
  }
 const listInfo = (ext, index, emit) => html`<div onclick="${() => emit('extensions: select extension', index)}" class="extension-list-item"><span style="font-weight:900">${ext.name} - </span> <span style="text-overflow:ellipses;overflow:hidden"> ${ext.description} </span> <span style="float:right">${ext.author}</span></div>`

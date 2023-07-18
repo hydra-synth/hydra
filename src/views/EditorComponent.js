@@ -33,7 +33,7 @@ export default class Editor extends Component {
   }
 
   update (state) {
-    if(state.showInfo === true || state.showUI === false) {
+    if(state.showInfo === true && state.showExtensions === false || state.showUI === false) {
         this.hide()
     } else {
         this.show()

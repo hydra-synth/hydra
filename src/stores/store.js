@@ -7,15 +7,15 @@ export default function store(state, emitter) {
   state.showUI = true
   state.showExtensions = false
 
+  // if backend gallery endpoint supplied, then enable gallery functionality
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
  let sketches
 
   emitter.on('DOMContentLoaded', function () {
-    const editor = state.editor.editor
+   
     sketches = new Gallery((code, sketchFromURL) => {
-      editor.setValue(code)
-      repl.eval(code)
+      emitter.emit('load and eval code', code)
       if(sketchFromURL) {
         state.showInfo = false
       } else {
@@ -25,6 +25,14 @@ export default function store(state, emitter) {
       // @todo create gallery store
     //  console.warn('gallery callback not let implemented')
     }, state, emitter)
+
+    state.gallery = sketches
+  })
+
+  emitter.on('load and eval code', (code) => {
+    const editor = state.editor.editor
+    editor.setValue(code)
+    repl.eval(code)
   })
 
   emitter.on('screencap', () => {
@@ -53,6 +61,10 @@ export default function store(state, emitter) {
       editor.formatCode()
       sketches.saveLocally(editor.getValue())
     }
+  })
+
+  emitter.on('editor: add code to top', (code) => {
+    state.editor.editor.addCodeToTop(code)
   })
 
   function clearAll() {
