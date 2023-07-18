@@ -14,7 +14,7 @@ export default function toolbar(state, emit) {
 
     const toggleInfo = state.showInfo ? icon("close", "fa-times", t('toolbar.hide-info'), 'toggle info') : icon("close", "fa-question-circle", t('toolbar.show-info'), 'toggle info') 
     
-    const toggleExtensions = !state.showExtensions ? icon("add", "fa fa-plus", t('toolbar.load-extension'), 'show extensions') : icon("close", "fa-question-circle", t('toolbar.show-info'), 'hide extensions')  
+    const toggleExtensions = !state.showExtensions ? icon("add", "fa-solid fa-puzzle-piece", t('toolbar.load-extension'), 'show extensions') : icon("close", "fa-question-circle", t('toolbar.show-info'), 'hide extensions')  
 
     return html`<div id="toolbar-container">
         ${icon("run", `fa-play-circle ${hidden}`, t('toolbar.run'), 'editor:evalAll')}
