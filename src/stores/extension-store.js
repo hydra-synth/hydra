@@ -1,8 +1,7 @@
 // import extensions from './÷extensions/hydra-extensions.json'
 
 // const CATEGORIES = ['extensions', 'external libraries', 'examples']
-const CONFIG_PATH = '/extensions/config.json'
-
+const BASE_URL = "https://raw.githubusercontent.com/hydra-synth/hydra-extensions/main/"
 
 export default async function store(state, emitter) {
     // old / deprecated
@@ -17,7 +16,7 @@ export default async function store(state, emitter) {
 
     // new
     state.extensions = {
-        baseURL: '/extensions/',
+        baseURL: BASE_URL,
         selectedCategoryIndex: 0,
         categories: [
             {
@@ -65,12 +64,12 @@ export default async function store(state, emitter) {
         emitter.emit('render')
         const currCategory = state.extensions.categories[index]
         if(!currCategory.hasLoaded) {
-            const extensionPath = state.extensions.baseURL + currCategory.slug + '.json'
+            const extensionPath = state.extensions.baseURL + currCategory.slug + '.json'+'?laskd'
 
             fetch(extensionPath)
     .then((response => response.json())).then( d => {
             console.log('loaded d', d)
-            d.forEach((ext) => { ext.thumbnail = state.extensions.baseURL + ext.thumbnail })
+            d.forEach((ext) => { ext.thumbnail = state.extensions.baseURL +  'thumbnails/' + ext.thumbnail })
             currCategory.entries = d
             emitter.emit('render')
         })
