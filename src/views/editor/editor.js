@@ -33,7 +33,7 @@ export default class Editor extends EventEmitter {
     Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
       if(e == 'editor:evalBlock') {
         this.emit(e, this.getCurrentBlock().text)
-      } else if (e == 'editor:evalLine') {
+      } else if (e == 'editor: eval line') {
         this.emit(e, this.getLine())
       } else if (e == 'editor:toggleComment') {
         this.cm.toggleComment()
