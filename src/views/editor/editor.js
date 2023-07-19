@@ -12,8 +12,6 @@ import keymaps from './keymaps.js'
 import Mutator from './randomizer/Mutator.js'
 import beautify from 'js-beautify'
 
-console.log('BEAUTIFY', beautify)
-
 var isShowing = true
 
 
@@ -34,9 +32,9 @@ export default class Editor extends EventEmitter {
     const extraKeys = {}
     Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
       if(e == 'editor:evalBlock') {
-        this.emit(e, this.getCurrentBlock().text)
+        this.emit('repl: eval', this.getCurrentBlock().text)
       } else if (e == 'editor: eval line') {
-        this.emit(e, this.getLine())
+        this.emit('repl: eval', this.getLine())
       } else if (e == 'editor:toggleComment') {
         this.cm.toggleComment()
       // } else if (e == 'gallery:saveToURL') {

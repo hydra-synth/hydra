@@ -7,9 +7,9 @@ export default function galleryStore(state, emitter) {
         sketches = new Gallery((code, sketchFromURL) => {
           emitter.emit('load and eval code', code)
           if(sketchFromURL) {
-            state.showInfo = false
+            emitter.emit('ui: hide info')
           } else {
-            state.showInfo = true
+            emitter.emit('ui: show info')
           }
           emitter.emit('render')
           // @todo create gallery store
@@ -19,12 +19,14 @@ export default function galleryStore(state, emitter) {
         state.gallery = sketches
       })
 
+      // redundant with below
       emitter.on('gallery:saveToURL', function () {
         let editor = state.editor.editor
         const editorText = editor.getValue()
         sketches.saveLocally(editorText)
       }) 
       
+      // save to url
       emitter.on('gallery: save locally', function (code) {
         // let editor = state.editor.editor
         // const editorText = editor.getValue()
@@ -55,7 +57,7 @@ export default function galleryStore(state, emitter) {
 
       emitter.on('gallery:showExample', () => {
         const editor = state.editor.editor
-        emitter.emit('ui: clear all')
+        emitter.emit('clear all')
         sketches.setRandomSketch()
         editor.setValue(sketches.code)
        // repl.eval(editor.getValue())

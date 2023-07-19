@@ -1,3 +1,6 @@
+// to add:
+// flash block, flash line, format code
+
 export default function editorStore(state, emitter) {
     emitter.on('editor: randomize', function (evt) {
         const editor = state.editor.editor
@@ -14,6 +17,11 @@ export default function editorStore(state, emitter) {
         state.editor.editor.addCodeToTop(code)
     })
 
+    emitter.on('editor: load code', (code) => {
+        const editor = state.editor.editor
+        editor.setValue(code)
+    })
+
     emitter.on('editor: eval all', function () {
         const editor = state.editor.editor
         const code = editor.getValue()
@@ -28,11 +36,4 @@ export default function editorStore(state, emitter) {
         })
     })
 
-    emitter.on('editor: eval line', (line) => {
-        repl.eval(line)
-    })
-
-    emitter.on('editor:evalBlock', (block) => {
-        repl.eval(block)
-    })
 }

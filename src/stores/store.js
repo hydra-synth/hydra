@@ -12,8 +12,7 @@ export default function store(state, emitter) {
 
 
   emitter.on('load and eval code', (code) => {
-    const editor = state.editor.editor
-    editor.setValue(code)
+    emitter.emit('editor: load code', code)
     emitter.emit('repl: eval', code)
   })
 
@@ -46,17 +45,17 @@ export default function store(state, emitter) {
     editor.clear()
   }
 
-  emitter.on('ui: clear all', () => {
+  emitter.on('clear all', () => {
     clearAll()
   })
 
 
-  emitter.on('hideAll', function () {
+  emitter.on('ui: hide all', function () {
     state.showUI = !state.showUI
     emitter.emit('render')
   })
 
-  emitter.on('toggle info', function (count) {
+  emitter.on('ui: toggle info', function (count) {
     if (state.showInfo) {
       // state.showInfo = false
       // state.showExtensions = false
@@ -85,14 +84,14 @@ export default function store(state, emitter) {
   //   emitter.emit('render')
   // })
 
-  emitter.on('show extensions', () => {
+  emitter.on('ui: show extensions', () => {
     state.showExtensions = true
     state.showInfo = true
     emitter.emit('extensions: select category')
     emitter.emit('render')
   })
 
-  emitter.on('hide extensions', () => {
+  emitter.on('ui: hide extensions', () => {
     state.showExtensions = false
     emitter.emit('render')
   })

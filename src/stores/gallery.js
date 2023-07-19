@@ -95,7 +95,7 @@ export default class Gallery {
       this.setSketchFromCode(base64Code, callback)
     }
     if (showCode === 'false') {
-      this.emitter.emit('hideAll')
+      this.emitter.emit('ui: hide all')
       this.emitter.emit('hide info')
     }
     //
