@@ -12,8 +12,8 @@ export default function store(state, emitter) {
 
 
   emitter.on('load and eval code', (code) => {
-    emitter.emit('editor: load code', code)
     emitter.emit('repl: eval', code)
+    emitter.emit('editor: load code', code)
   })
 
   emitter.on('repl: eval', (code = '', callback) => {

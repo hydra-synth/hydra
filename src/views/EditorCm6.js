@@ -17,9 +17,9 @@ export default class Editor extends Component {
   load (element) {
    log.init(this.logElement)
    this.editor = new HydraEditor(this.textEl, this.emit)
-   this.editor.on("*", (e, args) => {
-       this.emit(e, args)
-   })
+  //  this.editor.on("*", (e, args) => {
+  //      this.emit(e, args)
+  //  })
    // hacky, maybe not necessary
   //  this.innerText = document.getElementsByClassName('CodeMirror')[0]
    this.textEl.style.transition = 'opacity 0.5s'

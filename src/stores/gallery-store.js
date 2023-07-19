@@ -59,9 +59,9 @@ export default function galleryStore(state, emitter) {
         const editor = state.editor.editor
         emitter.emit('clear all')
         sketches.setRandomSketch()
+        emitter.emit('repl: eval', sketches.code)
         editor.setValue(sketches.code)
        // repl.eval(editor.getValue())
-        emitter.emit('repl: eval', editor.getValue())
       })
 }
 

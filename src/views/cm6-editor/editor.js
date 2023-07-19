@@ -6,12 +6,13 @@ import {javascript} from "@codemirror/lang-javascript"
 import EventEmitter from 'nanobus'
 import { hydraEval as evaluation } from "./hydra-eval.js";
 
-export default class Editor extends EventEmitter {
+export default class Editor {
   constructor(parent, emit) {
-    super()
+    // super()
     console.log("*** Editor class created");
     var self = this
-    let view = new EditorView({
+    this.cm = new EditorView({
+      lineWrapping: true,
         extensions: [
           hydraSetup, 
           javascript(), 
@@ -35,13 +36,24 @@ export default class Editor extends EventEmitter {
   }
 
   setValue(val) {
+    console.log('SETTING VALUE')
+    this.cm.dispatch({
+      changes: { from: 0, to: this.cm.state.doc.length, insert: val }
+    })
   }
 
   getValue() {
+    this.cm.state.doc.toString()
   }
 
   formatCode() {
-    
+    const formatted = js_beautify(this.cm.state.doc.toString()
+      , { indent_size: 2, "break_chained_methods": true /*"indent_with_tabs": true*/ })
+    // this.cm.setValue(formatted)
+
+    this.cm.dispatch({
+      changes: { from: 0, to: this.cm.state.doc.length, insert: formatted }
+    })
   }
 
   addCodeToTop(code = '') {
