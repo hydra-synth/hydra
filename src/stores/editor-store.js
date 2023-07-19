@@ -6,7 +6,7 @@ export default function editorStore(state, emitter) {
         } else {
             editor.mutator.mutate({ reroll: false, changeTransform: evt.metaKey });
             editor.formatCode()
-            sketches.saveLocally(editor.getValue())
+            emitter.emit('gallery: save locally', editor.getValue())
         }
     })
 
@@ -17,9 +17,14 @@ export default function editorStore(state, emitter) {
     emitter.on('editor: eval all', function () {
         const editor = state.editor.editor
         const code = editor.getValue()
-        repl.eval(code, (string, err) => {
+        // repl.eval(code, (string, err) => {
+        //     editor.flashCode()
+        //     if (!err) sketches.saveLocally(code)
+        // })
+        emitter.emit('repl: eval', code, (string, err) => {
             editor.flashCode()
-            if (!err) sketches.saveLocally(code)
+            if (!err) emitter.emit('gallery: save locally', code)
+            // sketches.saveLocally(code)
         })
     })
 

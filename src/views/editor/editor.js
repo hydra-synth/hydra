@@ -10,7 +10,9 @@ import 'codemirror-minified/addon/comment/comment'
 import EventEmitter from 'nanobus'
 import keymaps from './keymaps.js'
 import Mutator from './randomizer/Mutator.js'
-import { beautify_js } from 'js-beautify'
+import beautify from 'js-beautify'
+
+console.log('BEAUTIFY', beautify)
 
 var isShowing = true
 
@@ -82,7 +84,7 @@ export default class Editor extends EventEmitter {
   }
 
   formatCode() {
-    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    const formatted = beautify(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
     this.cm.setValue(formatted)
   }
 

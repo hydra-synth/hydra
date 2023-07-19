@@ -23,7 +23,13 @@ export default function galleryStore(state, emitter) {
         let editor = state.editor.editor
         const editorText = editor.getValue()
         sketches.saveLocally(editorText)
-      })  
+      }) 
+      
+      emitter.on('gallery: save locally', function (code) {
+        // let editor = state.editor.editor
+        // const editorText = editor.getValue()
+        sketches.saveLocally(code)
+      }) 
 
       emitter.on('gallery: clear', () => {
         sketches.clear()

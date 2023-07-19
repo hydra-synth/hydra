@@ -9,13 +9,12 @@ export default function store(state, emitter) {
   // if backend gallery endpoint supplied, then enable gallery functionality
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
-  let sketches
 
 
   emitter.on('load and eval code', (code) => {
     const editor = state.editor.editor
     editor.setValue(code)
-    repl.eval(code)
+    emitter.emit('repl: eval', code)
   })
 
   emitter.on('repl: eval', (code = '', callback) => {
@@ -52,8 +51,6 @@ export default function store(state, emitter) {
   })
 
 
-
-
   emitter.on('hideAll', function () {
     state.showUI = !state.showUI
     emitter.emit('render')
@@ -61,12 +58,24 @@ export default function store(state, emitter) {
 
   emitter.on('toggle info', function (count) {
     if (state.showInfo) {
-      state.showInfo = false
-      state.showExtensions = false
+      // state.showInfo = false
+      // state.showExtensions = false
+      emitter.emit('ui: hide info')
     } else {
-      state.showInfo = true
+      emitter.emit('ui: show info')
     }
     // state.showInfo = !state.showInfo
+    //emitter.emit('render')
+  })
+
+  emitter.on('ui: show info', () => {
+    state.showInfo = true
+    emitter.emit('render')
+  })
+
+  emitter.on('ui: hide info', () => {
+    state.showInfo = false
+    state.showExtensions = false
     emitter.emit('render')
   })
 
