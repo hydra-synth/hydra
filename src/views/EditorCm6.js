@@ -2,8 +2,8 @@
 
 import html from 'choo/html'
 import Component from 'choo/component'
-import HydraEditor from './editor/editor.js'
-// import HydraEditor from './editor-cm6/editor.js'
+// import HydraEditor from './editor/editor.js'
+import HydraEditor from './cm6-editor/editor.js'
 import log from './editor/log.js'
 
 export default class Editor extends Component {
@@ -16,22 +16,22 @@ export default class Editor extends Component {
 
   load (element) {
    log.init(this.logElement)
-   this.editor = new HydraEditor(this.textEl)
+   this.editor = new HydraEditor(this.textEl, this.emit)
    this.editor.on("*", (e, args) => {
        this.emit(e, args)
    })
    // hacky, maybe not necessary
-   this.innerText = document.getElementsByClassName('CodeMirror')[0]
-   this.innerText.style.transition = 'opacity 0.5s'
+  //  this.innerText = document.getElementsByClassName('CodeMirror')[0]
+   this.textEl.style.transition = 'opacity 0.5s'
   }
 
   hide() {
-    this.innerText.style.opacity = 0
+    this.textEl.style.opacity = 0
   }
 
   show() {
-    this.innerText.style.opacity = 1
-    this.innerText.style.pointerEvents = 'all'
+    this.textEl.style.opacity = 1
+    this.textEl.style.pointerEvents = 'all'
   }
 
   update (state) {
@@ -44,7 +44,7 @@ export default class Editor extends Component {
   }
 
   createElement ({ width = window.innerWidth, height = window.innerHeight} = {}) {
-    this.textEl = html` <textarea></textarea>`
+    this.textEl = html` <div></div>`
     this.logElement = html`<div class="console cm-s-tomorrow-night-eighties"></div>`
     return html`<div id="editor-container" style="display:flex;flex-direction:column;">
        <div style="position:relative;flex:auto;padding:15px">${this.textEl}</div>

@@ -2,7 +2,7 @@ import repl from '../views/editor/repl.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
 
 export default function store(state, emitter) {
-  state.showInfo = true
+  state.showInfo = false
   state.showUI = true
   state.showExtensions = false
 
