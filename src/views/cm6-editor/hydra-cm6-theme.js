@@ -30,9 +30,15 @@ export const hydraSyntaxStyle = HighlightStyle.define([
     '&': {
       backgroundColor: 'transparent !important',
       fontSize: '20px',
+      width: '100%',
+      height: '100%',
       // color: 'white',
       fontFamily: `'Roboto Mono', monospace`,
       // mixBlendMode: 'difference'
+    },
+    '& .cm-content': {
+        width: '100%',
+      whiteSpace: 'break-spaces'
     },
     '& .cm-editor':  {
         backgroundColor: 'transparent',
