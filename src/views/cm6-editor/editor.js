@@ -1,5 +1,5 @@
 /* eslint-disable no-eval */
-import { EditorView, basicSetup } from "codemirror"
+import { EditorView } from "codemirror"
 import { placeholder, keymap } from "@codemirror/view"
 import { hydraSetup } from "./editor-setup.js"
 import { javascript } from "@codemirror/lang-javascript"
@@ -21,7 +21,7 @@ export default class Editor extends EventEmitter {
       extensions: [
         hydraSetup,
         javascript(),
-        placeholder('//'),
+        placeholder('//\n// Type some code on a new line (such as "osc().out()"), and press CTRL+shift+enter'),
         flashCode((code, shouldUpdateURL = false) => {
           emit('repl: eval', code)
           if (shouldUpdateURL) emit('gallery: save to URL', code)
@@ -37,6 +37,7 @@ export default class Editor extends EventEmitter {
   }
 
   clear() {
+    this.setValue('')
   }
 
   flashCode() {
