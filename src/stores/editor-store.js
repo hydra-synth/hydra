@@ -9,7 +9,7 @@ export default function editorStore(state, emitter) {
         } else {
             editor.mutator.mutate({ reroll: false, changeTransform: evt.metaKey });
             editor.formatCode()
-            emitter.emit('gallery: save locally', editor.getValue())
+            emitter.emit('gallery: save to URL', editor.getValue())
         }
     })
 

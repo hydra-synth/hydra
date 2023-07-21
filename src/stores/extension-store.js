@@ -93,10 +93,10 @@ export default async function store(state, emitter) {
     emitter.on('extensions: load example', (extensionIndex, exampleIndex) => {
         const {categories, selectedCategoryIndex } = state.extensions
         const path = categories[selectedCategoryIndex].entries[extensionIndex].examples[exampleIndex]
-        const url = new URL(path);
-        console.log(url)
+        const newURL= new URL(path);
+        console.log(newURL, state.gallery)
 
-        state.gallery.setSketchFromURL(url.search, (code) => {
+        state.gallery.setSketchFromURL(newURL.search, (code) => {
             emitter.emit('load and eval code', code)
         })
     })

@@ -10,8 +10,8 @@ import {autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap} fr
 import {lintKeymap} from "@codemirror/lint"
 import { oneDark, oneDarkHighlightStyle } from '@codemirror/theme-one-dark';
 import { hydraSyntaxStyle, hydraEditorTheme } from "./hydra-cm6-theme.js";
-import { flashTheme } from './flash-code/flashTheme.js';
-import { flash } from './flash-code'
+// import { flashTheme } from './flash-code/flashTheme.js';
+//  import { flash } from './flash-code'
 
 // (The superfluous function calls around the list of extensions work
 // around current limitations in tree-shaking software.)
@@ -69,7 +69,7 @@ export const hydraSetup = (() => [
     rectangularSelection(),
     crosshairCursor(),
     // highlightActiveLine(),
-    flash(),
+    // flash(),
     highlightSelectionMatches(),
     keymap.of([
       ...closeBracketsKeymap,
@@ -80,7 +80,7 @@ export const hydraSetup = (() => [
       ...completionKeymap,
       ...lintKeymap
     ]),
-    flashTheme,
+    // flashTheme,
     oneDark,
     hydraEditorTheme
   ])()

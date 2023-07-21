@@ -41,6 +41,8 @@ export default class Editor extends EventEmitter {
         this.emit(e, this)
       } else if (e === 'editor:formatCode') {
         this.formatCode()
+      } else if (e == 'gallery:saveToURL') {
+        this.emit('editor: save to URL', this.cm.getValue())
       } else {
         this.emit(e, this)
       }

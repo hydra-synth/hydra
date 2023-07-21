@@ -4,7 +4,7 @@ import { placeholder, keymap } from "@codemirror/view"
 import { hydraSetup } from "./editor-setup.js"
 import {javascript} from "@codemirror/lang-javascript"
 import EventEmitter from 'nanobus'
-import { hydraEval as evaluation } from "./hydra-eval.js";
+import { flashCode, flashTheme } from "./hydra-flash.js";
 
 export default class Editor {
   constructor(parent, emit) {
@@ -17,14 +17,16 @@ export default class Editor {
           hydraSetup, 
           javascript(), 
           placeholder('//'),
-          evaluation((code) => { 
-            console.log('EVALUATED')
+          flashCode((code, shouldUpdateURL = false) => { 
+            console.log('EVALUATED', shouldUpdateURL)
             emit('repl: eval', code)
+            if(shouldUpdateURL) emit('gallery: save to URL', code)
             // @todo !! need access to current vie in order to pass info to linter
           //   view.dispatch({
           //     effects: evalLinter.reconfigure(linter(jsLinter()))
           // })
           }),
+          flashTheme
         ],
         parent: parent,
       

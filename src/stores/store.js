@@ -11,9 +11,10 @@ export default function store(state, emitter) {
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
 
 
-  emitter.on('load and eval code', (code) => {
-    emitter.emit('repl: eval', code)
+  emitter.on('load and eval code', (code, shouldUpdateURL = true) => {
     emitter.emit('editor: load code', code)
+    emitter.emit('repl: eval', code)
+    if(shouldUpdateURL) emitter.emit('gallery: save to URL', code)
   })
 
   emitter.on('repl: eval', (code = '', callback) => {

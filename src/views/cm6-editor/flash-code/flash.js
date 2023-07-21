@@ -8,8 +8,8 @@ export function flashAction(action = () => {}) {
   return EditorState.transactionExtender.of((tr) => {
     for (let effect of tr.effects) {
       if (effect.is(flashEffect)) {
-        let { from, to } = effect.value;
-        action(tr.newDoc.sliceString(from, to));
+        let { from, to, shouldUpdateURL } = effect.value;
+        action(tr.newDoc.sliceString(from, to), shouldUpdateURL);
       }
     }
 
