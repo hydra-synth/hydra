@@ -5,7 +5,7 @@ export default function galleryStore(state, emitter) {
     emitter.on('DOMContentLoaded', function () {
    
         sketches = new Gallery((code, sketchFromURL) => {
-          emitter.emit('load and eval code', code)
+          emitter.emit('load and eval code', code, false)
           if(sketchFromURL) {
             emitter.emit('ui: hide info')
           } else {
@@ -20,14 +20,14 @@ export default function galleryStore(state, emitter) {
       })
 
       // redundant with below
-      emitter.on('gallery:saveToURL', function () {
-        let editor = state.editor.editor
-        const editorText = editor.getValue()
-        sketches.saveLocally(editorText)
-      }) 
+      // emitter.on('gallery:saveToURL', function () {
+      //   let editor = state.editor.editor
+      //   const editorText = editor.getValue()
+      //   sketches.saveLocally(editorText)
+      // }) 
       
       // save to url
-      emitter.on('gallery: save locally', function (code) {
+      emitter.on('gallery: save to URL', function (code) {
         // let editor = state.editor.editor
         // const editorText = editor.getValue()
         sketches.saveLocally(code)

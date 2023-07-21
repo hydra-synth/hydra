@@ -9,7 +9,7 @@ export default function editorStore(state, emitter) {
         } else {
             editor.mutator.mutate({ reroll: false, changeTransform: evt.metaKey });
             editor.formatCode()
-            emitter.emit('gallery: save locally', editor.getValue())
+            emitter.emit('gallery: save to URL', editor.getValue())
         }
     })
 
@@ -31,7 +31,7 @@ export default function editorStore(state, emitter) {
         // })
         emitter.emit('repl: eval', code, (string, err) => {
             editor.flashCode()
-            if (!err) emitter.emit('gallery: save locally', code)
+            if (!err) emitter.emit('gallery: save to URL', code)
             // sketches.saveLocally(code)
         })
     })
