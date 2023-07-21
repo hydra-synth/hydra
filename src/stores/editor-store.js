@@ -17,6 +17,14 @@ export default function editorStore(state, emitter) {
         state.editor.editor.addCodeToTop(code)
     })
 
+    emitter.on('editor: trigger eval', () => {
+        state.editor.editor.flashCode()
+    })
+
+    emitter.on('editor: format code', () => {
+        state.editor.editor.formatCode()
+    })
+
     emitter.on('editor: load code', (code) => {
         const editor = state.editor.editor
         editor.setValue(code)

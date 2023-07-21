@@ -4,7 +4,7 @@ import {  flashAction, flashEffect, flashDecoration } from "./flash-code";
 import { keymap } from "@codemirror/view"
 // import obj from "@management/cm-evaluate";
 
-function flashAll({ state, dispatch }) {
+export function flashAll({ state, dispatch }) {
     dispatch({ effects: flashEffect.of({ from : 0, to: state.doc.length, shouldUpdateURL: true}) });
     return true
 }
@@ -53,6 +53,7 @@ const flashKeymap = [
 
 export * from "./flash-code/flashTheme"
 export * from "./flash-code/flash";
+export * from './flash-code'
 
 // console.log('DEFAULT EXPORT', obj)
 export function flashCode(action) {

@@ -17,7 +17,7 @@ export default function toolbar(state, emit) {
     const toggleExtensions = !state.showExtensions ? icon("add", "fa-solid fa-puzzle-piece", t('toolbar.load-extension'), 'ui: show extensions') : icon("close", "fa-question-circle", t('toolbar.show-info'), 'ui: hide extensions')  
 
     return html`<div id="toolbar-container">
-        ${icon("run", `fa-play-circle ${hidden}`, t('toolbar.run'), 'editor: eval all')}
+        ${icon("run", `fa-play-circle ${hidden}`, t('toolbar.run'), 'editor: trigger eval')}
         ${icon("clear", `fa fa-trash ${hidden}`, t('toolbar.clear'), 'clear all')}
         ${toggleExtensions}
         ${icon("shuffle", `fa-random`, t('toolbar.shuffle'), 'gallery:showExample')}
