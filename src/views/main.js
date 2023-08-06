@@ -15,6 +15,10 @@ export default function mainView(state, emit) {
     </div>
   ${info(state, emit)}
   ${state.cache(Editor, 'editor').render(state, emit)}
+  <div style="position: absolute; top: 0">
+  ${ state.ui_components.map((e,i)=>
+    state.cache(e, `${e.name}-ui`).render(state, emit)) }
+  </div>
   </body>
  `
 }

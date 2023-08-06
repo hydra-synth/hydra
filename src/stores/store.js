@@ -1,10 +1,15 @@
 import repl from '../views/editor/repl.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
+import Editor from '../views/EditorCm6.js'
+
+import html from 'choo/html'
+import Component from 'choo/component'
 
 export default function store(state, emitter) {
   state.showInfo = false
   state.showUI = true
   state.showExtensions = false
+  state.ui_components = []
 
   // if backend gallery endpoint supplied, then enable gallery functionality
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
@@ -18,6 +23,23 @@ export default function store(state, emitter) {
   })
 
   emitter.on('repl: eval', (code = '', callback) => {
+    window.html = html
+    window.Component = Component
+    window.cm = state.editor.editor.cm
+    window.loadComponent = (code) => {
+      const encodedJs = encodeURIComponent(code);
+      const dataUri = 'data:text/javascript;charset=utf-8,'
+        + encodedJs;
+      
+      import(/* @vite-ignore */dataUri).then(e=> {
+        const component = e.default;
+        state.ui_components.push(component)
+        console.log("comp", component)
+        emitter.emit("render")
+      })
+    }
+    // document.querySelector("#hydra-ui").appendChild(html`<h1>hola</h1>`)
+    // console.log(state.cache(Editor, 'editor').render(state))
     repl.eval(code, callback)
   })
 
