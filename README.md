@@ -352,3 +352,17 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
  * [Vsynth (package for MaxMSP)](https://cycling74.com/forums/vsynth-package)
  * [VEDA (VJ system within atom)](https://veda.gl/)
  * [The Force](https://videodromm.com/The_Force/)
+
+## Contributors
+
+(Adapted from [p5.js](https://github.com/processing/p5.js))  
+We recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Instructions to add yourself or add contribution emojis to your name are [here](https://github.com/hydra-synth/hydra/issues/265). You can also post an issue or comment with the text: `@all-contributors please add @YOUR-USERNAME for THING(S)` and our nice bot will add you.
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
