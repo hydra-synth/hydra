@@ -1,6 +1,6 @@
 # Hydra
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
@@ -369,6 +369,7 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
       <td align="center" valign="top" width="14.28%"><a href="http://naotohieda.com"><img src="https://avatars.githubusercontent.com/u/1835081?v=4?s=100" width="100px;" alt="Naoto Hieda"/><br /><sub><b>Naoto Hieda</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=micuat" title="Documentation">📖</a> <a href="#eventOrganizing-micuat" title="Event Organizing">📋</a> <a href="#example-micuat" title="Examples">💡</a> <a href="#ideas-micuat" title="Ideas, Planning, & Feedback">🤔</a> <a href="#tutorial-micuat" title="Tutorials">✅</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/flordefuego"><img src="https://avatars.githubusercontent.com/u/31332673?v=4?s=100" width="100px;" alt="flordefuego"/><br /><sub><b>flordefuego</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=flordefuego" title="Documentation">📖</a> <a href="#eventOrganizing-flordefuego" title="Event Organizing">📋</a> <a href="#example-flordefuego" title="Examples">💡</a> <a href="#ideas-flordefuego" title="Ideas, Planning, & Feedback">🤔</a> <a href="#tutorial-flordefuego" title="Tutorials">✅</a> <a href="#video-flordefuego" title="Videos">📹</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://zachkrall.com"><img src="https://avatars.githubusercontent.com/u/2532937?v=4?s=100" width="100px;" alt="Zach Krall"/><br /><sub><b>Zach Krall</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=zachkrall" title="Documentation">📖</a> <a href="https://github.com/hydra-synth/hydra/commits?author=zachkrall" title="Code">💻</a> <a href="#tutorial-zachkrall" title="Tutorials">✅</a> <a href="#example-zachkrall" title="Examples">💡</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ritchse"><img src="https://avatars.githubusercontent.com/u/56176668?v=4?s=100" width="100px;" alt="Renzo Torr-"/><br /><sub><b>Renzo Torr-</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/issues?q=author%3Aritchse" title="Bug reports">🐛</a> <a href="https://github.com/hydra-synth/hydra/commits?author=ritchse" title="Code">💻</a> <a href="#eventOrganizing-ritchse" title="Event Organizing">📋</a> <a href="#example-ritchse" title="Examples">💡</a> <a href="#ideas-ritchse" title="Ideas, Planning, & Feedback">🤔</a> <a href="#plugin-ritchse" title="Plugin/utility libraries">🔌</a> <a href="#translation-ritchse" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
