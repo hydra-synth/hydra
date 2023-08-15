@@ -47,6 +47,17 @@
         "ideas",
         "tutorial",
         "video"
+        },
+        "login": "zachkrall",
+      "name": "Zach Krall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2532937?v=4",
+      "profile": "http://zachkrall.com",
+      "contributions": [
+        "doc",
+        "code",
+        "tutorial",
+        "example"
+        }
       ]
     }
   ],
