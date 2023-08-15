@@ -13,7 +13,26 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/4909769?v=4",
       "profile": "https://ojack.xyz",
       "contributions": [
-        "code"
+        "code",
+        "blog",
+        "bug",
+        "design",
+        "doc",
+        "eventOrganizing",
+        "example",
+        "financial",
+        "fundingFinding",
+        "ideas",
+        "infra",
+        "plugin",
+        "question",
+        "review",
+        "talk",
+        "test",
+        "tool",
+        "translation",
+        "tutorial",
+        "video"
       ]
     }
   ],
