@@ -40,12 +40,36 @@
       "name": "Naoto Hieda",
       "avatar_url": "https://avatars.githubusercontent.com/u/1835081?v=4",
       "profile": "http://naotohieda.com",
-      "contributions": [
+       "contributions": [
         "doc",
         "eventOrganizing",
         "example",
         "ideas",
         "tutorial"
+      ]
+    }, {
+      "login": "flordefuego",
+      "name": "flordefuego",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31332673?v=4",
+      "profile": "https://github.com/flordefuego",
+      "contributions": [
+        "doc",
+        "eventOrganizing",
+        "example",
+        "ideas",
+        "tutorial",
+        "video"
+         ]
+    }, {
+      "login": "zachkrall",
+      "name": "Zach Krall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2532937?v=4",
+      "profile": "http://zachkrall.com",
+      "contributions": [
+        "doc",
+        "code",
+        "tutorial",
+        "example"
       ]
     }
   ],
