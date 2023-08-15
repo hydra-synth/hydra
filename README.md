@@ -1,6 +1,6 @@
 # Hydra
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
@@ -375,6 +375,7 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/choiharam"><img src="https://avatars.githubusercontent.com/u/46865987?v=4?s=100" width="100px;" alt="Haram Choi"/><br /><sub><b>Haram Choi</b></sub></a><br /><a href="#translation-choiharam" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/arturcabral"><img src="https://avatars.githubusercontent.com/u/4428256?v=4?s=100" width="100px;" alt="Artur Cabral "/><br /><sub><b>Artur Cabral </b></sub></a><br /><a href="#translation-arturcabral" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
