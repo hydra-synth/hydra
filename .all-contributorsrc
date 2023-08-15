@@ -110,6 +110,15 @@
         "example",
         "ideas"
       ]
+    },
+    {
+      "login": "fangtsai15",
+      "name": "fangtasi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25447809?v=4",
+      "profile": "https://fangtsai.net",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
