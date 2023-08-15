@@ -1,0 +1,45 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "ojack",
+      "name": "Olivia Jack",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4909769?v=4",
+      "profile": "https://ojack.xyz",
+      "contributions": [
+        "code",
+        "blog",
+        "bug",
+        "design",
+        "doc",
+        "eventOrganizing",
+        "example",
+        "financial",
+        "fundingFinding",
+        "ideas",
+        "infra",
+        "plugin",
+        "question",
+        "review",
+        "talk",
+        "test",
+        "tool",
+        "translation",
+        "tutorial",
+        "video"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "hydra",
+  "projectOwner": "hydra-synth"
+}

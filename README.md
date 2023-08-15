@@ -1,4 +1,7 @@
 # Hydra
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
 Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
@@ -356,6 +359,21 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
 ## Contributors
 
 (Adapted from [p5.js](https://github.com/processing/p5.js))  
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://ojack.xyz"><img src="https://avatars.githubusercontent.com/u/4909769?v=4?s=100" width="100px;" alt="Olivia Jack"/><br /><sub><b>Olivia Jack</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=ojack" title="Code">💻</a> <a href="#blog-ojack" title="Blogposts">📝</a> <a href="https://github.com/hydra-synth/hydra/issues?q=author%3Aojack" title="Bug reports">🐛</a> <a href="#design-ojack" title="Design">🎨</a> <a href="https://github.com/hydra-synth/hydra/commits?author=ojack" title="Documentation">📖</a> <a href="#eventOrganizing-ojack" title="Event Organizing">📋</a> <a href="#example-ojack" title="Examples">💡</a> <a href="#financial-ojack" title="Financial">💵</a> <a href="#fundingFinding-ojack" title="Funding Finding">🔍</a> <a href="#ideas-ojack" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-ojack" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#plugin-ojack" title="Plugin/utility libraries">🔌</a> <a href="#question-ojack" title="Answering Questions">💬</a> <a href="https://github.com/hydra-synth/hydra/pulls?q=is%3Apr+reviewed-by%3Aojack" title="Reviewed Pull Requests">👀</a> <a href="#talk-ojack" title="Talks">📢</a> <a href="https://github.com/hydra-synth/hydra/commits?author=ojack" title="Tests">⚠️</a> <a href="#tool-ojack" title="Tools">🔧</a> <a href="#translation-ojack" title="Translation">🌍</a> <a href="#tutorial-ojack" title="Tutorials">✅</a> <a href="#video-ojack" title="Videos">📹</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 We recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Instructions to add yourself or add contribution emojis to your name are [here](https://github.com/hydra-synth/hydra/issues/265). You can also post an issue or comment with the text: `@all-contributors please add @YOUR-USERNAME for THING(S)` and our nice bot will add you.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
