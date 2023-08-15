@@ -374,8 +374,10 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
       <td align="center" valign="top" width="14.28%"><a href="https://sophiadigitalart.com"><img src="https://avatars.githubusercontent.com/u/138158?v=4?s=100" width="100px;" alt="Bruce LANE"/><br /><sub><b>Bruce LANE</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=brucelane" title="Code">💻</a> <a href="#example-brucelane" title="Examples">💡</a> <a href="#ideas-brucelane" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
     <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://fangtsai.net"><img src="https://avatars.githubusercontent.com/u/25447809?v=4?s=100" width="100px;" alt="fangtasi"/><br /><sub><b>fangtasi</b></sub></a><br /><a href="#translation-fangtsai15" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/choiharam"><img src="https://avatars.githubusercontent.com/u/46865987?v=4?s=100" width="100px;" alt="Haram Choi"/><br /><sub><b>Haram Choi</b></sub></a><br /><a href="#translation-choiharam" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/papaz0rgl"><img src="https://avatars.githubusercontent.com/u/2632092?v=4?s=100" width="100px;" alt="papaz0rgl"/><br /><sub><b>papaz0rgl</b></sub></a><br /><a href="#translation-papaz0rgl" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/arturcabral"><img src="https://avatars.githubusercontent.com/u/4428256?v=4?s=100" width="100px;" alt="Artur Cabral "/><br /><sub><b>Artur Cabral </b></sub></a><br /><a href="#translation-arturcabral" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>

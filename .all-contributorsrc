@@ -112,6 +112,15 @@
       ]
     },
     {
+      "login": "fangtsai15",
+      "name": "fangtasi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25447809?v=4",
+      "profile": "https://fangtsai.net",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
       "login": "choiharam",
       "name": "Haram Choi",
       "avatar_url": "https://avatars.githubusercontent.com/u/46865987?v=4",
@@ -125,6 +134,15 @@
       "name": "papaz0rgl",
       "avatar_url": "https://avatars.githubusercontent.com/u/2632092?v=4",
       "profile": "https://github.com/papaz0rgl",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "arturcabral",
+      "name": "Artur Cabral ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4428256?v=4",
+      "profile": "https://github.com/arturcabral",
       "contributions": [
         "translation"
       ]
