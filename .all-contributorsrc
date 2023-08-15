@@ -46,6 +46,21 @@
         "tutorial",
         "example"
       ]
+    },
+    {
+      "login": "ritchse",
+      "name": "Renzo Torr-",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56176668?v=4",
+      "profile": "https://github.com/ritchse",
+      "contributions": [
+        "bug",
+        "code",
+        "eventOrganizing",
+        "example",
+        "ideas",
+        "plugin",
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
