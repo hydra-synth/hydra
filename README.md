@@ -1,6 +1,6 @@
 # Hydra
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
@@ -378,6 +378,7 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/choiharam"><img src="https://avatars.githubusercontent.com/u/46865987?v=4?s=100" width="100px;" alt="Haram Choi"/><br /><sub><b>Haram Choi</b></sub></a><br /><a href="#translation-choiharam" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/papaz0rgl"><img src="https://avatars.githubusercontent.com/u/2632092?v=4?s=100" width="100px;" alt="papaz0rgl"/><br /><sub><b>papaz0rgl</b></sub></a><br /><a href="#translation-papaz0rgl" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/arturcabral"><img src="https://avatars.githubusercontent.com/u/4428256?v=4?s=100" width="100px;" alt="Artur Cabral "/><br /><sub><b>Artur Cabral </b></sub></a><br /><a href="#translation-arturcabral" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://linktr.ee/ranggapuraji"><img src="https://avatars.githubusercontent.com/u/37600867?v=4?s=100" width="100px;" alt="Rangga Purnama Aji"/><br /><sub><b>Rangga Purnama Aji</b></sub></a><br /><a href="#translation-RanggaPAji" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
