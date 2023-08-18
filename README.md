@@ -1,6 +1,6 @@
 # Hydra
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
@@ -402,6 +402,11 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://larstuchel.ch/"><img src="https://avatars.githubusercontent.com/u/17312696?v=4?s=100" width="100px;" alt="Lars Fabian Tuchel"/><br /><sub><b>Lars Fabian Tuchel</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=tuchella" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/oscons"><img src="https://avatars.githubusercontent.com/u/54054343?v=4?s=100" width="100px;" alt="oscons"/><br /><sub><b>oscons</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=oscons" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://richardnias.com/"><img src="https://avatars.githubusercontent.com/u/7244202?v=4?s=100" width="100px;" alt="Richard Nias"/><br /><sub><b>Richard Nias</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=richardnias" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://hi-bumblebee.com/"><img src="https://avatars.githubusercontent.com/u/53626283?v=4?s=100" width="100px;" alt="Luis Aguirre"/><br /><sub><b>Luis Aguirre</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=luis11011" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/munshkr"><img src="https://avatars.githubusercontent.com/u/4862?v=4?s=100" width="100px;" alt="Damián Silvani"/><br /><sub><b>Damián Silvani</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=munshkr" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/misterinterrupt"><img src="https://avatars.githubusercontent.com/u/286920?v=4?s=100" width="100px;" alt="m. interrupt"/><br /><sub><b>m. interrupt</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=misterinterrupt" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

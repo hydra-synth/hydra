@@ -308,6 +308,51 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "oscons",
+      "name": "oscons",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54054343?v=4",
+      "profile": "https://github.com/oscons",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "richardnias",
+      "name": "Richard Nias",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7244202?v=4",
+      "profile": "https://richardnias.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "luis11011",
+      "name": "Luis Aguirre",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53626283?v=4",
+      "profile": "https://hi-bumblebee.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "munshkr",
+      "name": "Damián Silvani",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4862?v=4",
+      "profile": "https://github.com/munshkr",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "misterinterrupt",
+      "name": "m. interrupt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/286920?v=4",
+      "profile": "https://github.com/misterinterrupt",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
