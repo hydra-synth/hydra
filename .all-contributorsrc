@@ -146,6 +146,168 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "jarmitage",
+      "name": "Jack Armitage",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2885827?v=4",
+      "profile": "http://jackarmitage.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rumblesan",
+      "name": "Guy John",
+      "avatar_url": "https://avatars.githubusercontent.com/u/169088?v=4",
+      "profile": "http://rumblesan.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mcscope",
+      "name": "Christopher Beacham",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3921648?v=4",
+      "profile": "https://github.com/mcscope",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ssssam",
+      "name": "Sam Thursfield",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6330?v=4",
+      "profile": "https://github.com/ssssam",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kagel",
+      "name": "Dmitriy Khvatov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/100986?v=4",
+      "profile": "https://github.com/kagel",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "echophon",
+      "name": "Yancy Way",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5997208?v=4",
+      "profile": "https://github.com/echophon",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tpltnt",
+      "name": "tpltnt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1172976?v=4",
+      "profile": "https://github.com/tpltnt",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "frodosamoa",
+      "name": "Andrew Kowalczyk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1582620?v=4",
+      "profile": "https://github.com/frodosamoa",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ethancrawford",
+      "name": "ethancrawford",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10395940?v=4",
+      "profile": "https://github.com/ethancrawford",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hamilton",
+      "name": "Hamilton Ulmer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/95735?v=4",
+      "profile": "https://github.com/hamilton",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jcmorrow",
+      "name": "Josh Morrow",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5903784?v=4",
+      "profile": "https://github.com/jcmorrow",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "fizzy123",
+      "name": "Nobel Yoo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4475554?v=4",
+      "profile": "https://github.com/fizzy123",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pLabarta",
+      "name": "Pablito Labarta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10605905?v=4",
+      "profile": "https://github.com/pLabarta",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rnkn",
+      "name": "Paul W. Rankin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1256849?v=4",
+      "profile": "https://www.paulwrankin.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tmhglnd",
+      "name": "Timo Hoogland",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8721936?v=4",
+      "profile": "https://github.com/tmhglnd",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ixnv",
+      "name": "Ramil Iksanov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4655259?v=4",
+      "profile": "https://github.com/ixnv",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rapofran",
+      "name": "J. Francisco Raposeiras",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2479433?v=4",
+      "profile": "https://0xacab.org/rapofran",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tuchella",
+      "name": "Lars Fabian Tuchel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17312696?v=4",
+      "profile": "https://larstuchel.ch/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
