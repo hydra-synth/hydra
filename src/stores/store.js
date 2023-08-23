@@ -26,7 +26,15 @@ export default function store(state, emitter) {
     window.html = html
     window.Component = Component
     window.cm = state.editor.editor.cm
-    window.loadComponent = (code) => {
+    window.loadComponent = (url) => {
+      import(/* @vite-ignore */url).then(e=> {
+        const component = e.default;
+        state.ui_components.push(component)
+        console.log("comp", component)
+        emitter.emit("render")
+      })
+    }
+    window.loadComponentFromString = (code) => {
       const encodedJs = encodeURIComponent(code);
       const dataUri = 'data:text/javascript;charset=utf-8,'
         + encodedJs;
