@@ -7,22 +7,22 @@ const icon = (id, className, title, event) => html`
 <i id="${id}-icon" class="fas ${className} extension-icon" title="${title}" onclick=${event} aria-hidden="true"></i>`
 //      onclick="${() => emit('extensions: select extension', index)}" 
 
-const detailedInfo = (ext, index, emit) => {
+const detailedInfo = (ext, index, emit, t) => {
   return html`<div 
-     class="extension-list-item selected" style="display:flex;justify-content:space-between">
-     <img src="${ext.thumbnail}" width="40px" height="40px"/>
+     class="extension-list-item selected" style="display:flex;justify-content:space-between" >
+     <img src="${ext.thumbnail}" width="60px" height="60px"/>
 
      <div style="flex:1;padding-left:8px">
-     <div><span style="font-weight:900">${ext.name} - </span> <span style="text-overflow:ellipses;overflow:hidden"> ${ext.author} </span></div>
+     <div title="${t('extensions.show-example', {'extension-name': ext.name})}" onclick=${() => { emit('extensions: load example', index, 0)}} style="cursor:pointer"><span style="font-weight:900">${ext.name} - </span> <span style="text-overflow:ellipses;overflow:hidden"> ${ext.author} </span></div>
      <div> <span style="">${ext.description}</span></div>
      </div>
      <div class="extension-buttons">
      <div> 
-      ${icon('add-extension', 'fa-solid fa-plus', 'add to editor', d('extensions: add to editor', index, emit))}
-      ${icon('show-documentation', "fa-book-open", 'show documentation', () => {  window.open(ext.documentation, '_blank') })}
+      ${icon('add-extension', 'fa-solid fa-plus', t('extensions.show-library', {'extension-name': ext.name}), d('extensions: add to editor', index, emit))}
+      ${icon('show-documentation', "fa-book-open", t('extensions.show-docs', {'extension-name': ext.name}), () => {  window.open(ext.documentation, '_blank') })}
       </div>
       <div style="font-size: 0.8rem;/*font-family: monospace*/">
-        ${ext.examples.map((path, i) => html`<div class="extension-icon example-icon" onclick=${() => { emit('extensions: load example', index, i)}}>${i+1}</div>`)}
+        ${ext.examples.map((path, i) => html`<div class="extension-icon example-icon" title="${t('extensions.show-example', {'extension-name': ext.name})}" onclick=${() => { emit('extensions: load example', index, i)}}>${i+1}</div>`)}
       </div>
      </div>`
  }
@@ -36,7 +36,7 @@ export default (state, emit) => {
   const content = html`<div class="modal-content extensions">
 ${raw(t('extensions.about-extensions'))}
 <div class="extension-list">
-${extensions.map((ext, i) => detailedInfo(ext, i, emit))}
+${extensions.map((ext, i) => detailedInfo(ext, i, emit, t))}
 </div>
 </div>
 `

@@ -39,7 +39,10 @@ export default {
                 'support': 'If you enjoy using Hydra, please consider  <a {{open-collective}} >supporting continued development <3 </a>.'
             },
             extensions: {
-                'about-extensions': 'Load community extensions to hydra-synth.'
+                'about-extensions': 'Show community extensions for hydra-synth.',
+                'show-example': 'Load and run {{extension-name}} example.',
+                'show-library': 'Add code for loading {{extension-name}} to the top of the current sketch.',
+                'show-docs': 'Documentation of usage for {{extension-name}}'
             }
         }
     }
