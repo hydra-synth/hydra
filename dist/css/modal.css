@@ -217,14 +217,14 @@ transition: width 1s;
 }
 
 .extension-list-item {
-  cursor: pointer;
+  /* cursor: pointer; */
   margin: 1px;
-  padding: 5px;
+  padding: 1px;
   overflow: hidden;
 }
 
 .extension-list-item:hover {
-  /* background: white; */
+  background: #111;
   /* color: black; */
   /* border: solid white 1px; */
 }
