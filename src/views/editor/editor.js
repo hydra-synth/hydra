@@ -30,11 +30,19 @@ export default class Editor extends EventEmitter {
     this.mutator = new Mutator(this);
 
     const extraKeys = {}
+    // const evalCode = (code) => {
+
+    // }
     Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
-      if(e == 'editor:evalBlock') {
+      if(e == 'editor: eval block') {
         this.emit('repl: eval', this.getCurrentBlock().text)
       } else if (e == 'editor: eval line') {
         this.emit('repl: eval', this.getLine())
+      // } else if (e == 'editor: eval all') {
+      //   const code = this.cm.getValue()
+      //   this.flashCode()
+      //   this.emit('repl: eval', code)
+      //   this.emit('gallery: save to URL', code)
       } else if (e == 'editor:toggleComment') {
         this.cm.toggleComment()
       // } else if (e == 'gallery:saveToURL') {

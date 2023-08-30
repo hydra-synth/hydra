@@ -17,9 +17,10 @@ export default function editorStore(state, emitter) {
         state.editor.editor.addCodeToTop(code)
     })
 
-    emitter.on('editor: trigger eval', () => {
-        state.editor.editor.flashCode()
-    })
+    // emitter.on('editor: eval all', () => {
+    //     const code = editor.getValue()
+    //     state.editor.editor.flashCode()
+    // })
 
     emitter.on('editor: format code', () => {
         state.editor.editor.formatCode()
@@ -30,18 +31,18 @@ export default function editorStore(state, emitter) {
         editor.setValue(code)
     })
 
-    // emitter.on('editor: eval all', function () {
-    //     const editor = state.editor.editor
-    //     const code = editor.getValue()
-    //     // repl.eval(code, (string, err) => {
-    //     //     editor.flashCode()
-    //     //     if (!err) sketches.saveLocally(code)
-    //     // })
-    //     emitter.emit('repl: eval', code, (string, err) => {
-    //         editor.flashCode()
-    //         if (!err) emitter.emit('gallery: save locally', code)
-    //         // sketches.saveLocally(code)
-    //     })
-    // })
+    emitter.on('editor: eval all', function () {
+        const editor = state.editor.editor
+        const code = editor.getValue()
+        // repl.eval(code, (string, err) => {
+        //     editor.flashCode()
+        //     if (!err) sketches.saveLocally(code)
+        // })
+        emitter.emit('repl: eval', code, (string, err) => {
+            editor.flashCode()
+            if (!err) emitter.emit('gallery: save to URL', code)
+            // sketches.saveLocally(code)
+        })
+    })
 
 }
