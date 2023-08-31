@@ -14,5 +14,8 @@ export default defineConfig({
                 global: 'globalThis'
             }
         }
+    },
+    build: {
+        outDir: 'dist'
     }
 })
