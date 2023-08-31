@@ -66,7 +66,10 @@ export default class Editor extends EventEmitter {
   }
 
   addCodeToTop(code = '') {
-
+    this.cm.dispatch({
+      changes: {from: 0, insert: `${code}\n\n`}
+    })
+    
   }
 
   // hide() {

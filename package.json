@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
-    "dev": "vite .",
+    "dev": "vite . --host",
     "publish": "git subtree push --prefix=dist origin gh-pages"
   },
   "author": "",
