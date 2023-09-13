@@ -1,6 +1,6 @@
 # Hydra
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
@@ -408,6 +408,9 @@ See [CHANGELOG.md](CHANGELOG.md) for recent changes.
       <td align="center" valign="top" width="14.28%"><a href="https://hi-bumblebee.com/"><img src="https://avatars.githubusercontent.com/u/53626283?v=4?s=100" width="100px;" alt="Luis Aguirre"/><br /><sub><b>Luis Aguirre</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=luis11011" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/munshkr"><img src="https://avatars.githubusercontent.com/u/4862?v=4?s=100" width="100px;" alt="Damián Silvani"/><br /><sub><b>Damián Silvani</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=munshkr" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/misterinterrupt"><img src="https://avatars.githubusercontent.com/u/286920?v=4?s=100" width="100px;" alt="m. interrupt"/><br /><sub><b>m. interrupt</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=misterinterrupt" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://atenor.io/?pk_campaign=github"><img src="https://avatars.githubusercontent.com/u/7475584?v=4?s=100" width="100px;" alt="Ámbar Tenorio-Fornés"/><br /><sub><b>Ámbar Tenorio-Fornés</b></sub></a><br /><a href="https://github.com/hydra-synth/hydra/commits?author=atfornes" title="Code">💻</a> <a href="#ideas-atfornes" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>

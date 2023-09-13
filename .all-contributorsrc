@@ -362,6 +362,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "atfornes",
+      "name": "Ámbar Tenorio-Fornés",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7475584?v=4",
+      "profile": "https://atenor.io/?pk_campaign=github",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
