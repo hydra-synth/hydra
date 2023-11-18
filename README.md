@@ -31,6 +31,7 @@ Go to https://hydra.ojack.xyz
 * CTRL-Shift-F: format code using [Prettier](https://prettier.io/)
 * CTRL-Shift-S: Save screenshot and download as local file
 * CTRL-Shift-G: Share to twitter (if available). Shares to [@hydra_patterns](https://twitter.com/hydra_patterns)
+* CTRL-ALT-V: Toggle Vim mode
 
 All code can be run either from the in-browser text editor or from the browser console.
 
