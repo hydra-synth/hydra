@@ -53,11 +53,16 @@
 }
 .cm-fat-cursor .CodeMirror-cursor {
   width: auto;
-  border: 0 !important;
-  background: #7e7;
+  background: #999;
+  border-left: none !important;
+  /* backdrop-filter: invert(100%); */
+  box-shadow: 1.0px 1.0px black, -1.0px -1.0px black, 1.0px -1.0px black, -1.0px 1.0px black;
+  opacity: 70%;
+  mix-blend-mode: difference;
+  text-decoration: underline white;
 }
 .cm-fat-cursor div.CodeMirror-cursors {
-  z-index: 1;
+  z-index: 3;
 }
 .cm-fat-cursor-mark {
   background-color: rgba(20, 255, 20, 0.5);

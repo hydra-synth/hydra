@@ -17,7 +17,7 @@ app.mount('body')
 
 
 
-},{"./src/stores/language-store.js":233,"./src/stores/store.js":234,"./src/views/main.js":246,"choo":51,"choo-devtools":38}],2:[function(require,module,exports){
+},{"./src/stores/language-store.js":241,"./src/stores/store.js":242,"./src/views/main.js":255,"choo":51,"choo-devtools":38}],2:[function(require,module,exports){
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
   for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
@@ -170,14 +170,14 @@ function _toPropertyKey(arg) {
 }
 module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
 },{"./toPrimitive.js":15,"./typeof.js":17}],17:[function(require,module,exports){
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
 }
 module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 },{}],18:[function(require,module,exports){
@@ -202,10 +202,10 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
   var astralIdentifierCodes = [509, 0, 227, 0, 150, 4, 294, 9, 1368, 2, 2, 1, 6, 3, 41, 2, 5, 0, 166, 1, 574, 3, 9, 9, 370, 1, 81, 2, 71, 10, 50, 3, 123, 2, 54, 14, 32, 10, 3, 1, 11, 3, 46, 10, 8, 0, 46, 9, 7, 2, 37, 13, 2, 9, 6, 1, 45, 0, 13, 2, 49, 13, 9, 3, 2, 11, 83, 11, 7, 0, 3, 0, 158, 11, 6, 9, 7, 3, 56, 1, 2, 6, 3, 1, 3, 2, 10, 0, 11, 1, 3, 6, 4, 4, 193, 17, 10, 9, 5, 0, 82, 19, 13, 9, 214, 6, 3, 8, 28, 1, 83, 16, 16, 9, 82, 12, 9, 9, 84, 14, 5, 9, 243, 14, 166, 9, 71, 5, 2, 1, 3, 3, 2, 0, 2, 1, 13, 9, 120, 6, 3, 6, 4, 0, 29, 9, 41, 6, 2, 3, 9, 0, 10, 10, 47, 15, 406, 7, 2, 7, 17, 9, 57, 21, 2, 13, 123, 5, 4, 0, 2, 1, 2, 6, 2, 0, 9, 9, 49, 4, 2, 1, 2, 4, 9, 9, 330, 3, 10, 1, 2, 0, 49, 6, 4, 4, 14, 9, 5351, 0, 7, 14, 13835, 9, 87, 9, 39, 4, 60, 6, 26, 9, 1014, 0, 2, 54, 8, 3, 82, 0, 12, 1, 19628, 1, 4706, 45, 3, 22, 543, 4, 4, 5, 9, 7, 3, 6, 31, 3, 149, 2, 1418, 49, 513, 54, 5, 49, 9, 0, 15, 0, 23, 4, 2, 14, 1361, 6, 2, 16, 3, 6, 2, 1, 2, 4, 101, 0, 161, 6, 10, 9, 357, 0, 62, 13, 499, 13, 983, 6, 110, 6, 6, 9, 4759, 9, 787719, 239];
 
   // This file was generated. Do not modify manually!
-  var astralIdentifierStartCodes = [0, 11, 2, 25, 2, 18, 2, 1, 2, 14, 3, 13, 35, 122, 70, 52, 268, 28, 4, 48, 48, 31, 14, 29, 6, 37, 11, 29, 3, 35, 5, 7, 2, 4, 43, 157, 19, 35, 5, 35, 5, 39, 9, 51, 13, 10, 2, 14, 2, 6, 2, 1, 2, 10, 2, 14, 2, 6, 2, 1, 68, 310, 10, 21, 11, 7, 25, 5, 2, 41, 2, 8, 70, 5, 3, 0, 2, 43, 2, 1, 4, 0, 3, 22, 11, 22, 10, 30, 66, 18, 2, 1, 11, 21, 11, 25, 71, 55, 7, 1, 65, 0, 16, 3, 2, 2, 2, 28, 43, 28, 4, 28, 36, 7, 2, 27, 28, 53, 11, 21, 11, 18, 14, 17, 111, 72, 56, 50, 14, 50, 14, 35, 349, 41, 7, 1, 79, 28, 11, 0, 9, 21, 43, 17, 47, 20, 28, 22, 13, 52, 58, 1, 3, 0, 14, 44, 33, 24, 27, 35, 30, 0, 3, 0, 9, 34, 4, 0, 13, 47, 15, 3, 22, 0, 2, 0, 36, 17, 2, 24, 20, 1, 64, 6, 2, 0, 2, 3, 2, 14, 2, 9, 8, 46, 39, 7, 3, 1, 3, 21, 2, 6, 2, 1, 2, 4, 4, 0, 19, 0, 13, 4, 159, 52, 19, 3, 21, 2, 31, 47, 21, 1, 2, 0, 185, 46, 42, 3, 37, 47, 21, 0, 60, 42, 14, 0, 72, 26, 38, 6, 186, 43, 117, 63, 32, 7, 3, 0, 3, 7, 2, 1, 2, 23, 16, 0, 2, 0, 95, 7, 3, 38, 17, 0, 2, 0, 29, 0, 11, 39, 8, 0, 22, 0, 12, 45, 20, 0, 19, 72, 264, 8, 2, 36, 18, 0, 50, 29, 113, 6, 2, 1, 2, 37, 22, 0, 26, 5, 2, 1, 2, 31, 15, 0, 328, 18, 16, 0, 2, 12, 2, 33, 125, 0, 80, 921, 103, 110, 18, 195, 2637, 96, 16, 1071, 18, 5, 4026, 582, 8634, 568, 8, 30, 18, 78, 18, 29, 19, 47, 17, 3, 32, 20, 6, 18, 689, 63, 129, 74, 6, 0, 67, 12, 65, 1, 2, 0, 29, 6135, 9, 1237, 43, 8, 8936, 3, 2, 6, 2, 1, 2, 290, 16, 0, 30, 2, 3, 0, 15, 3, 9, 395, 2309, 106, 6, 12, 4, 8, 8, 9, 5991, 84, 2, 70, 2, 1, 3, 0, 3, 1, 3, 3, 2, 11, 2, 0, 2, 6, 2, 64, 2, 3, 3, 7, 2, 6, 2, 27, 2, 3, 2, 4, 2, 0, 4, 6, 2, 339, 3, 24, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 7, 1845, 30, 7, 5, 262, 61, 147, 44, 11, 6, 17, 0, 322, 29, 19, 43, 485, 27, 757, 6, 2, 3, 2, 1, 2, 14, 2, 196, 60, 67, 8, 0, 1205, 3, 2, 26, 2, 1, 2, 0, 3, 0, 2, 9, 2, 3, 2, 0, 2, 0, 7, 0, 5, 0, 2, 0, 2, 0, 2, 2, 2, 1, 2, 0, 3, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 1, 2, 0, 3, 3, 2, 6, 2, 3, 2, 3, 2, 0, 2, 9, 2, 16, 6, 2, 2, 4, 2, 16, 4421, 42719, 33, 4153, 7, 221, 3, 5761, 15, 7472, 3104, 541, 1507, 4938, 6, 4191];
+  var astralIdentifierStartCodes = [0, 11, 2, 25, 2, 18, 2, 1, 2, 14, 3, 13, 35, 122, 70, 52, 268, 28, 4, 48, 48, 31, 14, 29, 6, 37, 11, 29, 3, 35, 5, 7, 2, 4, 43, 157, 19, 35, 5, 35, 5, 39, 9, 51, 13, 10, 2, 14, 2, 6, 2, 1, 2, 10, 2, 14, 2, 6, 2, 1, 68, 310, 10, 21, 11, 7, 25, 5, 2, 41, 2, 8, 70, 5, 3, 0, 2, 43, 2, 1, 4, 0, 3, 22, 11, 22, 10, 30, 66, 18, 2, 1, 11, 21, 11, 25, 71, 55, 7, 1, 65, 0, 16, 3, 2, 2, 2, 28, 43, 28, 4, 28, 36, 7, 2, 27, 28, 53, 11, 21, 11, 18, 14, 17, 111, 72, 56, 50, 14, 50, 14, 35, 349, 41, 7, 1, 79, 28, 11, 0, 9, 21, 43, 17, 47, 20, 28, 22, 13, 52, 58, 1, 3, 0, 14, 44, 33, 24, 27, 35, 30, 0, 3, 0, 9, 34, 4, 0, 13, 47, 15, 3, 22, 0, 2, 0, 36, 17, 2, 24, 20, 1, 64, 6, 2, 0, 2, 3, 2, 14, 2, 9, 8, 46, 39, 7, 3, 1, 3, 21, 2, 6, 2, 1, 2, 4, 4, 0, 19, 0, 13, 4, 159, 52, 19, 3, 21, 2, 31, 47, 21, 1, 2, 0, 185, 46, 42, 3, 37, 47, 21, 0, 60, 42, 14, 0, 72, 26, 38, 6, 186, 43, 117, 63, 32, 7, 3, 0, 3, 7, 2, 1, 2, 23, 16, 0, 2, 0, 95, 7, 3, 38, 17, 0, 2, 0, 29, 0, 11, 39, 8, 0, 22, 0, 12, 45, 20, 0, 19, 72, 264, 8, 2, 36, 18, 0, 50, 29, 113, 6, 2, 1, 2, 37, 22, 0, 26, 5, 2, 1, 2, 31, 15, 0, 328, 18, 16, 0, 2, 12, 2, 33, 125, 0, 80, 921, 103, 110, 18, 195, 2637, 96, 16, 1071, 18, 5, 4026, 582, 8634, 568, 8, 30, 18, 78, 18, 29, 19, 47, 17, 3, 32, 20, 6, 18, 689, 63, 129, 74, 6, 0, 67, 12, 65, 1, 2, 0, 29, 6135, 9, 1237, 43, 8, 8936, 3, 2, 6, 2, 1, 2, 290, 16, 0, 30, 2, 3, 0, 15, 3, 9, 395, 2309, 106, 6, 12, 4, 8, 8, 9, 5991, 84, 2, 70, 2, 1, 3, 0, 3, 1, 3, 3, 2, 11, 2, 0, 2, 6, 2, 64, 2, 3, 3, 7, 2, 6, 2, 27, 2, 3, 2, 4, 2, 0, 4, 6, 2, 339, 3, 24, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 7, 1845, 30, 7, 5, 262, 61, 147, 44, 11, 6, 17, 0, 322, 29, 19, 43, 485, 27, 757, 6, 2, 3, 2, 1, 2, 14, 2, 196, 60, 67, 8, 0, 1205, 3, 2, 26, 2, 1, 2, 0, 3, 0, 2, 9, 2, 3, 2, 0, 2, 0, 7, 0, 5, 0, 2, 0, 2, 0, 2, 2, 2, 1, 2, 0, 3, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 1, 2, 0, 3, 3, 2, 6, 2, 3, 2, 3, 2, 0, 2, 9, 2, 16, 6, 2, 2, 4, 2, 16, 4421, 42719, 33, 4153, 7, 221, 3, 5761, 15, 7472, 16, 621, 2467, 541, 1507, 4938, 6, 4191];
 
   // This file was generated. Do not modify manually!
-  var nonASCIIidentifierChars = "\u200c\u200d\xb7\u0300-\u036f\u0387\u0483-\u0487\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u0669\u0670\u06d6-\u06dc\u06df-\u06e4\u06e7\u06e8\u06ea-\u06ed\u06f0-\u06f9\u0711\u0730-\u074a\u07a6-\u07b0\u07c0-\u07c9\u07eb-\u07f3\u07fd\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0859-\u085b\u0898-\u089f\u08ca-\u08e1\u08e3-\u0903\u093a-\u093c\u093e-\u094f\u0951-\u0957\u0962\u0963\u0966-\u096f\u0981-\u0983\u09bc\u09be-\u09c4\u09c7\u09c8\u09cb-\u09cd\u09d7\u09e2\u09e3\u09e6-\u09ef\u09fe\u0a01-\u0a03\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a66-\u0a71\u0a75\u0a81-\u0a83\u0abc\u0abe-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ae2\u0ae3\u0ae6-\u0aef\u0afa-\u0aff\u0b01-\u0b03\u0b3c\u0b3e-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b55-\u0b57\u0b62\u0b63\u0b66-\u0b6f\u0b82\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd7\u0be6-\u0bef\u0c00-\u0c04\u0c3c\u0c3e-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0c66-\u0c6f\u0c81-\u0c83\u0cbc\u0cbe-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0ce6-\u0cef\u0cf3\u0d00-\u0d03\u0d3b\u0d3c\u0d3e-\u0d44\u0d46-\u0d48\u0d4a-\u0d4d\u0d57\u0d62\u0d63\u0d66-\u0d6f\u0d81-\u0d83\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0de6-\u0def\u0df2\u0df3\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0e50-\u0e59\u0eb1\u0eb4-\u0ebc\u0ec8-\u0ece\u0ed0-\u0ed9\u0f18\u0f19\u0f20-\u0f29\u0f35\u0f37\u0f39\u0f3e\u0f3f\u0f71-\u0f84\u0f86\u0f87\u0f8d-\u0f97\u0f99-\u0fbc\u0fc6\u102b-\u103e\u1040-\u1049\u1056-\u1059\u105e-\u1060\u1062-\u1064\u1067-\u106d\u1071-\u1074\u1082-\u108d\u108f-\u109d\u135d-\u135f\u1369-\u1371\u1712-\u1715\u1732-\u1734\u1752\u1753\u1772\u1773\u17b4-\u17d3\u17dd\u17e0-\u17e9\u180b-\u180d\u180f-\u1819\u18a9\u1920-\u192b\u1930-\u193b\u1946-\u194f\u19d0-\u19da\u1a17-\u1a1b\u1a55-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1ab0-\u1abd\u1abf-\u1ace\u1b00-\u1b04\u1b34-\u1b44\u1b50-\u1b59\u1b6b-\u1b73\u1b80-\u1b82\u1ba1-\u1bad\u1bb0-\u1bb9\u1be6-\u1bf3\u1c24-\u1c37\u1c40-\u1c49\u1c50-\u1c59\u1cd0-\u1cd2\u1cd4-\u1ce8\u1ced\u1cf4\u1cf7-\u1cf9\u1dc0-\u1dff\u203f\u2040\u2054\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2cef-\u2cf1\u2d7f\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua620-\ua629\ua66f\ua674-\ua67d\ua69e\ua69f\ua6f0\ua6f1\ua802\ua806\ua80b\ua823-\ua827\ua82c\ua880\ua881\ua8b4-\ua8c5\ua8d0-\ua8d9\ua8e0-\ua8f1\ua8ff-\ua909\ua926-\ua92d\ua947-\ua953\ua980-\ua983\ua9b3-\ua9c0\ua9d0-\ua9d9\ua9e5\ua9f0-\ua9f9\uaa29-\uaa36\uaa43\uaa4c\uaa4d\uaa50-\uaa59\uaa7b-\uaa7d\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uaaeb-\uaaef\uaaf5\uaaf6\uabe3-\uabea\uabec\uabed\uabf0-\uabf9\ufb1e\ufe00-\ufe0f\ufe20-\ufe2f\ufe33\ufe34\ufe4d-\ufe4f\uff10-\uff19\uff3f";
+  var nonASCIIidentifierChars = "\u200c\u200d\xb7\u0300-\u036f\u0387\u0483-\u0487\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u0669\u0670\u06d6-\u06dc\u06df-\u06e4\u06e7\u06e8\u06ea-\u06ed\u06f0-\u06f9\u0711\u0730-\u074a\u07a6-\u07b0\u07c0-\u07c9\u07eb-\u07f3\u07fd\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0859-\u085b\u0898-\u089f\u08ca-\u08e1\u08e3-\u0903\u093a-\u093c\u093e-\u094f\u0951-\u0957\u0962\u0963\u0966-\u096f\u0981-\u0983\u09bc\u09be-\u09c4\u09c7\u09c8\u09cb-\u09cd\u09d7\u09e2\u09e3\u09e6-\u09ef\u09fe\u0a01-\u0a03\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a66-\u0a71\u0a75\u0a81-\u0a83\u0abc\u0abe-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ae2\u0ae3\u0ae6-\u0aef\u0afa-\u0aff\u0b01-\u0b03\u0b3c\u0b3e-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b55-\u0b57\u0b62\u0b63\u0b66-\u0b6f\u0b82\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd7\u0be6-\u0bef\u0c00-\u0c04\u0c3c\u0c3e-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0c66-\u0c6f\u0c81-\u0c83\u0cbc\u0cbe-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0ce6-\u0cef\u0cf3\u0d00-\u0d03\u0d3b\u0d3c\u0d3e-\u0d44\u0d46-\u0d48\u0d4a-\u0d4d\u0d57\u0d62\u0d63\u0d66-\u0d6f\u0d81-\u0d83\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0de6-\u0def\u0df2\u0df3\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0e50-\u0e59\u0eb1\u0eb4-\u0ebc\u0ec8-\u0ece\u0ed0-\u0ed9\u0f18\u0f19\u0f20-\u0f29\u0f35\u0f37\u0f39\u0f3e\u0f3f\u0f71-\u0f84\u0f86\u0f87\u0f8d-\u0f97\u0f99-\u0fbc\u0fc6\u102b-\u103e\u1040-\u1049\u1056-\u1059\u105e-\u1060\u1062-\u1064\u1067-\u106d\u1071-\u1074\u1082-\u108d\u108f-\u109d\u135d-\u135f\u1369-\u1371\u1712-\u1715\u1732-\u1734\u1752\u1753\u1772\u1773\u17b4-\u17d3\u17dd\u17e0-\u17e9\u180b-\u180d\u180f-\u1819\u18a9\u1920-\u192b\u1930-\u193b\u1946-\u194f\u19d0-\u19da\u1a17-\u1a1b\u1a55-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1ab0-\u1abd\u1abf-\u1ace\u1b00-\u1b04\u1b34-\u1b44\u1b50-\u1b59\u1b6b-\u1b73\u1b80-\u1b82\u1ba1-\u1bad\u1bb0-\u1bb9\u1be6-\u1bf3\u1c24-\u1c37\u1c40-\u1c49\u1c50-\u1c59\u1cd0-\u1cd2\u1cd4-\u1ce8\u1ced\u1cf4\u1cf7-\u1cf9\u1dc0-\u1dff\u200c\u200d\u203f\u2040\u2054\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2cef-\u2cf1\u2d7f\u2de0-\u2dff\u302a-\u302f\u3099\u309a\u30fb\ua620-\ua629\ua66f\ua674-\ua67d\ua69e\ua69f\ua6f0\ua6f1\ua802\ua806\ua80b\ua823-\ua827\ua82c\ua880\ua881\ua8b4-\ua8c5\ua8d0-\ua8d9\ua8e0-\ua8f1\ua8ff-\ua909\ua926-\ua92d\ua947-\ua953\ua980-\ua983\ua9b3-\ua9c0\ua9d0-\ua9d9\ua9e5\ua9f0-\ua9f9\uaa29-\uaa36\uaa43\uaa4c\uaa4d\uaa50-\uaa59\uaa7b-\uaa7d\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uaaeb-\uaaef\uaaf5\uaaf6\uabe3-\uabea\uabec\uabed\uabf0-\uabf9\ufb1e\ufe00-\ufe0f\ufe20-\ufe2f\ufe33\ufe34\ufe4d-\ufe4f\uff10-\uff19\uff3f\uff65";
 
   // This file was generated. Do not modify manually!
   var nonASCIIidentifierStartChars = "\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u037f\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u052f\u0531-\u0556\u0559\u0560-\u0588\u05d0-\u05ea\u05ef-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u0860-\u086a\u0870-\u0887\u0889-\u088e\u08a0-\u08c9\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u09fc\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0af9\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c39\u0c3d\u0c58-\u0c5a\u0c5d\u0c60\u0c61\u0c80\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cdd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d04-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d54-\u0d56\u0d5f-\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e86-\u0e8a\u0e8c-\u0ea3\u0ea5\u0ea7-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f5\u13f8-\u13fd\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f8\u1700-\u1711\u171f-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1878\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191e\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19b0-\u19c9\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4c\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1c80-\u1c88\u1c90-\u1cba\u1cbd-\u1cbf\u1ce9-\u1cec\u1cee-\u1cf3\u1cf5\u1cf6\u1cfa\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2118-\u211d\u2124\u2126\u2128\u212a-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309b-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312f\u3131-\u318e\u31a0-\u31bf\u31f0-\u31ff\u3400-\u4dbf\u4e00-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua69d\ua6a0-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua7ca\ua7d0\ua7d1\ua7d3\ua7d5-\ua7d9\ua7f2-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua8fd\ua8fe\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\ua9e0-\ua9e4\ua9e6-\ua9ef\ua9fa-\ua9fe\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa7e-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uab30-\uab5a\uab5c-\uab69\uab70-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc";
@@ -473,8 +473,10 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     toString.call(obj) === "[object Array]"
   ); });
 
+  var regexpCache = Object.create(null);
+
   function wordsRegexp(words) {
-    return new RegExp("^(?:" + words.replace(/ /g, "|") + ")$")
+    return regexpCache[words] || (regexpCache[words] = new RegExp("^(?:" + words.replace(/ /g, "|") + ")$"))
   }
 
   function codePointToString(code) {
@@ -534,11 +536,11 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     // Can be either `"script"` or `"module"`. This influences global
     // strict mode and parsing of `import` and `export` declarations.
     sourceType: "script",
-    // `onInsertedSemicolon` can be a callback that will be called
-    // when a semicolon is automatically inserted. It will be passed
-    // the position of the comma as an offset, and if `locations` is
-    // enabled, it is given the location as a `{line, column}` object
-    // as second argument.
+    // `onInsertedSemicolon` can be a callback that will be called when
+    // a semicolon is automatically inserted. It will be passed the
+    // position of the inserted semicolon as an offset, and if
+    // `locations` is enabled, it is given the location as a `{line,
+    // column}` object as second argument.
     onInsertedSemicolon: null,
     // `onTrailingComma` is similar to `onInsertedSemicolon`, but for
     // trailing commas.
@@ -566,6 +568,10 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     // allowed and treated as a line comment. Enabled by default when
     // `ecmaVersion` >= 2023.
     allowHashBang: false,
+    // By default, the parser will verify that private properties are
+    // only used in places where they are valid and have been declared.
+    // Set this to false to turn such checks off.
+    checkPrivateFields: true,
     // When `locations` is on, `loc` properties holding objects with
     // `start` and `end` properties in `{line, column}` form (with
     // line being 1-based and column 0-based) will be attached to the
@@ -587,6 +593,8 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     // passed, the full `{line, column}` locations of the start and
     // end of the comments. Note that you are not allowed to call the
     // parser from the callback—that will corrupt its internal state.
+    // When this option has an array as value, objects representing the
+    // comments are pushed to it.
     onComment: null,
     // Nodes have their start and end characters offsets recorded in
     // `start` and `end` properties (directly on the node, rather than
@@ -1794,6 +1802,7 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     var ref = this.privateNameStack.pop();
     var declared = ref.declared;
     var used = ref.used;
+    if (!this.options.checkPrivateFields) { return }
     var len = this.privateNameStack.length;
     var parent = len === 0 ? null : this.privateNameStack[len - 1];
     for (var i = 0; i < used.length; ++i) {
@@ -1961,8 +1970,6 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
       { this.checkPatternExport(exports, pat.left); }
     else if (type === "RestElement")
       { this.checkPatternExport(exports, pat.argument); }
-    else if (type === "ParenthesizedExpression")
-      { this.checkPatternExport(exports, pat.expression); }
   };
 
   pp$8.checkVariableExport = function(exports, decls) {
@@ -2526,7 +2533,7 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
       { this.exprAllowed = type.beforeExpr; }
   };
 
-  // Used to handle egde cases when token context could not be inferred correctly during tokenization phase
+  // Used to handle edge cases when token context could not be inferred correctly during tokenization phase
 
   pp$6.overrideContext = function(tokenCtx) {
     if (this.curContext() !== tokenCtx) {
@@ -2577,6 +2584,11 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     else
       { this.context.push(types.f_stat); }
     this.exprAllowed = false;
+  };
+
+  types$1.colon.updateContext = function() {
+    if (this.curContext().token === "function") { this.context.pop(); }
+    this.exprAllowed = true;
   };
 
   types$1.backQuote.updateContext = function() {
@@ -2855,7 +2867,7 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
       else { sawUnary = true; }
       expr = this.finishNode(node, update ? "UpdateExpression" : "UnaryExpression");
     } else if (!sawUnary && this.type === types$1.privateId) {
-      if (forInit || this.privateNameStack.length === 0) { this.unexpected(); }
+      if ((forInit || this.privateNameStack.length === 0) && this.options.checkPrivateFields) { this.unexpected(); }
       expr = this.parsePrivateIdent();
       // only could be private fields in 'in', such as #x in obj
       if (this.type !== types$1._in) { this.unexpected(); }
@@ -3277,9 +3289,12 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
   pp$5.parseNew = function() {
     if (this.containsEsc) { this.raiseRecoverable(this.start, "Escape sequence in keyword new"); }
     var node = this.startNode();
-    var meta = this.parseIdent(true);
-    if (this.options.ecmaVersion >= 6 && this.eat(types$1.dot)) {
-      node.meta = meta;
+    this.next();
+    if (this.options.ecmaVersion >= 6 && this.type === types$1.dot) {
+      var meta = this.startNodeAt(node.start, node.startLoc);
+      meta.name = "new";
+      node.meta = this.finishNode(meta, "Identifier");
+      this.next();
       var containsEsc = this.containsEsc;
       node.property = this.parseIdent(true);
       if (node.property.name !== "target")
@@ -3681,6 +3696,7 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
         (this.lastTokEnd !== this.lastTokStart + 1 || this.input.charCodeAt(this.lastTokStart) !== 46)) {
         this.context.pop();
       }
+      this.type = types$1.name;
     } else {
       this.unexpected();
     }
@@ -3698,10 +3714,12 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
     this.finishNode(node, "PrivateIdentifier");
 
     // For validating existence
-    if (this.privateNameStack.length === 0) {
-      this.raise(node.start, ("Private field '#" + (node.name) + "' must be declared in an enclosing class"));
-    } else {
-      this.privateNameStack[this.privateNameStack.length - 1].used.push(node);
+    if (this.options.checkPrivateFields) {
+      if (this.privateNameStack.length === 0) {
+        this.raise(node.start, ("Private field '#" + (node.name) + "' must be declared in an enclosing class"));
+      } else {
+        this.privateNameStack[this.privateNameStack.length - 1].used.push(node);
+      }
     }
 
     return node
@@ -6101,7 +6119,7 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
   // [walk]: util/walk.js
 
 
-  var version = "8.9.0";
+  var version = "8.11.2";
 
   Parser.acorn = {
     Parser: Parser,
@@ -6241,7 +6259,7 @@ module.exports = function(arraybuffer, start, end) {
 (function (global){(function (){
 'use strict';
 
-var objectAssign = require('object-assign');
+var objectAssign = require('object.assign/polyfill')();
 
 // compare and isBuffer taken from https://github.com/feross/buffer/blob/680e9e5e488f22aac27599a57dc844a6315928dd/index.js
 // original notice:
@@ -6747,7 +6765,7 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"object-assign":151,"util/":25}],23:[function(require,module,exports){
+},{"object.assign/polyfill":166,"util/":25}],23:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -7369,7 +7387,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":24,"_process":160,"inherits":23}],26:[function(require,module,exports){
+},{"./support/isBuffer":24,"_process":173,"inherits":23}],26:[function(require,module,exports){
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
     define(['exports', './defaultTraveler', './attachComments'], factory);
@@ -11387,7 +11405,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":32,"buffer":35,"ieee754":100}],36:[function(require,module,exports){
+},{"base64-js":32,"buffer":35,"ieee754":107}],36:[function(require,module,exports){
 'use strict';
 
 var GetIntrinsic = require('get-intrinsic');
@@ -11404,17 +11422,18 @@ module.exports = function callBoundIntrinsic(name, allowMissing) {
 	return intrinsic;
 };
 
-},{"./":37,"get-intrinsic":86}],37:[function(require,module,exports){
+},{"./":37,"get-intrinsic":92}],37:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
 var GetIntrinsic = require('get-intrinsic');
+var setFunctionLength = require('set-function-length');
 
+var $TypeError = GetIntrinsic('%TypeError%');
 var $apply = GetIntrinsic('%Function.prototype.apply%');
 var $call = GetIntrinsic('%Function.prototype.call%');
 var $reflectApply = GetIntrinsic('%Reflect.apply%', true) || bind.call($call, $apply);
 
-var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
 var $defineProperty = GetIntrinsic('%Object.defineProperty%', true);
 var $max = GetIntrinsic('%Math.max%');
 
@@ -11428,19 +11447,15 @@ if ($defineProperty) {
 }
 
 module.exports = function callBind(originalFunction) {
-	var func = $reflectApply(bind, $call, arguments);
-	if ($gOPD && $defineProperty) {
-		var desc = $gOPD(func, 'length');
-		if (desc.configurable) {
-			// original length, plus the receiver, minus any additional arguments (after the receiver)
-			$defineProperty(
-				func,
-				'length',
-				{ value: 1 + $max(0, originalFunction.length - (arguments.length - 1)) }
-			);
-		}
+	if (typeof originalFunction !== 'function') {
+		throw new $TypeError('a function is required');
 	}
-	return func;
+	var func = $reflectApply(bind, $call, arguments);
+	return setFunctionLength(
+		func,
+		1 + $max(0, originalFunction.length - (arguments.length - 1)),
+		true
+	);
 };
 
 var applyBind = function applyBind() {
@@ -11453,7 +11468,7 @@ if ($defineProperty) {
 	module.exports.apply = applyBind;
 }
 
-},{"function-bind":84,"get-intrinsic":86}],38:[function(require,module,exports){
+},{"function-bind":90,"get-intrinsic":92,"set-function-length":184}],38:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter
 
 var storage = require('./lib/storage')
@@ -11505,7 +11520,7 @@ function expose (opts) {
   }
 }
 
-},{"./lib/copy":39,"./lib/debug":40,"./lib/help":41,"./lib/log":42,"./lib/logger":43,"./lib/perf":44,"./lib/storage":45,"events":81,"wayfarer/get-all-routes":224}],39:[function(require,module,exports){
+},{"./lib/copy":39,"./lib/debug":40,"./lib/help":41,"./lib/log":42,"./lib/logger":43,"./lib/perf":44,"./lib/storage":45,"events":87,"wayfarer/get-all-routes":232}],39:[function(require,module,exports){
 var stateCopy = require('state-copy')
 var pluck = require('plucker')
 
@@ -11521,7 +11536,7 @@ function copy (state) {
   stateCopy(isStateString ? pluck.apply(this, arguments) : state)
 }
 
-},{"plucker":158,"state-copy":215}],40:[function(require,module,exports){
+},{"plucker":171,"state-copy":223}],40:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var onChange = require('object-change-callsite')
 var nanologger = require('nanologger')
@@ -11563,7 +11578,7 @@ function debug (state, emitter, app, localEmitter) {
   })
 }
 
-},{"assert":22,"nanologger":141,"object-change-callsite":152}],41:[function(require,module,exports){
+},{"assert":22,"nanologger":150,"object-change-callsite":160}],41:[function(require,module,exports){
 module.exports = help
 
 function help () {
@@ -11674,7 +11689,7 @@ function log (state, emitter, app, localEmitter) {
 
 function noop () {}
 
-},{"clone":53,"nanologger":141,"nanoscheduler":149,"remove-array-items":168}],43:[function(require,module,exports){
+},{"clone":53,"nanologger":150,"nanoscheduler":158,"remove-array-items":181}],43:[function(require,module,exports){
 var scheduler = require('nanoscheduler')()
 var nanologger = require('nanologger')
 var Hooks = require('choo-hooks')
@@ -11759,7 +11774,7 @@ function logger (state, emitter, opts) {
   }
 }
 
-},{"choo-hooks":46,"nanologger":141,"nanoscheduler":149}],44:[function(require,module,exports){
+},{"choo-hooks":46,"nanologger":150,"nanoscheduler":158}],44:[function(require,module,exports){
 var onPerformance = require('on-performance')
 
 var BAR = '█'
@@ -11900,7 +11915,7 @@ function getMedian (args) {
 // Do nothing.
 function noop () {}
 
-},{"on-performance":155}],45:[function(require,module,exports){
+},{"on-performance":168}],45:[function(require,module,exports){
 var pretty = require('prettier-bytes')
 
 module.exports = storage
@@ -11943,7 +11958,7 @@ function fmt (num) {
 
 function noop () {}
 
-},{"prettier-bytes":159}],46:[function(require,module,exports){
+},{"prettier-bytes":172}],46:[function(require,module,exports){
 var onPerformance = require('on-performance')
 var scheduler = require('nanoscheduler')()
 var assert = require('assert')
@@ -12072,7 +12087,7 @@ ChooHooks.prototype._emitLoaded = function () {
   })
 }
 
-},{"assert":22,"nanoscheduler":149,"on-performance":155}],47:[function(require,module,exports){
+},{"assert":22,"nanoscheduler":158,"on-performance":168}],47:[function(require,module,exports){
 var assert = require('assert')
 var LRU = require('nanolru')
 
@@ -12115,16 +12130,16 @@ function newCall (Cls) {
   return new (Cls.bind.apply(Cls, arguments)) // eslint-disable-line
 }
 
-},{"assert":127,"nanolru":142}],48:[function(require,module,exports){
+},{"assert":136,"nanolru":151}],48:[function(require,module,exports){
 module.exports = require('nanocomponent')
 
-},{"nanocomponent":130}],49:[function(require,module,exports){
+},{"nanocomponent":139}],49:[function(require,module,exports){
 module.exports = require('nanohtml')
 
-},{"nanohtml":135}],50:[function(require,module,exports){
+},{"nanohtml":144}],50:[function(require,module,exports){
 module.exports = require('nanohtml/raw')
 
-},{"nanohtml/raw":138}],51:[function(require,module,exports){
+},{"nanohtml/raw":147}],51:[function(require,module,exports){
 var scrollToAnchor = require('scroll-to-anchor')
 var documentReady = require('document-ready')
 var nanotiming = require('nanotiming')
@@ -12408,7 +12423,7 @@ Choo.prototype._setCache = function (state) {
   }
 }
 
-},{"./component/cache":47,"assert":127,"document-ready":63,"nanobus":128,"nanohref":132,"nanomorph":143,"nanoquery":146,"nanoraf":147,"nanorouter":148,"nanotiming":150,"scroll-to-anchor":170}],52:[function(require,module,exports){
+},{"./component/cache":47,"assert":136,"document-ready":70,"nanobus":137,"nanohref":141,"nanomorph":152,"nanoquery":155,"nanoraf":156,"nanorouter":157,"nanotiming":159,"scroll-to-anchor":183}],52:[function(require,module,exports){
 /*! clipboard-copy. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /* global DOMException */
 
@@ -12732,7 +12747,23 @@ f=Math.min(c.line,g),m=a.lineComment||e.lineComment,v=[],k=null==a.padding?" ":a
 e.blockCommentStart,z=a.blockCommentEnd||e.blockCommentEnd;if(!y||!z)return!1;var H=a.blockCommentLead||e.blockCommentLead,C=b.getLine(f),D=C.indexOf(y);if(-1==D)return!1;var F=g==f?C:b.getLine(g),B=F.indexOf(z,g==f?D+y.length:0);a=l(f,D+1);e=l(g,B+1);if(-1==B||!/comment/.test(b.getTokenTypeAt(a))||!/comment/.test(b.getTokenTypeAt(e))||-1<b.getRange(a,e,"\n").indexOf(z))return!1;e=C.lastIndexOf(y,c.ch);a=-1==e?-1:C.slice(0,c.ch).indexOf(z,e+y.length);if(-1!=e&&-1!=a&&a+z.length!=c.ch)return!1;a=F.indexOf(z,
 d.ch);c=F.slice(d.ch).lastIndexOf(y,a-d.ch);e=-1==a||-1==c?-1:d.ch+c;if(-1!=a&&-1!=e&&e!=d.ch)return!1;b.operation(function(){b.replaceRange("",l(g,B-(k&&F.slice(B-k.length,B)==k?k.length:0)),l(g,B+z.length));var p=D+y.length;k&&C.slice(p,p+k.length)==k&&(p+=k.length);b.replaceRange("",l(f,D),l(f,p));if(H)for(p=f+1;p<=g;++p){var A=b.getLine(p),x=A.indexOf(H);if(-1!=x&&!u.test(A.slice(0,x))){var w=x+H.length;k&&A.slice(w,w+k.length)==k&&(w+=k.length);b.replaceRange("",l(p,x),l(p,w))}}});return!0})});
 
-},{"../../lib/codemirror":58}],55:[function(require,module,exports){
+},{"../../lib/codemirror":61}],55:[function(require,module,exports){
+(function(c){"object"==typeof exports&&"object"==typeof module?c(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define(["../../lib/codemirror"],c):c(CodeMirror)})(function(c){function m(b,g,a){b=b.getWrapperElement();var d=b.appendChild(document.createElement("div"));d.className=a?"CodeMirror-dialog CodeMirror-dialog-bottom":"CodeMirror-dialog CodeMirror-dialog-top";"string"==typeof g?d.innerHTML=g:d.appendChild(g);c.addClass(b,"dialog-opened");return d}function n(b,g){b.state.currentNotificationClose&&
+b.state.currentNotificationClose();b.state.currentNotificationClose=g}c.defineExtension("openDialog",function(b,g,a){function d(e){if("string"==typeof e)f.value=e;else if(!k&&(k=!0,c.rmClass(h.parentNode,"dialog-opened"),h.parentNode.removeChild(h),l.focus(),a.onClose))a.onClose(h)}a||(a={});n(this,null);var h=m(this,b,a.bottom),k=!1,l=this,f=h.getElementsByTagName("input")[0];if(f){f.focus();a.value&&(f.value=a.value,!1!==a.selectValueOnOpen&&f.select());if(a.onInput)c.on(f,"input",function(e){a.onInput(e,
+f.value,d)});if(a.onKeyUp)c.on(f,"keyup",function(e){a.onKeyUp(e,f.value,d)});c.on(f,"keydown",function(e){if(!(a&&a.onKeyDown&&a.onKeyDown(e,f.value,d))){if(27==e.keyCode||!1!==a.closeOnEnter&&13==e.keyCode)f.blur(),c.e_stop(e),d();13==e.keyCode&&g(f.value,e)}});if(!1!==a.closeOnBlur)c.on(h,"focusout",function(e){null!==e.relatedTarget&&d()})}else if(b=h.getElementsByTagName("button")[0]){c.on(b,"click",function(){d();l.focus()});if(!1!==a.closeOnBlur)c.on(b,"blur",d);b.focus()}return d});c.defineExtension("openConfirm",
+function(b,g,a){function d(){k||(k=!0,c.rmClass(h.parentNode,"dialog-opened"),h.parentNode.removeChild(h),l.focus())}n(this,null);var h=m(this,b,a&&a.bottom);b=h.getElementsByTagName("button");var k=!1,l=this,f=1;b[0].focus();for(a=0;a<b.length;++a){var e=b[a];(function(p){c.on(e,"click",function(q){c.e_preventDefault(q);d();p&&p(l)})})(g[a]);c.on(e,"blur",function(){--f;setTimeout(function(){0>=f&&d()},200)});c.on(e,"focus",function(){++f})}});c.defineExtension("openNotification",function(b,g){function a(){h||
+(h=!0,clearTimeout(k),c.rmClass(d.parentNode,"dialog-opened"),d.parentNode.removeChild(d))}n(this,a);var d=m(this,b,g&&g.bottom),h=!1,k;b=g&&"undefined"!==typeof g.duration?g.duration:5E3;c.on(d,"click",function(l){c.e_preventDefault(l);a()});b&&(k=setTimeout(a,b));return a})});
+
+},{"../../lib/codemirror":61}],56:[function(require,module,exports){
+(function(k){"object"==typeof exports&&"object"==typeof module?k(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define(["../../lib/codemirror"],k):k(CodeMirror)})(function(k){function v(a,c,b){var f=a.getLineHandle(c.line),d=c.ch-1,g=b&&b.afterCursor;null==g&&(g=/(^| )cm-fat-cursor($| )/.test(a.getWrapperElement().className));var h=b&&b.bracketRegex||/[(){}[\]]/;f=!g&&0<=d&&h.test(f.text.charAt(d))&&t[f.text.charAt(d)]||h.test(f.text.charAt(d+1))&&t[f.text.charAt(++d)];if(!f)return null;
+g=">"==f.charAt(1)?1:-1;if(b&&b.strict&&0<g!=(d==c.ch))return null;h=a.getTokenTypeAt(p(c.line,d+1));a=w(a,p(c.line,d+(0<g?1:0)),g,h,b);return null==a?null:{from:p(c.line,d),to:a&&a.pos,match:a&&a.ch==f.charAt(0),forward:0<g}}function w(a,c,b,f,d){var g=d&&d.maxScanLineLength||1E4,h=d&&d.maxScanLines||1E3,m=[];d=d&&d.bracketRegex||/[(){}[\]]/;h=0<b?Math.min(c.line+h,a.lastLine()+1):Math.max(a.firstLine()-1,c.line-h);for(var e=c.line;e!=h;e+=b){var n=a.getLine(e);if(n){var l=0<b?0:n.length-1,z=0<b?
+n.length:-1;if(!(n.length>g))for(e==c.line&&(l=c.ch-(0>b?1:0));l!=z;l+=b){var q=n.charAt(l);if(d.test(q)&&(void 0===f||(a.getTokenTypeAt(p(e,l+1))||"")==(f||""))){var x=t[q];if(x&&">"==x.charAt(1)==0<b)m.push(q);else if(m.length)m.pop();else return{pos:p(e,l),ch:q}}}}}return e-b==(0<b?a.lastLine():a.firstLine())?!1:null}function y(a,c,b){for(var f=a.state.matchBrackets.maxHighlightLineLength||1E3,d=b&&b.highlightNonMatching,g=[],h=a.listSelections(),m=0;m<h.length;m++){var e=h[m].empty()&&v(a,h[m].head,
+b);if(e&&(e.match||!1!==d)&&a.getLine(e.from.line).length<=f){var n=e.match?"CodeMirror-matchingbracket":"CodeMirror-nonmatchingbracket";g.push(a.markText(e.from,p(e.from.line,e.from.ch+1),{className:n}));e.to&&a.getLine(e.to.line).length<=f&&g.push(a.markText(e.to,p(e.to.line,e.to.ch+1),{className:n}))}}if(g.length)if(A&&a.state.focused&&a.focus(),b=function(){a.operation(function(){for(var l=0;l<g.length;l++)g[l].clear()})},c)setTimeout(b,800);else return b}function r(a){a.operation(function(){a.state.matchBrackets.currentlyHighlighted&&
+(a.state.matchBrackets.currentlyHighlighted(),a.state.matchBrackets.currentlyHighlighted=null);a.state.matchBrackets.currentlyHighlighted=y(a,!1,a.state.matchBrackets)})}function u(a){a.state.matchBrackets&&a.state.matchBrackets.currentlyHighlighted&&(a.state.matchBrackets.currentlyHighlighted(),a.state.matchBrackets.currentlyHighlighted=null)}var A=/MSIE \d/.test(navigator.userAgent)&&(null==document.documentMode||8>document.documentMode),p=k.Pos,t={"(":")>",")":"(<","[":"]>","]":"[<","{":"}>","}":"{<",
+"<":">>",">":"<<"};k.defineOption("matchBrackets",!1,function(a,c,b){b&&b!=k.Init&&(a.off("cursorActivity",r),a.off("focus",r),a.off("blur",u),u(a));c&&(a.state.matchBrackets="object"==typeof c?c:{},a.on("cursorActivity",r),a.on("focus",r),a.on("blur",u))});k.defineExtension("matchBrackets",function(){y(this,!0)});k.defineExtension("findMatchingBracket",function(a,c,b){if(b||"boolean"==typeof c)b?(b.strict=c,c=b):c=c?{strict:!0}:null;return v(this,a,c)});k.defineExtension("scanForBracket",function(a,
+c,b,f){return w(this,a,c,b,f)})});
+
+},{"../../lib/codemirror":61}],57:[function(require,module,exports){
 (function(m){"object"==typeof exports&&"object"==typeof module?m(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define(["../../lib/codemirror"],m):m(CodeMirror)})(function(m){function q(a,b){for(var l=0,e=a.length;l<e;++l)b(a[l])}function t(a,b,l,e){var c=a.getCursor(),d=l(a,c);if(!/\b(?:string|comment)\b/.test(d.type)){var g=m.innerMode(a.getMode(),d.state);if("json"!==g.mode.helperType){d.state=g.state;/^[\w$_]*$/.test(d.string)?d.end>c.ch&&(d.end=c.ch,d.string=d.string.slice(0,
 c.ch-d.start)):d={start:c.ch,end:c.ch,string:"",state:d.state,type:"."==d.string?"property":null};for(g=d;"property"==g.type;){g=l(a,r(c.line,g.start));if("."!=g.string)return;g=l(a,r(c.line,g.start));if(!p)var p=[];p.push(g)}return{list:u(d,p,b,e),from:r(c.line,d.start),to:r(c.line,d.end)}}}}function v(a,b){a=a.getTokenAt(b);b.ch==a.start+1&&"."==a.string.charAt(0)?(a.end=a.start,a.string=".",a.type="property"):/^\.[\w$_]*$/.test(a.string)&&(a.type="property",a.start++,a.string=a.string.replace(/\./,
 ""));return a}function u(a,b,l,e){function c(h){var k;if(k=0==h.lastIndexOf(p,0)){a:if(Array.prototype.indexOf)k=-1!=g.indexOf(h);else{for(k=g.length;k--;)if(g[k]===h){k=!0;break a}k=!1}k=!k}k&&g.push(h)}function d(h){"string"==typeof h?q(w,c):h instanceof Array?q(x,c):h instanceof Function&&q(y,c);if(Object.getOwnPropertyNames&&Object.getPrototypeOf)for(;h;h=Object.getPrototypeOf(h))Object.getOwnPropertyNames(h).forEach(c);else for(var k in h)c(k)}var g=[],p=a.string,n=e&&e.globalScope||window;if(b&&
@@ -12740,7 +12771,7 @@ b.length){a=b.pop();var f;a.type&&0===a.type.indexOf("variable")?(e&&e.additiona
 f.prev)for(b=f.vars;b;b=b.next)c(b.name);for(b=a.state.globalVars;b;b=b.next)c(b.name);if(e&&null!=e.additionalContext)for(var z in e.additionalContext)c(z);e&&!1===e.useGlobalScope||d(n);q(l,c)}return g}var r=m.Pos;m.registerHelper("hint","javascript",function(a,b){return t(a,A,function(l,e){return l.getTokenAt(e)},b)});m.registerHelper("hint","coffeescript",function(a,b){return t(a,B,v,b)});var w="charAt charCodeAt indexOf lastIndexOf substring substr slice trim trimLeft trimRight toUpperCase toLowerCase split concat match replace search".split(" "),
 x="length concat join splice push pop shift unshift slice reverse sort indexOf lastIndexOf every some filter forEach map reduce reduceRight ".split(" "),y=["prototype","apply","call","bind"],A="break case catch class const continue debugger default delete do else export extends false finally for function if in import instanceof new null return super switch this throw true try typeof var void while with yield".split(" "),B="and break catch class continue delete do else extends false finally for if in instanceof isnt new no not null of off on or return switch then throw true try typeof until void while with yes".split(" ")});
 
-},{"../../lib/codemirror":58}],56:[function(require,module,exports){
+},{"../../lib/codemirror":61}],58:[function(require,module,exports){
 (function(h){"object"==typeof exports&&"object"==typeof module?h(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define(["../../lib/codemirror"],h):h(CodeMirror)})(function(h){function B(a,b){this.cm=a;this.options=b;this.widget=null;this.tick=this.debounce=0;this.startPos=this.cm.getCursor("start");this.startLen=this.cm.getLine(this.startPos.line).length-this.cm.getSelection().length;if(this.options.updateOnCursorActivity){var c=this;a.on("cursorActivity",this.activityFunc=
 function(){c.cursorActivity()})}}function K(a,b){function c(r,g){var m="string"!=typeof g?function(k){return g(k,b)}:d.hasOwnProperty(g)?d[g]:g;p[r]=m}var d={Up:function(){b.moveFocus(-1)},Down:function(){b.moveFocus(1)},PageUp:function(){b.moveFocus(-b.menuSize()+1,!0)},PageDown:function(){b.moveFocus(b.menuSize()-1,!0)},Home:function(){b.setFocus(0)},End:function(){b.setFocus(b.length-1)},Enter:b.pick,Tab:b.pick,Esc:b.close};/Mac/.test(navigator.platform)&&(d["Ctrl-P"]=function(){b.moveFocus(-1)},
 d["Ctrl-N"]=function(){b.moveFocus(1)});var e=a.options.customKeys,p=e?{}:d;if(e)for(var f in e)e.hasOwnProperty(f)&&c(f,e[f]);if(a=a.options.extraKeys)for(f in a)a.hasOwnProperty(f)&&c(f,a[f]);return p}function C(a,b){for(;b&&b!=a;){if("LI"===b.nodeName.toUpperCase()&&b.parentNode==a)return b;b=b.parentNode}}function D(a,b){this.id="cm-complete-"+Math.floor(Math.random(1E6));this.completion=a;this.data=b;this.picked=!1;var c=this,d=a.cm,e=d.getInputField().ownerDocument,p=e.defaultView||e.parentWindow,
@@ -12763,7 +12794,28 @@ this.hints.firstChild.offsetHeight)||1},getSelectedHintRange:function(){var a=th
 a.getHelper(a.getCursor(),"hintWords"))?function(e){return h.hint.fromList(e,{words:d})}:h.hint.anyword?function(e,p){return h.hint.anyword(e,p)}:function(){}}});h.registerHelper("hint","fromList",function(a,b){var c=a.getCursor(),d=a.getTokenAt(c);a=h.Pos(c.line,d.start);d.start<c.ch&&/\w/.test(d.string.charAt(c.ch-d.start-1))?d=d.string.substr(0,c.ch-d.start):(d="",a=c);for(var e=[],p=0;p<b.words.length;p++){var f=b.words[p];f.slice(0,d.length)==d&&e.push(f)}if(e.length)return{list:e,from:a,to:c}});
 h.commands.autocomplete=h.showHint;var J={hint:h.hint.auto,completeSingle:!0,alignWithWord:!0,closeCharacters:/[\s()\[\]{};:>,]/,closeOnPick:!0,closeOnUnfocus:!0,updateOnCursorActivity:!0,completeOnSingleClick:!0,container:null,customKeys:null,extraKeys:null,paddingForScrollbar:!0,moveOnOverlap:!0};h.defineOption("hintOptions",null)});
 
-},{"../../lib/codemirror":58}],57:[function(require,module,exports){
+},{"../../lib/codemirror":61}],59:[function(require,module,exports){
+(function (global){(function (){
+var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.findInternal=function(f,g,h){f instanceof String&&(f=String(f));for(var p=f.length,l=0;l<p;l++){var u=f[l];if(g.call(h,u,l,f))return{i:l,v:u}}return{i:-1,v:void 0}};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.ISOLATE_POLYFILLS=!1;$jscomp.FORCE_POLYFILL_PROMISE=!1;$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION=!1;
+$jscomp.defineProperty=$jscomp.ASSUME_ES5||"function"==typeof Object.defineProperties?Object.defineProperty:function(f,g,h){if(f==Array.prototype||f==Object.prototype)return f;f[g]=h.value;return f};$jscomp.getGlobal=function(f){f=["object"==typeof globalThis&&globalThis,f,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var g=0;g<f.length;++g){var h=f[g];if(h&&h.Math==Math)return h}throw Error("Cannot find global object");};$jscomp.global=$jscomp.getGlobal(this);
+$jscomp.IS_SYMBOL_NATIVE="function"===typeof Symbol&&"symbol"===typeof Symbol("x");$jscomp.TRUST_ES6_POLYFILLS=!$jscomp.ISOLATE_POLYFILLS||$jscomp.IS_SYMBOL_NATIVE;$jscomp.polyfills={};$jscomp.propertyToPolyfillSymbol={};$jscomp.POLYFILL_PREFIX="$jscp$";var $jscomp$lookupPolyfilledValue=function(f,g){var h=$jscomp.propertyToPolyfillSymbol[g];if(null==h)return f[g];h=f[h];return void 0!==h?h:f[g]};
+$jscomp.polyfill=function(f,g,h,p){g&&($jscomp.ISOLATE_POLYFILLS?$jscomp.polyfillIsolated(f,g,h,p):$jscomp.polyfillUnisolated(f,g,h,p))};$jscomp.polyfillUnisolated=function(f,g,h,p){h=$jscomp.global;f=f.split(".");for(p=0;p<f.length-1;p++){var l=f[p];if(!(l in h))return;h=h[l]}f=f[f.length-1];p=h[f];g=g(p);g!=p&&null!=g&&$jscomp.defineProperty(h,f,{configurable:!0,writable:!0,value:g})};
+$jscomp.polyfillIsolated=function(f,g,h,p){var l=f.split(".");f=1===l.length;p=l[0];p=!f&&p in $jscomp.polyfills?$jscomp.polyfills:$jscomp.global;for(var u=0;u<l.length-1;u++){var w=l[u];if(!(w in p))return;p=p[w]}l=l[l.length-1];h=$jscomp.IS_SYMBOL_NATIVE&&"es6"===h?p[l]:null;g=g(h);null!=g&&(f?$jscomp.defineProperty($jscomp.polyfills,l,{configurable:!0,writable:!0,value:g}):g!==h&&(void 0===$jscomp.propertyToPolyfillSymbol[l]&&(h=1E9*Math.random()>>>0,$jscomp.propertyToPolyfillSymbol[l]=$jscomp.IS_SYMBOL_NATIVE?
+$jscomp.global.Symbol(l):$jscomp.POLYFILL_PREFIX+h+"$"+l),$jscomp.defineProperty(p,$jscomp.propertyToPolyfillSymbol[l],{configurable:!0,writable:!0,value:g})))};$jscomp.polyfill("Array.prototype.find",function(f){return f?f:function(g,h){return $jscomp.findInternal(this,g,h).v}},"es6","es3");
+(function(f){"object"==typeof exports&&"object"==typeof module?f(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define(["../../lib/codemirror"],f):f(CodeMirror)})(function(f){function g(b,a){var c=b.flags;for(var e=c=null!=c?c:(b.ignoreCase?"i":"")+(b.global?"g":"")+(b.multiline?"m":""),d=0;d<a.length;d++)-1==e.indexOf(a.charAt(d))&&(e+=a.charAt(d));return c==e?b:new RegExp(b.source,e)}function h(b,a,c){a=g(a,"g");var e=c.line,d=c.ch;for(c=b.lastLine();e<=c;e++,d=0)if(a.lastIndex=
+d,d=b.getLine(e),d=a.exec(d))return{from:q(e,d.index),to:q(e,d.index+d[0].length),match:d}}function p(b,a,c){if(!/\\s|\\n|\n|\\W|\\D|\[\^/.test(a.source))return h(b,a,c);a=g(a,"gm");for(var e,d=1,k=c.line,m=b.lastLine();k<=m;){for(var n=0;n<d&&!(k>m);n++){var r=b.getLine(k++);e=null==e?r:e+"\n"+r}d*=2;a.lastIndex=c.ch;if(n=a.exec(e))return a=e.slice(0,n.index).split("\n"),b=n[0].split("\n"),c=c.line+a.length-1,a=a[a.length-1].length,{from:q(c,a),to:q(c+b.length-1,1==b.length?a+b[0].length:b[b.length-
+1].length),match:n}}}function l(b,a,c){for(var e,d=0;d<=b.length;){a.lastIndex=d;d=a.exec(b);if(!d)break;var k=d.index+d[0].length;if(k>b.length-c)break;if(!e||k>e.index+e[0].length)e=d;d=d.index+1}return e}function u(b,a,c){a=g(a,"g");var e=c.line,d=c.ch;for(c=b.firstLine();e>=c;e--,d=-1){var k=b.getLine(e);if(d=l(k,a,0>d?0:k.length-d))return{from:q(e,d.index),to:q(e,d.index+d[0].length),match:d}}}function w(b,a,c){if(!/\\s|\\n|\n|\\W|\\D|\[\^/.test(a.source))return u(b,a,c);a=g(a,"gm");var e=1,
+d=b.getLine(c.line).length-c.ch;c=c.line;for(var k=b.firstLine();c>=k;){for(var m=0;m<e&&c>=k;m++){var n=b.getLine(c--);var r=null==r?n:n+"\n"+r}e*=2;if(m=l(r,a,d))return a=r.slice(0,m.index).split("\n"),b=m[0].split("\n"),c+=a.length,a=a[a.length-1].length,{from:q(c,a),to:q(c+b.length-1,1==b.length?a+b[0].length:b[b.length-1].length),match:m}}}function v(b,a,c,e){if(b.length==a.length)return c;var d=0;for(a=c+Math.max(0,b.length-a.length);;){if(d==a)return d;var k=d+a>>1,m=e(b.slice(0,k)).length;
+if(m==c)return k;m>c?a=k:d=k+1}}function C(b,a,c,e){if(!a.length)return null;e=e?x:y;a=e(a).split(/\r|\n\r?/);var d=c.line;c=c.ch;var k=b.lastLine()+1-a.length;a:for(;d<=k;d++,c=0){var m=b.getLine(d).slice(c),n=e(m);if(1==a.length){var r=n.indexOf(a[0]);if(-1==r)continue a;v(m,n,r,e);return{from:q(d,v(m,n,r,e)+c),to:q(d,v(m,n,r+a[0].length,e)+c)}}r=n.length-a[0].length;if(n.slice(r)!=a[0])continue a;for(var t=1;t<a.length-1;t++)if(e(b.getLine(d+t))!=a[t])continue a;t=b.getLine(d+a.length-1);var B=
+e(t),z=a[a.length-1];if(B.slice(0,z.length)!=z)continue a;return{from:q(d,v(m,n,r,e)+c),to:q(d+a.length-1,v(t,B,z.length,e))}}}function D(b,a,c,e){if(!a.length)return null;e=e?x:y;a=e(a).split(/\r|\n\r?/);var d=c.line,k=c.ch,m=b.firstLine()-1+a.length;a:for(;d>=m;d--,k=-1){var n=b.getLine(d);-1<k&&(n=n.slice(0,k));k=e(n);if(1==a.length){c=k.lastIndexOf(a[0]);if(-1==c)continue a;return{from:q(d,v(n,k,c,e)),to:q(d,v(n,k,c+a[0].length,e))}}var r=a[a.length-1];if(k.slice(0,r.length)!=r)continue a;var t=
+1;for(c=d-a.length+1;t<a.length-1;t++)if(e(b.getLine(c+t))!=a[t])continue a;c=b.getLine(d+1-a.length);t=e(c);if(t.slice(t.length-a[0].length)!=a[0])continue a;return{from:q(d+1-a.length,v(c,t,c.length-a[0].length,e)),to:q(d,v(n,k,r.length,e))}}}function A(b,a,c,e){this.afterEmptyMatch=this.atOccurrence=!1;this.doc=b;c=c?b.clipPos(c):q(0,0);this.pos={from:c,to:c};if("object"==typeof e)var d=e.caseFold;else d=e,e=null;"string"==typeof a?(null==d&&(d=!1),this.matches=function(k,m){return(k?D:C)(b,a,
+m,d)}):(a=g(a,"gm"),this.matches=e&&!1===e.multiline?function(k,m){return(k?u:h)(b,a,m)}:function(k,m){return(k?w:p)(b,a,m)})}var q=f.Pos;if(String.prototype.normalize){var x=function(b){return b.normalize("NFD").toLowerCase()};var y=function(b){return b.normalize("NFD")}}else x=function(b){return b.toLowerCase()},y=function(b){return b};A.prototype={findNext:function(){return this.find(!1)},findPrevious:function(){return this.find(!0)},find:function(b){var a=this.doc.clipPos(b?this.pos.from:this.pos.to);
+if(this.afterEmptyMatch&&this.atOccurrence&&(a=q(a.line,a.ch),b?(a.ch--,0>a.ch&&(a.line--,a.ch=(this.doc.getLine(a.line)||"").length)):(a.ch++,a.ch>(this.doc.getLine(a.line)||"").length&&(a.ch=0,a.line++)),0!=f.cmpPos(a,this.doc.clipPos(a))))return this.atOccurrence=!1;this.afterEmptyMatch=(a=this.matches(b,a))&&0==f.cmpPos(a.from,a.to);if(a)return this.pos=a,this.atOccurrence=!0,this.pos.match||!0;b=q(b?this.doc.firstLine():this.doc.lastLine()+1,0);this.pos={from:b,to:b};return this.atOccurrence=
+!1},from:function(){if(this.atOccurrence)return this.pos.from},to:function(){if(this.atOccurrence)return this.pos.to},replace:function(b,a){this.atOccurrence&&(b=f.splitLines(b),this.doc.replaceRange(b,this.pos.from,this.pos.to,a),this.pos.to=q(this.pos.from.line+b.length-1,b[b.length-1].length+(1==b.length?this.pos.from.ch:0)))}};f.defineExtension("getSearchCursor",function(b,a,c){return new A(this.doc,b,a,c)});f.defineDocExtension("getSearchCursor",function(b,a,c){return new A(this,b,a,c)});f.defineExtension("selectMatches",
+function(b,a){var c=[];for(b=this.getSearchCursor(b,this.getCursor("from"),a);b.findNext()&&!(0<f.cmpPos(b.to(),this.getCursor("to")));)c.push({anchor:b.from(),head:b.to()});c.length&&this.setSelections(c,0)})});
+
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../../lib/codemirror":61}],60:[function(require,module,exports){
 (function (global){(function (){
 var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.findInternal=function(a,d,c){a instanceof String&&(a=String(a));for(var e=a.length,f=0;f<e;f++){var m=a[f];if(d.call(c,m,f,a))return{i:f,v:m}}return{i:-1,v:void 0}};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.ISOLATE_POLYFILLS=!1;$jscomp.FORCE_POLYFILL_PROMISE=!1;$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION=!1;
 $jscomp.defineProperty=$jscomp.ASSUME_ES5||"function"==typeof Object.defineProperties?Object.defineProperty:function(a,d,c){if(a==Array.prototype||a==Object.prototype)return a;a[d]=c.value;return a};$jscomp.getGlobal=function(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<a.length;++d){var c=a[d];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");};$jscomp.global=$jscomp.getGlobal(this);
@@ -12777,7 +12829,7 @@ k[0].find(),n=k[k.length-1].find();if(!l||!n||h.line-g.line<=u||0<=p(g,n.to)||0>
 "string"==typeof g?g:"CodeMirror-selectedtext",m(b),b.on("cursorActivity",d),b.on("change",c)):!g&&h&&(b.off("cursorActivity",d),b.off("change",c),f(b),b.state.markedSelection=b.state.markedSelectionStyle=null)});var u=8,v=a.Pos,p=a.cmpPos});
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../lib/codemirror":58}],58:[function(require,module,exports){
+},{"../../lib/codemirror":61}],61:[function(require,module,exports){
 (function (global){(function (){
 var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.findInternal=function(y,E,D){y instanceof String&&(y=String(y));for(var v=y.length,M=0;M<v;M++){var ja=y[M];if(E.call(D,ja,M,y))return{i:M,v:ja}}return{i:-1,v:void 0}};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.ISOLATE_POLYFILLS=!1;$jscomp.FORCE_POLYFILL_PROMISE=!1;$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION=!1;
 $jscomp.defineProperty=$jscomp.ASSUME_ES5||"function"==typeof Object.defineProperties?Object.defineProperty:function(y,E,D){if(y==Array.prototype||y==Object.prototype)return y;y[E]=D.value;return y};$jscomp.getGlobal=function(y){y=["object"==typeof globalThis&&globalThis,y,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var E=0;E<y.length;++E){var D=y[E];if(D&&D.Math==Math)return D}throw Error("Cannot find global object");};$jscomp.global=$jscomp.getGlobal(this);
@@ -13120,7 +13172,7 @@ jd;a.Pass=Zc;a.signal=W;a.Line=zb;a.changeEnd=Ta;a.scrollbarModel=pf;a.Pos=t;a.c
 U.version="5.65.9";return U});
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],59:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 (function(v){"object"==typeof exports&&"object"==typeof module?v(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define(["../../lib/codemirror"],v):v(CodeMirror)})(function(v){v.defineMode("javascript",function(Ua,A){var p,w,f;function u(a,b,d){V=a;ca=d;return b}function I(a,b){var d=a.next();if('"'==d||"'"==d)return b.tokenize=Va(d),b.tokenize(a,b);if("."==d&&a.match(/^\d[\d_]*(?:[eE][+\-]?[\d_]+)?/))return u("number","number");if("."==d&&a.match(".."))return u("spread","meta");
 if(/[\[\]{}\(\),;:\.]/.test(d))return u(d);if("="==d&&a.eat(">"))return u("=>","operator");if("0"==d&&a.match(/^(?:x[\dA-Fa-f_]+|o[0-7_]+|b[01_]+)n?/))return u("number","number");if(/\d/.test(d))return a.match(/^[\d_]*(?:n|(?:\.[\d_]*)?(?:[eE][+\-]?[\d_]+)?)?/),u("number","number");if("/"==d){if(a.eat("*"))return b.tokenize=da,da(a,b);if(a.eat("/"))return a.skipToEnd(),u("comment","comment");if(Aa(a,b,1)){a:for(var e=b=!1;null!=(d=a.next());){if(!b){if("/"==d&&!e)break a;"["==d?e=!0:e&&"]"==d&&(e=
 !1)}b=!b&&"\\"==d}a.match(/^\b(([gimyus])(?![gimyus]*\2))+\b/);return u("regexp","string-2")}a.eat("=");return u("operator","operator",a.current())}if("`"==d)return b.tokenize=W,W(a,b);if("#"==d&&"!"==a.peek())return a.skipToEnd(),u("meta","meta");if("#"==d&&a.eatWhile(ea))return u("variable","property");if("<"==d&&a.match("!--")||"-"==d&&a.match("->")&&!/\S/.test(a.string.slice(0,a.start)))return a.skipToEnd(),u("comment","comment");if(Ba.test(d))return">"==d&&b.lexical&&">"==b.lexical.type||(a.eat("=")?
@@ -13157,7 +13209,7 @@ U:2*U)},electricInput:/^\s*(?:case .*?:|default:|\{|\})$/,blockCommentStart:J?nu
 "javascript");v.defineMIME("application/javascript","javascript");v.defineMIME("application/x-javascript","javascript");v.defineMIME("application/ecmascript","javascript");v.defineMIME("application/json",{name:"javascript",json:!0});v.defineMIME("application/x-json",{name:"javascript",json:!0});v.defineMIME("application/manifest+json",{name:"javascript",json:!0});v.defineMIME("application/ld+json",{name:"javascript",jsonld:!0});v.defineMIME("text/typescript",{name:"javascript",typescript:!0});v.defineMIME("application/typescript",
 {name:"javascript",typescript:!0})});
 
-},{"../../lib/codemirror":58}],60:[function(require,module,exports){
+},{"../../lib/codemirror":61}],63:[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -13182,7 +13234,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],61:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -13359,7 +13411,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],62:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 
 module.exports = function(a, b){
   var fn = function(){};
@@ -13367,7 +13419,790 @@ module.exports = function(a, b){
   a.prototype = new fn;
   a.prototype.constructor = a;
 };
-},{}],63:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var w = d * 7;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isFinite(val)) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (msAbs >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (msAbs >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (msAbs >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
+}
+
+},{}],67:[function(require,module,exports){
+(function (process){(function (){
+/* eslint-env browser */
+
+/**
+ * This is the web browser implementation of `debug()`.
+ */
+
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = localstorage();
+exports.destroy = (() => {
+	let warned = false;
+
+	return () => {
+		if (!warned) {
+			warned = true;
+			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+		}
+	};
+})();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+// eslint-disable-next-line complexity
+function useColors() {
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
+
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
+
+	if (!this.useColors) {
+		return;
+	}
+
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
+
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
+
+	args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.debug()` when available.
+ * No-op when `console.debug` is not a "function".
+ * If `console.debug` is not available, falls back
+ * to `console.log`.
+ *
+ * @api public
+ */
+exports.log = console.debug || console.log || (() => {});
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+function load() {
+	let r;
+	try {
+		r = exports.storage.getItem('debug');
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
+
+	return r;
+}
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+module.exports = require('./common')(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
+}).call(this)}).call(this,require('_process'))
+},{"./common":68,"_process":173}],68:[function(require,module,exports){
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ */
+
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = require('ms');
+	createDebug.destroy = destroy;
+
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
+
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
+
+	createDebug.names = [];
+	createDebug.skips = [];
+
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
+
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
+
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
+
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
+
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
+		let enableOverride = null;
+		let namespacesCache;
+		let enabledCache;
+
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return '%';
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.useColors = createDebug.useColors();
+		debug.color = createDebug.selectColor(namespace);
+		debug.extend = extend;
+		debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
+
+		Object.defineProperty(debug, 'enabled', {
+			enumerable: true,
+			configurable: false,
+			get: () => {
+				if (enableOverride !== null) {
+					return enableOverride;
+				}
+				if (namespacesCache !== createDebug.namespaces) {
+					namespacesCache = createDebug.namespaces;
+					enabledCache = createDebug.enabled(namespace);
+				}
+
+				return enabledCache;
+			},
+			set: v => {
+				enableOverride = v;
+			}
+		});
+
+		// Env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		return debug;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+		createDebug.namespaces = namespaces;
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		let i;
+		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+		const len = split.length;
+
+		for (i = 0; i < len; i++) {
+			if (!split[i]) {
+				// ignore empty strings
+				continue;
+			}
+
+			namespaces = split[i].replace(/\*/g, '.*?');
+
+			if (namespaces[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + namespaces.slice(1) + '$'));
+			} else {
+				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+			}
+		}
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names.map(toNamespace),
+			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		if (name[name.length - 1] === '*') {
+			return true;
+		}
+
+		let i;
+		let len;
+
+		for (i = 0, len = createDebug.skips.length; i < len; i++) {
+			if (createDebug.skips[i].test(name)) {
+				return false;
+			}
+		}
+
+		for (i = 0, len = createDebug.names.length; i < len; i++) {
+			if (createDebug.names[i].test(name)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Convert regexp to namespace
+	*
+	* @param {RegExp} regxep
+	* @return {String} namespace
+	* @api private
+	*/
+	function toNamespace(regexp) {
+		return regexp.toString()
+			.substring(2, regexp.toString().length - 2)
+			.replace(/\.\*\?$/, '*');
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	/**
+	* XXX DO NOT USE. This is a temporary stub function.
+	* XXX It WILL be removed in the next major release.
+	*/
+	function destroy() {
+		console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
+}
+
+module.exports = setup;
+
+},{"ms":66}],69:[function(require,module,exports){
+'use strict';
+
+var hasPropertyDescriptors = require('has-property-descriptors')();
+
+var GetIntrinsic = require('get-intrinsic');
+
+var $defineProperty = hasPropertyDescriptors && GetIntrinsic('%Object.defineProperty%', true);
+if ($defineProperty) {
+	try {
+		$defineProperty({}, 'a', { value: 1 });
+	} catch (e) {
+		// IE 8 has a broken defineProperty
+		$defineProperty = false;
+	}
+}
+
+var $SyntaxError = GetIntrinsic('%SyntaxError%');
+var $TypeError = GetIntrinsic('%TypeError%');
+
+var gopd = require('gopd');
+
+/** @type {(obj: Record<PropertyKey, unknown>, property: PropertyKey, value: unknown, nonEnumerable?: boolean | null, nonWritable?: boolean | null, nonConfigurable?: boolean | null, loose?: boolean) => void} */
+module.exports = function defineDataProperty(
+	obj,
+	property,
+	value
+) {
+	if (!obj || (typeof obj !== 'object' && typeof obj !== 'function')) {
+		throw new $TypeError('`obj` must be an object or a function`');
+	}
+	if (typeof property !== 'string' && typeof property !== 'symbol') {
+		throw new $TypeError('`property` must be a string or a symbol`');
+	}
+	if (arguments.length > 3 && typeof arguments[3] !== 'boolean' && arguments[3] !== null) {
+		throw new $TypeError('`nonEnumerable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 4 && typeof arguments[4] !== 'boolean' && arguments[4] !== null) {
+		throw new $TypeError('`nonWritable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 5 && typeof arguments[5] !== 'boolean' && arguments[5] !== null) {
+		throw new $TypeError('`nonConfigurable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 6 && typeof arguments[6] !== 'boolean') {
+		throw new $TypeError('`loose`, if provided, must be a boolean');
+	}
+
+	var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
+	var nonWritable = arguments.length > 4 ? arguments[4] : null;
+	var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
+	var loose = arguments.length > 6 ? arguments[6] : false;
+
+	/* @type {false | TypedPropertyDescriptor<unknown>} */
+	var desc = !!gopd && gopd(obj, property);
+
+	if ($defineProperty) {
+		$defineProperty(obj, property, {
+			configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
+			enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
+			value: value,
+			writable: nonWritable === null && desc ? desc.writable : !nonWritable
+		});
+	} else if (loose || (!nonEnumerable && !nonWritable && !nonConfigurable)) {
+		// must fall back to [[Set]], and was not explicitly asked to make non-enumerable, non-writable, or non-configurable
+		obj[property] = value; // eslint-disable-line no-param-reassign
+	} else {
+		throw new $SyntaxError('This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.');
+	}
+};
+
+},{"get-intrinsic":92,"gopd":95,"has-property-descriptors":98}],70:[function(require,module,exports){
 'use strict'
 
 module.exports = ready
@@ -13386,7 +14221,7 @@ function ready (callback) {
   })
 }
 
-},{}],64:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = (function () {
   if (typeof self !== 'undefined') {
     return self;
@@ -13397,7 +14232,7 @@ module.exports = (function () {
   }
 })();
 
-},{}],65:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 
 module.exports = require('./socket');
 
@@ -13409,7 +14244,7 @@ module.exports = require('./socket');
  */
 module.exports.parser = require('engine.io-parser');
 
-},{"./socket":66,"engine.io-parser":77}],66:[function(require,module,exports){
+},{"./socket":73,"engine.io-parser":83}],73:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -14159,7 +14994,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
   return filteredUpgrades;
 };
 
-},{"./transport":67,"./transports/index":68,"component-emitter":61,"debug":74,"engine.io-parser":77,"indexof":101,"parseqs":156,"parseuri":157}],67:[function(require,module,exports){
+},{"./transport":74,"./transports/index":75,"component-emitter":64,"debug":81,"engine.io-parser":83,"indexof":108,"parseqs":169,"parseuri":170}],74:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -14322,7 +15157,7 @@ Transport.prototype.onClose = function () {
   this.emit('close');
 };
 
-},{"component-emitter":61,"engine.io-parser":77}],68:[function(require,module,exports){
+},{"component-emitter":64,"engine.io-parser":83}],75:[function(require,module,exports){
 /**
  * Module dependencies
  */
@@ -14377,7 +15212,7 @@ function polling (opts) {
   }
 }
 
-},{"./polling-jsonp":69,"./polling-xhr":70,"./websocket":72,"./xmlhttprequest":73}],69:[function(require,module,exports){
+},{"./polling-jsonp":76,"./polling-xhr":77,"./websocket":79,"./xmlhttprequest":80}],76:[function(require,module,exports){
 /**
  * Module requirements.
  */
@@ -14609,7 +15444,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
   }
 };
 
-},{"../globalThis":64,"./polling":71,"component-inherit":62}],70:[function(require,module,exports){
+},{"../globalThis":71,"./polling":78,"component-inherit":65}],77:[function(require,module,exports){
 /* global attachEvent */
 
 /**
@@ -15029,7 +15864,7 @@ function unloadHandler () {
   }
 }
 
-},{"../globalThis":64,"./polling":71,"./xmlhttprequest":73,"component-emitter":61,"component-inherit":62,"debug":74}],71:[function(require,module,exports){
+},{"../globalThis":71,"./polling":78,"./xmlhttprequest":80,"component-emitter":64,"component-inherit":65,"debug":81}],78:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -15276,7 +16111,7 @@ Polling.prototype.uri = function () {
   return schema + '://' + (ipv6 ? '[' + this.hostname + ']' : this.hostname) + port + this.path + query;
 };
 
-},{"../transport":67,"./xmlhttprequest":73,"component-inherit":62,"debug":74,"engine.io-parser":77,"parseqs":156,"yeast":227}],72:[function(require,module,exports){
+},{"../transport":74,"./xmlhttprequest":80,"component-inherit":65,"debug":81,"engine.io-parser":83,"parseqs":169,"yeast":235}],79:[function(require,module,exports){
 (function (Buffer){(function (){
 /**
  * Module dependencies.
@@ -15579,7 +16414,7 @@ WS.prototype.check = function () {
 };
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"../transport":67,"buffer":35,"component-inherit":62,"debug":74,"engine.io-parser":77,"parseqs":156,"ws":34,"yeast":227}],73:[function(require,module,exports){
+},{"../transport":74,"buffer":35,"component-inherit":65,"debug":81,"engine.io-parser":83,"parseqs":169,"ws":34,"yeast":235}],80:[function(require,module,exports){
 // browser shim for xmlhttprequest module
 
 var hasCORS = require('has-cors');
@@ -15619,7 +16454,7 @@ module.exports = function (opts) {
   }
 };
 
-},{"../globalThis":64,"has-cors":91}],74:[function(require,module,exports){
+},{"../globalThis":71,"has-cors":97}],81:[function(require,module,exports){
 (function (process){(function (){
 /**
  * This is the web browser implementation of `debug()`.
@@ -15818,7 +16653,7 @@ function localstorage() {
 }
 
 }).call(this)}).call(this,require('_process'))
-},{"./debug":75,"_process":160}],75:[function(require,module,exports){
+},{"./debug":82,"_process":173}],82:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -16045,161 +16880,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":76}],76:[function(require,module,exports){
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  if (ms >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (ms >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (ms >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (ms >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  return plural(ms, d, 'day') ||
-    plural(ms, h, 'hour') ||
-    plural(ms, m, 'minute') ||
-    plural(ms, s, 'second') ||
-    ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, n, name) {
-  if (ms < n) {
-    return;
-  }
-  if (ms < n * 1.5) {
-    return Math.floor(ms / n) + ' ' + name;
-  }
-  return Math.ceil(ms / n) + ' ' + name + 's';
-}
-
-},{}],77:[function(require,module,exports){
+},{"ms":135}],83:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -16806,7 +17487,7 @@ exports.decodePayloadAsBinary = function (data, binaryType, callback) {
   });
 };
 
-},{"./keys":78,"./utf8":79,"after":20,"arraybuffer.slice":21,"base64-arraybuffer":31,"blob":33,"has-binary2":89}],78:[function(require,module,exports){
+},{"./keys":84,"./utf8":85,"after":20,"arraybuffer.slice":21,"base64-arraybuffer":31,"blob":33,"has-binary2":96}],84:[function(require,module,exports){
 
 /**
  * Gets the keys for an object.
@@ -16827,7 +17508,7 @@ module.exports = Object.keys || function keys (obj){
   return arr;
 };
 
-},{}],79:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 /*! https://mths.be/utf8js v2.1.2 by @mathias */
 
 var stringFromCharCode = String.fromCharCode;
@@ -17039,7 +17720,7 @@ module.exports = {
 	decode: utf8decode
 };
 
-},{}],80:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 'use strict';
 
 /**
@@ -17110,7 +17791,7 @@ function createError(err, code, props) {
 
 module.exports = createError;
 
-},{}],81:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -17609,7 +18290,7 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
   }
 }
 
-},{}],82:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 module.exports = stringify
 stringify.default = stringify
 stringify.stable = deterministicStringify
@@ -17840,49 +18521,81 @@ function replaceGetterValues (replacer) {
   }
 }
 
-},{}],83:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 'use strict';
 
 /* eslint no-invalid-this: 1 */
 
 var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
-var slice = Array.prototype.slice;
 var toStr = Object.prototype.toString;
+var max = Math.max;
 var funcType = '[object Function]';
+
+var concatty = function concatty(a, b) {
+    var arr = [];
+
+    for (var i = 0; i < a.length; i += 1) {
+        arr[i] = a[i];
+    }
+    for (var j = 0; j < b.length; j += 1) {
+        arr[j + a.length] = b[j];
+    }
+
+    return arr;
+};
+
+var slicy = function slicy(arrLike, offset) {
+    var arr = [];
+    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
+        arr[j] = arrLike[i];
+    }
+    return arr;
+};
+
+var joiny = function (arr, joiner) {
+    var str = '';
+    for (var i = 0; i < arr.length; i += 1) {
+        str += arr[i];
+        if (i + 1 < arr.length) {
+            str += joiner;
+        }
+    }
+    return str;
+};
 
 module.exports = function bind(that) {
     var target = this;
-    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+    if (typeof target !== 'function' || toStr.apply(target) !== funcType) {
         throw new TypeError(ERROR_MESSAGE + target);
     }
-    var args = slice.call(arguments, 1);
+    var args = slicy(arguments, 1);
 
     var bound;
     var binder = function () {
         if (this instanceof bound) {
             var result = target.apply(
                 this,
-                args.concat(slice.call(arguments))
+                concatty(args, arguments)
             );
             if (Object(result) === result) {
                 return result;
             }
             return this;
-        } else {
-            return target.apply(
-                that,
-                args.concat(slice.call(arguments))
-            );
         }
+        return target.apply(
+            that,
+            concatty(args, arguments)
+        );
+
     };
 
-    var boundLength = Math.max(0, target.length - args.length);
+    var boundLength = max(0, target.length - args.length);
     var boundArgs = [];
     for (var i = 0; i < boundLength; i++) {
-        boundArgs.push('$' + i);
+        boundArgs[i] = '$' + i;
     }
 
-    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
 
     if (target.prototype) {
         var Empty = function Empty() {};
@@ -17894,14 +18607,14 @@ module.exports = function bind(that) {
     return bound;
 };
 
-},{}],84:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
 
 module.exports = Function.prototype.bind || implementation;
 
-},{"./implementation":83}],85:[function(require,module,exports){
+},{"./implementation":89}],91:[function(require,module,exports){
 // originally pulled out of simple-peer
 
 module.exports = function getBrowserRTC () {
@@ -17918,7 +18631,7 @@ module.exports = function getBrowserRTC () {
   return wrtc
 }
 
-},{}],86:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 'use strict';
 
 var undefined;
@@ -18135,7 +18848,7 @@ var LEGACY_ALIASES = {
 };
 
 var bind = require('function-bind');
-var hasOwn = require('has');
+var hasOwn = require('hasown');
 var $concat = bind.call(Function.call, Array.prototype.concat);
 var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
 var $replace = bind.call(Function.call, String.prototype.replace);
@@ -18271,7 +18984,7 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 	return value;
 };
 
-},{"function-bind":84,"has":95,"has-proto":92,"has-symbols":93}],87:[function(require,module,exports){
+},{"function-bind":90,"has-proto":99,"has-symbols":100,"hasown":102}],93:[function(require,module,exports){
 (function (global){(function (){
 var topLevel = typeof global !== 'undefined' ? global :
     typeof window !== 'undefined' ? window : {}
@@ -18292,7 +19005,7 @@ if (typeof document !== 'undefined') {
 module.exports = doccy;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"min-document":34}],88:[function(require,module,exports){
+},{"min-document":34}],94:[function(require,module,exports){
 (function (global){(function (){
 var win;
 
@@ -18309,7 +19022,25 @@ if (typeof window !== "undefined") {
 module.exports = win;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],89:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
+'use strict';
+
+var GetIntrinsic = require('get-intrinsic');
+
+var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
+
+if ($gOPD) {
+	try {
+		$gOPD([], 'length');
+	} catch (e) {
+		// IE 8 has a broken gOPD
+		$gOPD = null;
+	}
+}
+
+module.exports = $gOPD;
+
+},{"get-intrinsic":92}],96:[function(require,module,exports){
 (function (Buffer){(function (){
 /* global Blob File */
 
@@ -18377,14 +19108,7 @@ function hasBinary (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":35,"isarray":90}],90:[function(require,module,exports){
-var toString = {}.toString;
-
-module.exports = Array.isArray || function (arr) {
-  return toString.call(arr) == '[object Array]';
-};
-
-},{}],91:[function(require,module,exports){
+},{"buffer":35,"isarray":110}],97:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -18403,7 +19127,42 @@ try {
   module.exports = false;
 }
 
-},{}],92:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
+'use strict';
+
+var GetIntrinsic = require('get-intrinsic');
+
+var $defineProperty = GetIntrinsic('%Object.defineProperty%', true);
+
+var hasPropertyDescriptors = function hasPropertyDescriptors() {
+	if ($defineProperty) {
+		try {
+			$defineProperty({}, 'a', { value: 1 });
+			return true;
+		} catch (e) {
+			// IE 8 has a broken defineProperty
+			return false;
+		}
+	}
+	return false;
+};
+
+hasPropertyDescriptors.hasArrayLengthDefineBug = function hasArrayLengthDefineBug() {
+	// node v0.6 has a bug where array lengths can be Set but not Defined
+	if (!hasPropertyDescriptors()) {
+		return null;
+	}
+	try {
+		return $defineProperty([], 'length', { value: 1 }).length !== 1;
+	} catch (e) {
+		// In Firefox 4-22, defining length on an array throws an exception.
+		return true;
+	}
+};
+
+module.exports = hasPropertyDescriptors;
+
+},{"get-intrinsic":92}],99:[function(require,module,exports){
 'use strict';
 
 var test = {
@@ -18416,7 +19175,7 @@ module.exports = function hasProto() {
 	return { __proto__: test }.foo === test.foo && !({ __proto__: null } instanceof $Object);
 };
 
-},{}],93:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 'use strict';
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
@@ -18431,7 +19190,7 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-},{"./shams":94}],94:[function(require,module,exports){
+},{"./shams":101}],101:[function(require,module,exports){
 'use strict';
 
 /* eslint complexity: [2, 18], max-statements: [2, 33] */
@@ -18475,14 +19234,17 @@ module.exports = function hasSymbols() {
 	return true;
 };
 
-},{}],95:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 'use strict';
 
+var call = Function.prototype.call;
+var $hasOwn = Object.prototype.hasOwnProperty;
 var bind = require('function-bind');
 
-module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+/** @type {(o: {}, p: PropertyKey) => p is keyof o} */
+module.exports = bind.call(call, $hasOwn);
 
-},{"function-bind":84}],96:[function(require,module,exports){
+},{"function-bind":90}],103:[function(require,module,exports){
 module.exports = attributeToProperty
 
 var transform = {
@@ -18503,7 +19265,7 @@ function attributeToProperty (h) {
   }
 }
 
-},{}],97:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 var attrToProp = require('hyperscript-attribute-to-property')
 
 var VAR = 0, TEXT = 1, OPEN = 2, CLOSE = 3, ATTR = 4
@@ -18800,7 +19562,7 @@ var closeRE = RegExp('^(' + [
 ].join('|') + ')(?:[\.#][a-zA-Z0-9\u007F-\uFFFF_:-]+)*$')
 function selfClosing (tag) { return closeRE.test(tag) }
 
-},{"hyperscript-attribute-to-property":96}],98:[function(require,module,exports){
+},{"hyperscript-attribute-to-property":103}],105:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = require('@babel/runtime/helpers/classCallCheck');
@@ -19224,7 +19986,7 @@ Browser.type = 'languageDetector';
 
 module.exports = Browser;
 
-},{"@babel/runtime/helpers/classCallCheck":5,"@babel/runtime/helpers/createClass":6}],99:[function(require,module,exports){
+},{"@babel/runtime/helpers/classCallCheck":5,"@babel/runtime/helpers/createClass":6}],106:[function(require,module,exports){
 'use strict';
 
 var _typeof = require('@babel/runtime/helpers/typeof');
@@ -22082,7 +22844,7 @@ instance.createInstance = I18n.createInstance;
 
 module.exports = instance;
 
-},{"@babel/runtime/helpers/assertThisInitialized":4,"@babel/runtime/helpers/classCallCheck":5,"@babel/runtime/helpers/createClass":6,"@babel/runtime/helpers/defineProperty":7,"@babel/runtime/helpers/getPrototypeOf":8,"@babel/runtime/helpers/inherits":9,"@babel/runtime/helpers/possibleConstructorReturn":12,"@babel/runtime/helpers/toArray":14,"@babel/runtime/helpers/typeof":17}],100:[function(require,module,exports){
+},{"@babel/runtime/helpers/assertThisInitialized":4,"@babel/runtime/helpers/classCallCheck":5,"@babel/runtime/helpers/createClass":6,"@babel/runtime/helpers/defineProperty":7,"@babel/runtime/helpers/getPrototypeOf":8,"@babel/runtime/helpers/inherits":9,"@babel/runtime/helpers/possibleConstructorReturn":12,"@babel/runtime/helpers/toArray":14,"@babel/runtime/helpers/typeof":17}],107:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -22169,7 +22931,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],101:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -22180,7 +22942,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],102:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -22209,7 +22971,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],103:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+},{}],111:[function(require,module,exports){
 /*jshint node:true */
 /* globals define */
 /*
@@ -22296,7 +23065,7 @@ if (typeof define === "function" && define.amd) {
 
   })(module);
 }
-},{"./src/index":121}],104:[function(require,module,exports){
+},{"./src/index":129}],112:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -22360,7 +23129,7 @@ Directives.prototype.readIgnored = function(input) {
 
 module.exports.Directives = Directives;
 
-},{}],105:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -22554,7 +23323,7 @@ InputScanner.prototype.lookBack = function(testVal) {
 
 module.exports.InputScanner = InputScanner;
 
-},{}],106:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -22749,7 +23518,7 @@ module.exports.Options = Options;
 module.exports.normalizeOpts = _normalizeOpts;
 module.exports.mergeOpts = _mergeOpts;
 
-},{}],107:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 /*jshint node:true */
 /*
   The MIT License (MIT)
@@ -23170,7 +23939,7 @@ Output.prototype.ensure_empty_line_above = function(starts_with, ends_with) {
 
 module.exports.Output = Output;
 
-},{}],108:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -23266,7 +24035,7 @@ Pattern.prototype._update = function() {};
 
 module.exports.Pattern = Pattern;
 
-},{}],109:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -23479,7 +24248,7 @@ TemplatablePattern.prototype._read_template = function() {
 
 module.exports.TemplatablePattern = TemplatablePattern;
 
-},{"./pattern":108}],110:[function(require,module,exports){
+},{"./pattern":116}],118:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -23535,7 +24304,7 @@ function Token(type, text, newlines, whitespace_before) {
 
 module.exports.Token = Token;
 
-},{}],111:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -23677,7 +24446,7 @@ Tokenizer.prototype._readWhitespace = function() {
 module.exports.Tokenizer = Tokenizer;
 module.exports.TOKEN = TOKEN;
 
-},{"../core/inputscanner":105,"../core/token":110,"../core/tokenstream":112,"./whitespacepattern":113}],112:[function(require,module,exports){
+},{"../core/inputscanner":113,"../core/token":118,"../core/tokenstream":120,"./whitespacepattern":121}],120:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -23757,7 +24526,7 @@ TokenStream.prototype.add = function(token) {
 
 module.exports.TokenStream = TokenStream;
 
-},{}],113:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -23864,7 +24633,7 @@ WhitespacePattern.prototype.__split = function(regexp, input_string) {
 
 module.exports.WhitespacePattern = WhitespacePattern;
 
-},{"../core/pattern":108}],114:[function(require,module,exports){
+},{"../core/pattern":116}],122:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -24125,12 +24894,10 @@ Beautifier.prototype.beautify = function() {
 
       if (variable.match(/[ :]$/)) {
         // we have a variable or pseudo-class, add it and insert one space before continuing
-        variable = this.eatString(": ").replace(/\s$/, '');
+        variable = this.eatString(": ").replace(/\s+$/, '');
         this.print_string(variable);
         this._output.space_before_token = true;
       }
-
-      variable = variable.replace(/\s$/, '');
 
       // might be sass variable
       if (parenLevel === 0 && variable.indexOf(':') !== -1) {
@@ -24151,12 +24918,10 @@ Beautifier.prototype.beautify = function() {
 
         if (variableOrRule.match(/[ :]$/)) {
           // we have a variable or pseudo-class, add it and insert one space before continuing
-          variableOrRule = this.eatString(": ").replace(/\s$/, '');
+          variableOrRule = this.eatString(": ").replace(/\s+$/, '');
           this.print_string(variableOrRule);
           this._output.space_before_token = true;
         }
-
-        variableOrRule = variableOrRule.replace(/\s$/, '');
 
         // might be less variable
         if (parenLevel === 0 && variableOrRule.indexOf(':') !== -1) {
@@ -24417,7 +25182,7 @@ Beautifier.prototype.beautify = function() {
 
 module.exports.Beautifier = Beautifier;
 
-},{"../core/directives":104,"../core/inputscanner":105,"../core/output":107,"./options":116}],115:[function(require,module,exports){
+},{"../core/directives":112,"../core/inputscanner":113,"../core/output":115,"./options":124}],123:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -24461,7 +25226,7 @@ module.exports.defaultOptions = function() {
   return new Options();
 };
 
-},{"./beautifier":114,"./options":116}],116:[function(require,module,exports){
+},{"./beautifier":122,"./options":124}],124:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -24519,7 +25284,7 @@ Options.prototype = new BaseOptions();
 
 module.exports.Options = Options;
 
-},{"../core/options":106}],117:[function(require,module,exports){
+},{"../core/options":114}],125:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -25178,7 +25943,7 @@ Beautifier.prototype._get_tag_open_token = function(raw_token) { //function to g
 
   parser_token.is_unformatted = !parser_token.tag_complete && in_array(parser_token.tag_check, this._options.unformatted);
   parser_token.is_content_unformatted = !parser_token.is_empty_element && in_array(parser_token.tag_check, this._options.content_unformatted);
-  parser_token.is_inline_element = in_array(parser_token.tag_name, this._options.inline) || parser_token.tag_name.includes("-") || parser_token.tag_start_char === '{';
+  parser_token.is_inline_element = in_array(parser_token.tag_name, this._options.inline) || (this._options.inline_custom_elements && parser_token.tag_name.includes("-")) || parser_token.tag_start_char === '{';
 
   return parser_token;
 };
@@ -25397,7 +26162,7 @@ Beautifier.prototype._do_optional_end_element = function(parser_token) {
 
 module.exports.Beautifier = Beautifier;
 
-},{"../core/output":107,"../html/options":119,"../html/tokenizer":120}],118:[function(require,module,exports){
+},{"../core/output":115,"../html/options":127,"../html/tokenizer":128}],126:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -25441,7 +26206,7 @@ module.exports.defaultOptions = function() {
   return new Options();
 };
 
-},{"./beautifier":117,"./options":119}],119:[function(require,module,exports){
+},{"./beautifier":125,"./options":127}],127:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -25505,6 +26270,7 @@ function Options(options) {
     // obsolete inline tags
     'acronym', 'big', 'strike', 'tt'
   ]);
+  this.inline_custom_elements = this._get_boolean('inline_custom_elements', true);
   this.void_elements = this._get_array('void_elements', [
     // HTLM void elements - aka self-closing tags - aka singletons
     // https://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
@@ -25535,7 +26301,7 @@ Options.prototype = new BaseOptions();
 
 module.exports.Options = Options;
 
-},{"../core/options":106}],120:[function(require,module,exports){
+},{"../core/options":114}],128:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -25869,7 +26635,7 @@ Tokenizer.prototype._read_content_word = function(c) {
 module.exports.Tokenizer = Tokenizer;
 module.exports.TOKEN = TOKEN;
 
-},{"../core/directives":104,"../core/pattern":108,"../core/templatablepattern":109,"../core/tokenizer":111}],121:[function(require,module,exports){
+},{"../core/directives":112,"../core/pattern":116,"../core/templatablepattern":117,"../core/tokenizer":119}],129:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -25915,7 +26681,7 @@ module.exports.js = js_beautify;
 module.exports.css = css_beautify;
 module.exports.html = style_html;
 
-},{"./css/index":115,"./html/index":118,"./javascript/index":124}],122:[function(require,module,exports){
+},{"./css/index":123,"./html/index":126,"./javascript/index":132}],130:[function(require,module,exports){
 /* jshint node: true, curly: false */
 // Parts of this section of code is taken from acorn.
 //
@@ -25953,12 +26719,13 @@ var nonASCIIidentifierChars = "\\u0300-\\u036f\\u0483-\\u0487\\u0591-\\u05bd\\u0
 //var nonASCIIidentifierStart = new RegExp("[" + nonASCIIidentifierStartChars + "]");
 //var nonASCIIidentifier = new RegExp("[" + nonASCIIidentifierStartChars + nonASCIIidentifierChars + "]");
 
-var identifierStart = "(?:\\\\u[0-9a-fA-F]{4}|[" + baseASCIIidentifierStartChars + nonASCIIidentifierStartChars + "])";
-var identifierChars = "(?:\\\\u[0-9a-fA-F]{4}|[" + baseASCIIidentifierChars + nonASCIIidentifierStartChars + nonASCIIidentifierChars + "])*";
+var unicodeEscapeOrCodePoint = "\\\\u[0-9a-fA-F]{4}|\\\\u\\{[0-9a-fA-F]+\\}";
+var identifierStart = "(?:" + unicodeEscapeOrCodePoint + "|[" + baseASCIIidentifierStartChars + nonASCIIidentifierStartChars + "])";
+var identifierChars = "(?:" + unicodeEscapeOrCodePoint + "|[" + baseASCIIidentifierChars + nonASCIIidentifierStartChars + nonASCIIidentifierChars + "])*";
 
 exports.identifier = new RegExp(identifierStart + identifierChars, 'g');
 exports.identifierStart = new RegExp(identifierStart);
-exports.identifierMatch = new RegExp("(?:\\\\u[0-9a-fA-F]{4}|[" + baseASCIIidentifierChars + nonASCIIidentifierStartChars + nonASCIIidentifierChars + "])+");
+exports.identifierMatch = new RegExp("(?:" + unicodeEscapeOrCodePoint + "|[" + baseASCIIidentifierChars + nonASCIIidentifierStartChars + nonASCIIidentifierChars + "])+");
 
 var nonASCIIwhitespace = /[\u1680\u180e\u2000-\u200a\u202f\u205f\u3000\ufeff]/; // jshint ignore:line
 
@@ -25974,7 +26741,7 @@ exports.newline = /[\n\r\u2028\u2029]/;
 exports.lineBreak = new RegExp('\r\n|' + exports.newline.source);
 exports.allLineBreaks = new RegExp(exports.lineBreak.source, 'g');
 
-},{}],123:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -26868,7 +27635,9 @@ Beautifier.prototype.handle_word = function(current_token) {
   }
 
   if (this._flags.last_token.type === TOKEN.COMMA || this._flags.last_token.type === TOKEN.START_EXPR || this._flags.last_token.type === TOKEN.EQUALS || this._flags.last_token.type === TOKEN.OPERATOR) {
-    if (!this.start_of_object_property()) {
+    if (!this.start_of_object_property() && !(
+        // start of object property is different for numeric values with +/- prefix operators
+        in_array(this._flags.last_token.text, ['+', '-']) && this._last_last_text === ':' && this._flags.parent.mode === MODE.ObjectLiteral)) {
       this.allow_wrap_or_preserved_newline(current_token);
     }
   }
@@ -27145,6 +27914,12 @@ Beautifier.prototype.handle_operator = function(current_token) {
 
   if (current_token.text === '::') {
     // no spaces around exotic namespacing syntax operator
+    this.print_token(current_token);
+    return;
+  }
+
+  if (in_array(current_token.text, ['-', '+']) && this.start_of_object_property()) {
+    // numeric value with +/- symbol in front as a property
     this.print_token(current_token);
     return;
   }
@@ -27448,7 +28223,7 @@ Beautifier.prototype.handle_eof = function(current_token) {
 
 module.exports.Beautifier = Beautifier;
 
-},{"../core/output":107,"../core/token":110,"./acorn":122,"./options":125,"./tokenizer":126}],124:[function(require,module,exports){
+},{"../core/output":115,"../core/token":118,"./acorn":130,"./options":133,"./tokenizer":134}],132:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -27492,7 +28267,7 @@ module.exports.defaultOptions = function() {
   return new Options();
 };
 
-},{"./beautifier":123,"./options":125}],125:[function(require,module,exports){
+},{"./beautifier":131,"./options":133}],133:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -27587,7 +28362,7 @@ Options.prototype = new BaseOptions();
 
 module.exports.Options = Options;
 
-},{"../core/options":106}],126:[function(require,module,exports){
+},{"../core/options":114}],134:[function(require,module,exports){
 /*jshint node:true */
 /*
 
@@ -28074,6 +28849,9 @@ function unescape_string(s) {
         matched = input_scan.match(/x([0-9A-Fa-f]{2})/g);
       } else if (input_scan.peek() === 'u') {
         matched = input_scan.match(/u([0-9A-Fa-f]{4})/g);
+        if (!matched) {
+          matched = input_scan.match(/u\{([0-9A-Fa-f]+)\}/g);
+        }
       } else {
         out += '\\';
         if (input_scan.hasNext()) {
@@ -28097,7 +28875,9 @@ function unescape_string(s) {
       } else if (escaped >= 0x00 && escaped < 0x20) {
         // leave 0x00...0x1f escaped
         out += '\\' + matched[0];
-        continue;
+      } else if (escaped > 0x10FFFF) {
+        // If the escape sequence is out of bounds, keep the original sequence and continue conversion
+        out += '\\' + matched[0];
       } else if (escaped === 0x22 || escaped === 0x27 || escaped === 0x5c) {
         // single-quote, apostrophe, backslash - escape these
         out += '\\' + String.fromCharCode(escaped);
@@ -28170,7 +28950,161 @@ module.exports.TOKEN = TOKEN;
 module.exports.positionable_operators = positionable_operators.slice();
 module.exports.line_starters = line_starters.slice();
 
-},{"../core/directives":104,"../core/inputscanner":105,"../core/pattern":108,"../core/templatablepattern":109,"../core/tokenizer":111,"./acorn":122}],127:[function(require,module,exports){
+},{"../core/directives":112,"../core/inputscanner":113,"../core/pattern":116,"../core/templatablepattern":117,"../core/tokenizer":119,"./acorn":130}],135:[function(require,module,exports){
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+},{}],136:[function(require,module,exports){
 assert.notEqual = notEqual
 assert.notOk = notOk
 assert.equal = equal
@@ -28194,7 +29128,7 @@ function assert (t, m) {
   if (!t) throw new Error(m || 'AssertionError')
 }
 
-},{}],128:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 var splice = require('remove-array-items')
 var nanotiming = require('nanotiming')
 var assert = require('assert')
@@ -28358,7 +29292,7 @@ Nanobus.prototype._emit = function (arr, eventName, data, uuid) {
   }
 }
 
-},{"assert":127,"nanotiming":150,"remove-array-items":129}],129:[function(require,module,exports){
+},{"assert":136,"nanotiming":159,"remove-array-items":138}],138:[function(require,module,exports){
 'use strict'
 
 /**
@@ -28387,7 +29321,7 @@ module.exports = function removeItems (arr, startIdx, removeCount) {
   arr.length = len
 }
 
-},{}],130:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 const document = require('global/document')
 const nanotiming = require('nanotiming')
 const morph = require('nanomorph')
@@ -28547,7 +29481,7 @@ Nanocomponent.prototype.update = function () {
   throw new Error('nanocomponent: update should be implemented!')
 }
 
-},{"assert":131,"global/document":87,"nanomorph":143,"nanotiming":150,"on-load":154}],131:[function(require,module,exports){
+},{"assert":140,"global/document":93,"nanomorph":152,"nanotiming":159,"on-load":167}],140:[function(require,module,exports){
 module.exports = assert
 
 class AssertionError extends Error {}
@@ -28567,7 +29501,7 @@ function assert (t, m) {
   }
 }
 
-},{}],132:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 var assert = require('assert')
 
 var safeExternalLink = /(noopener|noreferrer) (noopener|noreferrer)/
@@ -28612,7 +29546,7 @@ function href (cb, root) {
   })
 }
 
-},{"assert":127}],133:[function(require,module,exports){
+},{"assert":136}],142:[function(require,module,exports){
 'use strict'
 
 var trailingNewlineRegex = /\n[\s]+$/
@@ -28746,7 +29680,7 @@ module.exports = function appendChild (el, childs) {
   }
 }
 
-},{}],134:[function(require,module,exports){
+},{}],143:[function(require,module,exports){
 'use strict'
 
 module.exports = [
@@ -28756,17 +29690,17 @@ module.exports = [
   'readonly', 'required', 'reversed', 'selected'
 ]
 
-},{}],135:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 module.exports = require('./dom')(document)
 
-},{"./dom":137}],136:[function(require,module,exports){
+},{"./dom":146}],145:[function(require,module,exports){
 'use strict'
 
 module.exports = [
   'indeterminate'
 ]
 
-},{}],137:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 'use strict'
 
 var hyperx = require('hyperx')
@@ -28884,7 +29818,7 @@ module.exports = function (document) {
   return exports
 }
 
-},{"./append-child":133,"./bool-props":134,"./direct-props":136,"./svg-tags":139,"hyperx":97}],138:[function(require,module,exports){
+},{"./append-child":142,"./bool-props":143,"./direct-props":145,"./svg-tags":148,"hyperx":104}],147:[function(require,module,exports){
 'use strict'
 
 function nanohtmlRawBrowser (tag) {
@@ -28899,7 +29833,7 @@ function toArray (arr) {
 
 module.exports = nanohtmlRawBrowser
 
-},{}],139:[function(require,module,exports){
+},{}],148:[function(require,module,exports){
 'use strict'
 
 module.exports = [
@@ -28919,7 +29853,7 @@ module.exports = [
   'tspan', 'use', 'view', 'vkern'
 ]
 
-},{}],140:[function(require,module,exports){
+},{}],149:[function(require,module,exports){
 // This file replaces `format.js` in bundlers like webpack or Rollup,
 // according to `browser` config in `package.json`.
 
@@ -28961,7 +29895,7 @@ module.exports = function (random, alphabet, size) {
   }
 }
 
-},{}],141:[function(require,module,exports){
+},{}],150:[function(require,module,exports){
 var assert = require('assert')
 
 var emojis = {
@@ -29126,7 +30060,7 @@ function pad (str) {
   return str.length !== 2 ? 0 + str : str
 }
 
-},{"assert":22}],142:[function(require,module,exports){
+},{"assert":22}],151:[function(require,module,exports){
 module.exports = LRU
 
 function LRU (opts) {
@@ -29264,7 +30198,7 @@ LRU.prototype.evict = function () {
   this.remove(this.tail)
 }
 
-},{}],143:[function(require,module,exports){
+},{}],152:[function(require,module,exports){
 var assert = require('nanoassert')
 var morph = require('./lib/morph')
 
@@ -29429,7 +30363,7 @@ function same (a, b) {
   return false
 }
 
-},{"./lib/morph":145,"nanoassert":127}],144:[function(require,module,exports){
+},{"./lib/morph":154,"nanoassert":136}],153:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -29476,7 +30410,7 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],145:[function(require,module,exports){
+},{}],154:[function(require,module,exports){
 var events = require('./events')
 var eventsLength = events.length
 
@@ -29651,7 +30585,7 @@ function updateAttribute (newNode, oldNode, name) {
   }
 }
 
-},{"./events":144}],146:[function(require,module,exports){
+},{"./events":153}],155:[function(require,module,exports){
 var reg = /([^?=&]+)(=([^&]*))?/g
 var assert = require('assert')
 
@@ -29675,7 +30609,7 @@ function qs (url) {
   return obj
 }
 
-},{"assert":127}],147:[function(require,module,exports){
+},{"assert":136}],156:[function(require,module,exports){
 'use strict'
 
 var assert = require('assert')
@@ -29712,7 +30646,7 @@ function nanoraf (render, raf) {
   }
 }
 
-},{"assert":127}],148:[function(require,module,exports){
+},{"assert":136}],157:[function(require,module,exports){
 var assert = require('assert')
 var wayfarer = require('wayfarer')
 
@@ -29768,7 +30702,7 @@ function pathname (routename, isElectron) {
   return decodeURI(routename.replace(suffix, '').replace(normalize, '/'))
 }
 
-},{"assert":127,"wayfarer":225}],149:[function(require,module,exports){
+},{"assert":136,"wayfarer":233}],158:[function(require,module,exports){
 var assert = require('assert')
 
 var hasWindow = typeof window !== 'undefined'
@@ -29825,7 +30759,7 @@ NanoScheduler.prototype.setTimeout = function (cb) {
 
 module.exports = createScheduler
 
-},{"assert":127}],150:[function(require,module,exports){
+},{"assert":136}],159:[function(require,module,exports){
 var scheduler = require('nanoscheduler')()
 var assert = require('assert')
 
@@ -29875,99 +30809,7 @@ function noop (cb) {
   }
 }
 
-},{"assert":127,"nanoscheduler":149}],151:[function(require,module,exports){
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-'use strict';
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-},{}],152:[function(require,module,exports){
+},{"assert":136,"nanoscheduler":158}],160:[function(require,module,exports){
 var assert = require('assert')
 
 module.exports = objectChangeCallsite
@@ -30004,7 +30846,8 @@ function strip (str) {
   return '\n' + arr.join('\n')
 }
 
-},{"assert":22}],153:[function(require,module,exports){
+},{"assert":22}],161:[function(require,module,exports){
+(function (global){(function (){
 var hasMap = typeof Map === 'function' && Map.prototype;
 var mapSizeDescriptor = Object.getOwnPropertyDescriptor && hasMap ? Object.getOwnPropertyDescriptor(Map.prototype, 'size') : null;
 var mapSize = hasMap && mapSizeDescriptor && typeof mapSizeDescriptor.get === 'function' ? mapSizeDescriptor.get : null;
@@ -30245,6 +31088,14 @@ module.exports = function inspect_(obj, options, depth, seen) {
     }
     if (isString(obj)) {
         return markBoxed(inspect(String(obj)));
+    }
+    // note: in IE 8, sometimes `global !== window` but both are the prototypes of each other
+    /* eslint-env browser */
+    if (typeof window !== 'undefined' && obj === window) {
+        return '{ [object Window] }';
+    }
+    if (obj === global) {
+        return '{ [object globalThis] }';
     }
     if (!isDate(obj) && !isRegExp(obj)) {
         var ys = arrObjKeys(obj, inspect);
@@ -30522,7 +31373,290 @@ function arrObjKeys(obj, inspect) {
     return xs;
 }
 
-},{"./util.inspect":34}],154:[function(require,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./util.inspect":34}],162:[function(require,module,exports){
+'use strict';
+
+var keysShim;
+if (!Object.keys) {
+	// modified from https://github.com/es-shims/es5-shim
+	var has = Object.prototype.hasOwnProperty;
+	var toStr = Object.prototype.toString;
+	var isArgs = require('./isArguments'); // eslint-disable-line global-require
+	var isEnumerable = Object.prototype.propertyIsEnumerable;
+	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
+	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
+	var dontEnums = [
+		'toString',
+		'toLocaleString',
+		'valueOf',
+		'hasOwnProperty',
+		'isPrototypeOf',
+		'propertyIsEnumerable',
+		'constructor'
+	];
+	var equalsConstructorPrototype = function (o) {
+		var ctor = o.constructor;
+		return ctor && ctor.prototype === o;
+	};
+	var excludedKeys = {
+		$applicationCache: true,
+		$console: true,
+		$external: true,
+		$frame: true,
+		$frameElement: true,
+		$frames: true,
+		$innerHeight: true,
+		$innerWidth: true,
+		$onmozfullscreenchange: true,
+		$onmozfullscreenerror: true,
+		$outerHeight: true,
+		$outerWidth: true,
+		$pageXOffset: true,
+		$pageYOffset: true,
+		$parent: true,
+		$scrollLeft: true,
+		$scrollTop: true,
+		$scrollX: true,
+		$scrollY: true,
+		$self: true,
+		$webkitIndexedDB: true,
+		$webkitStorageInfo: true,
+		$window: true
+	};
+	var hasAutomationEqualityBug = (function () {
+		/* global window */
+		if (typeof window === 'undefined') { return false; }
+		for (var k in window) {
+			try {
+				if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
+					try {
+						equalsConstructorPrototype(window[k]);
+					} catch (e) {
+						return true;
+					}
+				}
+			} catch (e) {
+				return true;
+			}
+		}
+		return false;
+	}());
+	var equalsConstructorPrototypeIfNotBuggy = function (o) {
+		/* global window */
+		if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
+			return equalsConstructorPrototype(o);
+		}
+		try {
+			return equalsConstructorPrototype(o);
+		} catch (e) {
+			return false;
+		}
+	};
+
+	keysShim = function keys(object) {
+		var isObject = object !== null && typeof object === 'object';
+		var isFunction = toStr.call(object) === '[object Function]';
+		var isArguments = isArgs(object);
+		var isString = isObject && toStr.call(object) === '[object String]';
+		var theKeys = [];
+
+		if (!isObject && !isFunction && !isArguments) {
+			throw new TypeError('Object.keys called on a non-object');
+		}
+
+		var skipProto = hasProtoEnumBug && isFunction;
+		if (isString && object.length > 0 && !has.call(object, 0)) {
+			for (var i = 0; i < object.length; ++i) {
+				theKeys.push(String(i));
+			}
+		}
+
+		if (isArguments && object.length > 0) {
+			for (var j = 0; j < object.length; ++j) {
+				theKeys.push(String(j));
+			}
+		} else {
+			for (var name in object) {
+				if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+					theKeys.push(String(name));
+				}
+			}
+		}
+
+		if (hasDontEnumBug) {
+			var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
+
+			for (var k = 0; k < dontEnums.length; ++k) {
+				if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
+					theKeys.push(dontEnums[k]);
+				}
+			}
+		}
+		return theKeys;
+	};
+}
+module.exports = keysShim;
+
+},{"./isArguments":164}],163:[function(require,module,exports){
+'use strict';
+
+var slice = Array.prototype.slice;
+var isArgs = require('./isArguments');
+
+var origKeys = Object.keys;
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : require('./implementation');
+
+var originalKeys = Object.keys;
+
+keysShim.shim = function shimObjectKeys() {
+	if (Object.keys) {
+		var keysWorksWithArguments = (function () {
+			// Safari 5.0 bug
+			var args = Object.keys(arguments);
+			return args && args.length === arguments.length;
+		}(1, 2));
+		if (!keysWorksWithArguments) {
+			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
+				if (isArgs(object)) {
+					return originalKeys(slice.call(object));
+				}
+				return originalKeys(object);
+			};
+		}
+	} else {
+		Object.keys = keysShim;
+	}
+	return Object.keys || keysShim;
+};
+
+module.exports = keysShim;
+
+},{"./implementation":162,"./isArguments":164}],164:[function(require,module,exports){
+'use strict';
+
+var toStr = Object.prototype.toString;
+
+module.exports = function isArguments(value) {
+	var str = toStr.call(value);
+	var isArgs = str === '[object Arguments]';
+	if (!isArgs) {
+		isArgs = str !== '[object Array]' &&
+			value !== null &&
+			typeof value === 'object' &&
+			typeof value.length === 'number' &&
+			value.length >= 0 &&
+			toStr.call(value.callee) === '[object Function]';
+	}
+	return isArgs;
+};
+
+},{}],165:[function(require,module,exports){
+'use strict';
+
+// modified from https://github.com/es-shims/es6-shim
+var objectKeys = require('object-keys');
+var hasSymbols = require('has-symbols/shams')();
+var callBound = require('call-bind/callBound');
+var toObject = Object;
+var $push = callBound('Array.prototype.push');
+var $propIsEnumerable = callBound('Object.prototype.propertyIsEnumerable');
+var originalGetSymbols = hasSymbols ? Object.getOwnPropertySymbols : null;
+
+// eslint-disable-next-line no-unused-vars
+module.exports = function assign(target, source1) {
+	if (target == null) { throw new TypeError('target must be an object'); }
+	var to = toObject(target); // step 1
+	if (arguments.length === 1) {
+		return to; // step 2
+	}
+	for (var s = 1; s < arguments.length; ++s) {
+		var from = toObject(arguments[s]); // step 3.a.i
+
+		// step 3.a.ii:
+		var keys = objectKeys(from);
+		var getSymbols = hasSymbols && (Object.getOwnPropertySymbols || originalGetSymbols);
+		if (getSymbols) {
+			var syms = getSymbols(from);
+			for (var j = 0; j < syms.length; ++j) {
+				var key = syms[j];
+				if ($propIsEnumerable(from, key)) {
+					$push(keys, key);
+				}
+			}
+		}
+
+		// step 3.a.iii:
+		for (var i = 0; i < keys.length; ++i) {
+			var nextKey = keys[i];
+			if ($propIsEnumerable(from, nextKey)) { // step 3.a.iii.2
+				var propValue = from[nextKey]; // step 3.a.iii.2.a
+				to[nextKey] = propValue; // step 3.a.iii.2.b
+			}
+		}
+	}
+
+	return to; // step 4
+};
+
+},{"call-bind/callBound":36,"has-symbols/shams":101,"object-keys":163}],166:[function(require,module,exports){
+'use strict';
+
+var implementation = require('./implementation');
+
+var lacksProperEnumerationOrder = function () {
+	if (!Object.assign) {
+		return false;
+	}
+	/*
+	 * v8, specifically in node 4.x, has a bug with incorrect property enumeration order
+	 * note: this does not detect the bug unless there's 20 characters
+	 */
+	var str = 'abcdefghijklmnopqrst';
+	var letters = str.split('');
+	var map = {};
+	for (var i = 0; i < letters.length; ++i) {
+		map[letters[i]] = letters[i];
+	}
+	var obj = Object.assign({}, map);
+	var actual = '';
+	for (var k in obj) {
+		actual += k;
+	}
+	return str !== actual;
+};
+
+var assignHasPendingExceptions = function () {
+	if (!Object.assign || !Object.preventExtensions) {
+		return false;
+	}
+	/*
+	 * Firefox 37 still has "pending exception" logic in its Object.assign implementation,
+	 * which is 72% slower than our shim, and Firefox 40's native implementation.
+	 */
+	var thrower = Object.preventExtensions({ 1: 2 });
+	try {
+		Object.assign(thrower, 'xy');
+	} catch (e) {
+		return thrower[1] === 'y';
+	}
+	return false;
+};
+
+module.exports = function getPolyfill() {
+	if (!Object.assign) {
+		return implementation;
+	}
+	if (lacksProperEnumerationOrder()) {
+		return implementation;
+	}
+	if (assignHasPendingExceptions()) {
+		return implementation;
+	}
+	return Object.assign;
+};
+
+},{"./implementation":165}],167:[function(require,module,exports){
 /* global MutationObserver */
 var document = require('global/document')
 var window = require('global/window')
@@ -30619,7 +31753,7 @@ function eachMutation (nodes, fn) {
   }
 }
 
-},{"global/document":87,"global/window":88}],155:[function(require,module,exports){
+},{"global/document":93,"global/window":94}],168:[function(require,module,exports){
 var scheduler = require('nanoscheduler')()
 var assert = require('assert')
 
@@ -30679,7 +31813,7 @@ function onPerformance (cb) {
   }
 }
 
-},{"assert":127,"nanoscheduler":149}],156:[function(require,module,exports){
+},{"assert":136,"nanoscheduler":158}],169:[function(require,module,exports){
 /**
  * Compiles a querystring
  * Returns string representation of the object
@@ -30718,7 +31852,7 @@ exports.decode = function(qs){
   return qry;
 };
 
-},{}],157:[function(require,module,exports){
+},{}],170:[function(require,module,exports){
 /**
  * Parses an URI
  *
@@ -30788,7 +31922,7 @@ function queryKey(uri, query) {
     return data;
 }
 
-},{}],158:[function(require,module,exports){
+},{}],171:[function(require,module,exports){
 module.exports = plucker
 
 function plucker(path, object) {
@@ -30825,7 +31959,7 @@ function pluck(path) {
   }
 }
 
-},{}],159:[function(require,module,exports){
+},{}],172:[function(require,module,exports){
 module.exports = prettierBytes
 
 function prettierBytes (num) {
@@ -30857,7 +31991,7 @@ function prettierBytes (num) {
   }
 }
 
-},{}],160:[function(require,module,exports){
+},{}],173:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -31043,7 +32177,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],161:[function(require,module,exports){
+},{}],174:[function(require,module,exports){
 'use strict';
 
 var replace = String.prototype.replace;
@@ -31068,7 +32202,7 @@ module.exports = {
     RFC3986: Format.RFC3986
 };
 
-},{}],162:[function(require,module,exports){
+},{}],175:[function(require,module,exports){
 'use strict';
 
 var stringify = require('./stringify');
@@ -31081,7 +32215,7 @@ module.exports = {
     stringify: stringify
 };
 
-},{"./formats":161,"./parse":163,"./stringify":164}],163:[function(require,module,exports){
+},{"./formats":174,"./parse":176,"./stringify":177}],176:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -31347,7 +32481,7 @@ module.exports = function (str, opts) {
     return utils.compact(obj);
 };
 
-},{"./utils":165}],164:[function(require,module,exports){
+},{"./utils":178}],177:[function(require,module,exports){
 'use strict';
 
 var getSideChannel = require('side-channel');
@@ -31669,7 +32803,7 @@ module.exports = function (object, opts) {
     return joined.length > 0 ? prefix + joined : '';
 };
 
-},{"./formats":161,"./utils":165,"side-channel":180}],165:[function(require,module,exports){
+},{"./formats":174,"./utils":178,"side-channel":194}],178:[function(require,module,exports){
 'use strict';
 
 var formats = require('./formats');
@@ -31923,7 +33057,7 @@ module.exports = {
     merge: merge
 };
 
-},{"./formats":161}],166:[function(require,module,exports){
+},{"./formats":174}],179:[function(require,module,exports){
 (function (global){(function (){
 /*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 let promise
@@ -31936,7 +33070,7 @@ module.exports = typeof queueMicrotask === 'function'
     .catch(err => setTimeout(() => { throw err }, 0))
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],167:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 (function (process,global){(function (){
 'use strict'
 
@@ -31990,7 +33124,7 @@ function randomBytes (size, cb) {
 }
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":160,"safe-buffer":169}],168:[function(require,module,exports){
+},{"_process":173,"safe-buffer":182}],181:[function(require,module,exports){
 'use strict';
 
 /**
@@ -32021,7 +33155,7 @@ function removeItems (arr, startIdx, removeCount) {
 
 module.exports = removeItems;
 
-},{}],169:[function(require,module,exports){
+},{}],182:[function(require,module,exports){
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
@@ -32088,7 +33222,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":35}],170:[function(require,module,exports){
+},{"buffer":35}],183:[function(require,module,exports){
 module.exports = scrollToAnchor
 
 function scrollToAnchor (anchor, options) {
@@ -32100,11 +33234,54 @@ function scrollToAnchor (anchor, options) {
   }
 }
 
-},{}],171:[function(require,module,exports){
+},{}],184:[function(require,module,exports){
+'use strict';
+
+var GetIntrinsic = require('get-intrinsic');
+var define = require('define-data-property');
+var hasDescriptors = require('has-property-descriptors')();
+var gOPD = require('gopd');
+
+var $TypeError = GetIntrinsic('%TypeError%');
+var $floor = GetIntrinsic('%Math.floor%');
+
+module.exports = function setFunctionLength(fn, length) {
+	if (typeof fn !== 'function') {
+		throw new $TypeError('`fn` is not a function');
+	}
+	if (typeof length !== 'number' || length < 0 || length > 0xFFFFFFFF || $floor(length) !== length) {
+		throw new $TypeError('`length` must be a positive 32-bit integer');
+	}
+
+	var loose = arguments.length > 2 && !!arguments[2];
+
+	var functionLengthIsConfigurable = true;
+	var functionLengthIsWritable = true;
+	if ('length' in fn && gOPD) {
+		var desc = gOPD(fn, 'length');
+		if (desc && !desc.configurable) {
+			functionLengthIsConfigurable = false;
+		}
+		if (desc && !desc.writable) {
+			functionLengthIsWritable = false;
+		}
+	}
+
+	if (functionLengthIsConfigurable || functionLengthIsWritable || !loose) {
+		if (hasDescriptors) {
+			define(fn, 'length', length, true, true);
+		} else {
+			define(fn, 'length', length);
+		}
+	}
+	return fn;
+};
+
+},{"define-data-property":69,"get-intrinsic":92,"gopd":95,"has-property-descriptors":98}],185:[function(require,module,exports){
 'use strict';
 module.exports = require('./lib/index');
 
-},{"./lib/index":175}],172:[function(require,module,exports){
+},{"./lib/index":189}],186:[function(require,module,exports){
 'use strict';
 
 var randomFromSeed = require('./random/random-from-seed');
@@ -32209,7 +33386,7 @@ module.exports = {
     shuffled: getShuffled
 };
 
-},{"./random/random-from-seed":178}],173:[function(require,module,exports){
+},{"./random/random-from-seed":192}],187:[function(require,module,exports){
 'use strict';
 
 var generate = require('./generate');
@@ -32257,7 +33434,7 @@ function build(clusterWorkerId) {
 
 module.exports = build;
 
-},{"./alphabet":172,"./generate":174}],174:[function(require,module,exports){
+},{"./alphabet":186,"./generate":188}],188:[function(require,module,exports){
 'use strict';
 
 var alphabet = require('./alphabet');
@@ -32280,7 +33457,7 @@ function generate(number) {
 
 module.exports = generate;
 
-},{"./alphabet":172,"./random/random-byte":177,"nanoid/format":140}],175:[function(require,module,exports){
+},{"./alphabet":186,"./random/random-byte":191,"nanoid/format":149}],189:[function(require,module,exports){
 'use strict';
 
 var alphabet = require('./alphabet');
@@ -32344,7 +33521,7 @@ module.exports.worker = worker;
 module.exports.characters = characters;
 module.exports.isValid = isValid;
 
-},{"./alphabet":172,"./build":173,"./is-valid":176,"./util/cluster-worker-id":179}],176:[function(require,module,exports){
+},{"./alphabet":186,"./build":187,"./is-valid":190,"./util/cluster-worker-id":193}],190:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -32361,7 +33538,7 @@ function isShortId(id) {
 
 module.exports = isShortId;
 
-},{"./alphabet":172}],177:[function(require,module,exports){
+},{"./alphabet":186}],191:[function(require,module,exports){
 'use strict';
 
 var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
@@ -32384,7 +33561,7 @@ if (!crypto || !crypto.getRandomValues) {
 
 module.exports = randomByte;
 
-},{}],178:[function(require,module,exports){
+},{}],192:[function(require,module,exports){
 'use strict';
 
 // Found this seed-based random generator somewhere
@@ -32411,12 +33588,12 @@ module.exports = {
     seed: setSeed
 };
 
-},{}],179:[function(require,module,exports){
+},{}],193:[function(require,module,exports){
 'use strict';
 
 module.exports = 0;
 
-},{}],180:[function(require,module,exports){
+},{}],194:[function(require,module,exports){
 'use strict';
 
 var GetIntrinsic = require('get-intrinsic');
@@ -32542,7 +33719,7 @@ module.exports = function getSideChannel() {
 	return channel;
 };
 
-},{"call-bind/callBound":36,"get-intrinsic":86,"object-inspect":153}],181:[function(require,module,exports){
+},{"call-bind/callBound":36,"get-intrinsic":92,"object-inspect":161}],195:[function(require,module,exports){
 /*! simple-peer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 const debug = require('debug')('simple-peer')
 const getBrowserRTC = require('get-browser-rtc')
@@ -33596,720 +34773,7 @@ Peer.channelConfig = {}
 
 module.exports = Peer
 
-},{"buffer":35,"debug":182,"err-code":80,"get-browser-rtc":85,"queue-microtask":166,"randombytes":167,"readable-stream":199}],182:[function(require,module,exports){
-(function (process){(function (){
-/* eslint-env browser */
-
-/**
- * This is the web browser implementation of `debug()`.
- */
-
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = localstorage();
-exports.destroy = (() => {
-	let warned = false;
-
-	return () => {
-		if (!warned) {
-			warned = true;
-			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
-		}
-	};
-})();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-	'#0000CC',
-	'#0000FF',
-	'#0033CC',
-	'#0033FF',
-	'#0066CC',
-	'#0066FF',
-	'#0099CC',
-	'#0099FF',
-	'#00CC00',
-	'#00CC33',
-	'#00CC66',
-	'#00CC99',
-	'#00CCCC',
-	'#00CCFF',
-	'#3300CC',
-	'#3300FF',
-	'#3333CC',
-	'#3333FF',
-	'#3366CC',
-	'#3366FF',
-	'#3399CC',
-	'#3399FF',
-	'#33CC00',
-	'#33CC33',
-	'#33CC66',
-	'#33CC99',
-	'#33CCCC',
-	'#33CCFF',
-	'#6600CC',
-	'#6600FF',
-	'#6633CC',
-	'#6633FF',
-	'#66CC00',
-	'#66CC33',
-	'#9900CC',
-	'#9900FF',
-	'#9933CC',
-	'#9933FF',
-	'#99CC00',
-	'#99CC33',
-	'#CC0000',
-	'#CC0033',
-	'#CC0066',
-	'#CC0099',
-	'#CC00CC',
-	'#CC00FF',
-	'#CC3300',
-	'#CC3333',
-	'#CC3366',
-	'#CC3399',
-	'#CC33CC',
-	'#CC33FF',
-	'#CC6600',
-	'#CC6633',
-	'#CC9900',
-	'#CC9933',
-	'#CCCC00',
-	'#CCCC33',
-	'#FF0000',
-	'#FF0033',
-	'#FF0066',
-	'#FF0099',
-	'#FF00CC',
-	'#FF00FF',
-	'#FF3300',
-	'#FF3333',
-	'#FF3366',
-	'#FF3399',
-	'#FF33CC',
-	'#FF33FF',
-	'#FF6600',
-	'#FF6633',
-	'#FF9900',
-	'#FF9933',
-	'#FFCC00',
-	'#FFCC33'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-// eslint-disable-next-line complexity
-function useColors() {
-	// NB: In an Electron preload script, document will be defined but not fully
-	// initialized. Since we know we're in Chrome, we'll just detect this case
-	// explicitly
-	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
-		return true;
-	}
-
-	// Internet Explorer and Edge do not support colors.
-	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
-		return false;
-	}
-
-	// Is webkit? http://stackoverflow.com/a/16459606/376773
-	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-		// Is firebug? http://stackoverflow.com/a/398120/376773
-		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-		// Is firefox >= v31?
-		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-		// Double check webkit in userAgent just in case we are in a worker
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-	args[0] = (this.useColors ? '%c' : '') +
-		this.namespace +
-		(this.useColors ? ' %c' : ' ') +
-		args[0] +
-		(this.useColors ? '%c ' : ' ') +
-		'+' + module.exports.humanize(this.diff);
-
-	if (!this.useColors) {
-		return;
-	}
-
-	const c = 'color: ' + this.color;
-	args.splice(1, 0, c, 'color: inherit');
-
-	// The final "%c" is somewhat tricky, because there could be other
-	// arguments passed either before or after the %c, so we need to
-	// figure out the correct index to insert the CSS into
-	let index = 0;
-	let lastC = 0;
-	args[0].replace(/%[a-zA-Z%]/g, match => {
-		if (match === '%%') {
-			return;
-		}
-		index++;
-		if (match === '%c') {
-			// We only are interested in the *last* %c
-			// (the user may have provided their own)
-			lastC = index;
-		}
-	});
-
-	args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.debug()` when available.
- * No-op when `console.debug` is not a "function".
- * If `console.debug` is not available, falls back
- * to `console.log`.
- *
- * @api public
- */
-exports.log = console.debug || console.log || (() => {});
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
-}
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-	try {
-		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
-		// The Browser also has localStorage in the global context.
-		return localStorage;
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-module.exports = require('./common')(exports);
-
-const {formatters} = module.exports;
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-formatters.j = function (v) {
-	try {
-		return JSON.stringify(v);
-	} catch (error) {
-		return '[UnexpectedJSONParseError]: ' + error.message;
-	}
-};
-
-}).call(this)}).call(this,require('_process'))
-},{"./common":183,"_process":160}],183:[function(require,module,exports){
-
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- */
-
-function setup(env) {
-	createDebug.debug = createDebug;
-	createDebug.default = createDebug;
-	createDebug.coerce = coerce;
-	createDebug.disable = disable;
-	createDebug.enable = enable;
-	createDebug.enabled = enabled;
-	createDebug.humanize = require('ms');
-	createDebug.destroy = destroy;
-
-	Object.keys(env).forEach(key => {
-		createDebug[key] = env[key];
-	});
-
-	/**
-	* The currently active debug mode names, and names to skip.
-	*/
-
-	createDebug.names = [];
-	createDebug.skips = [];
-
-	/**
-	* Map of special "%n" handling functions, for the debug "format" argument.
-	*
-	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
-	*/
-	createDebug.formatters = {};
-
-	/**
-	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the debug instance to be colored
-	* @return {Number|String} An ANSI color code for the given namespace
-	* @api private
-	*/
-	function selectColor(namespace) {
-		let hash = 0;
-
-		for (let i = 0; i < namespace.length; i++) {
-			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
-			hash |= 0; // Convert to 32bit integer
-		}
-
-		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
-	}
-	createDebug.selectColor = selectColor;
-
-	/**
-	* Create a debugger with the given `namespace`.
-	*
-	* @param {String} namespace
-	* @return {Function}
-	* @api public
-	*/
-	function createDebug(namespace) {
-		let prevTime;
-		let enableOverride = null;
-		let namespacesCache;
-		let enabledCache;
-
-		function debug(...args) {
-			// Disabled?
-			if (!debug.enabled) {
-				return;
-			}
-
-			const self = debug;
-
-			// Set `diff` timestamp
-			const curr = Number(new Date());
-			const ms = curr - (prevTime || curr);
-			self.diff = ms;
-			self.prev = prevTime;
-			self.curr = curr;
-			prevTime = curr;
-
-			args[0] = createDebug.coerce(args[0]);
-
-			if (typeof args[0] !== 'string') {
-				// Anything else let's inspect with %O
-				args.unshift('%O');
-			}
-
-			// Apply any `formatters` transformations
-			let index = 0;
-			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-				// If we encounter an escaped % then don't increase the array index
-				if (match === '%%') {
-					return '%';
-				}
-				index++;
-				const formatter = createDebug.formatters[format];
-				if (typeof formatter === 'function') {
-					const val = args[index];
-					match = formatter.call(self, val);
-
-					// Now we need to remove `args[index]` since it's inlined in the `format`
-					args.splice(index, 1);
-					index--;
-				}
-				return match;
-			});
-
-			// Apply env-specific formatting (colors, etc.)
-			createDebug.formatArgs.call(self, args);
-
-			const logFn = self.log || createDebug.log;
-			logFn.apply(self, args);
-		}
-
-		debug.namespace = namespace;
-		debug.useColors = createDebug.useColors();
-		debug.color = createDebug.selectColor(namespace);
-		debug.extend = extend;
-		debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
-
-		Object.defineProperty(debug, 'enabled', {
-			enumerable: true,
-			configurable: false,
-			get: () => {
-				if (enableOverride !== null) {
-					return enableOverride;
-				}
-				if (namespacesCache !== createDebug.namespaces) {
-					namespacesCache = createDebug.namespaces;
-					enabledCache = createDebug.enabled(namespace);
-				}
-
-				return enabledCache;
-			},
-			set: v => {
-				enableOverride = v;
-			}
-		});
-
-		// Env-specific initialization logic for debug instances
-		if (typeof createDebug.init === 'function') {
-			createDebug.init(debug);
-		}
-
-		return debug;
-	}
-
-	function extend(namespace, delimiter) {
-		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
-		newDebug.log = this.log;
-		return newDebug;
-	}
-
-	/**
-	* Enables a debug mode by namespaces. This can include modes
-	* separated by a colon and wildcards.
-	*
-	* @param {String} namespaces
-	* @api public
-	*/
-	function enable(namespaces) {
-		createDebug.save(namespaces);
-		createDebug.namespaces = namespaces;
-
-		createDebug.names = [];
-		createDebug.skips = [];
-
-		let i;
-		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-		const len = split.length;
-
-		for (i = 0; i < len; i++) {
-			if (!split[i]) {
-				// ignore empty strings
-				continue;
-			}
-
-			namespaces = split[i].replace(/\*/g, '.*?');
-
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.slice(1) + '$'));
-			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
-			}
-		}
-	}
-
-	/**
-	* Disable debug output.
-	*
-	* @return {String} namespaces
-	* @api public
-	*/
-	function disable() {
-		const namespaces = [
-			...createDebug.names.map(toNamespace),
-			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
-		].join(',');
-		createDebug.enable('');
-		return namespaces;
-	}
-
-	/**
-	* Returns true if the given mode name is enabled, false otherwise.
-	*
-	* @param {String} name
-	* @return {Boolean}
-	* @api public
-	*/
-	function enabled(name) {
-		if (name[name.length - 1] === '*') {
-			return true;
-		}
-
-		let i;
-		let len;
-
-		for (i = 0, len = createDebug.skips.length; i < len; i++) {
-			if (createDebug.skips[i].test(name)) {
-				return false;
-			}
-		}
-
-		for (i = 0, len = createDebug.names.length; i < len; i++) {
-			if (createDebug.names[i].test(name)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	* Convert regexp to namespace
-	*
-	* @param {RegExp} regxep
-	* @return {String} namespace
-	* @api private
-	*/
-	function toNamespace(regexp) {
-		return regexp.toString()
-			.substring(2, regexp.toString().length - 2)
-			.replace(/\.\*\?$/, '*');
-	}
-
-	/**
-	* Coerce `val`.
-	*
-	* @param {Mixed} val
-	* @return {Mixed}
-	* @api private
-	*/
-	function coerce(val) {
-		if (val instanceof Error) {
-			return val.stack || val.message;
-		}
-		return val;
-	}
-
-	/**
-	* XXX DO NOT USE. This is a temporary stub function.
-	* XXX It WILL be removed in the next major release.
-	*/
-	function destroy() {
-		console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
-	}
-
-	createDebug.enable(createDebug.load());
-
-	return createDebug;
-}
-
-module.exports = setup;
-
-},{"ms":184}],184:[function(require,module,exports){
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var w = d * 7;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isFinite(val)) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'weeks':
-    case 'week':
-    case 'w':
-      return n * w;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (msAbs >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (msAbs >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (msAbs >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return plural(ms, msAbs, d, 'day');
-  }
-  if (msAbs >= h) {
-    return plural(ms, msAbs, h, 'hour');
-  }
-  if (msAbs >= m) {
-    return plural(ms, msAbs, m, 'minute');
-  }
-  if (msAbs >= s) {
-    return plural(ms, msAbs, s, 'second');
-  }
-  return ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, msAbs, n, name) {
-  var isPlural = msAbs >= n * 1.5;
-  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
-}
-
-},{}],185:[function(require,module,exports){
+},{"buffer":35,"debug":67,"err-code":86,"get-browser-rtc":91,"queue-microtask":179,"randombytes":180,"readable-stream":210}],196:[function(require,module,exports){
 'use strict';
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
@@ -34438,7 +34902,7 @@ createErrorType('ERR_UNKNOWN_ENCODING', function (arg) {
 createErrorType('ERR_STREAM_UNSHIFT_AFTER_END_EVENT', 'stream.unshift() after end event');
 module.exports.codes = codes;
 
-},{}],186:[function(require,module,exports){
+},{}],197:[function(require,module,exports){
 (function (process){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -34567,7 +35031,7 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
   }
 });
 }).call(this)}).call(this,require('_process'))
-},{"./_stream_readable":188,"./_stream_writable":190,"_process":160,"inherits":102}],187:[function(require,module,exports){
+},{"./_stream_readable":199,"./_stream_writable":201,"_process":173,"inherits":109}],198:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -34605,7 +35069,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":189,"inherits":102}],188:[function(require,module,exports){
+},{"./_stream_transform":200,"inherits":109}],199:[function(require,module,exports){
 (function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -35635,7 +36099,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../errors":185,"./_stream_duplex":186,"./internal/streams/async_iterator":191,"./internal/streams/buffer_list":192,"./internal/streams/destroy":193,"./internal/streams/from":195,"./internal/streams/state":197,"./internal/streams/stream":198,"_process":160,"buffer":35,"events":81,"inherits":102,"string_decoder/":216,"util":34}],189:[function(require,module,exports){
+},{"../errors":196,"./_stream_duplex":197,"./internal/streams/async_iterator":202,"./internal/streams/buffer_list":203,"./internal/streams/destroy":204,"./internal/streams/from":206,"./internal/streams/state":208,"./internal/streams/stream":209,"_process":173,"buffer":35,"events":87,"inherits":109,"string_decoder/":224,"util":34}],200:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -35826,7 +36290,7 @@ function done(stream, er, data) {
   if (stream._transformState.transforming) throw new ERR_TRANSFORM_ALREADY_TRANSFORMING();
   return stream.push(null);
 }
-},{"../errors":185,"./_stream_duplex":186,"inherits":102}],190:[function(require,module,exports){
+},{"../errors":196,"./_stream_duplex":197,"inherits":109}],201:[function(require,module,exports){
 (function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -36470,7 +36934,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../errors":185,"./_stream_duplex":186,"./internal/streams/destroy":193,"./internal/streams/state":197,"./internal/streams/stream":198,"_process":160,"buffer":35,"inherits":102,"util-deprecate":223}],191:[function(require,module,exports){
+},{"../errors":196,"./_stream_duplex":197,"./internal/streams/destroy":204,"./internal/streams/state":208,"./internal/streams/stream":209,"_process":173,"buffer":35,"inherits":109,"util-deprecate":231}],202:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -36653,7 +37117,7 @@ var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterat
 };
 module.exports = createReadableStreamAsyncIterator;
 }).call(this)}).call(this,require('_process'))
-},{"./end-of-stream":194,"_process":160}],192:[function(require,module,exports){
+},{"./end-of-stream":205,"_process":173}],203:[function(require,module,exports){
 'use strict';
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -36837,7 +37301,7 @@ module.exports = /*#__PURE__*/function () {
   }]);
   return BufferList;
 }();
-},{"buffer":35,"util":34}],193:[function(require,module,exports){
+},{"buffer":35,"util":34}],204:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -36936,7 +37400,7 @@ module.exports = {
   errorOrDestroy: errorOrDestroy
 };
 }).call(this)}).call(this,require('_process'))
-},{"_process":160}],194:[function(require,module,exports){
+},{"_process":173}],205:[function(require,module,exports){
 // Ported from https://github.com/mafintosh/end-of-stream with
 // permission from the author, Mathias Buus (@mafintosh).
 
@@ -37023,12 +37487,12 @@ function eos(stream, opts, callback) {
   };
 }
 module.exports = eos;
-},{"../../../errors":185}],195:[function(require,module,exports){
+},{"../../../errors":196}],206:[function(require,module,exports){
 module.exports = function () {
   throw new Error('Readable.from is not available in the browser')
 };
 
-},{}],196:[function(require,module,exports){
+},{}],207:[function(require,module,exports){
 // Ported from https://github.com/mafintosh/pump with
 // permission from the author, Mathias Buus (@mafintosh).
 
@@ -37115,7 +37579,7 @@ function pipeline() {
   return streams.reduce(pipe);
 }
 module.exports = pipeline;
-},{"../../../errors":185,"./end-of-stream":194}],197:[function(require,module,exports){
+},{"../../../errors":196,"./end-of-stream":205}],208:[function(require,module,exports){
 'use strict';
 
 var ERR_INVALID_OPT_VALUE = require('../../../errors').codes.ERR_INVALID_OPT_VALUE;
@@ -37138,10 +37602,10 @@ function getHighWaterMark(state, options, duplexKey, isDuplex) {
 module.exports = {
   getHighWaterMark: getHighWaterMark
 };
-},{"../../../errors":185}],198:[function(require,module,exports){
+},{"../../../errors":196}],209:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":81}],199:[function(require,module,exports){
+},{"events":87}],210:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -37152,7 +37616,7 @@ exports.PassThrough = require('./lib/_stream_passthrough.js');
 exports.finished = require('./lib/internal/streams/end-of-stream.js');
 exports.pipeline = require('./lib/internal/streams/pipeline.js');
 
-},{"./lib/_stream_duplex.js":186,"./lib/_stream_passthrough.js":187,"./lib/_stream_readable.js":188,"./lib/_stream_transform.js":189,"./lib/_stream_writable.js":190,"./lib/internal/streams/end-of-stream.js":194,"./lib/internal/streams/pipeline.js":196}],200:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":197,"./lib/_stream_passthrough.js":198,"./lib/_stream_readable.js":199,"./lib/_stream_transform.js":200,"./lib/_stream_writable.js":201,"./lib/internal/streams/end-of-stream.js":205,"./lib/internal/streams/pipeline.js":207}],211:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -37248,7 +37712,7 @@ exports.connect = lookup;
 exports.Manager = require('./manager');
 exports.Socket = require('./socket');
 
-},{"./manager":201,"./socket":203,"./url":204,"debug":205,"socket.io-parser":209}],201:[function(require,module,exports){
+},{"./manager":212,"./socket":214,"./url":215,"debug":216,"socket.io-parser":219}],212:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -37827,7 +38291,7 @@ Manager.prototype.onreconnect = function () {
   this.emitAll('reconnect', attempt);
 };
 
-},{"./on":202,"./socket":203,"backo2":30,"component-bind":60,"component-emitter":61,"debug":205,"engine.io-client":65,"indexof":101,"socket.io-parser":209}],202:[function(require,module,exports){
+},{"./on":213,"./socket":214,"backo2":30,"component-bind":63,"component-emitter":64,"debug":216,"engine.io-client":72,"indexof":108,"socket.io-parser":219}],213:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -37853,7 +38317,7 @@ function on (obj, ev, fn) {
   };
 }
 
-},{}],203:[function(require,module,exports){
+},{}],214:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -38293,7 +38757,7 @@ Socket.prototype.binary = function (binary) {
   return this;
 };
 
-},{"./on":202,"component-bind":60,"component-emitter":61,"debug":205,"has-binary2":89,"parseqs":156,"socket.io-parser":209,"to-array":222}],204:[function(require,module,exports){
+},{"./on":213,"component-bind":63,"component-emitter":64,"debug":216,"has-binary2":96,"parseqs":169,"socket.io-parser":219,"to-array":230}],215:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -38370,13 +38834,11 @@ function url (uri, loc) {
   return obj;
 }
 
-},{"debug":205,"parseuri":157}],205:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./debug":206,"_process":160,"dup":74}],206:[function(require,module,exports){
-arguments[4][75][0].apply(exports,arguments)
-},{"dup":75,"ms":207}],207:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],208:[function(require,module,exports){
+},{"debug":216,"parseuri":170}],216:[function(require,module,exports){
+arguments[4][81][0].apply(exports,arguments)
+},{"./debug":217,"_process":173,"dup":81}],217:[function(require,module,exports){
+arguments[4][82][0].apply(exports,arguments)
+},{"dup":82,"ms":135}],218:[function(require,module,exports){
 /*global Blob,File*/
 
 /**
@@ -38527,7 +38989,7 @@ exports.removeBlobs = function(data, callback) {
   }
 };
 
-},{"./is-buffer":210,"isarray":213}],209:[function(require,module,exports){
+},{"./is-buffer":220,"isarray":110}],219:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -38944,7 +39406,7 @@ function error(msg) {
   };
 }
 
-},{"./binary":208,"./is-buffer":210,"component-emitter":61,"debug":211,"isarray":213}],210:[function(require,module,exports){
+},{"./binary":218,"./is-buffer":220,"component-emitter":64,"debug":221,"isarray":110}],220:[function(require,module,exports){
 (function (Buffer){(function (){
 
 module.exports = isBuf;
@@ -38968,15 +39430,11 @@ function isBuf(obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":35}],211:[function(require,module,exports){
-arguments[4][74][0].apply(exports,arguments)
-},{"./debug":212,"_process":160,"dup":74}],212:[function(require,module,exports){
-arguments[4][75][0].apply(exports,arguments)
-},{"dup":75,"ms":214}],213:[function(require,module,exports){
-arguments[4][90][0].apply(exports,arguments)
-},{"dup":90}],214:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"dup":76}],215:[function(require,module,exports){
+},{"buffer":35}],221:[function(require,module,exports){
+arguments[4][81][0].apply(exports,arguments)
+},{"./debug":222,"_process":173,"dup":81}],222:[function(require,module,exports){
+arguments[4][82][0].apply(exports,arguments)
+},{"dup":82,"ms":135}],223:[function(require,module,exports){
 var fastSafeStringify = require('fast-safe-stringify')
 var copy = require('clipboard-copy')
 
@@ -38993,7 +39451,7 @@ function stateCopy (obj) {
 
 module.exports = stateCopy
 
-},{"clipboard-copy":52,"fast-safe-stringify":82}],216:[function(require,module,exports){
+},{"clipboard-copy":52,"fast-safe-stringify":88}],224:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -39290,7 +39748,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":169}],217:[function(require,module,exports){
+},{"safe-buffer":182}],225:[function(require,module,exports){
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -39351,7 +39809,7 @@ Agent.prototype._setDefaults = function (request) {
 
 module.exports = Agent;
 
-},{}],218:[function(require,module,exports){
+},{}],226:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -39428,32 +39886,8 @@ exports.Request = Request;
  */
 
 request.getXHR = function () {
-  if (root.XMLHttpRequest && (!root.location || root.location.protocol !== 'file:' || !root.ActiveXObject)) {
+  if (root.XMLHttpRequest && (!root.location || root.location.protocol !== 'file:')) {
     return new XMLHttpRequest();
-  }
-
-  try {
-    return new ActiveXObject('Microsoft.XMLHTTP');
-  } catch (_unused) {
-    /**/
-  }
-
-  try {
-    return new ActiveXObject('Msxml2.XMLHTTP.6.0');
-  } catch (_unused2) {
-    /**/
-  }
-
-  try {
-    return new ActiveXObject('Msxml2.XMLHTTP.3.0');
-  } catch (_unused3) {
-    /**/
-  }
-
-  try {
-    return new ActiveXObject('Msxml2.XMLHTTP');
-  } catch (_unused4) {
-    /**/
   }
 
   throw new Error('Browser-only version of superagent could not find XHR');
@@ -39841,7 +40275,7 @@ function Request(method, url) {
     if (new_error) {
       new_error.original = error;
       new_error.response = res;
-      new_error.status = res.status;
+      new_error.status = new_error.status || res.status;
       self.callback(new_error, res);
     } else {
       self.callback(null, res);
@@ -40129,7 +40563,7 @@ Request.prototype._end = function () {
 
     try {
       status = xhr.status;
-    } catch (_unused5) {
+    } catch (_unused) {
       status = 0;
     }
 
@@ -40161,7 +40595,7 @@ Request.prototype._end = function () {
       if (xhr.upload) {
         xhr.upload.addEventListener('progress', handleProgress.bind(null, 'upload'));
       }
-    } catch (_unused6) {// Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
+    } catch (_unused2) {// Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
       // Reported here:
       // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
     }
@@ -40404,7 +40838,7 @@ request.put = function (url, data, fn) {
   return request_;
 };
 
-},{"./agent-base":217,"./request-base":219,"./response-base":220,"./utils":221,"component-emitter":61,"fast-safe-stringify":82,"qs":162}],219:[function(require,module,exports){
+},{"./agent-base":225,"./request-base":227,"./response-base":228,"./utils":229,"component-emitter":64,"fast-safe-stringify":88,"qs":175}],227:[function(require,module,exports){
 (function (process){(function (){
 "use strict";
 
@@ -40861,7 +41295,7 @@ RequestBase.prototype.field = function (name, value, options) {
 
   if (typeof value === 'boolean') {
     value = String(value);
-  } //fix https://github.com/visionmedia/superagent/issues/1680
+  } // fix https://github.com/visionmedia/superagent/issues/1680
 
 
   if (options) this._getFormData().append(name, value, options);else this._getFormData().append(name, value);
@@ -41200,7 +41634,7 @@ RequestBase.prototype._setTimeouts = function () {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"./utils":221,"_process":160,"semver":34}],220:[function(require,module,exports){
+},{"./utils":229,"_process":173,"semver":34}],228:[function(require,module,exports){
 "use strict";
 
 /**
@@ -41314,7 +41748,7 @@ ResponseBase.prototype._setStatusProperties = function (status) {
   this.unprocessableEntity = status === 422;
 };
 
-},{"./utils":221}],221:[function(require,module,exports){
+},{"./utils":229}],229:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -41457,7 +41891,7 @@ exports.mixin = function (target, source) {
   }
 };
 
-},{}],222:[function(require,module,exports){
+},{}],230:[function(require,module,exports){
 module.exports = toArray
 
 function toArray(list, index) {
@@ -41472,7 +41906,7 @@ function toArray(list, index) {
     return array
 }
 
-},{}],223:[function(require,module,exports){
+},{}],231:[function(require,module,exports){
 (function (global){(function (){
 
 /**
@@ -41543,7 +41977,7 @@ function config (name) {
 }
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],224:[function(require,module,exports){
+},{}],232:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var assert = require('assert')
 
@@ -41581,7 +42015,7 @@ function getAllRoutes (router) {
   return transform(tree)
 }
 
-},{"assert":127}],225:[function(require,module,exports){
+},{"assert":136}],233:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var assert = require('assert')
 var trie = require('./trie')
@@ -41656,7 +42090,7 @@ function Wayfarer (dft) {
   }
 }
 
-},{"./trie":226,"assert":127}],226:[function(require,module,exports){
+},{"./trie":234,"assert":136}],234:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var assert = require('assert')
 
@@ -41797,7 +42231,7 @@ function has (object, property) {
   return Object.prototype.hasOwnProperty.call(object, property)
 }
 
-},{"assert":127}],227:[function(require,module,exports){
+},{"assert":136}],235:[function(require,module,exports){
 'use strict';
 
 var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
@@ -41867,7 +42301,7 @@ yeast.encode = encode;
 yeast.decode = decode;
 module.exports = yeast;
 
-},{}],228:[function(require,module,exports){
+},{}],236:[function(require,module,exports){
 //'use babel'
 
 // const p5lib = require('p5')
@@ -41911,7 +42345,7 @@ class P5 extends p5{
 
 module.exports = P5
 
-},{}],229:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 /* globals sessionStorage */
 // Extends rtc-patch-bay to include support for nicknames and persistent session storage
 
@@ -42052,7 +42486,7 @@ PBLive.prototype._processBroadcast = function (data) {
 // PBExtended.prototype.
 module.exports = PBLive
 
-},{"./rtc-patch-bay.js":230,"inherits":102}],230:[function(require,module,exports){
+},{"./rtc-patch-bay.js":238,"inherits":109}],238:[function(require,module,exports){
 // Module for handling connections to multiple peers.
 
 
@@ -42306,7 +42740,7 @@ PatchBay.prototype._destroy = function () {
 
 module.exports = PatchBay
 
-},{"events":81,"inherits":102,"shortid":171,"simple-peer":181,"socket.io-client":200}],231:[function(require,module,exports){
+},{"events":87,"inherits":109,"shortid":185,"simple-peer":195,"socket.io-client":211}],239:[function(require,module,exports){
 module.exports=[
   {
     "sketch_id": "example_0",
@@ -42535,7 +42969,7 @@ module.exports=[
 }
 ]
 
-},{}],232:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 const request = require('superagent')
 const examples = require('./examples.json')
 const sketches = []
@@ -42844,7 +43278,7 @@ ${code}
 
 module.exports = Gallery
 
-},{"./examples.json":231,"superagent":218}],233:[function(require,module,exports){
+},{"./examples.json":239,"superagent":226}],241:[function(require,module,exports){
 const i18next = require('i18next')
 const i18nextBrowserLanguageDetector = require('i18next-browser-languagedetector')
 // const i18nextHttpBackend = require('i18next-http-backend')
@@ -42946,7 +43380,7 @@ module.exports = function store(state, emitter) {
 
 }
 
-},{"./text-elements.js":235,"i18next":99,"i18next-browser-languagedetector":98}],234:[function(require,module,exports){
+},{"./text-elements.js":243,"i18next":106,"i18next-browser-languagedetector":105}],242:[function(require,module,exports){
 const Gallery = require('./gallery.js')
 const repl = require('../views/editor/repl.js')
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
@@ -43100,7 +43534,7 @@ function showConfirmation(successCallback, terminateCallback) {
     terminateCallback()
   }
 }
-},{"../views/editor/repl.js":244,"./gallery.js":232}],235:[function(require,module,exports){
+},{"../views/editor/repl.js":252,"./gallery.js":240}],243:[function(require,module,exports){
 module.exports = {
     en: {
         translation: {
@@ -43143,7 +43577,7 @@ module.exports = {
         }
     }
 }
-},{}],236:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 const html = require('choo/html')
 const Component = require('choo/component')
 const HydraEditor = require('./editor/editor.js')
@@ -43195,7 +43629,7 @@ module.exports = class Editor extends Component {
   }
 }
 
-},{"./editor/editor.js":238,"./editor/log.js":240,"choo/component":48,"choo/html":49}],237:[function(require,module,exports){
+},{"./editor/editor.js":246,"./editor/log.js":248,"choo/component":48,"choo/html":49}],245:[function(require,module,exports){
 const html = require('choo/html')
 const Component = require('choo/component')
 // const HydraSynth = require('hydra-synth')
@@ -43262,7 +43696,7 @@ module.exports = class HydraCanvas extends Component {
   }
 }
 
-},{"./../lib/p5-wrapper.js":228,"./../lib/patch-bay/pb-live.js":229,"choo/component":48,"choo/html":49}],238:[function(require,module,exports){
+},{"./../lib/p5-wrapper.js":236,"./../lib/patch-bay/pb-live.js":237,"choo/component":48,"choo/html":49}],246:[function(require,module,exports){
 /* eslint-disable no-eval */
 var CodeMirror = require('codemirror-minified/lib/codemirror')
 require('codemirror-minified/mode/javascript/javascript')
@@ -43276,7 +43710,10 @@ const keymaps = require('./keymaps.js')
 const Mutator = require('./randomizer/Mutator.js');
 const beautify_js = require('js-beautify').js_beautify
 
+const vim = require('./vim.js')
+
 var isShowing = true
+var vimEnabled = false
 
 
 module.exports = class Editor extends EventEmitter {
@@ -43284,7 +43721,7 @@ module.exports = class Editor extends EventEmitter {
     super()
     console.log("*** Editor class created");
     var self = this
-
+    
     // var container = document.createElement('div')
     // container.setAttribute('id', 'editor-container')
     // var el = document.createElement('TEXTAREA')
@@ -43295,16 +43732,18 @@ module.exports = class Editor extends EventEmitter {
 
     const extraKeys = {}
     Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
-      if(e == 'editor:evalBlock') {
+      if (e == 'editor:evalBlock') {
         this.emit(e, this.getCurrentBlock().text)
       } else if (e == 'editor:evalLine') {
         this.emit(e, this.getLine())
       } else if (e == 'editor:toggleComment') {
         this.cm.toggleComment()
-      // } else if (e == 'gallery:saveToURL') {
+        // } else if (e == 'gallery:saveToURL') {
         this.emit(e, this)
       } else if (e === 'editor:formatCode') {
         this.formatCode()
+      } else if (e === 'toggleVim') {
+        this.toggleVim()
       } else {
         this.emit(e, this)
       }
@@ -43316,7 +43755,8 @@ module.exports = class Editor extends EventEmitter {
       mode: { name: 'javascript', globalVars: true },
       lineWrapping: true,
       styleSelectedText: true,
-      extraKeys: extraKeys
+      extraKeys: extraKeys,
+      keyMap: 'default'
     }
 
     this.cm = CodeMirror.fromTextArea(parent, opts)
@@ -43345,8 +43785,14 @@ module.exports = class Editor extends EventEmitter {
     return this.cm.getValue()
   }
 
+  toggleVim() {
+    vimEnabled = !vimEnabled
+    this.cm.setOption('keyMap',vimEnabled ? 'vim' : 'default'
+)
+  }
+
   formatCode() {
-    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true })
     this.cm.setValue(formatted)
   }
 
@@ -43425,7 +43871,7 @@ module.exports = class Editor extends EventEmitter {
 }
 
 
-},{"./keymaps.js":239,"./randomizer/Mutator.js":241,"codemirror-minified/addon/comment/comment":54,"codemirror-minified/addon/hint/javascript-hint":55,"codemirror-minified/addon/hint/show-hint":56,"codemirror-minified/addon/selection/mark-selection":57,"codemirror-minified/lib/codemirror":58,"codemirror-minified/mode/javascript/javascript":59,"js-beautify":103,"nanobus":128}],239:[function(require,module,exports){
+},{"./keymaps.js":247,"./randomizer/Mutator.js":249,"./vim.js":253,"codemirror-minified/addon/comment/comment":54,"codemirror-minified/addon/hint/javascript-hint":57,"codemirror-minified/addon/hint/show-hint":58,"codemirror-minified/addon/selection/mark-selection":60,"codemirror-minified/lib/codemirror":61,"codemirror-minified/mode/javascript/javascript":62,"js-beautify":111,"nanobus":137}],247:[function(require,module,exports){
 module.exports = { 
     'Ctrl-Enter': 'editor:evalLine',
     'Ctrl-/': 'editor:toggleComment',
@@ -43435,9 +43881,10 @@ module.exports = {
     'Shift-Ctrl-F': 'editor:formatCode',
     'Shift-Ctrl-L': 'gallery:saveToURL',
     'Shift-Ctrl-H': 'hideAll',
-    'Shift-Ctrl-S': 'screencap'
+    'Shift-Ctrl-S': 'screencap',
+    'Ctrl-Alt-V': 'toggleVim'
 }
-},{}],240:[function(require,module,exports){
+},{}],248:[function(require,module,exports){
 var logElement
 
 module.exports = {
@@ -43466,7 +43913,7 @@ module.exports = {
   }
 }
 
-},{}],241:[function(require,module,exports){
+},{}],249:[function(require,module,exports){
 const {Parser} = require("acorn");
 const {generate} = require('astring');
 const { defaultTraveler, attachComments, makeTraveler } = require('astravel');
@@ -43730,7 +44177,7 @@ class Mutator {
 
 module.exports = Mutator
 
-},{"./../repl.js":244,"./UndoStack.js":242,"./glslTransforms.js":243,"acorn":19,"astravel":26,"astring":29}],242:[function(require,module,exports){
+},{"./../repl.js":252,"./UndoStack.js":250,"./glslTransforms.js":251,"acorn":19,"astravel":26,"astring":29}],250:[function(require,module,exports){
 // A generalized 'Undo stack' which can keep N levels of revertable state.
 class UndoStack {
     constructor(limit) {
@@ -43785,7 +44232,7 @@ class UndoStack {
 
 
 module.exports = {UndoStack}
-},{}],243:[function(require,module,exports){
+},{}],251:[function(require,module,exports){
 /*
 Format for adding functions to hydra. For each entry in this file, hydra automatically generates a glsl function and javascript function with the same name. You can also ass functions dynamically using setFunction(object).
 
@@ -44886,7 +45333,7 @@ module.exports = [
   `   return vec4(_c0.a * scale + offset);`
   }
   ]
-},{}],244:[function(require,module,exports){
+},{}],252:[function(require,module,exports){
 const log = require('./log.js').log
 
 module.exports = {
@@ -44915,7 +45362,5986 @@ module.exports = {
   }
 }
 
-},{"./log.js":240}],245:[function(require,module,exports){
+},{"./log.js":248}],253:[function(require,module,exports){
+//Source: https://codemirror.net/5/keymap/vim.js
+(function(mod) {
+    if (typeof exports == "object" && typeof module == "object") // CommonJS
+      mod(require("codemirror-minified/lib/codemirror"), require("codemirror-minified/addon/search/searchcursor"), require("codemirror-minified/addon/dialog/dialog"), require("codemirror-minified/addon/edit/matchbrackets.js"));
+    else if (typeof define == "function" && define.amd) // AMD
+      define(["codemirror-minified/lib/codemirror", "codemirror-minified/addon/search/searchcursor", "codemirror-minified/addon/dialog/dialog", "codemirror-minified/addon/edit/matchbrackets"], mod);
+    else // Plain browser env
+      mod(CodeMirror);
+  })(function(CodeMirror) {
+    'use strict';
+  // CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: https://codemirror.net/5/LICENSE
+
+/**
+ * Supported keybindings:
+ *   Too many to list. Refer to defaultKeymap below.
+ *
+ * Supported Ex commands:
+ *   Refer to defaultExCommandMap below.
+ *
+ * Registers: unnamed, -, ., :, /, _, a-z, A-Z, 0-9
+ *   (Does not respect the special case for number registers when delete
+ *    operator is made with these commands: %, (, ),  , /, ?, n, N, {, } )
+ *   TODO: Implement the remaining registers.
+ *
+ * Marks: a-z, A-Z, and 0-9
+ *   TODO: Implement the remaining special marks. They have more complex
+ *       behavior.
+ *
+ * Events:
+ *  'vim-mode-change' - raised on the editor anytime the current mode changes,
+ *                      Event object: {mode: "visual", subMode: "linewise"}
+ *
+ * Code structure:
+ *  1. Default keymap
+ *  2. Variable declarations and short basic helpers
+ *  3. Instance (External API) implementation
+ *  4. Internal state tracking objects (input state, counter) implementation
+ *     and instantiation
+ *  5. Key handler (the main command dispatcher) implementation
+ *  6. Motion, operator, and action implementations
+ *  7. Helper functions for the key handler, motions, operators, and actions
+ *  8. Set up Vim to work as a keymap for CodeMirror.
+ *  9. Ex command implementations.
+ */
+
+function initVim$1(CodeMirror) {
+
+  var Pos = CodeMirror.Pos;
+
+  function transformCursor(cm, range) {
+    var vim = cm.state.vim;
+    if (!vim || vim.insertMode) return range.head;
+    var head = vim.sel.head;
+    if (!head)  return range.head;
+
+    if (vim.visualBlock) {
+      if (range.head.line != head.line) {
+        return;
+      }
+    }
+    if (range.from() == range.anchor && !range.empty()) {
+      if (range.head.line == head.line && range.head.ch != head.ch)
+        return new Pos(range.head.line, range.head.ch - 1);
+    }
+
+    return range.head;
+  }
+
+  var defaultKeymap = [
+    // Key to key mapping. This goes first to make it possible to override
+    // existing mappings.
+    { keys: '<Left>', type: 'keyToKey', toKeys: 'h' },
+    { keys: '<Right>', type: 'keyToKey', toKeys: 'l' },
+    { keys: '<Up>', type: 'keyToKey', toKeys: 'k' },
+    { keys: '<Down>', type: 'keyToKey', toKeys: 'j' },
+    { keys: 'g<Up>', type: 'keyToKey', toKeys: 'gk' },
+    { keys: 'g<Down>', type: 'keyToKey', toKeys: 'gj' },
+    { keys: '<Space>', type: 'keyToKey', toKeys: 'l' },
+    { keys: '<BS>', type: 'keyToKey', toKeys: 'h', context: 'normal'},
+    { keys: '<Del>', type: 'keyToKey', toKeys: 'x', context: 'normal'},
+    { keys: '<C-Space>', type: 'keyToKey', toKeys: 'W' },
+    { keys: '<C-BS>', type: 'keyToKey', toKeys: 'B', context: 'normal' },
+    { keys: '<S-Space>', type: 'keyToKey', toKeys: 'w' },
+    { keys: '<S-BS>', type: 'keyToKey', toKeys: 'b', context: 'normal' },
+    { keys: '<C-n>', type: 'keyToKey', toKeys: 'j' },
+    { keys: '<C-p>', type: 'keyToKey', toKeys: 'k' },
+    { keys: '<C-[>', type: 'keyToKey', toKeys: '<Esc>' },
+    { keys: '<C-c>', type: 'keyToKey', toKeys: '<Esc>' },
+    { keys: '<C-[>', type: 'keyToKey', toKeys: '<Esc>', context: 'insert' },
+    { keys: '<C-c>', type: 'keyToKey', toKeys: '<Esc>', context: 'insert' },
+    { keys: '<C-Esc>', type: 'keyToKey', toKeys: '<Esc>' }, // ipad keyboard sends C-Esc instead of C-[
+    { keys: '<C-Esc>', type: 'keyToKey', toKeys: '<Esc>', context: 'insert' },
+    { keys: 's', type: 'keyToKey', toKeys: 'cl', context: 'normal' },
+    { keys: 's', type: 'keyToKey', toKeys: 'c', context: 'visual'},
+    { keys: 'S', type: 'keyToKey', toKeys: 'cc', context: 'normal' },
+    { keys: 'S', type: 'keyToKey', toKeys: 'VdO', context: 'visual' },
+    { keys: '<Home>', type: 'keyToKey', toKeys: '0' },
+    { keys: '<End>', type: 'keyToKey', toKeys: '$' },
+    { keys: '<PageUp>', type: 'keyToKey', toKeys: '<C-b>' },
+    { keys: '<PageDown>', type: 'keyToKey', toKeys: '<C-f>' },
+    { keys: '<CR>', type: 'keyToKey', toKeys: 'j^', context: 'normal' },
+    { keys: '<Ins>', type: 'keyToKey', toKeys: 'i', context: 'normal'},
+    { keys: '<Ins>', type: 'action', action: 'toggleOverwrite', context: 'insert' },
+    // Motions
+    { keys: 'H', type: 'motion', motion: 'moveToTopLine', motionArgs: { linewise: true, toJumplist: true }},
+    { keys: 'M', type: 'motion', motion: 'moveToMiddleLine', motionArgs: { linewise: true, toJumplist: true }},
+    { keys: 'L', type: 'motion', motion: 'moveToBottomLine', motionArgs: { linewise: true, toJumplist: true }},
+    { keys: 'h', type: 'motion', motion: 'moveByCharacters', motionArgs: { forward: false }},
+    { keys: 'l', type: 'motion', motion: 'moveByCharacters', motionArgs: { forward: true }},
+    { keys: 'j', type: 'motion', motion: 'moveByLines', motionArgs: { forward: true, linewise: true }},
+    { keys: 'k', type: 'motion', motion: 'moveByLines', motionArgs: { forward: false, linewise: true }},
+    { keys: 'gj', type: 'motion', motion: 'moveByDisplayLines', motionArgs: { forward: true }},
+    { keys: 'gk', type: 'motion', motion: 'moveByDisplayLines', motionArgs: { forward: false }},
+    { keys: 'w', type: 'motion', motion: 'moveByWords', motionArgs: { forward: true, wordEnd: false }},
+    { keys: 'W', type: 'motion', motion: 'moveByWords', motionArgs: { forward: true, wordEnd: false, bigWord: true }},
+    { keys: 'e', type: 'motion', motion: 'moveByWords', motionArgs: { forward: true, wordEnd: true, inclusive: true }},
+    { keys: 'E', type: 'motion', motion: 'moveByWords', motionArgs: { forward: true, wordEnd: true, bigWord: true, inclusive: true }},
+    { keys: 'b', type: 'motion', motion: 'moveByWords', motionArgs: { forward: false, wordEnd: false }},
+    { keys: 'B', type: 'motion', motion: 'moveByWords', motionArgs: { forward: false, wordEnd: false, bigWord: true }},
+    { keys: 'ge', type: 'motion', motion: 'moveByWords', motionArgs: { forward: false, wordEnd: true, inclusive: true }},
+    { keys: 'gE', type: 'motion', motion: 'moveByWords', motionArgs: { forward: false, wordEnd: true, bigWord: true, inclusive: true }},
+    { keys: '{', type: 'motion', motion: 'moveByParagraph', motionArgs: { forward: false, toJumplist: true }},
+    { keys: '}', type: 'motion', motion: 'moveByParagraph', motionArgs: { forward: true, toJumplist: true }},
+    { keys: '(', type: 'motion', motion: 'moveBySentence', motionArgs: { forward: false }},
+    { keys: ')', type: 'motion', motion: 'moveBySentence', motionArgs: { forward: true }},
+    { keys: '<C-f>', type: 'motion', motion: 'moveByPage', motionArgs: { forward: true }},
+    { keys: '<C-b>', type: 'motion', motion: 'moveByPage', motionArgs: { forward: false }},
+    { keys: '<C-d>', type: 'motion', motion: 'moveByScroll', motionArgs: { forward: true, explicitRepeat: true }},
+    { keys: '<C-u>', type: 'motion', motion: 'moveByScroll', motionArgs: { forward: false, explicitRepeat: true }},
+    { keys: 'gg', type: 'motion', motion: 'moveToLineOrEdgeOfDocument', motionArgs: { forward: false, explicitRepeat: true, linewise: true, toJumplist: true }},
+    { keys: 'G', type: 'motion', motion: 'moveToLineOrEdgeOfDocument', motionArgs: { forward: true, explicitRepeat: true, linewise: true, toJumplist: true }},
+    {keys: "g$", type: "motion", motion: "moveToEndOfDisplayLine"},
+    {keys: "g^", type: "motion", motion: "moveToStartOfDisplayLine"},
+    {keys: "g0", type: "motion", motion: "moveToStartOfDisplayLine"},
+    { keys: '0', type: 'motion', motion: 'moveToStartOfLine' },
+    { keys: '^', type: 'motion', motion: 'moveToFirstNonWhiteSpaceCharacter' },
+    { keys: '+', type: 'motion', motion: 'moveByLines', motionArgs: { forward: true, toFirstChar:true }},
+    { keys: '-', type: 'motion', motion: 'moveByLines', motionArgs: { forward: false, toFirstChar:true }},
+    { keys: '_', type: 'motion', motion: 'moveByLines', motionArgs: { forward: true, toFirstChar:true, repeatOffset:-1 }},
+    { keys: '$', type: 'motion', motion: 'moveToEol', motionArgs: { inclusive: true }},
+    { keys: '%', type: 'motion', motion: 'moveToMatchedSymbol', motionArgs: { inclusive: true, toJumplist: true }},
+    { keys: 'f<character>', type: 'motion', motion: 'moveToCharacter', motionArgs: { forward: true , inclusive: true }},
+    { keys: 'F<character>', type: 'motion', motion: 'moveToCharacter', motionArgs: { forward: false }},
+    { keys: 't<character>', type: 'motion', motion: 'moveTillCharacter', motionArgs: { forward: true, inclusive: true }},
+    { keys: 'T<character>', type: 'motion', motion: 'moveTillCharacter', motionArgs: { forward: false }},
+    { keys: ';', type: 'motion', motion: 'repeatLastCharacterSearch', motionArgs: { forward: true }},
+    { keys: ',', type: 'motion', motion: 'repeatLastCharacterSearch', motionArgs: { forward: false }},
+    { keys: '\'<character>', type: 'motion', motion: 'goToMark', motionArgs: {toJumplist: true, linewise: true}},
+    { keys: '`<character>', type: 'motion', motion: 'goToMark', motionArgs: {toJumplist: true}},
+    { keys: ']`', type: 'motion', motion: 'jumpToMark', motionArgs: { forward: true } },
+    { keys: '[`', type: 'motion', motion: 'jumpToMark', motionArgs: { forward: false } },
+    { keys: ']\'', type: 'motion', motion: 'jumpToMark', motionArgs: { forward: true, linewise: true } },
+    { keys: '[\'', type: 'motion', motion: 'jumpToMark', motionArgs: { forward: false, linewise: true } },
+    // the next two aren't motions but must come before more general motion declarations
+    { keys: ']p', type: 'action', action: 'paste', isEdit: true, actionArgs: { after: true, isEdit: true, matchIndent: true}},
+    { keys: '[p', type: 'action', action: 'paste', isEdit: true, actionArgs: { after: false, isEdit: true, matchIndent: true}},
+    { keys: ']<character>', type: 'motion', motion: 'moveToSymbol', motionArgs: { forward: true, toJumplist: true}},
+    { keys: '[<character>', type: 'motion', motion: 'moveToSymbol', motionArgs: { forward: false, toJumplist: true}},
+    { keys: '|', type: 'motion', motion: 'moveToColumn'},
+    { keys: 'o', type: 'motion', motion: 'moveToOtherHighlightedEnd', context:'visual'},
+    { keys: 'O', type: 'motion', motion: 'moveToOtherHighlightedEnd', motionArgs: {sameLine: true}, context:'visual'},
+    // Operators
+    { keys: 'd', type: 'operator', operator: 'delete' },
+    { keys: 'y', type: 'operator', operator: 'yank' },
+    { keys: 'c', type: 'operator', operator: 'change' },
+    { keys: '=', type: 'operator', operator: 'indentAuto' },
+    { keys: '>', type: 'operator', operator: 'indent', operatorArgs: { indentRight: true }},
+    { keys: '<', type: 'operator', operator: 'indent', operatorArgs: { indentRight: false }},
+    { keys: 'g~', type: 'operator', operator: 'changeCase' },
+    { keys: 'gu', type: 'operator', operator: 'changeCase', operatorArgs: {toLower: true}, isEdit: true },
+    { keys: 'gU', type: 'operator', operator: 'changeCase', operatorArgs: {toLower: false}, isEdit: true },
+    { keys: 'n', type: 'motion', motion: 'findNext', motionArgs: { forward: true, toJumplist: true }},
+    { keys: 'N', type: 'motion', motion: 'findNext', motionArgs: { forward: false, toJumplist: true }},
+    { keys: 'gn', type: 'motion', motion: 'findAndSelectNextInclusive', motionArgs: { forward: true }},
+    { keys: 'gN', type: 'motion', motion: 'findAndSelectNextInclusive', motionArgs: { forward: false }},
+    // Operator-Motion dual commands
+    { keys: 'x', type: 'operatorMotion', operator: 'delete', motion: 'moveByCharacters', motionArgs: { forward: true }, operatorMotionArgs: { visualLine: false }},
+    { keys: 'X', type: 'operatorMotion', operator: 'delete', motion: 'moveByCharacters', motionArgs: { forward: false }, operatorMotionArgs: { visualLine: true }},
+    { keys: 'D', type: 'operatorMotion', operator: 'delete', motion: 'moveToEol', motionArgs: { inclusive: true }, context: 'normal'},
+    { keys: 'D', type: 'operator', operator: 'delete', operatorArgs: { linewise: true }, context: 'visual'},
+    { keys: 'Y', type: 'operatorMotion', operator: 'yank', motion: 'expandToLine', motionArgs: { linewise: true }, context: 'normal'},
+    { keys: 'Y', type: 'operator', operator: 'yank', operatorArgs: { linewise: true }, context: 'visual'},
+    { keys: 'C', type: 'operatorMotion', operator: 'change', motion: 'moveToEol', motionArgs: { inclusive: true }, context: 'normal'},
+    { keys: 'C', type: 'operator', operator: 'change', operatorArgs: { linewise: true }, context: 'visual'},
+    { keys: '~', type: 'operatorMotion', operator: 'changeCase', motion: 'moveByCharacters', motionArgs: { forward: true }, operatorArgs: { shouldMoveCursor: true }, context: 'normal'},
+    { keys: '~', type: 'operator', operator: 'changeCase', context: 'visual'},
+    { keys: '<C-u>', type: 'operatorMotion', operator: 'delete', motion: 'moveToStartOfLine', context: 'insert' },
+    { keys: '<C-w>', type: 'operatorMotion', operator: 'delete', motion: 'moveByWords', motionArgs: { forward: false, wordEnd: false }, context: 'insert' },
+    //ignore C-w in normal mode
+    { keys: '<C-w>', type: 'idle', context: 'normal' },
+    // Actions
+    { keys: '<C-i>', type: 'action', action: 'jumpListWalk', actionArgs: { forward: true }},
+    { keys: '<C-o>', type: 'action', action: 'jumpListWalk', actionArgs: { forward: false }},
+    { keys: '<C-e>', type: 'action', action: 'scroll', actionArgs: { forward: true, linewise: true }},
+    { keys: '<C-y>', type: 'action', action: 'scroll', actionArgs: { forward: false, linewise: true }},
+    { keys: 'a', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'charAfter' }, context: 'normal' },
+    { keys: 'A', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'eol' }, context: 'normal' },
+    { keys: 'A', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'endOfSelectedArea' }, context: 'visual' },
+    { keys: 'i', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'inplace' }, context: 'normal' },
+    { keys: 'gi', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'lastEdit' }, context: 'normal' },
+    { keys: 'I', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'firstNonBlank'}, context: 'normal' },
+    { keys: 'gI', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'bol'}, context: 'normal' },
+    { keys: 'I', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { insertAt: 'startOfSelectedArea' }, context: 'visual' },
+    { keys: 'o', type: 'action', action: 'newLineAndEnterInsertMode', isEdit: true, interlaceInsertRepeat: true, actionArgs: { after: true }, context: 'normal' },
+    { keys: 'O', type: 'action', action: 'newLineAndEnterInsertMode', isEdit: true, interlaceInsertRepeat: true, actionArgs: { after: false }, context: 'normal' },
+    { keys: 'v', type: 'action', action: 'toggleVisualMode' },
+    { keys: 'V', type: 'action', action: 'toggleVisualMode', actionArgs: { linewise: true }},
+    { keys: '<C-v>', type: 'action', action: 'toggleVisualMode', actionArgs: { blockwise: true }},
+    { keys: '<C-q>', type: 'action', action: 'toggleVisualMode', actionArgs: { blockwise: true }},
+    { keys: 'gv', type: 'action', action: 'reselectLastSelection' },
+    { keys: 'J', type: 'action', action: 'joinLines', isEdit: true },
+    { keys: 'gJ', type: 'action', action: 'joinLines', actionArgs: { keepSpaces: true }, isEdit: true },
+    { keys: 'p', type: 'action', action: 'paste', isEdit: true, actionArgs: { after: true, isEdit: true }},
+    { keys: 'P', type: 'action', action: 'paste', isEdit: true, actionArgs: { after: false, isEdit: true }},
+    { keys: 'r<character>', type: 'action', action: 'replace', isEdit: true },
+    { keys: '@<character>', type: 'action', action: 'replayMacro' },
+    { keys: 'q<character>', type: 'action', action: 'enterMacroRecordMode' },
+    // Handle Replace-mode as a special case of insert mode.
+    { keys: 'R', type: 'action', action: 'enterInsertMode', isEdit: true, actionArgs: { replace: true }, context: 'normal'},
+    { keys: 'R', type: 'operator', operator: 'change', operatorArgs: { linewise: true, fullLine: true }, context: 'visual', exitVisualBlock: true},
+    { keys: 'u', type: 'action', action: 'undo', context: 'normal' },
+    { keys: 'u', type: 'operator', operator: 'changeCase', operatorArgs: {toLower: true}, context: 'visual', isEdit: true },
+    { keys: 'U', type: 'operator', operator: 'changeCase', operatorArgs: {toLower: false}, context: 'visual', isEdit: true },
+    { keys: '<C-r>', type: 'action', action: 'redo' },
+    { keys: 'm<character>', type: 'action', action: 'setMark' },
+    { keys: '"<character>', type: 'action', action: 'setRegister' },
+    { keys: 'zz', type: 'action', action: 'scrollToCursor', actionArgs: { position: 'center' }},
+    { keys: 'z.', type: 'action', action: 'scrollToCursor', actionArgs: { position: 'center' }, motion: 'moveToFirstNonWhiteSpaceCharacter' },
+    { keys: 'zt', type: 'action', action: 'scrollToCursor', actionArgs: { position: 'top' }},
+    { keys: 'z<CR>', type: 'action', action: 'scrollToCursor', actionArgs: { position: 'top' }, motion: 'moveToFirstNonWhiteSpaceCharacter' },
+    { keys: 'zb', type: 'action', action: 'scrollToCursor', actionArgs: { position: 'bottom' }},
+    { keys: 'z-', type: 'action', action: 'scrollToCursor', actionArgs: { position: 'bottom' }, motion: 'moveToFirstNonWhiteSpaceCharacter' },
+    { keys: '.', type: 'action', action: 'repeatLastEdit' },
+    { keys: '<C-a>', type: 'action', action: 'incrementNumberToken', isEdit: true, actionArgs: {increase: true, backtrack: false}},
+    { keys: '<C-x>', type: 'action', action: 'incrementNumberToken', isEdit: true, actionArgs: {increase: false, backtrack: false}},
+    { keys: '<C-t>', type: 'action', action: 'indent', actionArgs: { indentRight: true }, context: 'insert' },
+    { keys: '<C-d>', type: 'action', action: 'indent', actionArgs: { indentRight: false }, context: 'insert' },
+    // Text object motions
+    { keys: 'a<character>', type: 'motion', motion: 'textObjectManipulation' },
+    { keys: 'i<character>', type: 'motion', motion: 'textObjectManipulation', motionArgs: { textObjectInner: true }},
+    // Search
+    { keys: '/', type: 'search', searchArgs: { forward: true, querySrc: 'prompt', toJumplist: true }},
+    { keys: '?', type: 'search', searchArgs: { forward: false, querySrc: 'prompt', toJumplist: true }},
+    { keys: '*', type: 'search', searchArgs: { forward: true, querySrc: 'wordUnderCursor', wholeWordOnly: true, toJumplist: true }},
+    { keys: '#', type: 'search', searchArgs: { forward: false, querySrc: 'wordUnderCursor', wholeWordOnly: true, toJumplist: true }},
+    { keys: 'g*', type: 'search', searchArgs: { forward: true, querySrc: 'wordUnderCursor', toJumplist: true }},
+    { keys: 'g#', type: 'search', searchArgs: { forward: false, querySrc: 'wordUnderCursor', toJumplist: true }},
+    // Ex command
+    { keys: ':', type: 'ex' }
+  ];
+  var defaultKeymapLength = defaultKeymap.length;
+
+  /**
+   * Ex commands
+   * Care must be taken when adding to the default Ex command map. For any
+   * pair of commands that have a shared prefix, at least one of their
+   * shortNames must not match the prefix of the other command.
+   */
+  var defaultExCommandMap = [
+    { name: 'colorscheme', shortName: 'colo' },
+    { name: 'map' },
+    { name: 'imap', shortName: 'im' },
+    { name: 'nmap', shortName: 'nm' },
+    { name: 'vmap', shortName: 'vm' },
+    { name: 'unmap' },
+    { name: 'write', shortName: 'w' },
+    { name: 'undo', shortName: 'u' },
+    { name: 'redo', shortName: 'red' },
+    { name: 'set', shortName: 'se' },
+    { name: 'setlocal', shortName: 'setl' },
+    { name: 'setglobal', shortName: 'setg' },
+    { name: 'sort', shortName: 'sor' },
+    { name: 'substitute', shortName: 's', possiblyAsync: true },
+    { name: 'nohlsearch', shortName: 'noh' },
+    { name: 'yank', shortName: 'y' },
+    { name: 'delmarks', shortName: 'delm' },
+    { name: 'registers', shortName: 'reg', excludeFromCommandHistory: true },
+    { name: 'vglobal', shortName: 'v' },
+    { name: 'global', shortName: 'g' }
+  ];
+
+    function enterVimMode(cm) {
+      cm.setOption('disableInput', true);
+      cm.setOption('showCursorWhenSelecting', false);
+      CodeMirror.signal(cm, "vim-mode-change", {mode: "normal"});
+      cm.on('cursorActivity', onCursorActivity);
+      maybeInitVimState(cm);
+      CodeMirror.on(cm.getInputField(), 'paste', getOnPasteFn(cm));
+    }
+
+    function leaveVimMode(cm) {
+      cm.setOption('disableInput', false);
+      cm.off('cursorActivity', onCursorActivity);
+      CodeMirror.off(cm.getInputField(), 'paste', getOnPasteFn(cm));
+      cm.state.vim = null;
+      if (highlightTimeout) clearTimeout(highlightTimeout);
+    }
+
+    function detachVimMap(cm, next) {
+      if (this == CodeMirror.keyMap.vim) {
+        cm.options.$customCursor = null;
+        CodeMirror.rmClass(cm.getWrapperElement(), "cm-fat-cursor");
+      }
+
+      if (!next || next.attach != attachVimMap)
+        leaveVimMode(cm);
+    }
+    function attachVimMap(cm, prev) {
+      if (this == CodeMirror.keyMap.vim) {
+        if (cm.curOp) cm.curOp.selectionChanged = true;
+        cm.options.$customCursor = transformCursor;
+        CodeMirror.addClass(cm.getWrapperElement(), "cm-fat-cursor");
+      }
+
+      if (!prev || prev.attach != attachVimMap)
+        enterVimMode(cm);
+    }
+
+    // Deprecated, simply setting the keymap works again.
+    CodeMirror.defineOption('vimMode', false, function(cm, val, prev) {
+      if (val && cm.getOption("keyMap") != "vim")
+        cm.setOption("keyMap", "vim");
+      else if (!val && prev != CodeMirror.Init && /^vim/.test(cm.getOption("keyMap")))
+        cm.setOption("keyMap", "default");
+    });
+
+    function cmKey(key, cm) {
+      if (!cm) { return undefined; }
+      if (this[key]) { return this[key]; }
+      var vimKey = cmKeyToVimKey(key);
+      if (!vimKey) {
+        return false;
+      }
+      var cmd = vimApi.findKey(cm, vimKey);
+      if (typeof cmd == 'function') {
+        CodeMirror.signal(cm, 'vim-keypress', vimKey);
+      }
+      return cmd;
+    }
+
+    var modifiers = {Shift:'S',Ctrl:'C',Alt:'A',Cmd:'D',Mod:'A',CapsLock:''};
+    var specialKeys = {Enter:'CR',Backspace:'BS',Delete:'Del',Insert:'Ins'};
+    function cmKeyToVimKey(key) {
+      if (key.charAt(0) == '\'') {
+        // Keypress character binding of format "'a'"
+        return key.charAt(1);
+      }
+      var pieces = key.split(/-(?!$)/);
+      var lastPiece = pieces[pieces.length - 1];
+      if (pieces.length == 1 && pieces[0].length == 1) {
+        // No-modifier bindings use literal character bindings above. Skip.
+        return false;
+      } else if (pieces.length == 2 && pieces[0] == 'Shift' && lastPiece.length == 1) {
+        // Ignore Shift+char bindings as they should be handled by literal character.
+        return false;
+      }
+      var hasCharacter = false;
+      for (var i = 0; i < pieces.length; i++) {
+        var piece = pieces[i];
+        if (piece in modifiers) { pieces[i] = modifiers[piece]; }
+        else { hasCharacter = true; }
+        if (piece in specialKeys) { pieces[i] = specialKeys[piece]; }
+      }
+      if (!hasCharacter) {
+        // Vim does not support modifier only keys.
+        return false;
+      }
+      // TODO: Current bindings expect the character to be lower case, but
+      // it looks like vim key notation uses upper case.
+      if (isUpperCase(lastPiece)) {
+        pieces[pieces.length - 1] = lastPiece.toLowerCase();
+      }
+      return '<' + pieces.join('-') + '>';
+    }
+
+    function getOnPasteFn(cm) {
+      var vim = cm.state.vim;
+      if (!vim.onPasteFn) {
+        vim.onPasteFn = function() {
+          if (!vim.insertMode) {
+            cm.setCursor(offsetCursor(cm.getCursor(), 0, 1));
+            actions.enterInsertMode(cm, {}, vim);
+          }
+        };
+      }
+      return vim.onPasteFn;
+    }
+
+    var numberRegex = /[\d]/;
+    var wordCharTest = [CodeMirror.isWordChar, function(ch) {
+      return ch && !CodeMirror.isWordChar(ch) && !/\s/.test(ch);
+    }], bigWordCharTest = [function(ch) {
+      return /\S/.test(ch);
+    }];
+    function makeKeyRange(start, size) {
+      var keys = [];
+      for (var i = start; i < start + size; i++) {
+        keys.push(String.fromCharCode(i));
+      }
+      return keys;
+    }
+    var upperCaseAlphabet = makeKeyRange(65, 26);
+    var lowerCaseAlphabet = makeKeyRange(97, 26);
+    var numbers = makeKeyRange(48, 10);
+    var validMarks = [].concat(upperCaseAlphabet, lowerCaseAlphabet, numbers, ['<', '>']);
+    var validRegisters = [].concat(upperCaseAlphabet, lowerCaseAlphabet, numbers, ['-', '"', '.', ':', '_', '/']);
+    var upperCaseChars;
+    try { upperCaseChars = new RegExp("^[\\p{Lu}]$", "u"); }
+    catch (_) { upperCaseChars = /^[A-Z]$/; }
+
+    function isLine(cm, line) {
+      return line >= cm.firstLine() && line <= cm.lastLine();
+    }
+    function isLowerCase(k) {
+      return (/^[a-z]$/).test(k);
+    }
+    function isMatchableSymbol(k) {
+      return '()[]{}'.indexOf(k) != -1;
+    }
+    function isNumber(k) {
+      return numberRegex.test(k);
+    }
+    function isUpperCase(k) {
+      return upperCaseChars.test(k);
+    }
+    function isWhiteSpaceString(k) {
+      return (/^\s*$/).test(k);
+    }
+    function isEndOfSentenceSymbol(k) {
+      return '.?!'.indexOf(k) != -1;
+    }
+    function inArray(val, arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == val) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    var options = {};
+    function defineOption(name, defaultValue, type, aliases, callback) {
+      if (defaultValue === undefined && !callback) {
+        throw Error('defaultValue is required unless callback is provided');
+      }
+      if (!type) { type = 'string'; }
+      options[name] = {
+        type: type,
+        defaultValue: defaultValue,
+        callback: callback
+      };
+      if (aliases) {
+        for (var i = 0; i < aliases.length; i++) {
+          options[aliases[i]] = options[name];
+        }
+      }
+      if (defaultValue) {
+        setOption(name, defaultValue);
+      }
+    }
+
+    function setOption(name, value, cm, cfg) {
+      var option = options[name];
+      cfg = cfg || {};
+      var scope = cfg.scope;
+      if (!option) {
+        return new Error('Unknown option: ' + name);
+      }
+      if (option.type == 'boolean') {
+        if (value && value !== true) {
+          return new Error('Invalid argument: ' + name + '=' + value);
+        } else if (value !== false) {
+          // Boolean options are set to true if value is not defined.
+          value = true;
+        }
+      }
+      if (option.callback) {
+        if (scope !== 'local') {
+          option.callback(value, undefined);
+        }
+        if (scope !== 'global' && cm) {
+          option.callback(value, cm);
+        }
+      } else {
+        if (scope !== 'local') {
+          option.value = option.type == 'boolean' ? !!value : value;
+        }
+        if (scope !== 'global' && cm) {
+          cm.state.vim.options[name] = {value: value};
+        }
+      }
+    }
+
+    function getOption(name, cm, cfg) {
+      var option = options[name];
+      cfg = cfg || {};
+      var scope = cfg.scope;
+      if (!option) {
+        return new Error('Unknown option: ' + name);
+      }
+      if (option.callback) {
+        var local = cm && option.callback(undefined, cm);
+        if (scope !== 'global' && local !== undefined) {
+          return local;
+        }
+        if (scope !== 'local') {
+          return option.callback();
+        }
+        return;
+      } else {
+        var local = (scope !== 'global') && (cm && cm.state.vim.options[name]);
+        return (local || (scope !== 'local') && option || {}).value;
+      }
+    }
+
+    defineOption('filetype', undefined, 'string', ['ft'], function(name, cm) {
+      // Option is local. Do nothing for global.
+      if (cm === undefined) {
+        return;
+      }
+      // The 'filetype' option proxies to the CodeMirror 'mode' option.
+      if (name === undefined) {
+        var mode = cm.getOption('mode');
+        return mode == 'null' ? '' : mode;
+      } else {
+        var mode = name == '' ? 'null' : name;
+        cm.setOption('mode', mode);
+      }
+    });
+
+    var createCircularJumpList = function() {
+      var size = 100;
+      var pointer = -1;
+      var head = 0;
+      var tail = 0;
+      var buffer = new Array(size);
+      function add(cm, oldCur, newCur) {
+        var current = pointer % size;
+        var curMark = buffer[current];
+        function useNextSlot(cursor) {
+          var next = ++pointer % size;
+          var trashMark = buffer[next];
+          if (trashMark) {
+            trashMark.clear();
+          }
+          buffer[next] = cm.setBookmark(cursor);
+        }
+        if (curMark) {
+          var markPos = curMark.find();
+          // avoid recording redundant cursor position
+          if (markPos && !cursorEqual(markPos, oldCur)) {
+            useNextSlot(oldCur);
+          }
+        } else {
+          useNextSlot(oldCur);
+        }
+        useNextSlot(newCur);
+        head = pointer;
+        tail = pointer - size + 1;
+        if (tail < 0) {
+          tail = 0;
+        }
+      }
+      function move(cm, offset) {
+        pointer += offset;
+        if (pointer > head) {
+          pointer = head;
+        } else if (pointer < tail) {
+          pointer = tail;
+        }
+        var mark = buffer[(size + pointer) % size];
+        // skip marks that are temporarily removed from text buffer
+        if (mark && !mark.find()) {
+          var inc = offset > 0 ? 1 : -1;
+          var newCur;
+          var oldCur = cm.getCursor();
+          do {
+            pointer += inc;
+            mark = buffer[(size + pointer) % size];
+            // skip marks that are the same as current position
+            if (mark &&
+                (newCur = mark.find()) &&
+                !cursorEqual(oldCur, newCur)) {
+              break;
+            }
+          } while (pointer < head && pointer > tail);
+        }
+        return mark;
+      }
+      function find(cm, offset) {
+        var oldPointer = pointer;
+        var mark = move(cm, offset);
+        pointer = oldPointer;
+        return mark && mark.find();
+      }
+      return {
+        cachedCursor: undefined, //used for # and * jumps
+        add: add,
+        find: find,
+        move: move
+      };
+    };
+
+    // Returns an object to track the changes associated insert mode.  It
+    // clones the object that is passed in, or creates an empty object one if
+    // none is provided.
+    var createInsertModeChanges = function(c) {
+      if (c) {
+        // Copy construction
+        return {
+          changes: c.changes,
+          expectCursorActivityForChange: c.expectCursorActivityForChange
+        };
+      }
+      return {
+        // Change list
+        changes: [],
+        // Set to true on change, false on cursorActivity.
+        expectCursorActivityForChange: false
+      };
+    };
+
+    function MacroModeState() {
+      this.latestRegister = undefined;
+      this.isPlaying = false;
+      this.isRecording = false;
+      this.replaySearchQueries = [];
+      this.onRecordingDone = undefined;
+      this.lastInsertModeChanges = createInsertModeChanges();
+    }
+    MacroModeState.prototype = {
+      exitMacroRecordMode: function() {
+        var macroModeState = vimGlobalState.macroModeState;
+        if (macroModeState.onRecordingDone) {
+          macroModeState.onRecordingDone(); // close dialog
+        }
+        macroModeState.onRecordingDone = undefined;
+        macroModeState.isRecording = false;
+      },
+      enterMacroRecordMode: function(cm, registerName) {
+        var register =
+            vimGlobalState.registerController.getRegister(registerName);
+        if (register) {
+          register.clear();
+          this.latestRegister = registerName;
+          if (cm.openDialog) {
+            var template = dom('span', {class: 'cm-vim-message'}, 'recording @' + registerName);
+            this.onRecordingDone = cm.openDialog(template, null, {bottom:true});
+          }
+          this.isRecording = true;
+        }
+      }
+    };
+
+    function maybeInitVimState(cm) {
+      if (!cm.state.vim) {
+        // Store instance state in the CodeMirror object.
+        cm.state.vim = {
+          inputState: new InputState(),
+          // Vim's input state that triggered the last edit, used to repeat
+          // motions and operators with '.'.
+          lastEditInputState: undefined,
+          // Vim's action command before the last edit, used to repeat actions
+          // with '.' and insert mode repeat.
+          lastEditActionCommand: undefined,
+          // When using jk for navigation, if you move from a longer line to a
+          // shorter line, the cursor may clip to the end of the shorter line.
+          // If j is pressed again and cursor goes to the next line, the
+          // cursor should go back to its horizontal position on the longer
+          // line if it can. This is to keep track of the horizontal position.
+          lastHPos: -1,
+          // Doing the same with screen-position for gj/gk
+          lastHSPos: -1,
+          // The last motion command run. Cleared if a non-motion command gets
+          // executed in between.
+          lastMotion: null,
+          marks: {},
+          insertMode: false,
+          // Repeat count for changes made in insert mode, triggered by key
+          // sequences like 3,i. Only exists when insertMode is true.
+          insertModeRepeat: undefined,
+          visualMode: false,
+          // If we are in visual line mode. No effect if visualMode is false.
+          visualLine: false,
+          visualBlock: false,
+          lastSelection: null,
+          lastPastedText: null,
+          sel: {},
+          // Buffer-local/window-local values of vim options.
+          options: {}
+        };
+      }
+      return cm.state.vim;
+    }
+    var vimGlobalState;
+    function resetVimGlobalState() {
+      vimGlobalState = {
+        // The current search query.
+        searchQuery: null,
+        // Whether we are searching backwards.
+        searchIsReversed: false,
+        // Replace part of the last substituted pattern
+        lastSubstituteReplacePart: undefined,
+        jumpList: createCircularJumpList(),
+        macroModeState: new MacroModeState,
+        // Recording latest f, t, F or T motion command.
+        lastCharacterSearch: {increment:0, forward:true, selectedCharacter:''},
+        registerController: new RegisterController({}),
+        // search history buffer
+        searchHistoryController: new HistoryController(),
+        // ex Command history buffer
+        exCommandHistoryController : new HistoryController()
+      };
+      for (var optionName in options) {
+        var option = options[optionName];
+        option.value = option.defaultValue;
+      }
+    }
+
+    var lastInsertModeKeyTimer;
+    var vimApi = {
+      enterVimMode: enterVimMode,
+      buildKeyMap: function() {
+        // TODO: Convert keymap into dictionary format for fast lookup.
+      },
+      // Testing hook, though it might be useful to expose the register
+      // controller anyway.
+      getRegisterController: function() {
+        return vimGlobalState.registerController;
+      },
+      // Testing hook.
+      resetVimGlobalState_: resetVimGlobalState,
+
+      // Testing hook.
+      getVimGlobalState_: function() {
+        return vimGlobalState;
+      },
+
+      // Testing hook.
+      maybeInitVimState_: maybeInitVimState,
+
+      suppressErrorLogging: false,
+
+      InsertModeKey: InsertModeKey,
+      map: function(lhs, rhs, ctx) {
+        // Add user defined key bindings.
+        exCommandDispatcher.map(lhs, rhs, ctx);
+      },
+      unmap: function(lhs, ctx) {
+        return exCommandDispatcher.unmap(lhs, ctx);
+      },
+      // Non-recursive map function.
+      // NOTE: This will not create mappings to key maps that aren't present
+      // in the default key map. See TODO at bottom of function.
+      noremap: function(lhs, rhs, ctx) {
+        function toCtxArray(ctx) {
+          return ctx ? [ctx] : ['normal', 'insert', 'visual'];
+        }
+        var ctxsToMap = toCtxArray(ctx);
+        // Look through all actual defaults to find a map candidate.
+        var actualLength = defaultKeymap.length, origLength = defaultKeymapLength;
+        for (var i = actualLength - origLength;
+             i < actualLength && ctxsToMap.length;
+             i++) {
+          var mapping = defaultKeymap[i];
+          // Omit mappings that operate in the wrong context(s) and those of invalid type.
+          if (mapping.keys == rhs &&
+              (!ctx || !mapping.context || mapping.context === ctx) &&
+              mapping.type.substr(0, 2) !== 'ex' &&
+              mapping.type.substr(0, 3) !== 'key') {
+            // Make a shallow copy of the original keymap entry.
+            var newMapping = {};
+            for (var key in mapping) {
+              newMapping[key] = mapping[key];
+            }
+            // Modify it point to the new mapping with the proper context.
+            newMapping.keys = lhs;
+            if (ctx && !newMapping.context) {
+              newMapping.context = ctx;
+            }
+            // Add it to the keymap with a higher priority than the original.
+            this._mapCommand(newMapping);
+            // Record the mapped contexts as complete.
+            var mappedCtxs = toCtxArray(mapping.context);
+            ctxsToMap = ctxsToMap.filter(function(el) { return mappedCtxs.indexOf(el) === -1; });
+          }
+        }
+        // TODO: Create non-recursive keyToKey mappings for the unmapped contexts once those exist.
+      },
+      // Remove all user-defined mappings for the provided context.
+      mapclear: function(ctx) {
+        // Partition the existing keymap into user-defined and true defaults.
+        var actualLength = defaultKeymap.length,
+            origLength = defaultKeymapLength;
+        var userKeymap = defaultKeymap.slice(0, actualLength - origLength);
+        defaultKeymap = defaultKeymap.slice(actualLength - origLength);
+        if (ctx) {
+          // If a specific context is being cleared, we need to keep mappings
+          // from all other contexts.
+          for (var i = userKeymap.length - 1; i >= 0; i--) {
+            var mapping = userKeymap[i];
+            if (ctx !== mapping.context) {
+              if (mapping.context) {
+                this._mapCommand(mapping);
+              } else {
+                // `mapping` applies to all contexts so create keymap copies
+                // for each context except the one being cleared.
+                var contexts = ['normal', 'insert', 'visual'];
+                for (var j in contexts) {
+                  if (contexts[j] !== ctx) {
+                    var newMapping = {};
+                    for (var key in mapping) {
+                      newMapping[key] = mapping[key];
+                    }
+                    newMapping.context = contexts[j];
+                    this._mapCommand(newMapping);
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      // TODO: Expose setOption and getOption as instance methods. Need to decide how to namespace
+      // them, or somehow make them work with the existing CodeMirror setOption/getOption API.
+      setOption: setOption,
+      getOption: getOption,
+      defineOption: defineOption,
+      defineEx: function(name, prefix, func){
+        if (!prefix) {
+          prefix = name;
+        } else if (name.indexOf(prefix) !== 0) {
+          throw new Error('(Vim.defineEx) "'+prefix+'" is not a prefix of "'+name+'", command not registered');
+        }
+        exCommands[name]=func;
+        exCommandDispatcher.commandMap_[prefix]={name:name, shortName:prefix, type:'api'};
+      },
+      handleKey: function (cm, key, origin) {
+        var command = this.findKey(cm, key, origin);
+        if (typeof command === 'function') {
+          return command();
+        }
+      },
+      multiSelectHandleKey: multiSelectHandleKey,
+
+      /**
+       * This is the outermost function called by CodeMirror, after keys have
+       * been mapped to their Vim equivalents.
+       *
+       * Finds a command based on the key (and cached keys if there is a
+       * multi-key sequence). Returns `undefined` if no key is matched, a noop
+       * function if a partial match is found (multi-key), and a function to
+       * execute the bound command if a a key is matched. The function always
+       * returns true.
+       */
+      findKey: function(cm, key, origin) {
+        var vim = maybeInitVimState(cm);
+        function handleMacroRecording() {
+          var macroModeState = vimGlobalState.macroModeState;
+          if (macroModeState.isRecording) {
+            if (key == 'q') {
+              macroModeState.exitMacroRecordMode();
+              clearInputState(cm);
+              return true;
+            }
+            if (origin != 'mapping') {
+              logKey(macroModeState, key);
+            }
+          }
+        }
+        function handleEsc() {
+          if (key == '<Esc>') {
+            if (vim.visualMode) {
+              // Get back to normal mode.
+              exitVisualMode(cm);
+            } else if (vim.insertMode) {
+              // Get back to normal mode.
+              exitInsertMode(cm);
+            } else {
+              // We're already in normal mode. Let '<Esc>' be handled normally.
+              return;
+            }
+            clearInputState(cm);
+            return true;
+          }
+        }
+        function doKeyToKey(keys) {
+          // TODO: prevent infinite recursion.
+          var match;
+          while (keys) {
+            // Pull off one command key, which is either a single character
+            // or a special sequence wrapped in '<' and '>', e.g. '<Space>'.
+            match = (/<\w+-.+?>|<\w+>|./).exec(keys);
+            key = match[0];
+            keys = keys.substring(match.index + key.length);
+            vimApi.handleKey(cm, key, 'mapping');
+          }
+        }
+
+        function handleKeyInsertMode() {
+          if (handleEsc()) { return true; }
+          var keys = vim.inputState.keyBuffer = vim.inputState.keyBuffer + key;
+          var keysAreChars = key.length == 1;
+          var match = commandDispatcher.matchCommand(keys, defaultKeymap, vim.inputState, 'insert');
+          // Need to check all key substrings in insert mode.
+          while (keys.length > 1 && match.type != 'full') {
+            var keys = vim.inputState.keyBuffer = keys.slice(1);
+            var thisMatch = commandDispatcher.matchCommand(keys, defaultKeymap, vim.inputState, 'insert');
+            if (thisMatch.type != 'none') { match = thisMatch; }
+          }
+          if (match.type == 'none') { clearInputState(cm); return false; }
+          else if (match.type == 'partial') {
+            if (lastInsertModeKeyTimer) { window.clearTimeout(lastInsertModeKeyTimer); }
+            lastInsertModeKeyTimer = window.setTimeout(
+              function() { if (vim.insertMode && vim.inputState.keyBuffer) { clearInputState(cm); } },
+              getOption('insertModeEscKeysTimeout'));
+            return !keysAreChars;
+          }
+
+          if (lastInsertModeKeyTimer) { window.clearTimeout(lastInsertModeKeyTimer); }
+          if (keysAreChars) {
+            var selections = cm.listSelections();
+            for (var i = 0; i < selections.length; i++) {
+              var here = selections[i].head;
+              cm.replaceRange('', offsetCursor(here, 0, -(keys.length - 1)), here, '+input');
+            }
+            vimGlobalState.macroModeState.lastInsertModeChanges.changes.pop();
+          }
+          clearInputState(cm);
+          return match.command;
+        }
+
+        function handleKeyNonInsertMode() {
+          if (handleMacroRecording() || handleEsc()) { return true; }
+
+          var keys = vim.inputState.keyBuffer = vim.inputState.keyBuffer + key;
+          if (/^[1-9]\d*$/.test(keys)) { return true; }
+
+          var keysMatcher = /^(\d*)(.*)$/.exec(keys);
+          if (!keysMatcher) { clearInputState(cm); return false; }
+          var context = vim.visualMode ? 'visual' :
+                                         'normal';
+          var mainKey = keysMatcher[2] || keysMatcher[1];
+          if (vim.inputState.operatorShortcut && vim.inputState.operatorShortcut.slice(-1) == mainKey) {
+            // multikey operators act linewise by repeating only the last character
+            mainKey = vim.inputState.operatorShortcut;
+          }
+          var match = commandDispatcher.matchCommand(mainKey, defaultKeymap, vim.inputState, context);
+          if (match.type == 'none') { clearInputState(cm); return false; }
+          else if (match.type == 'partial') { return true; }
+          else if (match.type == 'clear') { clearInputState(cm); return true; }
+
+          vim.inputState.keyBuffer = '';
+          keysMatcher = /^(\d*)(.*)$/.exec(keys);
+          if (keysMatcher[1] && keysMatcher[1] != '0') {
+            vim.inputState.pushRepeatDigit(keysMatcher[1]);
+          }
+          return match.command;
+        }
+
+        var command;
+        if (vim.insertMode) { command = handleKeyInsertMode(); }
+        else { command = handleKeyNonInsertMode(); }
+        if (command === false) {
+          return !vim.insertMode && key.length === 1 ? function() { return true; } : undefined;
+        } else if (command === true) {
+          // TODO: Look into using CodeMirror's multi-key handling.
+          // Return no-op since we are caching the key. Counts as handled, but
+          // don't want act on it just yet.
+          return function() { return true; };
+        } else {
+          return function() {
+            return cm.operation(function() {
+              cm.curOp.isVimOp = true;
+              try {
+                if (command.type == 'keyToKey') {
+                  doKeyToKey(command.toKeys);
+                } else {
+                  commandDispatcher.processCommand(cm, vim, command);
+                }
+              } catch (e) {
+                // clear VIM state in case it's in a bad state.
+                cm.state.vim = undefined;
+                maybeInitVimState(cm);
+                if (!vimApi.suppressErrorLogging) {
+                  console['log'](e);
+                }
+                throw e;
+              }
+              return true;
+            });
+          };
+        }
+      },
+      handleEx: function(cm, input) {
+        exCommandDispatcher.processCommand(cm, input);
+      },
+
+      defineMotion: defineMotion,
+      defineAction: defineAction,
+      defineOperator: defineOperator,
+      mapCommand: mapCommand,
+      _mapCommand: _mapCommand,
+
+      defineRegister: defineRegister,
+
+      exitVisualMode: exitVisualMode,
+      exitInsertMode: exitInsertMode
+    };
+
+    // Represents the current input state.
+    function InputState() {
+      this.prefixRepeat = [];
+      this.motionRepeat = [];
+
+      this.operator = null;
+      this.operatorArgs = null;
+      this.motion = null;
+      this.motionArgs = null;
+      this.keyBuffer = []; // For matching multi-key commands.
+      this.registerName = null; // Defaults to the unnamed register.
+    }
+    InputState.prototype.pushRepeatDigit = function(n) {
+      if (!this.operator) {
+        this.prefixRepeat = this.prefixRepeat.concat(n);
+      } else {
+        this.motionRepeat = this.motionRepeat.concat(n);
+      }
+    };
+    InputState.prototype.getRepeat = function() {
+      var repeat = 0;
+      if (this.prefixRepeat.length > 0 || this.motionRepeat.length > 0) {
+        repeat = 1;
+        if (this.prefixRepeat.length > 0) {
+          repeat *= parseInt(this.prefixRepeat.join(''), 10);
+        }
+        if (this.motionRepeat.length > 0) {
+          repeat *= parseInt(this.motionRepeat.join(''), 10);
+        }
+      }
+      return repeat;
+    };
+
+    function clearInputState(cm, reason) {
+      cm.state.vim.inputState = new InputState();
+      CodeMirror.signal(cm, 'vim-command-done', reason);
+    }
+
+    /*
+     * Register stores information about copy and paste registers.  Besides
+     * text, a register must store whether it is linewise (i.e., when it is
+     * pasted, should it insert itself into a new line, or should the text be
+     * inserted at the cursor position.)
+     */
+    function Register(text, linewise, blockwise) {
+      this.clear();
+      this.keyBuffer = [text || ''];
+      this.insertModeChanges = [];
+      this.searchQueries = [];
+      this.linewise = !!linewise;
+      this.blockwise = !!blockwise;
+    }
+    Register.prototype = {
+      setText: function(text, linewise, blockwise) {
+        this.keyBuffer = [text || ''];
+        this.linewise = !!linewise;
+        this.blockwise = !!blockwise;
+      },
+      pushText: function(text, linewise) {
+        // if this register has ever been set to linewise, use linewise.
+        if (linewise) {
+          if (!this.linewise) {
+            this.keyBuffer.push('\n');
+          }
+          this.linewise = true;
+        }
+        this.keyBuffer.push(text);
+      },
+      pushInsertModeChanges: function(changes) {
+        this.insertModeChanges.push(createInsertModeChanges(changes));
+      },
+      pushSearchQuery: function(query) {
+        this.searchQueries.push(query);
+      },
+      clear: function() {
+        this.keyBuffer = [];
+        this.insertModeChanges = [];
+        this.searchQueries = [];
+        this.linewise = false;
+      },
+      toString: function() {
+        return this.keyBuffer.join('');
+      }
+    };
+
+    /**
+     * Defines an external register.
+     *
+     * The name should be a single character that will be used to reference the register.
+     * The register should support setText, pushText, clear, and toString(). See Register
+     * for a reference implementation.
+     */
+    function defineRegister(name, register) {
+      var registers = vimGlobalState.registerController.registers;
+      if (!name || name.length != 1) {
+        throw Error('Register name must be 1 character');
+      }
+      if (registers[name]) {
+        throw Error('Register already defined ' + name);
+      }
+      registers[name] = register;
+      validRegisters.push(name);
+    }
+
+    /*
+     * vim registers allow you to keep many independent copy and paste buffers.
+     * See http://usevim.com/2012/04/13/registers/ for an introduction.
+     *
+     * RegisterController keeps the state of all the registers.  An initial
+     * state may be passed in.  The unnamed register '"' will always be
+     * overridden.
+     */
+    function RegisterController(registers) {
+      this.registers = registers;
+      this.unnamedRegister = registers['"'] = new Register();
+      registers['.'] = new Register();
+      registers[':'] = new Register();
+      registers['/'] = new Register();
+    }
+    RegisterController.prototype = {
+      pushText: function(registerName, operator, text, linewise, blockwise) {
+        // The black hole register, "_, means delete/yank to nowhere.
+        if (registerName === '_') return;
+        if (linewise && text.charAt(text.length - 1) !== '\n'){
+          text += '\n';
+        }
+        // Lowercase and uppercase registers refer to the same register.
+        // Uppercase just means append.
+        var register = this.isValidRegister(registerName) ?
+            this.getRegister(registerName) : null;
+        // if no register/an invalid register was specified, things go to the
+        // default registers
+        if (!register) {
+          switch (operator) {
+            case 'yank':
+              // The 0 register contains the text from the most recent yank.
+              this.registers['0'] = new Register(text, linewise, blockwise);
+              break;
+            case 'delete':
+            case 'change':
+              if (text.indexOf('\n') == -1) {
+                // Delete less than 1 line. Update the small delete register.
+                this.registers['-'] = new Register(text, linewise);
+              } else {
+                // Shift down the contents of the numbered registers and put the
+                // deleted text into register 1.
+                this.shiftNumericRegisters_();
+                this.registers['1'] = new Register(text, linewise);
+              }
+              break;
+          }
+          // Make sure the unnamed register is set to what just happened
+          this.unnamedRegister.setText(text, linewise, blockwise);
+          return;
+        }
+
+        // If we've gotten to this point, we've actually specified a register
+        var append = isUpperCase(registerName);
+        if (append) {
+          register.pushText(text, linewise);
+        } else {
+          register.setText(text, linewise, blockwise);
+        }
+        // The unnamed register always has the same value as the last used
+        // register.
+        this.unnamedRegister.setText(register.toString(), linewise);
+      },
+      // Gets the register named @name.  If one of @name doesn't already exist,
+      // create it.  If @name is invalid, return the unnamedRegister.
+      getRegister: function(name) {
+        if (!this.isValidRegister(name)) {
+          return this.unnamedRegister;
+        }
+        name = name.toLowerCase();
+        if (!this.registers[name]) {
+          this.registers[name] = new Register();
+        }
+        return this.registers[name];
+      },
+      isValidRegister: function(name) {
+        return name && inArray(name, validRegisters);
+      },
+      shiftNumericRegisters_: function() {
+        for (var i = 9; i >= 2; i--) {
+          this.registers[i] = this.getRegister('' + (i - 1));
+        }
+      }
+    };
+    function HistoryController() {
+        this.historyBuffer = [];
+        this.iterator = 0;
+        this.initialPrefix = null;
+    }
+    HistoryController.prototype = {
+      // the input argument here acts a user entered prefix for a small time
+      // until we start autocompletion in which case it is the autocompleted.
+      nextMatch: function (input, up) {
+        var historyBuffer = this.historyBuffer;
+        var dir = up ? -1 : 1;
+        if (this.initialPrefix === null) this.initialPrefix = input;
+        for (var i = this.iterator + dir; up ? i >= 0 : i < historyBuffer.length; i+= dir) {
+          var element = historyBuffer[i];
+          for (var j = 0; j <= element.length; j++) {
+            if (this.initialPrefix == element.substring(0, j)) {
+              this.iterator = i;
+              return element;
+            }
+          }
+        }
+        // should return the user input in case we reach the end of buffer.
+        if (i >= historyBuffer.length) {
+          this.iterator = historyBuffer.length;
+          return this.initialPrefix;
+        }
+        // return the last autocompleted query or exCommand as it is.
+        if (i < 0 ) return input;
+      },
+      pushInput: function(input) {
+        var index = this.historyBuffer.indexOf(input);
+        if (index > -1) this.historyBuffer.splice(index, 1);
+        if (input.length) this.historyBuffer.push(input);
+      },
+      reset: function() {
+        this.initialPrefix = null;
+        this.iterator = this.historyBuffer.length;
+      }
+    };
+    var commandDispatcher = {
+      matchCommand: function(keys, keyMap, inputState, context) {
+        var matches = commandMatches(keys, keyMap, context, inputState);
+        if (!matches.full && !matches.partial) {
+          return {type: 'none'};
+        } else if (!matches.full && matches.partial) {
+          return {type: 'partial'};
+        }
+
+        var bestMatch;
+        for (var i = 0; i < matches.full.length; i++) {
+          var match = matches.full[i];
+          if (!bestMatch) {
+            bestMatch = match;
+          }
+        }
+        if (bestMatch.keys.slice(-11) == '<character>') {
+          var character = lastChar(keys);
+          if (!character || character.length > 1) return {type: 'clear'};
+          inputState.selectedCharacter = character;
+        }
+        return {type: 'full', command: bestMatch};
+      },
+      processCommand: function(cm, vim, command) {
+        vim.inputState.repeatOverride = command.repeatOverride;
+        switch (command.type) {
+          case 'motion':
+            this.processMotion(cm, vim, command);
+            break;
+          case 'operator':
+            this.processOperator(cm, vim, command);
+            break;
+          case 'operatorMotion':
+            this.processOperatorMotion(cm, vim, command);
+            break;
+          case 'action':
+            this.processAction(cm, vim, command);
+            break;
+          case 'search':
+            this.processSearch(cm, vim, command);
+            break;
+          case 'ex':
+          case 'keyToEx':
+            this.processEx(cm, vim, command);
+            break;
+        }
+      },
+      processMotion: function(cm, vim, command) {
+        vim.inputState.motion = command.motion;
+        vim.inputState.motionArgs = copyArgs(command.motionArgs);
+        this.evalInput(cm, vim);
+      },
+      processOperator: function(cm, vim, command) {
+        var inputState = vim.inputState;
+        if (inputState.operator) {
+          if (inputState.operator == command.operator) {
+            // Typing an operator twice like 'dd' makes the operator operate
+            // linewise
+            inputState.motion = 'expandToLine';
+            inputState.motionArgs = { linewise: true };
+            this.evalInput(cm, vim);
+            return;
+          } else {
+            // 2 different operators in a row doesn't make sense.
+            clearInputState(cm);
+          }
+        }
+        inputState.operator = command.operator;
+        inputState.operatorArgs = copyArgs(command.operatorArgs);
+        if (command.keys.length > 1) {
+          inputState.operatorShortcut = command.keys;
+        }
+        if (command.exitVisualBlock) {
+            vim.visualBlock = false;
+            updateCmSelection(cm);
+        }
+        if (vim.visualMode) {
+          // Operating on a selection in visual mode. We don't need a motion.
+          this.evalInput(cm, vim);
+        }
+      },
+      processOperatorMotion: function(cm, vim, command) {
+        var visualMode = vim.visualMode;
+        var operatorMotionArgs = copyArgs(command.operatorMotionArgs);
+        if (operatorMotionArgs) {
+          // Operator motions may have special behavior in visual mode.
+          if (visualMode && operatorMotionArgs.visualLine) {
+            vim.visualLine = true;
+          }
+        }
+        this.processOperator(cm, vim, command);
+        if (!visualMode) {
+          this.processMotion(cm, vim, command);
+        }
+      },
+      processAction: function(cm, vim, command) {
+        var inputState = vim.inputState;
+        var repeat = inputState.getRepeat();
+        var repeatIsExplicit = !!repeat;
+        var actionArgs = copyArgs(command.actionArgs) || {};
+        if (inputState.selectedCharacter) {
+          actionArgs.selectedCharacter = inputState.selectedCharacter;
+        }
+        // Actions may or may not have motions and operators. Do these first.
+        if (command.operator) {
+          this.processOperator(cm, vim, command);
+        }
+        if (command.motion) {
+          this.processMotion(cm, vim, command);
+        }
+        if (command.motion || command.operator) {
+          this.evalInput(cm, vim);
+        }
+        actionArgs.repeat = repeat || 1;
+        actionArgs.repeatIsExplicit = repeatIsExplicit;
+        actionArgs.registerName = inputState.registerName;
+        clearInputState(cm);
+        vim.lastMotion = null;
+        if (command.isEdit) {
+          this.recordLastEdit(vim, inputState, command);
+        }
+        actions[command.action](cm, actionArgs, vim);
+      },
+      processSearch: function(cm, vim, command) {
+        if (!cm.getSearchCursor) {
+          // Search depends on SearchCursor.
+          return;
+        }
+        var forward = command.searchArgs.forward;
+        var wholeWordOnly = command.searchArgs.wholeWordOnly;
+        getSearchState(cm).setReversed(!forward);
+        var promptPrefix = (forward) ? '/' : '?';
+        var originalQuery = getSearchState(cm).getQuery();
+        var originalScrollPos = cm.getScrollInfo();
+        function handleQuery(query, ignoreCase, smartCase) {
+          vimGlobalState.searchHistoryController.pushInput(query);
+          vimGlobalState.searchHistoryController.reset();
+          try {
+            updateSearchQuery(cm, query, ignoreCase, smartCase);
+          } catch (e) {
+            showConfirm(cm, 'Invalid regex: ' + query);
+            clearInputState(cm);
+            return;
+          }
+          commandDispatcher.processMotion(cm, vim, {
+            type: 'motion',
+            motion: 'findNext',
+            motionArgs: { forward: true, toJumplist: command.searchArgs.toJumplist }
+          });
+        }
+        function onPromptClose(query) {
+          cm.scrollTo(originalScrollPos.left, originalScrollPos.top);
+          handleQuery(query, true /** ignoreCase */, true /** smartCase */);
+          var macroModeState = vimGlobalState.macroModeState;
+          if (macroModeState.isRecording) {
+            logSearchQuery(macroModeState, query);
+          }
+        }
+        function onPromptKeyUp(e, query, close) {
+          var keyName = CodeMirror.keyName(e), up, offset;
+          if (keyName == 'Up' || keyName == 'Down') {
+            up = keyName == 'Up' ? true : false;
+            offset = e.target ? e.target.selectionEnd : 0;
+            query = vimGlobalState.searchHistoryController.nextMatch(query, up) || '';
+            close(query);
+            if (offset && e.target) e.target.selectionEnd = e.target.selectionStart = Math.min(offset, e.target.value.length);
+          } else {
+            if ( keyName != 'Left' && keyName != 'Right' && keyName != 'Ctrl' && keyName != 'Alt' && keyName != 'Shift')
+              vimGlobalState.searchHistoryController.reset();
+          }
+          var parsedQuery;
+          try {
+            parsedQuery = updateSearchQuery(cm, query,
+                true /** ignoreCase */, true /** smartCase */);
+          } catch (e) {
+            // Swallow bad regexes for incremental search.
+          }
+          if (parsedQuery) {
+            cm.scrollIntoView(findNext(cm, !forward, parsedQuery), 30);
+          } else {
+            clearSearchHighlight(cm);
+            cm.scrollTo(originalScrollPos.left, originalScrollPos.top);
+          }
+        }
+        function onPromptKeyDown(e, query, close) {
+          var keyName = CodeMirror.keyName(e);
+          if (keyName == 'Esc' || keyName == 'Ctrl-C' || keyName == 'Ctrl-[' ||
+              (keyName == 'Backspace' && query == '')) {
+            vimGlobalState.searchHistoryController.pushInput(query);
+            vimGlobalState.searchHistoryController.reset();
+            updateSearchQuery(cm, originalQuery);
+            clearSearchHighlight(cm);
+            cm.scrollTo(originalScrollPos.left, originalScrollPos.top);
+            CodeMirror.e_stop(e);
+            clearInputState(cm);
+            close();
+            cm.focus();
+          } else if (keyName == 'Up' || keyName == 'Down') {
+            CodeMirror.e_stop(e);
+          } else if (keyName == 'Ctrl-U') {
+            // Ctrl-U clears input.
+            CodeMirror.e_stop(e);
+            close('');
+          }
+        }
+        switch (command.searchArgs.querySrc) {
+          case 'prompt':
+            var macroModeState = vimGlobalState.macroModeState;
+            if (macroModeState.isPlaying) {
+              var query = macroModeState.replaySearchQueries.shift();
+              handleQuery(query, true /** ignoreCase */, false /** smartCase */);
+            } else {
+              showPrompt(cm, {
+                  onClose: onPromptClose,
+                  prefix: promptPrefix,
+                  desc: '(JavaScript regexp)',
+                  onKeyUp: onPromptKeyUp,
+                  onKeyDown: onPromptKeyDown
+              });
+            }
+            break;
+          case 'wordUnderCursor':
+            var word = expandWordUnderCursor(cm, false /** inclusive */,
+                true /** forward */, false /** bigWord */,
+                true /** noSymbol */);
+            var isKeyword = true;
+            if (!word) {
+              word = expandWordUnderCursor(cm, false /** inclusive */,
+                  true /** forward */, false /** bigWord */,
+                  false /** noSymbol */);
+              isKeyword = false;
+            }
+            if (!word) {
+              return;
+            }
+            var query = cm.getLine(word.start.line).substring(word.start.ch,
+                word.end.ch);
+            if (isKeyword && wholeWordOnly) {
+                query = '\\b' + query + '\\b';
+            } else {
+              query = escapeRegex(query);
+            }
+
+            // cachedCursor is used to save the old position of the cursor
+            // when * or # causes vim to seek for the nearest word and shift
+            // the cursor before entering the motion.
+            vimGlobalState.jumpList.cachedCursor = cm.getCursor();
+            cm.setCursor(word.start);
+
+            handleQuery(query, true /** ignoreCase */, false /** smartCase */);
+            break;
+        }
+      },
+      processEx: function(cm, vim, command) {
+        function onPromptClose(input) {
+          // Give the prompt some time to close so that if processCommand shows
+          // an error, the elements don't overlap.
+          vimGlobalState.exCommandHistoryController.pushInput(input);
+          vimGlobalState.exCommandHistoryController.reset();
+          exCommandDispatcher.processCommand(cm, input);
+          clearInputState(cm);
+        }
+        function onPromptKeyDown(e, input, close) {
+          var keyName = CodeMirror.keyName(e), up, offset;
+          if (keyName == 'Esc' || keyName == 'Ctrl-C' || keyName == 'Ctrl-[' ||
+              (keyName == 'Backspace' && input == '')) {
+            vimGlobalState.exCommandHistoryController.pushInput(input);
+            vimGlobalState.exCommandHistoryController.reset();
+            CodeMirror.e_stop(e);
+            clearInputState(cm);
+            close();
+            cm.focus();
+          }
+          if (keyName == 'Up' || keyName == 'Down') {
+            CodeMirror.e_stop(e);
+            up = keyName == 'Up' ? true : false;
+            offset = e.target ? e.target.selectionEnd : 0;
+            input = vimGlobalState.exCommandHistoryController.nextMatch(input, up) || '';
+            close(input);
+            if (offset && e.target) e.target.selectionEnd = e.target.selectionStart = Math.min(offset, e.target.value.length);
+          } else if (keyName == 'Ctrl-U') {
+            // Ctrl-U clears input.
+            CodeMirror.e_stop(e);
+            close('');
+          } else {
+            if ( keyName != 'Left' && keyName != 'Right' && keyName != 'Ctrl' && keyName != 'Alt' && keyName != 'Shift')
+              vimGlobalState.exCommandHistoryController.reset();
+          }
+        }
+        if (command.type == 'keyToEx') {
+          // Handle user defined Ex to Ex mappings
+          exCommandDispatcher.processCommand(cm, command.exArgs.input);
+        } else {
+          if (vim.visualMode) {
+            showPrompt(cm, { onClose: onPromptClose, prefix: ':', value: '\'<,\'>',
+                onKeyDown: onPromptKeyDown, selectValueOnOpen: false});
+          } else {
+            showPrompt(cm, { onClose: onPromptClose, prefix: ':',
+                onKeyDown: onPromptKeyDown});
+          }
+        }
+      },
+      evalInput: function(cm, vim) {
+        // If the motion command is set, execute both the operator and motion.
+        // Otherwise return.
+        var inputState = vim.inputState;
+        var motion = inputState.motion;
+        var motionArgs = inputState.motionArgs || {};
+        var operator = inputState.operator;
+        var operatorArgs = inputState.operatorArgs || {};
+        var registerName = inputState.registerName;
+        var sel = vim.sel;
+        // TODO: Make sure cm and vim selections are identical outside visual mode.
+        var origHead = copyCursor(vim.visualMode ? clipCursorToContent(cm, sel.head): cm.getCursor('head'));
+        var origAnchor = copyCursor(vim.visualMode ? clipCursorToContent(cm, sel.anchor) : cm.getCursor('anchor'));
+        var oldHead = copyCursor(origHead);
+        var oldAnchor = copyCursor(origAnchor);
+        var newHead, newAnchor;
+        var repeat;
+        if (operator) {
+          this.recordLastEdit(vim, inputState);
+        }
+        if (inputState.repeatOverride !== undefined) {
+          // If repeatOverride is specified, that takes precedence over the
+          // input state's repeat. Used by Ex mode and can be user defined.
+          repeat = inputState.repeatOverride;
+        } else {
+          repeat = inputState.getRepeat();
+        }
+        if (repeat > 0 && motionArgs.explicitRepeat) {
+          motionArgs.repeatIsExplicit = true;
+        } else if (motionArgs.noRepeat ||
+            (!motionArgs.explicitRepeat && repeat === 0)) {
+          repeat = 1;
+          motionArgs.repeatIsExplicit = false;
+        }
+        if (inputState.selectedCharacter) {
+          // If there is a character input, stick it in all of the arg arrays.
+          motionArgs.selectedCharacter = operatorArgs.selectedCharacter =
+              inputState.selectedCharacter;
+        }
+        motionArgs.repeat = repeat;
+        clearInputState(cm);
+        if (motion) {
+          var motionResult = motions[motion](cm, origHead, motionArgs, vim, inputState);
+          vim.lastMotion = motions[motion];
+          if (!motionResult) {
+            return;
+          }
+          if (motionArgs.toJumplist) {
+            var jumpList = vimGlobalState.jumpList;
+            // if the current motion is # or *, use cachedCursor
+            var cachedCursor = jumpList.cachedCursor;
+            if (cachedCursor) {
+              recordJumpPosition(cm, cachedCursor, motionResult);
+              delete jumpList.cachedCursor;
+            } else {
+              recordJumpPosition(cm, origHead, motionResult);
+            }
+          }
+          if (motionResult instanceof Array) {
+            newAnchor = motionResult[0];
+            newHead = motionResult[1];
+          } else {
+            newHead = motionResult;
+          }
+          // TODO: Handle null returns from motion commands better.
+          if (!newHead) {
+            newHead = copyCursor(origHead);
+          }
+          if (vim.visualMode) {
+            if (!(vim.visualBlock && newHead.ch === Infinity)) {
+              newHead = clipCursorToContent(cm, newHead);
+            }
+            if (newAnchor) {
+              newAnchor = clipCursorToContent(cm, newAnchor);
+            }
+            newAnchor = newAnchor || oldAnchor;
+            sel.anchor = newAnchor;
+            sel.head = newHead;
+            updateCmSelection(cm);
+            updateMark(cm, vim, '<',
+                cursorIsBefore(newAnchor, newHead) ? newAnchor
+                    : newHead);
+            updateMark(cm, vim, '>',
+                cursorIsBefore(newAnchor, newHead) ? newHead
+                    : newAnchor);
+          } else if (!operator) {
+            newHead = clipCursorToContent(cm, newHead);
+            cm.setCursor(newHead.line, newHead.ch);
+          }
+        }
+        if (operator) {
+          if (operatorArgs.lastSel) {
+            // Replaying a visual mode operation
+            newAnchor = oldAnchor;
+            var lastSel = operatorArgs.lastSel;
+            var lineOffset = Math.abs(lastSel.head.line - lastSel.anchor.line);
+            var chOffset = Math.abs(lastSel.head.ch - lastSel.anchor.ch);
+            if (lastSel.visualLine) {
+              // Linewise Visual mode: The same number of lines.
+              newHead = new Pos(oldAnchor.line + lineOffset, oldAnchor.ch);
+            } else if (lastSel.visualBlock) {
+              // Blockwise Visual mode: The same number of lines and columns.
+              newHead = new Pos(oldAnchor.line + lineOffset, oldAnchor.ch + chOffset);
+            } else if (lastSel.head.line == lastSel.anchor.line) {
+              // Normal Visual mode within one line: The same number of characters.
+              newHead = new Pos(oldAnchor.line, oldAnchor.ch + chOffset);
+            } else {
+              // Normal Visual mode with several lines: The same number of lines, in the
+              // last line the same number of characters as in the last line the last time.
+              newHead = new Pos(oldAnchor.line + lineOffset, oldAnchor.ch);
+            }
+            vim.visualMode = true;
+            vim.visualLine = lastSel.visualLine;
+            vim.visualBlock = lastSel.visualBlock;
+            sel = vim.sel = {
+              anchor: newAnchor,
+              head: newHead
+            };
+            updateCmSelection(cm);
+          } else if (vim.visualMode) {
+            operatorArgs.lastSel = {
+              anchor: copyCursor(sel.anchor),
+              head: copyCursor(sel.head),
+              visualBlock: vim.visualBlock,
+              visualLine: vim.visualLine
+            };
+          }
+          var curStart, curEnd, linewise, mode;
+          var cmSel;
+          if (vim.visualMode) {
+            // Init visual op
+            curStart = cursorMin(sel.head, sel.anchor);
+            curEnd = cursorMax(sel.head, sel.anchor);
+            linewise = vim.visualLine || operatorArgs.linewise;
+            mode = vim.visualBlock ? 'block' :
+                   linewise ? 'line' :
+                   'char';
+            cmSel = makeCmSelection(cm, {
+              anchor: curStart,
+              head: curEnd
+            }, mode);
+            if (linewise) {
+              var ranges = cmSel.ranges;
+              if (mode == 'block') {
+                // Linewise operators in visual block mode extend to end of line
+                for (var i = 0; i < ranges.length; i++) {
+                  ranges[i].head.ch = lineLength(cm, ranges[i].head.line);
+                }
+              } else if (mode == 'line') {
+                ranges[0].head = new Pos(ranges[0].head.line + 1, 0);
+              }
+            }
+          } else {
+            // Init motion op
+            curStart = copyCursor(newAnchor || oldAnchor);
+            curEnd = copyCursor(newHead || oldHead);
+            if (cursorIsBefore(curEnd, curStart)) {
+              var tmp = curStart;
+              curStart = curEnd;
+              curEnd = tmp;
+            }
+            linewise = motionArgs.linewise || operatorArgs.linewise;
+            if (linewise) {
+              // Expand selection to entire line.
+              expandSelectionToLine(cm, curStart, curEnd);
+            } else if (motionArgs.forward) {
+              // Clip to trailing newlines only if the motion goes forward.
+              clipToLine(cm, curStart, curEnd);
+            }
+            mode = 'char';
+            var exclusive = !motionArgs.inclusive || linewise;
+            cmSel = makeCmSelection(cm, {
+              anchor: curStart,
+              head: curEnd
+            }, mode, exclusive);
+          }
+          cm.setSelections(cmSel.ranges, cmSel.primary);
+          vim.lastMotion = null;
+          operatorArgs.repeat = repeat; // For indent in visual mode.
+          operatorArgs.registerName = registerName;
+          // Keep track of linewise as it affects how paste and change behave.
+          operatorArgs.linewise = linewise;
+          var operatorMoveTo = operators[operator](
+            cm, operatorArgs, cmSel.ranges, oldAnchor, newHead);
+          if (vim.visualMode) {
+            exitVisualMode(cm, operatorMoveTo != null);
+          }
+          if (operatorMoveTo) {
+            cm.setCursor(operatorMoveTo);
+          }
+        }
+      },
+      recordLastEdit: function(vim, inputState, actionCommand) {
+        var macroModeState = vimGlobalState.macroModeState;
+        if (macroModeState.isPlaying) { return; }
+        vim.lastEditInputState = inputState;
+        vim.lastEditActionCommand = actionCommand;
+        macroModeState.lastInsertModeChanges.changes = [];
+        macroModeState.lastInsertModeChanges.expectCursorActivityForChange = false;
+        macroModeState.lastInsertModeChanges.visualBlock = vim.visualBlock ? vim.sel.head.line - vim.sel.anchor.line : 0;
+      }
+    };
+
+    /**
+     * typedef {Object{line:number,ch:number}} Cursor An object containing the
+     *     position of the cursor.
+     */
+    // All of the functions below return Cursor objects.
+    var motions = {
+      moveToTopLine: function(cm, _head, motionArgs) {
+        var line = getUserVisibleLines(cm).top + motionArgs.repeat -1;
+        return new Pos(line, findFirstNonWhiteSpaceCharacter(cm.getLine(line)));
+      },
+      moveToMiddleLine: function(cm) {
+        var range = getUserVisibleLines(cm);
+        var line = Math.floor((range.top + range.bottom) * 0.5);
+        return new Pos(line, findFirstNonWhiteSpaceCharacter(cm.getLine(line)));
+      },
+      moveToBottomLine: function(cm, _head, motionArgs) {
+        var line = getUserVisibleLines(cm).bottom - motionArgs.repeat +1;
+        return new Pos(line, findFirstNonWhiteSpaceCharacter(cm.getLine(line)));
+      },
+      expandToLine: function(_cm, head, motionArgs) {
+        // Expands forward to end of line, and then to next line if repeat is
+        // >1. Does not handle backward motion!
+        var cur = head;
+        return new Pos(cur.line + motionArgs.repeat - 1, Infinity);
+      },
+      findNext: function(cm, _head, motionArgs) {
+        var state = getSearchState(cm);
+        var query = state.getQuery();
+        if (!query) {
+          return;
+        }
+        var prev = !motionArgs.forward;
+        // If search is initiated with ? instead of /, negate direction.
+        prev = (state.isReversed()) ? !prev : prev;
+        highlightSearchMatches(cm, query);
+        return findNext(cm, prev/** prev */, query, motionArgs.repeat);
+      },
+      /**
+       * Find and select the next occurrence of the search query. If the cursor is currently
+       * within a match, then find and select the current match. Otherwise, find the next occurrence in the
+       * appropriate direction.
+       *
+       * This differs from `findNext` in the following ways:
+       *
+       * 1. Instead of only returning the "from", this returns a "from", "to" range.
+       * 2. If the cursor is currently inside a search match, this selects the current match
+       *    instead of the next match.
+       * 3. If there is no associated operator, this will turn on visual mode.
+       */
+      findAndSelectNextInclusive: function(cm, _head, motionArgs, vim, prevInputState) {
+        var state = getSearchState(cm);
+        var query = state.getQuery();
+
+        if (!query) {
+          return;
+        }
+
+        var prev = !motionArgs.forward;
+        prev = (state.isReversed()) ? !prev : prev;
+
+        // next: [from, to] | null
+        var next = findNextFromAndToInclusive(cm, prev, query, motionArgs.repeat, vim);
+
+        // No matches.
+        if (!next) {
+          return;
+        }
+
+        // If there's an operator that will be executed, return the selection.
+        if (prevInputState.operator) {
+          return next;
+        }
+
+        // At this point, we know that there is no accompanying operator -- let's
+        // deal with visual mode in order to select an appropriate match.
+
+        var from = next[0];
+        // For whatever reason, when we use the "to" as returned by searchcursor.js directly,
+        // the resulting selection is extended by 1 char. Let's shrink it so that only the
+        // match is selected.
+        var to = new Pos(next[1].line, next[1].ch - 1);
+
+        if (vim.visualMode) {
+          // If we were in visualLine or visualBlock mode, get out of it.
+          if (vim.visualLine || vim.visualBlock) {
+            vim.visualLine = false;
+            vim.visualBlock = false;
+            CodeMirror.signal(cm, "vim-mode-change", {mode: "visual", subMode: ""});
+          }
+
+          // If we're currently in visual mode, we should extend the selection to include
+          // the search result.
+          var anchor = vim.sel.anchor;
+          if (anchor) {
+            if (state.isReversed()) {
+              if (motionArgs.forward) {
+                return [anchor, from];
+              }
+
+              return [anchor, to];
+            } else {
+              if (motionArgs.forward) {
+                return [anchor, to];
+              }
+
+              return [anchor, from];
+            }
+          }
+        } else {
+          // Let's turn visual mode on.
+          vim.visualMode = true;
+          vim.visualLine = false;
+          vim.visualBlock = false;
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "visual", subMode: ""});
+        }
+
+        return prev ? [to, from] : [from, to];
+      },
+      goToMark: function(cm, _head, motionArgs, vim) {
+        var pos = getMarkPos(cm, vim, motionArgs.selectedCharacter);
+        if (pos) {
+          return motionArgs.linewise ? { line: pos.line, ch: findFirstNonWhiteSpaceCharacter(cm.getLine(pos.line)) } : pos;
+        }
+        return null;
+      },
+      moveToOtherHighlightedEnd: function(cm, _head, motionArgs, vim) {
+        if (vim.visualBlock && motionArgs.sameLine) {
+          var sel = vim.sel;
+          return [
+            clipCursorToContent(cm, new Pos(sel.anchor.line, sel.head.ch)),
+            clipCursorToContent(cm, new Pos(sel.head.line, sel.anchor.ch))
+          ];
+        } else {
+          return ([vim.sel.head, vim.sel.anchor]);
+        }
+      },
+      jumpToMark: function(cm, head, motionArgs, vim) {
+        var best = head;
+        for (var i = 0; i < motionArgs.repeat; i++) {
+          var cursor = best;
+          for (var key in vim.marks) {
+            if (!isLowerCase(key)) {
+              continue;
+            }
+            var mark = vim.marks[key].find();
+            var isWrongDirection = (motionArgs.forward) ?
+              cursorIsBefore(mark, cursor) : cursorIsBefore(cursor, mark);
+
+            if (isWrongDirection) {
+              continue;
+            }
+            if (motionArgs.linewise && (mark.line == cursor.line)) {
+              continue;
+            }
+
+            var equal = cursorEqual(cursor, best);
+            var between = (motionArgs.forward) ?
+              cursorIsBetween(cursor, mark, best) :
+              cursorIsBetween(best, mark, cursor);
+
+            if (equal || between) {
+              best = mark;
+            }
+          }
+        }
+
+        if (motionArgs.linewise) {
+          // Vim places the cursor on the first non-whitespace character of
+          // the line if there is one, else it places the cursor at the end
+          // of the line, regardless of whether a mark was found.
+          best = new Pos(best.line, findFirstNonWhiteSpaceCharacter(cm.getLine(best.line)));
+        }
+        return best;
+      },
+      moveByCharacters: function(_cm, head, motionArgs) {
+        var cur = head;
+        var repeat = motionArgs.repeat;
+        var ch = motionArgs.forward ? cur.ch + repeat : cur.ch - repeat;
+        return new Pos(cur.line, ch);
+      },
+      moveByLines: function(cm, head, motionArgs, vim) {
+        var cur = head;
+        var endCh = cur.ch;
+        // Depending what our last motion was, we may want to do different
+        // things. If our last motion was moving vertically, we want to
+        // preserve the HPos from our last horizontal move.  If our last motion
+        // was going to the end of a line, moving vertically we should go to
+        // the end of the line, etc.
+        switch (vim.lastMotion) {
+          case this.moveByLines:
+          case this.moveByDisplayLines:
+          case this.moveByScroll:
+          case this.moveToColumn:
+          case this.moveToEol:
+            endCh = vim.lastHPos;
+            break;
+          default:
+            vim.lastHPos = endCh;
+        }
+        var repeat = motionArgs.repeat+(motionArgs.repeatOffset||0);
+        var line = motionArgs.forward ? cur.line + repeat : cur.line - repeat;
+        var first = cm.firstLine();
+        var last = cm.lastLine();
+        var posV = cm.findPosV(cur, (motionArgs.forward ? repeat : -repeat), 'line', vim.lastHSPos);
+        var hasMarkedText = motionArgs.forward ? posV.line > line : posV.line < line;
+        if (hasMarkedText) {
+          line = posV.line;
+          endCh = posV.ch;
+        }
+        // Vim go to line begin or line end when cursor at first/last line and
+        // move to previous/next line is triggered.
+        if (line < first && cur.line == first){
+          return this.moveToStartOfLine(cm, head, motionArgs, vim);
+        } else if (line > last && cur.line == last){
+            return moveToEol(cm, head, motionArgs, vim, true);
+        }
+        if (motionArgs.toFirstChar){
+          endCh=findFirstNonWhiteSpaceCharacter(cm.getLine(line));
+          vim.lastHPos = endCh;
+        }
+        vim.lastHSPos = cm.charCoords(new Pos(line, endCh),'div').left;
+        return new Pos(line, endCh);
+      },
+      moveByDisplayLines: function(cm, head, motionArgs, vim) {
+        var cur = head;
+        switch (vim.lastMotion) {
+          case this.moveByDisplayLines:
+          case this.moveByScroll:
+          case this.moveByLines:
+          case this.moveToColumn:
+          case this.moveToEol:
+            break;
+          default:
+            vim.lastHSPos = cm.charCoords(cur,'div').left;
+        }
+        var repeat = motionArgs.repeat;
+        var res=cm.findPosV(cur,(motionArgs.forward ? repeat : -repeat),'line',vim.lastHSPos);
+        if (res.hitSide) {
+          if (motionArgs.forward) {
+            var lastCharCoords = cm.charCoords(res, 'div');
+            var goalCoords = { top: lastCharCoords.top + 8, left: vim.lastHSPos };
+            var res = cm.coordsChar(goalCoords, 'div');
+          } else {
+            var resCoords = cm.charCoords(new Pos(cm.firstLine(), 0), 'div');
+            resCoords.left = vim.lastHSPos;
+            res = cm.coordsChar(resCoords, 'div');
+          }
+        }
+        vim.lastHPos = res.ch;
+        return res;
+      },
+      moveByPage: function(cm, head, motionArgs) {
+        // CodeMirror only exposes functions that move the cursor page down, so
+        // doing this bad hack to move the cursor and move it back. evalInput
+        // will move the cursor to where it should be in the end.
+        var curStart = head;
+        var repeat = motionArgs.repeat;
+        return cm.findPosV(curStart, (motionArgs.forward ? repeat : -repeat), 'page');
+      },
+      moveByParagraph: function(cm, head, motionArgs) {
+        var dir = motionArgs.forward ? 1 : -1;
+        return findParagraph(cm, head, motionArgs.repeat, dir);
+      },
+      moveBySentence: function(cm, head, motionArgs) {
+        var dir = motionArgs.forward ? 1 : -1;
+        return findSentence(cm, head, motionArgs.repeat, dir);
+      },
+      moveByScroll: function(cm, head, motionArgs, vim) {
+        var scrollbox = cm.getScrollInfo();
+        var curEnd = null;
+        var repeat = motionArgs.repeat;
+        if (!repeat) {
+          repeat = scrollbox.clientHeight / (2 * cm.defaultTextHeight());
+        }
+        var orig = cm.charCoords(head, 'local');
+        motionArgs.repeat = repeat;
+        curEnd = motions.moveByDisplayLines(cm, head, motionArgs, vim);
+        if (!curEnd) {
+          return null;
+        }
+        var dest = cm.charCoords(curEnd, 'local');
+        cm.scrollTo(null, scrollbox.top + dest.top - orig.top);
+        return curEnd;
+      },
+      moveByWords: function(cm, head, motionArgs) {
+        return moveToWord(cm, head, motionArgs.repeat, !!motionArgs.forward,
+            !!motionArgs.wordEnd, !!motionArgs.bigWord);
+      },
+      moveTillCharacter: function(cm, _head, motionArgs) {
+        var repeat = motionArgs.repeat;
+        var curEnd = moveToCharacter(cm, repeat, motionArgs.forward,
+            motionArgs.selectedCharacter);
+        var increment = motionArgs.forward ? -1 : 1;
+        recordLastCharacterSearch(increment, motionArgs);
+        if (!curEnd) return null;
+        curEnd.ch += increment;
+        return curEnd;
+      },
+      moveToCharacter: function(cm, head, motionArgs) {
+        var repeat = motionArgs.repeat;
+        recordLastCharacterSearch(0, motionArgs);
+        return moveToCharacter(cm, repeat, motionArgs.forward,
+            motionArgs.selectedCharacter) || head;
+      },
+      moveToSymbol: function(cm, head, motionArgs) {
+        var repeat = motionArgs.repeat;
+        return findSymbol(cm, repeat, motionArgs.forward,
+            motionArgs.selectedCharacter) || head;
+      },
+      moveToColumn: function(cm, head, motionArgs, vim) {
+        var repeat = motionArgs.repeat;
+        // repeat is equivalent to which column we want to move to!
+        vim.lastHPos = repeat - 1;
+        vim.lastHSPos = cm.charCoords(head,'div').left;
+        return moveToColumn(cm, repeat);
+      },
+      moveToEol: function(cm, head, motionArgs, vim) {
+        return moveToEol(cm, head, motionArgs, vim, false);
+      },
+      moveToFirstNonWhiteSpaceCharacter: function(cm, head) {
+        // Go to the start of the line where the text begins, or the end for
+        // whitespace-only lines
+        var cursor = head;
+        return new Pos(cursor.line,
+                   findFirstNonWhiteSpaceCharacter(cm.getLine(cursor.line)));
+      },
+      moveToMatchedSymbol: function(cm, head) {
+        var cursor = head;
+        var line = cursor.line;
+        var ch = cursor.ch;
+        var lineText = cm.getLine(line);
+        var symbol;
+        for (; ch < lineText.length; ch++) {
+          symbol = lineText.charAt(ch);
+          if (symbol && isMatchableSymbol(symbol)) {
+            var style = cm.getTokenTypeAt(new Pos(line, ch + 1));
+            if (style !== "string" && style !== "comment") {
+              break;
+            }
+          }
+        }
+        if (ch < lineText.length) {
+          // Only include angle brackets in analysis if they are being matched.
+          var re = (ch === '<' || ch === '>') ? /[(){}[\]<>]/ : /[(){}[\]]/;
+          var matched = cm.findMatchingBracket(new Pos(line, ch), {bracketRegex: re});
+          return matched.to;
+        } else {
+          return cursor;
+        }
+      },
+      moveToStartOfLine: function(_cm, head) {
+        return new Pos(head.line, 0);
+      },
+      moveToLineOrEdgeOfDocument: function(cm, _head, motionArgs) {
+        var lineNum = motionArgs.forward ? cm.lastLine() : cm.firstLine();
+        if (motionArgs.repeatIsExplicit) {
+          lineNum = motionArgs.repeat - cm.getOption('firstLineNumber');
+        }
+        return new Pos(lineNum,
+                   findFirstNonWhiteSpaceCharacter(cm.getLine(lineNum)));
+      },
+      moveToStartOfDisplayLine: function(cm) {
+        cm.execCommand("goLineLeft");
+        return cm.getCursor();
+      },
+      moveToEndOfDisplayLine: function(cm) {
+        cm.execCommand("goLineRight");
+        var head = cm.getCursor();
+        if (head.sticky == "before") head.ch--;
+        return head;
+      },
+      textObjectManipulation: function(cm, head, motionArgs, vim) {
+        // TODO: lots of possible exceptions that can be thrown here. Try da(
+        //     outside of a () block.
+        var mirroredPairs = {'(': ')', ')': '(',
+                             '{': '}', '}': '{',
+                             '[': ']', ']': '[',
+                             '<': '>', '>': '<'};
+        var selfPaired = {'\'': true, '"': true, '`': true};
+
+        var character = motionArgs.selectedCharacter;
+        // 'b' refers to  '()' block.
+        // 'B' refers to  '{}' block.
+        if (character == 'b') {
+          character = '(';
+        } else if (character == 'B') {
+          character = '{';
+        }
+
+        // Inclusive is the difference between a and i
+        // TODO: Instead of using the additional text object map to perform text
+        //     object operations, merge the map into the defaultKeyMap and use
+        //     motionArgs to define behavior. Define separate entries for 'aw',
+        //     'iw', 'a[', 'i[', etc.
+        var inclusive = !motionArgs.textObjectInner;
+
+        var tmp;
+        if (mirroredPairs[character]) {
+          tmp = selectCompanionObject(cm, head, character, inclusive);
+        } else if (selfPaired[character]) {
+          tmp = findBeginningAndEnd(cm, head, character, inclusive);
+        } else if (character === 'W') {
+          tmp = expandWordUnderCursor(cm, inclusive, true /** forward */,
+                                                     true /** bigWord */);
+        } else if (character === 'w') {
+          tmp = expandWordUnderCursor(cm, inclusive, true /** forward */,
+                                                     false /** bigWord */);
+        } else if (character === 'p') {
+          tmp = findParagraph(cm, head, motionArgs.repeat, 0, inclusive);
+          motionArgs.linewise = true;
+          if (vim.visualMode) {
+            if (!vim.visualLine) { vim.visualLine = true; }
+          } else {
+            var operatorArgs = vim.inputState.operatorArgs;
+            if (operatorArgs) { operatorArgs.linewise = true; }
+            tmp.end.line--;
+          }
+        } else if (character === 't') {
+          tmp = expandTagUnderCursor(cm, head, inclusive);
+        } else if (character === 's') {
+          // account for cursor on end of sentence symbol
+          var content = cm.getLine(head.line);
+          if (head.ch > 0 && isEndOfSentenceSymbol(content[head.ch])) {
+            head.ch -= 1;
+          }
+          var end = getSentence(cm, head, motionArgs.repeat, 1, inclusive);
+          var start = getSentence(cm, head, motionArgs.repeat, -1, inclusive);
+          // closer vim behaviour, 'a' only takes the space after the sentence if there is one before and after
+          if (isWhiteSpaceString(cm.getLine(start.line)[start.ch])
+              && isWhiteSpaceString(cm.getLine(end.line)[end.ch -1])) {
+            start = {line: start.line, ch: start.ch + 1};
+          }
+          tmp = {start: start, end: end};
+        } else {
+          // No text object defined for this, don't move.
+          return null;
+        }
+
+        if (!cm.state.vim.visualMode) {
+          return [tmp.start, tmp.end];
+        } else {
+          return expandSelection(cm, tmp.start, tmp.end);
+        }
+      },
+
+      repeatLastCharacterSearch: function(cm, head, motionArgs) {
+        var lastSearch = vimGlobalState.lastCharacterSearch;
+        var repeat = motionArgs.repeat;
+        var forward = motionArgs.forward === lastSearch.forward;
+        var increment = (lastSearch.increment ? 1 : 0) * (forward ? -1 : 1);
+        cm.moveH(-increment, 'char');
+        motionArgs.inclusive = forward ? true : false;
+        var curEnd = moveToCharacter(cm, repeat, forward, lastSearch.selectedCharacter);
+        if (!curEnd) {
+          cm.moveH(increment, 'char');
+          return head;
+        }
+        curEnd.ch += increment;
+        return curEnd;
+      }
+    };
+
+    function defineMotion(name, fn) {
+      motions[name] = fn;
+    }
+
+    function fillArray(val, times) {
+      var arr = [];
+      for (var i = 0; i < times; i++) {
+        arr.push(val);
+      }
+      return arr;
+    }
+    /**
+     * An operator acts on a text selection. It receives the list of selections
+     * as input. The corresponding CodeMirror selection is guaranteed to
+    * match the input selection.
+     */
+    var operators = {
+      change: function(cm, args, ranges) {
+        var finalHead, text;
+        var vim = cm.state.vim;
+        var anchor = ranges[0].anchor,
+            head = ranges[0].head;
+        if (!vim.visualMode) {
+          text = cm.getRange(anchor, head);
+          var lastState = vim.lastEditInputState || {};
+          if (lastState.motion == "moveByWords" && !isWhiteSpaceString(text)) {
+            // Exclude trailing whitespace if the range is not all whitespace.
+            var match = (/\s+$/).exec(text);
+            if (match && lastState.motionArgs && lastState.motionArgs.forward) {
+              head = offsetCursor(head, 0, - match[0].length);
+              text = text.slice(0, - match[0].length);
+            }
+          }
+          var prevLineEnd = new Pos(anchor.line - 1, Number.MAX_VALUE);
+          var wasLastLine = cm.firstLine() == cm.lastLine();
+          if (head.line > cm.lastLine() && args.linewise && !wasLastLine) {
+            cm.replaceRange('', prevLineEnd, head);
+          } else {
+            cm.replaceRange('', anchor, head);
+          }
+          if (args.linewise) {
+            // Push the next line back down, if there is a next line.
+            if (!wasLastLine) {
+              cm.setCursor(prevLineEnd);
+              CodeMirror.commands.newlineAndIndent(cm);
+            }
+            // make sure cursor ends up at the end of the line.
+            anchor.ch = Number.MAX_VALUE;
+          }
+          finalHead = anchor;
+        } else if (args.fullLine) {
+            head.ch = Number.MAX_VALUE;
+            head.line--;
+            cm.setSelection(anchor, head);
+            text = cm.getSelection();
+            cm.replaceSelection("");
+            finalHead = anchor;
+        } else {
+          text = cm.getSelection();
+          var replacement = fillArray('', ranges.length);
+          cm.replaceSelections(replacement);
+          finalHead = cursorMin(ranges[0].head, ranges[0].anchor);
+        }
+        vimGlobalState.registerController.pushText(
+            args.registerName, 'change', text,
+            args.linewise, ranges.length > 1);
+        actions.enterInsertMode(cm, {head: finalHead}, cm.state.vim);
+      },
+      // delete is a javascript keyword.
+      'delete': function(cm, args, ranges) {
+        var finalHead, text;
+        var vim = cm.state.vim;
+        if (!vim.visualBlock) {
+          var anchor = ranges[0].anchor,
+              head = ranges[0].head;
+          if (args.linewise &&
+              head.line != cm.firstLine() &&
+              anchor.line == cm.lastLine() &&
+              anchor.line == head.line - 1) {
+            // Special case for dd on last line (and first line).
+            if (anchor.line == cm.firstLine()) {
+              anchor.ch = 0;
+            } else {
+              anchor = new Pos(anchor.line - 1, lineLength(cm, anchor.line - 1));
+            }
+          }
+          text = cm.getRange(anchor, head);
+          cm.replaceRange('', anchor, head);
+          finalHead = anchor;
+          if (args.linewise) {
+            finalHead = motions.moveToFirstNonWhiteSpaceCharacter(cm, anchor);
+          }
+        } else {
+          text = cm.getSelection();
+          var replacement = fillArray('', ranges.length);
+          cm.replaceSelections(replacement);
+          finalHead = cursorMin(ranges[0].head, ranges[0].anchor);
+        }
+        vimGlobalState.registerController.pushText(
+            args.registerName, 'delete', text,
+            args.linewise, vim.visualBlock);
+        return clipCursorToContent(cm, finalHead);
+      },
+      indent: function(cm, args, ranges) {
+        var vim = cm.state.vim;
+        if (cm.indentMore) {
+          var repeat = (vim.visualMode) ? args.repeat : 1;
+          for (var j = 0; j < repeat; j++) {
+            if (args.indentRight) cm.indentMore();
+            else cm.indentLess();
+          }
+        } else {
+          var startLine = ranges[0].anchor.line;
+          var endLine = vim.visualBlock ?
+            ranges[ranges.length - 1].anchor.line :
+            ranges[0].head.line;
+          // In visual mode, n> shifts the selection right n times, instead of
+          // shifting n lines right once.
+          var repeat = (vim.visualMode) ? args.repeat : 1;
+          if (args.linewise) {
+            // The only way to delete a newline is to delete until the start of
+            // the next line, so in linewise mode evalInput will include the next
+            // line. We don't want this in indent, so we go back a line.
+            endLine--;
+          }
+          for (var i = startLine; i <= endLine; i++) {
+            for (var j = 0; j < repeat; j++) {
+              cm.indentLine(i, args.indentRight);
+            }
+          }
+        }
+        return motions.moveToFirstNonWhiteSpaceCharacter(cm, ranges[0].anchor);
+      },
+      indentAuto: function(cm, _args, ranges) {
+        cm.execCommand("indentAuto");
+        return motions.moveToFirstNonWhiteSpaceCharacter(cm, ranges[0].anchor);
+      },
+      changeCase: function(cm, args, ranges, oldAnchor, newHead) {
+        var selections = cm.getSelections();
+        var swapped = [];
+        var toLower = args.toLower;
+        for (var j = 0; j < selections.length; j++) {
+          var toSwap = selections[j];
+          var text = '';
+          if (toLower === true) {
+            text = toSwap.toLowerCase();
+          } else if (toLower === false) {
+            text = toSwap.toUpperCase();
+          } else {
+            for (var i = 0; i < toSwap.length; i++) {
+              var character = toSwap.charAt(i);
+              text += isUpperCase(character) ? character.toLowerCase() :
+                  character.toUpperCase();
+            }
+          }
+          swapped.push(text);
+        }
+        cm.replaceSelections(swapped);
+        if (args.shouldMoveCursor){
+          return newHead;
+        } else if (!cm.state.vim.visualMode && args.linewise && ranges[0].anchor.line + 1 == ranges[0].head.line) {
+          return motions.moveToFirstNonWhiteSpaceCharacter(cm, oldAnchor);
+        } else if (args.linewise){
+          return oldAnchor;
+        } else {
+          return cursorMin(ranges[0].anchor, ranges[0].head);
+        }
+      },
+      yank: function(cm, args, ranges, oldAnchor) {
+        var vim = cm.state.vim;
+        var text = cm.getSelection();
+        var endPos = vim.visualMode
+          ? cursorMin(vim.sel.anchor, vim.sel.head, ranges[0].head, ranges[0].anchor)
+          : oldAnchor;
+        vimGlobalState.registerController.pushText(
+            args.registerName, 'yank',
+            text, args.linewise, vim.visualBlock);
+        return endPos;
+      }
+    };
+
+    function defineOperator(name, fn) {
+      operators[name] = fn;
+    }
+
+    var actions = {
+      jumpListWalk: function(cm, actionArgs, vim) {
+        if (vim.visualMode) {
+          return;
+        }
+        var repeat = actionArgs.repeat;
+        var forward = actionArgs.forward;
+        var jumpList = vimGlobalState.jumpList;
+
+        var mark = jumpList.move(cm, forward ? repeat : -repeat);
+        var markPos = mark ? mark.find() : undefined;
+        markPos = markPos ? markPos : cm.getCursor();
+        cm.setCursor(markPos);
+      },
+      scroll: function(cm, actionArgs, vim) {
+        if (vim.visualMode) {
+          return;
+        }
+        var repeat = actionArgs.repeat || 1;
+        var lineHeight = cm.defaultTextHeight();
+        var top = cm.getScrollInfo().top;
+        var delta = lineHeight * repeat;
+        var newPos = actionArgs.forward ? top + delta : top - delta;
+        var cursor = copyCursor(cm.getCursor());
+        var cursorCoords = cm.charCoords(cursor, 'local');
+        if (actionArgs.forward) {
+          if (newPos > cursorCoords.top) {
+             cursor.line += (newPos - cursorCoords.top) / lineHeight;
+             cursor.line = Math.ceil(cursor.line);
+             cm.setCursor(cursor);
+             cursorCoords = cm.charCoords(cursor, 'local');
+             cm.scrollTo(null, cursorCoords.top);
+          } else {
+             // Cursor stays within bounds.  Just reposition the scroll window.
+             cm.scrollTo(null, newPos);
+          }
+        } else {
+          var newBottom = newPos + cm.getScrollInfo().clientHeight;
+          if (newBottom < cursorCoords.bottom) {
+             cursor.line -= (cursorCoords.bottom - newBottom) / lineHeight;
+             cursor.line = Math.floor(cursor.line);
+             cm.setCursor(cursor);
+             cursorCoords = cm.charCoords(cursor, 'local');
+             cm.scrollTo(
+                 null, cursorCoords.bottom - cm.getScrollInfo().clientHeight);
+          } else {
+             // Cursor stays within bounds.  Just reposition the scroll window.
+             cm.scrollTo(null, newPos);
+          }
+        }
+      },
+      scrollToCursor: function(cm, actionArgs) {
+        var lineNum = cm.getCursor().line;
+        var charCoords = cm.charCoords(new Pos(lineNum, 0), 'local');
+        var height = cm.getScrollInfo().clientHeight;
+        var y = charCoords.top;
+        switch (actionArgs.position) {
+          case 'center': y = charCoords.bottom - height / 2;
+            break;
+          case 'bottom':
+            var lineLastCharPos = new Pos(lineNum, cm.getLine(lineNum).length - 1);
+            var lineLastCharCoords = cm.charCoords(lineLastCharPos, 'local');
+            var lineHeight = lineLastCharCoords.bottom - y;
+            y = y - height + lineHeight;
+            break;
+        }
+        cm.scrollTo(null, y);
+      },
+      replayMacro: function(cm, actionArgs, vim) {
+        var registerName = actionArgs.selectedCharacter;
+        var repeat = actionArgs.repeat;
+        var macroModeState = vimGlobalState.macroModeState;
+        if (registerName == '@') {
+          registerName = macroModeState.latestRegister;
+        } else {
+          macroModeState.latestRegister = registerName;
+        }
+        while(repeat--){
+          executeMacroRegister(cm, vim, macroModeState, registerName);
+        }
+      },
+      enterMacroRecordMode: function(cm, actionArgs) {
+        var macroModeState = vimGlobalState.macroModeState;
+        var registerName = actionArgs.selectedCharacter;
+        if (vimGlobalState.registerController.isValidRegister(registerName)) {
+          macroModeState.enterMacroRecordMode(cm, registerName);
+        }
+      },
+      toggleOverwrite: function(cm) {
+        if (!cm.state.overwrite) {
+          cm.toggleOverwrite(true);
+          cm.setOption('keyMap', 'vim-replace');
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "replace"});
+        } else {
+          cm.toggleOverwrite(false);
+          cm.setOption('keyMap', 'vim-insert');
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "insert"});
+        }
+      },
+      enterInsertMode: function(cm, actionArgs, vim) {
+        if (cm.getOption('readOnly')) { return; }
+        vim.insertMode = true;
+        vim.insertModeRepeat = actionArgs && actionArgs.repeat || 1;
+        var insertAt = (actionArgs) ? actionArgs.insertAt : null;
+        var sel = vim.sel;
+        var head = actionArgs.head || cm.getCursor('head');
+        var height = cm.listSelections().length;
+        if (insertAt == 'eol') {
+          head = new Pos(head.line, lineLength(cm, head.line));
+        } else if (insertAt == 'bol') {
+          head = new Pos(head.line, 0);
+        } else if (insertAt == 'charAfter') {
+          head = offsetCursor(head, 0, 1);
+        } else if (insertAt == 'firstNonBlank') {
+          head = motions.moveToFirstNonWhiteSpaceCharacter(cm, head);
+        } else if (insertAt == 'startOfSelectedArea') {
+          if (!vim.visualMode)
+              return;
+          if (!vim.visualBlock) {
+            if (sel.head.line < sel.anchor.line) {
+              head = sel.head;
+            } else {
+              head = new Pos(sel.anchor.line, 0);
+            }
+          } else {
+            head = new Pos(
+                Math.min(sel.head.line, sel.anchor.line),
+                Math.min(sel.head.ch, sel.anchor.ch));
+            height = Math.abs(sel.head.line - sel.anchor.line) + 1;
+          }
+        } else if (insertAt == 'endOfSelectedArea') {
+            if (!vim.visualMode)
+              return;
+          if (!vim.visualBlock) {
+            if (sel.head.line >= sel.anchor.line) {
+              head = offsetCursor(sel.head, 0, 1);
+            } else {
+              head = new Pos(sel.anchor.line, 0);
+            }
+          } else {
+            head = new Pos(
+                Math.min(sel.head.line, sel.anchor.line),
+                Math.max(sel.head.ch, sel.anchor.ch) + 1);
+            height = Math.abs(sel.head.line - sel.anchor.line) + 1;
+          }
+        } else if (insertAt == 'inplace') {
+          if (vim.visualMode){
+            return;
+          }
+        } else if (insertAt == 'lastEdit') {
+          head = getLastEditPos(cm) || head;
+        }
+        cm.setOption('disableInput', false);
+        if (actionArgs && actionArgs.replace) {
+          // Handle Replace-mode as a special case of insert mode.
+          cm.toggleOverwrite(true);
+          cm.setOption('keyMap', 'vim-replace');
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "replace"});
+        } else {
+          cm.toggleOverwrite(false);
+          cm.setOption('keyMap', 'vim-insert');
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "insert"});
+        }
+        if (!vimGlobalState.macroModeState.isPlaying) {
+          // Only record if not replaying.
+          cm.on('change', onChange);
+          CodeMirror.on(cm.getInputField(), 'keydown', onKeyEventTargetKeyDown);
+        }
+        if (vim.visualMode) {
+          exitVisualMode(cm);
+        }
+        selectForInsert(cm, head, height);
+      },
+      toggleVisualMode: function(cm, actionArgs, vim) {
+        var repeat = actionArgs.repeat;
+        var anchor = cm.getCursor();
+        var head;
+        // TODO: The repeat should actually select number of characters/lines
+        //     equal to the repeat times the size of the previous visual
+        //     operation.
+        if (!vim.visualMode) {
+          // Entering visual mode
+          vim.visualMode = true;
+          vim.visualLine = !!actionArgs.linewise;
+          vim.visualBlock = !!actionArgs.blockwise;
+          head = clipCursorToContent(
+              cm, new Pos(anchor.line, anchor.ch + repeat - 1));
+          vim.sel = {
+            anchor: anchor,
+            head: head
+          };
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "visual", subMode: vim.visualLine ? "linewise" : vim.visualBlock ? "blockwise" : ""});
+          updateCmSelection(cm);
+          updateMark(cm, vim, '<', cursorMin(anchor, head));
+          updateMark(cm, vim, '>', cursorMax(anchor, head));
+        } else if (vim.visualLine ^ actionArgs.linewise ||
+            vim.visualBlock ^ actionArgs.blockwise) {
+          // Toggling between modes
+          vim.visualLine = !!actionArgs.linewise;
+          vim.visualBlock = !!actionArgs.blockwise;
+          CodeMirror.signal(cm, "vim-mode-change", {mode: "visual", subMode: vim.visualLine ? "linewise" : vim.visualBlock ? "blockwise" : ""});
+          updateCmSelection(cm);
+        } else {
+          exitVisualMode(cm);
+        }
+      },
+      reselectLastSelection: function(cm, _actionArgs, vim) {
+        var lastSelection = vim.lastSelection;
+        if (vim.visualMode) {
+          updateLastSelection(cm, vim);
+        }
+        if (lastSelection) {
+          var anchor = lastSelection.anchorMark.find();
+          var head = lastSelection.headMark.find();
+          if (!anchor || !head) {
+            // If the marks have been destroyed due to edits, do nothing.
+            return;
+          }
+          vim.sel = {
+            anchor: anchor,
+            head: head
+          };
+          vim.visualMode = true;
+          vim.visualLine = lastSelection.visualLine;
+          vim.visualBlock = lastSelection.visualBlock;
+          updateCmSelection(cm);
+          updateMark(cm, vim, '<', cursorMin(anchor, head));
+          updateMark(cm, vim, '>', cursorMax(anchor, head));
+          CodeMirror.signal(cm, 'vim-mode-change', {
+            mode: 'visual',
+            subMode: vim.visualLine ? 'linewise' :
+                     vim.visualBlock ? 'blockwise' : ''});
+        }
+      },
+      joinLines: function(cm, actionArgs, vim) {
+        var curStart, curEnd;
+        if (vim.visualMode) {
+          curStart = cm.getCursor('anchor');
+          curEnd = cm.getCursor('head');
+          if (cursorIsBefore(curEnd, curStart)) {
+            var tmp = curEnd;
+            curEnd = curStart;
+            curStart = tmp;
+          }
+          curEnd.ch = lineLength(cm, curEnd.line) - 1;
+        } else {
+          // Repeat is the number of lines to join. Minimum 2 lines.
+          var repeat = Math.max(actionArgs.repeat, 2);
+          curStart = cm.getCursor();
+          curEnd = clipCursorToContent(cm, new Pos(curStart.line + repeat - 1,
+                                               Infinity));
+        }
+        var finalCh = 0;
+        for (var i = curStart.line; i < curEnd.line; i++) {
+          finalCh = lineLength(cm, curStart.line);
+          var tmp = new Pos(curStart.line + 1,
+                        lineLength(cm, curStart.line + 1));
+          var text = cm.getRange(curStart, tmp);
+          text = actionArgs.keepSpaces
+            ? text.replace(/\n\r?/g, '')
+            : text.replace(/\n\s*/g, ' ');
+          cm.replaceRange(text, curStart, tmp);
+        }
+        var curFinalPos = new Pos(curStart.line, finalCh);
+        if (vim.visualMode) {
+          exitVisualMode(cm, false);
+        }
+        cm.setCursor(curFinalPos);
+      },
+      newLineAndEnterInsertMode: function(cm, actionArgs, vim) {
+        vim.insertMode = true;
+        var insertAt = copyCursor(cm.getCursor());
+        if (insertAt.line === cm.firstLine() && !actionArgs.after) {
+          // Special case for inserting newline before start of document.
+          cm.replaceRange('\n', new Pos(cm.firstLine(), 0));
+          cm.setCursor(cm.firstLine(), 0);
+        } else {
+          insertAt.line = (actionArgs.after) ? insertAt.line :
+              insertAt.line - 1;
+          insertAt.ch = lineLength(cm, insertAt.line);
+          cm.setCursor(insertAt);
+          var newlineFn = CodeMirror.commands.newlineAndIndentContinueComment ||
+              CodeMirror.commands.newlineAndIndent;
+          newlineFn(cm);
+        }
+        this.enterInsertMode(cm, { repeat: actionArgs.repeat }, vim);
+      },
+      paste: function(cm, actionArgs, vim) {
+        var cur = copyCursor(cm.getCursor());
+        var register = vimGlobalState.registerController.getRegister(
+            actionArgs.registerName);
+        var text = register.toString();
+        if (!text) {
+          return;
+        }
+        if (actionArgs.matchIndent) {
+          var tabSize = cm.getOption("tabSize");
+          // length that considers tabs and tabSize
+          var whitespaceLength = function(str) {
+            var tabs = (str.split("\t").length - 1);
+            var spaces = (str.split(" ").length - 1);
+            return tabs * tabSize + spaces * 1;
+          };
+          var currentLine = cm.getLine(cm.getCursor().line);
+          var indent = whitespaceLength(currentLine.match(/^\s*/)[0]);
+          // chomp last newline b/c don't want it to match /^\s*/gm
+          var chompedText = text.replace(/\n$/, '');
+          var wasChomped = text !== chompedText;
+          var firstIndent = whitespaceLength(text.match(/^\s*/)[0]);
+          var text = chompedText.replace(/^\s*/gm, function(wspace) {
+            var newIndent = indent + (whitespaceLength(wspace) - firstIndent);
+            if (newIndent < 0) {
+              return "";
+            }
+            else if (cm.getOption("indentWithTabs")) {
+              var quotient = Math.floor(newIndent / tabSize);
+              return Array(quotient + 1).join('\t');
+            }
+            else {
+              return Array(newIndent + 1).join(' ');
+            }
+          });
+          text += wasChomped ? "\n" : "";
+        }
+        if (actionArgs.repeat > 1) {
+          var text = Array(actionArgs.repeat + 1).join(text);
+        }
+        var linewise = register.linewise;
+        var blockwise = register.blockwise;
+        if (blockwise) {
+          text = text.split('\n');
+          if (linewise) {
+              text.pop();
+          }
+          for (var i = 0; i < text.length; i++) {
+            text[i] = (text[i] == '') ? ' ' : text[i];
+          }
+          cur.ch += actionArgs.after ? 1 : 0;
+          cur.ch = Math.min(lineLength(cm, cur.line), cur.ch);
+        } else if (linewise) {
+          if(vim.visualMode) {
+            text = vim.visualLine ? text.slice(0, -1) : '\n' + text.slice(0, text.length - 1) + '\n';
+          } else if (actionArgs.after) {
+            // Move the newline at the end to the start instead, and paste just
+            // before the newline character of the line we are on right now.
+            text = '\n' + text.slice(0, text.length - 1);
+            cur.ch = lineLength(cm, cur.line);
+          } else {
+            cur.ch = 0;
+          }
+        } else {
+          cur.ch += actionArgs.after ? 1 : 0;
+        }
+        var curPosFinal;
+        var idx;
+        if (vim.visualMode) {
+          //  save the pasted text for reselection if the need arises
+          vim.lastPastedText = text;
+          var lastSelectionCurEnd;
+          var selectedArea = getSelectedAreaRange(cm, vim);
+          var selectionStart = selectedArea[0];
+          var selectionEnd = selectedArea[1];
+          var selectedText = cm.getSelection();
+          var selections = cm.listSelections();
+          var emptyStrings = new Array(selections.length).join('1').split('1');
+          // save the curEnd marker before it get cleared due to cm.replaceRange.
+          if (vim.lastSelection) {
+            lastSelectionCurEnd = vim.lastSelection.headMark.find();
+          }
+          // push the previously selected text to unnamed register
+          vimGlobalState.registerController.unnamedRegister.setText(selectedText);
+          if (blockwise) {
+            // first delete the selected text
+            cm.replaceSelections(emptyStrings);
+            // Set new selections as per the block length of the yanked text
+            selectionEnd = new Pos(selectionStart.line + text.length-1, selectionStart.ch);
+            cm.setCursor(selectionStart);
+            selectBlock(cm, selectionEnd);
+            cm.replaceSelections(text);
+            curPosFinal = selectionStart;
+          } else if (vim.visualBlock) {
+            cm.replaceSelections(emptyStrings);
+            cm.setCursor(selectionStart);
+            cm.replaceRange(text, selectionStart, selectionStart);
+            curPosFinal = selectionStart;
+          } else {
+            cm.replaceRange(text, selectionStart, selectionEnd);
+            curPosFinal = cm.posFromIndex(cm.indexFromPos(selectionStart) + text.length - 1);
+          }
+          // restore the the curEnd marker
+          if(lastSelectionCurEnd) {
+            vim.lastSelection.headMark = cm.setBookmark(lastSelectionCurEnd);
+          }
+          if (linewise) {
+            curPosFinal.ch=0;
+          }
+        } else {
+          if (blockwise) {
+            cm.setCursor(cur);
+            for (var i = 0; i < text.length; i++) {
+              var line = cur.line+i;
+              if (line > cm.lastLine()) {
+                cm.replaceRange('\n',  new Pos(line, 0));
+              }
+              var lastCh = lineLength(cm, line);
+              if (lastCh < cur.ch) {
+                extendLineToColumn(cm, line, cur.ch);
+              }
+            }
+            cm.setCursor(cur);
+            selectBlock(cm, new Pos(cur.line + text.length-1, cur.ch));
+            cm.replaceSelections(text);
+            curPosFinal = cur;
+          } else {
+            cm.replaceRange(text, cur);
+            // Now fine tune the cursor to where we want it.
+            if (linewise && actionArgs.after) {
+              curPosFinal = new Pos(
+              cur.line + 1,
+              findFirstNonWhiteSpaceCharacter(cm.getLine(cur.line + 1)));
+            } else if (linewise && !actionArgs.after) {
+              curPosFinal = new Pos(
+                cur.line,
+                findFirstNonWhiteSpaceCharacter(cm.getLine(cur.line)));
+            } else if (!linewise && actionArgs.after) {
+              idx = cm.indexFromPos(cur);
+              curPosFinal = cm.posFromIndex(idx + text.length - 1);
+            } else {
+              idx = cm.indexFromPos(cur);
+              curPosFinal = cm.posFromIndex(idx + text.length);
+            }
+          }
+        }
+        if (vim.visualMode) {
+          exitVisualMode(cm, false);
+        }
+        cm.setCursor(curPosFinal);
+      },
+      undo: function(cm, actionArgs) {
+        cm.operation(function() {
+          repeatFn(cm, CodeMirror.commands.undo, actionArgs.repeat)();
+          cm.setCursor(cm.getCursor('anchor'));
+        });
+      },
+      redo: function(cm, actionArgs) {
+        repeatFn(cm, CodeMirror.commands.redo, actionArgs.repeat)();
+      },
+      setRegister: function(_cm, actionArgs, vim) {
+        vim.inputState.registerName = actionArgs.selectedCharacter;
+      },
+      setMark: function(cm, actionArgs, vim) {
+        var markName = actionArgs.selectedCharacter;
+        updateMark(cm, vim, markName, cm.getCursor());
+      },
+      replace: function(cm, actionArgs, vim) {
+        var replaceWith = actionArgs.selectedCharacter;
+        var curStart = cm.getCursor();
+        var replaceTo;
+        var curEnd;
+        var selections = cm.listSelections();
+        if (vim.visualMode) {
+          curStart = cm.getCursor('start');
+          curEnd = cm.getCursor('end');
+        } else {
+          var line = cm.getLine(curStart.line);
+          replaceTo = curStart.ch + actionArgs.repeat;
+          if (replaceTo > line.length) {
+            replaceTo=line.length;
+          }
+          curEnd = new Pos(curStart.line, replaceTo);
+        }
+        if (replaceWith=='\n') {
+          if (!vim.visualMode) cm.replaceRange('', curStart, curEnd);
+          // special case, where vim help says to replace by just one line-break
+          (CodeMirror.commands.newlineAndIndentContinueComment || CodeMirror.commands.newlineAndIndent)(cm);
+        } else {
+          var replaceWithStr = cm.getRange(curStart, curEnd);
+          //replace all characters in range by selected, but keep linebreaks
+          replaceWithStr = replaceWithStr.replace(/[^\n]/g, replaceWith);
+          if (vim.visualBlock) {
+            // Tabs are split in visua block before replacing
+            var spaces = new Array(cm.getOption("tabSize")+1).join(' ');
+            replaceWithStr = cm.getSelection();
+            replaceWithStr = replaceWithStr.replace(/\t/g, spaces).replace(/[^\n]/g, replaceWith).split('\n');
+            cm.replaceSelections(replaceWithStr);
+          } else {
+            cm.replaceRange(replaceWithStr, curStart, curEnd);
+          }
+          if (vim.visualMode) {
+            curStart = cursorIsBefore(selections[0].anchor, selections[0].head) ?
+                         selections[0].anchor : selections[0].head;
+            cm.setCursor(curStart);
+            exitVisualMode(cm, false);
+          } else {
+            cm.setCursor(offsetCursor(curEnd, 0, -1));
+          }
+        }
+      },
+      incrementNumberToken: function(cm, actionArgs) {
+        var cur = cm.getCursor();
+        var lineStr = cm.getLine(cur.line);
+        var re = /(-?)(?:(0x)([\da-f]+)|(0b|0|)(\d+))/gi;
+        var match;
+        var start;
+        var end;
+        var numberStr;
+        while ((match = re.exec(lineStr)) !== null) {
+          start = match.index;
+          end = start + match[0].length;
+          if (cur.ch < end)break;
+        }
+        if (!actionArgs.backtrack && (end <= cur.ch))return;
+        if (match) {
+          var baseStr = match[2] || match[4];
+          var digits = match[3] || match[5];
+          var increment = actionArgs.increase ? 1 : -1;
+          var base = {'0b': 2, '0': 8, '': 10, '0x': 16}[baseStr.toLowerCase()];
+          var number = parseInt(match[1] + digits, base) + (increment * actionArgs.repeat);
+          numberStr = number.toString(base);
+          var zeroPadding = baseStr ? new Array(digits.length - numberStr.length + 1 + match[1].length).join('0') : '';
+          if (numberStr.charAt(0) === '-') {
+            numberStr = '-' + baseStr + zeroPadding + numberStr.substr(1);
+          } else {
+            numberStr = baseStr + zeroPadding + numberStr;
+          }
+          var from = new Pos(cur.line, start);
+          var to = new Pos(cur.line, end);
+          cm.replaceRange(numberStr, from, to);
+        } else {
+          return;
+        }
+        cm.setCursor(new Pos(cur.line, start + numberStr.length - 1));
+      },
+      repeatLastEdit: function(cm, actionArgs, vim) {
+        var lastEditInputState = vim.lastEditInputState;
+        if (!lastEditInputState) { return; }
+        var repeat = actionArgs.repeat;
+        if (repeat && actionArgs.repeatIsExplicit) {
+          vim.lastEditInputState.repeatOverride = repeat;
+        } else {
+          repeat = vim.lastEditInputState.repeatOverride || repeat;
+        }
+        repeatLastEdit(cm, vim, repeat, false /** repeatForInsert */);
+      },
+      indent: function(cm, actionArgs) {
+        cm.indentLine(cm.getCursor().line, actionArgs.indentRight);
+      },
+      exitInsertMode: exitInsertMode
+    };
+
+    function defineAction(name, fn) {
+      actions[name] = fn;
+    }
+
+    /*
+     * Below are miscellaneous utility functions used by vim.js
+     */
+
+    /**
+     * Clips cursor to ensure that line is within the buffer's range
+     * If includeLineBreak is true, then allow cur.ch == lineLength.
+     */
+    function clipCursorToContent(cm, cur) {
+      var vim = cm.state.vim;
+      var includeLineBreak = vim.insertMode || vim.visualMode;
+      var line = Math.min(Math.max(cm.firstLine(), cur.line), cm.lastLine() );
+      var maxCh = lineLength(cm, line) - 1 + !!includeLineBreak;
+      var ch = Math.min(Math.max(0, cur.ch), maxCh);
+      return new Pos(line, ch);
+    }
+    function copyArgs(args) {
+      var ret = {};
+      for (var prop in args) {
+        if (args.hasOwnProperty(prop)) {
+          ret[prop] = args[prop];
+        }
+      }
+      return ret;
+    }
+    function offsetCursor(cur, offsetLine, offsetCh) {
+      if (typeof offsetLine === 'object') {
+        offsetCh = offsetLine.ch;
+        offsetLine = offsetLine.line;
+      }
+      return new Pos(cur.line + offsetLine, cur.ch + offsetCh);
+    }
+    function commandMatches(keys, keyMap, context, inputState) {
+      // Partial matches are not applied. They inform the key handler
+      // that the current key sequence is a subsequence of a valid key
+      // sequence, so that the key buffer is not cleared.
+      var match, partial = [], full = [];
+      for (var i = 0; i < keyMap.length; i++) {
+        var command = keyMap[i];
+        if (context == 'insert' && command.context != 'insert' ||
+            command.context && command.context != context ||
+            inputState.operator && command.type == 'action' ||
+            !(match = commandMatch(keys, command.keys))) { continue; }
+        if (match == 'partial') { partial.push(command); }
+        if (match == 'full') { full.push(command); }
+      }
+      return {
+        partial: partial.length && partial,
+        full: full.length && full
+      };
+    }
+    function commandMatch(pressed, mapped) {
+      if (mapped.slice(-11) == '<character>') {
+        // Last character matches anything.
+        var prefixLen = mapped.length - 11;
+        var pressedPrefix = pressed.slice(0, prefixLen);
+        var mappedPrefix = mapped.slice(0, prefixLen);
+        return pressedPrefix == mappedPrefix && pressed.length > prefixLen ? 'full' :
+               mappedPrefix.indexOf(pressedPrefix) == 0 ? 'partial' : false;
+      } else {
+        return pressed == mapped ? 'full' :
+               mapped.indexOf(pressed) == 0 ? 'partial' : false;
+      }
+    }
+    function lastChar(keys) {
+      var match = /^.*(<[^>]+>)$/.exec(keys);
+      var selectedCharacter = match ? match[1] : keys.slice(-1);
+      if (selectedCharacter.length > 1){
+        switch(selectedCharacter){
+          case '<CR>':
+            selectedCharacter='\n';
+            break;
+          case '<Space>':
+            selectedCharacter=' ';
+            break;
+          default:
+            selectedCharacter='';
+            break;
+        }
+      }
+      return selectedCharacter;
+    }
+    function repeatFn(cm, fn, repeat) {
+      return function() {
+        for (var i = 0; i < repeat; i++) {
+          fn(cm);
+        }
+      };
+    }
+    function copyCursor(cur) {
+      return new Pos(cur.line, cur.ch);
+    }
+    function cursorEqual(cur1, cur2) {
+      return cur1.ch == cur2.ch && cur1.line == cur2.line;
+    }
+    function cursorIsBefore(cur1, cur2) {
+      if (cur1.line < cur2.line) {
+        return true;
+      }
+      if (cur1.line == cur2.line && cur1.ch < cur2.ch) {
+        return true;
+      }
+      return false;
+    }
+    function cursorMin(cur1, cur2) {
+      if (arguments.length > 2) {
+        cur2 = cursorMin.apply(undefined, Array.prototype.slice.call(arguments, 1));
+      }
+      return cursorIsBefore(cur1, cur2) ? cur1 : cur2;
+    }
+    function cursorMax(cur1, cur2) {
+      if (arguments.length > 2) {
+        cur2 = cursorMax.apply(undefined, Array.prototype.slice.call(arguments, 1));
+      }
+      return cursorIsBefore(cur1, cur2) ? cur2 : cur1;
+    }
+    function cursorIsBetween(cur1, cur2, cur3) {
+      // returns true if cur2 is between cur1 and cur3.
+      var cur1before2 = cursorIsBefore(cur1, cur2);
+      var cur2before3 = cursorIsBefore(cur2, cur3);
+      return cur1before2 && cur2before3;
+    }
+    function lineLength(cm, lineNum) {
+      return cm.getLine(lineNum).length;
+    }
+    function trim(s) {
+      if (s.trim) {
+        return s.trim();
+      }
+      return s.replace(/^\s+|\s+$/g, '');
+    }
+    function escapeRegex(s) {
+      return s.replace(/([.?*+$\[\]\/\\(){}|\-])/g, '\\$1');
+    }
+    function extendLineToColumn(cm, lineNum, column) {
+      var endCh = lineLength(cm, lineNum);
+      var spaces = new Array(column-endCh+1).join(' ');
+      cm.setCursor(new Pos(lineNum, endCh));
+      cm.replaceRange(spaces, cm.getCursor());
+    }
+    // This functions selects a rectangular block
+    // of text with selectionEnd as any of its corner
+    // Height of block:
+    // Difference in selectionEnd.line and first/last selection.line
+    // Width of the block:
+    // Distance between selectionEnd.ch and any(first considered here) selection.ch
+    function selectBlock(cm, selectionEnd) {
+      var selections = [], ranges = cm.listSelections();
+      var head = copyCursor(cm.clipPos(selectionEnd));
+      var isClipped = !cursorEqual(selectionEnd, head);
+      var curHead = cm.getCursor('head');
+      var primIndex = getIndex(ranges, curHead);
+      var wasClipped = cursorEqual(ranges[primIndex].head, ranges[primIndex].anchor);
+      var max = ranges.length - 1;
+      var index = max - primIndex > primIndex ? max : 0;
+      var base = ranges[index].anchor;
+
+      var firstLine = Math.min(base.line, head.line);
+      var lastLine = Math.max(base.line, head.line);
+      var baseCh = base.ch, headCh = head.ch;
+
+      var dir = ranges[index].head.ch - baseCh;
+      var newDir = headCh - baseCh;
+      if (dir > 0 && newDir <= 0) {
+        baseCh++;
+        if (!isClipped) { headCh--; }
+      } else if (dir < 0 && newDir >= 0) {
+        baseCh--;
+        if (!wasClipped) { headCh++; }
+      } else if (dir < 0 && newDir == -1) {
+        baseCh--;
+        headCh++;
+      }
+      for (var line = firstLine; line <= lastLine; line++) {
+        var range = {anchor: new Pos(line, baseCh), head: new Pos(line, headCh)};
+        selections.push(range);
+      }
+      cm.setSelections(selections);
+      selectionEnd.ch = headCh;
+      base.ch = baseCh;
+      return base;
+    }
+    function selectForInsert(cm, head, height) {
+      var sel = [];
+      for (var i = 0; i < height; i++) {
+        var lineHead = offsetCursor(head, i, 0);
+        sel.push({anchor: lineHead, head: lineHead});
+      }
+      cm.setSelections(sel, 0);
+    }
+    // getIndex returns the index of the cursor in the selections.
+    function getIndex(ranges, cursor, end) {
+      for (var i = 0; i < ranges.length; i++) {
+        var atAnchor = end != 'head' && cursorEqual(ranges[i].anchor, cursor);
+        var atHead = end != 'anchor' && cursorEqual(ranges[i].head, cursor);
+        if (atAnchor || atHead) {
+          return i;
+        }
+      }
+      return -1;
+    }
+    function getSelectedAreaRange(cm, vim) {
+      var lastSelection = vim.lastSelection;
+      var getCurrentSelectedAreaRange = function() {
+        var selections = cm.listSelections();
+        var start =  selections[0];
+        var end = selections[selections.length-1];
+        var selectionStart = cursorIsBefore(start.anchor, start.head) ? start.anchor : start.head;
+        var selectionEnd = cursorIsBefore(end.anchor, end.head) ? end.head : end.anchor;
+        return [selectionStart, selectionEnd];
+      };
+      var getLastSelectedAreaRange = function() {
+        var selectionStart = cm.getCursor();
+        var selectionEnd = cm.getCursor();
+        var block = lastSelection.visualBlock;
+        if (block) {
+          var width = block.width;
+          var height = block.height;
+          selectionEnd = new Pos(selectionStart.line + height, selectionStart.ch + width);
+          var selections = [];
+          // selectBlock creates a 'proper' rectangular block.
+          // We do not want that in all cases, so we manually set selections.
+          for (var i = selectionStart.line; i < selectionEnd.line; i++) {
+            var anchor = new Pos(i, selectionStart.ch);
+            var head = new Pos(i, selectionEnd.ch);
+            var range = {anchor: anchor, head: head};
+            selections.push(range);
+          }
+          cm.setSelections(selections);
+        } else {
+          var start = lastSelection.anchorMark.find();
+          var end = lastSelection.headMark.find();
+          var line = end.line - start.line;
+          var ch = end.ch - start.ch;
+          selectionEnd = {line: selectionEnd.line + line, ch: line ? selectionEnd.ch : ch + selectionEnd.ch};
+          if (lastSelection.visualLine) {
+            selectionStart = new Pos(selectionStart.line, 0);
+            selectionEnd = new Pos(selectionEnd.line, lineLength(cm, selectionEnd.line));
+          }
+          cm.setSelection(selectionStart, selectionEnd);
+        }
+        return [selectionStart, selectionEnd];
+      };
+      if (!vim.visualMode) {
+      // In case of replaying the action.
+        return getLastSelectedAreaRange();
+      } else {
+        return getCurrentSelectedAreaRange();
+      }
+    }
+    // Updates the previous selection with the current selection's values. This
+    // should only be called in visual mode.
+    function updateLastSelection(cm, vim) {
+      var anchor = vim.sel.anchor;
+      var head = vim.sel.head;
+      // To accommodate the effect of lastPastedText in the last selection
+      if (vim.lastPastedText) {
+        head = cm.posFromIndex(cm.indexFromPos(anchor) + vim.lastPastedText.length);
+        vim.lastPastedText = null;
+      }
+      vim.lastSelection = {'anchorMark': cm.setBookmark(anchor),
+                           'headMark': cm.setBookmark(head),
+                           'anchor': copyCursor(anchor),
+                           'head': copyCursor(head),
+                           'visualMode': vim.visualMode,
+                           'visualLine': vim.visualLine,
+                           'visualBlock': vim.visualBlock};
+    }
+    function expandSelection(cm, start, end) {
+      var sel = cm.state.vim.sel;
+      var head = sel.head;
+      var anchor = sel.anchor;
+      var tmp;
+      if (cursorIsBefore(end, start)) {
+        tmp = end;
+        end = start;
+        start = tmp;
+      }
+      if (cursorIsBefore(head, anchor)) {
+        head = cursorMin(start, head);
+        anchor = cursorMax(anchor, end);
+      } else {
+        anchor = cursorMin(start, anchor);
+        head = cursorMax(head, end);
+        head = offsetCursor(head, 0, -1);
+        if (head.ch == -1 && head.line != cm.firstLine()) {
+          head = new Pos(head.line - 1, lineLength(cm, head.line - 1));
+        }
+      }
+      return [anchor, head];
+    }
+    /**
+     * Updates the CodeMirror selection to match the provided vim selection.
+     * If no arguments are given, it uses the current vim selection state.
+     */
+    function updateCmSelection(cm, sel, mode) {
+      var vim = cm.state.vim;
+      sel = sel || vim.sel;
+      var mode = mode ||
+        vim.visualLine ? 'line' : vim.visualBlock ? 'block' : 'char';
+      var cmSel = makeCmSelection(cm, sel, mode);
+      cm.setSelections(cmSel.ranges, cmSel.primary);
+    }
+    function makeCmSelection(cm, sel, mode, exclusive) {
+      var head = copyCursor(sel.head);
+      var anchor = copyCursor(sel.anchor);
+      if (mode == 'char') {
+        var headOffset = !exclusive && !cursorIsBefore(sel.head, sel.anchor) ? 1 : 0;
+        var anchorOffset = cursorIsBefore(sel.head, sel.anchor) ? 1 : 0;
+        head = offsetCursor(sel.head, 0, headOffset);
+        anchor = offsetCursor(sel.anchor, 0, anchorOffset);
+        return {
+          ranges: [{anchor: anchor, head: head}],
+          primary: 0
+        };
+      } else if (mode == 'line') {
+        if (!cursorIsBefore(sel.head, sel.anchor)) {
+          anchor.ch = 0;
+
+          var lastLine = cm.lastLine();
+          if (head.line > lastLine) {
+            head.line = lastLine;
+          }
+          head.ch = lineLength(cm, head.line);
+        } else {
+          head.ch = 0;
+          anchor.ch = lineLength(cm, anchor.line);
+        }
+        return {
+          ranges: [{anchor: anchor, head: head}],
+          primary: 0
+        };
+      } else if (mode == 'block') {
+        var top = Math.min(anchor.line, head.line),
+            fromCh = anchor.ch,
+            bottom = Math.max(anchor.line, head.line),
+            toCh = head.ch;
+        if (fromCh < toCh) { toCh += 1; }
+        else { fromCh += 1; }        var height = bottom - top + 1;
+        var primary = head.line == top ? 0 : height - 1;
+        var ranges = [];
+        for (var i = 0; i < height; i++) {
+          ranges.push({
+            anchor: new Pos(top + i, fromCh),
+            head: new Pos(top + i, toCh)
+          });
+        }
+        return {
+          ranges: ranges,
+          primary: primary
+        };
+      }
+    }
+    function getHead(cm) {
+      var cur = cm.getCursor('head');
+      if (cm.getSelection().length == 1) {
+        // Small corner case when only 1 character is selected. The "real"
+        // head is the left of head and anchor.
+        cur = cursorMin(cur, cm.getCursor('anchor'));
+      }
+      return cur;
+    }
+
+    /**
+     * If moveHead is set to false, the CodeMirror selection will not be
+     * touched. The caller assumes the responsibility of putting the cursor
+    * in the right place.
+     */
+    function exitVisualMode(cm, moveHead) {
+      var vim = cm.state.vim;
+      if (moveHead !== false) {
+        cm.setCursor(clipCursorToContent(cm, vim.sel.head));
+      }
+      updateLastSelection(cm, vim);
+      vim.visualMode = false;
+      vim.visualLine = false;
+      vim.visualBlock = false;
+      if (!vim.insertMode) CodeMirror.signal(cm, "vim-mode-change", {mode: "normal"});
+    }
+
+    // Remove any trailing newlines from the selection. For
+    // example, with the caret at the start of the last word on the line,
+    // 'dw' should word, but not the newline, while 'w' should advance the
+    // caret to the first character of the next line.
+    function clipToLine(cm, curStart, curEnd) {
+      var selection = cm.getRange(curStart, curEnd);
+      // Only clip if the selection ends with trailing newline + whitespace
+      if (/\n\s*$/.test(selection)) {
+        var lines = selection.split('\n');
+        // We know this is all whitespace.
+        lines.pop();
+
+        // Cases:
+        // 1. Last word is an empty line - do not clip the trailing '\n'
+        // 2. Last word is not an empty line - clip the trailing '\n'
+        var line;
+        // Find the line containing the last word, and clip all whitespace up
+        // to it.
+        for (var line = lines.pop(); lines.length > 0 && line && isWhiteSpaceString(line); line = lines.pop()) {
+          curEnd.line--;
+          curEnd.ch = 0;
+        }
+        // If the last word is not an empty line, clip an additional newline
+        if (line) {
+          curEnd.line--;
+          curEnd.ch = lineLength(cm, curEnd.line);
+        } else {
+          curEnd.ch = 0;
+        }
+      }
+    }
+
+    // Expand the selection to line ends.
+    function expandSelectionToLine(_cm, curStart, curEnd) {
+      curStart.ch = 0;
+      curEnd.ch = 0;
+      curEnd.line++;
+    }
+
+    function findFirstNonWhiteSpaceCharacter(text) {
+      if (!text) {
+        return 0;
+      }
+      var firstNonWS = text.search(/\S/);
+      return firstNonWS == -1 ? text.length : firstNonWS;
+    }
+
+    function expandWordUnderCursor(cm, inclusive, _forward, bigWord, noSymbol) {
+      var cur = getHead(cm);
+      var line = cm.getLine(cur.line);
+      var idx = cur.ch;
+
+      // Seek to first word or non-whitespace character, depending on if
+      // noSymbol is true.
+      var test = noSymbol ? wordCharTest[0] : bigWordCharTest [0];
+      while (!test(line.charAt(idx))) {
+        idx++;
+        if (idx >= line.length) { return null; }
+      }
+
+      if (bigWord) {
+        test = bigWordCharTest[0];
+      } else {
+        test = wordCharTest[0];
+        if (!test(line.charAt(idx))) {
+          test = wordCharTest[1];
+        }
+      }
+
+      var end = idx, start = idx;
+      while (test(line.charAt(end)) && end < line.length) { end++; }
+      while (test(line.charAt(start)) && start >= 0) { start--; }
+      start++;
+
+      if (inclusive) {
+        // If present, include all whitespace after word.
+        // Otherwise, include all whitespace before word, except indentation.
+        var wordEnd = end;
+        while (/\s/.test(line.charAt(end)) && end < line.length) { end++; }
+        if (wordEnd == end) {
+          var wordStart = start;
+          while (/\s/.test(line.charAt(start - 1)) && start > 0) { start--; }
+          if (!start) { start = wordStart; }
+        }
+      }
+      return { start: new Pos(cur.line, start), end: new Pos(cur.line, end) };
+    }
+
+    /**
+     * Depends on the following:
+     *
+     * - editor mode should be htmlmixedmode / xml
+     * - mode/xml/xml.js should be loaded
+     * - addon/fold/xml-fold.js should be loaded
+     *
+     * If any of the above requirements are not true, this function noops.
+     *
+     * This is _NOT_ a 100% accurate implementation of vim tag text objects.
+     * The following caveats apply (based off cursory testing, I'm sure there
+     * are other discrepancies):
+     *
+     * - Does not work inside comments:
+     *   ```
+     *   <!-- <div>broken</div> -->
+     *   ```
+     * - Does not work when tags have different cases:
+     *   ```
+     *   <div>broken</DIV>
+     *   ```
+     * - Does not work when cursor is inside a broken tag:
+     *   ```
+     *   <div><brok><en></div>
+     *   ```
+     */
+    function expandTagUnderCursor(cm, head, inclusive) {
+      var cur = head;
+      if (!CodeMirror.findMatchingTag || !CodeMirror.findEnclosingTag) {
+        return { start: cur, end: cur };
+      }
+
+      var tags = CodeMirror.findMatchingTag(cm, head) || CodeMirror.findEnclosingTag(cm, head);
+      if (!tags || !tags.open || !tags.close) {
+        return { start: cur, end: cur };
+      }
+
+      if (inclusive) {
+        return { start: tags.open.from, end: tags.close.to };
+      }
+      return { start: tags.open.to, end: tags.close.from };
+    }
+
+    function recordJumpPosition(cm, oldCur, newCur) {
+      if (!cursorEqual(oldCur, newCur)) {
+        vimGlobalState.jumpList.add(cm, oldCur, newCur);
+      }
+    }
+
+    function recordLastCharacterSearch(increment, args) {
+        vimGlobalState.lastCharacterSearch.increment = increment;
+        vimGlobalState.lastCharacterSearch.forward = args.forward;
+        vimGlobalState.lastCharacterSearch.selectedCharacter = args.selectedCharacter;
+    }
+
+    var symbolToMode = {
+        '(': 'bracket', ')': 'bracket', '{': 'bracket', '}': 'bracket',
+        '[': 'section', ']': 'section',
+        '*': 'comment', '/': 'comment',
+        'm': 'method', 'M': 'method',
+        '#': 'preprocess'
+    };
+    var findSymbolModes = {
+      bracket: {
+        isComplete: function(state) {
+          if (state.nextCh === state.symb) {
+            state.depth++;
+            if (state.depth >= 1)return true;
+          } else if (state.nextCh === state.reverseSymb) {
+            state.depth--;
+          }
+          return false;
+        }
+      },
+      section: {
+        init: function(state) {
+          state.curMoveThrough = true;
+          state.symb = (state.forward ? ']' : '[') === state.symb ? '{' : '}';
+        },
+        isComplete: function(state) {
+          return state.index === 0 && state.nextCh === state.symb;
+        }
+      },
+      comment: {
+        isComplete: function(state) {
+          var found = state.lastCh === '*' && state.nextCh === '/';
+          state.lastCh = state.nextCh;
+          return found;
+        }
+      },
+      // TODO: The original Vim implementation only operates on level 1 and 2.
+      // The current implementation doesn't check for code block level and
+      // therefore it operates on any levels.
+      method: {
+        init: function(state) {
+          state.symb = (state.symb === 'm' ? '{' : '}');
+          state.reverseSymb = state.symb === '{' ? '}' : '{';
+        },
+        isComplete: function(state) {
+          if (state.nextCh === state.symb)return true;
+          return false;
+        }
+      },
+      preprocess: {
+        init: function(state) {
+          state.index = 0;
+        },
+        isComplete: function(state) {
+          if (state.nextCh === '#') {
+            var token = state.lineText.match(/^#(\w+)/)[1];
+            if (token === 'endif') {
+              if (state.forward && state.depth === 0) {
+                return true;
+              }
+              state.depth++;
+            } else if (token === 'if') {
+              if (!state.forward && state.depth === 0) {
+                return true;
+              }
+              state.depth--;
+            }
+            if (token === 'else' && state.depth === 0)return true;
+          }
+          return false;
+        }
+      }
+    };
+    function findSymbol(cm, repeat, forward, symb) {
+      var cur = copyCursor(cm.getCursor());
+      var increment = forward ? 1 : -1;
+      var endLine = forward ? cm.lineCount() : -1;
+      var curCh = cur.ch;
+      var line = cur.line;
+      var lineText = cm.getLine(line);
+      var state = {
+        lineText: lineText,
+        nextCh: lineText.charAt(curCh),
+        lastCh: null,
+        index: curCh,
+        symb: symb,
+        reverseSymb: (forward ?  { ')': '(', '}': '{' } : { '(': ')', '{': '}' })[symb],
+        forward: forward,
+        depth: 0,
+        curMoveThrough: false
+      };
+      var mode = symbolToMode[symb];
+      if (!mode)return cur;
+      var init = findSymbolModes[mode].init;
+      var isComplete = findSymbolModes[mode].isComplete;
+      if (init) { init(state); }
+      while (line !== endLine && repeat) {
+        state.index += increment;
+        state.nextCh = state.lineText.charAt(state.index);
+        if (!state.nextCh) {
+          line += increment;
+          state.lineText = cm.getLine(line) || '';
+          if (increment > 0) {
+            state.index = 0;
+          } else {
+            var lineLen = state.lineText.length;
+            state.index = (lineLen > 0) ? (lineLen-1) : 0;
+          }
+          state.nextCh = state.lineText.charAt(state.index);
+        }
+        if (isComplete(state)) {
+          cur.line = line;
+          cur.ch = state.index;
+          repeat--;
+        }
+      }
+      if (state.nextCh || state.curMoveThrough) {
+        return new Pos(line, state.index);
+      }
+      return cur;
+    }
+
+    /*
+     * Returns the boundaries of the next word. If the cursor in the middle of
+     * the word, then returns the boundaries of the current word, starting at
+     * the cursor. If the cursor is at the start/end of a word, and we are going
+     * forward/backward, respectively, find the boundaries of the next word.
+     *
+     * @param {CodeMirror} cm CodeMirror object.
+     * @param {Cursor} cur The cursor position.
+     * @param {boolean} forward True to search forward. False to search
+     *     backward.
+     * @param {boolean} bigWord True if punctuation count as part of the word.
+     *     False if only [a-zA-Z0-9] characters count as part of the word.
+     * @param {boolean} emptyLineIsWord True if empty lines should be treated
+     *     as words.
+     * @return {Object{from:number, to:number, line: number}} The boundaries of
+     *     the word, or null if there are no more words.
+     */
+    function findWord(cm, cur, forward, bigWord, emptyLineIsWord) {
+      var lineNum = cur.line;
+      var pos = cur.ch;
+      var line = cm.getLine(lineNum);
+      var dir = forward ? 1 : -1;
+      var charTests = bigWord ? bigWordCharTest: wordCharTest;
+
+      if (emptyLineIsWord && line == '') {
+        lineNum += dir;
+        line = cm.getLine(lineNum);
+        if (!isLine(cm, lineNum)) {
+          return null;
+        }
+        pos = (forward) ? 0 : line.length;
+      }
+
+      while (true) {
+        if (emptyLineIsWord && line == '') {
+          return { from: 0, to: 0, line: lineNum };
+        }
+        var stop = (dir > 0) ? line.length : -1;
+        var wordStart = stop, wordEnd = stop;
+        // Find bounds of next word.
+        while (pos != stop) {
+          var foundWord = false;
+          for (var i = 0; i < charTests.length && !foundWord; ++i) {
+            if (charTests[i](line.charAt(pos))) {
+              wordStart = pos;
+              // Advance to end of word.
+              while (pos != stop && charTests[i](line.charAt(pos))) {
+                pos += dir;
+              }
+              wordEnd = pos;
+              foundWord = wordStart != wordEnd;
+              if (wordStart == cur.ch && lineNum == cur.line &&
+                  wordEnd == wordStart + dir) {
+                // We started at the end of a word. Find the next one.
+                continue;
+              } else {
+                return {
+                  from: Math.min(wordStart, wordEnd + 1),
+                  to: Math.max(wordStart, wordEnd),
+                  line: lineNum };
+              }
+            }
+          }
+          if (!foundWord) {
+            pos += dir;
+          }
+        }
+        // Advance to next/prev line.
+        lineNum += dir;
+        if (!isLine(cm, lineNum)) {
+          return null;
+        }
+        line = cm.getLine(lineNum);
+        pos = (dir > 0) ? 0 : line.length;
+      }
+    }
+
+    /**
+     * @param {CodeMirror} cm CodeMirror object.
+     * @param {Pos} cur The position to start from.
+     * @param {int} repeat Number of words to move past.
+     * @param {boolean} forward True to search forward. False to search
+     *     backward.
+     * @param {boolean} wordEnd True to move to end of word. False to move to
+     *     beginning of word.
+     * @param {boolean} bigWord True if punctuation count as part of the word.
+     *     False if only alphabet characters count as part of the word.
+     * @return {Cursor} The position the cursor should move to.
+     */
+    function moveToWord(cm, cur, repeat, forward, wordEnd, bigWord) {
+      var curStart = copyCursor(cur);
+      var words = [];
+      if (forward && !wordEnd || !forward && wordEnd) {
+        repeat++;
+      }
+      // For 'e', empty lines are not considered words, go figure.
+      var emptyLineIsWord = !(forward && wordEnd);
+      for (var i = 0; i < repeat; i++) {
+        var word = findWord(cm, cur, forward, bigWord, emptyLineIsWord);
+        if (!word) {
+          var eodCh = lineLength(cm, cm.lastLine());
+          words.push(forward
+              ? {line: cm.lastLine(), from: eodCh, to: eodCh}
+              : {line: 0, from: 0, to: 0});
+          break;
+        }
+        words.push(word);
+        cur = new Pos(word.line, forward ? (word.to - 1) : word.from);
+      }
+      var shortCircuit = words.length != repeat;
+      var firstWord = words[0];
+      var lastWord = words.pop();
+      if (forward && !wordEnd) {
+        // w
+        if (!shortCircuit && (firstWord.from != curStart.ch || firstWord.line != curStart.line)) {
+          // We did not start in the middle of a word. Discard the extra word at the end.
+          lastWord = words.pop();
+        }
+        return new Pos(lastWord.line, lastWord.from);
+      } else if (forward && wordEnd) {
+        return new Pos(lastWord.line, lastWord.to - 1);
+      } else if (!forward && wordEnd) {
+        // ge
+        if (!shortCircuit && (firstWord.to != curStart.ch || firstWord.line != curStart.line)) {
+          // We did not start in the middle of a word. Discard the extra word at the end.
+          lastWord = words.pop();
+        }
+        return new Pos(lastWord.line, lastWord.to);
+      } else {
+        // b
+        return new Pos(lastWord.line, lastWord.from);
+      }
+    }
+
+    function moveToEol(cm, head, motionArgs, vim, keepHPos) {
+      var cur = head;
+      var retval= new Pos(cur.line + motionArgs.repeat - 1, Infinity);
+      var end=cm.clipPos(retval);
+      end.ch--;
+      if (!keepHPos) {
+        vim.lastHPos = Infinity;
+        vim.lastHSPos = cm.charCoords(end,'div').left;
+      }
+      return retval;
+    }
+
+    function moveToCharacter(cm, repeat, forward, character) {
+      var cur = cm.getCursor();
+      var start = cur.ch;
+      var idx;
+      for (var i = 0; i < repeat; i ++) {
+        var line = cm.getLine(cur.line);
+        idx = charIdxInLine(start, line, character, forward, true);
+        if (idx == -1) {
+          return null;
+        }
+        start = idx;
+      }
+      return new Pos(cm.getCursor().line, idx);
+    }
+
+    function moveToColumn(cm, repeat) {
+      // repeat is always >= 1, so repeat - 1 always corresponds
+      // to the column we want to go to.
+      var line = cm.getCursor().line;
+      return clipCursorToContent(cm, new Pos(line, repeat - 1));
+    }
+
+    function updateMark(cm, vim, markName, pos) {
+      if (!inArray(markName, validMarks)) {
+        return;
+      }
+      if (vim.marks[markName]) {
+        vim.marks[markName].clear();
+      }
+      vim.marks[markName] = cm.setBookmark(pos);
+    }
+
+    function charIdxInLine(start, line, character, forward, includeChar) {
+      // Search for char in line.
+      // motion_options: {forward, includeChar}
+      // If includeChar = true, include it too.
+      // If forward = true, search forward, else search backwards.
+      // If char is not found on this line, do nothing
+      var idx;
+      if (forward) {
+        idx = line.indexOf(character, start + 1);
+        if (idx != -1 && !includeChar) {
+          idx -= 1;
+        }
+      } else {
+        idx = line.lastIndexOf(character, start - 1);
+        if (idx != -1 && !includeChar) {
+          idx += 1;
+        }
+      }
+      return idx;
+    }
+
+    function findParagraph(cm, head, repeat, dir, inclusive) {
+      var line = head.line;
+      var min = cm.firstLine();
+      var max = cm.lastLine();
+      var start, end, i = line;
+      function isEmpty(i) { return !cm.getLine(i); }
+      function isBoundary(i, dir, any) {
+        if (any) { return isEmpty(i) != isEmpty(i + dir); }
+        return !isEmpty(i) && isEmpty(i + dir);
+      }
+      if (dir) {
+        while (min <= i && i <= max && repeat > 0) {
+          if (isBoundary(i, dir)) { repeat--; }
+          i += dir;
+        }
+        return new Pos(i, 0);
+      }
+
+      var vim = cm.state.vim;
+      if (vim.visualLine && isBoundary(line, 1, true)) {
+        var anchor = vim.sel.anchor;
+        if (isBoundary(anchor.line, -1, true)) {
+          if (!inclusive || anchor.line != line) {
+            line += 1;
+          }
+        }
+      }
+      var startState = isEmpty(line);
+      for (i = line; i <= max && repeat; i++) {
+        if (isBoundary(i, 1, true)) {
+          if (!inclusive || isEmpty(i) != startState) {
+            repeat--;
+          }
+        }
+      }
+      end = new Pos(i, 0);
+      // select boundary before paragraph for the last one
+      if (i > max && !startState) { startState = true; }
+      else { inclusive = false; }
+      for (i = line; i > min; i--) {
+        if (!inclusive || isEmpty(i) == startState || i == line) {
+          if (isBoundary(i, -1, true)) { break; }
+        }
+      }
+      start = new Pos(i, 0);
+      return { start: start, end: end };
+    }
+  function getSentence(cm, cur, repeat, dir, inclusive /*includes whitespace*/) {
+    /*
+    Takes an index object
+    {
+    line: the line string,
+    ln: line number,
+    pos: index in line,
+    dir: direction of traversal (-1 or 1)
+    }
+    and modifies the pos member to represent the
+    next valid position or sets the line to null if there are
+    no more valid positions.
+   */
+    function nextChar(curr) {
+      if (curr.pos + curr.dir < 0 || curr.pos + curr.dir >= curr.line.length) {
+          curr.line = null;
+        }
+      else {
+        curr.pos += curr.dir;
+      }
+    }
+    /*
+    Performs one iteration of traversal in forward direction
+    Returns an index object of the new location
+   */
+    function forward(cm, ln, pos, dir) {
+      var line = cm.getLine(ln);
+
+      var curr = {
+        line: line,
+        ln: ln,
+        pos: pos,
+        dir: dir,
+      };
+
+      if (curr.line === "") {
+        return { ln: curr.ln, pos: curr.pos };
+      }
+
+      var lastSentencePos = curr.pos;
+
+      // Move one step to skip character we start on
+      nextChar(curr);
+
+      while (curr.line !== null) {
+        lastSentencePos = curr.pos;
+        if (isEndOfSentenceSymbol(curr.line[curr.pos])) {
+          if (!inclusive) {
+            return { ln: curr.ln, pos: curr.pos + 1 };
+          } else {
+            nextChar(curr);
+            while (curr.line !== null ) {
+              if (isWhiteSpaceString(curr.line[curr.pos])) {
+                lastSentencePos = curr.pos;
+                nextChar(curr);
+              } else {
+                break;
+              }
+            }
+            return { ln: curr.ln, pos: lastSentencePos + 1, };
+          }
+        }
+        nextChar(curr);
+      }
+      return { ln: curr.ln, pos: lastSentencePos + 1 };
+    }
+
+    /*
+    Performs one iteration of traversal in reverse direction
+    Returns an index object of the new location
+   */
+    function reverse(cm, ln, pos, dir) {
+      var line = cm.getLine(ln);
+
+      var curr = {
+        line: line,
+        ln: ln,
+        pos: pos,
+        dir: dir,
+      };
+
+      if (curr.line === "") {
+        return { ln: curr.ln, pos: curr.pos };
+      }
+
+      var lastSentencePos = curr.pos;
+
+      // Move one step to skip character we start on
+      nextChar(curr);
+
+      while (curr.line !== null) {
+        if (!isWhiteSpaceString(curr.line[curr.pos]) && !isEndOfSentenceSymbol(curr.line[curr.pos])) {
+          lastSentencePos = curr.pos;
+        }
+
+        else if (isEndOfSentenceSymbol(curr.line[curr.pos]) ) {
+          if (!inclusive) {
+            return { ln: curr.ln, pos: lastSentencePos };
+          } else {
+              if (isWhiteSpaceString(curr.line[curr.pos + 1])) {
+                return { ln: curr.ln, pos: curr.pos + 1, };
+              } else {
+                return {ln: curr.ln, pos: lastSentencePos};
+              }
+          }
+        }
+
+        nextChar(curr);
+      }
+      curr.line = line;
+      if (inclusive && isWhiteSpaceString(curr.line[curr.pos])) {
+        return { ln: curr.ln, pos: curr.pos };
+      } else {
+        return { ln: curr.ln, pos: lastSentencePos };
+      }
+
+    }
+
+    var curr_index = {
+      ln: cur.line,
+      pos: cur.ch,
+    };
+
+    while (repeat > 0) {
+      if (dir < 0) {
+        curr_index = reverse(cm, curr_index.ln, curr_index.pos, dir);
+      }
+      else {
+        curr_index = forward(cm, curr_index.ln, curr_index.pos, dir);
+      }
+      repeat--;
+    }
+
+    return new Pos(curr_index.ln, curr_index.pos);
+  }
+
+  function findSentence(cm, cur, repeat, dir) {
+
+    /*
+    Takes an index object
+    {
+    line: the line string,
+    ln: line number,
+    pos: index in line,
+    dir: direction of traversal (-1 or 1)
+    }
+    and modifies the line, ln, and pos members to represent the
+    next valid position or sets them to null if there are
+    no more valid positions.
+   */
+      function nextChar(cm, idx) {
+        if (idx.pos + idx.dir < 0 || idx.pos + idx.dir >= idx.line.length) {
+          idx.ln += idx.dir;
+          if (!isLine(cm, idx.ln)) {
+            idx.line = null;
+            idx.ln = null;
+            idx.pos = null;
+            return;
+          }
+          idx.line = cm.getLine(idx.ln);
+          idx.pos = (idx.dir > 0) ? 0 : idx.line.length - 1;
+        }
+        else {
+          idx.pos += idx.dir;
+        }
+      }
+
+      /*
+        Performs one iteration of traversal in forward direction
+        Returns an index object of the new location
+       */
+      function forward(cm, ln, pos, dir) {
+        var line = cm.getLine(ln);
+        var stop = (line === "");
+
+        var curr = {
+          line: line,
+          ln: ln,
+          pos: pos,
+          dir: dir,
+        };
+
+        var last_valid = {
+          ln: curr.ln,
+          pos: curr.pos,
+        };
+
+        var skip_empty_lines = (curr.line === "");
+
+        // Move one step to skip character we start on
+        nextChar(cm, curr);
+
+        while (curr.line !== null) {
+          last_valid.ln = curr.ln;
+          last_valid.pos = curr.pos;
+
+          if (curr.line === "" && !skip_empty_lines) {
+            return { ln: curr.ln, pos: curr.pos, };
+          }
+          else if (stop && curr.line !== "" && !isWhiteSpaceString(curr.line[curr.pos])) {
+            return { ln: curr.ln, pos: curr.pos, };
+          }
+          else if (isEndOfSentenceSymbol(curr.line[curr.pos])
+            && !stop
+            && (curr.pos === curr.line.length - 1
+              || isWhiteSpaceString(curr.line[curr.pos + 1]))) {
+            stop = true;
+          }
+
+          nextChar(cm, curr);
+        }
+
+        /*
+          Set the position to the last non whitespace character on the last
+          valid line in the case that we reach the end of the document.
+        */
+        var line = cm.getLine(last_valid.ln);
+        last_valid.pos = 0;
+        for(var i = line.length - 1; i >= 0; --i) {
+          if (!isWhiteSpaceString(line[i])) {
+            last_valid.pos = i;
+            break;
+          }
+        }
+
+        return last_valid;
+
+      }
+
+      /*
+        Performs one iteration of traversal in reverse direction
+        Returns an index object of the new location
+       */
+      function reverse(cm, ln, pos, dir) {
+        var line = cm.getLine(ln);
+
+        var curr = {
+          line: line,
+          ln: ln,
+          pos: pos,
+          dir: dir,
+        };
+
+        var last_valid = {
+          ln: curr.ln,
+          pos: null,
+        };
+
+        var skip_empty_lines = (curr.line === "");
+
+        // Move one step to skip character we start on
+        nextChar(cm, curr);
+
+        while (curr.line !== null) {
+
+          if (curr.line === "" && !skip_empty_lines) {
+            if (last_valid.pos !== null) {
+              return last_valid;
+            }
+            else {
+              return { ln: curr.ln, pos: curr.pos };
+            }
+          }
+          else if (isEndOfSentenceSymbol(curr.line[curr.pos])
+              && last_valid.pos !== null
+              && !(curr.ln === last_valid.ln && curr.pos + 1 === last_valid.pos)) {
+            return last_valid;
+          }
+          else if (curr.line !== "" && !isWhiteSpaceString(curr.line[curr.pos])) {
+            skip_empty_lines = false;
+            last_valid = { ln: curr.ln, pos: curr.pos };
+          }
+
+          nextChar(cm, curr);
+        }
+
+        /*
+          Set the position to the first non whitespace character on the last
+          valid line in the case that we reach the beginning of the document.
+        */
+        var line = cm.getLine(last_valid.ln);
+        last_valid.pos = 0;
+        for(var i = 0; i < line.length; ++i) {
+          if (!isWhiteSpaceString(line[i])) {
+            last_valid.pos = i;
+            break;
+          }
+        }
+        return last_valid;
+      }
+
+      var curr_index = {
+        ln: cur.line,
+        pos: cur.ch,
+      };
+
+      while (repeat > 0) {
+        if (dir < 0) {
+          curr_index = reverse(cm, curr_index.ln, curr_index.pos, dir);
+        }
+        else {
+          curr_index = forward(cm, curr_index.ln, curr_index.pos, dir);
+        }
+        repeat--;
+      }
+
+      return new Pos(curr_index.ln, curr_index.pos);
+    }
+
+    // TODO: perhaps this finagling of start and end positions belongs
+    // in codemirror/replaceRange?
+    function selectCompanionObject(cm, head, symb, inclusive) {
+      var cur = head, start, end;
+
+      var bracketRegexp = ({
+        '(': /[()]/, ')': /[()]/,
+        '[': /[[\]]/, ']': /[[\]]/,
+        '{': /[{}]/, '}': /[{}]/,
+        '<': /[<>]/, '>': /[<>]/})[symb];
+      var openSym = ({
+        '(': '(', ')': '(',
+        '[': '[', ']': '[',
+        '{': '{', '}': '{',
+        '<': '<', '>': '<'})[symb];
+      var curChar = cm.getLine(cur.line).charAt(cur.ch);
+      // Due to the behavior of scanForBracket, we need to add an offset if the
+      // cursor is on a matching open bracket.
+      var offset = curChar === openSym ? 1 : 0;
+
+      start = cm.scanForBracket(new Pos(cur.line, cur.ch + offset), -1, undefined, {'bracketRegex': bracketRegexp});
+      end = cm.scanForBracket(new Pos(cur.line, cur.ch + offset), 1, undefined, {'bracketRegex': bracketRegexp});
+
+      if (!start || !end) {
+        return { start: cur, end: cur };
+      }
+
+      start = start.pos;
+      end = end.pos;
+
+      if ((start.line == end.line && start.ch > end.ch)
+          || (start.line > end.line)) {
+        var tmp = start;
+        start = end;
+        end = tmp;
+      }
+
+      if (inclusive) {
+        end.ch += 1;
+      } else {
+        start.ch += 1;
+      }
+
+      return { start: start, end: end };
+    }
+
+    // Takes in a symbol and a cursor and tries to simulate text objects that
+    // have identical opening and closing symbols
+    // TODO support across multiple lines
+    function findBeginningAndEnd(cm, head, symb, inclusive) {
+      var cur = copyCursor(head);
+      var line = cm.getLine(cur.line);
+      var chars = line.split('');
+      var start, end, i, len;
+      var firstIndex = chars.indexOf(symb);
+
+      // the decision tree is to always look backwards for the beginning first,
+      // but if the cursor is in front of the first instance of the symb,
+      // then move the cursor forward
+      if (cur.ch < firstIndex) {
+        cur.ch = firstIndex;
+        // Why is this line even here???
+        // cm.setCursor(cur.line, firstIndex+1);
+      }
+      // otherwise if the cursor is currently on the closing symbol
+      else if (firstIndex < cur.ch && chars[cur.ch] == symb) {
+        end = cur.ch; // assign end to the current cursor
+        --cur.ch; // make sure to look backwards
+      }
+
+      // if we're currently on the symbol, we've got a start
+      if (chars[cur.ch] == symb && !end) {
+        start = cur.ch + 1; // assign start to ahead of the cursor
+      } else {
+        // go backwards to find the start
+        for (i = cur.ch; i > -1 && !start; i--) {
+          if (chars[i] == symb) {
+            start = i + 1;
+          }
+        }
+      }
+
+      // look forwards for the end symbol
+      if (start && !end) {
+        for (i = start, len = chars.length; i < len && !end; i++) {
+          if (chars[i] == symb) {
+            end = i;
+          }
+        }
+      }
+
+      // nothing found
+      if (!start || !end) {
+        return { start: cur, end: cur };
+      }
+
+      // include the symbols
+      if (inclusive) {
+        --start; ++end;
+      }
+
+      return {
+        start: new Pos(cur.line, start),
+        end: new Pos(cur.line, end)
+      };
+    }
+
+    // Search functions
+    defineOption('pcre', true, 'boolean');
+    function SearchState() {}
+    SearchState.prototype = {
+      getQuery: function() {
+        return vimGlobalState.query;
+      },
+      setQuery: function(query) {
+        vimGlobalState.query = query;
+      },
+      getOverlay: function() {
+        return this.searchOverlay;
+      },
+      setOverlay: function(overlay) {
+        this.searchOverlay = overlay;
+      },
+      isReversed: function() {
+        return vimGlobalState.isReversed;
+      },
+      setReversed: function(reversed) {
+        vimGlobalState.isReversed = reversed;
+      },
+      getScrollbarAnnotate: function() {
+        return this.annotate;
+      },
+      setScrollbarAnnotate: function(annotate) {
+        this.annotate = annotate;
+      }
+    };
+    function getSearchState(cm) {
+      var vim = cm.state.vim;
+      return vim.searchState_ || (vim.searchState_ = new SearchState());
+    }
+    function splitBySlash(argString) {
+      return splitBySeparator(argString, '/');
+    }
+
+    function findUnescapedSlashes(argString) {
+      return findUnescapedSeparators(argString, '/');
+    }
+
+    function splitBySeparator(argString, separator) {
+      var slashes = findUnescapedSeparators(argString, separator) || [];
+      if (!slashes.length) return [];
+      var tokens = [];
+      // in case of strings like foo/bar
+      if (slashes[0] !== 0) return;
+      for (var i = 0; i < slashes.length; i++) {
+        if (typeof slashes[i] == 'number')
+          tokens.push(argString.substring(slashes[i] + 1, slashes[i+1]));
+      }
+      return tokens;
+    }
+
+    function findUnescapedSeparators(str, separator) {
+      if (!separator)
+        separator = '/';
+
+      var escapeNextChar = false;
+      var slashes = [];
+      for (var i = 0; i < str.length; i++) {
+        var c = str.charAt(i);
+        if (!escapeNextChar && c == separator) {
+          slashes.push(i);
+        }
+        escapeNextChar = !escapeNextChar && (c == '\\');
+      }
+      return slashes;
+    }
+
+    // Translates a search string from ex (vim) syntax into javascript form.
+    function translateRegex(str) {
+      // When these match, add a '\' if unescaped or remove one if escaped.
+      var specials = '|(){';
+      // Remove, but never add, a '\' for these.
+      var unescape = '}';
+      var escapeNextChar = false;
+      var out = [];
+      for (var i = -1; i < str.length; i++) {
+        var c = str.charAt(i) || '';
+        var n = str.charAt(i+1) || '';
+        var specialComesNext = (n && specials.indexOf(n) != -1);
+        if (escapeNextChar) {
+          if (c !== '\\' || !specialComesNext) {
+            out.push(c);
+          }
+          escapeNextChar = false;
+        } else {
+          if (c === '\\') {
+            escapeNextChar = true;
+            // Treat the unescape list as special for removing, but not adding '\'.
+            if (n && unescape.indexOf(n) != -1) {
+              specialComesNext = true;
+            }
+            // Not passing this test means removing a '\'.
+            if (!specialComesNext || n === '\\') {
+              out.push(c);
+            }
+          } else {
+            out.push(c);
+            if (specialComesNext && n !== '\\') {
+              out.push('\\');
+            }
+          }
+        }
+      }
+      return out.join('');
+    }
+
+    // Translates the replace part of a search and replace from ex (vim) syntax into
+    // javascript form.  Similar to translateRegex, but additionally fixes back references
+    // (translates '\[0..9]' to '$[0..9]') and follows different rules for escaping '$'.
+    var charUnescapes = {'\\n': '\n', '\\r': '\r', '\\t': '\t'};
+    function translateRegexReplace(str) {
+      var escapeNextChar = false;
+      var out = [];
+      for (var i = -1; i < str.length; i++) {
+        var c = str.charAt(i) || '';
+        var n = str.charAt(i+1) || '';
+        if (charUnescapes[c + n]) {
+          out.push(charUnescapes[c+n]);
+          i++;
+        } else if (escapeNextChar) {
+          // At any point in the loop, escapeNextChar is true if the previous
+          // character was a '\' and was not escaped.
+          out.push(c);
+          escapeNextChar = false;
+        } else {
+          if (c === '\\') {
+            escapeNextChar = true;
+            if ((isNumber(n) || n === '$')) {
+              out.push('$');
+            } else if (n !== '/' && n !== '\\') {
+              out.push('\\');
+            }
+          } else {
+            if (c === '$') {
+              out.push('$');
+            }
+            out.push(c);
+            if (n === '/') {
+              out.push('\\');
+            }
+          }
+        }
+      }
+      return out.join('');
+    }
+
+    // Unescape \ and / in the replace part, for PCRE mode.
+    var unescapes = {'\\/': '/', '\\\\': '\\', '\\n': '\n', '\\r': '\r', '\\t': '\t', '\\&':'&'};
+    function unescapeRegexReplace(str) {
+      var stream = new CodeMirror.StringStream(str);
+      var output = [];
+      while (!stream.eol()) {
+        // Search for \.
+        while (stream.peek() && stream.peek() != '\\') {
+          output.push(stream.next());
+        }
+        var matched = false;
+        for (var matcher in unescapes) {
+          if (stream.match(matcher, true)) {
+            matched = true;
+            output.push(unescapes[matcher]);
+            break;
+          }
+        }
+        if (!matched) {
+          // Don't change anything
+          output.push(stream.next());
+        }
+      }
+      return output.join('');
+    }
+
+    /**
+     * Extract the regular expression from the query and return a Regexp object.
+     * Returns null if the query is blank.
+     * If ignoreCase is passed in, the Regexp object will have the 'i' flag set.
+     * If smartCase is passed in, and the query contains upper case letters,
+     *   then ignoreCase is overridden, and the 'i' flag will not be set.
+     * If the query contains the /i in the flag part of the regular expression,
+     *   then both ignoreCase and smartCase are ignored, and 'i' will be passed
+     *   through to the Regex object.
+     */
+    function parseQuery(query, ignoreCase, smartCase) {
+      // First update the last search register
+      var lastSearchRegister = vimGlobalState.registerController.getRegister('/');
+      lastSearchRegister.setText(query);
+      // Check if the query is already a regex.
+      if (query instanceof RegExp) { return query; }
+      // First try to extract regex + flags from the input. If no flags found,
+      // extract just the regex. IE does not accept flags directly defined in
+      // the regex string in the form /regex/flags
+      var slashes = findUnescapedSlashes(query);
+      var regexPart;
+      var forceIgnoreCase;
+      if (!slashes.length) {
+        // Query looks like 'regexp'
+        regexPart = query;
+      } else {
+        // Query looks like 'regexp/...'
+        regexPart = query.substring(0, slashes[0]);
+        var flagsPart = query.substring(slashes[0]);
+        forceIgnoreCase = (flagsPart.indexOf('i') != -1);
+      }
+      if (!regexPart) {
+        return null;
+      }
+      if (!getOption('pcre')) {
+        regexPart = translateRegex(regexPart);
+      }
+      if (smartCase) {
+        ignoreCase = (/^[^A-Z]*$/).test(regexPart);
+      }
+      var regexp = new RegExp(regexPart,
+          (ignoreCase || forceIgnoreCase) ? 'im' : 'm');
+      return regexp;
+    }
+
+    /**
+     * dom - Document Object Manipulator
+     * Usage:
+     *   dom('<tag>'|<node>[, ...{<attributes>|<$styles>}|<child-node>|'<text>'])
+     * Examples:
+     *   dom('div', {id:'xyz'}, dom('p', 'CM rocks!', {$color:'red'}))
+     *   dom(document.head, dom('script', 'alert("hello!")'))
+     * Not supported:
+     *   dom('p', ['arrays are objects'], Error('objects specify attributes'))
+     */
+    function dom(n) {
+      if (typeof n === 'string') n = document.createElement(n);
+      for (var a, i = 1; i < arguments.length; i++) {
+        if (!(a = arguments[i])) continue;
+        if (typeof a !== 'object') a = document.createTextNode(a);
+        if (a.nodeType) n.appendChild(a);
+        else for (var key in a) {
+          if (!Object.prototype.hasOwnProperty.call(a, key)) continue;
+          if (key[0] === '$') n.style[key.slice(1)] = a[key];
+          else n.setAttribute(key, a[key]);
+        }
+      }
+      return n;
+    }
+
+    function showConfirm(cm, template) {
+      var pre = dom('div', {$color: 'red', $whiteSpace: 'pre', class: 'cm-vim-message'}, template);
+      if (cm.openNotification) {
+        cm.openNotification(pre, {bottom: true, duration: 5000});
+      } else {
+        alert(pre.innerText);
+      }
+    }
+
+    function makePrompt(prefix, desc) {
+      return dom(document.createDocumentFragment(),
+               dom('span', {$fontFamily: 'monospace', $whiteSpace: 'pre'},
+                 prefix,
+                 dom('input', {type: 'text', autocorrect: 'off',
+                               autocapitalize: 'off', spellcheck: 'false'})),
+               desc && dom('span', {$color: '#888'}, desc));
+    }
+
+    function showPrompt(cm, options) {
+      var template = makePrompt(options.prefix, options.desc);
+      if (cm.openDialog) {
+        cm.openDialog(template, options.onClose, {
+          onKeyDown: options.onKeyDown, onKeyUp: options.onKeyUp,
+          bottom: true, selectValueOnOpen: false, value: options.value
+        });
+      }
+      else {
+        var shortText = '';
+        if (typeof options.prefix != "string" && options.prefix) shortText += options.prefix.textContent;
+        if (options.desc) shortText += " " + options.desc;
+        options.onClose(prompt(shortText, ''));
+      }
+    }
+
+    function regexEqual(r1, r2) {
+      if (r1 instanceof RegExp && r2 instanceof RegExp) {
+          var props = ['global', 'multiline', 'ignoreCase', 'source'];
+          for (var i = 0; i < props.length; i++) {
+              var prop = props[i];
+              if (r1[prop] !== r2[prop]) {
+                  return false;
+              }
+          }
+          return true;
+      }
+      return false;
+    }
+    // Returns true if the query is valid.
+    function updateSearchQuery(cm, rawQuery, ignoreCase, smartCase) {
+      if (!rawQuery) {
+        return;
+      }
+      var state = getSearchState(cm);
+      var query = parseQuery(rawQuery, !!ignoreCase, !!smartCase);
+      if (!query) {
+        return;
+      }
+      highlightSearchMatches(cm, query);
+      if (regexEqual(query, state.getQuery())) {
+        return query;
+      }
+      state.setQuery(query);
+      return query;
+    }
+    function searchOverlay(query) {
+      if (query.source.charAt(0) == '^') {
+        var matchSol = true;
+      }
+      return {
+        token: function(stream) {
+          if (matchSol && !stream.sol()) {
+            stream.skipToEnd();
+            return;
+          }
+          var match = stream.match(query, false);
+          if (match) {
+            if (match[0].length == 0) {
+              // Matched empty string, skip to next.
+              stream.next();
+              return 'searching';
+            }
+            if (!stream.sol()) {
+              // Backtrack 1 to match \b
+              stream.backUp(1);
+              if (!query.exec(stream.next() + match[0])) {
+                stream.next();
+                return null;
+              }
+            }
+            stream.match(query);
+            return 'searching';
+          }
+          while (!stream.eol()) {
+            stream.next();
+            if (stream.match(query, false)) break;
+          }
+        },
+        query: query
+      };
+    }
+    var highlightTimeout = 0;
+    function highlightSearchMatches(cm, query) {
+      clearTimeout(highlightTimeout);
+      highlightTimeout = setTimeout(function() {
+        if (!cm.state.vim) return;
+        var searchState = getSearchState(cm);
+        var overlay = searchState.getOverlay();
+        if (!overlay || query != overlay.query) {
+          if (overlay) {
+            cm.removeOverlay(overlay);
+          }
+          overlay = searchOverlay(query);
+          cm.addOverlay(overlay);
+          if (cm.showMatchesOnScrollbar) {
+            if (searchState.getScrollbarAnnotate()) {
+              searchState.getScrollbarAnnotate().clear();
+            }
+            searchState.setScrollbarAnnotate(cm.showMatchesOnScrollbar(query));
+          }
+          searchState.setOverlay(overlay);
+        }
+      }, 50);
+    }
+    function findNext(cm, prev, query, repeat) {
+      if (repeat === undefined) { repeat = 1; }
+      return cm.operation(function() {
+        var pos = cm.getCursor();
+        var cursor = cm.getSearchCursor(query, pos);
+        for (var i = 0; i < repeat; i++) {
+          var found = cursor.find(prev);
+          if (i == 0 && found && cursorEqual(cursor.from(), pos)) {
+            var lastEndPos = prev ? cursor.from() : cursor.to();
+            found = cursor.find(prev);
+            if (found && !found[0] && cursorEqual(cursor.from(), lastEndPos)) {
+              if (cm.getLine(lastEndPos.line).length == lastEndPos.ch)
+                found = cursor.find(prev);
+            }
+          }
+          if (!found) {
+            // SearchCursor may have returned null because it hit EOF, wrap
+            // around and try again.
+            cursor = cm.getSearchCursor(query,
+                (prev) ? new Pos(cm.lastLine()) : new Pos(cm.firstLine(), 0) );
+            if (!cursor.find(prev)) {
+              return;
+            }
+          }
+        }
+        return cursor.from();
+      });
+    }
+    /**
+     * Pretty much the same as `findNext`, except for the following differences:
+     *
+     * 1. Before starting the search, move to the previous search. This way if our cursor is
+     * already inside a match, we should return the current match.
+     * 2. Rather than only returning the cursor's from, we return the cursor's from and to as a tuple.
+     */
+    function findNextFromAndToInclusive(cm, prev, query, repeat, vim) {
+      if (repeat === undefined) { repeat = 1; }
+      return cm.operation(function() {
+        var pos = cm.getCursor();
+        var cursor = cm.getSearchCursor(query, pos);
+
+        // Go back one result to ensure that if the cursor is currently a match, we keep it.
+        var found = cursor.find(!prev);
+
+        // If we haven't moved, go back one more (similar to if i==0 logic in findNext).
+        if (!vim.visualMode && found && cursorEqual(cursor.from(), pos)) {
+          cursor.find(!prev);
+        }
+
+        for (var i = 0; i < repeat; i++) {
+          found = cursor.find(prev);
+          if (!found) {
+            // SearchCursor may have returned null because it hit EOF, wrap
+            // around and try again.
+            cursor = cm.getSearchCursor(query,
+                (prev) ? new Pos(cm.lastLine()) : new Pos(cm.firstLine(), 0) );
+            if (!cursor.find(prev)) {
+              return;
+            }
+          }
+        }
+        return [cursor.from(), cursor.to()];
+      });
+    }
+    function clearSearchHighlight(cm) {
+      var state = getSearchState(cm);
+      cm.removeOverlay(getSearchState(cm).getOverlay());
+      state.setOverlay(null);
+      if (state.getScrollbarAnnotate()) {
+        state.getScrollbarAnnotate().clear();
+        state.setScrollbarAnnotate(null);
+      }
+    }
+    /**
+     * Check if pos is in the specified range, INCLUSIVE.
+     * Range can be specified with 1 or 2 arguments.
+     * If the first range argument is an array, treat it as an array of line
+     * numbers. Match pos against any of the lines.
+     * If the first range argument is a number,
+     *   if there is only 1 range argument, check if pos has the same line
+     *       number
+     *   if there are 2 range arguments, then check if pos is in between the two
+     *       range arguments.
+     */
+    function isInRange(pos, start, end) {
+      if (typeof pos != 'number') {
+        // Assume it is a cursor position. Get the line number.
+        pos = pos.line;
+      }
+      if (start instanceof Array) {
+        return inArray(pos, start);
+      } else {
+        if (typeof end == 'number') {
+          return (pos >= start && pos <= end);
+        } else {
+          return pos == start;
+        }
+      }
+    }
+    function getUserVisibleLines(cm) {
+      var scrollInfo = cm.getScrollInfo();
+      var occludeToleranceTop = 6;
+      var occludeToleranceBottom = 10;
+      var from = cm.coordsChar({left:0, top: occludeToleranceTop + scrollInfo.top}, 'local');
+      var bottomY = scrollInfo.clientHeight - occludeToleranceBottom + scrollInfo.top;
+      var to = cm.coordsChar({left:0, top: bottomY}, 'local');
+      return {top: from.line, bottom: to.line};
+    }
+
+    function getMarkPos(cm, vim, markName) {
+      if (markName == '\'' || markName == '`') {
+        return vimGlobalState.jumpList.find(cm, -1) || new Pos(0, 0);
+      } else if (markName == '.') {
+        return getLastEditPos(cm);
+      }
+
+      var mark = vim.marks[markName];
+      return mark && mark.find();
+    }
+
+    function getLastEditPos(cm) {
+      var done = cm.doc.history.done;
+      for (var i = done.length; i--;) {
+        if (done[i].changes) {
+          return copyCursor(done[i].changes[0].to);
+        }
+      }
+    }
+
+    var ExCommandDispatcher = function() {
+      this.buildCommandMap_();
+    };
+    ExCommandDispatcher.prototype = {
+      processCommand: function(cm, input, opt_params) {
+        var that = this;
+        cm.operation(function () {
+          cm.curOp.isVimOp = true;
+          that._processCommand(cm, input, opt_params);
+        });
+      },
+      _processCommand: function(cm, input, opt_params) {
+        var vim = cm.state.vim;
+        var commandHistoryRegister = vimGlobalState.registerController.getRegister(':');
+        var previousCommand = commandHistoryRegister.toString();
+        if (vim.visualMode) {
+          exitVisualMode(cm);
+        }
+        var inputStream = new CodeMirror.StringStream(input);
+        // update ": with the latest command whether valid or invalid
+        commandHistoryRegister.setText(input);
+        var params = opt_params || {};
+        params.input = input;
+        try {
+          this.parseInput_(cm, inputStream, params);
+        } catch(e) {
+          showConfirm(cm, e.toString());
+          throw e;
+        }
+        var command;
+        var commandName;
+        if (!params.commandName) {
+          // If only a line range is defined, move to the line.
+          if (params.line !== undefined) {
+            commandName = 'move';
+          }
+        } else {
+          command = this.matchCommand_(params.commandName);
+          if (command) {
+            commandName = command.name;
+            if (command.excludeFromCommandHistory) {
+              commandHistoryRegister.setText(previousCommand);
+            }
+            this.parseCommandArgs_(inputStream, params, command);
+            if (command.type == 'exToKey') {
+              // Handle Ex to Key mapping.
+              for (var i = 0; i < command.toKeys.length; i++) {
+                vimApi.handleKey(cm, command.toKeys[i], 'mapping');
+              }
+              return;
+            } else if (command.type == 'exToEx') {
+              // Handle Ex to Ex mapping.
+              this.processCommand(cm, command.toInput);
+              return;
+            }
+          }
+        }
+        if (!commandName) {
+          showConfirm(cm, 'Not an editor command ":' + input + '"');
+          return;
+        }
+        try {
+          exCommands[commandName](cm, params);
+          // Possibly asynchronous commands (e.g. substitute, which might have a
+          // user confirmation), are responsible for calling the callback when
+          // done. All others have it taken care of for them here.
+          if ((!command || !command.possiblyAsync) && params.callback) {
+            params.callback();
+          }
+        } catch(e) {
+          showConfirm(cm, e.toString());
+          throw e;
+        }
+      },
+      parseInput_: function(cm, inputStream, result) {
+        inputStream.eatWhile(':');
+        // Parse range.
+        if (inputStream.eat('%')) {
+          result.line = cm.firstLine();
+          result.lineEnd = cm.lastLine();
+        } else {
+          result.line = this.parseLineSpec_(cm, inputStream);
+          if (result.line !== undefined && inputStream.eat(',')) {
+            result.lineEnd = this.parseLineSpec_(cm, inputStream);
+          }
+        }
+
+        // Parse command name.
+        var commandMatch = inputStream.match(/^(\w+|!!|@@|[!#&*<=>@~])/);
+        if (commandMatch) {
+          result.commandName = commandMatch[1];
+        } else {
+          result.commandName = inputStream.match(/.*/)[0];
+        }
+
+        return result;
+      },
+      parseLineSpec_: function(cm, inputStream) {
+        var numberMatch = inputStream.match(/^(\d+)/);
+        if (numberMatch) {
+          // Absolute line number plus offset (N+M or N-M) is probably a typo,
+          // not something the user actually wanted. (NB: vim does allow this.)
+          return parseInt(numberMatch[1], 10) - 1;
+        }
+        switch (inputStream.next()) {
+          case '.':
+            return this.parseLineSpecOffset_(inputStream, cm.getCursor().line);
+          case '$':
+            return this.parseLineSpecOffset_(inputStream, cm.lastLine());
+          case '\'':
+            var markName = inputStream.next();
+            var markPos = getMarkPos(cm, cm.state.vim, markName);
+            if (!markPos) throw new Error('Mark not set');
+            return this.parseLineSpecOffset_(inputStream, markPos.line);
+          case '-':
+          case '+':
+            inputStream.backUp(1);
+            // Offset is relative to current line if not otherwise specified.
+            return this.parseLineSpecOffset_(inputStream, cm.getCursor().line);
+          default:
+            inputStream.backUp(1);
+            return undefined;
+        }
+      },
+      parseLineSpecOffset_: function(inputStream, line) {
+        var offsetMatch = inputStream.match(/^([+-])?(\d+)/);
+        if (offsetMatch) {
+          var offset = parseInt(offsetMatch[2], 10);
+          if (offsetMatch[1] == "-") {
+            line -= offset;
+          } else {
+            line += offset;
+          }
+        }
+        return line;
+      },
+      parseCommandArgs_: function(inputStream, params, command) {
+        if (inputStream.eol()) {
+          return;
+        }
+        params.argString = inputStream.match(/.*/)[0];
+        // Parse command-line arguments
+        var delim = command.argDelimiter || /\s+/;
+        var args = trim(params.argString).split(delim);
+        if (args.length && args[0]) {
+          params.args = args;
+        }
+      },
+      matchCommand_: function(commandName) {
+        // Return the command in the command map that matches the shortest
+        // prefix of the passed in command name. The match is guaranteed to be
+        // unambiguous if the defaultExCommandMap's shortNames are set up
+        // correctly. (see @code{defaultExCommandMap}).
+        for (var i = commandName.length; i > 0; i--) {
+          var prefix = commandName.substring(0, i);
+          if (this.commandMap_[prefix]) {
+            var command = this.commandMap_[prefix];
+            if (command.name.indexOf(commandName) === 0) {
+              return command;
+            }
+          }
+        }
+        return null;
+      },
+      buildCommandMap_: function() {
+        this.commandMap_ = {};
+        for (var i = 0; i < defaultExCommandMap.length; i++) {
+          var command = defaultExCommandMap[i];
+          var key = command.shortName || command.name;
+          this.commandMap_[key] = command;
+        }
+      },
+      map: function(lhs, rhs, ctx) {
+        if (lhs != ':' && lhs.charAt(0) == ':') {
+          if (ctx) { throw Error('Mode not supported for ex mappings'); }
+          var commandName = lhs.substring(1);
+          if (rhs != ':' && rhs.charAt(0) == ':') {
+            // Ex to Ex mapping
+            this.commandMap_[commandName] = {
+              name: commandName,
+              type: 'exToEx',
+              toInput: rhs.substring(1),
+              user: true
+            };
+          } else {
+            // Ex to key mapping
+            this.commandMap_[commandName] = {
+              name: commandName,
+              type: 'exToKey',
+              toKeys: rhs,
+              user: true
+            };
+          }
+        } else {
+          if (rhs != ':' && rhs.charAt(0) == ':') {
+            // Key to Ex mapping.
+            var mapping = {
+              keys: lhs,
+              type: 'keyToEx',
+              exArgs: { input: rhs.substring(1) }
+            };
+            if (ctx) { mapping.context = ctx; }
+            defaultKeymap.unshift(mapping);
+          } else {
+            // Key to key mapping
+            var mapping = {
+              keys: lhs,
+              type: 'keyToKey',
+              toKeys: rhs
+            };
+            if (ctx) { mapping.context = ctx; }
+            defaultKeymap.unshift(mapping);
+          }
+        }
+      },
+      unmap: function(lhs, ctx) {
+        if (lhs != ':' && lhs.charAt(0) == ':') {
+          // Ex to Ex or Ex to key mapping
+          if (ctx) { throw Error('Mode not supported for ex mappings'); }
+          var commandName = lhs.substring(1);
+          if (this.commandMap_[commandName] && this.commandMap_[commandName].user) {
+            delete this.commandMap_[commandName];
+            return true;
+          }
+        } else {
+          // Key to Ex or key to key mapping
+          var keys = lhs;
+          for (var i = 0; i < defaultKeymap.length; i++) {
+            if (keys == defaultKeymap[i].keys
+                && defaultKeymap[i].context === ctx) {
+              defaultKeymap.splice(i, 1);
+              return true;
+            }
+          }
+        }
+      }
+    };
+
+    var exCommands = {
+      colorscheme: function(cm, params) {
+        if (!params.args || params.args.length < 1) {
+          showConfirm(cm, cm.getOption('theme'));
+          return;
+        }
+        cm.setOption('theme', params.args[0]);
+      },
+      map: function(cm, params, ctx) {
+        var mapArgs = params.args;
+        if (!mapArgs || mapArgs.length < 2) {
+          if (cm) {
+            showConfirm(cm, 'Invalid mapping: ' + params.input);
+          }
+          return;
+        }
+        exCommandDispatcher.map(mapArgs[0], mapArgs[1], ctx);
+      },
+      imap: function(cm, params) { this.map(cm, params, 'insert'); },
+      nmap: function(cm, params) { this.map(cm, params, 'normal'); },
+      vmap: function(cm, params) { this.map(cm, params, 'visual'); },
+      unmap: function(cm, params, ctx) {
+        var mapArgs = params.args;
+        if (!mapArgs || mapArgs.length < 1 || !exCommandDispatcher.unmap(mapArgs[0], ctx)) {
+          if (cm) {
+            showConfirm(cm, 'No such mapping: ' + params.input);
+          }
+        }
+      },
+      move: function(cm, params) {
+        commandDispatcher.processCommand(cm, cm.state.vim, {
+            type: 'motion',
+            motion: 'moveToLineOrEdgeOfDocument',
+            motionArgs: { forward: false, explicitRepeat: true,
+              linewise: true },
+            repeatOverride: params.line+1});
+      },
+      set: function(cm, params) {
+        var setArgs = params.args;
+        // Options passed through to the setOption/getOption calls. May be passed in by the
+        // local/global versions of the set command
+        var setCfg = params.setCfg || {};
+        if (!setArgs || setArgs.length < 1) {
+          if (cm) {
+            showConfirm(cm, 'Invalid mapping: ' + params.input);
+          }
+          return;
+        }
+        var expr = setArgs[0].split('=');
+        var optionName = expr[0];
+        var value = expr[1];
+        var forceGet = false;
+
+        if (optionName.charAt(optionName.length - 1) == '?') {
+          // If post-fixed with ?, then the set is actually a get.
+          if (value) { throw Error('Trailing characters: ' + params.argString); }
+          optionName = optionName.substring(0, optionName.length - 1);
+          forceGet = true;
+        }
+        if (value === undefined && optionName.substring(0, 2) == 'no') {
+          // To set boolean options to false, the option name is prefixed with
+          // 'no'.
+          optionName = optionName.substring(2);
+          value = false;
+        }
+
+        var optionIsBoolean = options[optionName] && options[optionName].type == 'boolean';
+        if (optionIsBoolean && value == undefined) {
+          // Calling set with a boolean option sets it to true.
+          value = true;
+        }
+        // If no value is provided, then we assume this is a get.
+        if (!optionIsBoolean && value === undefined || forceGet) {
+          var oldValue = getOption(optionName, cm, setCfg);
+          if (oldValue instanceof Error) {
+            showConfirm(cm, oldValue.message);
+          } else if (oldValue === true || oldValue === false) {
+            showConfirm(cm, ' ' + (oldValue ? '' : 'no') + optionName);
+          } else {
+            showConfirm(cm, '  ' + optionName + '=' + oldValue);
+          }
+        } else {
+          var setOptionReturn = setOption(optionName, value, cm, setCfg);
+          if (setOptionReturn instanceof Error) {
+            showConfirm(cm, setOptionReturn.message);
+          }
+        }
+      },
+      setlocal: function (cm, params) {
+        // setCfg is passed through to setOption
+        params.setCfg = {scope: 'local'};
+        this.set(cm, params);
+      },
+      setglobal: function (cm, params) {
+        // setCfg is passed through to setOption
+        params.setCfg = {scope: 'global'};
+        this.set(cm, params);
+      },
+      registers: function(cm, params) {
+        var regArgs = params.args;
+        var registers = vimGlobalState.registerController.registers;
+        var regInfo = '----------Registers----------\n\n';
+        if (!regArgs) {
+          for (var registerName in registers) {
+            var text = registers[registerName].toString();
+            if (text.length) {
+              regInfo += '"' + registerName + '    ' + text + '\n';
+            }
+          }
+        } else {
+          var registerName;
+          regArgs = regArgs.join('');
+          for (var i = 0; i < regArgs.length; i++) {
+            registerName = regArgs.charAt(i);
+            if (!vimGlobalState.registerController.isValidRegister(registerName)) {
+              continue;
+            }
+            var register = registers[registerName] || new Register();
+            regInfo += '"' + registerName + '    ' + register.toString() + '\n';
+          }
+        }
+        showConfirm(cm, regInfo);
+      },
+      sort: function(cm, params) {
+        var reverse, ignoreCase, unique, number, pattern;
+        function parseArgs() {
+          if (params.argString) {
+            var args = new CodeMirror.StringStream(params.argString);
+            if (args.eat('!')) { reverse = true; }
+            if (args.eol()) { return; }
+            if (!args.eatSpace()) { return 'Invalid arguments'; }
+            var opts = args.match(/([dinuox]+)?\s*(\/.+\/)?\s*/);
+            if (!opts && !args.eol()) { return 'Invalid arguments'; }
+            if (opts[1]) {
+              ignoreCase = opts[1].indexOf('i') != -1;
+              unique = opts[1].indexOf('u') != -1;
+              var decimal = opts[1].indexOf('d') != -1 || opts[1].indexOf('n') != -1 && 1;
+              var hex = opts[1].indexOf('x') != -1 && 1;
+              var octal = opts[1].indexOf('o') != -1 && 1;
+              if (decimal + hex + octal > 1) { return 'Invalid arguments'; }
+              number = decimal && 'decimal' || hex && 'hex' || octal && 'octal';
+            }
+            if (opts[2]) {
+              pattern = new RegExp(opts[2].substr(1, opts[2].length - 2), ignoreCase ? 'i' : '');
+            }
+          }
+        }
+        var err = parseArgs();
+        if (err) {
+          showConfirm(cm, err + ': ' + params.argString);
+          return;
+        }
+        var lineStart = params.line || cm.firstLine();
+        var lineEnd = params.lineEnd || params.line || cm.lastLine();
+        if (lineStart == lineEnd) { return; }
+        var curStart = new Pos(lineStart, 0);
+        var curEnd = new Pos(lineEnd, lineLength(cm, lineEnd));
+        var text = cm.getRange(curStart, curEnd).split('\n');
+        var numberRegex = pattern ? pattern :
+           (number == 'decimal') ? /(-?)([\d]+)/ :
+           (number == 'hex') ? /(-?)(?:0x)?([0-9a-f]+)/i :
+           (number == 'octal') ? /([0-7]+)/ : null;
+        var radix = (number == 'decimal') ? 10 : (number == 'hex') ? 16 : (number == 'octal') ? 8 : null;
+        var numPart = [], textPart = [];
+        if (number || pattern) {
+          for (var i = 0; i < text.length; i++) {
+            var matchPart = pattern ? text[i].match(pattern) : null;
+            if (matchPart && matchPart[0] != '') {
+              numPart.push(matchPart);
+            } else if (!pattern && numberRegex.exec(text[i])) {
+              numPart.push(text[i]);
+            } else {
+              textPart.push(text[i]);
+            }
+          }
+        } else {
+          textPart = text;
+        }
+        function compareFn(a, b) {
+          if (reverse) { var tmp; tmp = a; a = b; b = tmp; }
+          if (ignoreCase) { a = a.toLowerCase(); b = b.toLowerCase(); }
+          var anum = number && numberRegex.exec(a);
+          var bnum = number && numberRegex.exec(b);
+          if (!anum) { return a < b ? -1 : 1; }
+          anum = parseInt((anum[1] + anum[2]).toLowerCase(), radix);
+          bnum = parseInt((bnum[1] + bnum[2]).toLowerCase(), radix);
+          return anum - bnum;
+        }
+        function comparePatternFn(a, b) {
+          if (reverse) { var tmp; tmp = a; a = b; b = tmp; }
+          if (ignoreCase) { a[0] = a[0].toLowerCase(); b[0] = b[0].toLowerCase(); }
+          return (a[0] < b[0]) ? -1 : 1;
+        }
+        numPart.sort(pattern ? comparePatternFn : compareFn);
+        if (pattern) {
+          for (var i = 0; i < numPart.length; i++) {
+            numPart[i] = numPart[i].input;
+          }
+        } else if (!number) { textPart.sort(compareFn); }
+        text = (!reverse) ? textPart.concat(numPart) : numPart.concat(textPart);
+        if (unique) { // Remove duplicate lines
+          var textOld = text;
+          var lastLine;
+          text = [];
+          for (var i = 0; i < textOld.length; i++) {
+            if (textOld[i] != lastLine) {
+              text.push(textOld[i]);
+            }
+            lastLine = textOld[i];
+          }
+        }
+        cm.replaceRange(text.join('\n'), curStart, curEnd);
+      },
+      vglobal: function(cm, params) {
+        // global inspects params.commandName
+        this.global(cm, params);
+      },
+      global: function(cm, params) {
+        // a global command is of the form
+        // :[range]g/pattern/[cmd]
+        // argString holds the string /pattern/[cmd]
+        var argString = params.argString;
+        if (!argString) {
+          showConfirm(cm, 'Regular Expression missing from global');
+          return;
+        }
+        var inverted = params.commandName[0] === 'v';
+        // range is specified here
+        var lineStart = (params.line !== undefined) ? params.line : cm.firstLine();
+        var lineEnd = params.lineEnd || params.line || cm.lastLine();
+        // get the tokens from argString
+        var tokens = splitBySlash(argString);
+        var regexPart = argString, cmd;
+        if (tokens.length) {
+          regexPart = tokens[0];
+          cmd = tokens.slice(1, tokens.length).join('/');
+        }
+        if (regexPart) {
+          // If regex part is empty, then use the previous query. Otherwise
+          // use the regex part as the new query.
+          try {
+           updateSearchQuery(cm, regexPart, true /** ignoreCase */,
+             true /** smartCase */);
+          } catch (e) {
+           showConfirm(cm, 'Invalid regex: ' + regexPart);
+           return;
+          }
+        }
+        // now that we have the regexPart, search for regex matches in the
+        // specified range of lines
+        var query = getSearchState(cm).getQuery();
+        var matchedLines = [];
+        for (var i = lineStart; i <= lineEnd; i++) {
+          var line = cm.getLineHandle(i);
+          var matched = query.test(line.text);
+          if (matched !== inverted) {
+            matchedLines.push(cmd ? line : line.text);
+          }
+        }
+        // if there is no [cmd], just display the list of matched lines
+        if (!cmd) {
+          showConfirm(cm, matchedLines.join('\n'));
+          return;
+        }
+        var index = 0;
+        var nextCommand = function() {
+          if (index < matchedLines.length) {
+            var line = matchedLines[index++];
+            var lineNum = cm.getLineNumber(line);
+            if (lineNum == null) {
+              nextCommand();
+              return;
+            }
+            var command = (lineNum + 1) + cmd;
+            exCommandDispatcher.processCommand(cm, command, {
+              callback: nextCommand
+            });
+          }
+        };
+        nextCommand();
+      },
+      substitute: function(cm, params) {
+        if (!cm.getSearchCursor) {
+          throw new Error('Search feature not available. Requires searchcursor.js or ' +
+              'any other getSearchCursor implementation.');
+        }
+        var argString = params.argString;
+        var tokens = argString ? splitBySeparator(argString, argString[0]) : [];
+        var regexPart, replacePart = '', trailing, flagsPart, count;
+        var confirm = false; // Whether to confirm each replace.
+        var global = false; // True to replace all instances on a line, false to replace only 1.
+        if (tokens.length) {
+          regexPart = tokens[0];
+          if (getOption('pcre') && regexPart !== '') {
+              regexPart = new RegExp(regexPart).source; //normalize not escaped characters
+          }
+          replacePart = tokens[1];
+          if (replacePart !== undefined) {
+            if (getOption('pcre')) {
+              replacePart = unescapeRegexReplace(replacePart.replace(/([^\\])&/g,"$1$$&"));
+            } else {
+              replacePart = translateRegexReplace(replacePart);
+            }
+            vimGlobalState.lastSubstituteReplacePart = replacePart;
+          }
+          trailing = tokens[2] ? tokens[2].split(' ') : [];
+        } else {
+          // either the argString is empty or its of the form ' hello/world'
+          // actually splitBySlash returns a list of tokens
+          // only if the string starts with a '/'
+          if (argString && argString.length) {
+            showConfirm(cm, 'Substitutions should be of the form ' +
+                ':s/pattern/replace/');
+            return;
+          }
+        }
+        // After the 3rd slash, we can have flags followed by a space followed
+        // by count.
+        if (trailing) {
+          flagsPart = trailing[0];
+          count = parseInt(trailing[1]);
+          if (flagsPart) {
+            if (flagsPart.indexOf('c') != -1) {
+              confirm = true;
+            }
+            if (flagsPart.indexOf('g') != -1) {
+              global = true;
+            }
+            if (getOption('pcre')) {
+               regexPart = regexPart + '/' + flagsPart;
+            } else {
+               regexPart = regexPart.replace(/\//g, "\\/") + '/' + flagsPart;
+            }
+          }
+        }
+        if (regexPart) {
+          // If regex part is empty, then use the previous query. Otherwise use
+          // the regex part as the new query.
+          try {
+            updateSearchQuery(cm, regexPart, true /** ignoreCase */,
+              true /** smartCase */);
+          } catch (e) {
+            showConfirm(cm, 'Invalid regex: ' + regexPart);
+            return;
+          }
+        }
+        replacePart = replacePart || vimGlobalState.lastSubstituteReplacePart;
+        if (replacePart === undefined) {
+          showConfirm(cm, 'No previous substitute regular expression');
+          return;
+        }
+        var state = getSearchState(cm);
+        var query = state.getQuery();
+        var lineStart = (params.line !== undefined) ? params.line : cm.getCursor().line;
+        var lineEnd = params.lineEnd || lineStart;
+        if (lineStart == cm.firstLine() && lineEnd == cm.lastLine()) {
+          lineEnd = Infinity;
+        }
+        if (count) {
+          lineStart = lineEnd;
+          lineEnd = lineStart + count - 1;
+        }
+        var startPos = clipCursorToContent(cm, new Pos(lineStart, 0));
+        var cursor = cm.getSearchCursor(query, startPos);
+        doReplace(cm, confirm, global, lineStart, lineEnd, cursor, query, replacePart, params.callback);
+      },
+      redo: CodeMirror.commands.redo,
+      undo: CodeMirror.commands.undo,
+      write: function(cm) {
+        if (CodeMirror.commands.save) {
+          // If a save command is defined, call it.
+          CodeMirror.commands.save(cm);
+        } else if (cm.save) {
+          // Saves to text area if no save command is defined and cm.save() is available.
+          cm.save();
+        }
+      },
+      nohlsearch: function(cm) {
+        clearSearchHighlight(cm);
+      },
+      yank: function (cm) {
+        var cur = copyCursor(cm.getCursor());
+        var line = cur.line;
+        var lineText = cm.getLine(line);
+        vimGlobalState.registerController.pushText(
+          '0', 'yank', lineText, true, true);
+      },
+      delmarks: function(cm, params) {
+        if (!params.argString || !trim(params.argString)) {
+          showConfirm(cm, 'Argument required');
+          return;
+        }
+
+        var state = cm.state.vim;
+        var stream = new CodeMirror.StringStream(trim(params.argString));
+        while (!stream.eol()) {
+          stream.eatSpace();
+
+          // Record the streams position at the beginning of the loop for use
+          // in error messages.
+          var count = stream.pos;
+
+          if (!stream.match(/[a-zA-Z]/, false)) {
+            showConfirm(cm, 'Invalid argument: ' + params.argString.substring(count));
+            return;
+          }
+
+          var sym = stream.next();
+          // Check if this symbol is part of a range
+          if (stream.match('-', true)) {
+            // This symbol is part of a range.
+
+            // The range must terminate at an alphabetic character.
+            if (!stream.match(/[a-zA-Z]/, false)) {
+              showConfirm(cm, 'Invalid argument: ' + params.argString.substring(count));
+              return;
+            }
+
+            var startMark = sym;
+            var finishMark = stream.next();
+            // The range must terminate at an alphabetic character which
+            // shares the same case as the start of the range.
+            if (isLowerCase(startMark) && isLowerCase(finishMark) ||
+                isUpperCase(startMark) && isUpperCase(finishMark)) {
+              var start = startMark.charCodeAt(0);
+              var finish = finishMark.charCodeAt(0);
+              if (start >= finish) {
+                showConfirm(cm, 'Invalid argument: ' + params.argString.substring(count));
+                return;
+              }
+
+              // Because marks are always ASCII values, and we have
+              // determined that they are the same case, we can use
+              // their char codes to iterate through the defined range.
+              for (var j = 0; j <= finish - start; j++) {
+                var mark = String.fromCharCode(start + j);
+                delete state.marks[mark];
+              }
+            } else {
+              showConfirm(cm, 'Invalid argument: ' + startMark + '-');
+              return;
+            }
+          } else {
+            // This symbol is a valid mark, and is not part of a range.
+            delete state.marks[sym];
+          }
+        }
+      }
+    };
+
+    var exCommandDispatcher = new ExCommandDispatcher();
+
+    /**
+    * @param {CodeMirror} cm CodeMirror instance we are in.
+    * @param {boolean} confirm Whether to confirm each replace.
+    * @param {Cursor} lineStart Line to start replacing from.
+    * @param {Cursor} lineEnd Line to stop replacing at.
+    * @param {RegExp} query Query for performing matches with.
+    * @param {string} replaceWith Text to replace matches with. May contain $1,
+    *     $2, etc for replacing captured groups using JavaScript replace.
+    * @param {function()} callback A callback for when the replace is done.
+    */
+    function doReplace(cm, confirm, global, lineStart, lineEnd, searchCursor, query,
+        replaceWith, callback) {
+      // Set up all the functions.
+      cm.state.vim.exMode = true;
+      var done = false;
+      var lastPos, modifiedLineNumber, joined;
+      function replaceAll() {
+        cm.operation(function() {
+          while (!done) {
+            replace();
+            next();
+          }
+          stop();
+        });
+      }
+      function replace() {
+        var text = cm.getRange(searchCursor.from(), searchCursor.to());
+        var newText = text.replace(query, replaceWith);
+        var unmodifiedLineNumber = searchCursor.to().line;
+        searchCursor.replace(newText);
+        modifiedLineNumber = searchCursor.to().line;
+        lineEnd += modifiedLineNumber - unmodifiedLineNumber;
+        joined = modifiedLineNumber < unmodifiedLineNumber;
+      }
+      function findNextValidMatch() {
+        var lastMatchTo = lastPos && copyCursor(searchCursor.to());
+        var match = searchCursor.findNext();
+        if (match && !match[0] && lastMatchTo && cursorEqual(searchCursor.from(), lastMatchTo)) {
+          match = searchCursor.findNext();
+        }
+        return match;
+      }
+      function next() {
+        // The below only loops to skip over multiple occurrences on the same
+        // line when 'global' is not true.
+        while(findNextValidMatch() &&
+              isInRange(searchCursor.from(), lineStart, lineEnd)) {
+          if (!global && searchCursor.from().line == modifiedLineNumber && !joined) {
+            continue;
+          }
+          cm.scrollIntoView(searchCursor.from(), 30);
+          cm.setSelection(searchCursor.from(), searchCursor.to());
+          lastPos = searchCursor.from();
+          done = false;
+          return;
+        }
+        done = true;
+      }
+      function stop(close) {
+        if (close) { close(); }
+        cm.focus();
+        if (lastPos) {
+          cm.setCursor(lastPos);
+          var vim = cm.state.vim;
+          vim.exMode = false;
+          vim.lastHPos = vim.lastHSPos = lastPos.ch;
+        }
+        if (callback) { callback(); }
+      }
+      function onPromptKeyDown(e, _value, close) {
+        // Swallow all keys.
+        CodeMirror.e_stop(e);
+        var keyName = CodeMirror.keyName(e);
+        switch (keyName) {
+          case 'Y':
+            replace(); next(); break;
+          case 'N':
+            next(); break;
+          case 'A':
+            // replaceAll contains a call to close of its own. We don't want it
+            // to fire too early or multiple times.
+            var savedCallback = callback;
+            callback = undefined;
+            cm.operation(replaceAll);
+            callback = savedCallback;
+            break;
+          case 'L':
+            replace();
+            // fall through and exit.
+          case 'Q':
+          case 'Esc':
+          case 'Ctrl-C':
+          case 'Ctrl-[':
+            stop(close);
+            break;
+        }
+        if (done) { stop(close); }
+        return true;
+      }
+
+      // Actually do replace.
+      next();
+      if (done) {
+        showConfirm(cm, 'No matches for ' + query.source);
+        return;
+      }
+      if (!confirm) {
+        replaceAll();
+        if (callback) { callback(); }
+        return;
+      }
+      showPrompt(cm, {
+        prefix: dom('span', 'replace with ', dom('strong', replaceWith), ' (y/n/a/q/l)'),
+        onKeyDown: onPromptKeyDown
+      });
+    }
+
+    CodeMirror.keyMap.vim = {
+      attach: attachVimMap,
+      detach: detachVimMap,
+      call: cmKey
+    };
+
+    function exitInsertMode(cm) {
+      var vim = cm.state.vim;
+      var macroModeState = vimGlobalState.macroModeState;
+      var insertModeChangeRegister = vimGlobalState.registerController.getRegister('.');
+      var isPlaying = macroModeState.isPlaying;
+      var lastChange = macroModeState.lastInsertModeChanges;
+      if (!isPlaying) {
+        cm.off('change', onChange);
+        CodeMirror.off(cm.getInputField(), 'keydown', onKeyEventTargetKeyDown);
+      }
+      if (!isPlaying && vim.insertModeRepeat > 1) {
+        // Perform insert mode repeat for commands like 3,a and 3,o.
+        repeatLastEdit(cm, vim, vim.insertModeRepeat - 1,
+            true /** repeatForInsert */);
+        vim.lastEditInputState.repeatOverride = vim.insertModeRepeat;
+      }
+      delete vim.insertModeRepeat;
+      vim.insertMode = false;
+      cm.setCursor(cm.getCursor().line, cm.getCursor().ch-1);
+      cm.setOption('keyMap', 'vim');
+      cm.setOption('disableInput', true);
+      cm.toggleOverwrite(false); // exit replace mode if we were in it.
+      // update the ". register before exiting insert mode
+      insertModeChangeRegister.setText(lastChange.changes.join(''));
+      CodeMirror.signal(cm, "vim-mode-change", {mode: "normal"});
+      if (macroModeState.isRecording) {
+        logInsertModeChange(macroModeState);
+      }
+    }
+
+    function _mapCommand(command) {
+      defaultKeymap.unshift(command);
+    }
+
+    function mapCommand(keys, type, name, args, extra) {
+      var command = {keys: keys, type: type};
+      command[type] = name;
+      command[type + "Args"] = args;
+      for (var key in extra)
+        command[key] = extra[key];
+      _mapCommand(command);
+    }
+
+    // The timeout in milliseconds for the two-character ESC keymap should be
+    // adjusted according to your typing speed to prevent false positives.
+    defineOption('insertModeEscKeysTimeout', 200, 'number');
+
+    CodeMirror.keyMap['vim-insert'] = {
+      // TODO: override navigation keys so that Esc will cancel automatic
+      // indentation from o, O, i_<CR>
+      fallthrough: ['default'],
+      attach: attachVimMap,
+      detach: detachVimMap,
+      call: cmKey
+    };
+
+    CodeMirror.keyMap['vim-replace'] = {
+      'Backspace': 'goCharLeft',
+      fallthrough: ['vim-insert'],
+      attach: attachVimMap,
+      detach: detachVimMap,
+      call: cmKey
+    };
+
+    function executeMacroRegister(cm, vim, macroModeState, registerName) {
+      var register = vimGlobalState.registerController.getRegister(registerName);
+      if (registerName == ':') {
+        // Read-only register containing last Ex command.
+        if (register.keyBuffer[0]) {
+          exCommandDispatcher.processCommand(cm, register.keyBuffer[0]);
+        }
+        macroModeState.isPlaying = false;
+        return;
+      }
+      var keyBuffer = register.keyBuffer;
+      var imc = 0;
+      macroModeState.isPlaying = true;
+      macroModeState.replaySearchQueries = register.searchQueries.slice(0);
+      for (var i = 0; i < keyBuffer.length; i++) {
+        var text = keyBuffer[i];
+        var match, key;
+        while (text) {
+          // Pull off one command key, which is either a single character
+          // or a special sequence wrapped in '<' and '>', e.g. '<Space>'.
+          match = (/<\w+-.+?>|<\w+>|./).exec(text);
+          key = match[0];
+          text = text.substring(match.index + key.length);
+          vimApi.handleKey(cm, key, 'macro');
+          if (vim.insertMode) {
+            var changes = register.insertModeChanges[imc++].changes;
+            vimGlobalState.macroModeState.lastInsertModeChanges.changes =
+                changes;
+            repeatInsertModeChanges(cm, changes, 1);
+            exitInsertMode(cm);
+          }
+        }
+      }
+      macroModeState.isPlaying = false;
+    }
+
+    function logKey(macroModeState, key) {
+      if (macroModeState.isPlaying) { return; }
+      var registerName = macroModeState.latestRegister;
+      var register = vimGlobalState.registerController.getRegister(registerName);
+      if (register) {
+        register.pushText(key);
+      }
+    }
+
+    function logInsertModeChange(macroModeState) {
+      if (macroModeState.isPlaying) { return; }
+      var registerName = macroModeState.latestRegister;
+      var register = vimGlobalState.registerController.getRegister(registerName);
+      if (register && register.pushInsertModeChanges) {
+        register.pushInsertModeChanges(macroModeState.lastInsertModeChanges);
+      }
+    }
+
+    function logSearchQuery(macroModeState, query) {
+      if (macroModeState.isPlaying) { return; }
+      var registerName = macroModeState.latestRegister;
+      var register = vimGlobalState.registerController.getRegister(registerName);
+      if (register && register.pushSearchQuery) {
+        register.pushSearchQuery(query);
+      }
+    }
+
+    /**
+     * Listens for changes made in insert mode.
+     * Should only be active in insert mode.
+     */
+    function onChange(cm, changeObj) {
+      var macroModeState = vimGlobalState.macroModeState;
+      var lastChange = macroModeState.lastInsertModeChanges;
+      if (!macroModeState.isPlaying) {
+        while(changeObj) {
+          lastChange.expectCursorActivityForChange = true;
+          if (lastChange.ignoreCount > 1) {
+            lastChange.ignoreCount--;
+          } else if (changeObj.origin == '+input' || changeObj.origin == 'paste'
+              || changeObj.origin === undefined /* only in testing */) {
+            var selectionCount = cm.listSelections().length;
+            if (selectionCount > 1)
+              lastChange.ignoreCount = selectionCount;
+            var text = changeObj.text.join('\n');
+            if (lastChange.maybeReset) {
+              lastChange.changes = [];
+              lastChange.maybeReset = false;
+            }
+            if (text) {
+              if (cm.state.overwrite && !/\n/.test(text)) {
+                lastChange.changes.push([text]);
+              } else {
+                lastChange.changes.push(text);
+              }
+            }
+          }
+          // Change objects may be chained with next.
+          changeObj = changeObj.next;
+        }
+      }
+    }
+
+    /**
+    * Listens for any kind of cursor activity on CodeMirror.
+    */
+    function onCursorActivity(cm) {
+      var vim = cm.state.vim;
+      if (vim.insertMode) {
+        // Tracking cursor activity in insert mode (for macro support).
+        var macroModeState = vimGlobalState.macroModeState;
+        if (macroModeState.isPlaying) { return; }
+        var lastChange = macroModeState.lastInsertModeChanges;
+        if (lastChange.expectCursorActivityForChange) {
+          lastChange.expectCursorActivityForChange = false;
+        } else {
+          // Cursor moved outside the context of an edit. Reset the change.
+          lastChange.maybeReset = true;
+        }
+      } else if (!cm.curOp.isVimOp) {
+        handleExternalSelection(cm, vim);
+      }
+    }
+    function handleExternalSelection(cm, vim) {
+      var anchor = cm.getCursor('anchor');
+      var head = cm.getCursor('head');
+      // Enter or exit visual mode to match mouse selection.
+      if (vim.visualMode && !cm.somethingSelected()) {
+        exitVisualMode(cm, false);
+      } else if (!vim.visualMode && !vim.insertMode && cm.somethingSelected()) {
+        vim.visualMode = true;
+        vim.visualLine = false;
+        CodeMirror.signal(cm, "vim-mode-change", {mode: "visual"});
+      }
+      if (vim.visualMode) {
+        // Bind CodeMirror selection model to vim selection model.
+        // Mouse selections are considered visual characterwise.
+        var headOffset = !cursorIsBefore(head, anchor) ? -1 : 0;
+        var anchorOffset = cursorIsBefore(head, anchor) ? -1 : 0;
+        head = offsetCursor(head, 0, headOffset);
+        anchor = offsetCursor(anchor, 0, anchorOffset);
+        vim.sel = {
+          anchor: anchor,
+          head: head
+        };
+        updateMark(cm, vim, '<', cursorMin(head, anchor));
+        updateMark(cm, vim, '>', cursorMax(head, anchor));
+      } else if (!vim.insertMode) {
+        // Reset lastHPos if selection was modified by something outside of vim mode e.g. by mouse.
+        vim.lastHPos = cm.getCursor().ch;
+      }
+    }
+
+    /** Wrapper for special keys pressed in insert mode */
+    function InsertModeKey(keyName) {
+      this.keyName = keyName;
+    }
+
+    /**
+    * Handles raw key down events from the text area.
+    * - Should only be active in insert mode.
+    * - For recording deletes in insert mode.
+    */
+    function onKeyEventTargetKeyDown(e) {
+      var macroModeState = vimGlobalState.macroModeState;
+      var lastChange = macroModeState.lastInsertModeChanges;
+      var keyName = CodeMirror.keyName(e);
+      if (!keyName) { return; }
+      function onKeyFound() {
+        if (lastChange.maybeReset) {
+          lastChange.changes = [];
+          lastChange.maybeReset = false;
+        }
+        lastChange.changes.push(new InsertModeKey(keyName));
+        return true;
+      }
+      if (keyName.indexOf('Delete') != -1 || keyName.indexOf('Backspace') != -1) {
+        CodeMirror.lookupKey(keyName, 'vim-insert', onKeyFound);
+      }
+    }
+
+    /**
+     * Repeats the last edit, which includes exactly 1 command and at most 1
+     * insert. Operator and motion commands are read from lastEditInputState,
+     * while action commands are read from lastEditActionCommand.
+     *
+     * If repeatForInsert is true, then the function was called by
+     * exitInsertMode to repeat the insert mode changes the user just made. The
+     * corresponding enterInsertMode call was made with a count.
+     */
+    function repeatLastEdit(cm, vim, repeat, repeatForInsert) {
+      var macroModeState = vimGlobalState.macroModeState;
+      macroModeState.isPlaying = true;
+      var isAction = !!vim.lastEditActionCommand;
+      var cachedInputState = vim.inputState;
+      function repeatCommand() {
+        if (isAction) {
+          commandDispatcher.processAction(cm, vim, vim.lastEditActionCommand);
+        } else {
+          commandDispatcher.evalInput(cm, vim);
+        }
+      }
+      function repeatInsert(repeat) {
+        if (macroModeState.lastInsertModeChanges.changes.length > 0) {
+          // For some reason, repeat cw in desktop VIM does not repeat
+          // insert mode changes. Will conform to that behavior.
+          repeat = !vim.lastEditActionCommand ? 1 : repeat;
+          var changeObject = macroModeState.lastInsertModeChanges;
+          repeatInsertModeChanges(cm, changeObject.changes, repeat);
+        }
+      }
+      vim.inputState = vim.lastEditInputState;
+      if (isAction && vim.lastEditActionCommand.interlaceInsertRepeat) {
+        // o and O repeat have to be interlaced with insert repeats so that the
+        // insertions appear on separate lines instead of the last line.
+        for (var i = 0; i < repeat; i++) {
+          repeatCommand();
+          repeatInsert(1);
+        }
+      } else {
+        if (!repeatForInsert) {
+          // Hack to get the cursor to end up at the right place. If I is
+          // repeated in insert mode repeat, cursor will be 1 insert
+          // change set left of where it should be.
+          repeatCommand();
+        }
+        repeatInsert(repeat);
+      }
+      vim.inputState = cachedInputState;
+      if (vim.insertMode && !repeatForInsert) {
+        // Don't exit insert mode twice. If repeatForInsert is set, then we
+        // were called by an exitInsertMode call lower on the stack.
+        exitInsertMode(cm);
+      }
+      macroModeState.isPlaying = false;
+    }
+
+    function repeatInsertModeChanges(cm, changes, repeat) {
+      function keyHandler(binding) {
+        if (typeof binding == 'string') {
+          CodeMirror.commands[binding](cm);
+        } else {
+          binding(cm);
+        }
+        return true;
+      }
+      var head = cm.getCursor('head');
+      var visualBlock = vimGlobalState.macroModeState.lastInsertModeChanges.visualBlock;
+      if (visualBlock) {
+        // Set up block selection again for repeating the changes.
+        selectForInsert(cm, head, visualBlock + 1);
+        repeat = cm.listSelections().length;
+        cm.setCursor(head);
+      }
+      for (var i = 0; i < repeat; i++) {
+        if (visualBlock) {
+          cm.setCursor(offsetCursor(head, i, 0));
+        }
+        for (var j = 0; j < changes.length; j++) {
+          var change = changes[j];
+          if (change instanceof InsertModeKey) {
+            CodeMirror.lookupKey(change.keyName, 'vim-insert', keyHandler);
+          } else if (typeof change == "string") {
+            cm.replaceSelection(change);
+          } else {
+            var start = cm.getCursor();
+            var end = offsetCursor(start, 0, change[0].length);
+            cm.replaceRange(change[0], start, end);
+            cm.setCursor(end);
+          }
+        }
+      }
+      if (visualBlock) {
+        cm.setCursor(offsetCursor(head, 0, 1));
+      }
+    }
+
+    // multiselect support
+    function cloneVimState(state) {
+      var n = new state.constructor();
+      Object.keys(state).forEach(function(key) {
+        var o = state[key];
+        if (Array.isArray(o))
+          o = o.slice();
+        else if (o && typeof o == "object" && o.constructor != Object)
+          o = cloneVimState(o);
+        n[key] = o;
+      });
+      if (state.sel) {
+        n.sel = {
+          head: state.sel.head && copyCursor(state.sel.head),
+          anchor: state.sel.anchor && copyCursor(state.sel.anchor)
+        };
+      }
+      return n;
+    }
+    function multiSelectHandleKey(cm, key, origin) {
+      var isHandled = false;
+      var vim = vimApi.maybeInitVimState_(cm);
+      var visualBlock = vim.visualBlock || vim.wasInVisualBlock;
+
+      var wasMultiselect = cm.isInMultiSelectMode();
+      if (vim.wasInVisualBlock && !wasMultiselect) {
+        vim.wasInVisualBlock = false;
+      } else if (wasMultiselect && vim.visualBlock) {
+         vim.wasInVisualBlock = true;
+      }
+
+      if (key == '<Esc>' && !vim.insertMode && !vim.visualMode && wasMultiselect && vim.status == "<Esc>") {
+        // allow editor to exit multiselect
+        clearInputState(cm);
+      } else if (visualBlock || !wasMultiselect || cm.inVirtualSelectionMode) {
+        isHandled = vimApi.handleKey(cm, key, origin);
+      } else {
+        var old = cloneVimState(vim);
+
+        cm.operation(function() {
+          cm.curOp.isVimOp = true;
+          cm.forEachSelection(function() {
+            var head = cm.getCursor("head");
+            var anchor = cm.getCursor("anchor");
+            var headOffset = !cursorIsBefore(head, anchor) ? -1 : 0;
+            var anchorOffset = cursorIsBefore(head, anchor) ? -1 : 0;
+            head = offsetCursor(head, 0, headOffset);
+            anchor = offsetCursor(anchor, 0, anchorOffset);
+            cm.state.vim.sel.head = head;
+            cm.state.vim.sel.anchor = anchor;
+
+            isHandled = vimApi.handleKey(cm, key, origin);
+            if (cm.virtualSelection) {
+              cm.state.vim = cloneVimState(old);
+            }
+          });
+          if (cm.curOp.cursorActivity && !isHandled)
+            cm.curOp.cursorActivity = false;
+          cm.state.vim = vim;
+        }, true);
+      }
+      // some commands may bring visualMode and selection out of sync
+      if (isHandled && !vim.visualMode && !vim.insert && vim.visualMode != cm.somethingSelected()) {
+        handleExternalSelection(cm, vim);
+      }
+      return isHandled;
+    }
+    resetVimGlobalState();
+
+  return vimApi;
+}
+
+function initVim(CodeMirror5) {
+  CodeMirror5.Vim = initVim$1(CodeMirror5);
+  return CodeMirror5.Vim;
+}
+
+
+
+    CodeMirror.Vim = initVim(CodeMirror);
+  });
+},{"codemirror-minified/addon/dialog/dialog":55,"codemirror-minified/addon/edit/matchbrackets.js":56,"codemirror-minified/addon/search/searchcursor":59,"codemirror-minified/lib/codemirror":61}],254:[function(require,module,exports){
 const html = require('choo/html')
 const raw = require('choo/html/raw')
 const toolbar = require('./toolbar.js')
@@ -45031,7 +51457,7 @@ module.exports = function mainView(state, emit) {
 //   </div>
 //  `
 // }
-},{"./toolbar.js":247,"choo/html":49,"choo/html/raw":50}],246:[function(require,module,exports){
+},{"./toolbar.js":256,"choo/html":49,"choo/html/raw":50}],255:[function(require,module,exports){
 const html = require('choo/html')
 const info = require('./info.js')
 const Hydra = require('./Hydra.js')
@@ -45050,7 +51476,7 @@ module.exports = function mainView(state, emit) {
   </body>
  `
 }
-},{"./EditorComponent.js":236,"./Hydra.js":237,"./info.js":245,"choo/html":49}],247:[function(require,module,exports){
+},{"./EditorComponent.js":244,"./Hydra.js":245,"./info.js":254,"choo/html":49}],256:[function(require,module,exports){
 const html = require('choo/html')
 
 module.exports = function toolbar(state, emit) {

@@ -11,7 +11,10 @@ const keymaps = require('./keymaps.js')
 const Mutator = require('./randomizer/Mutator.js');
 const beautify_js = require('js-beautify').js_beautify
 
+const vim = require('./vim.js')
+
 var isShowing = true
+var vimEnabled = false
 
 
 module.exports = class Editor extends EventEmitter {
@@ -19,7 +22,7 @@ module.exports = class Editor extends EventEmitter {
     super()
     console.log("*** Editor class created");
     var self = this
-
+    
     // var container = document.createElement('div')
     // container.setAttribute('id', 'editor-container')
     // var el = document.createElement('TEXTAREA')
@@ -30,16 +33,18 @@ module.exports = class Editor extends EventEmitter {
 
     const extraKeys = {}
     Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
-      if(e == 'editor:evalBlock') {
+      if (e == 'editor:evalBlock') {
         this.emit(e, this.getCurrentBlock().text)
       } else if (e == 'editor:evalLine') {
         this.emit(e, this.getLine())
       } else if (e == 'editor:toggleComment') {
         this.cm.toggleComment()
-      // } else if (e == 'gallery:saveToURL') {
+        // } else if (e == 'gallery:saveToURL') {
         this.emit(e, this)
       } else if (e === 'editor:formatCode') {
         this.formatCode()
+      } else if (e === 'toggleVim') {
+        this.toggleVim()
       } else {
         this.emit(e, this)
       }
@@ -51,7 +56,8 @@ module.exports = class Editor extends EventEmitter {
       mode: { name: 'javascript', globalVars: true },
       lineWrapping: true,
       styleSelectedText: true,
-      extraKeys: extraKeys
+      extraKeys: extraKeys,
+      keyMap: 'default'
     }
 
     this.cm = CodeMirror.fromTextArea(parent, opts)
@@ -80,8 +86,14 @@ module.exports = class Editor extends EventEmitter {
     return this.cm.getValue()
   }
 
+  toggleVim() {
+    vimEnabled = !vimEnabled
+    this.cm.setOption('keyMap',vimEnabled ? 'vim' : 'default'
+)
+  }
+
   formatCode() {
-    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true })
     this.cm.setValue(formatted)
   }
 
