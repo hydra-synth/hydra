@@ -19,6 +19,7 @@ export default class Editor extends EventEmitter {
     this.cm = new EditorView({
       lineWrapping: true,
       extensions: [
+        keymap.of(hydraKeymaps(emit)),
         hydraSetup,
         javascript(),
         placeholder('//\n// Type some code on a new line (such as "osc().out()"), and press CTRL+shift+enter'),
@@ -27,7 +28,6 @@ export default class Editor extends EventEmitter {
           if (shouldUpdateURL) emit('gallery: save to URL', code)
         }),
         flashTheme,
-        keymap.of(hydraKeymaps(emit))
       ],
       parent: parent,
 

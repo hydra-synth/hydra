@@ -14,7 +14,10 @@ export default (emit) => {
     const keymapsArray = Object.entries(keymap).map(([key, val]) => {
         return {
         key: key,
-        run: () => { emit(val) }
+        run: () => { 
+            console.log(val)
+            emit(val) 
+        }
       }})
     return keymapsArray
 }
