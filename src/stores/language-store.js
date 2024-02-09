@@ -4,7 +4,7 @@ import i18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
 
 import languageResources from './text-elements.js'
 
-const availableLanguages = ['ja', 'es', 'ar', 'id', 'pt-br', 'ch'] // localizations available in repository at /hydra-synth/l10n
+const availableLanguages = ['ja', 'es', 'ar', 'id', 'pt-br', 'ch', 'ko', 'fr', 'de'] // 'de' need to switch language selector  localizations available in repository at /hydra-synth/l10n
 const languagePath = (lang) => `https://raw.githubusercontent.com/hydra-synth/l10n/main/${lang}/editor.json`
 
 i18next

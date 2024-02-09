@@ -6,7 +6,8 @@ const link = (url) => `href=${url} target=_blank`
 
 
 
-const infoText = (t) => html`<div class="modal-content">
+const infoText = (t) => html`
+<div class="modal-content">
 <h1>${t('info.title')}</h1>
 <h3>${t('info.subtitle')}</h3>
   <br> ///////////////////////////////////////////////////////////<br>
@@ -51,11 +52,16 @@ export default function mainView(state, emit) {
 
 
   const langArray = Object.entries(languages)
-  const header =  state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
+
+
+const header = html`<div></div>`
+  const content = html`
+  ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
   <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
-`)}</div>` : html`<div></div>` 
-  // const content = 
-  const windowContent = !state.showExtensions ? { content: infoText(t), header: header } : extensionInfo(state, emit)
+  `)}</div>` : html`<div></div>`} 
+  ${infoText(t)}
+  `
+  const windowContent = !state.showExtensions ? { content: content, header: header } : extensionInfo(state, emit)
   return modalWindow(windowContent, state, emit)
 }
 
