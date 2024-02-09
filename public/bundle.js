@@ -43092,7 +43092,19 @@ module.exports = function store(state, emitter) {
 }
 
 function showConfirmation(successCallback, terminateCallback) {
-  var c = prompt("Pressing OK will share this sketch to \nhttps://twitter.com/hydra_patterns.\n\nInclude your name or twitter handle (optional):")
+  var c = prompt(`
+
+  ////::  ḣ̖̻͛̓y҉̃̀̋̑ḑ̴̞͛̒r̴̨̦͕̝ā̤̓̍͘ s̠҉͍͊ͅḳ̯͍̑ͦẹ̿͋̒̕t̲̂̓ͩ̑c͕͗ͤ̕̕ḣ̖̻͛̓ ĝ̽̓̀͑ā̤̓̍͘l̙͖̑̾ͣl̙͖̑̾ͣẹ̿͋̒̕r̴̨̦͕̝y҉̃̀̋̑  ::////
+
+
+🎨 Click 'OK' to add your sketch and screenshot to the gallery of hydra sketches at https://botsin.space/@hydra. 
+
+‼️ Make sure you are ready to share - there is no undo button!
+
+💖 Thank you for sharing! You are also warmly invited to join the the live coding server on the fediverse at https://social.toplap.org/.
+` 
+, 'your name, mastodon handle, and/or a short description')
+
   //  console.log('confirm value', c)
   if (c !== null) {
     successCallback(c)
