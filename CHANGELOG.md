@@ -1,4 +1,8 @@
 # Changelog
+# [1.4.3] - 2024 - 02-09
+## Changed
+- updated text for uploading to gallery
+  
 # [1.4.1] - 2023 - 07-13
 ## Added
 - showCode=false url parameter working again
