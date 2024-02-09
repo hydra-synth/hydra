@@ -2,5 +2,5 @@
 import { syntaxTree } from "@codemirror/language"
 
 export function randomize (view) {
-
+    
 }
