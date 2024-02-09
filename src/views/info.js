@@ -12,13 +12,15 @@ module.exports = function mainView(state, emit) {
 <div id="info-container" class="${state.showInfo ? "" : "hidden"}" style="direction:${textDirection}">
   <div id="modal">
     <div id="modal-header" style="opacity:${state.showUI === true? 1: 0}">
-      ${state.showInfo && langArray.length > 1 ? html`<div style="display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
-        <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
-      `)}</div>` : html`<div></div>` }
+     <div></div>
       ${toolbar(state, emit)}
     </div>
     <div id="modal-body">
+    ${state.showInfo && langArray.length > 1 ? html`<div style="padding-left:5px;display:flex;flex-wrap:wrap">${langArray.map(([key, val]) => html`
+    <div class="language-select" onclick=${() => emit('set language', key)}>${val}</div>
+  `)}</div>` : html`<div></div>` }
       <div id="modal-content">
+    
         <h1>${t('info.title')}</h1>
         <h3>${t('info.subtitle')}</h3>
           <br> ///////////////////////////////////////////////////////////<br>

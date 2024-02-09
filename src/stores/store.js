@@ -145,7 +145,8 @@ module.exports = function store(state, emitter) {
 function showConfirmation(successCallback, terminateCallback) {
   var c = prompt(`
 
- HYDRA SKETCH GALLERY
+HYDRA SKETCH GALLERY
+///////////////////////////////////////
 
 🎨 Click 'OK' to add your sketch and screenshot to the gallery of hydra sketches at https://botsin.space/@hydra. 
 
