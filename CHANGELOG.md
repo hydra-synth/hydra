@@ -1,4 +1,7 @@
 # Changelog
+# [1.5.2] - 2023 - 02 - 10
+- updated upload text, removed default
+
 # [1.5.1] - 2023 - 07 - 19
 ## Added
 - extension loader
