@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     en: {
         translation: {
             'language-name': 'english',
@@ -8,6 +8,7 @@ module.exports = {
                 clear: "clear all",
                 shuffle: "show random sketch",
                 random: "make random change",
+                "load-extension": "load library or extension",
                 "show-info": "show info window",
                 "hide-info": "hide info window"
             },
@@ -36,6 +37,12 @@ module.exports = {
 
                 'more-info-forums': 'There is also an active <a {{discord}}>Discord server</a> and <a {{facebook}}>facebook group</a> for hydra users+contributors.',
                 'support': 'If you enjoy using Hydra, please consider  <a {{open-collective}} >supporting continued development <3 </a>.'
+            },
+            extensions: {
+                'about-extensions': 'Show community extensions for hydra-synth.',
+                'show-example': 'Load and run {{extension-name}} example.',
+                'show-library': 'Add code for loading {{extension-name}} to the top of the current sketch.',
+                'show-docs': 'Documentation of usage for {{extension-name}}'
             }
         }
     }

@@ -1,9 +1,11 @@
-const html = require('choo/html')
-const info = require('./info.js')
-const Hydra = require('./Hydra.js')
-const Editor = require('./EditorComponent.js')
+import html from 'choo/html'
+import info from './info.js'
+import Hydra from './Hydra.js'
+import Editor from './EditorComponent.js'
+// import Editor from './EditorCm6.js'
 
-module.exports = function mainView(state, emit) {
+
+export default function mainView(state, emit) {
   return html`
   <body>
     <div id="hydra-ui">

@@ -1,20 +1,21 @@
 /* eslint-disable no-eval */
-var CodeMirror = require('codemirror-minified/lib/codemirror')
-require('codemirror-minified/mode/javascript/javascript')
-require('codemirror-minified/addon/hint/javascript-hint')
-require('codemirror-minified/addon/hint/show-hint')
-require('codemirror-minified/addon/selection/mark-selection')
-require('codemirror-minified/addon/comment/comment')
 
-const EventEmitter = require('nanobus')
-const keymaps = require('./keymaps.js')
-const Mutator = require('./randomizer/Mutator.js');
-const beautify_js = require('js-beautify').js_beautify
+import CodeMirror from 'codemirror-minified/lib/codemirror'
+import 'codemirror-minified/mode/javascript/javascript'
+import 'codemirror-minified/addon/hint/javascript-hint'
+import 'codemirror-minified/addon/hint/show-hint'
+import 'codemirror-minified/addon/selection/mark-selection'
+import 'codemirror-minified/addon/comment/comment'
+
+import EventEmitter from 'nanobus'
+import keymaps from './keymaps.js'
+import Mutator from './randomizer/Mutator.js'
+import beautify from 'js-beautify'
 
 var isShowing = true
 
 
-module.exports = class Editor extends EventEmitter {
+export default class Editor extends EventEmitter {
   constructor(parent) {
     super()
     console.log("*** Editor class created");
@@ -29,17 +30,27 @@ module.exports = class Editor extends EventEmitter {
     this.mutator = new Mutator(this);
 
     const extraKeys = {}
+    // const evalCode = (code) => {
+
+    // }
     Object.entries(keymaps).forEach(([key, e]) => extraKeys[key] = () => {
-      if(e == 'editor:evalBlock') {
-        this.emit(e, this.getCurrentBlock().text)
-      } else if (e == 'editor:evalLine') {
-        this.emit(e, this.getLine())
+      if(e == 'editor: eval block') {
+        this.emit('repl: eval', this.getCurrentBlock().text)
+      } else if (e == 'editor: eval line') {
+        this.emit('repl: eval', this.getLine())
+      // } else if (e == 'editor: eval all') {
+      //   const code = this.cm.getValue()
+      //   this.flashCode()
+      //   this.emit('repl: eval', code)
+      //   this.emit('gallery: save to URL', code)
       } else if (e == 'editor:toggleComment') {
         this.cm.toggleComment()
       // } else if (e == 'gallery:saveToURL') {
         this.emit(e, this)
       } else if (e === 'editor:formatCode') {
         this.formatCode()
+      } else if (e == 'gallery:saveToURL') {
+        this.emit('editor: save to URL', this.cm.getValue())
       } else {
         this.emit(e, this)
       }
@@ -81,8 +92,18 @@ module.exports = class Editor extends EventEmitter {
   }
 
   formatCode() {
-    const formatted = beautify_js(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
+    const formatted = beautify(this.cm.getValue(), { indent_size: 2, "break_chained_methods": true, "indent_with_tabs": true})
     this.cm.setValue(formatted)
+  }
+
+  addCodeToTop(code = '') {
+    const current = this.cm.getValue()
+    const updated = `
+${code}
+
+${current}
+`
+    this.cm.setValue(updated)
   }
 
   // hide() {

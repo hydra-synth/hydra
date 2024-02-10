@@ -2,7 +2,7 @@
 
 // const p5lib = require('p5')
 
-class P5 extends p5{
+export default class P5 extends p5{
   constructor ({
     width = window.innerWidth,
     height = window.innerHeight,
@@ -39,4 +39,3 @@ class P5 extends p5{
   }
 }
 
-module.exports = P5

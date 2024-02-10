@@ -231,10 +231,7 @@ synth = new Tone.Synth().toDestination();
 synth.triggerAttackRelease("C4", "8n");
 ```
 ## Running locally
-To run locally, you must have nodejs, yarn and npm installed. Install node and npm from: https://nodejs.org/en/. Once you have node and npm installed, you can install yarn globally by running the following from the command line:
-```
-npm install --global yarn
-```
+To run locally, you must have nodejs installed. Install node and npm from: https://nodejs.org/en/. 
 
 To run, open terminal and enter the directory of the hydra source code:
 ```
@@ -242,48 +239,19 @@ cd hydra
 ```
 install dependencies:
 ```
-yarn install
+npm install
 ```
-run server
+run dev environment
 ```
-yarn serve
-```
-go to https://localhost:8000 in the browser
-
-### Using submodules
-
-If you would like to run all projects on the hydra website (such as the documentation, garden, and api documentation), you must also clone the repos added as submodules, i.e.:
-```
-git clone --recurse-submodules https://github.com/hydra-synth/hydra.git
+npm dev
 ```
 
-To add current submodules to an existing checked-out version of the repo:
+## Connecting to server from dev/ local editor environment
+This repo only contains hydra editor frontend. You can connect to a backend server (https://github.com/hydra-synth/hydra-server) for signaling and gallery functionality. To do this, set up hydra-server from above. Then create a `.env` file in the root of the `hydra` directory. Add the url of your server as a line in the .env file as:
 ```
-git submodule update --init
+VITE_SERVER_URL=http://localhost:8000
 ```
-
-To pull latest versions of submodules:
-```
-git submodule foreach git pull origin main  
-```
-
-
-## To develop
-Edit [frontend/public/index.html](frontend/public/index.html) to load 'bundle.js' rather than 'bundle.min.js'
-
-Run development server
-```
-yarn dev
-```
-
-### Generate locally-signed certificates
-(For development) Run the following from the terminal
-```
-openssl req -x509 -out backend/certs/certificate.pem -keyout backend/certs/key.pem \
-  -newkey rsa:2048 -nodes -sha256 \
-  -subj '/CN=localhost' -extensions EXT -config <( \
-   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
-```
+(replace http://localhost:8000 with the url of your server)
 
 ## Audio Responsiveness 
 FFT functionality is available via an audio object accessed via "a". The editor uses https://github.com/meyda/meyda for audio analysis.

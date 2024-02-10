@@ -1,12 +1,13 @@
 // Module for handling connections to multiple peers.
 
 
-var io = require('socket.io-client')
-var SimplePeer = require('simple-peer')
-var extend = Object.assign
-var events = require('events').EventEmitter
-var inherits = require('inherits')
-const shortid = require('shortid')
+import io from 'socket.io-client' 
+import SimplePeer from 'simple-peer' 
+import { EventEmitter as events } from 'events'
+import inherits from 'inherits' 
+import shortid from 'shortid' 
+
+const extend = Object.assign
 
 var PatchBay = function (options) {
 // connect to websocket signalling server. To DO: error validation
@@ -249,4 +250,4 @@ PatchBay.prototype._destroy = function () {
 }
 
 
-module.exports = PatchBay
+export default PatchBay

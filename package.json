@@ -1,28 +1,29 @@
 {
   "name": "hydra-web-editor",
-  "version": "1.4.3",
+  "version": "1.5.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uglify": "terser ./public/bundle.js --source-map \"content=inline\" -o ./public/bundle.min.js",
-    "watch": "watchify ./index.js -t [ envify --SERVER_URL http://localhost:8000] -v -o ./public/bundle.js",
-    "build": "browserify ./index.js -t [ envify --SERVER_URL https://api.hydrasynth.xyz] --debug -o ./public/bundle.js && npm run uglify",
-    "source-map": "source-map-explorer ./public/bundle.min.js ./public/bundle.min.js.map",
-    "dev": "npm run serve & npm run watch",
-    "serve": "http-server ./public",
-    "publish": "git subtree push --prefix=public origin gh-pages"
+    "build": "vite build",
+    "dev": "vite . --host",
+    "publish": "git subtree push --prefix=dist origin gh-pages"
   },
   "author": "",
   "license": "AGPL",
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@lezer/highlight": "^1.1.6",
+    "@management/cm-evaluate": "^0.1.0",
     "acorn": "^8.7.0",
     "astravel": "^0.5.0",
     "astring": "^1.4.0",
     "choo": "^7.1.0",
     "choo-devtools": "^3.0.4",
+    "codemirror": "^6.0.1",
     "codemirror-minified": "^5.65.0",
-    "hydra-synth": "^1.3.18",
+    "hydra-synth": "^1.3.27",
     "i18next": "^21.6.13",
     "i18next-browser-languagedetector": "^6.1.3",
     "i18next-http-backend": "^1.4.0",
@@ -39,6 +40,7 @@
     "http-server": "^14.1.1",
     "source-map-explorer": "^2.5.2",
     "terser": "^5.14.2",
+    "vite": "^4.4.4",
     "watchify": "^4.0.0"
   }
 }

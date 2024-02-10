@@ -68,7 +68,7 @@ const types = {
 
 */
 
-module.exports = [
+export default [
     {
     name: 'noise',
     type: 'src',

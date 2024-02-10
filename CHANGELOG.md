@@ -1,4 +1,19 @@
 # Changelog
+# [1.5.1] - 2023 - 07 - 19
+## Added
+- extension loader
+
+## Changed
+- refactored some event names
+- separated stores by functionality
+
+# [1.5.0] - 2023 - 07 - 14
+- switch to ES6 syntax
+- working with vite bundler. KNOWN BUG/CHANGE: editor now requires `const n = 4` instead of `n=4` this breaks some examples
+
+## Fixed
+- global eval working again when switched to `window.eval` instead of `eval`
+
 # [1.4.3] - 2024 - 02-09
 ## Changed
 - updated text for uploading to gallery

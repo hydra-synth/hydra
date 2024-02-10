@@ -1,16 +1,23 @@
-const devtools = require('choo-devtools')
-const choo = require('choo')
-const store = require('./src/stores/store.js')
-const languageStore = require('./src/stores/language-store.js')
+import devtools from 'choo-devtools'
+import choo from 'choo'
+import store from './src/stores/store.js'
+import languageStore from './src/stores/language-store.js'
+import extensionStore from './src/stores/extension-store.js'
+import editorStore from './src/stores/editor-store.js'
+import galleryStore from './src/stores/gallery-store.js'
 
-const mainView = require('./src/views/main.js')
+import mainView from './src/views/main.js'
 
 const app = choo()
 app.use(devtools())
 app.use(store)
+app.use(editorStore)
+app.use(galleryStore)
+
 app.use(languageStore)
+app.use(extensionStore)
 app.route('/', mainView)
-app.route('/hydra-backup', mainView)
+app.route('/dev', mainView)
 app.mount('body')
 
 
