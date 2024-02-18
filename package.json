@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
     "dev": "vite . --host",
+    "preview": "vite preview",
     "publish": "git subtree push --prefix=dist origin gh-pages"
   },
   "author": "",
