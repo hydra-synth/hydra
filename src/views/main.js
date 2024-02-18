@@ -1,8 +1,8 @@
 import html from 'choo/html'
 import info from './info.js'
 import Hydra from './Hydra.js'
-import Editor from './EditorComponent.js'
-// import Editor from './EditorCm6.js'
+// import Editor from './EditorComponent.js'
+import Editor from './EditorCm6.js'
 
 
 export default function mainView(state, emit) {
