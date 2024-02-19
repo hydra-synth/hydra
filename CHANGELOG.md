@@ -1,4 +1,8 @@
 # Changelog
+# [1.5.3] - 2023 - 02 - 19
+- fixed error reporting
+- removed devtools
+  
 # [1.5.2] - 2023 - 02 - 10
 - updated upload text, removed default
 

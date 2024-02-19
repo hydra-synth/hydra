@@ -27,11 +27,13 @@ export default class Editor extends Component {
 
   hide() {
     this.innerText.style.opacity = 0
+    this.logElement.style.opacity = 0
   }
 
   show() {
     this.innerText.style.opacity = 1
     this.innerText.style.pointerEvents = 'all'
+    this.logElement.style.opacity = 1
   }
 
   update (state) {
@@ -40,6 +42,9 @@ export default class Editor extends Component {
     } else {
         this.show()
     }
+    const msg = state.errorMessage
+    const className = state.isError ? 'log-error' : ''
+    this.logElement.innerHTML = ` >> <span class=${className}> ${msg} </span> `
     return false
   }
 

@@ -1,15 +1,22 @@
-import repl from '../views/editor/repl.js'
+import repl from './repl-v2.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
 
 export default function store(state, emitter) {
   state.showInfo = false
   state.showUI = true
   state.showExtensions = false
+  state.errorMessage = ''
+  state.isError = false
 
   // if backend gallery endpoint supplied, then enable gallery functionality
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
 
+  window._reportError = (err) => {
+    state.errorMessage = err.message
+    state.isError = true
+    emitter.emit('render')
+  }
 
   emitter.on('load and eval code', (code, shouldUpdateURL = true) => {
     emitter.emit('editor: load code', code)
@@ -18,7 +25,13 @@ export default function store(state, emitter) {
   })
 
   emitter.on('repl: eval', (code = '', callback) => {
-    repl.eval(code, callback)
+    repl.eval(code, (info) => {
+      state.errorMessage = info.errorMessage
+      state.isError = info.isError
+      if(callback) callback(info.codeString, info.isError)
+      emitter.emit('render')
+    })
+
   })
 
   emitter.on('screencap', () => {
