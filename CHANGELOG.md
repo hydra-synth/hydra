@@ -1,4 +1,8 @@
 # Changelog
+# [1.6] - 2024 - 02 - 18
+- updated code editor to cm6
+- still not working: dice button
+  
 # [1.5.1] - 2023 - 07 - 19
 ## Added
 - extension loader
