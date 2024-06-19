@@ -52,8 +52,8 @@ export default class Gallery {
     let base64Code = searchParams.get('code')
     //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
     let sketch_id = searchParams.get('sketch_id')
-    let showCode = searchParams.get('showCode')
-
+    let showCode = searchParams.get('showCode') || searchParams.get('show-code') // backwards compatibility with earlier form of naming.
+    
     console.log('code is', base64Code)
     let code = ''
     //console.log("id", sketch_id, "code", base64Code)
