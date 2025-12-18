@@ -4,6 +4,7 @@ import Component from 'choo/component'
 // const HydraSynth = require('./../../../../../hydra-synth')
 import P5 from './../lib/p5-wrapper.js'
 import PatchBay from './../lib/patch-bay/pb-live.js'
+import { log } from './editor/log.js'
 
 let pb
 
@@ -25,8 +26,19 @@ export default class HydraCanvas extends Component {
       !window.MSStream;
     let precisionValue = isIOS ? 'highp' : 'mediump'
 
+    // Handle errors from Hydra (syntax, runtime, load errors)
+    const onError = (error) => {
+      let msg = error.message || String(error)
+      if (error.line != null) {
+        msg += ` (line ${error.line}${error.column != null ? ':' + error.column : ''})`
+      }
+      if (error.suggestion) {
+        msg += ` - ${error.suggestion}`
+      }
+      log(msg, 'log-error')
+    }
 
-    const hydraOptions = { detectAudio: true, canvas: element.querySelector("canvas"), precision: precisionValue }
+    const hydraOptions = { detectAudio: true, canvas: element.querySelector("canvas"), precision: precisionValue, onError }
     
     if (this.state.serverURL === null) {
       console.log('LOCAL ONLY, WILL NOT INIT webRTC and gallery')
