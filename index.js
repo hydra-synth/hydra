@@ -1,3 +1,6 @@
+import { Hydra } from '@jamiefaye/hydra-synth-vertex'
+window.Hydra = Hydra
+
 import devtools from 'choo-devtools'
 import choo from 'choo'
 import store from './src/stores/store.js'
