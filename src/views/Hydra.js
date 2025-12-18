@@ -40,7 +40,7 @@ export default class HydraCanvas extends Component {
 
     const hydraOptions = { detectAudio: true, canvas: element.querySelector("canvas"), precision: precisionValue, onError }
     
-    if (this.state.serverURL === null) {
+    if (!this.state.serverURL) {
       console.log('LOCAL ONLY, WILL NOT INIT webRTC and gallery')
       this.hydra = new Hydra(hydraOptions)
     } else {

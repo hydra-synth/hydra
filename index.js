@@ -21,6 +21,8 @@ app.use(languageStore)
 app.use(extensionStore)
 app.route('/', mainView)
 app.route('/dev', mainView)
+app.route('/hydra', mainView)
+app.route('/hydra/', mainView)
 app.mount('body')
 
 
