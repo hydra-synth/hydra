@@ -1,4 +1,5 @@
 import { log } from './log.js'
+import { formatError } from '../../utils/error-utils.js'
 
 export default {
   eval: (arg, callback) => {
@@ -7,7 +8,7 @@ export default {
     // wrap everything in an async function
   var jsString = `(async() => {
     ${arg}
-})().catch(${(err) => log(err.message, "log-error")})`
+})().catch(${(err) => log(formatError(e), "log-error")})`
     var isError = false
     try {
       window.eval(jsString)
@@ -18,7 +19,7 @@ export default {
       console.log("logging", e)
       // var err = e.constructor('Error in Evaled Script: ' + e.message);
       // console.log(err.lineNumber)
-      log(e.message, "log-error")
+      log(formatError(e), "log-error")
       //console.log('ERROR', JSON.stringify(e))
     }
   //  console.log('callback is', callback)
