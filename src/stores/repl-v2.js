@@ -1,4 +1,4 @@
-import { formatError } from '../utils/error-utils.js'  // ← add this line
+import { formatError } from '../utils/error-utils.js'
 import { parse } from 'acorn'
 
 export default {
