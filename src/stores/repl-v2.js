@@ -15,7 +15,7 @@ export default {
     try {
       // Try parsing first to catch syntax errors with accurate line numbers
       try {
-        parse(arg, { ecmaVersion: 'latest', locations: true })
+        parse(arg, { ecmaVersion: 'latest', locations: true, sourceType: 'module', allowAwaitOutsideFunction: true })
       } catch (syntaxErr) {
         console.log(syntaxErr)
         info.errorMessage = `${syntaxErr.message} (line ${syntaxErr.loc.line})`
