@@ -1,4 +1,5 @@
 import repl from './repl-v2.js'
+import { formatError } from '../utils/error-utils.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
 
 export default function store(state, emitter) {
@@ -13,7 +14,7 @@ export default function store(state, emitter) {
   state.serverURL = SERVER_URL !== undefined ? SERVER_URL : null
 
   window._reportError = (err) => {
-    state.errorMessage = err.message
+    state.errorMessage = formatError(err)
     state.isError = true
     emitter.emit('render')
   }
