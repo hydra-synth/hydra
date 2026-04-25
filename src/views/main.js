@@ -7,7 +7,7 @@ import Editor from './EditorComponent.js'
 
 export default function mainView(state, emit) {
   return html`
-  <body>
+  <div>
     <div id="hydra-ui">
       ${state.cache(Hydra, 'hydra-canvas').render(state, emit)}
       <!---<canvas id="audio-canvas">
@@ -15,6 +15,6 @@ export default function mainView(state, emit) {
     </div>
   ${info(state, emit)}
   ${state.cache(Editor, 'editor').render(state, emit)}
-  </body>
+  </div>
  `
 }

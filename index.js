@@ -18,7 +18,4 @@ app.use(languageStore)
 app.use(extensionStore)
 app.route('/', mainView)
 app.route('/dev', mainView)
-app.mount('body')
-
-
-
+app.mount('#appContainer')
