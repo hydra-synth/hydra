@@ -13221,10 +13221,6 @@ function mixin(obj) {
     obj[key] = Emitter.prototype[key];
   }
   return obj;
-}
-
-/**
- * Listen on the given `event` with `fn`.
  *
  * @param {String} event
  * @param {Function} fn
@@ -44349,8 +44345,8 @@ module.exports = [
      }
      }
      // Assign a color using the closest point position
-     color += dot(m_point,vec2(.3,.6));
-     color *= 1.0 - blending*m_dist;
+     color += dot(m_point, vec2(.3, .6)) * (1.0-blending);
+     color += blending * (1.0-m_dist);
      return vec4(color, 1.0);`
   },
   {
