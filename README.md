@@ -4,9 +4,20 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![hydra](docs/assets/hydra-3-01.png)
 
-Set of tools for livecoding networked visuals. Inspired by analog modular synthesizers, these tools are an exploration into using streaming over the web for routing video sources and outputs in realtime.
+Hydra is a live code-able video synth and coding environment that runs directly in the browser. It is free and open-source, and made for beginners and experts alike. You can simply open the [hydra web editor](https://hydra.ojack.xyz/) on a laptop or mobile device to get started.
 
-Hydra uses multiple framebuffers to allow dynamically mixing, compositing, and collaborating between connected browser-visual-streams. Coordinate and color transforms can be applied to each output via chained functions.
+Hydra is written in JavaScript and compiles to WebGL under the hood. The syntax is inspired by analog modular synthesis, in which chaining or patching a set of transformations together generates a visual result.
+
+For more information and instructions, see **[the interactive documentation](https://hydra.ojack.xyz/docs/)**.
+
+Also there are:
+
+* [a list of hydra functions](https://hydra.ojack.xyz/api)
+* [the community database of projects and tutorials](https://hydra.ojack.xyz/garden)
+* [a gallery of user-generated sketches](https://botsin.space/@hydra)
+* [the source code on github](https://github.com/hydra-synth/hydra).
+
+----
 
 Note: experimental/in development. Right now only works on Chrome or Chromium, on machines with WebGL.
 I welcome pull requests as well as comments, ideas, and bugs in the issues section =]
