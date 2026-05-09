@@ -43007,7 +43007,11 @@ class Gallery {
     let base64Code = searchParams.get('code')
     //  if(!base64Code) base64Code = searchParams.get('id') // backwards compatibility with earlier form of naming. id is now called code
     let sketch_id = searchParams.get('sketch_id')
-    let showCode = searchParams.get('showCode')
+    var showCode = searchParams.get('showCode')
+    // support old syntax with lower priority
+    if (showCode == null) {
+      showCode = searchParams.get('show-code') 
+    }
 
     let code = ''
     //console.log("id", sketch_id, "code", base64Code)
