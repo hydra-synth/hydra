@@ -2,6 +2,8 @@ import repl from './repl-v2.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
 
 export default function store(state, emitter) {
+  window.F = window.location.origin + '/files/'
+
   state.showInfo = false
   state.showUI = true
   state.showExtensions = false
@@ -18,17 +20,28 @@ export default function store(state, emitter) {
     emitter.emit('render')
   }
 
+  emitter.on('hydra loaded', () => {
+    state.hydra.hydra.s.forEach(source => {
+      const original = source.initVideo.bind(source)
+      source.initVideo = function(url = '', params) {
+        const normalized = new URL(url, window.location.href).href
+        if (source.src && source.src.tagName === 'VIDEO' && source.src.src === normalized) return
+        original(url, params)
+      }
+    })
+  })
+
   emitter.on('load and eval code', (code, shouldUpdateURL = true) => {
     emitter.emit('editor: load code', code)
     emitter.emit('repl: eval', code)
-    if(shouldUpdateURL) emitter.emit('gallery: save to URL', code)
+    if (shouldUpdateURL) emitter.emit('gallery: save to URL', code)
   })
 
   emitter.on('repl: eval', (code = '', callback) => {
     repl.eval(code, (info) => {
       state.errorMessage = info.errorMessage
       state.isError = info.isError
-      if(callback) callback(info.codeString, info.isError)
+      if (callback) callback(info.codeString, info.isError)
       emitter.emit('render')
     })
 

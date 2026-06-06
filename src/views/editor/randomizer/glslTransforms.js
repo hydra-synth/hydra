@@ -69,7 +69,7 @@ const types = {
 */
 
 export default [
-    {
+  {
     name: 'noise',
     type: 'src',
     inputs: [
@@ -78,14 +78,14 @@ export default [
         name: 'scale',
         default: 10,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0.1,
       }
     ],
     glsl:
-  `   return vec4(vec3(_noise(vec3(_st*scale, offset*time))), 1.0);`
+      `   return vec4(vec3(_noise(vec3(_st*scale, offset*time))), 1.0);`
   },
   {
     name: 'voronoi',
@@ -96,19 +96,19 @@ export default [
         name: 'scale',
         default: 5,
       },
-  {
+      {
         type: 'float',
         name: 'speed',
         default: 0.3,
       },
-  {
+      {
         type: 'float',
         name: 'blending',
         default: 0.3,
       }
     ],
     glsl:
-  `   vec3 color = vec3(.0);
+      `   vec3 color = vec3(.0);
      // Scale
      _st *= scale;
      // Tile the space
@@ -144,19 +144,19 @@ export default [
         name: 'frequency',
         default: 60,
       },
-  {
+      {
         type: 'float',
         name: 'sync',
         default: 0.1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   vec2 st = _st;
+      `   vec2 st = _st;
      float r = sin((st.x-offset/frequency+time*sync)*frequency)*0.5  + 0.5;
      float g = sin((st.x+time*sync)*frequency)*0.5 + 0.5;
      float b = sin((st.x+offset/frequency+time*sync)*frequency)*0.5  + 0.5;
@@ -171,19 +171,19 @@ export default [
         name: 'sides',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'radius',
         default: 0.3,
       },
-  {
+      {
         type: 'float',
         name: 'smoothing',
         default: 0.01,
       }
     ],
     glsl:
-  `   vec2 st = _st * 2. - 1.;
+      `   vec2 st = _st * 2. - 1.;
      // Angle and radius from the current pixel
      float a = atan(st.x,st.y)+3.1416;
      float r = (2.*3.1416)/sides;
@@ -201,7 +201,7 @@ export default [
       }
     ],
     glsl:
-  `   return vec4(_st, sin(time*speed), 1.0);`
+      `   return vec4(_st, sin(time*speed), 1.0);`
   },
   {
     name: 'src',
@@ -214,7 +214,7 @@ export default [
       }
     ],
     glsl:
-  `   //  vec2 uv = gl_FragCoord.xy/vec2(1280., 720.);
+      `   //  vec2 uv = gl_FragCoord.xy/vec2(1280., 720.);
      return texture2D(tex, fract(_st));`
   },
   {
@@ -226,24 +226,24 @@ export default [
         name: 'r',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'g',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'b',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'a',
         default: 1,
       }
     ],
     glsl:
-  `   return vec4(r, g, b, a);`
+      `   return vec4(r, g, b, a);`
   },
   {
     name: 'rotate',
@@ -254,14 +254,14 @@ export default [
         name: 'angle',
         default: 10,
       },
-  {
+      {
         type: 'float',
         name: 'speed',
         default: 0,
       }
     ],
     glsl:
-  `   vec2 xy = _st - vec2(0.5);
+      `   vec2 xy = _st - vec2(0.5);
      float ang = angle + speed *time;
      xy = mat2(cos(ang),-sin(ang), sin(ang),cos(ang))*xy;
      xy += 0.5;
@@ -276,29 +276,29 @@ export default [
         name: 'amount',
         default: 1.5,
       },
-  {
+      {
         type: 'float',
         name: 'xMult',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'yMult',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offsetX',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'offsetY',
         default: 0.5,
       }
     ],
     glsl:
-  `   vec2 xy = _st - vec2(offsetX, offsetY);
+      `   vec2 xy = _st - vec2(offsetX, offsetY);
      xy*=(1.0/vec2(amount*xMult, amount*yMult));
      xy+=vec2(offsetX, offsetY);
      return xy;
@@ -313,14 +313,14 @@ export default [
         name: 'pixelX',
         default: 20,
       },
-  {
+      {
         type: 'float',
         name: 'pixelY',
         default: 20,
       }
     ],
     glsl:
-  `   vec2 xy = vec2(pixelX, pixelY);
+      `   vec2 xy = vec2(pixelX, pixelY);
      return (floor(_st * xy) + 0.5)/xy;`
   },
   {
@@ -332,14 +332,14 @@ export default [
         name: 'bins',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'gamma',
         default: 0.6,
       }
     ],
     glsl:
-  `   vec4 c2 = pow(_c0, vec4(gamma));
+      `   vec4 c2 = pow(_c0, vec4(gamma));
      c2 *= vec4(bins);
      c2 = floor(c2);
      c2/= vec4(bins);
@@ -355,24 +355,24 @@ export default [
         name: 'r',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'g',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'b',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'a',
         default: 0,
       }
     ],
     glsl:
-  `   vec4 c2 = vec4(_c0);
+      `   vec4 c2 = vec4(_c0);
      c2.r = fract(c2.r + r);
      c2.g = fract(c2.g + g);
      c2.b = fract(c2.b + b);
@@ -388,24 +388,24 @@ export default [
         name: 'repeatX',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'repeatY',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'offsetX',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'offsetY',
         default: 0,
       }
     ],
     glsl:
-  `   vec2 st = _st * vec2(repeatX, repeatY);
+      `   vec2 st = _st * vec2(repeatX, repeatY);
      st.x += step(1., mod(st.y,2.0)) * offsetX;
      st.y += step(1., mod(st.x,2.0)) * offsetY;
      return fract(st);`
@@ -419,24 +419,24 @@ export default [
         name: 'repeatX',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'repeatY',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'offsetX',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'offsetY',
         default: 0.5,
       }
     ],
     glsl:
-  `   vec2 st = _st * vec2(repeatX, repeatY);
+      `   vec2 st = _st * vec2(repeatX, repeatY);
      st.x += step(1., mod(st.y,2.0)) + _c0.r * offsetX;
      st.y += step(1., mod(st.x,2.0)) + _c0.g * offsetY;
      return fract(st);`
@@ -450,14 +450,14 @@ export default [
         name: 'reps',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   vec2 st = _st * vec2(reps, 1.0);
+      `   vec2 st = _st * vec2(reps, 1.0);
      //  float f =  mod(_st.y,2.0);
      st.y += step(1., mod(st.x,2.0))* offset;
      return fract(st);`
@@ -471,14 +471,14 @@ export default [
         name: 'reps',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0.5,
       }
     ],
     glsl:
-  `   vec2 st = _st * vec2(reps, 1.0);
+      `   vec2 st = _st * vec2(reps, 1.0);
      //  float f =  mod(_st.y,2.0);
      st.y += step(1., mod(st.x,2.0)) + _c0.r * offset;
      return fract(st);`
@@ -492,14 +492,14 @@ export default [
         name: 'reps',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   vec2 st = _st * vec2(1.0, reps);
+      `   vec2 st = _st * vec2(1.0, reps);
      //  float f =  mod(_st.y,2.0);
      st.x += step(1., mod(st.y,2.0))* offset;
      return fract(st);`
@@ -513,14 +513,14 @@ export default [
         name: 'reps',
         default: 3,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0.5,
       }
     ],
     glsl:
-  `   vec2 st = _st * vec2(reps, 1.0);
+      `   vec2 st = _st * vec2(reps, 1.0);
      //  float f =  mod(_st.y,2.0);
      st.x += step(1., mod(st.y,2.0)) + _c0.r * offset;
      return fract(st);`
@@ -536,7 +536,7 @@ export default [
       }
     ],
     glsl:
-  `   vec2 st = _st;
+      `   vec2 st = _st;
      st -= 0.5;
      float r = length(st);
      float a = atan(st.y, st.x);
@@ -556,7 +556,7 @@ export default [
       }
     ],
     glsl:
-  `   vec2 st = _st - 0.5;
+      `   vec2 st = _st - 0.5;
      float r = length(st);
      float a = atan(st.y, st.x);
      float pi = 2.*3.1416;
@@ -573,24 +573,24 @@ export default [
         name: 'scrollX',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'scrollY',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'speedX',
         default: 0,
       },
-  {
+      {
         type: 'float',
         name: 'speedY',
         default: 0,
       }
     ],
     glsl:
-  `
+      `
      _st.x += scrollX + time*speedX;
      _st.y += scrollY + time*speedY;
      return fract(_st);`
@@ -604,14 +604,14 @@ export default [
         name: 'scrollX',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'speed',
         default: 0,
       }
     ],
     glsl:
-  `   _st.x += scrollX + time*speed;
+      `   _st.x += scrollX + time*speed;
      return fract(_st);`
   },
   {
@@ -623,14 +623,14 @@ export default [
         name: 'scrollX',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'speed',
         default: 0,
       }
     ],
     glsl:
-  `   _st.x += _c0.r*scrollX + time*speed;
+      `   _st.x += _c0.r*scrollX + time*speed;
      return fract(_st);`
   },
   {
@@ -642,14 +642,14 @@ export default [
         name: 'scrollY',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'speed',
         default: 0,
       }
     ],
     glsl:
-  `   _st.y += scrollY + time*speed;
+      `   _st.y += scrollY + time*speed;
      return fract(_st);`
   },
   {
@@ -661,14 +661,14 @@ export default [
         name: 'scrollY',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'speed',
         default: 0,
       }
     ],
     glsl:
-  `   _st.y += _c0.r*scrollY + time*speed;
+      `   _st.y += _c0.r*scrollY + time*speed;
      return fract(_st);`
   },
   {
@@ -682,7 +682,7 @@ export default [
       }
     ],
     glsl:
-  `   return (_c0+_c1)*amount + _c0*(1.0-amount);`
+      `   return (_c0+_c1)*amount + _c0*(1.0-amount);`
   },
   {
     name: 'sub',
@@ -695,16 +695,16 @@ export default [
       }
     ],
     glsl:
-  `   return (_c0-_c1)*amount + _c0*(1.0-amount);`
+      `   return (_c0-_c1)*amount + _c0*(1.0-amount);`
   },
   {
     name: 'layer',
     type: 'combine',
     inputs: [
-  
+
     ],
     glsl:
-  `   return vec4(mix(_c0.rgb, _c1.rgb, _c1.a), clamp(_c0.a + _c1.a, 0.0, 1.0));`
+      `   return vec4(mix(_c0.rgb, _c1.rgb, _c1.a), clamp(_c0.a + _c1.a, 0.0, 1.0));`
   },
   {
     name: 'blend',
@@ -717,7 +717,7 @@ export default [
       }
     ],
     glsl:
-  `   return _c0*(1.0-amount)+_c1*amount;`
+      `   return _c0*(1.0-amount)+_c1*amount;`
   },
   {
     name: 'mult',
@@ -730,16 +730,16 @@ export default [
       }
     ],
     glsl:
-  `   return _c0*(1.0-amount)+(_c0*_c1)*amount;`
+      `   return _c0*(1.0-amount)+(_c0*_c1)*amount;`
   },
   {
     name: 'diff',
     type: 'combine',
     inputs: [
-  
+
     ],
     glsl:
-  `   return vec4(abs(_c0.rgb-_c1.rgb), max(_c0.a, _c1.a));`
+      `   return vec4(abs(_c0.rgb-_c1.rgb), max(_c0.a, _c1.a));`
   },
   {
     name: 'modulate',
@@ -752,7 +752,7 @@ export default [
       }
     ],
     glsl:
-  `   //  return fract(st+(_c0.xy-0.5)*amount);
+      `   //  return fract(st+(_c0.xy-0.5)*amount);
      return _st + _c0.xy*amount;`
   },
   {
@@ -764,14 +764,14 @@ export default [
         name: 'multiple',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 1,
       }
     ],
     glsl:
-  `   vec2 xy = _st - vec2(0.5);
+      `   vec2 xy = _st - vec2(0.5);
      xy*=(1.0/vec2(offset + multiple*_c0.r, offset + multiple*_c0.g));
      xy+=vec2(0.5);
      return xy;`
@@ -785,14 +785,14 @@ export default [
         name: 'multiple',
         default: 10,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 3,
       }
     ],
     glsl:
-  `   vec2 xy = vec2(offset + _c0.x*multiple, offset + _c0.y*multiple);
+      `   vec2 xy = vec2(offset + _c0.x*multiple, offset + _c0.y*multiple);
      return (floor(_st * xy) + 0.5)/xy;`
   },
   {
@@ -804,14 +804,14 @@ export default [
         name: 'multiple',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   vec2 xy = _st - vec2(0.5);
+      `   vec2 xy = _st - vec2(0.5);
      float angle = offset + _c0.x * multiple;
      xy = mat2(cos(angle),-sin(angle), sin(angle),cos(angle))*xy;
      xy += 0.5;
@@ -828,7 +828,7 @@ export default [
       }
     ],
     glsl:
-  `   return _st + (vec2(_c0.g - _c0.r, _c0.b - _c0.g) * amount * 1.0/resolution);`
+      `   return _st + (vec2(_c0.g - _c0.r, _c0.b - _c0.g) * amount * 1.0/resolution);`
   },
   {
     name: 'invert',
@@ -841,7 +841,7 @@ export default [
       }
     ],
     glsl:
-  `   return vec4((1.0-_c0.rgb)*amount + _c0.rgb*(1.0-amount), _c0.a);`
+      `   return vec4((1.0-_c0.rgb)*amount + _c0.rgb*(1.0-amount), _c0.a);`
   },
   {
     name: 'contrast',
@@ -854,7 +854,7 @@ export default [
       }
     ],
     glsl:
-  `   vec4 c = (_c0-vec4(0.5))*vec4(amount) + vec4(0.5);
+      `   vec4 c = (_c0-vec4(0.5))*vec4(amount) + vec4(0.5);
      return vec4(c.rgb, _c0.a);`
   },
   {
@@ -868,19 +868,19 @@ export default [
       }
     ],
     glsl:
-  `   return vec4(_c0.rgb + vec3(amount), _c0.a);`
+      `   return vec4(_c0.rgb + vec3(amount), _c0.a);`
   },
   {
     name: 'mask',
     type: 'combine',
     inputs: [
-  
+
     ],
     glsl:
-    `   float a = _luminance(_c1.rgb);
+      `   float a = _luminance(_c1.rgb);
     return vec4(_c0.rgb*a, a*_c0.a);`
   },
-  
+
   {
     name: 'luma',
     type: 'color',
@@ -890,14 +890,14 @@ export default [
         name: 'threshold',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'tolerance',
         default: 0.1,
       }
     ],
     glsl:
-  `   float a = smoothstep(threshold-(tolerance+0.0000001), threshold+(tolerance+0.0000001), _luminance(_c0.rgb));
+      `   float a = smoothstep(threshold-(tolerance+0.0000001), threshold+(tolerance+0.0000001), _luminance(_c0.rgb));
      return vec4(_c0.rgb*a, a);`
   },
   {
@@ -909,14 +909,14 @@ export default [
         name: 'threshold',
         default: 0.5,
       },
-  {
+      {
         type: 'float',
         name: 'tolerance',
         default: 0.04,
       }
     ],
     glsl:
-  `   return vec4(vec3(smoothstep(threshold-(tolerance+0.0000001), threshold+(tolerance+0.0000001), _luminance(_c0.rgb))), _c0.a);`
+      `   return vec4(vec3(smoothstep(threshold-(tolerance+0.0000001), threshold+(tolerance+0.0000001), _luminance(_c0.rgb))), _c0.a);`
   },
   {
     name: 'color',
@@ -927,24 +927,24 @@ export default [
         name: 'r',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'g',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'b',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'a',
         default: 1,
       }
     ],
     glsl:
-  `   vec4 c = vec4(r, g, b, a);
+      `   vec4 c = vec4(r, g, b, a);
      vec4 pos = step(0.0, c); // detect whether negative
      // if > 0, return r * _c0
      // if < 0 return (1.0-r) * _c0
@@ -961,7 +961,7 @@ export default [
       }
     ],
     glsl:
-  `   const vec3 W = vec3(0.2125, 0.7154, 0.0721);
+      `   const vec3 W = vec3(0.2125, 0.7154, 0.0721);
      vec3 intensity = vec3(dot(_c0.rgb, W));
      return vec4(mix(intensity, _c0.rgb, amount), _c0.a);`
   },
@@ -976,7 +976,7 @@ export default [
       }
     ],
     glsl:
-  `   vec3 c = _rgbToHsv(_c0.rgb);
+      `   vec3 c = _rgbToHsv(_c0.rgb);
      c.r += hue;
      //  c.r = fract(c.r);
      return vec4(_hsvToRgb(c), _c0.a);`
@@ -992,7 +992,7 @@ export default [
       }
     ],
     glsl:
-  `   vec3 c = _rgbToHsv(_c0.rgb);
+      `   vec3 c = _rgbToHsv(_c0.rgb);
      c += vec3(amount);
      c = _hsvToRgb(c);
      c = fract(c);
@@ -1002,10 +1002,10 @@ export default [
     name: 'prev',
     type: 'src',
     inputs: [
-  
+
     ],
     glsl:
-  `   return texture2D(prevBuffer, fract(_st));`
+      `   return texture2D(prevBuffer, fract(_st));`
   },
   {
     name: 'sum',
@@ -1018,7 +1018,7 @@ export default [
       }
     ],
     glsl:
-  `   vec4 v = _c0 * s;
+      `   vec4 v = _c0 * s;
      return v.r + v.g + v.b + v.a;
      }
      float sum(vec2 _st, vec4 s) { // vec4 is not a typo, because argument type is not overloaded
@@ -1034,14 +1034,14 @@ export default [
         name: 'scale',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   return vec4(_c0.r * scale + offset);`
+      `   return vec4(_c0.r * scale + offset);`
   },
   {
     name: 'g',
@@ -1052,14 +1052,14 @@ export default [
         name: 'scale',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   return vec4(_c0.g * scale + offset);`
+      `   return vec4(_c0.g * scale + offset);`
   },
   {
     name: 'b',
@@ -1070,14 +1070,14 @@ export default [
         name: 'scale',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   return vec4(_c0.b * scale + offset);`
+      `   return vec4(_c0.b * scale + offset);`
   },
   {
     name: 'a',
@@ -1088,13 +1088,13 @@ export default [
         name: 'scale',
         default: 1,
       },
-  {
+      {
         type: 'float',
         name: 'offset',
         default: 0,
       }
     ],
     glsl:
-  `   return vec4(_c0.a * scale + offset);`
+      `   return vec4(_c0.a * scale + offset);`
   }
-  ]
+]

@@ -37,6 +37,24 @@ export default function galleryStore(state, emitter) {
         sketches.clear()
       })
 
+      function loadFileFromRoute() {
+        const filename = state.params && state.params.filename
+        if (!filename) return
+        fetch(`/files/${filename}`)
+          .then(res => {
+            if (!res.ok) throw new Error(`Could not load file: ${filename}`)
+            return res.text()
+          })
+          .then(code => {
+            emitter.emit('load and eval code', code, false)
+            emitter.emit('render')
+          })
+          .catch(err => console.warn(err))
+      }
+
+      emitter.on('DOMContentLoaded', loadFileFromRoute)
+      emitter.on('navigate', loadFileFromRoute)
+
       emitter.on('gallery:shareSketch', function () {
         let editor = state.editor.editor
         const editorText = editor.getValue()
