@@ -35,7 +35,7 @@ ${t('info.uses-list', { returnObjects: true }).map((text) => html`<li>${text}</l
      pixeljam: link("http://pixeljam.glitch.me/"),
      garden: link("https://hydra.ojack.xyz/garden"),
      'hydra-book': link("https://hydra-book.glitch.me/"),
-     "tutorials": link("https://github.com/ojack/hydra/blob/master/examples/README.md")
+     "tutorials": link("https://hydra.ojack.xyz/docs/")
    }))}</p>
   <p>${raw(t('info.more-info-forums', {
     discord: link("https://discord.gg/ZQjfHkNHXC"),
@@ -105,7 +105,7 @@ const header = html`<div></div>`
 //             <!-- <a href="https://github.com/ojack/hydra/blob/master/docs/funcs.md" target="_blank">documentation</a>, -->
 //             <a href="https://twitter.com/hydra_patterns" target="_blank">a gallery of user-generated sketches</a>,
 //             <a href="http://pixeljam.glitch.me/" target="_blank">PIXELJAM collaborative editor</a>,
-//             <a href="https://hydra-book.naotohieda.com/#/" target="_blank">Hydra Book</a>, and more <a href="https://github.com/ojack/hydra/blob/master/examples/README.md">tutorials and examples.</a></p>
+//             <a href="https://hydra-book.naotohieda.com/#/" target="_blank">Hydra Book</a>, and more <a href="https://hydra.ojack.xyz/docs/">tutorials and examples.</a></p>
 //             <p>There is also an active <a href="https://discord.gg/ZQjfHkNHXC" target="_blank">Discord server</a> and <a href="https://www.facebook.com/groups/1084288351771117/" target="_blank">facebook group</a> for hydra users+contributors.</p>
   
 //           <p> If you enjoy using Hydra, please consider  <a href="https://opencollective.com/hydra-synth" target="_blank">supporting continued development ${'<3 <3'} </a></p>
