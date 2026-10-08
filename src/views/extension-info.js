@@ -10,11 +10,12 @@ const icon = (id, className, title, event) => html`
 const detailedInfo = (ext, index, emit, t) => {
   return html`<div 
      class="extension-list-item selected" style="display:flex;justify-content:space-between" >
-     <img src="${ext.thumbnail}" width="60px" height="60px"/>
+     ${ext.thumbnail ? html`<img src="${ext.thumbnail}" width="60px" height="60px"/>` : html`<div class="extension-thumbnail-placeholder"></div>`}
 
      <div style="flex:1;padding-left:8px">
      <div title="${t('extensions.show-example', {'extension-name': ext.name})}" onclick=${() => { emit('extensions: load example', index, 0)}} style="cursor:pointer"><span style="font-weight:900">${ext.name} - </span> <span style="text-overflow:ellipses;overflow:hidden"> ${ext.author} </span></div>
      <div> <span style="">${ext.description}</span></div>
+     ${ext.autoload ? html`<div class="extension-autoload" title="${t('extensions.autoload-info')}">${t('extensions.autoload')}</div>` : ''}
      </div>
      <div class="extension-buttons">
      <div> 
@@ -30,11 +31,12 @@ const listInfo = (ext, index, emit) => html`<div onclick="${() => emit('extensio
 
 export default (state, emit) => {
   const { categories, selectedCategoryIndex } = state.extensions
-  const extensions = categories[selectedCategoryIndex].entries
+  const category = categories[selectedCategoryIndex]
+  const extensions = category.entries
   const { t } = state.translation
 //  ${i=== selectedExtension? detailedInfo(ext, i, emit) : listInfo(ext, i, emit)}
   const content = html`<div class="modal-content extensions">
-${raw(t('extensions.about-extensions'))}
+${raw(t(category.about || 'extensions.about-extensions'))}
 <div class="extension-list">
 ${extensions.map((ext, i) => detailedInfo(ext, i, emit, t))}
 </div>

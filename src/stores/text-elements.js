@@ -40,6 +40,9 @@ export default {
             },
             extensions: {
                 'about-extensions': 'Show community extensions for hydra-synth.',
+                'about-bundled': 'These extensions come with the editor. Use their functions in a sketch and they load automatically, no loadScript needed. Press + to add an explicit loadScript line so the sketch also works in other hydra environments.',
+                'autoload': 'loads automatically',
+                'autoload-info': 'This extension loads the first time a sketch uses one of its functions.',
                 'show-example': 'Load and run {{extension-name}} example.',
                 'show-library': 'Add code for loading {{extension-name}} to the top of the current sketch.',
                 'show-docs': 'Documentation of usage for {{extension-name}}'

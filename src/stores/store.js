@@ -1,4 +1,5 @@
 import repl from './repl-v2.js'
+import { autoload } from '../extensions/autoload.js'
 // console.log('ENVIRONMENT IS', process.env.NODE_ENV)
 
 export default function store(state, emitter) {
@@ -7,6 +8,7 @@ export default function store(state, emitter) {
   state.showExtensions = false
   state.errorMessage = ''
   state.isError = false
+  state.logMessage = ''
 
   // if backend gallery endpoint supplied, then enable gallery functionality
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
@@ -24,14 +26,18 @@ export default function store(state, emitter) {
     if(shouldUpdateURL) emitter.emit('gallery: save to URL', code)
   })
 
+  // evaluations wait for any bundled extensions the code uses, and stay in order
+  let evalQueue = Promise.resolve()
   emitter.on('repl: eval', (code = '', callback) => {
-    repl.eval(code, (info) => {
-      state.errorMessage = info.errorMessage
-      state.isError = info.isError
-      if(callback) callback(info.codeString, info.isError)
-      emitter.emit('render')
-    })
-
+    evalQueue = evalQueue.then(() => autoload(code)).then((loaded) => {
+      repl.eval(code, (info) => {
+        state.errorMessage = info.errorMessage
+        state.isError = info.isError
+        state.logMessage = loaded.length > 0 ? `loaded ${loaded.map((ext) => ext.name).join(', ')}` : ''
+        if(callback) callback(info.codeString, info.isError)
+        emitter.emit('render')
+      })
+    }).catch((err) => console.error(err))
   })
 
   emitter.on('screencap', () => {

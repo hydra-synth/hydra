@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
     "dev": "vite . --host",
-    "publish": "git subtree push --prefix=dist origin gh-pages"
+    "publish": "git subtree push --prefix=dist origin gh-pages",
+    "vendor-extensions": "./scripts/vendor-extensions.sh"
   },
   "author": "",
   "license": "AGPL",

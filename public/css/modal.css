@@ -223,6 +223,19 @@ transition: width 1s;
   overflow: hidden;
 }
 
+.extension-thumbnail-placeholder {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgb(250, 9, 162), #111);
+}
+
+.extension-autoload {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
 .extension-list-item:hover {
   background: #111;
   /* color: black; */

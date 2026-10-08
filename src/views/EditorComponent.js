@@ -42,7 +42,7 @@ export default class Editor extends Component {
     } else {
         this.show()
     }
-    const msg = state.errorMessage
+    const msg = state.isError ? state.errorMessage : state.logMessage
     const className = state.isError ? 'log-error' : ''
     this.logElement.innerHTML = ` >> <span class=${className}> ${msg} </span> `
     return false

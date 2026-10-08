@@ -1,7 +1,22 @@
 // import extensions from './÷extensions/hydra-extensions.json'
 
 // const CATEGORIES = ['extensions', 'external libraries', 'examples']
+import { collections, extensions } from '../extensions/registry.js'
+
 const BASE_URL = "https://raw.githubusercontent.com/hydra-synth/hydra-extensions/main/"
+
+// extensions that ship with the editor, one category per collection
+const bundledCategories = collections.map((collection) => ({
+    name: collection.name,
+    slug: collection.id,
+    about: 'extensions.about-bundled',
+    entries: extensions.filter((ext) => ext.collection === collection.id).map((ext) => ({
+        ...ext,
+        thumbnail: ext.thumbnail ? BASE_URL + 'thumbnails/' + ext.thumbnail : null,
+        load: `await loadScript("${ext.url}")`
+    })),
+    hasLoaded: true
+}))
 
 export default async function store(state, emitter) {
     // old / deprecated
@@ -36,7 +51,8 @@ export default async function store(state, emitter) {
                 slug: 'examples',
                 entries: [],
                 hasLoaded: false
-            }
+            },
+            ...bundledCategories
         ]
     }
 
@@ -93,6 +109,11 @@ export default async function store(state, emitter) {
     emitter.on('extensions: load example', (extensionIndex, exampleIndex) => {
         const {categories, selectedCategoryIndex } = state.extensions
         const path = categories[selectedCategoryIndex].entries[extensionIndex].examples[exampleIndex]
+        // bundled extensions keep their examples as code
+        if (!/^https?:\/\//.test(path)) {
+            emitter.emit('load and eval code', path)
+            return
+        }
         const newURL= new URL(path);
         console.log(newURL, state.gallery)
 

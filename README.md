@@ -230,6 +230,25 @@ await loadScript("https://unpkg.com/tone")
 synth = new Tone.Synth().toDestination();
 synth.triggerAttackRelease("C4", "8n");
 ```
+## Built-in extensions
+The editor ships with two community extension collections:
+
+* [hyper-hydra](https://github.com/geikha/hyper-hydra) by geikha: blend modes, colorspaces, arithmetics, swizzling, convolutions, text, gradient maps, output settings and more.
+* [extra-shaders-for-hydra](https://gitlab.com/metagrowing/extra-shaders-for-hydra) by Thomas Jourdan: op-art and soft patterns, noise generators, color filters, dithering, pixel sorting and other screen space effects.
+
+You don't need `loadScript` for these. Use a function and the extension that provides it loads the first time you run the code:
+```javascript
+blobs(0.2, 0.4, 0.3)        // extra-shaders: soft patterns
+  .screen(osc(30, 0.1, 2))  // hyper-hydra: blend modes
+  .pxsort(0.1, 1)           // extra-shaders: screen space
+  .out()
+```
+Browse them, with examples and documentation, in the extensions window (puzzle icon), under the `hyper-hydra` and `extra shaders` tabs. Press `+` there to add an explicit `await loadScript(...)` line, so the sketch also runs in other hydra environments. When a sketch loads one of these extensions from its usual URL (`cdn.jsdelivr.net/gh/geikha/hyper-hydra@latest/...` or `metagrowing.org/extra-shaders-for-hydra/...`), the editor serves the bundled copy instead.
+
+`hydra-abbreviations` is the one exception: its one- and two-letter names would clash with ordinary variables, so load it explicitly.
+
+The bundled files live in `public/extensions/`, unmodified and pinned to an upstream commit. To update them, change the commit in `scripts/vendor-extensions.sh` and run `npm run vendor-extensions`. The function names that trigger loading are listed in `src/extensions/registry.js`.
+
 ## Running locally
 To run locally, you must have nodejs installed. Install node and npm from: https://nodejs.org/en/. 
 
