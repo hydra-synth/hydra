@@ -246,6 +246,12 @@ run dev environment
 npm dev
 ```
 
+## Deploy on Wasmer
+
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=hydra-synth%2Fhydra)
+
+Wasmer detects the Vite project, runs `npm install` and `npm run build`, and serves the generated `dist` folder as static files; gallery and stream-sharing features additionally need a [hydra-server](https://github.com/hydra-synth/hydra-server) URL set as `VITE_SERVER_URL` at build time. The button opens Wasmer's import page for this public repository, where you review the configuration and click Deploy; it does not create a copy of the repository in your GitHub account. To customize the editor and redeploy on every push, fork this repository and import your own repository on Wasmer.
+
 ## Connecting to server from dev/ local editor environment
 This repo only contains hydra editor frontend. You can connect to a backend server (https://github.com/hydra-synth/hydra-server) for signaling and gallery functionality. To do this, set up hydra-server from above. Then create a `.env` file in the root of the `hydra` directory. Add the url of your server as a line in the .env file as:
 ```
